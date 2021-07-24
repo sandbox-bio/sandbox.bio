@@ -13,7 +13,6 @@ import "xterm/css/xterm.css";
 // Terminal state
 let term;
 let termEcho;
-let termSearch;
 
 // UI
 let divTerminal;
@@ -32,7 +31,6 @@ onMount(async () => {
 
 	// Attach addons
 	term.loadAddon(termEcho = new LocalEchoController());
-	term.loadAddon(termSearch = new SearchAddon());
 	term.loadAddon(new WebLinksAddon());
 
 	// Register handlers
@@ -101,5 +99,4 @@ function input()
 }
 </script>
 
-df
 <div bind:this={divTerminal}></div>
