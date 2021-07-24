@@ -2,7 +2,6 @@
 import { onMount } from "svelte";
 import { Terminal } from "xterm";
 import { WebLinksAddon } from "xterm-addon-web-links";
-import { SearchAddon } from "xterm-addon-search";
 import LocalEchoController from "local-echo";
 import "xterm/css/xterm.css";
 
@@ -17,8 +16,9 @@ let termEcho;
 // UI
 let divTerminal;
 
-// Constants
-const ANSI_CLEAR = "\x1bc";
+// ANSI Constants: <https://en.wikipedia.org/wiki/ANSI_escape_code#CSI_(Control_Sequence_Introducer)_sequences>
+const ANSI_ESC = "\x1b";
+const ANSI_CLEAR = ANSI_ESC + "c";
 
 
 // =============================================================================
@@ -26,7 +26,10 @@ const ANSI_CLEAR = "\x1bc";
 // =============================================================================
 onMount(async () => {
 	// Initialize terminal
-	term = new Terminal({ convertEol: true });
+	term = new Terminal({
+		convertEol: true,
+		cursorBlink: true
+	});
 	term.open(divTerminal);
 
 	// Attach addons
@@ -51,9 +54,19 @@ onMount(async () => {
 // Keyboard shortcuts
 function handleShortcuts(key)
 {
-	// Ctrl + L = Clear
+	console.log(key);
+
+	// Ctrl + L = Clear terminal
 	if(key.domEvent.ctrlKey && key.domEvent.key == "l")
 		term.write(`${ANSI_CLEAR}$ `);
+
+	// Ctrl + A = Beginning of line
+	if(key.domEvent.ctrlKey && key.domEvent.key == "a")
+		termEcho.setCursor(0);
+
+	// Ctrl + E = End of line
+	if(key.domEvent.ctrlKey && key.domEvent.key == "e")
+		termEcho.setCursor(Infinity);
 }
 
 // Auto-completes common commands
