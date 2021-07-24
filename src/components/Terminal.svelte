@@ -6,18 +6,28 @@ import { SearchAddon } from "xterm-addon-search";
 import LocalEchoController from "local-echo";
 import "xterm/css/xterm.css";
 
+// =============================================================================
 // State
+// =============================================================================
+
+// Terminal state
 let term;
 let termEcho;
 let termSearch;
+
+// UI
 let divTerminal;
 
-// -----------------------------------------------------------------------------
+// Constants
+const ANSI_CLEAR = "\x1bc";
+
+
+// =============================================================================
 // On load
-// -----------------------------------------------------------------------------
+// =============================================================================
 onMount(async () => {
 	// Initialize terminal
-	term = new Terminal()
+	term = new Terminal({ convertEol: true });
 	term.open(divTerminal);
 
 	// Attach addons
@@ -25,23 +35,31 @@ onMount(async () => {
 	term.loadAddon(termSearch = new SearchAddon());
 	term.loadAddon(new WebLinksAddon());
 
-	// Register autocomplete handlers
-	termEcho.addAutocompleteHandler(autocompleteCommands);
-
-	// Welcome message
-	term.writeln("# sandbox.bio\n");
+	// Register handlers
+	term.onKey(handleShortcuts);
+	termEcho.addAutocompleteHandler(handleAutocomplete);
 
 	// Ready for user input
+	term.writeln("# sandbox.bio\n");
 	term.focus();
 	input();
 })
 
-// -----------------------------------------------------------------------------
-// 
-// -----------------------------------------------------------------------------
+
+// =============================================================================
+// Handlers
+// =============================================================================
+
+// Keyboard shortcuts
+function handleShortcuts(key)
+{
+	// Ctrl + L = Clear
+	if(key.domEvent.ctrlKey && key.domEvent.key == "l")
+		term.write(`${ANSI_CLEAR}$ `);
+}
 
 // Auto-completes common commands
-function autocompleteCommands(index, tokens)
+function handleAutocomplete(index, tokens)
 {
 	const command = tokens[0];
 	console.log(index, tokens);
@@ -49,35 +67,36 @@ function autocompleteCommands(index, tokens)
 	// Root autocomplete
 	if(index == 0)
 		return ["samtools", "bedtools2"];
+
 	// Samtools autocomplete. Need `&& tokens[index]`, otherwise results in "samtools samtools"
-	if(index == 1 && command == "samtools" && tokens[index]) {
+	if(index == 1 && command == "samtools" && tokens[index])
 		return ["view", "index", "sort"];
-	}
+
 	return [];
 }
 
 
-// -----------------------------------------------------------------------------
-// 
-// -----------------------------------------------------------------------------
+// =============================================================================
+// Manage user input
+// =============================================================================
 
 async function exec(cmd)
 {
-	console.log(cmd);
+	console.log("Command:", cmd);
 
-	// 
-	if(cmd == "clear")
-		term.write("\x1bc");
-
-	console.log(termSearch.findNext('sandbo'));
+	// Basic commands
+	if(cmd == "clear") {
+		term.write(ANSI_CLEAR);
+		return;
+	}
 }
 
 // Get user input
-async function input()
+function input()
 {
 	termEcho.read("$ ")
 		.then(exec)
-		.catch(error => console.error(`Error reading: ${error}`))
+		.catch(console.error)
 		.finally(input);
 }
 </script>
