@@ -22,7 +22,9 @@
     "local-echo": "github:wavesoft/local-echo",
     "sirv-cli": "^1.0.0",
     "xterm": "^4.13.0",
+    "xterm-addon-fit": "^0.5.0",
     "xterm-addon-search": "^0.8.0",
+    "xterm-addon-serialize": "^0.5.0",
     "xterm-addon-web-links": "^0.4.0"
   }
 }
