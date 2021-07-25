@@ -111,11 +111,26 @@ async function exec(cmd)
 {
 	console.log("Command:", cmd);
 
+	let out = "";
+
 	// Basic commands
-	if(cmd == "clear") {
-		term.write(ANSI_CLEAR);
-		return;
-	}
+	if(cmd == "clear")
+		out = ANSI_CLEAR;
+	// ls
+	// FIXME: what if give options to ls?
+	else if(cmd == "ls" || cmd.startsWith("ls "))
+	{
+		const folder = cmd.trim().split(" ")[1];
+		const output = await CLI.ls(folder || ".");
+		console.log(output)
+		if(output.mode)
+			out = `${output.size}\t${output.mtime}\t${folder}`;
+		else
+			out = output.join("\n") + "\n";
+	} else
+		out = await CLI.exec(cmd.trim());
+
+	term.write(out + "\n");
 }
 
 // Get user input
