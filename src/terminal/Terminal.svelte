@@ -9,6 +9,8 @@ import LocalEchoController from "local-echo";
 import Aioli from "@biowasm/aioli";
 import "xterm/css/xterm.css";
 
+import { ANSI_CLEAR } from "./core";
+
 
 // =============================================================================
 // State
@@ -23,10 +25,6 @@ let termFit;
 
 // UI
 let divTerminal;
-
-// ANSI Constants: <https://en.wikipedia.org/wiki/ANSI_escape_code#CSI_(Control_Sequence_Introducer)_sequences>
-const ANSI_ESC = "\x1b";
-const ANSI_CLEAR = ANSI_ESC + "c";
 
 // CLI
 let ready = false;  // If true, ready for user input
@@ -107,7 +105,7 @@ async function exec(cmd)
 		}
 	}
 
-	term.writeln(out + "\n");
+	term.writeln(out);
 }
 
 // Get user input
