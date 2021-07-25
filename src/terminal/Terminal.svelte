@@ -1,4 +1,5 @@
 <script>
+// Imports
 import { onMount } from "svelte";
 import { Terminal } from "xterm";
 import { WebLinksAddon } from "xterm-addon-web-links";
@@ -7,8 +8,6 @@ import { FitAddon } from "xterm-addon-fit";
 import LocalEchoController from "local-echo";
 import Aioli from "@biowasm/aioli";
 import "xterm/css/xterm.css";
-
-import { handleAutocomplete, handleShortcuts } from "./handlers";
 
 
 // =============================================================================
@@ -71,6 +70,9 @@ onMount(async () => {
 
 async function exec(cmd)
 {
+	if(!cmd || !cmd.trim())
+		return;
+
 	console.log("Command:", cmd);
 
 	let out = "";
@@ -115,6 +117,44 @@ function input()
 		.then(exec)
 		.catch(console.error)
 		.finally(input);
+}
+
+
+// =============================================================================
+// xterm.js handlers
+// =============================================================================
+
+// Keyboard shortcuts
+function handleShortcuts(key)
+{
+	// Ctrl + L = Clear terminal
+	if(key.domEvent.ctrlKey && key.domEvent.key == "l")
+		term.write(`${ANSI_CLEAR}$ `);
+
+	// Ctrl + A = Beginning of line
+	if(key.domEvent.ctrlKey && key.domEvent.key == "a")
+		termEcho.setCursor(0);
+
+	// Ctrl + E = End of line
+	if(key.domEvent.ctrlKey && key.domEvent.key == "e")
+		termEcho.setCursor(Infinity);
+}
+
+// Auto-completes common commands
+function handleAutocomplete(index, tokens)
+{
+	const command = tokens[0];
+	console.log(index, tokens);
+
+	// Root autocomplete
+	if(index == 0)
+		return ["samtools", "bedtools2"];
+
+	// Samtools autocomplete. Need `&& tokens[index]`, otherwise results in "samtools samtools"
+	if(index == 1 && command == "samtools" && tokens[index])
+		return ["view", "index", "sort"];
+
+	return [];
 }
 </script>
 
