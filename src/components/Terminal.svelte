@@ -2,8 +2,12 @@
 import { onMount } from "svelte";
 import { Terminal } from "xterm";
 import { WebLinksAddon } from "xterm-addon-web-links";
+import { SerializeAddon } from "xterm-addon-serialize";
+import { FitAddon } from "xterm-addon-fit";
 import LocalEchoController from "local-echo";
+import Aioli from "@biowasm/aioli";
 import "xterm/css/xterm.css";
+
 
 // =============================================================================
 // State
@@ -12,6 +16,9 @@ import "xterm/css/xterm.css";
 // Terminal state
 let term;
 let termEcho;
+let termLinks;
+let termSerialize;
+let termFit;
 
 // UI
 let divTerminal;
@@ -19,6 +26,10 @@ let divTerminal;
 // ANSI Constants: <https://en.wikipedia.org/wiki/ANSI_escape_code#CSI_(Control_Sequence_Introducer)_sequences>
 const ANSI_ESC = "\x1b";
 const ANSI_CLEAR = ANSI_ESC + "c";
+
+// CLI
+let ready = false;  // If true, ready for user input
+let CLI;            // Aioli object
 
 
 // =============================================================================
@@ -34,16 +45,21 @@ onMount(async () => {
 
 	// Attach addons
 	term.loadAddon(termEcho = new LocalEchoController());
-	term.loadAddon(new WebLinksAddon());
+	term.loadAddon(termSerialize = new SerializeAddon());  // Can be used to save state
+	term.loadAddon(termLinks = new WebLinksAddon());       // Supports links in the terminal
+	term.loadAddon(termFit = new FitAddon());              // Makes terminal fit HTML element
 
 	// Register handlers
 	term.onKey(handleShortcuts);
 	termEcho.addAutocompleteHandler(handleAutocomplete);
 
-	// Ready for user input
-	term.writeln("# sandbox.bio\n");
-	term.focus();
+	// Initialize Aioli
+	CLI = await new Aioli(["samtools/1.10", "seqtk/1.2"], { env: "stg", debug: true });
+	// Make Terminal ready for user input
+	termFit.fit();
 	input();
+	term.focus();
+	ready = true;
 })
 
 
@@ -112,4 +128,4 @@ function input()
 }
 </script>
 
-<div bind:this={divTerminal}></div>
+<div bind:this={divTerminal} style="opacity: { ready ? 1 : 0.6 }"></div>
