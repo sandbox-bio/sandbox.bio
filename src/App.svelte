@@ -1,5 +1,5 @@
 <script>
-import Terminal from "./components/Terminal.svelte";
+import Terminal from "./terminal/Terminal.svelte";
 </script>
 
 <Terminal />

@@ -8,6 +8,8 @@ import LocalEchoController from "local-echo";
 import Aioli from "@biowasm/aioli";
 import "xterm/css/xterm.css";
 
+import { handleAutocomplete, handleShortcuts } from "./handlers";
+
 
 // =============================================================================
 // State
@@ -64,46 +66,6 @@ onMount(async () => {
 
 
 // =============================================================================
-// Handlers
-// =============================================================================
-
-// Keyboard shortcuts
-function handleShortcuts(key)
-{
-	console.log(key);
-
-	// Ctrl + L = Clear terminal
-	if(key.domEvent.ctrlKey && key.domEvent.key == "l")
-		term.write(`${ANSI_CLEAR}$ `);
-
-	// Ctrl + A = Beginning of line
-	if(key.domEvent.ctrlKey && key.domEvent.key == "a")
-		termEcho.setCursor(0);
-
-	// Ctrl + E = End of line
-	if(key.domEvent.ctrlKey && key.domEvent.key == "e")
-		termEcho.setCursor(Infinity);
-}
-
-// Auto-completes common commands
-function handleAutocomplete(index, tokens)
-{
-	const command = tokens[0];
-	console.log(index, tokens);
-
-	// Root autocomplete
-	if(index == 0)
-		return ["samtools", "bedtools2"];
-
-	// Samtools autocomplete. Need `&& tokens[index]`, otherwise results in "samtools samtools"
-	if(index == 1 && command == "samtools" && tokens[index])
-		return ["view", "index", "sort"];
-
-	return [];
-}
-
-
-// =============================================================================
 // Manage user input
 // =============================================================================
 
@@ -112,6 +74,10 @@ async function exec(cmd)
 	console.log("Command:", cmd);
 
 	let out = "";
+
+	// -------------------------------------------------------------------------
+	// Support basic coreutils commands
+	// -------------------------------------------------------------------------
 
 	// Basic commands
 	if(cmd == "clear")
@@ -125,12 +91,21 @@ async function exec(cmd)
 		console.log(output)
 		if(output.mode)
 			out = `${output.size}\t${output.mtime}\t${folder}`;
+		else if(output)
+			out = output.join("\n");
 		else
-			out = output.join("\n") + "\n";
-	} else
-		out = await CLI.exec(cmd.trim());
+			out = `${folder}: No such file or directory`
 
-	term.write(out + "\n");
+	// Otherwise, try running the command with Aioli
+	} else {
+		try {
+			out = await CLI.exec(cmd.trim());
+		} catch (error) {
+			out = error;
+		}
+	}
+
+	term.writeln(out + "\n");
 }
 
 // Get user input
