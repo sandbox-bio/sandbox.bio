@@ -68,8 +68,7 @@ function input()
 	term.focus();
 	addons.echo.read("$ ")
 		.then(exec)
-		.catch(console.error)
-		.finally(input);
+		.catch(console.error);
 }
 
 // Execute command
