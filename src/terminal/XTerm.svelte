@@ -76,7 +76,7 @@ function input()
 function exec(cmd)
 {
 	// Input validation
-	if(!(typeof cmd === "string"))
+	if(!cmd || !(typeof cmd === "string"))
 		return;
 	cmd = cmd.trim();
 
@@ -86,9 +86,14 @@ function exec(cmd)
 		return;
 	}
 
+	// Send message to parent component asking to execute the command.
+	// The callback will output the result and ask for the next input.
 	dispatch("exec", {
 		cmd: cmd,
-		callback: input
+		callback: out => {
+			term.writeln(out);
+			input();
+		}
 	});
 }
 

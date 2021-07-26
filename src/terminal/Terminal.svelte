@@ -9,12 +9,8 @@ import XTerm from "./XTerm.svelte";
 // State
 // =============================================================================
 
-// Xterm.js
-let ready = false;
-let term;
-
-// Aioli
-let CLI;
+let CLI;            // Aioli object
+let ready = false;  // Ready for user input?
 
 
 // =============================================================================
@@ -26,7 +22,7 @@ onMount(async () => {
 
 	// Now we can allow user input
 	ready = true;
-})
+});
 
 
 // =============================================================================
@@ -64,14 +60,11 @@ async function exec(cmd, callback)
 		}
 	}
 
-	term.writeln(out);
-
-	callback();
+	callback(out);
 }
 </script>
 
 <XTerm
 	ready={ready}
-	bind:term={term}
 	on:exec={event => exec(event.detail.cmd, event.detail.callback)}
 />
