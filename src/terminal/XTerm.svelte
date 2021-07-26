@@ -17,7 +17,7 @@ const dispatch = createEventDispatcher();  // Dispatch for sending "exec" messag
 // =============================================================================
 
 export let ready = false;  // Whether CLI is ready for user input
-export let term;           // XTerm.js object
+let term;                  // XTerm.js object
 
 let addons;                // XTerm.js add-ons
 let divTerminal;           // HTML element where terminal will be drawn
@@ -90,7 +90,7 @@ function exec(cmd)
 	dispatch("exec", {
 		cmd: cmd,
 		callback: out => {
-			term.writeln(out);
+			term.writeln("" + out);  // convert to string if it's not
 			input();
 		}
 	});
