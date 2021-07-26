@@ -53,7 +53,7 @@ async function exec(cmd, callback)
 		else if(output)
 			out = output.join("\n");
 		else
-			out = `${folder}: No such file or directory`
+			out = `${folder}: No such file or directory`;
 
 	// Otherwise, try running the command with Aioli
 	} else {

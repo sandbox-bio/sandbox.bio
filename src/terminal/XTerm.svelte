@@ -8,9 +8,8 @@ import LocalEchoController from "local-echo";
 import "xterm/css/xterm.css";
 
 // Constants
-const ANSI_CLEAR = "\x1bc";
-// Dispatch for sending "exec" messages to parent component
-const dispatch = createEventDispatcher();
+const ANSI_CLEAR = "\x1bc";                // Clear terminal
+const dispatch = createEventDispatcher();  // Dispatch for sending "exec" messages to parent component
 
 
 // =============================================================================
@@ -23,8 +22,7 @@ export let term;           // XTerm.js object
 let addons;                // XTerm.js add-ons
 let divTerminal;           // HTML element where terminal will be drawn
 
-// Ask for user input once ready
-$: if(ready) input();
+$: if(ready) input();      // Ask for user input once ready
 
 
 // =============================================================================
@@ -33,18 +31,18 @@ $: if(ready) input();
 
 onMount(() => {
 	// Xterm.js
-term = new Terminal({
-	convertEol: true,
-	cursorBlink: true
-});
+	term = new Terminal({
+		convertEol: true,
+		cursorBlink: true
+	});
 
-// Xterm.js add-ons
-addons = {
-	echo: new LocalEchoController(),  // Echo controller
-	serialize: new SerializeAddon(),  // Can be used to save state
-	links: new WebLinksAddon(),       // Supports links in the terminal
-	fit: new FitAddon()               // Makes terminal fit HTML element
-};
+	// Xterm.js add-ons
+	addons = {
+		echo: new LocalEchoController(),  // Echo controller
+		serialize: new SerializeAddon(),  // Can be used to save state
+		links: new WebLinksAddon(),       // Supports links in the terminal
+		fit: new FitAddon()               // Makes terminal fit HTML element
+	};
 
 	// Attach addons
 	for(let addonName in addons)
