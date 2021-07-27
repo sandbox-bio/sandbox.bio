@@ -54,10 +54,17 @@ onMount(() => {
 	for(let addonName in addons)
 		term.loadAddon(addons[addonName]);
 
+	// Disable local-echo's handling of tabs for autocompletion. See handleAutocomplete() for more info.
+	addons.echo.handleData_ = addons.echo.handleData;
+	addons.echo.handleData = (data) => {
+		if(data == "\t")
+			return;
+		return addons.echo.handleData_(data);
+	}
+
 	// Register handlers
 	term.onKey(handleShortcuts);
-	term.onData(handleData);
-	addons.echo.addAutocompleteHandler(handleAutocomplete);
+	term.onData(handleAutocomplete);
 
 	// Prepare UI but don't allow input yet
 	term.open(divTerminal);
@@ -137,7 +144,7 @@ function handleShortcuts(key)
 
 // Autocomplete for subcommands. For some reason, it doesn't seem to work with local-echo. When I did "samtools <TAB>",
 // it would output "samtools samtools <TAB>" along with the subcommands :(
-function handleData(data)
+function handleAutocomplete(data)
 {
 	// Parse user input (only care about tabbing to autocomplete)
 	if(data != "\t")
@@ -147,37 +154,33 @@ function handleData(data)
 	const args = input.split(" ").slice(1);
 	let cacheAutocomplete = [];
 
-	// Autocomplete subcommands: e.g. "samtools <TAB>" will show "view   sort   index  idxstats"
-	if(args.length < 2 && prgm in AUTOCOMPLETE)
-	{
-		// Turn off local-echo so we can override it's default behavior
-		addons.echo.detach();
+	// Turn off local-echo so we can override it's default behavior
+	addons.echo.detach();
 
-		// e.g. "samtools " --> "view   sort   index  idxstats"
-		// e.g. "samtools i" --> "index   idxstats"
+	// Autocomplete main commands
+	// e.g. "<TAB>" --> "samtools   bedtools2"
+	if(args.length == 0)
+		cacheAutocomplete = Object.keys(AUTOCOMPLETE).filter(d => d.startsWith(prgm));
+
+	// Autocomplete subcommands
+	// e.g. "samtools " --> "view   sort   index  idxstats"
+	// e.g. "samtools i" --> "index   idxstats"
+	if(args.length < 2 && prgm in AUTOCOMPLETE)
 		cacheAutocomplete = AUTOCOMPLETE[prgm].filter(d => d.startsWith(args[0]));
 
-		// If only one autocomplete option, then autocomplete it!
-		if(cacheAutocomplete.length == 1)
-			addons.echo.handleCursorInsert(cacheAutocomplete[0].slice(args[0].length) + " ");
-		// Otherwise, output candidates
-		else
-			addons.echo.printAndRestartPrompt(() => addons.echo.printWide(cacheAutocomplete));
+	// If nothing to autocomplete, just add a space
+	if(cacheAutocomplete.length == 0)
+		addons.echo.handleCursorInsert(" ");
+	// If only one autocomplete option, then autocomplete it!
+	else if(cacheAutocomplete.length == 1) {
+		const remainingFragment = cacheAutocomplete[0].slice(args.length == 0 ? prgm.length : args[0].length);
+		addons.echo.handleCursorInsert(remainingFragment + " ");
+	// Otherwise, output all candidates
+	} else
+		addons.echo.printAndRestartPrompt(() => addons.echo.printWide(cacheAutocomplete));
 
-		// Re-enable local-echo
-		addons.echo.attach();
-	}
-}
-
-// Auto-completes common commands
-function handleAutocomplete(index, tokens)
-{
-	// Root autocomplete: show supported tools
-	if(index == 0)
-		return Object.keys(AUTOCOMPLETE);
-
-	// This generates an error on purpose.
-	return;  // this generates an error
+	// Re-enable local-echo
+	addons.echo.attach();
 }
 </script>
 
