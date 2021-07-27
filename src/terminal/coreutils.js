@@ -19,8 +19,11 @@ export class CoreUtils
 		if(!output)
 			return `${path}: No such file or directory`;
 
-        // If the path isn't for a single file
+		// If the path isn't for a single file
 		if(!output.mode)
-            return output.join("\n");
+			return output.join("\n");
+
+		// If the path is a single file
+		return `${output.size}\t${output.mtime}\t${path}`;
 	}
 }
