@@ -74,14 +74,43 @@ export class CoreUtils
 	}
 
 	// -------------------------------------------------------------------------
-	//
+	// Small utilities
 	// -------------------------------------------------------------------------
+
+	// pwd
 	static async pwd() {
 		return await CoreUtils.FS.cwd();
 	}
 
-	static async chdir(args) {
-		// Will return an error string if it doesn't work
+	// cd: Return an error string if it doesn't work so return the new path otherwise
+	static async cd(args) {
 		return await CoreUtils.FS.chdir(args[0]) || args[0];
 	}
+
+	// echo
+	static async echo(args) {
+		return args.join(" ");
+	}
+
+	// cat
+	static async cat(args) {
+		return await CoreUtils.CLI.cat(args[0]);
+	}
+
+	// // head
+	// static async head(args) {
+	// 	// Ignore flags
+	// 	const path = args.filter(arg => !arg.startsWith("-"))[0] || ".";
+	// 	const stat = await CoreUtils.FS.stat(path);
+	// 	console.log(stat)
+
+	// 	var stream = await CoreUtils.FS.open(path, "r");
+	// 	var buf = new Uint8Array(100);
+	// 	await CoreUtils.FS.read(stream, buf, 0, 4, 0);
+	// 	await CoreUtils.FS.close(stream);
+	// 	console.log(buf)
+
+	// 	console.log(stat)
+	// 	// return await CoreUtils.FS.
+	// }
 }
