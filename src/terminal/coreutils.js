@@ -96,21 +96,4 @@ export class CoreUtils
 	static async cat(args) {
 		return await CoreUtils.CLI.cat(args[0]);
 	}
-
-	// // head
-	// static async head(args) {
-	// 	// Ignore flags
-	// 	const path = args.filter(arg => !arg.startsWith("-"))[0] || ".";
-	// 	const stat = await CoreUtils.FS.stat(path);
-	// 	console.log(stat)
-
-	// 	var stream = await CoreUtils.FS.open(path, "r");
-	// 	var buf = new Uint8Array(100);
-	// 	await CoreUtils.FS.read(stream, buf, 0, 4, 0);
-	// 	await CoreUtils.FS.close(stream);
-	// 	console.log(buf)
-
-	// 	console.log(stat)
-	// 	// return await CoreUtils.FS.
-	// }
 }
