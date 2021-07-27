@@ -34,43 +34,24 @@ onMount(async () => {
 
 async function exec(cmd, callback)
 {
-	// -------------------------------------------------------------------------
-	// Break down command
-	// -------------------------------------------------------------------------
+	let output = "";
 	const prgm = cmd.split(" ")[0];
 	const args = cmd.split(" ").slice(1);
 
-	// -------------------------------------------------------------------------
-	// Support basic coreutils commands
-	// -------------------------------------------------------------------------
+	// Is this a coreutils command?
 	if(prgm in CoreUtils) {
-		callback(await CoreUtils[prgm](args));
-		return;
-	}
-
-	// // FIXME: what if give options to ls?
-	// let out = "";
-	// if(cmd == "ls" || cmd.startsWith("ls "))
-	// {
-	// 	const folder = cmd.split(" ")[1];
-	// 	const output = await CLI.ls(folder || ".");
-	// 	console.log(output)
-	// 	if(output.mode)
-	// 		out = `${output.size}\t${output.mtime}\t${folder}`;
-	// 	else if(output)
-	// 		out = output.join("\n");
-	// 	else
-	// 		out = `${folder}: No such file or directory`;
+		output = await CoreUtils[prgm](args);
 
 	// Otherwise, try running the command with Aioli
-	let out;
-	try {
-		out = await CLI.exec(cmd);
-	} catch (error) {
-		out = error;
+	} else {
+		try {
+			output = await CLI.exec(cmd);
+		} catch (error) {
+			output = error;
+		}
 	}
 
-	callback(out);
+	callback(output);
 }
 </script>
 

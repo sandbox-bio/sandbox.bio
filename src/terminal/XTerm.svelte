@@ -75,13 +75,16 @@ function input()
 function exec(cmd)
 {
 	// Input validation
-	if(!cmd || !(typeof cmd === "string"))
+	if(!cmd || !(typeof cmd === "string")) {
+		input();
 		return;
+	}
 	cmd = cmd.trim();
 
 	// Handle terminal-related commands
 	if(cmd == "clear") {
 		term.write(ANSI_CLEAR);
+		input();
 		return;
 	}
 
