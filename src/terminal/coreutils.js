@@ -77,6 +77,34 @@ export class CoreUtils
 	}
 
 	// -------------------------------------------------------------------------
+	// Preview files
+	// FIXME: Don't read the entire file; use FS.read() to read the first N bytes
+	// until we get to the required number of lines
+	// -------------------------------------------------------------------------
+
+	static async head(args, n=10) {
+		args = args.filter(arg => !arg.startsWith("-"));
+		const contents = await CoreUtils.cat(args);
+		return contents.split("\n").slice(0, n).join("\n");
+	}
+
+	static async tail(args) {
+		return await CoreUtils.head(args, -11);
+	}
+
+	static async wc(args)
+	{
+		if(args.filter(arg => arg == "-l").length == 0) {
+			const stat = await CoreUtils.FS.stat(args[0]);
+			return stat.size;
+		}
+
+		args = args.filter(arg => !arg.startsWith("-"));
+		const contents = await CoreUtils.cat([args[0]]);
+		return contents.split("\n").length;
+	}
+
+	// -------------------------------------------------------------------------
 	// Small utilities
 	// -------------------------------------------------------------------------
 
