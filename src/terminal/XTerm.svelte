@@ -7,13 +7,23 @@ import { FitAddon } from "xterm-addon-fit";
 import LocalEchoController from "local-echo";
 import "xterm/css/xterm.css";
 
+// Imports
+import { CoreUtils } from "./coreutils";
+
 // Constants
 const ANSI_CLEAR = "\x1bc";                // Clear terminal
 const dispatch = createEventDispatcher();  // Dispatch for sending "exec" messages to parent component
+
 // Autocomplete subcommands
 const AUTOCOMPLETE = {
-	samtools: ["view", "sort", "index", "idxstats"],
-	bedtools2: ["intersect", "merge", "complement", "bamtobed"]
+	samtools: () => ["view", "sort", "index", "idxstats"],
+	bedtools2: () => ["intersect", "merge", "complement", "bamtobed"],
+	ls: async args => {
+		const pathSearch = args[0];                                               // /samtools/examples/toy
+		const pathBase = pathSearch.substring(0, pathSearch.lastIndexOf("/")+1);  // /samtools/examples/
+		const files = await CoreUtils.ls([pathBase], true);
+		return files.map(f => `${pathBase}${f.name}`);
+	}
 };
 
 
@@ -136,22 +146,18 @@ function handleShortcuts(key)
 	// Ctrl + E = End of line
 	if(key.domEvent.ctrlKey && key.domEvent.key == "e")
 		addons.echo.setCursor(Infinity);
-
-	// Tab = try to autocomplete bioinformatics subcommands. This is part 1.
-	// See handleAutocomplete() below for part 2.
-	if(key.domEvent.key == "Tab")
-	{
+}
 
 // Autocomplete for subcommands. For some reason, it doesn't seem to work with local-echo. When I did "samtools <TAB>",
 // it would output "samtools samtools <TAB>" along with the subcommands :(
-function handleAutocomplete(data)
+async function handleAutocomplete(data)
 {
 	// Parse user input (only care about tabbing to autocomplete)
 	if(data != "\t")
 		return;
 	const input = addons.echo._input;
-	const prgm = input.split(" ")[0].trim();
-	const args = input.split(" ").slice(1);
+	const prgm = input.split(" ")[0].trim();  // ls /samtools/examples/toy
+	const args = input.split(" ").slice(1);   // ["/samtools/examples/toy"]
 	let cacheAutocomplete = [];
 
 	// Turn off local-echo so we can override it's default behavior
@@ -165,9 +171,10 @@ function handleAutocomplete(data)
 	// Autocomplete subcommands
 	// e.g. "samtools " --> "view   sort   index  idxstats"
 	// e.g. "samtools i" --> "index   idxstats"
-	if(args.length < 2 && prgm in AUTOCOMPLETE)
-		cacheAutocomplete = AUTOCOMPLETE[prgm].filter(d => d.startsWith(args[0]));
+	else if(args.length < 2 && prgm in AUTOCOMPLETE)
+		cacheAutocomplete = (await AUTOCOMPLETE[prgm](args)).filter(d => d.startsWith(args[0]));
 
+	// Process autocomplete
 	// If nothing to autocomplete, just add a space
 	if(cacheAutocomplete.length == 0) {
 		if(!input.endsWith(" "))
@@ -176,7 +183,8 @@ function handleAutocomplete(data)
 	// If only one autocomplete option, then autocomplete it!
 	else if(cacheAutocomplete.length == 1) {
 		const remainingFragment = cacheAutocomplete[0].slice(args.length == 0 ? prgm.length : args[0].length);
-		addons.echo.handleCursorInsert(remainingFragment + " ");
+		const extraSpacing = (prgm == "ls" && args.length != 0) ? "" : " ";
+		addons.echo.handleCursorInsert(remainingFragment + extraSpacing);
 	// Otherwise, output all candidates
 	} else {
 		addons.echo.printAndRestartPrompt(() => addons.echo.printWide(cacheAutocomplete));
