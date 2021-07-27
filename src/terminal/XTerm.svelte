@@ -18,7 +18,6 @@ const dispatch = createEventDispatcher();  // Dispatch for sending "exec" messag
 
 export let ready = false;  // Whether CLI is ready for user input
 let term;                  // XTerm.js object
-
 let addons;                // XTerm.js add-ons
 let divTerminal;           // HTML element where terminal will be drawn
 
@@ -74,6 +73,8 @@ function input()
 // Execute command
 function exec(cmd)
 {
+	console.log(cmd);
+
 	// Input validation
 	if(!cmd || !(typeof cmd === "string")) {
 		input();
@@ -107,9 +108,11 @@ function exec(cmd)
 // Keyboard shortcuts
 function handleShortcuts(key)
 {
-	// Ctrl + L = Clear terminal
-	if(key.domEvent.ctrlKey && key.domEvent.key == "l")
-		term.write(`${ANSI_CLEAR}$ `);
+	// Ctrl + L = Clear terminal (also clear input in case user had written something on the line)
+	if(key.domEvent.ctrlKey && key.domEvent.key == "l") {
+		term.write(ANSI_CLEAR);
+		addons.echo.setInput("");
+	}
 
 	// Ctrl + A = Beginning of line
 	if(key.domEvent.ctrlKey && key.domEvent.key == "a")
