@@ -6,8 +6,6 @@ import { SerializeAddon } from "xterm-addon-serialize";
 import { FitAddon } from "xterm-addon-fit";
 import LocalEchoController from "local-echo";
 import "xterm/css/xterm.css";
-//
-import { CoreUtils } from "./coreutils";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";                // Clear terminal
@@ -142,21 +140,6 @@ function handleShortcuts(key)
 			addons.echo.printAndRestartPrompt(() => addons.echo.printWide(AUTOCOMPLETE[prgm]));
 			addons.echo.attach();
 		}
-
-		// if(input.startsWith("ls ")) {
-		// 	addons.echo.detach();
-		// 	try {
-		// 		CoreUtils.ls(input.replace("ls ", "").split(" "), true).then(d => {
-		// 			console.log(d)
-		// 			addons.echo.printAndRestartPrompt(() => {
-		// 				console.log("print&restart")
-		// 				addons.echo.printWide(d.map(f => f.name));
-		// 			});
-		// 		});
-		// 	} catch (error) {
-		// 	}
-		// 	addons.echo.attach();
-		// }
 	}
 }
 
