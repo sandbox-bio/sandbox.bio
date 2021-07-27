@@ -16,7 +16,7 @@ export class CoreUtils
 	// -------------------------------------------------------------------------
 	// ls
 	// -------------------------------------------------------------------------
-	static async ls(args) {
+	static async ls(args, raw=false) {
 		// Ignore flags
 		const path = args.filter(arg => !arg.startsWith("-"))[0] || ".";
 
@@ -48,6 +48,9 @@ export class CoreUtils
 					});
 				}
 			}
+
+			if(raw)
+				return stats;
 
 			// Columnify output
 			return columnify(stats.map(f => ({

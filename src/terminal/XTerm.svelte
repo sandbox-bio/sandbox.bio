@@ -37,10 +37,12 @@ onMount(() => {
 
 	// Xterm.js add-ons
 	addons = {
-		echo: new LocalEchoController(),  // Echo controller
-		serialize: new SerializeAddon(),  // Can be used to save state
-		links: new WebLinksAddon(),       // Supports links in the terminal
-		fit: new FitAddon()               // Makes terminal fit HTML element
+		echo: new LocalEchoController(null, {                  // Echo controller
+			historySize: 1000
+		}),
+		serialize: new SerializeAddon(),                       // Can be used to save state
+		links: new WebLinksAddon(),                            // Supports links in the terminal
+		fit: new FitAddon()                                    // Makes terminal fit HTML element
 	};
 
 	// Attach addons
