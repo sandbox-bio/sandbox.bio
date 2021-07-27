@@ -41,8 +41,11 @@ export class CoreUtils
 					if(f == "." || f == "..")
 						continue;
 					stat = await CoreUtils.FS.stat(`${path}/${f}`);
+					const isDir = await CoreUtils.FS.isDir(stat.mode);
+					let name = isDir ? f + "/" : f;
+					name = (!raw && isDir) ? `\x1b[1;34m${name}\x1b[0m` : name;
 					stats.push({
-						name: f,
+						name: name,
 						size: stat.size,
 						date: stat.mtime.toLocaleString()
 					});
