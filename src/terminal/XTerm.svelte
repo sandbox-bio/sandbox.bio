@@ -169,15 +169,18 @@ function handleAutocomplete(data)
 		cacheAutocomplete = AUTOCOMPLETE[prgm].filter(d => d.startsWith(args[0]));
 
 	// If nothing to autocomplete, just add a space
-	if(cacheAutocomplete.length == 0)
-		addons.echo.handleCursorInsert(" ");
+	if(cacheAutocomplete.length == 0) {
+		if(!input.endsWith(" "))
+			addons.echo.handleCursorInsert(" ");
+	}
 	// If only one autocomplete option, then autocomplete it!
 	else if(cacheAutocomplete.length == 1) {
 		const remainingFragment = cacheAutocomplete[0].slice(args.length == 0 ? prgm.length : args[0].length);
 		addons.echo.handleCursorInsert(remainingFragment + " ");
 	// Otherwise, output all candidates
-	} else
+	} else {
 		addons.echo.printAndRestartPrompt(() => addons.echo.printWide(cacheAutocomplete));
+	}
 
 	// Re-enable local-echo
 	addons.echo.attach();
