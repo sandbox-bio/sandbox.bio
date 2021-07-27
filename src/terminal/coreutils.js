@@ -77,23 +77,36 @@ export class CoreUtils
 	// Small utilities
 	// -------------------------------------------------------------------------
 
-	// pwd
+	static async cat(args) {
+		return await CoreUtils.CLI.cat(args[0]);
+	}
+
 	static async pwd() {
 		return await CoreUtils.FS.cwd();
 	}
 
-	// cd: Return an error string if it doesn't work so return the new path otherwise
 	static async cd(args) {
 		return await CoreUtils.FS.chdir(args[0]) || args[0];
 	}
 
-	// echo
 	static async echo(args) {
 		return args.join(" ");
 	}
 
-	// cat
-	static async cat(args) {
-		return await CoreUtils.CLI.cat(args[0]);
+	static async mv(args) {
+		await CoreUtils.FS.rename(args[0], args[1]);
+		return "";
+	}
+
+	static async mkdir(args) {
+		// Don't use await because otherwise get "object could not be cloned" error
+		args.map(d => CoreUtils.FS.mkdir(d));
+		return "";
+	}
+
+	static async rmdir(args) {
+		// Don't use await because otherwise get "object could not be cloned" error
+		args.map(d => CoreUtils.FS.rmdir(d));
+		return "";
 	}
 }
