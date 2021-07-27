@@ -25,6 +25,12 @@ onMount(async () => {
 
 	// Now we can allow user input
 	ready = true;
+
+	// Pre-load files onto the main folder
+	for(let path of ["/samtools/examples/toy.sam", "/samtools/examples/toy.fa"]) {
+		const mock_data = await CoreUtils.cat([path]);
+		await CoreUtils.FS.writeFile(path.split("/").pop(), mock_data);
+	}
 });
 
 
