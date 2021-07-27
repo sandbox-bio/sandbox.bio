@@ -2,6 +2,9 @@
 // Coreutils
 // =============================================================================
 
+import columnify from "columnify";
+import prettyBytes from "pretty-bytes";
+
 // Simulating a few basic utils
 export class CoreUtils
 {
@@ -20,14 +23,16 @@ export class CoreUtils
 		// Get info about files in that path
 		let stats = [];
 		try {
-			const info = await CoreUtils.FS.stat(path);
+			let stat = await CoreUtils.FS.stat(path);
 
 			// If the path is a file, we already have the info we need
-			if(!await CoreUtils.FS.isDir(info.mode))
+			if(!await CoreUtils.FS.isDir(stat.mode))
 				stats = [{
 					name: path.split("/").pop(),
-					...info
+					size: stat.size,
+					date: stat.mtime.toLocaleString()
 				}];
+
 			// But if the path is a folder, get stat for each node in the folder
 			else
 			{
@@ -35,16 +40,25 @@ export class CoreUtils
 				for(let f of files) {
 					if(f == "." || f == "..")
 						continue;
+					stat = await CoreUtils.FS.stat(`${path}/${f}`);
 					stats.push({
 						name: f,
-						...(await CoreUtils.FS.stat(`${path}/${f}`))
+						size: stat.size,
+						date: stat.mtime.toLocaleString()
 					});
 				}
 			}
 
-			return stats.map(f => {
-				return `${f.name}\t${f.size}\t${f.mtime}`;
-			}).join("\n");
+			// Columnify output
+			return columnify(stats.map(f => ({
+				...f,
+				size: prettyBytes(f.size),
+				date: f.date.toLocaleString()
+			})), {
+				showHeaders: false,
+				columnSplitter: "\t",
+				columns: ["size", "date", "name"]
+			});
 		} catch (error) {
 			console.error(error)
 			throw `${path}: No such file or directory`;
