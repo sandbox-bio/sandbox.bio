@@ -6,10 +6,17 @@ import { SerializeAddon } from "xterm-addon-serialize";
 import { FitAddon } from "xterm-addon-fit";
 import LocalEchoController from "local-echo";
 import "xterm/css/xterm.css";
+//
+import { CoreUtils } from "./coreutils";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";                // Clear terminal
 const dispatch = createEventDispatcher();  // Dispatch for sending "exec" messages to parent component
+// Autocomplete subcommands
+const AUTOCOMPLETE = {
+	samtools: ["view", "sort", "index", "idxstats"],
+	bedtools2: ["intersect", "merge", "complement", "bamtobed"]
+};
 
 
 // =============================================================================
@@ -123,6 +130,34 @@ function handleShortcuts(key)
 	// Ctrl + E = End of line
 	if(key.domEvent.ctrlKey && key.domEvent.key == "e")
 		addons.echo.setCursor(Infinity);
+
+	// Tab = try to autocomplete bioinformatics subcommands. This is part 1.
+	// See handleAutocomplete() below for part 2.
+	if(key.domEvent.key == "Tab")
+	{
+		const input = addons.echo._input;
+		const prgm = input.trim();
+		if(prgm in AUTOCOMPLETE && input.endsWith(" ")) {
+			addons.echo.detach();
+			addons.echo.printAndRestartPrompt(() => addons.echo.printWide(AUTOCOMPLETE[prgm]));
+			addons.echo.attach();
+		}
+
+		// if(input.startsWith("ls ")) {
+		// 	addons.echo.detach();
+		// 	try {
+		// 		CoreUtils.ls(input.replace("ls ", "").split(" "), true).then(d => {
+		// 			console.log(d)
+		// 			addons.echo.printAndRestartPrompt(() => {
+		// 				console.log("print&restart")
+		// 				addons.echo.printWide(d.map(f => f.name));
+		// 			});
+		// 		});
+		// 	} catch (error) {
+		// 	}
+		// 	addons.echo.attach();
+		// }
+	}
 }
 
 // Auto-completes common commands
@@ -133,11 +168,12 @@ function handleAutocomplete(index, tokens)
 
 	// Root autocomplete
 	if(index == 0)
-		return ["samtools", "bedtools2"];
+		return Object.keys(AUTOCOMPLETE);
 
-	// Samtools autocomplete. Need `&& tokens[index]`, otherwise results in "samtools samtools"
-	if(index == 1 && command == "samtools" && tokens[index])
-		return ["view", "index", "sort"];
+	// Autocomplete within a bioinformatics tool. Need `&& tokens[index]`, otherwise results in "samtools samtools"
+	// being output to screen. See handleShortcuts() for part 2 of autocomplete.
+	if(index == 1 && tokens[index] && AUTOCOMPLETE[command])
+		return AUTOCOMPLETE[command];
 
 	return [];
 }
