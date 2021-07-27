@@ -2,8 +2,9 @@
 // Coreutils
 // =============================================================================
 
-import columnify from "columnify";
-import prettyBytes from "pretty-bytes";
+import columnify from "columnify";       // Prettify columnar output
+import prettyBytes from "pretty-bytes";  // Prettify number of bytes
+import minimist from "minimist";         // Parse CLI arguments
 
 // Simulating a few basic utils
 export class CoreUtils
@@ -17,8 +18,12 @@ export class CoreUtils
 	// ls
 	// -------------------------------------------------------------------------
 	static async ls(args, raw=false) {
-		// Ignore flags
-		const path = args.filter(arg => !arg.startsWith("-"))[0] || ".";
+		// Ignore flags (use try/catch b/c it's ok if user doesn't specify an arg with ls)
+		let path;
+		try {
+			path = parseArgs(args)._[0];
+		} catch (error) {}
+		path = path || ".";
 
 		// Get info about files in that path
 		let stats = [];
@@ -82,25 +87,24 @@ export class CoreUtils
 	// until we get to the required number of lines
 	// -------------------------------------------------------------------------
 
-	static async head(args, n=10) {
-		args = args.filter(arg => !arg.startsWith("-"));
-		const contents = await CoreUtils.cat(args);
-		return contents.split("\n").slice(0, n).join("\n");
+	static async head(args) {
+		args = parseArgs(args);
+		return (await CoreUtils.cat(args._)).split("\n").slice(0, args.n || 10).join("\n");
 	}
 
 	static async tail(args) {
-		return await CoreUtils.head(args, -11);
+		args = parseArgs(args);
+		return (await CoreUtils.cat(args._)).split("\n").slice((-args.n || -10) - 1).join("\n");
 	}
 
 	static async wc(args)
 	{
-		if(args.filter(arg => arg == "-l").length == 0) {
-			const stat = await CoreUtils.FS.stat(args[0]);
-			return stat.size;
-		}
+		// Support wc -c and wc -l
+		args = parseArgs(args, { boolean: [ "l", "c" ] });
+		if(!args.l)
+			return (await CoreUtils.FS.stat(args._[0])).size;
 
-		args = args.filter(arg => !arg.startsWith("-"));
-		const contents = await CoreUtils.cat([args[0]]);
+		const contents = await CoreUtils.cat(args._);
 		return contents.split("\n").length;
 	}
 
@@ -145,4 +149,12 @@ export class CoreUtils
 		args.map(d => CoreUtils.FS.rmdir(d));
 		return "";
 	}
+}
+
+// Utility functions
+function parseArgs(args, opts) {
+	args = minimist(args, opts);
+	if(args._.length == 0)
+		throw "Error: missing file path.";
+	return args;
 }
