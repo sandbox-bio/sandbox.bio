@@ -40,7 +40,11 @@ async function exec(cmd, callback)
 
 	// Is this a coreutils command?
 	if(prgm in CoreUtils) {
-		output = await CoreUtils[prgm](args);
+		try {
+			output = await CoreUtils[prgm](args);			
+		} catch (error) {
+			output = error;
+		}
 
 	// Otherwise, try running the command with Aioli
 	} else {
