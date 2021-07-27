@@ -48,7 +48,6 @@ async function exec(cmd, callback)
 		return;
 	}
 
-	// // ls
 	// // FIXME: what if give options to ls?
 	// let out = "";
 	// if(cmd == "ls" || cmd.startsWith("ls "))
@@ -64,6 +63,7 @@ async function exec(cmd, callback)
 	// 		out = `${folder}: No such file or directory`;
 
 	// Otherwise, try running the command with Aioli
+	let out;
 	try {
 		out = await CLI.exec(cmd);
 	} catch (error) {

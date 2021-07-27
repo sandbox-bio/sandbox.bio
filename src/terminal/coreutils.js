@@ -12,7 +12,7 @@ export class CoreUtils
 	// -------------------------------------------------------------------------
 	static async ls(args) {
 		// Ignore any options
-		const path = args.filter(d => !d.startsWith("-"))[0] || ".";
+		const path = args.filter(arg => !arg.startsWith("-"))[0] || ".";
 		const output = await CoreUtils.CLI.ls(path);
 
 		// If path doesn't exist
