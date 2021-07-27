@@ -101,6 +101,11 @@ export class CoreUtils
 		return "";
 	}
 
+	static async rm(args) {
+		await CoreUtils.FS.unlink(args[0]);
+		return "";
+	}
+
 	static async mkdir(args) {
 		// Don't use await because otherwise get "object could not be cloned" error
 		args.map(d => CoreUtils.FS.mkdir(d));
