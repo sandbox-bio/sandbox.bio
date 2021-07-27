@@ -56,6 +56,7 @@ onMount(() => {
 
 	// Register handlers
 	term.onKey(handleShortcuts);
+	term.onData(handleData);
 	addons.echo.addAutocompleteHandler(handleAutocomplete);
 
 	// Prepare UI but don't allow input yet
@@ -133,32 +134,50 @@ function handleShortcuts(key)
 	// See handleAutocomplete() below for part 2.
 	if(key.domEvent.key == "Tab")
 	{
-		const input = addons.echo._input;
-		const prgm = input.trim();
-		if(prgm in AUTOCOMPLETE && input.endsWith(" ")) {
-			addons.echo.detach();
-			addons.echo.printAndRestartPrompt(() => addons.echo.printWide(AUTOCOMPLETE[prgm]));
-			addons.echo.attach();
-		}
+
+// Autocomplete for subcommands. For some reason, it doesn't seem to work with local-echo. When I did "samtools <TAB>",
+// it would output "samtools samtools <TAB>" along with the subcommands :(
+function handleData(data)
+{
+	// Parse user input (only care about tabbing to autocomplete)
+	if(data != "\t")
+		return;
+	const input = addons.echo._input;
+	const prgm = input.split(" ")[0].trim();
+	const args = input.split(" ").slice(1);
+	let cacheAutocomplete = [];
+
+	// Autocomplete subcommands: e.g. "samtools <TAB>" will show "view   sort   index  idxstats"
+	if(args.length < 2 && prgm in AUTOCOMPLETE)
+	{
+		// Turn off local-echo so we can override it's default behavior
+		addons.echo.detach();
+
+		// e.g. "samtools " --> "view   sort   index  idxstats"
+		// e.g. "samtools i" --> "index   idxstats"
+		cacheAutocomplete = AUTOCOMPLETE[prgm].filter(d => d.startsWith(args[0]));
+
+		// If only one autocomplete option, then autocomplete it!
+		if(cacheAutocomplete.length == 1)
+			addons.echo.handleCursorInsert(cacheAutocomplete[0].slice(args[0].length) + " ");
+		// Otherwise, output candidates
+		else
+			addons.echo.printAndRestartPrompt(() => addons.echo.printWide(cacheAutocomplete));
+
+		// Re-enable local-echo
+		addons.echo.attach();
 	}
 }
 
 // Auto-completes common commands
 function handleAutocomplete(index, tokens)
 {
-	const command = tokens[0];
-	console.log(index, tokens);
-
-	// Root autocomplete
+	// Root autocomplete: show supported tools
 	if(index == 0)
 		return Object.keys(AUTOCOMPLETE);
 
-	// Autocomplete within a bioinformatics tool. Need `&& tokens[index]`, otherwise results in "samtools samtools"
-	// being output to screen. See handleShortcuts() for part 2 of autocomplete.
-	if(index == 1 && tokens[index] && AUTOCOMPLETE[command])
-		return AUTOCOMPLETE[command];
-
-	return [];
+	// This generates an error on purpose.
+	return;  // this generates an error
 }
 </script>
 
