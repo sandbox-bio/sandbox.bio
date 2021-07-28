@@ -17,7 +17,7 @@ const dispatch = createEventDispatcher();  // Dispatch for sending "exec" messag
 // Autocomplete subcommands
 const AUTOCOMPLETE = {
 	samtools: () => ["view", "sort", "index", "idxstats"],
-	bedtools2: () => ["intersect", "merge", "complement", "bamtobed"],
+	bedtools: () => ["intersect", "merge", "complement", "bamtobed"],
 	ls: async args => {
 		const pathSearch = args[0];                                               // /samtools/examples/toy
 		const pathBase = pathSearch.substring(0, pathSearch.lastIndexOf("/")+1);  // /samtools/examples/
@@ -240,7 +240,7 @@ async function handleAutocomplete(data)
 	addons.echo.detach();
 
 	// Autocomplete main commands
-	// e.g. "<TAB>" --> "samtools   bedtools2"
+	// e.g. "<TAB>" --> "samtools   bedtools"
 	if(args.length == 0)
 		cacheAutocomplete = Object.keys(AUTOCOMPLETE).filter(d => d.startsWith(prgm));
 

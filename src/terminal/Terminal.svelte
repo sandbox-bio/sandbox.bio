@@ -20,7 +20,7 @@ let ready = false;  // Ready for user input?
 // =============================================================================
 onMount(async () => {
 	// Initialize Aioli
-	CLI = await new Aioli(["samtools/1.10", "bedtools2/2.29.2"], { env: "stg", debug: true });
+	CLI = await new Aioli(["samtools/1.10", "bedtools/2.29.2"], { env: "stg", debug: true });
 	CoreUtils.CLI = CLI;
 
 	// Now we can allow user input
