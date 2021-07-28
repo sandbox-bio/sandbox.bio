@@ -176,10 +176,9 @@ async function exec(cmd)
 			if(options.file) {
 				await CoreUtils.FS.writeFile(options.file, stdout);
 				stdout = "";
-			// Or just to stdout
-			} else {
-				if(!stdout.endsWith("\n"))  // Append \n if needed
-					stdout += "\n";
+			// Or just to stdout: append \n if needed
+			} else if(!stdout.endsWith("\n")) {
+				stdout += "\n";
 			}
 
 			// If we need to run more commands before we output, do so
