@@ -104,7 +104,7 @@ function input(toPrint)
 {
 	runtime = window.performance.now() - runtime;
 	if(toPrint)
-		term.write(toPrint);
+		term.writeln(toPrint);
 	if(runtimeShow)
 		term.writeln(`\nRuntime: ${runtime}ms`);
 	term.focus();
@@ -284,4 +284,4 @@ async function handleAutocomplete(data)
 }
 </script>
 
-<div bind:this={divTerminal} style="opacity: { ready ? 1 : 0.6 }"></div>
+<div bind:this={divTerminal} style="opacity: { ready ? 1 : 0.6 }; padding:20px; background-color:black"></div>
