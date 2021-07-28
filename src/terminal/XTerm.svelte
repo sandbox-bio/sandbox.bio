@@ -100,20 +100,24 @@ function exec(cmd)
 {
 	console.log(cmd);
 
+	// -------------------------------------------------------------------------
 	// Input validation
-	if(!cmd || !(typeof cmd === "string")) {
-		input();
-		return;
-	}
+	// -------------------------------------------------------------------------
+	if(!cmd || !(typeof cmd === "string"))
+		return input();
 	cmd = cmd.trim();
 
 	// Handle terminal-related commands
 	if(cmd == "clear") {
 		term.write(ANSI_CLEAR);
-		input();
+		return input();
+	}
 		return;
 	}
 
+	// -------------------------------------------------------------------------
+	// Execute command
+	// -------------------------------------------------------------------------
 	// Send message to parent component asking to execute the command.
 	// The callback will output the result and ask for the next input.
 	dispatch("exec", {
