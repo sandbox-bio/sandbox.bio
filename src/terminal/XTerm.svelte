@@ -148,8 +148,8 @@ function exec(cmd)
 				stdout = "";
 			// Or just to stdout
 			} else {
-				stdout = "" + out;       // Convert to string if it's not already
-				if(!out.endsWith("\n"))  // Append \n if needed
+				stdout = "" + out;          // Convert to string if it's not already
+				if(!stdout.endsWith("\n"))  // Append \n if needed
 					stdout += "\n";
 			}
 
