@@ -114,7 +114,8 @@ export class CoreUtils
 
 	// Generate a URL where you can download a file from the virtual file system
 	static async download(args) {
-		const url = await CoreUtils.CLI.download(args[0]);
+		const blob = new Blob([ await CoreUtils.FS.readFile(args[0]) ]);
+		const url = URL.createObjectURL(blob);
 
 		// Create a temp element to download it (changing window.location doesn't work for text files)
 		let tmpLink = document.createElement("a");
