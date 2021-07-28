@@ -46,6 +46,8 @@ export let ready = false;  // Whether CLI is ready for user input
 let term;                  // XTerm.js object
 let addons;                // XTerm.js add-ons
 let divTerminal;           // HTML element where terminal will be drawn
+let runtime = 0;           // How long the last command took to run
+let runtimeShow = false;   // Whether to output the command runtime
 
 $: if(ready) input();      // Ask for user input once ready
 
@@ -100,8 +102,11 @@ onMount(() => {
 // Get user input 
 function input(toPrint)
 {
+	runtime = window.performance.now() - runtime;
 	if(toPrint)
 		term.write(toPrint);
+	if(runtimeShow)
+		term.writeln(`\nRuntime: ${runtime}ms`);
 	term.focus();
 	addons.echo.read("$ ")
 		.then(exec)
@@ -112,6 +117,8 @@ function input(toPrint)
 async function exec(cmd)
 {
 	console.log(cmd);
+	runtime = window.performance.now();
+	runtimeShow = false;
 
 	// -------------------------------------------------------------------------
 	// Input validation
@@ -125,6 +132,12 @@ async function exec(cmd)
 	// Handle terminal-related commands
 	if(cmd == "clear")
 		return input(ANSI_CLEAR);
+
+	// If user wants to check how long a command takes to run
+	if(cmd.split(" ")[0] == "time") {
+		runtimeShow = true;
+		cmd = cmd.split(" ").slice(1).join(" ");
+	}
 
 	// -------------------------------------------------------------------------
 	// Support basic file redirection (cmd > file) and piping (cmd | cmd2 | cmd3)
