@@ -123,7 +123,7 @@ async function exec(cmd)
 	let options = {
 		cmd: cmd,
 		file: null,  // null == stdout, otherwise save to a file path
-		pipes: []
+		next: ""     // next command to run after this one (used by pipes)
 	};
 
 	// Redirections: assume ">" is not used in string arguments
@@ -134,6 +134,32 @@ async function exec(cmd)
 	else if(redirections.length == 2) {
 		options.cmd = redirections[0];   // e.g. samtools view -q20 toy.sam
 		options.file = redirections[1];  // e.g. toy.filtered.sam
+	}
+
+	// Piping: execute first part of the pipe, save output to a tmp file, then
+	// run the other commands subsequently on those tmp files recursively.
+	// e.g. samtools view | head -n 5 | wc -l > somefile
+	const pipes = cmd.split("|").map(d => d.trim());
+	if(pipes.length > 1)
+	{
+		// If we also have a redirection on top of the pipes, track it
+		const fileRedir = options.file;  // somefile
+		// And remove it from the command
+		if(fileRedir)
+			pipes[pipes.length-1] = pipes[pipes.length-1].split(">")[0];
+
+		// Execute first part of the pipe, save the output to a temp file
+		const fileTmp = `/tmp/tmp${parseInt(Math.random() * 10000)}`;
+		options.cmd = pipes.shift();     // samtools view
+		options.file = fileTmp;          // /tmp/tmp123
+
+		// Next command should use the temp file we are writing to
+		pipes[0] += ` ${fileTmp}`;       // head -n 5 /tmp/pipe123
+
+		// Save remaining commands for the next time around
+		options.next = pipes.join("|");  // head -n 5 /tmp/pipe123 | wc -l
+		if(fileRedir)
+			options.next += ` > ${fileRedir}`;  // head -n 5 /tmp/pipe123 | wc -l > somefile
 	}
 
 	// -------------------------------------------------------------------------
@@ -156,7 +182,10 @@ async function exec(cmd)
 					stdout += "\n";
 			}
 
-			// Output to stdout and ask for next input
+			// If we need to run more commands before we output, do so
+			if(options.next)
+				return await exec(options.next);
+			// Otherwise, output to stdout and get next input
 			input(stdout);
 		}
 	});
