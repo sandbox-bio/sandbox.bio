@@ -182,7 +182,7 @@ export class CoreUtils
 }
 
 // Utility functions
-function parseArgs(args, opts) {
+function parseArgs(args, opts={}) {
 	args = minimist(args, opts);
 	if(args._.length == 0)
 		throw "Error: missing file path.";

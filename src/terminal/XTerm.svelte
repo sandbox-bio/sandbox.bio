@@ -23,7 +23,18 @@ const AUTOCOMPLETE = {
 		const pathBase = pathSearch.substring(0, pathSearch.lastIndexOf("/")+1);  // /samtools/examples/
 		const files = await CoreUtils.ls([pathBase], true);
 		return files.map(f => `${pathBase}${f.name}`);
-	}
+	},
+	cat: () => [],
+	head: () => [],
+	tail: () => [],
+	wc: () => [],
+	pwd: () => [],
+	cd: () => [],
+	echo: () => [],
+	mv: () => [],
+	rm: () => [],
+	mkdir: () => [],
+	rmdir: () => []
 };
 
 
