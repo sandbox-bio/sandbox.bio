@@ -112,8 +112,6 @@ function exec(cmd)
 	// Handle terminal-related commands
 	if(cmd == "clear")
 		return input(ANSI_CLEAR);
-		return;
-	}
 
 	// -------------------------------------------------------------------------
 	// Execute command
@@ -122,7 +120,7 @@ function exec(cmd)
 	// The callback will output the result and ask for the next input.
 	dispatch("exec", {
 		cmd: cmd,
-		callback: out => input("" + out)  // convert to string if it's not
+		callback: out => input("" + out + (out.endsWith("\n") ? "" : "\n"))
 	});
 }
 
