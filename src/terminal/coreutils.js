@@ -109,6 +109,34 @@ export class CoreUtils
 	}
 
 	// -------------------------------------------------------------------------
+	// File system commands with external interaction
+	// -------------------------------------------------------------------------
+
+	// Generate a URL where you can download a file from the virtual file system
+	static async download(args) {
+		const url = await CoreUtils.CLI.download(args[0]);
+
+		// Create a temp element to download it (changing window.location doesn't work for text files)
+		let tmpLink = document.createElement("a");
+		tmpLink.href = url;
+		tmpLink.download = args[0];
+		// Add it to the DOM and click on it
+		document.body.appendChild(tmpLink);
+		tmpLink.click();
+		// Cleanup
+		window.URL.revokeObjectURL(url);
+		tmpLink.remove();
+
+		return "Your download has started.";
+	}
+
+	// Mount a URL
+	static async mount(args) {
+		await CoreUtils.CLI.mount(args[0]);
+		return "Mounted.";
+	}
+
+	// -------------------------------------------------------------------------
 	// Small utilities
 	// -------------------------------------------------------------------------
 
