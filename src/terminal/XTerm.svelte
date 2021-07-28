@@ -87,8 +87,10 @@ onMount(() => {
 // =============================================================================
 
 // Get user input 
-function input()
+function input(toPrint)
 {
+	if(toPrint)
+		term.write(toPrint);
 	term.focus();
 	addons.echo.read("$ ")
 		.then(exec)
@@ -108,10 +110,8 @@ function exec(cmd)
 	cmd = cmd.trim();
 
 	// Handle terminal-related commands
-	if(cmd == "clear") {
-		term.write(ANSI_CLEAR);
-		return input();
-	}
+	if(cmd == "clear")
+		return input(ANSI_CLEAR);
 		return;
 	}
 
@@ -122,10 +122,7 @@ function exec(cmd)
 	// The callback will output the result and ask for the next input.
 	dispatch("exec", {
 		cmd: cmd,
-		callback: out => {
-			term.writeln("" + out);  // convert to string if it's not
-			input();
-		}
+		callback: out => input("" + out)  // convert to string if it's not
 	});
 }
 
