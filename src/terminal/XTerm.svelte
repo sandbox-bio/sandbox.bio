@@ -107,7 +107,9 @@ async function exec(cmd)
 	// -------------------------------------------------------------------------
 	if(!cmd || !(typeof cmd === "string"))
 		return input();
+	// Trim whitespace and remove duplicate spaces
 	cmd = cmd.trim();
+	cmd = cmd.replace(/  +/g, ' ');
 
 	// Handle terminal-related commands
 	if(cmd == "clear")
@@ -125,6 +127,7 @@ async function exec(cmd)
 	};
 
 	// Redirections: assume ">" is not used in string arguments
+	// e.g. samtools view -q20 toy.sam > toy.filtered.sam
 	const redirections = cmd.split(">").map(d => d.trim());
 	if(redirections.length > 2)
 		return input("Unsupported command: Only support one '>' redirection.\n");
@@ -141,15 +144,14 @@ async function exec(cmd)
 	dispatch("exec", {
 		cmd: options.cmd,
 		callback: async out => {
-			let stdout = "";
+			let stdout = "" + out;          // Convert to string if it's not already
 
 			// Do we want to save this to a file?
 			if(options.file) {
-				await CoreUtils.FS.writeFile(options.file, out);
+				await CoreUtils.FS.writeFile(options.file, stdout);
 				stdout = "";
 			// Or just to stdout
 			} else {
-				stdout = "" + out;          // Convert to string if it's not already
 				if(!stdout.endsWith("\n"))  // Append \n if needed
 					stdout += "\n";
 			}
