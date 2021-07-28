@@ -114,13 +114,48 @@ function exec(cmd)
 		return input(ANSI_CLEAR);
 
 	// -------------------------------------------------------------------------
+	// Support basic file redirection (cmd > file) and piping (cmd | cmd2 | cmd3)
+	// -------------------------------------------------------------------------
+
+	// Prepare defaults
+	let options = {
+		cmd: cmd,
+		file: null  // null == stdout, otherwise save to a file path
+	};
+
+	// Assume ">" is only used for redirection (and not part of a string argument)
+	const redirections = cmd.split(">").map(d => d.trim());
+	if(redirections.length > 2)
+		return input("Unsupported command: Only support one '>' redirection.\n");
+	else if(redirections.length == 2) {
+		options.cmd = redirections[0];   // e.g. samtools view -q20 toy.sam
+		options.file = redirections[1];  // e.g. toy.filtered.sam
+	}
+
+	// -------------------------------------------------------------------------
 	// Execute command
 	// -------------------------------------------------------------------------
 	// Send message to parent component asking to execute the command.
 	// The callback will output the result and ask for the next input.
 	dispatch("exec", {
-		cmd: cmd,
-		callback: out => input("" + out + (out.endsWith("\n") ? "" : "\n"))
+		cmd: options.cmd,
+		callback: out => {
+			let stdout = "";
+
+			// Do we want to save this to a file?
+			if(options.file) {
+				CoreUtils.CLI.mount({ name: options.file, data: new Blob([out], { type: "application/octet-stream" })});
+				stdout = "";
+			// Or just to stdout
+			} else {
+				stdout = "" + out;       // Convert to string if it's not already
+				if(!out.endsWith("\n"))  // Append \n if needed
+					stdout += "\n";
+			}
+
+			// Output to stdout and ask for next input
+			input(stdout);
+		}
 	});
 }
 

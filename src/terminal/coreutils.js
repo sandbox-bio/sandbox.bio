@@ -114,6 +114,7 @@ export class CoreUtils
 
 	// Generate a URL where you can download a file from the virtual file system
 	static async download(args) {
+		// Create blob from file contents
 		const blob = new Blob([ await CoreUtils.FS.readFile(args[0]) ]);
 		const url = URL.createObjectURL(blob);
 
