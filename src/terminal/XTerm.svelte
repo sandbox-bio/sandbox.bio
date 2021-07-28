@@ -98,7 +98,7 @@ function input(toPrint)
 }
 
 // Execute command
-function exec(cmd)
+async function exec(cmd)
 {
 	console.log(cmd);
 
@@ -120,10 +120,11 @@ function exec(cmd)
 	// Prepare defaults
 	let options = {
 		cmd: cmd,
-		file: null  // null == stdout, otherwise save to a file path
+		file: null,  // null == stdout, otherwise save to a file path
+		pipes: []
 	};
 
-	// Assume ">" is only used for redirection (and not part of a string argument)
+	// Redirections: assume ">" is not used in string arguments
 	const redirections = cmd.split(">").map(d => d.trim());
 	if(redirections.length > 2)
 		return input("Unsupported command: Only support one '>' redirection.\n");
@@ -139,12 +140,12 @@ function exec(cmd)
 	// The callback will output the result and ask for the next input.
 	dispatch("exec", {
 		cmd: options.cmd,
-		callback: out => {
+		callback: async out => {
 			let stdout = "";
 
 			// Do we want to save this to a file?
 			if(options.file) {
-				CoreUtils.CLI.mount({ name: options.file, data: new Blob([out], { type: "application/octet-stream" })});
+				await CoreUtils.FS.writeFile(options.file, out);
 				stdout = "";
 			// Or just to stdout
 			} else {
