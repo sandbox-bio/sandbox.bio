@@ -7,8 +7,14 @@ import Terminal from "./terminal/Terminal.svelte";
 		<div class="bg-light border rounded-3">
 			Welcome
 		</div>
-		<div class="bg-light border rounded-3">
+		<div id="terminal-wrapper" class="border rounded-3 p-2">
 			<Terminal />
 		</div>
 	</div>
 </div>
+
+<style>
+#terminal-wrapper {
+	background-color: black;
+}
+</style>
