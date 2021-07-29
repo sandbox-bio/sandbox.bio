@@ -16,8 +16,13 @@ export const config = {
 			},
 			// Tutorial
 			"steps": [
-				{ "component": Intro },
-				{ "component": Step1 }
+				{
+					"component": Intro
+				},
+				{
+					"name": "The data",
+					"component": Step1
+				}
 			]
 		},
 		{
