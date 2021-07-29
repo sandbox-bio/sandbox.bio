@@ -6,7 +6,20 @@ export let id;
 export let step = 0;
 
 const tutorial = config.tutorials.find(t => t.id == id);
-$: stepInfo = tutorial.steps[step];
+let stepInfo = {};
+$: nextStep(step);
+
+function nextStep(step)
+{
+	stepInfo = tutorial.steps[step];
+
+	// Update URL
+	const url = new URL(window.location);
+	if(+url.searchParams.get("step") != +step) {
+		url.searchParams.set("step", step);
+		window.history.pushState({}, "", url);
+	}
+}
 </script>
 
 <div class="container-fluid pb-3">
