@@ -1,8 +1,10 @@
 <script>
-import Home from "./Home.svelte";
-import Tutorials from "./Tutorials.svelte";
 import "bootstrap/dist/js/bootstrap.bundle";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+import Home from "./Home.svelte";
+import Tutorials from "./Tutorials.svelte";
+import { config } from "../tutorials/config";
 
 // State
 const path = window.location.pathname;
@@ -23,8 +25,9 @@ const path = window.location.pathname;
 				Tutorials
 			</a>
 			<ul class="dropdown-menu" aria-labelledby="navTutorials">
-				<li><a class="dropdown-item" href="/tutorials">Introduction to bedtools</a></li>
-				<li><a class="dropdown-item" href="/tutorials">Introduction to bowtie2</a></li>
+				{#each config.tutorials as tutorial}
+					<li><a class="dropdown-item" href="/tutorials?id={tutorial.id}">{tutorial.name}</a></li>
+				{/each}
 			</ul>
 		</li>
 		<li class="nav-item dropdown">
