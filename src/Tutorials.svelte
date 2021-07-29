@@ -9,8 +9,12 @@ const step = new URL(window.location).searchParams.get("step");
 const tutorial = config.tutorials.find(t => t.id == id);
 </script>
 
+<!-- Load tutorial if we know which one we want -->
+{#if tutorial}
+	<Tutorial {id} {step} />
+
 <!-- List tutorials if none specified -->
-{#if !tutorial}
+{:else}
 	<div class="row mt-5">
 		<h3 class="pb-2">Tutorials</h3>
 	</div>
@@ -25,8 +29,4 @@ const tutorial = config.tutorials.find(t => t.id == id);
 			</div>
 		{/each}
 	</div>
-
-<!-- If want a specific tutorial -->
-{:else}
-	<Tutorial {id} {step} />
 {/if}
