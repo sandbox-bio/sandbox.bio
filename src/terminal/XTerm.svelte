@@ -284,4 +284,4 @@ async function handleAutocomplete(data)
 }
 </script>
 
-<div bind:this={divTerminal} style="opacity: { ready ? 1 : 0.6 }; height:85vh; max-height:85vh"></div>
+<div bind:this={divTerminal} style="opacity: { ready ? 1 : 0.6 }"></div>
