@@ -4,14 +4,17 @@
 export const config = {
 	"tutorials": [
 		{
+			// Metadata
 			"id": "bedtools-intro",
 			"name": "Introduction to bedtools",
 			"description": "Explore, analyze, and manipulate genomic interval <code>.bed</code> files.",
-			"tags": ["bedtools", "beginner"],
+			"tools": ["bedtools"],
+			"difficulty": ["beginner"],
 			"author": {
 				"name": "Aaron Quinlan",
-				"twitter": "aaronquinlan"
+				"link": "https://bioscience.utah.edu/faculty/quinlan/"
 			},
+			// Tutorial
 			"steps": [
 				{
 					"name": "Synopsis",
