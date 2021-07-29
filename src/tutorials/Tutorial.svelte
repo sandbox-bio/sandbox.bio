@@ -1,6 +1,6 @@
 <script>
-import Terminal from "../terminal/Terminal.svelte";
 import { config } from "../config";
+import Terminal from "../terminal/Terminal.svelte";
 
 export let id;
 export let step = 0;

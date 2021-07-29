@@ -1,5 +1,8 @@
-import Intro from "./tutorials/bedtools-intro/Intro.svelte";
-import Step1 from "./tutorials/bedtools-intro/Step1.svelte";
+// Bedtools
+import BedtoolsIntro from "./tutorials/bedtools-intro/Intro.svelte";
+import BedtoolsStep1 from "./tutorials/bedtools-intro/Step1.svelte";
+//
+import BedtoolsCpgBed from "./tutorials/bedtools-intro/data/cpg.bed";
 
 export const config = {
 	"tutorials": [
@@ -17,11 +20,18 @@ export const config = {
 			// Tutorial
 			"steps": [
 				{
-					"component": Intro
+					"component": BedtoolsIntro
 				},
 				{
 					"name": "The data",
-					"component": Step1
+					"component": BedtoolsStep1
+				}
+			],
+			// Files needed
+			"files": [
+				{
+					"name": "cpg.bed",
+					"contents": BedtoolsCpgBed
 				}
 			]
 		},
