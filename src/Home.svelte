@@ -1,8 +1,6 @@
-<style>
-.bg-light {
-	background-color: rgb(232, 240, 240) !important;
-}
-</style>
+<script>
+import { config } from "../tutorials/config";
+</script>
 
 <main role="main" class="ps-4 pe-4">
 	<div class="container-fluid pt-3">
@@ -25,23 +23,24 @@
 		<h3 class="pb-2">Tutorials</h3>
 	</div>
 	<div class="row align-items-md-stretch">
-		<div class="col-md-3">
-			<div class="h-100 p-5 border rounded-3">
-				<h4>Introduction to bedtools</h4>
-				<p>Explore, analyze, and manipulate genomic interval <code>.bed</code> files.</p>
-				<a href="/tutorials" class="btn btn-outline-dark text-center">Launch</a>
+		{#each config.tutorials as tutorial}
+			<div class="col-md-3">
+				<div class="h-100 p-5 border rounded-3">
+					<h4>{tutorial.name}</h4>
+					<p>{@html tutorial.description}</p>
+					<a href="/tutorials?id={tutorial.id}" class="btn btn-outline-dark text-center">Launch</a>
+				</div>
 			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="h-100 p-5 border rounded-3">
-				<h4>Introduction to bowtie2</h4>
-				<p>Align DNA sequencing reads to the Lambda phage reference genome.</p>
-				<a href="/tutorials" class="btn btn-outline-dark text-center">Launch</a>
-			</div>
-		</div>
+		{/each}
 	</div>
 
 	<footer class="pt-3 mt-4 text-muted border-top">
 		Built by <a href="https://robertaboukhalil.com">Robert Aboukhalil</a>. Reach out if you have tutorial ideas.
 	</footer>
 </main>
+
+<style>
+.bg-light {
+	background-color: rgb(232, 240, 240) !important;
+}
+</style>
