@@ -21,6 +21,10 @@ function createIGV() {
 		<Spinner size="sm" color="primary" type="border" /> Loading...
 	{/await}
 
+	<slot name="before"></slot>
+
 	<div id="igv-div"></div>
 	<br /><br />
+	<slot name="after"></slot>
+	<br />
 </Modal>

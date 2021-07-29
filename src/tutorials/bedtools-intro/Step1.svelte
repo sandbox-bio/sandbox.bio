@@ -27,22 +27,18 @@ let igvOptions = {
 
 <p>Type <Execute command={"ls"} /> in the command line.</p>
 
-<p>Your directory contains 7 <code>BED</code> files and 1 genome file. Use <code>head</code> to preview these files: <Execute command={"head cpg.bed"} /></p>
+<p>Your directory contains 7 <code>BED</code> files and 1 genome file. Three of these files (those starting with <code>f</code> for "fetal tissue") reflect Dnase I hypersensitivity sites measured in different fetal tissue samples.</p>
 
-<p>Three of these files (those starting with <code>f</code> for "fetal tissue") reflect Dnase I hypersensitivity sites measured in different fetal tissue samples.</p>
+<p>In order to have a rough sense of the remaining <code>.bed</code> files, let's load them into IGV: <button class="btn btn-primary" on:click={() => isOpen = !isOpen}>Launch IGV</button></p>
 
-<span>
-	In addition: 
-	<ul>
-		<li><code>cpg.bed</code> represents CpG islands in the human genome</li>
-		<li><code>exons.bed</code> represents RefSeq exons from human genes</li>
-		<li><code>gwas.bed</code> represents human disease-associated SNPs that were identified in genome-wide association studies (GWAS)</li>
-		<li><code>hesc.chromHmm.bed</code> represents the predicted function (by chromHMM) of each interval in the genome of a human embryonic stem cell based upon ChIP-seq experiments from ENCODE</li>
-	</ul>
-</span>
-
-<p>
-In order to have a rough sense of the data, let's load those files into IGV: <button class="btn btn-primary" on:click={() => isOpen = !isOpen}>Launch IGV</button>
-</p>
-
-<IGV options={igvOptions} {isOpen} />
+<IGV options={igvOptions} {isOpen}>
+	<span slot="after">
+		Note that: 
+		<ul>
+			<li><code>cpg.bed</code> represents CpG islands in the human genome</li>
+			<li><code>exons.bed</code> represents RefSeq exons from human genes</li>
+			<li><code>gwas.bed</code> represents human disease-associated SNPs that were identified in genome-wide association studies (GWAS)</li>
+			<li><code>hesc.chromHmm.bed</code> represents the predicted function (by chromHMM) of each interval in the genome of a human embryonic stem cell based upon ChIP-seq experiments from ENCODE</li>
+		</ul>
+	</span>	
+</IGV>
