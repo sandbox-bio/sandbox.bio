@@ -1,10 +1,6 @@
 <script>
 import { onMount, createEventDispatcher } from "svelte";
-import { Terminal } from "xterm";
-import { WebLinksAddon } from "xterm-addon-web-links";
-import { SerializeAddon } from "xterm-addon-serialize";
-import { FitAddon } from "xterm-addon-fit";
-import LocalEchoController from "local-echo";
+import { xterm, xtermAddons } from "./stores";
 import "xterm/css/xterm.css";
 
 // Imports
@@ -43,8 +39,6 @@ const AUTOCOMPLETE = {
 // =============================================================================
 
 export let ready = false;  // Whether CLI is ready for user input
-let term;                  // XTerm.js object
-let addons;                // XTerm.js add-ons
 let divTerminal;           // HTML element where terminal will be drawn
 let runtime = 0;           // How long the last command took to run
 let runtimeShow = false;   // Whether to output the command runtime
@@ -57,41 +51,13 @@ $: if(ready) input();      // Ask for user input once ready
 // =============================================================================
 
 onMount(() => {
-	// Xterm.js
-	term = new Terminal({
-		convertEol: true,
-		cursorBlink: true
-	});
-
-	// Xterm.js add-ons
-	addons = {
-		echo: new LocalEchoController(null, {                  // Echo controller
-			historySize: 1000
-		}),
-		serialize: new SerializeAddon(),                       // Can be used to save state
-		links: new WebLinksAddon(),                            // Supports links in the terminal
-		fit: new FitAddon()                                    // Makes terminal fit HTML element
-	};
-
-	// Attach addons
-	for(let addonName in addons)
-		term.loadAddon(addons[addonName]);
-
-	// Disable local-echo's handling of tabs for autocompletion. See handleAutocomplete() for more info.
-	addons.echo.handleData_ = addons.echo.handleData;
-	addons.echo.handleData = (data) => {
-		if(data == "\t")
-			return;
-		return addons.echo.handleData_(data);
-	}
-
 	// Register handlers
-	term.onKey(handleShortcuts);
-	term.onData(handleAutocomplete);
+	$xterm.onKey(handleShortcuts);
+	$xterm.onData(handleAutocomplete);
 
 	// Prepare UI but don't allow input yet
-	term.open(divTerminal);
-	addons.fit.fit();
+	$xterm.open(divTerminal);
+	$xtermAddons.fit.fit();
 });
 
 
@@ -104,11 +70,11 @@ function input(toPrint)
 {
 	runtime = window.performance.now() - runtime;
 	if(toPrint)
-		term.writeln(toPrint);
+		$xterm.writeln(toPrint);
 	if(runtimeShow)
-		term.writeln(`\nRuntime: ${runtime}ms`);
-	term.focus();
-	addons.echo.read("$ ")
+		$xterm.writeln(`\nRuntime: ${runtime}ms`);
+	$xterm.focus();
+	$xtermAddons.echo.read("$ ")
 		.then(exec)
 		.catch(console.error);
 }
@@ -224,17 +190,17 @@ function handleShortcuts(key)
 {
 	// Ctrl + L = Clear terminal (also clear input in case user had written something on the line)
 	if(key.domEvent.ctrlKey && key.domEvent.key == "l") {
-		term.write(ANSI_CLEAR);
-		addons.echo.setInput("");
+		$xterm.write(ANSI_CLEAR);
+		$xtermAddons.echo.setInput("");
 	}
 
 	// Ctrl + A = Beginning of line
 	if(key.domEvent.ctrlKey && key.domEvent.key == "a")
-		addons.echo.setCursor(0);
+		$xtermAddons.echo.setCursor(0);
 
 	// Ctrl + E = End of line
 	if(key.domEvent.ctrlKey && key.domEvent.key == "e")
-		addons.echo.setCursor(Infinity);
+		$xtermAddons.echo.setCursor(Infinity);
 }
 
 // Autocomplete for subcommands. For some reason, it doesn't seem to work with local-echo. When I did "samtools <TAB>",
@@ -244,13 +210,13 @@ async function handleAutocomplete(data)
 	// Parse user input (only care about tabbing to autocomplete)
 	if(data != "\t")
 		return;
-	const input = addons.echo._input;
+	const input = $xtermAddons.echo._input;
 	const prgm = input.split(" ")[0].trim();  // ls /samtools/examples/toy
 	const args = input.split(" ").slice(1);   // ["/samtools/examples/toy"]
 	let cacheAutocomplete = [];
 
 	// Turn off local-echo so we can override it's default behavior
-	addons.echo.detach();
+	$xtermAddons.echo.detach();
 
 	// Autocomplete main commands
 	// e.g. "<TAB>" --> "samtools   bedtools"
@@ -267,20 +233,20 @@ async function handleAutocomplete(data)
 	// If nothing to autocomplete, just add a space
 	if(cacheAutocomplete.length == 0) {
 		if(!input.endsWith(" "))
-			addons.echo.handleCursorInsert(" ");
+			$xtermAddons.echo.handleCursorInsert(" ");
 	}
 	// If only one autocomplete option, then autocomplete it!
 	else if(cacheAutocomplete.length == 1) {
 		const remainingFragment = cacheAutocomplete[0].slice(args.length == 0 ? prgm.length : args[0].length);
 		const extraSpacing = (prgm == "ls" && args.length != 0) ? "" : " ";
-		addons.echo.handleCursorInsert(remainingFragment + extraSpacing);
+		$xtermAddons.echo.handleCursorInsert(remainingFragment + extraSpacing);
 	// Otherwise, output all candidates
 	} else {
-		addons.echo.printAndRestartPrompt(() => addons.echo.printWide(cacheAutocomplete));
+		$xtermAddons.echo.printAndRestartPrompt(() => $xtermAddons.echo.printWide(cacheAutocomplete));
 	}
 
 	// Re-enable local-echo
-	addons.echo.attach();
+	$xtermAddons.echo.attach();
 }
 </script>
 
