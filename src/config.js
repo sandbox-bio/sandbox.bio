@@ -1,6 +1,7 @@
 // Bedtools
 import BedtoolsIntro from "./tutorials/bedtools-intro/Intro.svelte";
 import BedtoolsStep1 from "./tutorials/bedtools-intro/Step1.svelte";
+import BedtoolsStep2 from "./tutorials/bedtools-intro/Step2.svelte";
 import BedtoolsCpgBed from "./tutorials/bedtools-intro/data/cpg.bed";
 import BedtoolsExonsBed from "./tutorials/bedtools-intro/data/exons.bed";
 import BedtoolsData1Bed from "./tutorials/bedtools-intro/data/fHeart-DS15839.bed";
@@ -31,6 +32,10 @@ export const config = {
 				{
 					"name": "The data",
 					"component": BedtoolsStep1
+				},
+				{
+					"name": "The bedtools help",
+					"component": BedtoolsStep2
 				}
 			],
 			// Files needed
