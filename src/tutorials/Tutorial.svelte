@@ -10,7 +10,7 @@ $: stepInfo = tutorial.steps[step];
 </script>
 
 <div class="container-fluid pb-3">
-	<div class="d-grid gap-3" style="grid-template-columns: 1fr 3fr; height:85vh; max-height:85vh">
+	<div class="d-grid gap-3" style="grid-template-columns: 1fr 2fr; height:85vh; max-height:85vh">
 		<div class="bg-light border rounded-3 p-2 d-flex align-items-end flex-column" style="overflow-y:scroll">
 			<div class="w-100 p-2">
 				<h4>{stepInfo.name || tutorial.name}</h4>
@@ -56,9 +56,5 @@ $: stepInfo = tutorial.steps[step];
 <style>
 #terminal-wrapper {
 	background-color: black;
-}
-
-#tutorial-wrapper {
-	font-size: 1.15em;
 }
 </style>
