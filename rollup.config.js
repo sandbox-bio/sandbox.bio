@@ -73,7 +73,7 @@ export default {
 
 		// Allow us to import bed files into strings!
 		string({
-			include: "**/*.bed"
+			include: "**/*.{bed,txt}"
 		})
 	],
 	watch: {

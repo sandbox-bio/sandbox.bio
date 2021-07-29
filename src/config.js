@@ -1,8 +1,14 @@
 // Bedtools
 import BedtoolsIntro from "./tutorials/bedtools-intro/Intro.svelte";
 import BedtoolsStep1 from "./tutorials/bedtools-intro/Step1.svelte";
-//
 import BedtoolsCpgBed from "./tutorials/bedtools-intro/data/cpg.bed";
+import BedtoolsExonsBed from "./tutorials/bedtools-intro/data/exons.bed";
+import BedtoolsData1Bed from "./tutorials/bedtools-intro/data/fHeart-DS15839.bed";
+import BedtoolsData2Bed from "./tutorials/bedtools-intro/data/fHeart-DS16621.bed";
+import BedtoolsData3Bed from "./tutorials/bedtools-intro/data/fSkin-DS19745.bed";
+import BedtoolsGwasBed from "./tutorials/bedtools-intro/data/gwas.bed";
+import BedtoolsChromHMMBed from "./tutorials/bedtools-intro/data/hesc.chromHmm.bed";
+import BedtoolsGenomeTxt from "./tutorials/bedtools-intro/data/genome.txt";
 
 export const config = {
 	"tutorials": [
@@ -29,10 +35,14 @@ export const config = {
 			],
 			// Files needed
 			"files": [
-				{
-					"name": "cpg.bed",
-					"contents": BedtoolsCpgBed
-				}
+				{ "name": "cpg.bed", "contents": BedtoolsCpgBed },
+				{ "name": "exons.bed", "contents": BedtoolsExonsBed },
+				{ "name": "fHeart-DS15839.bed", "contents": BedtoolsData1Bed },
+				{ "name": "fHeart-DS16621.bed", "contents": BedtoolsData2Bed },
+				{ "name": "fSkin-DS19745.bed", "contents": BedtoolsData3Bed },
+				{ "name": "gwas.bed", "contents": BedtoolsGwasBed },
+				{ "name": "hesc.chromHmm.bed", "contents": BedtoolsChromHMMBed },
+				{ "name": "genome.txt", "contents": BedtoolsGenomeTxt }
 			]
 		},
 		{
