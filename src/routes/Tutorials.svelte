@@ -5,7 +5,7 @@ import Tutorial from "../tutorials/Tutorial.svelte";
 export let maxListings = Infinity;  // max number of tutorials to list
 
 const id = new URL(window.location).searchParams.get("id");
-const step = new URL(window.location).searchParams.get("step") || 0;
+const step = +new URL(window.location).searchParams.get("step") || 0;
 const tutorial = config.tutorials.find(t => t.id == id);
 </script>
 

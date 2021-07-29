@@ -6,15 +6,16 @@ export let id;
 export let step = 0;
 
 const tutorial = config.tutorials.find(t => t.id == id);
+$: stepInfo = tutorial.steps[step];
 </script>
 
 <div class="container-fluid pb-3">
 	<div class="d-grid gap-3" style="grid-template-columns: 1fr 3fr; height:85vh; max-height:85vh">
-		<div class="bg-light border rounded-3 p-2 d-flex align-items-end flex-column">
+		<div class="bg-light border rounded-3 p-2 d-flex align-items-end flex-column" style="overflow-y:scroll">
 			<div class="w-100 p-2">
+				<h4>{stepInfo.name || tutorial.name}</h4>
 				{#if step == 0}
 					<div class="row mb-2">
-						<h4>{tutorial.name}</h4>
 						<h6>
 							{#each tutorial.tools as tag}
 								<span class="badge bg-primary">{tag}</span>
@@ -25,11 +26,11 @@ const tutorial = config.tutorials.find(t => t.id == id);
 						</h6>
 						<h6>by <a href={tutorial.author.link} target="_blank">{tutorial.author.name}</a></h6>
 					</div>
-					<hr class="border-2 border-top border-secondary" />
 				{/if}
+				<hr class="border-2 border-top border-secondary" />
 
 				<div id="tutorial-wrapper" class="row">
-					<svelte:component this={tutorial.steps[step].component} />
+					<svelte:component this={stepInfo.component} />
 				</div>
 			</div>
 
