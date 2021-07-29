@@ -14,14 +14,25 @@ const path = window.location.pathname;
 	</a>
 
 	<ul class="nav nav-pills">
-		<li class="nav-item"><a href="/tutorials" class="nav-link" class:active={path == "/tutorials"}>Tutorials</a></li>
-		<li class="nav-item"><a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a></li>
+		<li class="nav-item">
+			<a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a>
+		</li>
 		<li class="nav-item dropdown">
 			<!-- svelte-ignore a11y-no-onchange -->
-			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<a class="nav-link dropdown-toggle" class:active={path == "/playground"} href="#" id="navTutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Tutorials
+			</a>
+			<ul class="dropdown-menu" aria-labelledby="navTutorials">
+				<li><a class="dropdown-item" href="/tutorials">Introduction to bedtools</a></li>
+				<li><a class="dropdown-item" href="/tutorials">Introduction to bowtie2</a></li>
+			</ul>
+		</li>
+		<li class="nav-item dropdown">
+			<!-- svelte-ignore a11y-no-onchange -->
+			<a class="nav-link dropdown-toggle" href="#" id="navExplore" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 				Explore
 			</a>
-			<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+			<ul class="dropdown-menu" aria-labelledby="navExplore">
 				<li><a class="dropdown-item" href="https://alignment.sandbox.bio" target="_blank">Sequence alignment</a></li>
 				<li><a class="dropdown-item" href="https://tsne.sandbox.bio" target="_blank">tSNE algorithm</a></li>
 				<li><a class="dropdown-item" href="https://fastq.sandbox.bio" target="_blank">FASTQ QC metrics</a></li>
