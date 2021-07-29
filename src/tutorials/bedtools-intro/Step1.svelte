@@ -31,7 +31,7 @@ let igvOptions = {
 
 <p>In order to have a rough sense of the remaining <code>.bed</code> files, let's load them into IGV: <button class="btn btn-primary" on:click={() => isOpen = !isOpen}>Launch IGV</button></p>
 
-<IGV options={igvOptions} {isOpen}>
+<IGV options={igvOptions} bind:isOpen={isOpen}>
 	<span slot="after">
 		Note that: 
 		<ul>
