@@ -6,6 +6,8 @@ import Aioli from "@biowasm/aioli";
 import { CoreUtils } from "./coreutils";
 import XTerm from "./XTerm.svelte";
 
+export let files = [];
+
 
 // =============================================================================
 // State
@@ -27,10 +29,8 @@ onMount(async () => {
 	ready = true;
 
 	// Pre-load files onto the main folder
-	for(let path of ["/samtools/examples/toy.sam", "/samtools/examples/toy.fa"]) {
-		const mock_data = await CoreUtils.cat([path]);
-		await CoreUtils.FS.writeFile(path.split("/").pop(), mock_data);
-	}
+	for(let file of files)
+		await CoreUtils.FS.writeFile(file.name, file.contents);
 });
 
 

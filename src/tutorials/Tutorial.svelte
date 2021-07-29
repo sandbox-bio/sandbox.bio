@@ -48,7 +48,7 @@ $: stepInfo = tutorial.steps[step];
 			</div>
 		</div>
 		<div id="terminal-wrapper" class="border rounded-3 p-2">
-			<Terminal />
+			<Terminal files={tutorial.files} />
 		</div>
 	</div>
 </div>
