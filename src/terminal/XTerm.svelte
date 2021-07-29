@@ -1,9 +1,9 @@
 <script>
 import { onMount, createEventDispatcher } from "svelte";
-import { xterm, xtermAddons } from "./stores";
 import "xterm/css/xterm.css";
 
 // Imports
+import { xterm, xtermAddons } from "./stores";
 import { CoreUtils } from "./coreutils";
 
 // Constants

@@ -1,6 +1,12 @@
-<p>We've preloaded data from <a href="https://science.sciencemag.org/content/337/6099/1190" target="_blank">Maurano et al.</a> into your sandbox.</p>
+<script>
+import Execute from "../Execute.svelte";
+</script>
 
-<p>Let's take a look at what files we now have: <code>ls</code></p>
+<p>We've preloaded data from <a href="https://science.sciencemag.org/content/337/6099/1190" target="_blank">Maurano et al.</a> into your sandbox. Let's take a look at what files we now have:</p>
+
+<p>Type <Execute command={"ls"} /> in the command line.</p>
+
+<p></p>
 
 <p>Your directory should contain 7 <code>BED</code> files and 1 genome file. Three of these files (those starting with <code>f</code> for "fetal tissue") reflect Dnase I hypersensitivity sites measured in different fetal tissue samples.</p>
 
