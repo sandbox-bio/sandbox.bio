@@ -41,8 +41,10 @@ const path = window.location.pathname;
 	</ul>
 </header>
 
-{#if path == "/"}
-	<Home />
-{:else if path == "/tutorials"}
-	<Tutorials />
-{/if}
+<main role="main" class="ps-4 pe-4">
+	{#if path == "/"}
+		<Home />
+	{:else if path == "/tutorials"}
+		<Tutorials />
+	{/if}
+</main>
