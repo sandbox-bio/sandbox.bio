@@ -1,5 +1,5 @@
-// import bla from "./1-intro-to-bedtools/data/cpg.bed"
-// import bedtools_1_text from "./1-intro-to-bedtools/step-1.md"
+import Intro from "./tutorials/bedtools-intro/Intro.svelte";
+import Step1 from "./tutorials/bedtools-intro/Step1.svelte";
 
 export const config = {
 	"tutorials": [
@@ -16,10 +16,8 @@ export const config = {
 			},
 			// Tutorial
 			"steps": [
-				{
-					"name": "Synopsis",
-					"text": "yes"
-				}
+				{ "component": Intro },
+				{ "component": Step1 }
 			]
 		},
 		{
