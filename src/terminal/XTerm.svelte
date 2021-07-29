@@ -93,7 +93,8 @@ async function exec(cmd)
 		return input();
 	// Trim whitespace and remove duplicate spaces
 	cmd = cmd.trim();
-	cmd = cmd.replace(/  +/g, ' ');
+	cmd = cmd.replace(/  +/g, " ");
+	cmd = cmd.replace(/\\/g, "");  // if multi-line command, remove \
 
 	// Handle terminal-related commands
 	if(cmd == "clear")
