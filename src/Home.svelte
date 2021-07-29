@@ -6,8 +6,8 @@
 
 <main role="main" class="ps-4 pe-4">
 	<div class="container-fluid pt-3">
-		<div class="row p-4 pb-0 pe-lg-0 pt-lg-5 bg-light align-items-center rounded-3 border shadow-lg">
-			<div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+		<div class="row p-4 pb-0 pe-lg-0 pt-lg-4 bg-light align-items-center rounded-3 border shadow-lg">
+			<div class="col-lg-7 p-3 p-lg-4 pt-lg-3">
 				<h1 class="display-6 fw-bold lh-1">Interactive bioinformatics tutorials</h1>
 				<br />
 				<p class="lead">Learn how to use bioinformatics tools right from your browser.<br />Everything runs in a sandbox, so you can experiment all you want.</p>

@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const path = window.location.pathname;
 </script>
 
-<header class="d-flex flex-wrap justify-content-center py-3 border-bottom ms-4 me-4 mb-4">
+<header class="d-flex flex-wrap justify-content-center py-3 border-bottom ms-4 me-4 mb-3">
 	<a href="/" class="d-flex align-items-center mb-md-0 me-md-auto text-dark text-decoration-none">
 		<span class="fs-4">🧬 sandbox.bio</span>
 	</a>
