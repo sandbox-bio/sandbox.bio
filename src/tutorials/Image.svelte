@@ -16,7 +16,9 @@ let toggle = () => isOpen = !isOpen;
 	</div>
 </Modal>
 
-<img alt={alt} src={src} on:click={toggle} style="max-height:350px; width:auto">
+<p>
+	<img alt={alt} src={src} on:click={toggle} style="max-height:350px; width:auto">
+</p>
 
 <style>
 img:hover {

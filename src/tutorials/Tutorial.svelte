@@ -54,7 +54,9 @@ function nextStep(step)
 				<hr class="border-2 border-top border-secondary" />
 
 				<div id="tutorial-wrapper" class="row" style="overflow-x: hidden">
-					<svelte:component this={stepInfo.component} />
+					<div class="container">
+						<svelte:component this={stepInfo.component} />
+					</div>
 				</div>
 			</div>
 

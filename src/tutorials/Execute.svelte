@@ -13,9 +13,11 @@ function exec()
 };
 </script>
 
-<kbd on:click={exec}>
-	{@html command.replace(/\\/g, "\\ <br />&nbsp;&nbsp;&nbsp;")}
-</kbd>
+<p>
+	<kbd on:click={exec}>
+		{@html command.replace(/\\/g, "\\ <br />&nbsp;&nbsp;&nbsp;")}
+	</kbd>
+</p>
 
 <style>
 kbd:hover {
