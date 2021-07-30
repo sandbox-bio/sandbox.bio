@@ -1,6 +1,7 @@
 <script>
 import Execute from "../../Execute.svelte";
 import IGV from "../../IGV.svelte";
+import Link from "../../Link.svelte";
 
 let isOpen = false;
 let igvOptions = {
@@ -23,7 +24,7 @@ let igvOptions = {
 };
 </script>
 
-We preloaded data from <a href="https://science.sciencemag.org/content/337/6099/1190" target="_blank">Maurano et al.</a> into your sandbox. Let's take a look at what files we now have:
+We preloaded data from <Link href="https://science.sciencemag.org/content/337/6099/1190">Maurano et al.</Link> into your sandbox. Let's take a look at what files we now have:
 
 Type <Execute command={"ls"} /> in the command line.
 
