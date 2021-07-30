@@ -16,7 +16,7 @@ let toggle = () => isOpen = !isOpen;
 	</div>
 </Modal>
 
-<p>
+<p class="text-center">
 	<img alt={alt} src={src} on:click={toggle} style="max-height:350px; width:auto">
 </p>
 
