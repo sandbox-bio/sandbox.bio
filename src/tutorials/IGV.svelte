@@ -24,7 +24,6 @@ function createIGV() {
 	<slot name="before"></slot>
 
 	<div id="igv-div"></div>
-	<br /><br />
-	<slot name="after"></slot>
 	<br />
+	<slot name="after"></slot>
 </Modal>
