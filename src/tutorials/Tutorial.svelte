@@ -41,7 +41,9 @@ function nextStep(step)
 								<span class="badge" class:bg-success={tag == "beginner"} class:bg-warning={tag == "intermediate"} class:bg-danger={tag == "difficult"}>{tag}</span>
 							{/each}
 						</h6>
-						<h6>by <a href={tutorial.author.link} target="_blank">{tutorial.author.name}</a></h6>
+						{#if tutorial.adapted_from}
+							<p>Adapted from <a href={tutorial.adapted_from.link} target="_blank">{tutorial.adapted_from.name}</a></p>
+						{/if}
 					</div>
 				{/if}
 				<hr class="border-2 border-top border-secondary" />

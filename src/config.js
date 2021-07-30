@@ -22,9 +22,9 @@ export const config = {
 			"description": "Explore, analyze, and manipulate genomic interval <code>.bed</code> files.",
 			"tools": ["bedtools"],
 			"difficulty": ["beginner"],
-			"author": {
-				"name": "Aaron Quinlan",
-				"link": "https://bioscience.utah.edu/faculty/quinlan/"
+			"adapted_from": {
+				"name": "quinlanlab.org/tutorials/bedtools",
+				"link": "http://quinlanlab.org/tutorials/bedtools/bedtools.html"
 			},
 			// Tutorial
 			"steps": [
