@@ -3,7 +3,7 @@ import Execute from "../../Execute.svelte";
 </script>
 
 <p>
-	By default, <code>intersect</code> reports intervals that represent overlaps between your two files. To demonstrate, let's identify all of the CpG islands that overlap exons:
+	By default, `intersect` reports intervals that represent overlaps between your two files. To demonstrate, let's identify all of the CpG islands that overlap exons:
 </p>
 
 <Execute command={"bedtools intersect -a cpg.bed -b exons.bed | head -n 5"} />
@@ -16,7 +16,7 @@ import Execute from "../../Execute.svelte";
 	</div>
 </div>
 
-<p>The <code>-wa</code> (write A) and <code>-wb</code> (write B) options allow one to see the original records from the A and B files that overlapped.</p>
+<p>The `-wa` (write A) and `-wb` (write B) options allow one to see the original records from the A and B files that overlapped.</p>
 
 <p>
 	As such, instead of not only showing you <strong>where</strong> the intersections occurred, it shows you <strong>what</strong> intersected.

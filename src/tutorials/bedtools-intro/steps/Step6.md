@@ -8,7 +8,7 @@ import Image from "../../Image.svelte";
 </p>
 
 <p>
-	For example, compare the difference in speed between the two approaches when finding intersections between <code>exons.bed</code> and <code>hesc.chromHmm.bed</code>:
+	For example, compare the difference in speed between the two approaches when finding intersections between `exons.bed` and `hesc.chromHmm.bed`:
 </p>
 
 <Execute command={"time bedtools intersect -a gwas.bed -b hesc.chromHmm.bed > /dev/null"} />
@@ -19,8 +19,8 @@ import Image from "../../Image.svelte";
 
 <div class="p-2 mt-3">
 	<div class="alert alert-info p-3">
-		<strong>Note:</strong> While the run times in this example are quite small, the performance gains from using the <code>-sorted</code> option grow as datasets grow larger. For example, compare the runtimes of the sorted and unsorted approaches as a function of dataset size in the figure below. The important thing to
-		remember is that each dataset must be sorted by chromosome and then by start position: <code>sort -k1,1 -k2,2n</code>.
+		<strong>Note:</strong> While the run times in this example are quite small, the performance gains from using the `-sorted` option grow as datasets grow larger. For example, compare the runtimes of the sorted and unsorted approaches as a function of dataset size in the figure below. The important thing to
+		remember is that each dataset must be sorted by chromosome and then by start position: `sort -k1,1 -k2,2n`.
 	</div>
 </div>
 

@@ -2,9 +2,9 @@
 import Execute from "../../Execute.svelte";
 </script>
 
-<p>Bedtools is a command-line tool. To bring up the help, just type <Execute command={"bedtools"} /></p>
+Bedtools is a command-line tool. To bring up the help, just type <Execute command={"bedtools"} />
 
-<p>As you can see, there are multiple "subcommands" and for <code>bedtools</code> to work you must tell it which subcommand you want to use.</p>
+As you can see, there are multiple "subcommands" and for `bedtools` to work you must tell it which subcommand you want to use.
 
 <span>
 	Examples: 
