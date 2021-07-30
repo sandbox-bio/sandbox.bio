@@ -30,8 +30,8 @@ function nextStep(step)
 
 <div class="container-fluid pb-3">
 	<div class="d-grid gap-3" style="grid-template-columns: 1fr 2fr; height:85vh; max-height:85vh">
-		<div class="bg-light border rounded-3 p-2 d-flex align-items-end flex-column" style="overflow-y:scroll">
-			<div class="w-100 p-2">
+		<div class="bg-light border rounded-3 p-2 d-flex align-items-end flex-column">
+			<div class="w-100 p-2 mb-auto" style="max-height:78vh; overflow-y:scroll; overflow-x:hidden">
 				<h4>{stepInfo.name || tutorial.name}</h4>
 				{#if stepInfo.subtitle}
 					<h6>{stepInfo.subtitle}</h6>
@@ -60,8 +60,7 @@ function nextStep(step)
 				</div>
 			</div>
 
-			<div class="w-100 p-2 mt-auto">
-				<hr class="border-2 border-top border-secondary" />
+			<div class="w-100 p-2 border-top pt-4">
 				<div class="row">
 					<div class="col-10">
 						<button type="button" class="btn btn-sm" on:click={() => step--} class:btn-primary={step != 0} class:btn-secondary={step == 0} disabled={step == 0}>&larr; Previous</button>
