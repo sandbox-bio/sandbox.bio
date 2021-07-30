@@ -2,20 +2,20 @@
 import Execute from "../../Execute.svelte";
 </script>
 
-Bedtools is a command-line tool. To bring up the help, just type <Execute command={"bedtools"} />
+Bedtools is a command-line tool. To bring up the help, just type <Execute command={"bedtools"} inline={true} />
 
 As you can see, there are multiple "subcommands" and for `bedtools` to work you must tell it which subcommand you want to use.
 
 Examples: 
 
-* <Execute command={"bedtools intersect"} />
-* <Execute command={"bedtools merge"} />
-* <Execute command={"bedtools subtract"} />
+* <Execute command={"bedtools intersect"} inline={true} />
+* <Execute command={"bedtools merge"} inline={true} />
+* <Execute command={"bedtools subtract"} inline={true} />
 
 What version am I using?: 
 
-* <Execute command={"bedtools --version"} />
+* <Execute command={"bedtools --version"} inline={true} />
 
 How can I get more help?: 
 
-* <Execute command={"bedtools --contact"} />
+* <Execute command={"bedtools --contact"} inline={true} />
