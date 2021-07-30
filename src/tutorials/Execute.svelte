@@ -7,14 +7,14 @@ export let command;
 function exec()
 {
 	if(!command)
-			return;
-	$xtermAddons.echo.setInput(command);
+		return;
+	$xtermAddons.echo.setInput(command.replace(/\\/g, ""));
 	$xtermAddons.echo.handleData("\r");
 };
 </script>
 
 <kbd on:click={exec}>
-	{command}
+	{@html command.replace(/\\/g, "\\ <br />&nbsp;&nbsp;&nbsp;")}
 </kbd>
 
 <style>
