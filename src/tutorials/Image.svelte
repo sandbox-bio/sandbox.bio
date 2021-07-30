@@ -12,12 +12,12 @@ let toggle = () => isOpen = !isOpen;
 
 <Modal body size="xl" {toggle} {isOpen}>
 	<div class="text-center" style="width:100%">
-		<img alt={alt} src={src} class="rounded" style="max-height:80vh; width:auto">
+		<img class="img-fluid rounded" alt={alt} src={src}>
 	</div>
 </Modal>
 
 <p class="text-center">
-	<img alt={alt} src={src} on:click={toggle} style="max-height:350px; width:auto">
+	<img class="img-fluid rounded img-thumbnail" alt={alt} src={src} on:click={toggle}>
 </p>
 
 <style>
