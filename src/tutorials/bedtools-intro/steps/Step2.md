@@ -6,25 +6,16 @@ Bedtools is a command-line tool. To bring up the help, just type <Execute comman
 
 As you can see, there are multiple "subcommands" and for `bedtools` to work you must tell it which subcommand you want to use.
 
-<span>
-	Examples: 
-	<ul>
-		<li><Execute command={"bedtools intersect"} /></li>
-		<li><Execute command={"bedtools merge"} /></li>
-		<li><Execute command={"bedtools subtract"} /></li>
-	</ul>
-</span>
+Examples: 
 
-<span>
-	What version am I using?: 
-	<ul>
-		<li><Execute command={"bedtools --version"} /></li>
-	</ul>
-</span>
+* <Execute command={"bedtools intersect"} />
+* <Execute command={"bedtools merge"} />
+* <Execute command={"bedtools subtract"} />
 
-<span>
-	How can I get more help?: 
-	<ul>
-		<li><Execute command={"bedtools --contact"} /></li>
-	</ul>
-</span>
+What version am I using?: 
+
+* <Execute command={"bedtools --version"} />
+
+How can I get more help?: 
+
+* <Execute command={"bedtools --contact"} />

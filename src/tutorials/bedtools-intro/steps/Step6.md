@@ -3,17 +3,17 @@ import Execute from "../../Execute.svelte";
 import Image from "../../Image.svelte";
 </script>
 
-<p>
-	So far the examples presented have used the traditional algorithm in bedtools for finding intersections.  It turns out, however, that bedtools is much faster when using presorted data.
-</p>
 
-<p>
+	So far the examples presented have used the traditional algorithm in bedtools for finding intersections.  It turns out, however, that bedtools is much faster when using presorted data.
+
+
+
 	For example, compare the difference in speed between the two approaches when finding intersections between `exons.bed` and `hesc.chromHmm.bed`:
-</p>
+
 
 <Execute command={"time bedtools intersect -a gwas.bed -b hesc.chromHmm.bed > /dev/null"} />
 
-<p></p>
+
 
 <Execute command={"time bedtools intersect -a gwas.bed -b hesc.chromHmm.bed -sorted > /dev/null"} />
 

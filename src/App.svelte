@@ -20,8 +20,8 @@ const path = window.location.pathname;
 			<a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a>
 		</li>
 		<li class="nav-item dropdown">
-			<!-- svelte-ignore a11y-no-onchange -->
-			<a class="nav-link dropdown-toggle" class:active={path == "/playground"} href="#" id="navTutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<!-- svelte-ignore a11y-invalid-attribute -->
+			<a href="#" class="nav-link dropdown-toggle" class:active={path == "/playground"} id="navTutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 				Tutorials
 			</a>
 			<ul class="dropdown-menu" aria-labelledby="navTutorials">
@@ -31,7 +31,7 @@ const path = window.location.pathname;
 			</ul>
 		</li>
 		<li class="nav-item dropdown">
-			<!-- svelte-ignore a11y-no-onchange -->
+			<!-- svelte-ignore a11y-invalid-attribute -->
 			<a class="nav-link dropdown-toggle" href="#" id="navExplore" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 				Explore
 			</a>
