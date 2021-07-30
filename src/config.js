@@ -14,7 +14,6 @@ import BedtoolsStep10 from "./tutorials/bedtools-intro/Step10.svelte";
 import BedtoolsStep11 from "./tutorials/bedtools-intro/Step11.svelte";
 import BedtoolsStep12 from "./tutorials/bedtools-intro/Step12.svelte";
 import BedtoolsStep13 from "./tutorials/bedtools-intro/Step13.svelte";
-import BedtoolsConclusion from "./tutorials/bedtools-intro/Conclusion.svelte";
 // Bedtools data files
 import BedtoolsCpgBed from "./tutorials/bedtools-intro/data/cpg.bed";
 import BedtoolsExonsBed from "./tutorials/bedtools-intro/data/exons.bed";
@@ -53,8 +52,7 @@ export const config = {
 				{ name: "bedtools merge", component: BedtoolsStep10, subtitle: "Merge nearby features" },
 				{ name: "bedtools complement", component: BedtoolsStep11, subtitle: "Find uncovered regions", header: true},
 				{ name: "bedtools genomecov", component: BedtoolsStep12, subtitle: "Measure genome-wide coverage", header: true },
-				{ name: "bedtools jaccard", component: BedtoolsStep13, subtitle: "Measure dataset similarity", header: true },
-				{ name: "The end", component: BedtoolsConclusion, header: true },
+				{ name: "bedtools jaccard", component: BedtoolsStep13, subtitle: "Measure dataset similarity", header: true }
 			],
 			// Files needed
 			files: [
