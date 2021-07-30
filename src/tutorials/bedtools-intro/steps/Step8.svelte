@@ -1,5 +1,5 @@
 <script>
-import Image from "../Image.svelte";
+import Image from "../../Image.svelte";
 </script>
 
 <p>

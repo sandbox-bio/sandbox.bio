@@ -1,5 +1,5 @@
 <script>
-import Execute from "../Execute.svelte";
+import Execute from "../../Execute.svelte";
 </script>
 
 <p>

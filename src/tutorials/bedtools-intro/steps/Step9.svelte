@@ -1,5 +1,5 @@
 <script>
-import Execute from "../Execute.svelte";
+import Execute from "../../Execute.svelte";
 </script>
 
 <p>Merging results in a new set of intervals representing the merged set of intervals in the input. That is, if a base pair in the genome is covered by 10 features, it will now only be represented once in the output file.</p>

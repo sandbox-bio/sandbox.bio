@@ -1,6 +1,6 @@
 <script>
-import Execute from "../Execute.svelte";
-import IGV from "../IGV.svelte";
+import Execute from "../../Execute.svelte";
+import IGV from "../../IGV.svelte";
 
 let isOpen = false;
 let igvOptions = {

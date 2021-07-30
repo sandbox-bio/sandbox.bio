@@ -1,6 +1,6 @@
 <script>
-import Execute from "../Execute.svelte";
-import Image from "../Image.svelte";
+import Execute from "../../Execute.svelte";
+import Image from "../../Image.svelte";
 </script>
 
 <p>
