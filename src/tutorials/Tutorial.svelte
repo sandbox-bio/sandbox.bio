@@ -62,7 +62,7 @@ function nextStep(step)
 					</div>
 					<div class="col-2 text-end" style="font-size: 80%">
 						<ButtonDropdown size="sm">
-							<DropdownToggle color="light">
+							<DropdownToggle color="light" class="dropup">
 								<span class="badge rounded-pill bg-info dropdown-toggle" data-toggle="dropdown">{step + 1} / {tutorial.steps.length}</span>
 							</DropdownToggle>
 							<DropdownMenu>
