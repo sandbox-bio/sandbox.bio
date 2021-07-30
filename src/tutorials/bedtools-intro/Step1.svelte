@@ -29,7 +29,7 @@ let igvOptions = {
 
 <p>Your directory contains 7 <code>BED</code> files and 1 genome file. Three of these files (those starting with <code>f</code> for "fetal tissue") reflect Dnase I hypersensitivity sites measured in different fetal tissue samples.</p>
 
-<p>In order to have a rough sense of the remaining <code>.bed</code> files, let's load them into IGV: <button class="btn btn-primary" on:click={() => isOpen = !isOpen}>Launch IGV</button></p>
+<p>In order to have a rough sense of the remaining <code>.bed</code> files, let's load them into IGV: <button class="btn btn-sm btn-primary" on:click={() => isOpen = !isOpen}>Launch IGV</button></p>
 
 <IGV options={igvOptions} bind:isOpen={isOpen}>
 	<span slot="after">
