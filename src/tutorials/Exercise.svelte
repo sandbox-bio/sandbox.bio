@@ -30,6 +30,9 @@ async function check(manual=false)
 				else if(check.action == "contents") {
 					const observed = await CoreUtils.CLI.cat(check.path);
 					const expected = await CoreUtils.CLI.exec(check.equal);
+					if(check.output) {
+						await CoreUtils.FS.writeFile(check.output, expected);
+					}
 					status[i] = observed == expected;
 				}
 			}

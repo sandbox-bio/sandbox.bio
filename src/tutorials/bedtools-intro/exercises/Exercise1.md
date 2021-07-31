@@ -1,4 +1,7 @@
 <script>
+// Solution:
+//    bedtools complement -i exons.bed -g genome.txt > notexons.bed
+
 import Exercise from "../../Exercise.svelte";
 
 let criteria = [

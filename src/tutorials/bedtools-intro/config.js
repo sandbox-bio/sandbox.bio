@@ -15,6 +15,7 @@ import BedtoolsStep12 from "./steps/Step12.md";
 import BedtoolsStep13 from "./steps/Step13.md";
 // Exercises
 import BedtoolsExercise1 from "./exercises/Exercise1.md";
+import BedtoolsExercise2 from "./exercises/Exercise2.md";
 // Data files
 import BedtoolsCpgBed from "./data/cpg.bed";
 import BedtoolsExonsBed from "./data/exons.bed";
@@ -54,6 +55,7 @@ export const config = {
 		{ name: "bedtools genomecov", component: BedtoolsStep12, subtitle: "Measure genome-wide coverage", header: true },
 		{ name: "bedtools jaccard", component: BedtoolsStep13, subtitle: "Measure dataset similarity", header: true },
 		{ name: "Exercises", component: BedtoolsExercise1, subtitle: "Find non-exons", header: true },
+		{ name: "Exercises", component: BedtoolsExercise2, subtitle: "Number of exons in each 500kb" },
 	],
 
 	// Files needed at runtime
