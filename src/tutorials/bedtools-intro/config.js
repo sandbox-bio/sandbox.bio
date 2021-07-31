@@ -13,6 +13,8 @@ import BedtoolsStep10 from "./steps/Step10.md";
 import BedtoolsStep11 from "./steps/Step11.md";
 import BedtoolsStep12 from "./steps/Step12.md";
 import BedtoolsStep13 from "./steps/Step13.md";
+// Exercises
+import BedtoolsExercise1 from "./exercises/Exercise1.md";
 // Data files
 import BedtoolsCpgBed from "./data/cpg.bed";
 import BedtoolsExonsBed from "./data/exons.bed";
@@ -50,7 +52,8 @@ export const config = {
 		{ name: "bedtools merge", component: BedtoolsStep10, subtitle: "Merge nearby features" },
 		{ name: "bedtools complement", component: BedtoolsStep11, subtitle: "Find uncovered regions", header: true},
 		{ name: "bedtools genomecov", component: BedtoolsStep12, subtitle: "Measure genome-wide coverage", header: true },
-		{ name: "bedtools jaccard", component: BedtoolsStep13, subtitle: "Measure dataset similarity", header: true }
+		{ name: "bedtools jaccard", component: BedtoolsStep13, subtitle: "Measure dataset similarity", header: true },
+		{ name: "Exercises", component: BedtoolsExercise1, subtitle: "Find non-exons", header: true },
 	],
 
 	// Files needed at runtime

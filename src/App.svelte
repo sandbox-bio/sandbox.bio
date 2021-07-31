@@ -20,6 +20,10 @@ const intro = `# This playground is for open-ended exploration.
 `;
 </script>
 
+<svelte:head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+</svelte:head>
+
 <header class="d-flex flex-wrap justify-content-center py-3 border-bottom ms-4 me-4 mb-3">
 	<a href="/" class="d-flex align-items-center mb-md-0 me-md-auto text-dark text-decoration-none">
 		<span class="fs-4">🧬 sandbox.bio</span>
