@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Home from "./routes/Home.svelte";
 import Tutorials from "./routes/Tutorials.svelte";
+import Terminal from "./terminal/Terminal.svelte";
 import { config } from "./config";
 
 // State
@@ -50,5 +51,7 @@ const path = window.location.pathname;
 		<Home />
 	{:else if path == "/tutorials"}
 		<Tutorials />
+	{:else if path == "/playground"}
+		<Terminal />
 	{/if}
 </main>
