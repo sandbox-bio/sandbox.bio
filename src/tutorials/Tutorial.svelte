@@ -25,13 +25,17 @@ function nextStep(step)
 		url.searchParams.set("step", step);
 		window.history.pushState({}, "", url);
 	}
+
+	// Scroll to the top when navigate pages
+	if(document.getElementById("tutorial-sidebar"))
+		document.getElementById("tutorial-sidebar").scrollTop = 0;
 }
 </script>
 
 <div class="container-fluid pb-3">
 	<div class="d-grid gap-3" style="grid-template-columns: 1fr 2fr; height:85vh; max-height:85vh">
 		<div class="bg-light border rounded-3 p-2 d-flex align-items-end flex-column">
-			<div class="w-100 p-2 mb-auto" style="max-height:78vh; overflow-y:scroll; overflow-x:hidden">
+			<div id="tutorial-sidebar" class="w-100 p-2 mb-auto" style="max-height:77vh; overflow-y:scroll; overflow-x:hidden">
 				<h4>{stepInfo.name || tutorial.name}</h4>
 				{#if stepInfo.subtitle}
 					<h6>{stepInfo.subtitle}</h6>
