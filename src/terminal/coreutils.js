@@ -109,6 +109,20 @@ export class CoreUtils
 	}
 
 	// -------------------------------------------------------------------------
+	// Wrangling
+	// -------------------------------------------------------------------------
+
+	// grep: assume format = "grep <patternHere> <file>"
+	static async grep(args)
+	{
+		args = parseArgs(args, { boolean: [ "E" ] });
+		const pattern = args._[0].replaceAll('"', '').replaceAll("'", "");
+		const path = args._[1];
+		const contents = await CoreUtils.cat([path]);
+		return contents.split("\n").filter(line => line.match(pattern)).join("\n");
+	}
+
+	// -------------------------------------------------------------------------
 	// File system commands with external interaction
 	// -------------------------------------------------------------------------
 
