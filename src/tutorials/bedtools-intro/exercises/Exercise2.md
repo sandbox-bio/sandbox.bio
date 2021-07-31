@@ -49,7 +49,7 @@ let criteria = [
 Count how many exons occur in each 500kb interval ("window") in the human genome. Use the files `exons.bed` and `genome.txt` as input.
 
 <Alert>
-	**Hint**: take a look at the `bedtools makewindows` tool.
+	**Hint**: have a look at the `bedtools makewindows` tool.
 </Alert>
 
 <Exercise {criteria} />
