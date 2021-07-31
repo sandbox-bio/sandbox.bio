@@ -1,5 +1,6 @@
 <script>
 import { onMount, createEventDispatcher } from "svelte";
+import { Spinner } from "sveltestrap";
 import "xterm/css/xterm.css";
 
 // Imports
@@ -255,4 +256,8 @@ async function handleAutocomplete(data)
 }
 </script>
 
-<div bind:this={divTerminal} style="opacity: { ready ? 1 : 0.6 }; height:85vh; max-height:85vh"></div>
+<div bind:this={divTerminal} style="opacity: { ready ? 1 : 0.6 }; height:85vh; max-height:85vh; overflow:hidden">
+	{#if !ready}
+		<Spinner color="light" type="border" />
+	{/if}
+</div>
