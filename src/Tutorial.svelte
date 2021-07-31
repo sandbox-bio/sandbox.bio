@@ -1,6 +1,6 @@
 <script>
 import { config } from "config";
-import Terminal from "terminal/Terminal.svelte";
+import Terminal from "./Terminal.svelte";
 import { DropdownItem, Offcanvas } from "sveltestrap";
 
 export let id;

@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Home from "routes/Home.svelte";
 import Tutorials from "routes/Tutorials.svelte";
-import Terminal from "terminal/Terminal.svelte";
+import Terminal from "./Terminal.svelte";
 import { config } from "config";
 
 // State

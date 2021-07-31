@@ -53,7 +53,7 @@ let criteria = [
 
 What is the Jaccard statistic between CpG and hESC enhancers? Compare that to the Jaccard statistic between CpG and hESC promoters. Does the result make sense?
 
-<Alert color="info">
+<Alert>
 	**Hint**: to find enhancers, you can use `grep` on the `hesc.chromHmm.bed` file using the `Enhancer` pattern.
 </Alert>
 

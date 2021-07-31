@@ -12,7 +12,7 @@ For example, compare the difference in speed between the two approaches when fin
 
 <Execute command={"time bedtools intersect -a gwas.bed -b hesc.chromHmm.bed -sorted > /dev/null"} />
 
-<Alert color="info">
+<Alert>
 	**Note:** While the run times in this example are quite small, the performance gains from using the `-sorted` option grow as datasets grow larger. For example, compare the runtimes of the sorted and unsorted approaches as a function of dataset size in the figure below. The important thing to
 	remember is that each dataset must be sorted by chromosome and then by start position: `sort -k1,1 -k2,2n`.
 </Alert>

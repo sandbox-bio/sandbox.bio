@@ -4,8 +4,8 @@ import { Spinner } from "sveltestrap";
 import "xterm/css/xterm.css";
 
 // Imports
-import { xterm, xtermAddons } from "./xterm";
-import { CoreUtils } from "./coreutils";
+import { xterm, xtermAddons } from "terminal/xterm";
+import { CoreUtils } from "terminal/coreutils";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";                // Clear terminal

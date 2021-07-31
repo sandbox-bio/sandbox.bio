@@ -21,7 +21,7 @@ let criteria = [
 
 Create intervals representing the canonical 2bp splice sites on either side of each exon (don't worry about excluding splice sites at the first or last exon). Use the files `exons.bed` and `genome.txt` as input, and output your result to `splice-sites.bed`.
 
-<Alert color="info">
+<Alert>
 	**Hint**: have a look at the <Link href="https://bedtools.readthedocs.io/en/latest/content/tools/flank.html">`bedtools flank`</Link> tool.
 </Alert>
 

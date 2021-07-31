@@ -3,7 +3,7 @@
 import { onMount } from "svelte";
 import Aioli from "@biowasm/aioli";
 
-import { CoreUtils } from "./coreutils";
+import { CoreUtils } from "terminal/coreutils";
 import XTerm from "./XTerm.svelte";
 
 export let tools = ["samtools/1.10", "bedtools/2.29.2"];
