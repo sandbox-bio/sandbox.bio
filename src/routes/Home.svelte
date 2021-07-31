@@ -9,7 +9,7 @@ import Tutorials from "./Tutorials.svelte";
 			<br />
 			<p class="lead">Learn how to use bioinformatics tools right from your browser.<br />Everything runs in a sandbox, so you can experiment all you want.</p>
 			<div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mt-5 mb-lg-3">
-				<a href="/tutorials" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Get started &rarr;</a>
+				<a href="/tutorials?id=bedtools-intro" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Get started &rarr;</a>
 			</div>
 		</div>
 		<div class="col-lg-5 offset-md-1 p-0 overflow-hidden shadow-lg">
@@ -20,7 +20,7 @@ import Tutorials from "./Tutorials.svelte";
 
 <Tutorials n={4} />
 
-<footer class="pt-3 mt-4 text-muted border-top">
+<footer class="pt-3 mt-4 mb-4 text-muted border-top">
 	Built by <a href="https://robertaboukhalil.com">Robert Aboukhalil</a>. Reach out if you have tutorial ideas.
 </footer>
 
