@@ -23,15 +23,21 @@ let ready = false;  // Ready for user input?
 // =============================================================================
 onMount(async () => {
 	// Initialize Aioli
-	CLI = await new Aioli(["samtools/1.10", "bedtools/2.29.2"], { env: "stg", debug: false });
-	CoreUtils.CLI = CLI;
+	try {
+		CLI = await new Aioli(["samtools/1.10", "bedtools/2.29.2"], { env: "stg", debug: false });
+		CoreUtils.CLI = CLI;
 
-	// Now we can allow user input
-	ready = true;
+		// Now we can allow user input
+		ready = true;
 
-	// Pre-load files onto the main folder
-	for(let file of files)
-		await CoreUtils.FS.writeFile(file.name, file.contents);
+		// Pre-load files onto the main folder
+		for(let file of files)
+			await CoreUtils.FS.writeFile(file.name, file.contents);
+		
+	} catch (error) {
+		console.error("Could not load biowasm modules:", error);
+		alert("Could not load the terminal. Please try refreshing the page.");
+	}
 });
 
 
