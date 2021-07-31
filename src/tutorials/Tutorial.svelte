@@ -51,7 +51,7 @@ function nextStep(step)
 							{/each}
 						</h6>
 						{#if tutorial.adapted_from}
-							<p>Adapted from <a href={tutorial.adapted_from.link} target="_blank">{tutorial.adapted_from.name}</a></p>
+							<span>Adapted from <a href={tutorial.adapted_from.link} target="_blank">{tutorial.adapted_from.name}</a></span>
 						{/if}
 					</div>
 				{/if}
