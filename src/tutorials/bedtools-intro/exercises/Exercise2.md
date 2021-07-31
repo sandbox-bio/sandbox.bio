@@ -21,7 +21,7 @@ let criteria = [
 		type: "file",
 		path: "windows.bed",
 		action: "contents",
-		equal: "bedtools makewindows -g genome.txt -w 500000",
+		command: "bedtools makewindows -g genome.txt -w 500000",
 		output: "/shared/tmp/exercise2-windows.bed"
 	}]
 },
@@ -39,7 +39,7 @@ let criteria = [
 		type: "file",
 		path: "windows.exons.bedg",
 		action: "contents",
-		equal: "bedtools intersect -a /shared/tmp/exercise2-windows.bed -b exons.bed -c"
+		command: "bedtools intersect -a /shared/tmp/exercise2-windows.bed -b exons.bed -c"
 	}]
 }
 

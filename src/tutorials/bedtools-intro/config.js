@@ -17,6 +17,7 @@ import BedtoolsStep13 from "./steps/Step13.md";
 import BedtoolsExercise1 from "./exercises/Exercise1.md";
 import BedtoolsExercise2 from "./exercises/Exercise2.md";
 import BedtoolsExercise3 from "./exercises/Exercise3.md";
+import BedtoolsExercise4 from "./exercises/Exercise4.md";
 // Data files
 import BedtoolsCpgBed from "./data/cpg.bed";
 import BedtoolsExonsBed from "./data/exons.bed";
@@ -58,6 +59,7 @@ export const config = {
 		{ name: "Exercises", component: BedtoolsExercise1, subtitle: "Find non-exons", header: true },
 		{ name: "Exercises", component: BedtoolsExercise2, subtitle: "Find exons in 500kb regions" },
 		{ name: "Exercises", component: BedtoolsExercise3, subtitle: "Find flanking splice sites" },
+		{ name: "Exercises", component: BedtoolsExercise4, subtitle: "Calculate Jaccard statistics" }
 	],
 
 	// Files needed at runtime

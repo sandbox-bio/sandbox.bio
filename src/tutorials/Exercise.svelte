@@ -27,12 +27,21 @@ async function check(manual=false)
 				if(check.action == "exists")
 					status[i] = await CoreUtils.CLI.ls(check.path) !== false;
 				// Does file content match expectation?
-				else if(check.action == "contents") {
+				else if(check.action == "contents")
+				{
 					const observed = await CoreUtils.CLI.cat(check.path);
-					const expected = await CoreUtils.CLI.exec(check.equal);
-					if(check.output) {
+					let expected;
+
+					// If we define the right answer with a function we call
+					if(check.fn)
+						expected = await check.fn();
+					// If we define the right answer using a CLI invocation
+					else if(check.command)
+						expected = await CoreUtils.CLI.exec(check.command);
+
+					// Is it correct?
+					if(check.output)
 						await CoreUtils.FS.writeFile(check.output, expected);
-					}
 					status[i] = observed == expected;
 				}
 			}

@@ -19,7 +19,7 @@ let criteria = [
 		type: "file",
 		path: "notexons.bed",
 		action: "contents",
-		equal: "bedtools complement -i exons.bed -g genome.txt"
+		command: "bedtools complement -i exons.bed -g genome.txt"
 	}]
 }];
 </script>
