@@ -2,9 +2,10 @@ import svelte from "rollup-plugin-svelte";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import livereload from "rollup-plugin-livereload";
+import includePaths from "rollup-plugin-includepaths";
+import css from "rollup-plugin-css-only";
 import { terser } from "rollup-plugin-terser";
 import { string } from "rollup-plugin-string";
-import css from "rollup-plugin-css-only";
 import { markdown } from "svelte-preprocess-markdown";
 
 const production = !process.env.ROLLUP_WATCH;
@@ -40,44 +41,32 @@ export default {
 	},
 	plugins: [
 		svelte({
+			// Note that exercises can be written in a mix of Svelte/Markdown
 			extensions: [".svelte", ".md"],
 			preprocess: markdown(),
-			compilerOptions: {
-				// enable run-time checks when not in production
-				dev: !production
-			}
+			// Run-time checks when not in production
+			compilerOptions: { dev: !production }
 		}),
-		// we'll extract any component CSS out into
-		// a separate file - better for performance
+
+		// Extract component CSS into a separate file - better for performance
 		css({ output: "bundle.css" }),
 
-		// If you have external dependencies installed from
-		// npm, you"ll most likely need these plugins. In
-		// some cases you"ll need additional configuration -
-		// consult the documentation for details:
-		// https://github.com/rollup/plugins/tree/master/packages/commonjs
-		resolve({
-			browser: true,
-			dedupe: ["svelte"]
-		}),
+		// Resolve external dependencies installed from npm
+		resolve({ browser: true, dedupe: ["svelte"] }),
 		commonjs(),
 
-		// In dev mode, call `npm run start` once
-		// the bundle has been generated
+		// Launch server in dev mode
 		!production && serve(),
-
-		// Watch the `public` directory and refresh the
-		// browser on changes when not in production
 		!production && livereload("public"),
 
-		// If we're building for production (npm run build
-		// instead of npm run dev), minify
+		// Minify
 		production && terser(),
 
-		// Allow us to import bed files into strings!
-		string({
-			include: "**/*.{bed,txt}"
-		})
+		// Allow us to import bed/txt files into strings!
+		string({ include: "**/*.{bed,txt}" }),
+
+		// Define other include paths so the code is more terse
+		includePaths({ paths: ["./src/"] })
 	],
 	watch: {
 		clearScreen: false
