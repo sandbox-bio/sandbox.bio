@@ -8,7 +8,7 @@ import XTerm from "./XTerm.svelte";
 
 export let tools = ["samtools/1.10", "bedtools/2.29.2"];
 export let files = [];
-export let intro;
+export let intro = false;
 
 
 // =============================================================================

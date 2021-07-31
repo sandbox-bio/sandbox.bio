@@ -1,5 +1,5 @@
 <script>
-import Execute from "../../Execute.svelte";
+import Execute from "components/Execute.svelte";
 </script>
 
 Bedtools is a command-line tool. To bring up the help, just type <Execute command={"bedtools"} inline={true} />

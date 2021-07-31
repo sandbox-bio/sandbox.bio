@@ -1,5 +1,5 @@
 <script>
-import { CoreUtils } from "../terminal/coreutils";
+import { CoreUtils } from "terminal/coreutils";
 import { Icon, Spinner } from "sveltestrap";
 
 export let criteria = [];  // List of criteria that must be true for the exercise to be complete

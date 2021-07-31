@@ -2,9 +2,9 @@
 // Solution:
 //    bedtools flank -l 2 -r 2 -i exons.bed -g genome.txt > splice-sites.bed
 
-import Exercise from "../../Exercise.svelte";
-import Alert from "../../Alert.svelte";
-import Link from "../../Link.svelte";
+import Exercise from "components/Exercise.svelte";
+import Alert from "components/Alert.svelte";
+import Link from "components/Link.svelte";
 
 let criteria = [
 {

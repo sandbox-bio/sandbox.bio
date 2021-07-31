@@ -1,5 +1,5 @@
 <script>
-import Image from "../../Image.svelte";
+import Image from "components/Image.svelte";
 </script>
 
 Many datasets of genomic features have many individual features that overlap one another (e.g. aligments from a ChiP seq experiment). It is often useful to just cobine the overlapping into a single, contiguous interval. The bedtools `merge` command will do this for you.

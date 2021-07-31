@@ -1,6 +1,6 @@
 <script>
-import { config } from "../config";
-import Tutorial from "../tutorials/Tutorial.svelte";
+import { config } from "config";
+import Tutorial from "components/Tutorial.svelte";
 
 export let maxListings = Infinity;  // max number of tutorials to list
 

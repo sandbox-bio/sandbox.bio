@@ -1,7 +1,7 @@
 <script>
-import Execute from "../../Execute.svelte";
-import Image from "../../Image.svelte";
-import Alert from "../../Alert.svelte";
+import Execute from "components/Execute.svelte";
+import Image from "components/Image.svelte";
+import Alert from "components/Alert.svelte";
 </script>
 
 So far the examples presented have used the traditional algorithm in bedtools for finding intersections.  It turns out, however, that bedtools is much faster when using presorted data.

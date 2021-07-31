@@ -1,6 +1,6 @@
 <script>
 import { Card } from "sveltestrap";
-import { xtermAddons } from "../terminal/xterm";
+import { xtermAddons } from "terminal/xterm";
 
 export let command;
 export let inline = false;

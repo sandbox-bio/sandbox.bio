@@ -1,6 +1,6 @@
 <script>
-import Execute from "../../Execute.svelte";
-import Image from "../../Image.svelte";
+import Execute from "components/Execute.svelte";
+import Image from "components/Image.svelte";
 </script>
 
 For many analyses, one wants to measure the genome wide coverage of a feature file. For example, we often want to know what fraction of the genome is covered by 1 feature, 2 features, 3 features, etc. This is frequently crucial when assessing the "uniformity" of coverage from whole-genome sequencing. This is done with the versatile `genomecov` tool.

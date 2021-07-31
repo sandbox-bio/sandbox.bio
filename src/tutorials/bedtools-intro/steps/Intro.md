@@ -1,5 +1,5 @@
 <script>
-import Link from "../../Link.svelte";
+import Link from "components/Link.svelte";
 </script>
 
 Our goal is to work through examples that demonstrate how to explore, process and manipulate genomic interval files (e.g., `BED`, `VCF`, `BAM`) with the `bedtools` software package.

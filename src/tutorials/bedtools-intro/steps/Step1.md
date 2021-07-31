@@ -1,7 +1,7 @@
 <script>
-import Execute from "../../Execute.svelte";
-import IGV from "../../IGV.svelte";
-import Link from "../../Link.svelte";
+import Execute from "components/Execute.svelte";
+import IGV from "components/IGV.svelte";
+import Link from "components/Link.svelte";
 
 let isOpen = false;
 let igvOptions = {

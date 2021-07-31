@@ -1,6 +1,6 @@
 <script>
-import Alert from "../../Alert.svelte";
-import Execute from "../../Execute.svelte";
+import Alert from "components/Alert.svelte";
+import Execute from "components/Execute.svelte";
 </script>
 
 By default, `intersect` reports intervals that represent overlaps between your two files. To demonstrate, let's identify all of the CpG islands that overlap exons:

@@ -1,5 +1,5 @@
 <script>
-import Execute from "../../Execute.svelte";
+import Execute from "components/Execute.svelte";
 </script>
 
 The `-wo` (write overlap) option allows one to also report the **number** of base pairs of overlap between the features that overlap between each of the files:

@@ -1,5 +1,5 @@
 <script>
-import Execute from "../../Execute.svelte";
+import Execute from "components/Execute.svelte";
 </script>
 
 With the `-d` (distance) option, one can also merge intervals that do not overlap, yet are close to one another. For example, to merge features that are no more than 1000bp apart, one would run:

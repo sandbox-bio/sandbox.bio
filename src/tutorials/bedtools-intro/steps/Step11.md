@@ -1,7 +1,7 @@
 <script>
-import Execute from "../../Execute.svelte";
-import Image from "../../Image.svelte";
-import Link from "../../Link.svelte";
+import Execute from "components/Execute.svelte";
+import Image from "components/Image.svelte";
+import Link from "components/Link.svelte";
 </script>
 
 We often want to know which intervals of the genome are **NOT** "covered" by intervals in a given feature file. For example, if you have a set of ChIP-seq peaks, you may also want to know which regions of the genome are not bound by the factor you assayed. The `complement` addresses this task.

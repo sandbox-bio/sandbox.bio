@@ -2,10 +2,10 @@
 import "bootstrap/dist/js/bootstrap.bundle";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Home from "./routes/Home.svelte";
-import Tutorials from "./routes/Tutorials.svelte";
-import Terminal from "./terminal/Terminal.svelte";
-import { config } from "./config";
+import Home from "routes/Home.svelte";
+import Tutorials from "routes/Tutorials.svelte";
+import Terminal from "terminal/Terminal.svelte";
+import { config } from "config";
 
 // State
 const path = window.location.pathname;

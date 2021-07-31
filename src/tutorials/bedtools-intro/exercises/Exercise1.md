@@ -2,7 +2,7 @@
 // Solution:
 //    bedtools complement -i exons.bed -g genome.txt > notexons.bed
 
-import Exercise from "../../Exercise.svelte";
+import Exercise from "components/Exercise.svelte";
 
 let criteria = [
 {

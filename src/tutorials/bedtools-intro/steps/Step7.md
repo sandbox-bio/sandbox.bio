@@ -1,5 +1,5 @@
 <script>
-import Execute from "../../Execute.svelte";
+import Execute from "components/Execute.svelte";
 </script>
 
 As of version `2.21.0`, bedtools is able to intersect an "A" file against one or more "B" files. This greatly simplifies analyses involving multiple datasets relevant to a given experiment. For example, let's intersect exons with CpG islands, GWAS SNPs, an the ChromHMM annotations:
