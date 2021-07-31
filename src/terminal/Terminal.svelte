@@ -6,6 +6,7 @@ import Aioli from "@biowasm/aioli";
 import { CoreUtils } from "./coreutils";
 import XTerm from "./XTerm.svelte";
 
+export let tools = ["samtools/1.10", "bedtools/2.29.2"];
 export let files = [];
 export let intro;
 
@@ -24,7 +25,7 @@ let ready = false;  // Ready for user input?
 onMount(async () => {
 	// Initialize Aioli
 	try {
-		CLI = await new Aioli(["samtools/1.10", "bedtools/2.29.2"], { env: "stg", debug: false });
+		CLI = await new Aioli(tools, { env: "stg", debug: false });
 		CoreUtils.CLI = CLI;
 
 		// Now we can allow user input
@@ -33,7 +34,7 @@ onMount(async () => {
 		// Pre-load files onto the main folder
 		for(let file of files)
 			await CoreUtils.FS.writeFile(file.name, file.contents);
-		
+
 	} catch (error) {
 		console.error("Could not load biowasm modules:", error);
 		alert("Could not load the terminal. Please try refreshing the page.");

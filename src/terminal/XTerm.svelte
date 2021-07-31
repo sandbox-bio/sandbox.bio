@@ -4,7 +4,7 @@ import { Spinner } from "sveltestrap";
 import "xterm/css/xterm.css";
 
 // Imports
-import { xterm, xtermAddons } from "./stores";
+import { xterm, xtermAddons } from "./xterm";
 import { CoreUtils } from "./coreutils";
 
 // Constants
@@ -14,7 +14,7 @@ const dispatch = createEventDispatcher();  // Dispatch for sending "exec" messag
 // Autocomplete subcommands
 const AUTOCOMPLETE = {
 	samtools: () => ["view", "sort", "index", "idxstats"],
-	bedtools: () => ["intersect", "merge", "complement", "bamtobed"],
+	bedtools: () => ["intersect", "merge", "complement", "genomecov", "jaccard", "makewindows", "flank"],
 	ls: async args => {
 		const pathSearch = args[0];                                               // /samtools/examples/toy
 		const pathBase = pathSearch.substring(0, pathSearch.lastIndexOf("/")+1);  // /samtools/examples/
