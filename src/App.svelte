@@ -9,6 +9,15 @@ import { config } from "./config";
 
 // State
 const path = window.location.pathname;
+const intro = `# This playground is for open-ended exploration.
+# For guided tutorials, see https://sandbox.bio/tutorials.
+#
+# Example:
+#   samtools view -o test.bam /samtools/examples/toy.sam
+#   samtools index test.bam
+#   ls test.bam.bai
+#   samtools idxstats test.bam
+`;
 </script>
 
 <header class="d-flex flex-wrap justify-content-center py-3 border-bottom ms-4 me-4 mb-3">
@@ -17,12 +26,9 @@ const path = window.location.pathname;
 	</a>
 
 	<ul class="nav nav-pills">
-		<li class="nav-item">
-			<a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a>
-		</li>
 		<li class="nav-item dropdown">
 			<!-- svelte-ignore a11y-invalid-attribute -->
-			<a href="#" class="nav-link dropdown-toggle" class:active={path == "/playground"} id="navTutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<a href="#" class="nav-link dropdown-toggle" class:active={path == "/tutorials"} id="navTutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 				Tutorials
 			</a>
 			<ul class="dropdown-menu" aria-labelledby="navTutorials">
@@ -43,6 +49,9 @@ const path = window.location.pathname;
 				<li><a class="dropdown-item" href="https://wgsim.sandbox.bio" target="_blank">Simulate DNA sequences</a></li>
 			</ul>
 		</li>
+		<li class="nav-item">
+			<a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a>
+		</li>
 	</ul>
 </header>
 
@@ -52,6 +61,8 @@ const path = window.location.pathname;
 	{:else if path == "/tutorials"}
 		<Tutorials />
 	{:else if path == "/playground"}
-		<Terminal />
+		<div class="p-2" style="background-color:#000">
+			<Terminal {intro} files={config.tutorials[0].files} />
+		</div>
 	{/if}
 </main>

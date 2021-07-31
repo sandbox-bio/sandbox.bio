@@ -7,6 +7,7 @@ import { CoreUtils } from "./coreutils";
 import XTerm from "./XTerm.svelte";
 
 export let files = [];
+export let intro;
 
 
 // =============================================================================
@@ -65,7 +66,4 @@ async function exec(cmd, callback)
 }
 </script>
 
-<XTerm
-	ready={ready}
-	on:exec={event => exec(event.detail.cmd, event.detail.callback)}
-/>
+<XTerm {ready} {intro} on:exec={event => exec(event.detail.cmd, event.detail.callback)} />

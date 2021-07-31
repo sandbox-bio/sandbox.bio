@@ -39,6 +39,7 @@ const AUTOCOMPLETE = {
 // =============================================================================
 
 export let ready = false;  // Whether CLI is ready for user input
+export let intro;          // Intro string to display on Terminal once ready (optional)
 let divTerminal;           // HTML element where terminal will be drawn
 let runtime = 0;           // How long the last command took to run
 let runtimeShow = false;   // Whether to output the command runtime
@@ -54,6 +55,9 @@ onMount(() => {
 	// Register handlers
 	$xterm.onKey(handleShortcuts);
 	$xterm.onData(handleAutocomplete);
+
+	if(intro)
+		$xterm.writeln(intro);
 
 	// Prepare UI but don't allow input yet
 	$xterm.open(divTerminal);
