@@ -5,7 +5,7 @@
 //    bedtools jaccard -a cpg.bed -b enhancers.bed > jaccard.enhancers.txt
 //    bedtools jaccard -a cpg.bed -b promoters.bed > jaccard.promoters.txt
 
-import { CoreUtils } from "terminal/coreutils";
+// import { CoreUtils } from "terminal/coreutils";
 import Exercise from "components/Exercise.svelte";
 import Alert from "components/Alert.svelte";
 

@@ -1,6 +1,6 @@
 <script>
 import { Card } from "sveltestrap";
-import { xtermAddons } from "terminal/xterm";
+import { CLI } from "terminal/cli";
 
 export let command;
 export let inline = false;
@@ -10,8 +10,7 @@ function exec()
 {
 	if(!command)
 		return;
-	$xtermAddons.echo.setInput(command.replace(/\\/g, ""));
-	$xtermAddons.echo.handleData("\r");
+	$CLI.setInput(command.replace(/\\/g, ""));
 };
 </script>
 

@@ -5,7 +5,8 @@ import "xterm/css/xterm.css";
 
 // Imports
 import { xterm, xtermAddons } from "terminal/xterm";
-import { CoreUtils } from "terminal/coreutils";
+// import { CoreUtils } from "terminal/coreutils";
+import { CLI } from "terminal/cli";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";                // Clear terminal
@@ -18,7 +19,7 @@ const AUTOCOMPLETE = {
 	ls: async args => {
 		const pathSearch = args[0];                                               // /samtools/examples/toy
 		const pathBase = pathSearch.substring(0, pathSearch.lastIndexOf("/")+1);  // /samtools/examples/
-		const files = await CoreUtils.ls([pathBase], true);
+		// const files = await CoreUtils.ls([pathBase], true);
 		return files.map(f => `${pathBase}${f.name}`);
 	},
 	cat: () => [],
@@ -87,7 +88,15 @@ function input(toPrint)
 // Execute command
 async function exec(cmd)
 {
-	console.log(cmd);
+	console.log("[XTerm]", cmd);
+	try {
+		const output = await $CLI.exec(cmd);
+		return input(output);
+	} catch (error) {
+		return input(error);
+	}
+
+
 	runtime = window.performance.now();
 	runtimeShow = false;
 
@@ -170,7 +179,7 @@ async function exec(cmd)
 
 			// Do we want to save this to a file?
 			if(options.file) {
-				await CoreUtils.FS.writeFile(options.file, stdout);
+				// await CoreUtils.FS.writeFile(options.file, stdout);
 				stdout = "";
 			// Or just to stdout: append \n if needed
 			} else if(!stdout.endsWith("\n")) {

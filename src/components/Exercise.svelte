@@ -1,5 +1,5 @@
 <script>
-import { CoreUtils } from "terminal/coreutils";
+import { CLI } from "terminal/cli";
 import { Icon, Spinner } from "sveltestrap";
 
 export let criteria = [];  // List of criteria that must be true for the exercise to be complete
@@ -24,26 +24,31 @@ async function check(manual=false)
 			if(check.type == "file")
 			{
 				// Does file exist?
-				if(check.action == "exists")
-					status[i] = await CoreUtils.CLI.ls(check.path) !== false;
-				// Does file content match expectation?
-				else if(check.action == "contents")
-				{
-					const observed = await CoreUtils.CLI.cat(check.path);
-					let expected;
+				if(check.action == "exists") {
+					console.log(check.path)
+					status[i] = await $CLI.exec(`ls ${check.path}`) !== false;
 
-					// If we define the right answer with a function we call
-					if(check.fn)
-						expected = await check.fn();
-					// If we define the right answer using a CLI invocation
-					else if(check.command)
-						expected = await CoreUtils.CLI.exec(check.command);
-
-					// Is it correct?
-					if(check.output)
-						await CoreUtils.FS.writeFile(check.output, expected);
-					status[i] = observed == expected;
 				}
+
+				
+				// // Does file content match expectation?
+				// else if(check.action == "contents")
+				// {
+				// 	const observed = await $CLI.exec(`cat ${check.path}`)
+				// 	let expected;
+
+				// 	// If we define the right answer with a function we call
+				// 	if(check.fn)
+				// 		expected = await check.fn();
+				// 	// If we define the right answer using a CLI invocation
+				// 	else if(check.command)
+				// 		expected = await $CLI.exec(check.command);
+
+				// 	// Is it correct?
+				// 	if(check.output)
+				// 		await CoreUtils.FS.writeFile(check.output, expected);
+				// 	status[i] = observed == expected;
+				// }
 			}
 		}
 	}
