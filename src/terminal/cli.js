@@ -1,7 +1,5 @@
-// =============================================================================
 // Defines main logic for parsing and executing commands, using both coreutils
 // for the small utilities and Aioli for the bioinformatics tools.
-// =============================================================================
 
 // Imports
 import { readable } from "svelte/store";
@@ -18,9 +16,9 @@ let _jobs = 0;     // Number of jobs running in background
 let _pid = 10000;  // Current pid
 
 
-// -----------------------------------------------------------------------------
+// =============================================================================
 // Initialize
-// -----------------------------------------------------------------------------
+// =============================================================================
 
 // Initialize Aioli / prepare bioinformatics tools
 // Format: { tools: [], files: [] }
@@ -35,16 +33,18 @@ async function init(config={})
 }
 
 
-// -----------------------------------------------------------------------------
+// =============================================================================
 // Execute a command
-// -----------------------------------------------------------------------------
+// =============================================================================
 
 // Run a command
 async function exec(cmd, callback)
 {
 	console.log("[exec]", cmd, callback);
 
+	// -------------------------------------------------------------------------
 	// Input validation
+	// -------------------------------------------------------------------------
 	if(cmd.type == "subshell")
 		throw "Error: subshells are not supported.";
 	if(cmd.type == "variableAssignment")
@@ -56,11 +56,13 @@ async function exec(cmd, callback)
 	if(cmd.args && cmd.args.find(a => a.type == "processSubstitution"))
 		throw "Error: process substitution (e.g. `cmd1 <(cmd2)`) is not supported.";
 
-	// If the input is a string, it's a string command we need to turn into an AST
+	// If string, convert it to an AST
 	if(typeof cmd === "string")
 		return await exec(parse(cmd), callback);
 
-	// If the input is an array, it's an AST containing a list of commands to run sequentially
+	// -------------------------------------------------------------------------
+	// Parse commands in AST sequentially
+	// -------------------------------------------------------------------------
 	if(Array.isArray(cmd))
 	{
 		let output = "";
@@ -86,16 +88,32 @@ async function exec(cmd, callback)
 		return output;
 	}
 
-	// Otherwise, we're looking at a single command within an AST
+	// -------------------------------------------------------------------------
+	// Special "time" command
+	// -------------------------------------------------------------------------
+	if(cmd.type == "time")
+	{
+		const timeStart = window.performance.now();
+		const output = await exec(cmd.command, callback);
+		const timeEnd = window.performance.now();
+		callback(`Runtime: ${timeEnd - timeStart}ms`);
+		return output;
+	}
+
+	// -------------------------------------------------------------------------
+	// Process a single command within the AST
+	// -------------------------------------------------------------------------
 	if(cmd.type == "command")
 	{
 		console.log("Command", cmd.command, cmd.args)
-		// cmd.next
-		// cmd.redirects
 
-		// Support `&&` and `||`
+		// Interpret the command
 		try {
-			d
+
+			// TODO: Handle cmd.next
+			// TODO: Handle cmd.redirects
+
+		// If something fails, behave differently depending on e.g. `&&` vs `||`
 		} catch (error) {
 			// If using `||`, output error but keep going
 			if(cmd.control == "||" && cmd.next) {
@@ -107,16 +125,6 @@ async function exec(cmd, callback)
 		}
 
 		return "/done";
-	}
-
-	// If user wants to track runtime
-	if(cmd.type == "time")
-	{
-		const timeStart = window.performance.now();
-		const output = await exec(cmd.command, callback);
-		const timeEnd = window.performance.now();
-		callback(`Runtime: ${timeEnd - timeStart}ms`);
-		return output;
 	}
 
 	console.error("Unrecognized command:", cmd);

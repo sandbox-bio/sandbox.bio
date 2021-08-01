@@ -1,6 +1,4 @@
-// =============================================================================
 // Initialize xterm.js library and associated addons
-// =============================================================================
 
 import { readable } from "svelte/store";
 import { Terminal } from "xterm";
@@ -9,6 +7,10 @@ import { SerializeAddon } from "xterm-addon-serialize";
 import { FitAddon } from "xterm-addon-fit";
 import LocalEchoController from "local-echo";
 
+
+// =============================================================================
+// Initialize xterm
+// =============================================================================
 
 // Xterm.js
 const term = new Terminal({
@@ -38,6 +40,9 @@ addons.echo.handleData = (data) => {
 	return addons.echo.handleData_(data);
 }
 
+// =============================================================================
 // Export as readable stores
+// =============================================================================
+
 export const xterm = readable(term);
 export const xtermAddons = readable(addons);
