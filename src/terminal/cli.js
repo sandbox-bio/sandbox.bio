@@ -16,11 +16,14 @@ import parse from "shell-parse";
 import { xterm, xtermAddons } from "./xterm";
 
 // State
-let aioli = {};  // Aioli object
-let FS = {};     // Aioli filesystem object
+let aioli = {};   // Aioli object
+let FS = {};      // Aioli filesystem object
+let jobs = 0;     // Number of jobs running in background
+let pid = 10000;  // Current pid
 
 // Convenience variables since can't use $store outside .svelte file
 const $xtermAddons = get(xtermAddons);
+// const $xterm = get(xterm);
 
 
 // -----------------------------------------------------------------------------
@@ -45,35 +48,83 @@ async function init(config={})
 // -----------------------------------------------------------------------------
 
 // Run a command
-async function exec(cmd)
+async function exec(cmd, callback)
 {
-	console.log("[exec]", cmd);
+	console.log("[exec]", cmd, callback);
 
-	// If the input is a string, means it's a string command we need to turn into an AST
+	// Input validation
+	if(cmd.type == "subshell")
+		throw "Error: subshells are not supported.";
+	if(cmd.type == "variableAssignment")
+		throw "Error: Bash variables are not supported.";
+	if(cmd.body)
+		throw `Error: ${cmd.type} is not supported.`;
+	if(cmd.args && cmd.args.find(a => a.type == "glob"))
+		throw "Error: globbing (e.g. `ls *.txt`) is not supported.";
+	if(cmd.args && cmd.args.find(a => a.type == "processSubstitution"))
+		throw "Error: process substitution (e.g. `cmd1 <(cmd2)`) is not supported.";
+
+	// If the input is a string, it's a string command we need to turn into an AST
 	if(typeof cmd === "string")
-		return await exec(parse(cmd));
+		return await exec(parse(cmd), callback);
 
-	// If the input is an array, assume it's an AST containing a list of commands to run sequentially
-	if(Array.isArray(cmd)) {
+	// If the input is an array, it's an AST containing a list of commands to run sequentially
+	if(Array.isArray(cmd))
+	{
 		let output = "";
 		for(let command of cmd)
 		{
-			// If needs to be asynchronous
-			output += await exec(command);
+			// If it's meant to be asynchronous, don't await around; call callback on its own time
+			if(command.control == "&")
+			{
+				const summary = `[${jobs++}] ${pid++} `;
+				exec(command, callback).then(out => {
+					callback(out);
+					callback(summary + "done");
+					jobs--;
+				});
+				callback(summary + "launched");
+				continue;
+			}
+
+			// Otherwise, run the steps one after the other
+			// Note: `&&` and `||` are  handled below
+			output += await exec(command, callback);
 		}
 		return output;
 	}
 
 	// Otherwise, we're looking at a single command within an AST
-	if(cmd.control == "&")
-		throw "Error: Asynchronous commands (e.g. `echo 123 &`) are not supported.\n";
 	if(cmd.type == "command")
 	{
 		console.log("Command", cmd.command, cmd.args)
 		// cmd.next
 		// cmd.redirects
 
+		// Support `&&` and `||`
+		try {
+			d
+		} catch (error) {
+			// If using `||`, output error but keep going
+			if(cmd.control == "||" && cmd.next) {
+				callback(error);
+				return await exec(cmd.next, callback);
+			}
+			// Reaches this line if e.g. using `&&`
+			throw error;
+		}
+
 		return "/done";
+	}
+
+	// If user wants to track runtime
+	if(cmd.type == "time")
+	{
+		const timeStart = window.performance.now();
+		const output = await exec(cmd.command, callback);
+		const timeEnd = window.performance.now();
+		callback(`Runtime: ${timeEnd - timeStart}ms`);
+		return output;
 	}
 
 	console.error("Unrecognized command:", cmd);

@@ -64,6 +64,13 @@ onMount(() => {
 	// Prepare UI but don't allow input yet
 	$xterm.open(divTerminal);
 	$xtermAddons.fit.fit();
+
+
+
+	setTimeout(() => {
+		$xtermAddons.echo.setInput("echo 1 & echo 2 && echo 3");
+		$xtermAddons.echo.handleData("\r");
+	}, 1500);
 });
 
 
@@ -90,7 +97,14 @@ async function exec(cmd)
 {
 	console.log("[XTerm]", cmd);
 	try {
-		const output = await $CLI.exec(cmd);
+		// Get synchronous outputs from the command
+		const output = await $CLI.exec(cmd, out => {
+			// This function is called when an asynchronous command finishes
+			$xterm.writeln(out);
+			// $xtermAddons.echo.writeln(out);
+		});
+
+		// Ask the user for the next input
 		return input(output);
 	} catch (error) {
 		return input(error);
