@@ -29,6 +29,7 @@
     "local-echo": "github:wavesoft/local-echo",
     "minimist": "^1.2.5",
     "pretty-bytes": "^5.6.0",
+    "shell-parse": "grncdr/js-shell-parse#f5f65af",
     "sirv-cli": "^1.0.0",
     "sveltestrap": "^5.5.1",
     "xterm": "^4.13.0",

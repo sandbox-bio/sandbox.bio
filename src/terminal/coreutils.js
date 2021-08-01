@@ -1,5 +1,5 @@
 // =============================================================================
-// Coreutils
+// Implements basic GNU Coreutils in JavaScript (cd, ls, cat, head, etc.)
 // =============================================================================
 
 import columnify from "columnify";       // Prettify columnar output
