@@ -116,19 +116,19 @@ async function exec(cmd, callback)
 		// Interpret the command
 		try {
 			const tool = cmd.command.value;
-			const args = minimist(cmd.args.map(arg => arg.value));
+			const args = minimist(cmd.args.map(arg => arg.value), minimistConfig[tool]);
 
 			console.log("INTERPRET", tool, args)
 			if(tool in coreutils)
 				return await coreutils[tool](args);
 
-// // Otherwise, try running the command with Aioli
-// } else {
-// 	try {
-// 		output = await aioli.exec(cmd);
-// 	} catch (error) {
-// 		output = error;
-// 	}
+			// // Otherwise, try running the command with Aioli
+			// } else {
+			// 	try {
+			// 		output = await aioli.exec(cmd);
+			// 	} catch (error) {
+			// 		output = error;
+			// 	}
 
 			// TODO: Handle cmd.next
 			// TODO: Handle cmd.redirects
@@ -144,7 +144,7 @@ async function exec(cmd, callback)
 			throw error;
 		}
 
-		return "/done";
+		return "Unrecognized command:", cmd?.command?.value;
 	}
 
 	console.error("Unrecognized command:", cmd);
@@ -176,6 +176,11 @@ const utils = {
 	},
 };
 
+// Custom minimist configs for certain coreutils
+const minimistConfig = {
+	wc: { boolean: ["l", "c", "w"] }
+};
+
 // Actual coreutils (only list functions here that should be directly callable by the user from the CLI)
 const coreutils = {
 	// sleep [1]
@@ -203,8 +208,22 @@ const coreutils = {
 	// tail [-n 10|-10]
 	tail: args => coreutils.head(args, true),
 
+	// wc [-l|-w|-c] myfile
+	wc: async args => {
+		// Count number of lines/words/chars
+		const output = await utils.readFiles(args._);
+		const nbLines = output.trim().split("\n").length;
+		const nbWords = output.trim().split(/\s+/).length;
+		const nbChars = output.length;
 
-	// File system utilities
+		// Return result
+		if(args.l) return nbLines;
+		else if(args.w) return nbWords;
+		else if(args.c) return nbChars;
+		else return `${nbLines}\t${nbWords}\t${nbChars}`;
+	},
+
+	// Small file system utilities
 	cd: args => _fs.chdir(args._[0]) && "",
 	mv: args => _fs.rename(args._[0], args._[1]) && "",
 	rm: args => Promise.all(args._.map(async arg => await _fs.unlink(arg))),
