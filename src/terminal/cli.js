@@ -1,6 +1,11 @@
 // Defines main logic for parsing and executing commands, using both coreutils
 // for the small utilities and Aioli for the bioinformatics tools.
 
+// Limitations:
+// * Doesn't support subshells, process substitutions, variables, globbing
+// * Ctrl + C doesn't stop running process (e.g. `sleep 2 & sleep 5` + ^C does nothing)
+
+
 // Imports
 import { readable } from "svelte/store";
 import parse from "shell-parse";         // Transforms a bash command into an AST
@@ -40,7 +45,7 @@ async function init(config={})
 // Run a command
 async function exec(cmd, callback)
 {
-	console.log("[exec]", cmd, callback);
+	// console.log("[exec]", cmd, callback);
 
 	// -------------------------------------------------------------------------
 	// Input validation
@@ -105,11 +110,16 @@ async function exec(cmd, callback)
 	// -------------------------------------------------------------------------
 	if(cmd.type == "command")
 	{
-		console.log("Command", cmd.command, cmd.args)
+		// console.log("Command", cmd.command, cmd.args)
 
 		// Interpret the command
 		try {
+			const tool = cmd.command.value;
+			const args = minimist(cmd.args.map(arg => arg.value));
 
+			console.log("INTERPRET", tool, args)
+			if(tool in coreutils)
+				return await coreutils[tool](args);
 			// TODO: Handle cmd.next
 			// TODO: Handle cmd.redirects
 
@@ -166,12 +176,38 @@ async function exec(cmd, callback)
 // -----------------------------------------------------------------------------
 // GNU Coreutils JavaScript implementation
 // -----------------------------------------------------------------------------
+const utils = {
+	// Utility to call `fn` on each argument in `args` and trim the outputs
+	repeat: async (args, fn) => {
+		const outputs = await Promise.all(args.map(fn));
+		return outputs.join("");  // join strings without extraneous break line
+	},
+
+	// Read entire file contents from virtual file system
+	readFile: (f) => {
+		return _fs.readFile(f, { encoding: "utf8" });
+	},
+};
 
 const coreutils = {
-	head: async (args) => {
-		console.log(
-			await _aioli.exec("bedtools")
-		)
+	// sleep [1]
+	sleep: args => {
+		const duration = parseInt(args._[0]) || 1;
+		return new Promise((resolve, reject) => {
+			setTimeout(() => resolve(""), duration * 1000);
+		});
+	},
+
+	// cat file1 [file2 ... fileN]
+	cat: args => {
+		return utils.repeat(args._, utils.readFile);
+	},
+
+	// head [-n 10]
+	head: async args => {
+		const n = args.n || 10;
+		const output = await utils.repeat(args._, utils.readFile);
+		return output.split("\n").slice(0, n).join("\n");
 	}
 };
 
