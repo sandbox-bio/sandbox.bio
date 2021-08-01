@@ -4,26 +4,18 @@
 // =============================================================================
 
 // Imports
-import { get, readable } from "svelte/store";
+import { readable } from "svelte/store";
+import parse from "shell-parse";         // Transforms a bash command into an AST
 import columnify from "columnify";       // Prettify columnar output
 import prettyBytes from "pretty-bytes";  // Prettify number of bytes
 import minimist from "minimist";         // Parse CLI arguments
 import Aioli from "@biowasm/aioli";
 
-import parse from "shell-parse";
-
-// import { coreutils } from "./coreutils";
-import { xterm, xtermAddons } from "./xterm";
-
 // State
-let aioli = {};   // Aioli object
-let FS = {};      // Aioli filesystem object
-let jobs = 0;     // Number of jobs running in background
-let pid = 10000;  // Current pid
-
-// Convenience variables since can't use $store outside .svelte file
-const $xtermAddons = get(xtermAddons);
-// const $xterm = get(xterm);
+let _aioli = {};   // Aioli object
+let _fs = {};      // Aioli filesystem object
+let _jobs = 0;     // Number of jobs running in background
+let _pid = 10000;  // Current pid
 
 
 // -----------------------------------------------------------------------------
@@ -34,12 +26,12 @@ const $xtermAddons = get(xtermAddons);
 // Format: { tools: [], files: [] }
 async function init(config={})
 {
-	aioli = await new Aioli(config.tools, { env: "stg", debug: false });
-	FS = aioli.tools[1].module.FS;
+	_aioli = await new Aioli(config.tools, { env: "stg", debug: false });
+	_fs = _aioli.tools[1].module.FS;
 
 	// Pre-load files onto the main folder
 	for(let file of config.files || [])
-		FS.writeFile(file.name, file.contents);
+		_fs.writeFile(file.name, file.contents);
 }
 
 
@@ -77,11 +69,11 @@ async function exec(cmd, callback)
 			// If it's meant to be asynchronous, don't await around; call callback on its own time
 			if(command.control == "&")
 			{
-				const summary = `[${jobs++}] ${pid++} `;
+				const summary = `[${_jobs++}] ${_pid++} `;
 				exec(command, callback).then(out => {
 					callback(out);
 					callback(summary + "done");
-					jobs--;
+					_jobs--;
 				});
 				callback(summary + "launched");
 				continue;
@@ -170,21 +162,10 @@ async function exec(cmd, callback)
 const coreutils = {
 	head: async (args) => {
 		console.log(
-			await aioli.exec("bedtools")
+			await _aioli.exec("bedtools")
 		)
 	}
 };
-
-
-// -----------------------------------------------------------------------------
-// Small utilities
-// -----------------------------------------------------------------------------
-
-//
-function setInput(command) {
-	$xtermAddons.echo.setInput(command);
-	$xtermAddons.echo.handleData("\r");
-}
 
 
 // -----------------------------------------------------------------------------
@@ -193,6 +174,5 @@ function setInput(command) {
 
 export const CLI = readable({
 	init,
-	exec,
-	setInput
+	exec
 });
