@@ -1,14 +1,3 @@
-// Implements basic GNU Coreutils in JavaScript (cd, ls, cat, head, etc.)
-
-import columnify from "columnify";       // Prettify columnar output
-import prettyBytes from "pretty-bytes";  // Prettify number of bytes
-import minimist from "minimist";         // Parse CLI arguments
-
-// // Simulating a few basic utils
-// export class CoreUtils
-// {
-// 	static FS;
-
 // 	// -------------------------------------------------------------------------
 // 	// ls
 // 	// -------------------------------------------------------------------------
@@ -77,23 +66,6 @@ import minimist from "minimist";         // Parse CLI arguments
 // 	}
 
 // 	// -------------------------------------------------------------------------
-// 	// Preview files
-// 	// FIXME: Don't read the entire file; use FS.read() to read the first N bytes
-// 	// until we get to the required number of lines
-// 	// -------------------------------------------------------------------------
-
-// 	static async wc(args)
-// 	{
-// 		// Support wc -c and wc -l
-// 		args = parseArgs(args, { boolean: [ "l", "c" ] });
-// 		if(!args.l)
-// 			return (await CoreUtils.FS.stat(args._[0])).size;
-
-// 		const contents = await CoreUtils.cat(args._);
-// 		return contents.split("\n").length;
-// 	}
-
-// 	// -------------------------------------------------------------------------
 // 	// Wrangling
 // 	// -------------------------------------------------------------------------
 
@@ -130,50 +102,3 @@ import minimist from "minimist";         // Parse CLI arguments
 
 // 		return "Your download has started.";
 // 	}
-
-// 	// -------------------------------------------------------------------------
-// 	// Small utilities
-// 	// -------------------------------------------------------------------------
-
-// 	static async pwd() {
-// 		return await CoreUtils.FS.cwd();
-// 	}
-
-// 	static async cd(args) {
-// 		return await CoreUtils.FS.chdir(args[0]) || args[0];
-// 	}
-
-// 	static async echo(args) {
-// 		return args.join(" ");
-// 	}
-
-// 	static async mv(args) {
-// 		await CoreUtils.FS.rename(args[0], args[1]);
-// 		return "";
-// 	}
-
-// 	static async rm(args) {
-// 		await CoreUtils.FS.unlink(args[0]);
-// 		return "";
-// 	}
-
-// 	static async mkdir(args) {
-// 		// Don't use await because otherwise get "object could not be cloned" error
-// 		args.map(d => CoreUtils.FS.mkdir(d));
-// 		return "";
-// 	}
-
-// 	static async rmdir(args) {
-// 		// Don't use await because otherwise get "object could not be cloned" error
-// 		args.map(d => CoreUtils.FS.rmdir(d));
-// 		return "";
-// 	}
-// }
-
-// // Utility functions
-// function parseArgs(args, opts={}) {
-// 	args = minimist(args, opts);
-// 	if(args._.length == 0)
-// 		throw "Error: missing file path.";
-// 	return args;
-// }
