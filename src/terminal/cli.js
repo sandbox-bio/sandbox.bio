@@ -121,6 +121,15 @@ async function exec(cmd, callback)
 			console.log("INTERPRET", tool, args)
 			if(tool in coreutils)
 				return await coreutils[tool](args);
+
+// // Otherwise, try running the command with Aioli
+// } else {
+// 	try {
+// 		output = await aioli.exec(cmd);
+// 	} catch (error) {
+// 		output = error;
+// 	}
+
 			// TODO: Handle cmd.next
 			// TODO: Handle cmd.redirects
 
@@ -140,38 +149,7 @@ async function exec(cmd, callback)
 
 	console.error("Unrecognized command:", cmd);
 	throw "Unrecognized command";
-
-	// console.log(minimist(cmd.split(" "), {
-	// 	unknown: d => {
-	// 		console.log("unknown", d)
-	// 	}
-	// }))
-	// console.log(await coreutils.head("yep"))
-
-	// let output = "";
-	// const prgm = cmd.split(" ")[0];
-	// const args = cmd.split(" ").slice(1);
-
-	// // Is this a coreutils command?
-	// if(prgm in CoreUtils) {
-	// 	try {
-	// 		output = await CoreUtils[prgm](args);			
-	// 	} catch (error) {
-	// 		output = error;
-	// 	}
-
-	// // Otherwise, try running the command with Aioli
-	// } else {
-	// 	try {
-	// 		output = await aioli.exec(cmd);
-	// 	} catch (error) {
-	// 		output = error;
-	// 	}
-	// }
-
-	// return output;
 }
-
 
 
 // -----------------------------------------------------------------------------
@@ -198,6 +176,7 @@ const utils = {
 	},
 };
 
+// Actual coreutils (only list functions here that should be directly callable by the user from the CLI)
 const coreutils = {
 	// sleep [1]
 	sleep: args => {
@@ -224,6 +203,15 @@ const coreutils = {
 	// tail [-n 10|-10]
 	tail: args => coreutils.head(args, true),
 
+
+	// File system utilities
+	cd: args => _fs.chdir(args._[0]) && "",
+	mv: args => _fs.rename(args._[0], args._[1]) && "",
+	rm: args => Promise.all(args._.map(async arg => await _fs.unlink(arg))),
+	pwd: args => _fs.cwd(),
+	echo: args => args._.join(" "),
+	mkdir: args => Promise.all(args._.map(async arg => await _fs.mkdir(arg))),
+	rmdir: args => Promise.all(args._.map(async arg => await _fs.rmdir(arg))),
 };
 
 
