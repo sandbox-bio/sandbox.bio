@@ -82,16 +82,6 @@ import minimist from "minimist";         // Parse CLI arguments
 // 	// until we get to the required number of lines
 // 	// -------------------------------------------------------------------------
 
-// 	static async head(args) {
-// 		args = parseArgs(args);
-// 		return (await CoreUtils.cat(args._)).split("\n").slice(0, args.n || 10).join("\n");
-// 	}
-
-// 	static async tail(args) {
-// 		args = parseArgs(args);
-// 		return (await CoreUtils.cat(args._)).split("\n").slice((-args.n || -10) - 1).join("\n");
-// 	}
-
 // 	static async wc(args)
 // 	{
 // 		// Support wc -c and wc -l
@@ -144,10 +134,6 @@ import minimist from "minimist";         // Parse CLI arguments
 // 	// -------------------------------------------------------------------------
 // 	// Small utilities
 // 	// -------------------------------------------------------------------------
-
-// 	static async cat(args) {
-// 		return await CoreUtils.FS.readFile(args[0], { encoding: "utf8" });
-// 	}
 
 // 	static async pwd() {
 // 		return await CoreUtils.FS.cwd();

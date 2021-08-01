@@ -1,9 +1,10 @@
 // Defines main logic for parsing and executing commands, using both coreutils
 // for the small utilities and Aioli for the bioinformatics tools.
 
-// Limitations:
+// Known Limitations:
 // * Doesn't support subshells, process substitutions, variables, globbing
 // * Ctrl + C doesn't stop running process (e.g. `sleep 2 & sleep 5` + ^C does nothing)
+// * tail doesn't support `tail -n +3` format (but `head -n-2` and `head/tail -2` supported)
 
 
 // Imports
@@ -176,16 +177,24 @@ async function exec(cmd, callback)
 // -----------------------------------------------------------------------------
 // GNU Coreutils JavaScript implementation
 // -----------------------------------------------------------------------------
-const utils = {
-	// Utility to call `fn` on each argument in `args` and trim the outputs
-	repeat: async (args, fn) => {
-		const outputs = await Promise.all(args.map(fn));
-		return outputs.join("");  // join strings without extraneous break line
-	},
 
-	// Read entire file contents from virtual file system
-	readFile: (f) => {
-		return _fs.readFile(f, { encoding: "utf8" });
+// Utility functions to support coreutils
+const utils = {
+	// Read entire file contents from virtual file system, and can subset by line numbers
+	// e.g. lineRange=`[0]`, `[0,1]`, `[0,5]`
+	readFiles: async (paths, lineRange) => {
+		if(!Array.isArray(paths))
+			paths = [ paths ];
+
+		// For each path, read entire file contents
+		const outputs = await Promise.all(paths.map(async path => {
+			let output = await _fs.readFile(path, { "encoding": "utf8" });
+			// Then subset by lines of interest (not efficient at all, but `FS.read()` fails due to WebWorker issues)
+			if(Array.isArray(lineRange))
+				output = output.trim().split("\n").slice(...lineRange).join("\n");
+			return output;
+		}));
+		return outputs.join("");
 	},
 };
 
@@ -199,16 +208,22 @@ const coreutils = {
 	},
 
 	// cat file1 [file2 ... fileN]
-	cat: args => {
-		return utils.repeat(args._, utils.readFile);
-	},
+	cat: args => utils.readFiles(args._),
 
-	// head [-n 10]
-	head: async args => {
+	// head [-n 10|-10]
+	head: (args, tail=false) => {
+		// Support older `head -5 myfile` format ==> args={ 5: myfile, _: [] }
+		const nOld = Object.keys(args).find(arg => parseInt(arg));
+		if(nOld)
+			args = { n: nOld, _: [ args[nOld] ] };
+
+		// Get first n lines
 		const n = args.n || 10;
-		const output = await utils.repeat(args._, utils.readFile);
-		return output.split("\n").slice(0, n).join("\n");
-	}
+		return utils.readFiles(args._, tail ? [-n] : [0, n]);
+	},
+	// tail [-n 10|-10]
+	tail: args => coreutils.head(args, true),
+
 };
 
 
