@@ -1,5 +1,7 @@
 # sandbox.bio
 
+## Tutorials
+
 ### bedtools-tutorial
 
 http://quinlanlab.org/tutorials/bedtools/bedtools.html
@@ -20,6 +22,19 @@ echo -e "chr1\t30365652" > downsampled/genome.txt
 cp cpg.bed exons.bed gwas.bed hesc.chromHmm.bed genome.txt fHeart-DS16621.hotspot.twopass.fdr0.05.merge.bed fHeart-DS15839.hotspot.twopass.fdr0.05.merge.bed fSkin_fibro_bicep_R-DS19745.hg19.hotspot.twopass.fdr0.05.merge.bed ../../tutorials/1-intro-to-bedtools/data
 ```
 
-### What's differerent
+#### What's differerent
 * Removed Setup (files are preloaded for users)
 * Using 3/20 of the bed files + Downsampled them to 200 lines (and genome.txt to just chr1) to make it easier for me :)
+
+---
+
+### bowtie2-tutorial
+
+```bash
+REF=/bowtie2/example/index/lambda_virus
+bowtie2 -x $REF -U reads_1.fq -S eg1.sam
+```
+
+#### What's differerent
+* Removed Setup (files are preloaded for users)
+* Subsampled reads_1.fq, reads_2.fq and longreads.fq
