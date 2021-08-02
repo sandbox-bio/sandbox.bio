@@ -123,7 +123,7 @@ async function exec(cmd, callback)
 	// -------------------------------------------------------------------------
 	if(cmd.type == "command")
 	{
-		console.log("Command", cmd);
+		// console.log("[command]", cmd);
 
 		// Interpret the command
 		if(cmd.command == "[[")

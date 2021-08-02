@@ -7,7 +7,7 @@ export let id;
 export let step = 0;
 
 // State
-const tutorial = config.tutorials.find(t => t.id == id);
+const tutorial = $config.tutorials.find(t => t.id == id);
 const tocToggle = () => tocOpen = !tocOpen;
 let tocOpen = false;
 let stepInfo = {};

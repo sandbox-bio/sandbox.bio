@@ -36,7 +36,7 @@ const intro = `# This playground is for open-ended exploration.
 				Tutorials
 			</a>
 			<ul class="dropdown-menu" aria-labelledby="navTutorials">
-				{#each config.tutorials as tutorial}
+				{#each $config.tutorials as tutorial}
 					<li><a class="dropdown-item" href="/tutorials?id={tutorial.id}">{tutorial.name}</a></li>
 				{/each}
 			</ul>
@@ -66,7 +66,7 @@ const intro = `# This playground is for open-ended exploration.
 		<Tutorials />
 	{:else if path == "/playground"}
 		<div class="p-2" style="background-color:#000">
-			<Terminal {intro} files={config.tutorials[0].files} />
+			<Terminal {intro} files={$config.tutorials[0].files} />
 		</div>
 	{/if}
 </main>
