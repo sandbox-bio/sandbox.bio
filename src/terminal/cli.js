@@ -1,11 +1,10 @@
 // Defines main logic for parsing and executing commands, using both coreutils
 // for the small utilities and Aioli for the bioinformatics tools.
-
+//
 // Known Limitations:
 // * Doesn't support subshells, process substitutions, globbing
 // * Ctrl + C doesn't stop running process (e.g. `sleep 2 & sleep 5` + ^C does nothing)
 // * Tail doesn't support `tail -n +3` format (but `head -n-2` and `head/tail -2` supported)
-
 
 // Imports
 import { readable } from "svelte/store";
@@ -96,7 +95,8 @@ async function exec(cmd, callback)
 
 			// Otherwise, run the steps one after the other
 			// Note: `&&` and `||` are  handled below
-			output += await exec(command, callback);
+			output += "\n" + await exec(command, callback);
+			output = output.trim();
 		}
 		return output;
 	}
@@ -144,12 +144,12 @@ async function exec(cmd, callback)
 			else
 				output = await _aioli.exec(`${tool} ${argsRaw.join(" ")}`.trim());
 
-			// Are there redirects to handle? e.g. `... | head`, `... > test.txt`
+			// -----------------------------------------------------------------
+			// Handle redirects, e.g. `... | head`, `... > test.txt`
+			// -----------------------------------------------------------------
 			for(let redirect of (cmd.redirects || []))
 			{
-				// -------------------------------------------------------------
 				// Handle pipes
-				// -------------------------------------------------------------
 				if(redirect.type == "pipe") {
 					// Save `output` to a temp file
 					const pathTmpFile = await coreutils.mktemp();
@@ -158,9 +158,7 @@ async function exec(cmd, callback)
 					redirect.command.args.push({ type: "literal", value: pathTmpFile });
 					return exec(redirect.command, callback);
 
-				// -------------------------------------------------------------
 				// Handle redirection to a file
-				// -------------------------------------------------------------
 				} else if(redirect.type == "redirectFd") {
 					const path = await utils.getValue(redirect.filename);
 					// Write to file
@@ -180,12 +178,18 @@ async function exec(cmd, callback)
 					}
 					return "";
 
-				// -------------------------------------------------------------
 				// Otherwise, don't know what to do
-				// -------------------------------------------------------------
 				} else {
 					throw `Error: ${redirect.type} redirections are not supported.`;
 				}
+			}
+
+			// -----------------------------------------------------------------
+			// Handle next command, e.g. `echo 123 && echo 456`, `echo 123 ; echo 456`
+			// -----------------------------------------------------------------
+			if(cmd.next) {
+				output += "\n" + await exec(cmd.next, callback);
+				output = output.trim();
 			}
 
 			// If no redirections, just return the result
