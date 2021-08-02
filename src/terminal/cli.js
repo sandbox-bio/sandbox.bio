@@ -62,8 +62,16 @@ async function exec(cmd, callback)
 		throw "Error: process substitution (e.g. `cmd1 <(cmd2)`) is not supported.";
 
 	// If string, convert it to an AST
-	if(typeof cmd === "string")
-		return await exec(parse(cmd), callback);
+	if(typeof cmd === "string") {
+		try {
+			return await exec(parse(cmd), callback);
+		} catch (error) {
+			console.error(error);
+			if(error.name == "SyntaxError")
+				throw "Unrecognized command";
+			throw error;
+		}
+	}
 
 	// -------------------------------------------------------------------------
 	// Parse commands in AST sequentially
@@ -134,7 +142,7 @@ async function exec(cmd, callback)
 				output = await coreutils[tool](args);
 			// Otherwise, try running the command with Aioli
 			else
-				output = await _aioli.exec(`${tool} ${argsRaw.join(" ")}`);
+				output = await _aioli.exec(`${tool} ${argsRaw.join(" ")}`.trim());
 
 			// Are there redirects to handle? e.g. `... | head`, `... > test.txt`
 			for(let redirect of (cmd.redirects || []))
@@ -393,7 +401,8 @@ const utils = {
 const minimistConfig = {
 	wc: { boolean: ["l", "c", "w"] },
 	grep: { boolean: ["v", "i", "e", "E"] },
-	ls: { boolean: ["l", "a", "t", "r", "s", "h"] }
+	ls: { boolean: ["l", "a", "t", "r", "s", "h"] },
+	echo: { boolean: ["e", "n"] }
 };
 
 
