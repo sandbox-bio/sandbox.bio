@@ -82,6 +82,29 @@ describe("Test coreutils", () => {
 		expect(observed).to.equal("output something");
 	});
 
+
+	it("mktemp", async () => {
+		observed = await $CLI.exec(`mktemp`);
+		expect(observed).to.contain("/shared/tmp/tmp");
+
+		observed = await $CLI.exec(`ls ${observed}`);  // throws error if file doesn't exist
+		expect(observed).to.contain("tmp");
+	});
+
+	it("grep", async () => {
+		observed = await $CLI.exec(`grep "Taa" ${FILE_SAM} | wc -l`);
+		expect(observed).to.equal("4");
+
+		observed = await $CLI.exec(`grep "TAA" ${FILE_SAM} | wc -l`);
+		expect(observed).to.equal("3");
+
+		observed = await $CLI.exec(`grep -i "TAA" ${FILE_SAM} | wc -l`);
+		expect(observed).to.equal("9");
+
+		observed = await $CLI.exec(`grep -i -v "TAA" ${FILE_SAM} | wc -l`);
+		expect(observed).to.equal("5");
+	});
+
 	it("mkdir / rmdir", async () => {
 		await $CLI.exec("mkdir a b c");
 
@@ -96,6 +119,7 @@ describe("Test coreutils", () => {
 		expect(observed).to.contain("b/");
 	});
 
+	// Run this test last since we're deleting files :)
 	it("mv / rm", async () => {
 		observed = await $CLI.exec(`ls ${FILE_SAM}`);
 		expect(observed).to.contain("toy.sam");
