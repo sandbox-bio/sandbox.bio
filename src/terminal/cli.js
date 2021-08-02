@@ -224,6 +224,71 @@ const coreutils = {
 		});
 	},
 
+	// -------------------------------------------------------------------------
+	// ls [-l] <file1> <file2>
+	// -------------------------------------------------------------------------
+	ll: (args, raw) => coreutils.ls(args, raw),
+	ls: async (args, raw=false) => {
+		// Input validation and dedupping
+		let paths = args._;
+		if(paths.length == 0)
+			paths = ["."];
+		paths = [...new Set(paths)];
+
+		// Gather stats about files and folders
+		let stats = [];
+		for(let path of paths)
+		{
+			try {		
+				let stat = await _fs.stat(path);
+				// If the path is a file, we already have the info we need
+				if(!await _fs.isDir(stat.mode))
+					stats.push({
+						name: path.split("/").pop(),
+						size: stat.size,
+						date: stat.mtime
+					});
+
+				// But if the path is a folder, get stat for each node in the folder
+				else
+				{
+					const files = await _fs.readdir(path);
+					for(let f of files)
+					{
+						if(f == "." || f == "..")
+							continue;
+						stat = await _fs.stat(`${path}/${f}`);
+						const isDir = await _fs.isDir(stat.mode);
+						let name = isDir ? f + "/" : f;
+						name = (!raw && isDir) ? `\x1b[1;34m${name}\x1b[0m` : name;
+						stats.push({
+							name: name,
+							size: stat.size,
+							date: stat.mtime
+						});
+					}
+				}
+			} catch (error) {
+				console.error(error);
+				throw `${path}: No such file or directory`;
+			}
+		}
+
+		// If don't want to ouput to screen
+		if(raw)
+			return stats;
+
+		// Columnify output
+		return columnify(stats.map(f => ({
+			...f,
+			size: prettyBytes(f.size),
+			date: f.date.toLocaleString()
+		})), {
+			showHeaders: false,
+			columnSplitter: "\t",
+			columns: ["size", "date", "name"]
+		});
+	}
 };
 
 
@@ -253,7 +318,8 @@ const utils = {
 // Custom minimist configs for certain coreutils
 const minimistConfig = {
 	wc: { boolean: ["l", "c", "w"] },
-	grep: { boolean: ["v", "i", "e", "E"] }
+	grep: { boolean: ["v", "i", "e", "E"] },
+	ls: { boolean: ["l", "a", "t", "r", "s", "h"] }
 };
 
 

@@ -64,13 +64,6 @@ onMount(() => {
 	// Prepare UI but don't allow input yet
 	$xterm.open(divTerminal);
 	$xtermAddons.fit.fit();
-
-
-
-	setTimeout(() => {
-		$xtermAddons.echo.setInput("echo 1 & echo 2 && echo 3");
-		$xtermAddons.echo.handleData("\r");
-	}, 1500);
 });
 
 
