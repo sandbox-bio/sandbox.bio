@@ -1,10 +1,17 @@
 <script>
+import { config } from "config";
 import { CLI } from "terminal/cli";
 import { Icon, Spinner } from "sveltestrap";
 
-export let criteria = [];  // List of criteria that must be true for the exercise to be complete
-let status = [];           // Status of each criteria (true/false)
-let busy = false;       // Whether the user manually asked to check their work
+export let criteria = [];        // List of criteria that must be true for the exercise to be complete
+let status = [];                 // Status of each criteria (true/false)
+let busy = false;                // Whether the user manually asked to check their work
+
+// Check status every time a command finishes running
+$: if($config.status == "execDone"){
+	console.log("Checking solutions...")
+	check();
+};
 
 // Validate user's input
 async function check(manual=false)
@@ -40,17 +47,8 @@ async function check(manual=false)
 			status[i] = false;
 		}
 	}
-
-	// Check again
-	setTimer();
 }
-
-// Check answers regularly
-function setTimer() {
-	setTimeout(check, 1000);
-}
-
-setTimer();
+setTimeout(check, 500);
 </script>
 <p class="mt-4">
 	<strong>Solution Criteria:</strong>
