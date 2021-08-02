@@ -1,14 +1,14 @@
 <script>
-import { config } from "config";
+import { status } from "status";
 import { CLI } from "terminal/cli";
 import { Icon, Spinner } from "sveltestrap";
 
 export let criteria = [];        // List of criteria that must be true for the exercise to be complete
-let status = [];                 // Status of each criteria (true/false)
+let statuses = [];                 // Status of each criteria (true/false)
 let busy = false;                // Whether the user manually asked to check their work
 
 // Check status every time a command finishes running
-$: if($config.status == "execDone"){
+$: if($status.terminal == "execDone"){
 	console.log("Checking solutions...")
 	check();
 };
@@ -33,18 +33,18 @@ async function check(manual=false)
 					// Does file exist?
 					if(check.action == "exists") {
 						await $CLI.exec(`ls ${check.path}`);
-						status[i] = true;
+						statuses[i] = true;
 					}
 
 					// Does file content match expectation? Define the right answer using a CLI invocation
 					else if(check.action == "contents") {
 						const observed = await $CLI.exec(`cat ${check.path}`);
 						const expected = await $CLI.exec(check.command);
-						status[i] = observed == expected;
+						statuses[i] = observed == expected;
 					}
 				}
 		} catch (error) {
-			status[i] = false;
+			statuses[i] = false;
 		}
 	}
 }
@@ -56,13 +56,13 @@ setTimeout(check, 500);
 
 <ul class="list-group">
 	{#each criteria as criterion, i}
-		<li class="list-group-item list-group-item-action" class:list-group-item-success={status[i] === true}>
-			<Icon name={status[i] ? "check-circle-fill" : "circle"} /> {@html criterion.name}
+		<li class="list-group-item list-group-item-action" class:list-group-item-success={statuses[i] === true}>
+			<Icon name={statuses[i] ? "check-circle-fill" : "circle"} /> {@html criterion.name}
 		</li>
 	{/each}
 </ul>
 
-<button class="btn btn-sm btn-primary mt-3" on:click={() => check(true)} disabled={status.filter(d => d).length == status.length && status.length != 0}>
+<button class="btn btn-sm btn-primary mt-3" on:click={() => check(true)} disabled={statuses.filter(d => d).length == statuses.length && statuses.length != 0}>
 	Check my work
 	{#if busy}
 		<Spinner size="sm" color="light" class="ms-2" />

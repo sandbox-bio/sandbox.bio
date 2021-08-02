@@ -1,5 +1,6 @@
 <script>
 import { config } from "config";
+import { status } from "status";
 import Terminal from "./Terminal.svelte";
 import { DropdownItem, Offcanvas } from "sveltestrap";
 
@@ -77,7 +78,7 @@ function nextStep(step)
 			</div>
 		</div>
 		<div id="terminal-wrapper" class="border rounded-3 p-2">
-			<Terminal on:status={event => $config.status = event.detail} files={tutorial.files} />
+			<Terminal on:status={event => $status.terminal = event.detail} files={tutorial.files} />
 		</div>
 	</div>
 </div>
