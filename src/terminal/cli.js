@@ -121,9 +121,11 @@ async function exec(cmd, callback)
 		console.log("Command", cmd);
 
 		// Interpret the command
+		if(cmd.command == "[[")
+			throw "Error: Test expressions not supported";
 		try {
 			const tool = cmd.command.value;
-			const argsRaw = cmd.args.map(arg => arg.value);
+			const argsRaw = await Promise.all(cmd.args.map(utils.getValue));
 			const args = minimist(argsRaw, minimistConfig[tool]);
 			let output;
 
@@ -152,7 +154,7 @@ async function exec(cmd, callback)
 				// Handle redirection to a file
 				// -------------------------------------------------------------
 				} else if(redirect.type == "redirectFd") {
-					const path = redirect.filename.value;
+					const path = await utils.getValue(redirect.filename);
 					// Write to file
 					if(redirect.op == ">")
 						await _fs.writeFile(path, output);
@@ -213,6 +215,9 @@ const coreutils = {
 			setTimeout(() => resolve(""), duration * 1000);
 		});
 	},
+
+	// env
+	env: args => Object.keys(_vars).map(v => `${v}=${_vars[v]}`).join("\n"),
 
 	// -------------------------------------------------------------------------
 	// File system management
@@ -350,6 +355,20 @@ const coreutils = {
 // =============================================================================
 
 const utils = {
+	// Get the value of an argument (recursive if need-be)
+	getValue: async arg => {
+		if(arg.type == "literal")
+			return arg.value;
+		else if(arg.type == "variable")
+			return _vars[arg.name] || "";
+		else if(arg.type == "concatenation")
+			return (await Promise.all(arg.pieces.map(utils.getValue))).join("");
+		else if(arg.type == "commandSubstitution")
+			return await exec(arg.commands);
+		else
+			throw `Error: ${arg.type} not supported.`;
+	},	
+
 	// Read entire file contents from virtual file system, and can subset by line numbers
 	// e.g. lineRange=`[0]`, `[0,1]`, `[0,5]`
 	readFiles: async (paths, lineRange) => {
