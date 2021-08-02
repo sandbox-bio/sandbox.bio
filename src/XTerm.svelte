@@ -32,7 +32,8 @@ const AUTOCOMPLETE = {
 	mv: () => [],
 	rm: () => [],
 	mkdir: () => [],
-	rmdir: () => []
+	rmdir: () => [],
+	env: () => []
 };
 
 

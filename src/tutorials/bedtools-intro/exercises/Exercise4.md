@@ -1,41 +1,19 @@
 <script>
 // Solution:
-//    grep Enhancer hesc.chromHmm.bed > enhancers.bed
-//    grep Promoter hesc.chromHmm.bed > promoters.bed
-//    bedtools jaccard -a cpg.bed -b enhancers.bed > jaccard.enhancers.txt
-//    bedtools jaccard -a cpg.bed -b promoters.bed > jaccard.promoters.txt
+//    bedtools jaccard -a cpg.bed -b <(grep Enhancer hesc.chromHmm.bed) > jaccard.enhancers.txt
+//    bedtools jaccard -a cpg.bed -b <(grep Promoter hesc.chromHmm.bed) > jaccard.promoters.txt
 
 import Exercise from "components/Exercise.svelte";
 import Alert from "components/Alert.svelte";
 
 let criteria = [
 {
-	name: "File <code>enhancers.bed</code> contains a list of enhancers",
-	checks: [{
-		type: "file",
-		path: "enhancers.bed",
-		action: "contents",
-		command: "grep Enhancer hesc.chromHmm.bed",
-		output: "/shared/tmp/exercise4-enhancers.bed"
-	}]
-},
-{
-	name: "File <code>promoters.bed</code> contains a list of promoters",
-	checks: [{
-		type: "file",
-		path: "promoters.bed",
-		action: "contents",
-		command: "grep Promoter hesc.chromHmm.bed",
-		output: "/shared/tmp/exercise4-promoters.bed"
-	}]
-},
-{
 	name: "File <code>jaccard.enhancers.txt</code> contains Jaccard stats between CpG and enhancers",
 	checks: [{
 		type: "file",
 		path: "jaccard.enhancers.txt",
 		action: "contents",
-		command: "bedtools jaccard -a cpg.bed -b /shared/tmp/exercise4-enhancers.bed"
+		command: "bedtools jaccard -a cpg.bed -b <(grep Enhancer hesc.chromHmm.bed)"
 	}]
 },
 {
@@ -44,7 +22,7 @@ let criteria = [
 		type: "file",
 		path: "jaccard.promoters.txt",
 		action: "contents",
-		command: "bedtools jaccard -a cpg.bed -b /shared/tmp/exercise4-promoters.bed"
+		command: "bedtools jaccard -a cpg.bed -b <(grep Promoter hesc.chromHmm.bed)"
 	}]
 },
 ];

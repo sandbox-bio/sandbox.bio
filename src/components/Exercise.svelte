@@ -33,8 +33,6 @@ async function check(manual=false)
 					else if(check.action == "contents") {
 						const observed = await $CLI.exec(`cat ${check.path}`);
 						const expected = await $CLI.exec(check.command);
-						if(check.output)
-							await $CLI.utils.writeFile(check.output, expected);
 						status[i] = observed == expected;
 					}
 				}

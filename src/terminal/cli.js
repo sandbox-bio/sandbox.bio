@@ -2,7 +2,7 @@
 // for the small utilities and Aioli for the bioinformatics tools.
 //
 // Known Limitations:
-// * Doesn't support subshells, process substitutions, globbing
+// * Doesn't support subshells, globbing
 // * Ctrl + C doesn't stop running process (e.g. `sleep 2 & sleep 5` + ^C does nothing)
 // * Tail doesn't support `tail -n +3` format (but `head -n-2` and `head/tail -2` supported)
 
@@ -57,8 +57,6 @@ async function exec(cmd, callback)
 		throw `Error: ${cmd.type} is not supported.`;
 	if(cmd.args && cmd.args.find(a => a.type == "glob"))
 		throw "Error: globbing (e.g. `ls *.txt`) is not supported.";
-	if(cmd.args && cmd.args.find(a => a.type == "processSubstitution"))
-		throw "Error: process substitution (e.g. `cmd1 <(cmd2)`) is not supported.";
 
 	// If string, convert it to an AST
 	if(typeof cmd === "string") {
@@ -369,13 +367,22 @@ const utils = {
 			return arg.value;
 		else if(arg.type == "variable")
 			return _vars[arg.name] || "";
+		// e.g. echo "something $abc $def"
 		else if(arg.type == "concatenation")
 			return (await Promise.all(arg.pieces.map(utils.getValue))).join("");
+		// e.g. someprgm $(grep "bla" test.txt | wc -l)
 		else if(arg.type == "commandSubstitution")
 			return await exec(arg.commands);
+		// e.g. bedtools -a <(grep "Enhancer" data.bed)
+		else if(arg.type == "processSubstitution" && arg.readWrite == "<") {
+			const output = await exec(arg.commands);
+			const pathTmpFile = await coreutils.mktemp();
+			await _fs.writeFile(pathTmpFile, output);
+			return pathTmpFile;
+		}
 		else
-			throw `Error: ${arg.type} not supported.`;
-	},	
+			throw `Error: ${arg.type} arguments not supported.`;
+	},
 
 	// Read entire file contents from virtual file system, and can subset by line numbers
 	// e.g. lineRange=`[0]`, `[0,1]`, `[0,5]`
@@ -416,6 +423,5 @@ const minimistConfig = {
 export const CLI = readable({
 	init,
 	exec,
-	utils,
 	coreutils
 });
