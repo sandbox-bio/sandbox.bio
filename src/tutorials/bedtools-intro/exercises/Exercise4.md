@@ -1,7 +1,6 @@
 <script>
 // Solution:
-//    bedtools jaccard -a cpg.bed -b <(grep Enhancer hesc.chromHmm.bed) > jaccard.enhancers.txt
-//    bedtools jaccard -a cpg.bed -b <(grep Promoter hesc.chromHmm.bed) > jaccard.promoters.txt
+//    bedtools jaccard -a cpg.bed -b <(grep Enhancer hesc.chromHmm.bed) > jaccard.enhancers.txt; bedtools jaccard -a cpg.bed -b <(grep Promoter hesc.chromHmm.bed) > jaccard.promoters.txt
 
 import Exercise from "components/Exercise.svelte";
 import Alert from "components/Alert.svelte";
