@@ -5,7 +5,6 @@
 //    bedtools jaccard -a cpg.bed -b enhancers.bed > jaccard.enhancers.txt
 //    bedtools jaccard -a cpg.bed -b promoters.bed > jaccard.promoters.txt
 
-// import { CoreUtils } from "terminal/coreutils";
 import Exercise from "components/Exercise.svelte";
 import Alert from "components/Alert.svelte";
 
@@ -16,7 +15,7 @@ let criteria = [
 		type: "file",
 		path: "enhancers.bed",
 		action: "contents",
-		fn: async () => await CoreUtils.grep(["Enhancer", "hesc.chromHmm.bed"]),
+		command: "grep Enhancer hesc.chromHmm.bed",
 		output: "/shared/tmp/exercise4-enhancers.bed"
 	}]
 },
@@ -26,7 +25,7 @@ let criteria = [
 		type: "file",
 		path: "promoters.bed",
 		action: "contents",
-		fn: async () => await CoreUtils.grep(["Promoter", "hesc.chromHmm.bed"]),
+		command: "grep Promoter hesc.chromHmm.bed",
 		output: "/shared/tmp/exercise4-promoters.bed"
 	}]
 },

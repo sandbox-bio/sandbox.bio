@@ -65,7 +65,6 @@ async function exec(cmd, callback)
 		try {
 			return await exec(parse(cmd), callback);
 		} catch (error) {
-			console.error(error);
 			if(error.name == "SyntaxError")
 				throw "Unrecognized command";
 			throw error;
@@ -197,8 +196,6 @@ async function exec(cmd, callback)
 
 		// If something fails, behave differently depending on e.g. `&&` vs `||`
 		} catch (error) {
-			console.error(error);
-
 			// If using `||`, output error but keep going
 			if(cmd.control == "||" && cmd.next) {
 				callback(error);
@@ -291,7 +288,7 @@ const coreutils = {
 			if(args.v)
 				return !line.match(pattern);
 			return line.match(pattern);
-		});
+		}).join("\n");
 	},
 
 	// -------------------------------------------------------------------------
@@ -339,7 +336,6 @@ const coreutils = {
 					}
 				}
 			} catch (error) {
-				console.error(error);
 				throw `${path}: No such file or directory`;
 			}
 		}
@@ -399,6 +395,9 @@ const utils = {
 		// Add break line between different files but trim last breakline
 		return outputs.join("\n").trim();
 	},
+
+	// Write file (used by Exercise.svelte)
+	writeFile: (path, contents) => _fs.writeFile(path, contents)
 };
 
 // Custom minimist configs for certain coreutils
@@ -417,5 +416,6 @@ const minimistConfig = {
 export const CLI = readable({
 	init,
 	exec,
+	utils,
 	coreutils
 });

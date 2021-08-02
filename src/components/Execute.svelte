@@ -6,8 +6,7 @@ export let command;
 export let inline = false;
 
 // Run command in the CLI!
-function exec()
-{
+function exec() {
 	if(!command)
 		return;
 	$xtermAddons.echo.setInput(command.replace(/\\/g, ""));

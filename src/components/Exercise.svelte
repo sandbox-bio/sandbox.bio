@@ -19,37 +19,27 @@ async function check(manual=false)
 	for(let i in criteria)
 	{
 		const criterion = criteria[i];
-		for(let check of (criterion.checks || []))
-		{
-			if(check.type == "file")
-			{
-				// Does file exist?
-				if(check.action == "exists") {
-					console.log(check.path)
-					status[i] = await $CLI.exec(`ls ${check.path}`) !== false;
+		try {
+			for(let check of (criterion.checks || []))
+				if(check.type == "file")
+				{
+					// Does file exist?
+					if(check.action == "exists") {
+						await $CLI.exec(`ls ${check.path}`);
+						status[i] = true;
+					}
 
+					// Does file content match expectation? Define the right answer using a CLI invocation
+					else if(check.action == "contents") {
+						const observed = await $CLI.exec(`cat ${check.path}`);
+						const expected = await $CLI.exec(check.command);
+						if(check.output)
+							await $CLI.utils.writeFile(check.output, expected);
+						status[i] = observed == expected;
+					}
 				}
-
-				
-				// // Does file content match expectation?
-				// else if(check.action == "contents")
-				// {
-				// 	const observed = await $CLI.exec(`cat ${check.path}`)
-				// 	let expected;
-
-				// 	// If we define the right answer with a function we call
-				// 	if(check.fn)
-				// 		expected = await check.fn();
-				// 	// If we define the right answer using a CLI invocation
-				// 	else if(check.command)
-				// 		expected = await $CLI.exec(check.command);
-
-				// 	// Is it correct?
-				// 	if(check.output)
-				// 		await CoreUtils.FS.writeFile(check.output, expected);
-				// 	status[i] = observed == expected;
-				// }
-			}
+		} catch (error) {
+			status[i] = false;
 		}
 	}
 
@@ -76,7 +66,7 @@ setTimer();
 	{/each}
 </ul>
 
-<button class="btn btn-sm btn-primary mt-3" on:click={() => check(true)} disabled={status.filter(d => d).length == status.length}>
+<button class="btn btn-sm btn-primary mt-3" on:click={() => check(true)} disabled={status.filter(d => d).length == status.length && status.length != 0}>
 	Check my work
 	{#if busy}
 		<Spinner size="sm" color="light" class="ms-2" />
