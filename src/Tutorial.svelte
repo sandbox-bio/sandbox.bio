@@ -51,9 +51,6 @@ function nextStep(step)
 								<span class="badge" class:bg-success={tag == "beginner"} class:bg-warning={tag == "intermediate"} class:bg-danger={tag == "difficult"}>{tag}</span>
 							{/each}
 						</h6>
-						{#if tutorial.adapted_from}
-							<span>Adapted from <a href={tutorial.adapted_from.link} target="_blank">{tutorial.adapted_from.name}</a></span>
-						{/if}
 					</div>
 				{/if}
 				<hr class="border-2 border-top border-secondary" />
@@ -78,7 +75,7 @@ function nextStep(step)
 			</div>
 		</div>
 		<div id="terminal-wrapper" class="border rounded-3 p-2">
-			<Terminal on:status={event => $status.terminal = event.detail} files={tutorial.files} />
+			<Terminal on:status={event => $status.terminal = event.detail} files={tutorial.files} init={tutorial.init} />
 		</div>
 	</div>
 </div>

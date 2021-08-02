@@ -45,6 +45,7 @@ const AUTOCOMPLETE = {
 
 export let ready = false;                  // Whether CLI is ready for user input
 export let intro = "";                     // Intro string to display on Terminal once ready (optional)
+export let init = "";                      // Command to run to initialize the environment (optional)
 export let files = [];                     // Files to preload on the filesystem
 export let tools = TOOLS_DEFAULT;          // Aioli tools to load
 
@@ -73,6 +74,8 @@ onMount(async () => {
 	// Initialize Aioli
 	try {
 		await $CLI.init({ tools, files });
+		if(init)
+			await $CLI.exec(init);
 		ready = true;
 	} catch (error) {
 		console.error("Could not load terminal:", error);
