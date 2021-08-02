@@ -77,7 +77,7 @@ function nextStep(step)
 			</div>
 		</div>
 		<div id="terminal-wrapper" class="border rounded-3 p-2">
-			<Terminal files={tutorial.files} />
+			<Terminal on:status={event => $config.status = event.detail} files={tutorial.files} />
 		</div>
 	</div>
 </div>

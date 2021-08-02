@@ -1,5 +1,5 @@
 <script>
-import { onMount } from "svelte";
+import { onMount, createEventDispatcher } from "svelte";
 import { Spinner } from "sveltestrap";
 import "xterm/css/xterm.css";
 
@@ -42,13 +42,15 @@ const AUTOCOMPLETE = {
 // State
 // =============================================================================
 
-export let ready = false;          // Whether CLI is ready for user input
-export let intro;                  // Intro string to display on Terminal once ready (optional)
-export let files = [];             // Files to preload on the filesystem
-export let tools = TOOLS_DEFAULT;  // Aioli tools to load
+export let ready = false;                  // Whether CLI is ready for user input
+export let intro = "";                     // Intro string to display on Terminal once ready (optional)
+export let files = [];                     // Files to preload on the filesystem
+export let tools = TOOLS_DEFAULT;          // Aioli tools to load
 
-let divTerminal;           // HTML element where terminal will be drawn
-$: if(ready) input();      // Ask for user input once ready
+let divTerminal;                           // HTML element where terminal will be drawn
+$: if(ready) input();                      // Ask for user input once ready
+
+const dispatch = createEventDispatcher();  // Send info to parent component when cmd is done
 
 
 // =============================================================================
@@ -100,16 +102,23 @@ async function exec(cmd)
 	if(cmd == "clear")
 		return input(ANSI_CLEAR);
 
+	let output;
 	try {
 		// Get output from the command (only the synchronous commands that didn't use `&`).
 		// Note: 2nd arg = callback that is called when an asynchronous command finishes.
-		const output = await $CLI.exec(cmd, out => $xterm.writeln(out));
-
-		// Ask the user for the next input
-		return input(output);
+		output = await $CLI.exec(cmd, out => $xterm.writeln(out));
 	} catch (error) {
-		return input(error);
+		output = error;
 	}
+
+	// Let parent component know we're done (used in Exercises to refresh status).
+	// If useful, we can also send a 2nd arg containing data to send back.
+	// We do this to keep Terminal.svelte independent from the `config.js` file
+	// so it can be reused in other applications that don't have it.
+	dispatch("status", "execDone");
+
+	// Ask the user for the next input
+	return input(output);
 }
 
 
