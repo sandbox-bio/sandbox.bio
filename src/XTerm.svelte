@@ -1,16 +1,15 @@
 <script>
-import { onMount, createEventDispatcher } from "svelte";
+import { onMount } from "svelte";
 import { Spinner } from "sveltestrap";
 import "xterm/css/xterm.css";
 
 // Imports
 import { xterm, xtermAddons } from "terminal/xterm";
-// import { CoreUtils } from "terminal/coreutils";
 import { CLI } from "terminal/cli";
+// import { CoreUtils } from "terminal/coreutils";
 
 // Constants
-const ANSI_CLEAR = "\x1bc";                // Clear terminal
-const dispatch = createEventDispatcher();  // Dispatch for sending "exec" messages to parent component
+const ANSI_CLEAR = "\x1bc";
 
 // Autocomplete subcommands
 const AUTOCOMPLETE = {
@@ -87,12 +86,9 @@ async function exec(cmd)
 		return input(ANSI_CLEAR);
 
 	try {
-		// Get synchronous outputs from the command
-		const output = await $CLI.exec(cmd, out => {
-			// This function is called when an asynchronous command finishes
-			$xterm.writeln(out);
-			// $xtermAddons.echo.writeln(out);
-		});
+		// Get output from the command (only the synchronous commands that didn't use `&`).
+		// Note: 2nd arg = callback that is called when an asynchronous command finishes.
+		const output = await $CLI.exec(cmd, out => $xterm.writeln(out));
 
 		// Ask the user for the next input
 		return input(output);
