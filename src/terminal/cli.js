@@ -111,30 +111,46 @@ async function exec(cmd, callback)
 	// -------------------------------------------------------------------------
 	if(cmd.type == "command")
 	{
-		// console.log("Command", cmd.command, cmd.args)
+		console.log("Command", cmd);
 
 		// Interpret the command
 		try {
 			const tool = cmd.command.value;
-			const args = minimist(cmd.args.map(arg => arg.value), minimistConfig[tool]);
+			const argsRaw = cmd.args.map(arg => arg.value);
+			const args = minimist(argsRaw, minimistConfig[tool]);
+			let output;
 
-			console.log("INTERPRET", tool, args)
+			// If it's a coreutils
 			if(tool in coreutils)
-				return await coreutils[tool](args);
+				output = await coreutils[tool](args);
+			// Otherwise, try running the command with Aioli
+			else
+				output = await _aioli.exec(`${tool} ${argsRaw.join(" ")}`);
 
-			// // Otherwise, try running the command with Aioli
-			// } else {
-			// 	try {
-			// 		output = await aioli.exec(cmd);
-			// 	} catch (error) {
-			// 		output = error;
-			// 	}
+			// Are there redirects to handle? e.g. `... | head`, `... > test.txt`
+			for(let redirect of (cmd.redirects || []))
+			{
+				// Handle pipes
+				if(redirect.type == "pipe") {
+					// Save `output` to a temp file
+					const pathTmpFile = await coreutils.mktemp();
+					await _fs.writeFile(pathTmpFile, output);
+					// Run commands with appending arg called temp file
+					redirect.command.args.push({ type: "literal", value: pathTmpFile });
+					return exec(redirect.command, callback);
+				} else {
+					throw `Error: ${redirect.type} redirections are not supported.`;
+				}
+			}
 
-			// TODO: Handle cmd.next
+			return output;
 			// TODO: Handle cmd.redirects
+			// TODO: Handle cmd.next
 
 		// If something fails, behave differently depending on e.g. `&&` vs `||`
 		} catch (error) {
+			console.error(error);
+
 			// If using `||`, output error but keep going
 			if(cmd.control == "||" && cmd.next) {
 				callback(error);
@@ -176,6 +192,11 @@ const coreutils = {
 	echo: args => args._.join(" "),
 	mkdir: args => Promise.all(args._.map(async arg => await _fs.mkdir(arg))),
 	rmdir: args => Promise.all(args._.map(async arg => await _fs.rmdir(arg))),
+	mktemp: args => {
+		const path = `/shared/tmp/tmp${parseInt(Math.random() * 1_000_000)}`;
+		_fs.writeFile(path, "");
+		return path;
+	},
 
 	// -------------------------------------------------------------------------
 	// File contents utilities

@@ -43,9 +43,6 @@ const AUTOCOMPLETE = {
 export let ready = false;  // Whether CLI is ready for user input
 export let intro;          // Intro string to display on Terminal once ready (optional)
 let divTerminal;           // HTML element where terminal will be drawn
-let runtime = 0;           // How long the last command took to run
-let runtimeShow = false;   // Whether to output the command runtime
-
 $: if(ready) input();      // Ask for user input once ready
 
 
@@ -74,11 +71,8 @@ onMount(() => {
 // Get user input 
 function input(toPrint)
 {
-	runtime = window.performance.now() - runtime;
 	if(toPrint)
 		$xterm.writeln(toPrint);
-	if(runtimeShow)
-		$xterm.writeln(`\nRuntime: ${runtime}ms`);
 	$xterm.focus();
 	$xtermAddons.echo.read("$ ")
 		.then(exec)
@@ -88,7 +82,10 @@ function input(toPrint)
 // Execute command
 async function exec(cmd)
 {
-	console.log("[XTerm]", cmd);
+	// Handle special `clear` command
+	if(cmd == "clear")
+		return input(ANSI_CLEAR);
+
 	try {
 		// Get synchronous outputs from the command
 		const output = await $CLI.exec(cmd, out => {
@@ -103,103 +100,79 @@ async function exec(cmd)
 		return input(error);
 	}
 
+	// // -------------------------------------------------------------------------
+	// // Support basic file redirection (cmd > file) and piping (cmd | cmd2 | cmd3)
+	// // -------------------------------------------------------------------------
 
-	runtime = window.performance.now();
-	runtimeShow = false;
+	// // Prepare defaults
+	// let options = {
+	// 	cmd: cmd,
+	// 	file: null,  // null == stdout, otherwise save to a file path
+	// 	next: ""     // next command to run after this one (used by pipes)
+	// };
 
-	// -------------------------------------------------------------------------
-	// Input validation
-	// -------------------------------------------------------------------------
-	if(!cmd || !(typeof cmd === "string"))
-		return input();
-	// Trim whitespace and remove duplicate spaces
-	cmd = cmd.trim();
-	cmd = cmd.replace(/  +/g, " ");
-	cmd = cmd.replace(/\\/g, "");  // if multi-line command, remove \
+	// // Redirections: assume ">" is not used in string arguments
+	// // e.g. samtools view -q20 toy.sam > toy.filtered.sam
+	// const redirections = cmd.split(">").map(d => d.trim());
+	// if(redirections.length > 2)
+	// 	return input("Unsupported command: Only support one '>' redirection.\n");
+	// else if(redirections.length == 2) {
+	// 	options.cmd = redirections[0];   // e.g. samtools view -q20 toy.sam
+	// 	options.file = redirections[1];  // e.g. toy.filtered.sam
+	// }
 
-	// Handle terminal-related commands
-	if(cmd == "clear")
-		return input(ANSI_CLEAR);
+	// // Piping: execute first part of the pipe, save output to a tmp file, then
+	// // run the other commands subsequently on those tmp files recursively.
+	// // e.g. samtools view | head -n 5 | wc -l > somefile
+	// const pipes = cmd.split("|").map(d => d.trim());
+	// if(pipes.length > 1)
+	// {
+	// 	// If we also have a redirection on top of the pipes, track it
+	// 	const fileRedir = options.file;  // somefile
+	// 	// And remove it from the command
+	// 	if(fileRedir)
+	// 		pipes[pipes.length-1] = pipes[pipes.length-1].split(">")[0];
 
-	// If user wants to check how long a command takes to run
-	if(cmd.split(" ")[0] == "time") {
-		runtimeShow = true;
-		cmd = cmd.split(" ").slice(1).join(" ");
-	}
+	// 	// Execute first part of the pipe, save the output to a temp file
+	// 	const fileTmp = `/tmp/tmp${parseInt(Math.random() * 10000)}`;
+	// 	options.cmd = pipes.shift();     // samtools view
+	// 	options.file = fileTmp;          // /tmp/tmp123
 
-	// -------------------------------------------------------------------------
-	// Support basic file redirection (cmd > file) and piping (cmd | cmd2 | cmd3)
-	// -------------------------------------------------------------------------
+	// 	// Next command should use the temp file we are writing to
+	// 	pipes[0] += ` ${fileTmp}`;       // head -n 5 /tmp/pipe123
 
-	// Prepare defaults
-	let options = {
-		cmd: cmd,
-		file: null,  // null == stdout, otherwise save to a file path
-		next: ""     // next command to run after this one (used by pipes)
-	};
+	// 	// Save remaining commands for the next time around
+	// 	options.next = pipes.join("|");  // head -n 5 /tmp/pipe123 | wc -l
+	// 	if(fileRedir)
+	// 		options.next += ` > ${fileRedir}`;  // head -n 5 /tmp/pipe123 | wc -l > somefile
+	// }
 
-	// Redirections: assume ">" is not used in string arguments
-	// e.g. samtools view -q20 toy.sam > toy.filtered.sam
-	const redirections = cmd.split(">").map(d => d.trim());
-	if(redirections.length > 2)
-		return input("Unsupported command: Only support one '>' redirection.\n");
-	else if(redirections.length == 2) {
-		options.cmd = redirections[0];   // e.g. samtools view -q20 toy.sam
-		options.file = redirections[1];  // e.g. toy.filtered.sam
-	}
+	// // -------------------------------------------------------------------------
+	// // Execute command
+	// // -------------------------------------------------------------------------
+	// // Send message to parent component asking to execute the command.
+	// // The callback will output the result and ask for the next input.
+	// dispatch("exec", {
+	// 	cmd: options.cmd,
+	// 	callback: async out => {
+	// 		let stdout = "" + out;          // Convert to string if it's not already
 
-	// Piping: execute first part of the pipe, save output to a tmp file, then
-	// run the other commands subsequently on those tmp files recursively.
-	// e.g. samtools view | head -n 5 | wc -l > somefile
-	const pipes = cmd.split("|").map(d => d.trim());
-	if(pipes.length > 1)
-	{
-		// If we also have a redirection on top of the pipes, track it
-		const fileRedir = options.file;  // somefile
-		// And remove it from the command
-		if(fileRedir)
-			pipes[pipes.length-1] = pipes[pipes.length-1].split(">")[0];
+	// 		// Do we want to save this to a file?
+	// 		if(options.file) {
+	// 			// await CoreUtils.FS.writeFile(options.file, stdout);
+	// 			stdout = "";
+	// 		// Or just to stdout: append \n if needed
+	// 		} else if(!stdout.endsWith("\n")) {
+	// 			stdout += "\n";
+	// 		}
 
-		// Execute first part of the pipe, save the output to a temp file
-		const fileTmp = `/tmp/tmp${parseInt(Math.random() * 10000)}`;
-		options.cmd = pipes.shift();     // samtools view
-		options.file = fileTmp;          // /tmp/tmp123
-
-		// Next command should use the temp file we are writing to
-		pipes[0] += ` ${fileTmp}`;       // head -n 5 /tmp/pipe123
-
-		// Save remaining commands for the next time around
-		options.next = pipes.join("|");  // head -n 5 /tmp/pipe123 | wc -l
-		if(fileRedir)
-			options.next += ` > ${fileRedir}`;  // head -n 5 /tmp/pipe123 | wc -l > somefile
-	}
-
-	// -------------------------------------------------------------------------
-	// Execute command
-	// -------------------------------------------------------------------------
-	// Send message to parent component asking to execute the command.
-	// The callback will output the result and ask for the next input.
-	dispatch("exec", {
-		cmd: options.cmd,
-		callback: async out => {
-			let stdout = "" + out;          // Convert to string if it's not already
-
-			// Do we want to save this to a file?
-			if(options.file) {
-				// await CoreUtils.FS.writeFile(options.file, stdout);
-				stdout = "";
-			// Or just to stdout: append \n if needed
-			} else if(!stdout.endsWith("\n")) {
-				stdout += "\n";
-			}
-
-			// If we need to run more commands before we output, do so
-			if(options.next)
-				return await exec(options.next);
-			// Otherwise, output to stdout and get next input
-			input(stdout);
-		}
-	});
+	// 		// If we need to run more commands before we output, do so
+	// 		if(options.next)
+	// 			return await exec(options.next);
+	// 		// Otherwise, output to stdout and get next input
+	// 		input(stdout);
+	// 	}
+	// });
 }
 
 
