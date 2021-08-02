@@ -46,4 +46,16 @@ describe("Test piping", () => {
 		expect(observed).to.equal("7");
 	});
 
+	it("Write/Append to file", async () => {
+		observed = await $CLI.exec(`echo "test" > tmp`);
+		observed = await $CLI.exec(`echo "test" > tmp`);
+		observed = await $CLI.exec(`cat tmp`);
+		expect(observed).to.equal("test");
+
+		observed = await $CLI.exec(`echo "test" > tmp`);
+		observed = await $CLI.exec(`echo "test" >> tmp`);
+		observed = await $CLI.exec(`cat tmp`);
+		expect(observed).to.equal("test\ntest");
+	});
+
 });
