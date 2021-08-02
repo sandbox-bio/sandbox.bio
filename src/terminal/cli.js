@@ -160,7 +160,7 @@ async function exec(cmd, callback)
 					const path = await utils.getValue(redirect.filename);
 					// Write to file
 					if(redirect.op == ">")
-						await _fs.writeFile(path, output);
+						await _fs.writeFile(path, "" + output);  // convert to string if it's not already
 					// Append to file (create it first if doesn't exist)
 					else if(redirect.op == ">>") {
 						try {
@@ -234,7 +234,11 @@ const coreutils = {
 	rm: args => Promise.all(args._.map(async arg => await _fs.unlink(arg))),
 	pwd: args => _fs.cwd(),
 	echo: args => args._.join(" "),
-	mkdir: args => Promise.all(args._.map(async arg => await _fs.mkdir(arg))),
+	mkdir: async args => {
+		// Don't use async since can't get return value
+		args._.map(arg => { try { _fs.mkdir(arg); } catch (error) {} });
+		return "";
+	},
 	rmdir: args => Promise.all(args._.map(async arg => await _fs.rmdir(arg))),
 	mktemp: args => {
 		const path = `/shared/tmp/tmp${parseInt(Math.random() * 1_000_000)}`;
@@ -392,15 +396,15 @@ const utils = {
 
 		// For each path, read entire file contents
 		const outputs = await Promise.all(paths.map(async path => {
-			let output = await _fs.readFile(path, { "encoding": "utf8" });
+			let output = (await _fs.readFile(path, { "encoding": "utf8" })).trim();
 			// Then subset by lines of interest (not efficient at all, but `FS.read()` fails due to WebWorker issues)
 			if(Array.isArray(lineRange))
-				output = output.trim().split("\n").slice(...lineRange).join("\n");
+				output = output.split("\n").slice(...lineRange).join("\n");
 			return output;
 		}));
 
-		// Add break line between different files but trim last breakline
-		return outputs.join("\n").trim();
+		// Add break line between different files
+		return outputs.join("\n");
 	},
 
 	// Write file (used by Exercise.svelte)
