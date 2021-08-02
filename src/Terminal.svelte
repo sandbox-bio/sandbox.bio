@@ -119,7 +119,8 @@ async function exec(cmd)
 	dispatch("status", "execDone");
 
 	// Band-aid: don't show bowtie2 thread warnings
-	output = output.replaceAll("pthread_sigmask() is not supported: this is a no-op.\n", "");
+	if(typeof output === "string")
+		output = output.replaceAll("pthread_sigmask() is not supported: this is a no-op.\n", "");
 
 	// Ask the user for the next input
 	return input(output);
