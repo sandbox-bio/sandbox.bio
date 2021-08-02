@@ -9,12 +9,13 @@ import { CLI } from "terminal/cli";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";
-const TOOLS_DEFAULT = ["samtools/1.10", "bedtools/2.29.2"];
+const TOOLS_DEFAULT = ["samtools/1.10", "bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2"];
 
 // Autocomplete subcommands
 const AUTOCOMPLETE = {
 	samtools: () => ["view", "sort", "index", "idxstats"],
 	bedtools: () => ["intersect", "merge", "complement", "genomecov", "jaccard", "makewindows", "flank"],
+	bowtie2: () => [],
 	ls: async args => {
 		let pathSearch = args[0];                                                      // /samtools/examples/toy
 		let pathBase = pathSearch.substring(0, pathSearch.lastIndexOf("/")+1) || ".";  // /samtools/examples/
@@ -116,6 +117,9 @@ async function exec(cmd)
 	// We do this to keep Terminal.svelte independent from the `config.js` file
 	// so it can be reused in other applications that don't have it.
 	dispatch("status", "execDone");
+
+	// Band-aid: don't show bowtie2 thread warnings
+	output = output.replaceAll("pthread_sigmask() is not supported: this is a no-op.\n", "");
 
 	// Ask the user for the next input
 	return input(output);

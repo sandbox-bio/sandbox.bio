@@ -10,13 +10,13 @@ import { config } from "config";
 // State
 const path = window.location.pathname;
 const intro = `# This playground is for open-ended exploration.
-# For guided tutorials, see https://sandbox.bio/tutorials.
+# For guided tutorials, see https://sandbox.bio/tutorials
 #
 # Example:
 #   samtools view -o test.bam /samtools/examples/toy.sam
 #   samtools index test.bam
 #   ls test.bam.bai
-#   samtools idxstats test.bam
+#   samtools idxstats test.bam  # idxstats uses the .bai file
 `;
 </script>
 

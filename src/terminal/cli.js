@@ -20,6 +20,9 @@ let _fs = {};      // Aioli filesystem object
 let _jobs = 0;     // Number of jobs running in background
 let _pid = 10000;  // Current pid
 let _vars = {};    // User-defined variables!
+let _aliases = {   // Pre-defined program aliases
+	bowtie2: "bowtie2-align-s"
+};
 
 
 // =============================================================================
@@ -129,10 +132,16 @@ async function exec(cmd, callback)
 		if(cmd.command == "[[")
 			throw "Error: Test expressions not supported";
 		try {
-			const tool = cmd.command.value;
+			let output;
+			let tool = cmd.command.value;
+
+			// Support aliases
+			if(tool in _aliases)
+				tool = _aliases[tool];
+
+			// Parse args
 			const argsRaw = await Promise.all(cmd.args.map(utils.getValue));
 			const args = minimist(argsRaw, minimistConfig[tool]);
-			let output;
 
 			// If it's a coreutils
 			if(tool in coreutils)
@@ -245,6 +254,7 @@ const coreutils = {
 		_fs.writeFile(path, "");
 		return path;
 	},
+	date: args => new Date().toLocaleString(),
 
 	// -------------------------------------------------------------------------
 	// File contents utilities
