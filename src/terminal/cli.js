@@ -2,9 +2,9 @@
 // for the small utilities and Aioli for the bioinformatics tools.
 
 // Known Limitations:
-// * Doesn't support subshells, process substitutions, variables, globbing
+// * Doesn't support subshells, process substitutions, globbing
 // * Ctrl + C doesn't stop running process (e.g. `sleep 2 & sleep 5` + ^C does nothing)
-// * tail doesn't support `tail -n +3` format (but `head -n-2` and `head/tail -2` supported)
+// * Tail doesn't support `tail -n +3` format (but `head -n-2` and `head/tail -2` supported)
 
 
 // Imports
@@ -20,6 +20,7 @@ let _aioli = {};   // Aioli object
 let _fs = {};      // Aioli filesystem object
 let _jobs = 0;     // Number of jobs running in background
 let _pid = 10000;  // Current pid
+let _vars = {};    // User-defined variables!
 
 
 // =============================================================================
@@ -46,15 +47,13 @@ async function init(config={})
 // Run a command
 async function exec(cmd, callback)
 {
-	// console.log("[exec]", cmd, callback);
+	// console.log("[exec]", cmd);
 
 	// -------------------------------------------------------------------------
 	// Input validation
 	// -------------------------------------------------------------------------
 	if(cmd.type == "subshell")
 		throw "Error: subshells are not supported.";
-	if(cmd.type == "variableAssignment")
-		throw "Error: Bash variables are not supported.";
 	if(cmd.body)
 		throw `Error: ${cmd.type} is not supported.`;
 	if(cmd.args && cmd.args.find(a => a.type == "glob"))
@@ -95,15 +94,23 @@ async function exec(cmd, callback)
 	}
 
 	// -------------------------------------------------------------------------
-	// Special "time" command
+	// Special commands
 	// -------------------------------------------------------------------------
-	if(cmd.type == "time")
-	{
+	// Estimate command runtime
+	if(cmd.type == "time") {
 		const timeStart = window.performance.now();
 		const output = await exec(cmd.command, callback);
 		const timeEnd = window.performance.now();
 		callback(`Runtime: ${timeEnd - timeStart}ms`);
 		return output;
+	}
+
+	// Assign a value to a variable
+	if(cmd.type == "variableAssignment") {
+		const name = cmd.name;
+		const value = await utils.getValue(cmd.value);
+		_vars[name] = value;
+		return "";
 	}
 
 	// -------------------------------------------------------------------------
