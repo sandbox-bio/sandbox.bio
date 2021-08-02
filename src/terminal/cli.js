@@ -152,11 +152,85 @@ async function exec(cmd, callback)
 }
 
 
-// -----------------------------------------------------------------------------
-// GNU Coreutils JavaScript implementation
-// -----------------------------------------------------------------------------
+// =============================================================================
+// GNU Coreutils JavaScript implementation (only list functions here that should
+// be directly callable by the user from the CLI).
+// =============================================================================
 
-// Utility functions to support coreutils
+const coreutils = {
+	// sleep [1]
+	sleep: args => {
+		const duration = parseInt(args._[0]) || 1;
+		return new Promise((resolve, reject) => {
+			setTimeout(() => resolve(""), duration * 1000);
+		});
+	},
+
+	// -------------------------------------------------------------------------
+	// File system management
+	// -------------------------------------------------------------------------
+	cd: args => _fs.chdir(args._[0]) && "",
+	mv: args => _fs.rename(args._[0], args._[1]) && "",
+	rm: args => Promise.all(args._.map(async arg => await _fs.unlink(arg))),
+	pwd: args => _fs.cwd(),
+	echo: args => args._.join(" "),
+	mkdir: args => Promise.all(args._.map(async arg => await _fs.mkdir(arg))),
+	rmdir: args => Promise.all(args._.map(async arg => await _fs.rmdir(arg))),
+
+	// -------------------------------------------------------------------------
+	// File contents utilities
+	// -------------------------------------------------------------------------
+	// cat file1 [file2 ... fileN]
+	cat: args => utils.readFiles(args._),
+
+	// tail [-n 10|-10]
+	tail: args => coreutils.head(args, true),
+
+	// head [-n 10|-10]
+	head: (args, tail=false) => {
+		// Support older `head -5 myfile` format ==> args={ 5: myfile, _: [] }
+		const nOld = Object.keys(args).find(arg => parseInt(arg));
+		if(nOld)
+			args = { n: nOld, _: [ args[nOld] ] };
+
+		// Get first n lines
+		const n = args.n || 10;
+		return utils.readFiles(args._, tail ? [-n] : [0, n]);
+	},
+
+	// wc [-l|-w|-c] <file>
+	wc: async args => {
+		// Count number of lines/words/chars
+		const output = await utils.readFiles(args._);
+		const nbLines = output.trim().split("\n").length;
+		const nbWords = output.trim().split(/\s+/).length;
+		const nbChars = output.length;
+
+		// Return result
+		if(args.l) return nbLines;
+		else if(args.w) return nbWords;
+		else if(args.c) return nbChars;
+		else return `${nbLines}\t${nbWords}\t${nbChars}`;
+	},
+
+	// grep [-v] [-i] [-e] [-E] <pattern> <file>
+	grep: async args => {
+		const pattern = new RegExp(args._[0], `g${args.i ? "i" : ""}`);
+		const output = await utils.readFiles(args._.slice(1));
+		return output.split("\n").filter(line => {
+			if(args.v)
+				return !line.match(pattern);
+			return line.match(pattern);
+		});
+	},
+
+};
+
+
+// =============================================================================
+// Utility functions
+// =============================================================================
+
 const utils = {
 	// Read entire file contents from virtual file system, and can subset by line numbers
 	// e.g. lineRange=`[0]`, `[0,1]`, `[0,5]`
@@ -178,65 +252,14 @@ const utils = {
 
 // Custom minimist configs for certain coreutils
 const minimistConfig = {
-	wc: { boolean: ["l", "c", "w"] }
-};
-
-// Actual coreutils (only list functions here that should be directly callable by the user from the CLI)
-const coreutils = {
-	// sleep [1]
-	sleep: args => {
-		const duration = parseInt(args._[0]) || 1;
-		return new Promise((resolve, reject) => {
-			setTimeout(() => resolve(""), duration * 1000);
-		});
-	},
-
-	// cat file1 [file2 ... fileN]
-	cat: args => utils.readFiles(args._),
-
-	// head [-n 10|-10]
-	head: (args, tail=false) => {
-		// Support older `head -5 myfile` format ==> args={ 5: myfile, _: [] }
-		const nOld = Object.keys(args).find(arg => parseInt(arg));
-		if(nOld)
-			args = { n: nOld, _: [ args[nOld] ] };
-
-		// Get first n lines
-		const n = args.n || 10;
-		return utils.readFiles(args._, tail ? [-n] : [0, n]);
-	},
-	// tail [-n 10|-10]
-	tail: args => coreutils.head(args, true),
-
-	// wc [-l|-w|-c] myfile
-	wc: async args => {
-		// Count number of lines/words/chars
-		const output = await utils.readFiles(args._);
-		const nbLines = output.trim().split("\n").length;
-		const nbWords = output.trim().split(/\s+/).length;
-		const nbChars = output.length;
-
-		// Return result
-		if(args.l) return nbLines;
-		else if(args.w) return nbWords;
-		else if(args.c) return nbChars;
-		else return `${nbLines}\t${nbWords}\t${nbChars}`;
-	},
-
-	// Small file system utilities
-	cd: args => _fs.chdir(args._[0]) && "",
-	mv: args => _fs.rename(args._[0], args._[1]) && "",
-	rm: args => Promise.all(args._.map(async arg => await _fs.unlink(arg))),
-	pwd: args => _fs.cwd(),
-	echo: args => args._.join(" "),
-	mkdir: args => Promise.all(args._.map(async arg => await _fs.mkdir(arg))),
-	rmdir: args => Promise.all(args._.map(async arg => await _fs.rmdir(arg))),
+	wc: { boolean: ["l", "c", "w"] },
+	grep: { boolean: ["v", "i", "e", "E"] }
 };
 
 
-// -----------------------------------------------------------------------------
-// Export as readable store
-// -----------------------------------------------------------------------------
+// =============================================================================
+// Export CLI as a readable store
+// =============================================================================
 
 export const CLI = readable({
 	init,
