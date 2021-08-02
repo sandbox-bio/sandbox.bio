@@ -9,6 +9,7 @@ import { CLI } from "terminal/cli";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";
+const TOOLS_DEFAULT = ["samtools/1.10", "bedtools/2.29.2"];
 
 // Autocomplete subcommands
 const AUTOCOMPLETE = {
@@ -41,8 +42,11 @@ const AUTOCOMPLETE = {
 // State
 // =============================================================================
 
-export let ready = false;  // Whether CLI is ready for user input
-export let intro;          // Intro string to display on Terminal once ready (optional)
+export let ready = false;          // Whether CLI is ready for user input
+export let intro;                  // Intro string to display on Terminal once ready (optional)
+export let files = [];             // Files to preload on the filesystem
+export let tools = TOOLS_DEFAULT;  // Aioli tools to load
+
 let divTerminal;           // HTML element where terminal will be drawn
 $: if(ready) input();      // Ask for user input once ready
 
@@ -51,7 +55,7 @@ $: if(ready) input();      // Ask for user input once ready
 // Initialization
 // =============================================================================
 
-onMount(() => {
+onMount(async () => {
 	// Register handlers
 	$xterm.onKey(handleShortcuts);
 	$xterm.onData(handleAutocomplete);
@@ -62,6 +66,15 @@ onMount(() => {
 	// Prepare UI but don't allow input yet
 	$xterm.open(divTerminal);
 	$xtermAddons.fit.fit();
+
+	// Initialize Aioli
+	try {
+		await $CLI.init({ tools, files });
+		ready = true;
+	} catch (error) {
+		console.error("Could not load terminal:", error);
+		alert("Could not load the terminal. Please try refreshing the page.");
+	}
 });
 
 
