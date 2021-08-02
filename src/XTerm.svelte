@@ -6,7 +6,6 @@ import "xterm/css/xterm.css";
 // Imports
 import { xterm, xtermAddons } from "terminal/xterm";
 import { CLI } from "terminal/cli";
-// import { CoreUtils } from "terminal/coreutils";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";
@@ -16,9 +15,11 @@ const AUTOCOMPLETE = {
 	samtools: () => ["view", "sort", "index", "idxstats"],
 	bedtools: () => ["intersect", "merge", "complement", "genomecov", "jaccard", "makewindows", "flank"],
 	ls: async args => {
-		const pathSearch = args[0];                                               // /samtools/examples/toy
-		const pathBase = pathSearch.substring(0, pathSearch.lastIndexOf("/")+1);  // /samtools/examples/
-		// const files = await CoreUtils.ls([pathBase], true);
+		let pathSearch = args[0];                                                      // /samtools/examples/toy
+		let pathBase = pathSearch.substring(0, pathSearch.lastIndexOf("/")+1) || ".";  // /samtools/examples/
+		const files = await $CLI.coreutils.ls([pathBase], true);
+		if(pathBase == ".")
+			pathBase = "";
 		return files.map(f => `${pathBase}${f.name}`);
 	},
 	cat: () => [],

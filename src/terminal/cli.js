@@ -300,7 +300,7 @@ const coreutils = {
 	ll: (args, raw) => coreutils.ls(args, raw),
 	ls: async (args, raw=false) => {
 		// Input validation and dedupping
-		let paths = args._;
+		let paths = args._ || args;
 		if(paths.length == 0)
 			paths = ["."];
 		paths = [...new Set(paths)];
@@ -416,5 +416,6 @@ const minimistConfig = {
 
 export const CLI = readable({
 	init,
-	exec
+	exec,
+	coreutils
 });
