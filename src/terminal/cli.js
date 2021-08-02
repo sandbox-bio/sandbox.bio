@@ -130,7 +130,9 @@ async function exec(cmd, callback)
 			// Are there redirects to handle? e.g. `... | head`, `... > test.txt`
 			for(let redirect of (cmd.redirects || []))
 			{
+				// -------------------------------------------------------------
 				// Handle pipes
+				// -------------------------------------------------------------
 				if(redirect.type == "pipe") {
 					// Save `output` to a temp file
 					const pathTmpFile = await coreutils.mktemp();
@@ -138,14 +140,39 @@ async function exec(cmd, callback)
 					// Run commands with appending arg called temp file
 					redirect.command.args.push({ type: "literal", value: pathTmpFile });
 					return exec(redirect.command, callback);
+
+				// -------------------------------------------------------------
+				// Handle redirection to a file
+				// -------------------------------------------------------------
+				} else if(redirect.type == "redirectFd") {
+					const path = redirect.filename.value;
+					// Write to file
+					if(redirect.op == ">")
+						await _fs.writeFile(path, output);
+					// Append to file (create it first if doesn't exist)
+					else if(redirect.op == ">>") {
+						try {
+							await _fs.stat(path);
+						} catch (error) {
+							await _fs.writeFile(path, "");
+						}
+						let contents = await utils.readFiles([ path ]);
+						await _fs.writeFile(path, (contents + "\n" + output).trim());
+					} else {
+						throw `Error: ${redirect.op} redirections are not supported.`;
+					}
+					return "";
+
+				// -------------------------------------------------------------
+				// Otherwise, don't know what to do
+				// -------------------------------------------------------------
 				} else {
 					throw `Error: ${redirect.type} redirections are not supported.`;
 				}
 			}
 
+			// If no redirections, just return the result
 			return output;
-			// TODO: Handle cmd.redirects
-			// TODO: Handle cmd.next
 
 		// If something fails, behave differently depending on e.g. `&&` vs `||`
 		} catch (error) {
@@ -159,8 +186,6 @@ async function exec(cmd, callback)
 			// Reaches this line if e.g. using `&&`
 			throw error;
 		}
-
-		return "Unrecognized command:", cmd?.command?.value;
 	}
 
 	console.error("Unrecognized command:", cmd);
@@ -332,7 +357,9 @@ const utils = {
 				output = output.trim().split("\n").slice(...lineRange).join("\n");
 			return output;
 		}));
-		return outputs.join("");
+
+		// Add break line between different files but trim last breakline
+		return outputs.join("\n").trim();
 	},
 };
 
