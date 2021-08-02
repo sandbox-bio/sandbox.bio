@@ -63,7 +63,7 @@ export default {
 		production && terser(),
 
 		// Allow us to import bed/txt files into strings!
-		string({ include: "**/*.{bed,txt}" }),
+		string({ include: "**/*.{bed,txt,fq}" }),
 
 		// Define other include paths so the code is more terse
 		includePaths({ paths: ["./src/"] })
