@@ -1,5 +1,6 @@
 // Steps
 import Intro from "./steps/Intro.md";
+import Conclusion from "./steps/Conclusion.md";
 import Step1 from "./steps/Step1.md";
 import Step2 from "./steps/Step2.md";
 import Step3 from "./steps/Step3.md";
@@ -48,7 +49,8 @@ export const config = {
 		{ name: "Exercises", component: Exercise2, subtitle: "Find exons in 500kb regions" },
 		{ name: "Exercises", component: Exercise3, subtitle: "Find flanking splice sites" },
 		{ name: "Exercises", component: Exercise5, subtitle: "Find overlapping exons" },
-		{ name: "Exercises", component: Exercise4, subtitle: "Calculate Jaccard statistics" }
+		{ name: "Exercises", component: Exercise4, subtitle: "Calculate Jaccard statistics" },
+		{ name: "The end", component: Conclusion, header: true }
 	],
 
 	// Files needed at runtime
