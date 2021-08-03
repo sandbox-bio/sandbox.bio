@@ -16,10 +16,10 @@ let igvOptions = {
 	},
 	locus: "chr1:262,932-512,931",
 	tracks: [
-		{ url: "./data/cpg.bed", name: "CpG islands" },
-		{ url: "./data/exons.bed", name: "RefSeq Exons" },
-		{ url: "./data/gwas.bed", name: "GWAS SNPs" },
-		{ url: "./data/hesc.chromHmm.bed", name: "chromHMM Predictions" }
+		{ url: "./data/bedtools-intro/cpg.bed", name: "CpG islands" },
+		{ url: "./data/bedtools-intro/exons.bed", name: "RefSeq Exons" },
+		{ url: "./data/bedtools-intro/gwas.bed", name: "GWAS SNPs" },
+		{ url: "./data/bedtools-intro/hesc.chromHmm.bed", name: "chromHMM Predictions" }
 	]
 };
 </script>
