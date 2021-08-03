@@ -8,6 +8,16 @@ let igvPromise;             // Resolves when igv.js is done loading
 
 function createIGV() {
 	var igvDiv = document.getElementById("igv-div");
+
+	// Explicitly specify the reference URLs so that igv.js doesn't try downloading RefSeq genes
+	options.reference = {
+		id: "hg19",
+		name: "Human (hg19)",
+		fastaURL: "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg19/hg19.fasta",
+		indexURL: "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg19/hg19.fasta.fai",
+		cytobandURL: "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg19/cytoBand.txt",
+		tracks: []
+	};
 	igvPromise = igv.createBrowser(igvDiv, options);
 }
 </script>
