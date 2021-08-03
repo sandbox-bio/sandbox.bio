@@ -1,0 +1,30 @@
+<script>
+import Execute from "components/Execute.svelte";
+</script>
+
+As we discussed earlier, the FLAG field in the BAM format encodes several key
+pieces of information regarding how an alignment aligned to the reference genome.
+We can exploit this information to isolate specific types of alignments that we
+want to use in our analysis.
+
+For example, we often want to call variants solely from paired-end sequences
+that aligned "properly" to the reference genome.
+
+To ask the `view` command to report solely "proper pairs", we use the `-f` option
+and ask for alignments where the second bit is true (proper pair is true):
+
+<Execute command={"samtools view -f 0x2 sample.sorted.bam"} />
+
+How many *properly* paired alignments are there?
+
+<Execute command={"samtools view -c -f 0x2 sample.sorted.bam"} />
+
+Now, let's ask for alignments that are NOT properly paired.  To do this, we use the `-F` option (note the capitalization to denote "opposite").
+
+<Execute command={"samtools view -F 0x2 sample.sorted.bam"} />
+
+How many *improperly* paired alignments are there?
+
+<Execute command={"samtools -c view -F 0x2 sample.sorted.bam"} />
+
+Does everything add up?
