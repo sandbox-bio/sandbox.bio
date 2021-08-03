@@ -112,7 +112,6 @@ async function exec(cmd)
 		// Note: 2nd arg = callback that is called when an asynchronous command finishes.
 		output = await $CLI.exec(cmd, out => $xterm.writeln(out));
 		// Add extra break line so there's room to see what's going on in the terminal
-		output += "\n";
 	} catch (error) {
 		output = error;
 	}

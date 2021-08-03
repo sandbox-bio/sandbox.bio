@@ -290,9 +290,11 @@ const coreutils = {
 	wc: async args => {
 		// Count number of lines/words/chars
 		const output = await utils.readFiles(args._);
-		const nbLines = output.trim().split("\n").length;
-		const nbWords = output.trim().split(/\s+/).length;
-		const nbChars = output.length;
+		let nbLines = output.trim().split("\n").length;
+		let nbWords = output.trim().split(/\s+/).length;
+		let nbChars = output.length;
+		if(output == "")
+			nbLines = nbWords = nbChars = 0;
 
 		// Return result
 		if(args.l) return nbLines;

@@ -51,6 +51,7 @@ samtools index sample.bam
 
 # Shuffle it so it's realistic
 cat <(samtools view -H sample.sam) <(shuf <(samtools view sample.sam)) > sample.shuffled.sam
+mv sample.shuffled.sam sample.sam
 
 # Downsample (but results in very low coverage...)
 samtools view -h -S -s 42.0001 ~/Downloads/sample.sam > sample.small.sam
