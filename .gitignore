@@ -3,3 +3,4 @@
 /public/data/
 .DS_Store
 trash/
+src/tutorials/samtools-intro/data/original.*
