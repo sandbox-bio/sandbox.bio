@@ -1,4 +1,6 @@
 <script>
+// Shortcut: samtools view -b sample.sam -o sample.bam; samtools sort sample.bam -o sample.sorted.bam; samtools index sample.sorted.bam; 
+
 import Execute from "components/Execute.svelte";
 </script>
 
@@ -13,18 +15,22 @@ that aligned "properly" to the reference genome.
 To ask the `view` command to report solely "proper pairs", we use the `-f` option
 and ask for alignments where the second bit is true (proper pair is true):
 
-<Execute command={"samtools view -f 0x2 sample.sorted.bam"} />
+<Execute command={"samtools view -f 0x2 sample.sorted.bam | head"} />
 
-How many *properly* paired alignments are there?
+How many *properly* paired alignments are there? (use the `-c` option)
 
 <Execute command={"samtools view -c -f 0x2 sample.sorted.bam"} />
 
-Now, let's ask for alignments that are NOT properly paired.  To do this, we use the `-F` option (note the capitalization to denote "opposite").
+Now, let's ask for alignments that are NOT properly paired. To do this, we use the `-F` option (note the capitalization to denote "opposite").
 
-<Execute command={"samtools view -F 0x2 sample.sorted.bam"} />
+<Execute command={"samtools view -F 0x2 sample.sorted.bam | head"} />
 
 How many *improperly* paired alignments are there?
 
-<Execute command={"samtools -c view -F 0x2 sample.sorted.bam"} />
+<Execute command={"samtools view -c -F 0x2 sample.sorted.bam"} />
+
+How many *total* alignments?
+
+<Execute command={"samtools view -c sample.sorted.bam"} />
 
 Does everything add up?
