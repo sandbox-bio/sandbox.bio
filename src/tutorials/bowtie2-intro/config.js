@@ -5,6 +5,7 @@ import Step2 from "./steps/Step2.md";
 import Step3 from "./steps/Step3.md";
 import Step4 from "./steps/Step4.md";
 import Step5 from "./steps/Step5.md";
+import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "bowtie2-intro",
@@ -19,6 +20,7 @@ export const config = {
 		{ name: "Aligning example reads", component: Step3, subtitle: "Align paired-end reads" },
 		{ name: "Aligning example reads", component: Step4, subtitle: "Local alignment" },
 		{ name: "Using samtools downstream", component: Step5, subtitle: "Using samtools" },
+		{ name: "The end", component: Conclusion, header: true }
 	],
 	files: [
 		"reads_1.fq",

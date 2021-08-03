@@ -1,6 +1,5 @@
 // Steps
 import Intro from "./steps/Intro.md";
-import Conclusion from "./steps/Conclusion.md";
 import Step1 from "./steps/Step1.md";
 import Step2 from "./steps/Step2.md";
 import Step3 from "./steps/Step3.md";
@@ -14,6 +13,7 @@ import Step10 from "./steps/Step10.md";
 import Step11 from "./steps/Step11.md";
 import Step12 from "./steps/Step12.md";
 import Step13 from "./steps/Step13.md";
+import Conclusion from "./steps/Conclusion.md";
 // Exercises
 import Exercise1 from "./exercises/Exercise1.md";
 import Exercise2 from "./exercises/Exercise2.md";
