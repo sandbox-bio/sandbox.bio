@@ -18,7 +18,7 @@ import Tutorials from "./Tutorials.svelte";
 	</div>
 </div>
 
-<Tutorials n={4} />
+<Tutorials maxListings={4} />
 
 <footer class="pt-3 mt-4 mb-4 text-muted border-top">
 	Built by <a href="https://robertaboukhalil.com">Robert Aboukhalil</a>. Reach out if you have tutorial ideas.
