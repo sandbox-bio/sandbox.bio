@@ -18,15 +18,6 @@ import Exercise1 from "./exercises/Exercise1.md";
 import Exercise2 from "./exercises/Exercise2.md";
 import Exercise3 from "./exercises/Exercise3.md";
 import Exercise4 from "./exercises/Exercise4.md";
-// Data files
-import CpgBed from "./data/cpg.bed";
-import ExonsBed from "./data/exons.bed";
-import Data1Bed from "./data/fHeart-DS15839.bed";
-import Data2Bed from "./data/fHeart-DS16621.bed";
-import Data3Bed from "./data/fSkin-DS19745.bed";
-import GwasBed from "./data/gwas.bed";
-import ChromHMMBed from "./data/hesc.chromHmm.bed";
-import GenomeTxt from "./data/genome.txt";
 
 export const config = {
 	// Metadata
@@ -60,13 +51,13 @@ export const config = {
 
 	// Files needed at runtime
 	files: [
-		{ name: "cpg.bed", contents: CpgBed },
-		{ name: "exons.bed", contents: ExonsBed },
-		{ name: "fHeart-DS15839.bed", contents: Data1Bed },
-		{ name: "fHeart-DS16621.bed", contents: Data2Bed },
-		{ name: "fSkin-DS19745.bed", contents: Data3Bed },
-		{ name: "gwas.bed", contents: GwasBed },
-		{ name: "hesc.chromHmm.bed", contents: ChromHMMBed },
-		{ name: "genome.txt", contents: GenomeTxt }
+		"cpg.bed",
+		"exons.bed",
+		"fHeart-DS15839.bed",
+		"fHeart-DS16621.bed",
+		"fSkin-DS19745.bed",
+		"gwas.bed",
+		"hesc.chromHmm.bed",
+		"genome.txt",
 	]
 }

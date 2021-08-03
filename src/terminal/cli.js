@@ -33,12 +33,19 @@ let _aliases = {   // Pre-defined program aliases
 // Format: { tools: [], files: [] }
 async function init(config={})
 {
+	// Initialize
 	_aioli = await new Aioli(config.tools, { env: "stg", debug: false });
 	_fs = _aioli.tools[1].module.FS;
 
 	// Pre-load files onto the main folder
-	for(let file of config.files || [])
-		_fs.writeFile(file.name, file.contents);
+	config.files = config.files || [];
+	const url = new URL(window.location);
+	const urlRoot = `${url.origin}/data/${url.searchParams.get("id")}/`;
+	const filePrefix = urlRoot.split("//").pop().replace(/\//g, "-");  // from Aioli code
+	const paths = await _aioli.mount(config.files.map(f => `${urlRoot}${f}`))
+
+	// Rename Aioli-mounted URLs that are automatically given long names
+	paths.map(async f => await exec(`mv ${f} ${f.replace(filePrefix, "")}`));
 }
 
 

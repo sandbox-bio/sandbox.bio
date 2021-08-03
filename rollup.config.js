@@ -5,7 +5,6 @@ import livereload from "rollup-plugin-livereload";
 import includePaths from "rollup-plugin-includepaths";
 import css from "rollup-plugin-css-only";
 import { terser } from "rollup-plugin-terser";
-import { string } from "rollup-plugin-string";
 import { markdown } from "svelte-preprocess-markdown";
 
 const production = !process.env.ROLLUP_WATCH;
@@ -61,9 +60,6 @@ export default {
 
 		// Minify
 		production && terser(),
-
-		// Allow us to import bed/txt files into strings!
-		string({ include: "**/*.{bed,txt,fq}" }),
 
 		// Define other include paths so the code is more terse
 		includePaths({ paths: ["./src/"] })
