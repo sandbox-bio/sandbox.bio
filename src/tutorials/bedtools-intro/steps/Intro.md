@@ -4,7 +4,7 @@ import Alert from "components/Alert.svelte";
 </script>
 
 <Alert>
-	**Note**: This tutorial is an interactive version of the <Link href="http://quinlanlab.org/tutorials/bedtools/bedtools.html">bedtools tutorial</Link> developed by the Quinlan Lab. The contents are the same, but the data was subsampled so it can be analyzed in your browser.
+	**Note**: This tutorial is an interactive version of the <Link href="http://quinlanlab.org/tutorials/bedtools/bedtools.html">bedtools tutorial</Link> developed by the <Link href="http://quinlanlab.org/">Quinlan Lab</Link>. The contents are the same, but the data was subsampled so it can be analyzed in your browser.
 </Alert>
 
 Our goal is to work through examples that demonstrate how to explore, process and manipulate genomic interval files (e.g., `BED`, `VCF`, `BAM`) with the `bedtools` software package.

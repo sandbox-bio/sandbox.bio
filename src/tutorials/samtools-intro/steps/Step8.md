@@ -23,10 +23,6 @@ How many *properly* paired alignments are there? (use the `-c` option)
 
 Now, let's ask for alignments that are NOT properly paired. To do this, we use the `-F` option (note the capitalization to denote "opposite").
 
-<Execute command={"samtools view -F 0x2 sample.sorted.bam | head"} />
-
-How many *improperly* paired alignments are there?
-
 <Execute command={"samtools view -c -F 0x2 sample.sorted.bam"} />
 
 How many *total* alignments?
@@ -34,3 +30,7 @@ How many *total* alignments?
 <Execute command={"samtools view -c sample.sorted.bam"} />
 
 Does everything add up?
+
+To get a summary of the flags in our BAM file, we can use `samtools flagstats`:
+
+<Execute command={"samtools flagstats sample.sorted.bam"} />
