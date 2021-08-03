@@ -38,3 +38,20 @@ bowtie2 -x $REF -U reads_1.fq -S eg1.sam
 #### What's differerent
 * Removed Setup (files are preloaded for users)
 * Subsampled reads_1.fq, reads_2.fq and longreads.fq
+
+---
+
+### samtools tutorial
+
+```bash
+# Subset
+samtools view -h original.bam 20:1.3e6-1.5e6 > sample.sam
+samtools view -b -o sample.bam sample.sam
+samtools index sample.bam
+
+# Shuffle it so it's realistic
+cat <(samtools view -H sample.sam) <(shuf <(samtools view sample.sam)) > sample.shuffled.sam
+
+# Downsample (but results in very low coverage...)
+samtools view -h -S -s 42.0001 ~/Downloads/sample.sam > sample.small.sam
+```
