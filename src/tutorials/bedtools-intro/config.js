@@ -18,6 +18,7 @@ import Exercise1 from "./exercises/Exercise1.md";
 import Exercise2 from "./exercises/Exercise2.md";
 import Exercise3 from "./exercises/Exercise3.md";
 import Exercise4 from "./exercises/Exercise4.md";
+import Exercise5 from "./exercises/Exercise5.md";
 
 export const config = {
 	// Metadata
@@ -46,6 +47,7 @@ export const config = {
 		{ name: "Exercises", component: Exercise1, subtitle: "Find non-exons", header: true },
 		{ name: "Exercises", component: Exercise2, subtitle: "Find exons in 500kb regions" },
 		{ name: "Exercises", component: Exercise3, subtitle: "Find flanking splice sites" },
+		{ name: "Exercises", component: Exercise5, subtitle: "Find overlapping exons" },
 		{ name: "Exercises", component: Exercise4, subtitle: "Calculate Jaccard statistics" }
 	],
 
