@@ -13,7 +13,7 @@ const TOOLS_DEFAULT = ["samtools/1.10", "bedtools/2.29.2", "bowtie2/bowtie2-alig
 
 // Autocomplete subcommands
 const AUTOCOMPLETE = {
-	samtools: () => ["view", "sort", "index", "idxstats"],
+	samtools: () => ["view", "sort", "depth", "index", "idxstats", "flags", "flagstats"],
 	bedtools: () => ["intersect", "merge", "complement", "genomecov", "jaccard", "makewindows", "flank"],
 	bowtie2: () => [],
 	ls: async args => {
