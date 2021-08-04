@@ -21,7 +21,7 @@ const tutorial = $config.tutorials.find(t => t.id == id);
 	<div class="row align-items-md-stretch">
 		{#each $config.tutorials.slice(0, maxListings) as info}
 			<div class="col-md-3">
-				<div class="h-100 p-5 border rounded-3">
+				<div class="h-100 p-3 border rounded-3">
 					{#each info.tools as tag}
 						<span class="badge bg-primary me-1 mb-2">
 							{tag}

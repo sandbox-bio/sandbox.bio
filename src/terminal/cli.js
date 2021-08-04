@@ -123,7 +123,7 @@ async function exec(cmd, callback)
 		const timeStart = window.performance.now();
 		const output = await exec(cmd.command, callback);
 		const timeEnd = window.performance.now();
-		callback(`Runtime: ${timeEnd - timeStart}ms`);
+		callback(`Runtime: ${Math.round((timeEnd - timeStart) * 100)/100}ms`);
 		return output;
 	}
 
