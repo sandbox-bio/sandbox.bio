@@ -45,7 +45,9 @@ function nextStep(step)
 					<div class="row mb-2">
 						<h6>
 							{#each tutorial.tools as tag}
-								<span class="badge bg-primary">{tag}</span>
+								<span class="badge bg-primary ms-1">
+									{tag}
+								</span>
 							{/each}
 							{#each tutorial.difficulty as tag}
 								<span class="badge" class:bg-success={tag == "beginner"} class:bg-warning={tag == "intermediate"} class:bg-danger={tag == "difficult"}>{tag}</span>

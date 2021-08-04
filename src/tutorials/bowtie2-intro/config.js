@@ -11,7 +11,7 @@ export const config = {
 	id: "bowtie2-intro",
 	name: "Introduction to bowtie2",
 	description: "Align DNA sequencing reads from <code>.fastq</code> files to the Lambda phage reference genome.",
-	tools: ["bowtie2"],
+	tools: ["bowtie2", "samtools"],
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "Introduction to bowtie2", component: Intro },

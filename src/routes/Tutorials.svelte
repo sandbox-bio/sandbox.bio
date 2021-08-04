@@ -22,9 +22,14 @@ const tutorial = $config.tutorials.find(t => t.id == id);
 		{#each $config.tutorials.slice(0, maxListings) as info}
 			<div class="col-md-3">
 				<div class="h-100 p-5 border rounded-3">
+					{#each info.tools as tag}
+						<span class="badge bg-primary me-1 mb-2">
+							{tag}
+						</span>
+					{/each}
 					<h4>{info.name}</h4>
 					<p>{@html info.description}</p>
-					<a href="/tutorials?id={info.id}" class="btn btn-outline-dark text-center">Launch</a>
+					<a href="/tutorials?id={info.id}" class="btn btn-outline-primary text-center">Launch</a>
 				</div>
 			</div>
 		{/each}

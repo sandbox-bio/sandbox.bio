@@ -26,7 +26,7 @@ export const config = {
 	id: "bedtools-intro",
 	name: "Introduction to bedtools",
 	description: "Explore, analyze, and manipulate genomic interval <code>.bed</code> files.",
-	tools: ["bedtools"],
+	tools: ["bedtools", "IGV"],
 	difficulty: ["beginner"],
 
 	// Lessons

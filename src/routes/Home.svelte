@@ -13,7 +13,7 @@ import Tutorials from "./Tutorials.svelte";
 			</div>
 		</div>
 		<div class="col-lg-5 offset-md-1 p-0 overflow-hidden shadow-lg">
-			<img class="rounded-lg-3" src="images/cli.full.png" alt="" width="800">
+			<img class="rounded-lg-3" src="images/cli.cropped.png" alt="Screenshot of terminal and exercises" width="800">
 		</div>
 	</div>
 </div>
