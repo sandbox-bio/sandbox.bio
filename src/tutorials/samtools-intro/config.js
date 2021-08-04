@@ -29,6 +29,6 @@ export const config = {
 		{ name: "The end", component: Conclusion, header: true }
 	],
 	files: [
-		"sample.sam"
+		"data/samtools-intro/sample.sam"
 	],
 };

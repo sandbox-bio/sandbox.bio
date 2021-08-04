@@ -23,9 +23,10 @@ export const config = {
 		{ name: "The end", component: Conclusion, header: true }
 	],
 	files: [
-		"reads_1.fq",
-		"reads_2.fq",
-		"longreads.fq"
+		"data/bowtie2-intro/reads_1.fq",
+		"data/bowtie2-intro/reads_2.fq",
+		"data/bowtie2-intro/longreads.fq",
+		"data/bowtie2-intro/r1.fq",
 	],
 	init: "REF=/bowtie2/example/index/lambda_virus"
 };

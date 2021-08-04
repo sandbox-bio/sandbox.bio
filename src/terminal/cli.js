@@ -40,13 +40,18 @@ async function init(config={})
 	// Pre-load files onto the main folder
 	if(config.files.length > 0) {
 		// Mount URLs
-		const url = new URL(window.location);
-		const urlRoot = `${url.origin}/data/${url.searchParams.get("id")}/`;
-		const filePrefix = urlRoot.split("//").pop().replace(/\//g, "-");  // from Aioli code
-		const paths = await _aioli.mount(config.files.map(f => `${urlRoot}${f}`))
-	
+		const urls = config.files.map(f => `${window.location.origin}/${f}`);
+		const paths = await _aioli.mount(urls)
+
 		// Rename Aioli-mounted URLs that are automatically given long names
-		paths.map(async f => await exec(`mv ${f} ${f.replace(filePrefix, "")}`));
+		for(let i in urls) {
+			const url = urls[i];
+			const path = paths[i];
+
+			const urlPrefix = url.split("/").slice(0, -1).join("/") + "/";
+			const pathPrefix = urlPrefix.split("//").pop().replace(/\//g, "-");  // from Aioli code
+			await exec(`mv ${path} ${path.replace(pathPrefix, "")}`);
+		}
 	}
 }
 
