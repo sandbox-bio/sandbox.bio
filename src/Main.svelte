@@ -67,9 +67,9 @@ const intro = `# This playground is for open-ended exploration.
 <main role="main" class="ps-4 pe-4">
 	{#if path == "/"}
 		<Home />
-	{:else if path == "/tutorials"}
+	{:else if path.startsWith("/tutorials")}
 		<Tutorials />
-	{:else if path == "/playground"}
+	{:else if path.startsWith("/playground")}
 		<div class="p-2" style="background-color:#000">
 			<Terminal {intro} files={$config.tutorials[0].files} />
 		</div>
