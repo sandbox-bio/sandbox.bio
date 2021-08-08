@@ -76,7 +76,7 @@ const intro = `# This playground is for open-ended exploration.
 	{/if}
 </main>
 
-<Modal body scrollable header="About" toggle={() => aboutIsOpen = !aboutIsOpen} isOpen={aboutIsOpen}>
+<Modal body scrollable size="lg" header="About" toggle={() => aboutIsOpen = !aboutIsOpen} isOpen={aboutIsOpen}>
 	<p>Interactive tutorials for exploring bioinformatics command-line tools in a secure sandbox.</p>
 
 	<p class="lead fw-bold mt-4 mb-1">How does it work?</p>
