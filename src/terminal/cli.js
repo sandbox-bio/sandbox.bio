@@ -34,7 +34,10 @@ let _aliases = {   // Pre-defined program aliases
 async function init(config={})
 {
 	// Initialize
-	_aioli = await new Aioli(config.tools, { env: "stg", debug: false });
+	_aioli = await new Aioli(config.tools, {
+		env: window.location.hostname == "localhost" ? "stg" : "prd",
+		debug: false
+	});
 	_fs = _aioli.tools[1].module.FS;
 
 	// Pre-load files onto the main folder
