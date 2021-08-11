@@ -73,6 +73,13 @@ onMount(async () => {
 
 	// Initialize Aioli
 	try {
+		// Delete autocomplete programs if we haven't loaded them
+		TOOLS_DEFAULT.map(toolName => {
+			if(tools.find(d => d == toolName) == null)
+				delete AUTOCOMPLETE[toolName.split("/")[0]];
+		});
+
+		// Initialize Aioli
 		await $CLI.init({ tools, files });
 		if(init)
 			await $CLI.exec(init);
