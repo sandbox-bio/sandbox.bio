@@ -3,8 +3,8 @@ import { Modal } from "sveltestrap";
 import "bootstrap/dist/js/bootstrap.bundle";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Home from "routes/Home.svelte";
-import Tutorials from "routes/Tutorials.svelte";
+import Home from "./routes/Home.svelte";
+import Tutorials from "./routes/Tutorials.svelte";
 import Terminal from "./Terminal.svelte";
 import { config } from "config";
 
