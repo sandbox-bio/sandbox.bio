@@ -10,12 +10,13 @@ import { CLI } from "terminal/cli";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";
-const TOOLS_DEFAULT = ["samtools/1.10", "bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2"];
+const TOOLS_DEFAULT = ["samtools/1.10", "bcftools/1.10", "bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2"];
 
 // Autocomplete subcommands
 const AUTOCOMPLETE = {
 	samtools: () => ["view", "sort", "depth", "index", "idxstats", "flags", "flagstats"],
 	bedtools: () => ["intersect", "merge", "complement", "genomecov", "jaccard", "makewindows", "flank"],
+	bcftools: () => ["view", "index", "call"],
 	bowtie2: () => [],
 	ls: async args => {
 		let pathSearch = args[0];                                                      // /samtools/examples/toy
