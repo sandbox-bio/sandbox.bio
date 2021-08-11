@@ -44,7 +44,7 @@ function nextStep(step)
 				{#if step == 0}
 					<div class="row mb-2">
 						<h6>
-							{#each tutorial.tools as tag}
+							{#each tutorial.tags as tag}
 								<span class="badge bg-primary ms-1">
 									{tag}
 								</span>
@@ -77,7 +77,7 @@ function nextStep(step)
 			</div>
 		</div>
 		<div id="terminal-wrapper" class="border rounded-3 p-2">
-			<Terminal on:status={event => $status.terminal = event.detail} files={tutorial.files} init={tutorial.init} />
+			<Terminal on:status={event => $status.terminal = event.detail} files={tutorial.files} init={tutorial.init} tools={tutorial.tools} />
 		</div>
 	</div>
 </div>

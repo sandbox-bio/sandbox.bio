@@ -11,7 +11,8 @@ export const config = {
 	id: "bowtie2-intro",
 	name: "Introduction to bowtie2",
 	description: "Align DNA sequencing reads from <code>.fastq</code> files to a reference genome",
-	tools: ["bowtie2", "samtools"],
+	tags: ["bowtie2", "samtools"],
+	tools: ["samtools/1.10", "bowtie2/bowtie2-align-s/2.4.2"],
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "Introduction to bowtie2", component: Intro },

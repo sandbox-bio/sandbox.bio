@@ -5,7 +5,8 @@ export const config = {
 	id: "hidden-message",
 	name: "Decode data stored in DNA",
 	description: "TODO",
-	tools: ["bowtie2", "bcftools", "IGV"],
+	tags: ["bowtie2", "bcftools", "IGV"],
+	tools: ["samtools/1.10", "bowtie2/bowtie2-align-s/2.4.2"],
 	difficulty: ["intermediate"],
 	steps: [
 		{ name: "Your mission", component: Intro },
