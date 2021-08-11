@@ -12,7 +12,7 @@ import Tutorials from "./Tutorials.svelte";
 				<a href="/tutorials?id=bedtools-intro" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Get started &rarr;</a>
 			</div>
 		</div>
-		<div class="col-lg-5 offset-md-1 p-0 overflow-hidden shadow-lg">
+		<div class="align-center col-lg-5 p-0 offset-lg-1 overflow-hidden shadow-lg">
 			<img class="rounded-lg-3" src="images/cli.cropped.png" alt="Screenshot of terminal and exercises" width="800">
 		</div>
 	</div>
