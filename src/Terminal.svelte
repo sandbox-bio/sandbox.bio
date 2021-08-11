@@ -1,5 +1,6 @@
 <script>
 import { onMount, createEventDispatcher } from "svelte";
+import { watchResize } from "svelte-watch-resize";
 import { Spinner } from "sveltestrap";
 import "xterm/css/xterm.css";
 
@@ -69,7 +70,6 @@ onMount(async () => {
 
 	// Prepare UI but don't allow input yet
 	$xterm.open(divTerminal);
-	$xtermAddons.fit.fit();
 
 	// Initialize Aioli
 	try {
@@ -83,6 +83,10 @@ onMount(async () => {
 	}
 });
 
+// Resize xterm when the window size changes
+function handleResize() {
+	$xtermAddons.fit.fit();
+}
 
 // =============================================================================
 // xterm.js 
@@ -200,7 +204,7 @@ async function handleAutocomplete(data)
 }
 </script>
 
-<div bind:this={divTerminal} style="opacity: { ready ? 1 : 0.6 }; height:85vh; max-height:85vh; overflow:hidden">
+<div bind:this={divTerminal} use:watchResize={handleResize} style="opacity: { ready ? 1 : 0.6 }; height:85vh; max-height:85vh; overflow:hidden">
 	{#if !ready}
 		<Spinner color="light" type="border" />
 	{/if}
