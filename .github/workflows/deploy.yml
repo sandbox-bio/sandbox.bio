@@ -1,0 +1,18 @@
+name: Deploy sandbox.bio
+
+on:
+  workflow_dispatch:
+    inputs:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy sandbox.bio ({{ github.ref }})
+    steps:
+      - name: Deploy to Cloudflare Pages
+        if: ${{ github.ref == "dev" }}
+        run: curl -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/${{ secrets.CF_PAGES_HOOK_TOKEN_DEV }}"
+
+      - name: Deploy to Cloudflare Pages
+        if: ${{ github.ref == "main" }}
+        run: curl -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/${{ secrets.CF_PAGES_HOOK_TOKEN_PRD }}"
