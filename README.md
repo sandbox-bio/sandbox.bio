@@ -8,6 +8,11 @@
 
 ## Testing
 
+* `npm run test` will launch all the tests in headless way
+* `cypress open` opens Cypress so you can see the tests inside Chrome
+
+## Debugging
+
 ### Local biowasm builds
 
 ```javascript
