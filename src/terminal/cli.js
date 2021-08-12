@@ -20,9 +20,6 @@ let _fs = {};      // Aioli filesystem object
 let _jobs = 0;     // Number of jobs running in background
 let _pid = 10000;  // Current pid
 let _vars = {};    // User-defined variables!
-let _aliases = {   // Pre-defined program aliases
-	bowtie2: "bowtie2-align-s"
-};
 
 
 // =============================================================================
@@ -59,6 +56,22 @@ async function init(config={})
 }
 
 
+// =============================================================================
+// Custom transformations to apply to CLI commands, esp to fix commands such as:
+//   samtools view -b file.sam > file.bam --> samtools view -b file.sam -o file.bam
+// =============================================================================
+
+function transform(cmd)
+{
+	let tool = cmd.command.value;
+
+	// Handle aliases (just bowtie for now)
+	if(tool == "bowtie2")
+		tool = cmd.command.value = "bowtie2-align-s";
+
+
+	return cmd;
+}
 // =============================================================================
 // Execute a command
 // =============================================================================
@@ -150,13 +163,12 @@ async function exec(cmd, callback)
 			throw "Error: Test expressions not supported";
 		try {
 			let output;
-			let tool = cmd.command.value;
 
-			// Support aliases
-			if(tool in _aliases)
-				tool = _aliases[tool];
+			// Handle custom transforms on the command
+			cmd = transform(cmd);
 
 			// Parse args
+			const tool = cmd.command.value;
 			const argsRaw = await Promise.all(cmd.args.map(utils.getValue));
 			const args = minimist(argsRaw, minimistConfig[tool]);
 
