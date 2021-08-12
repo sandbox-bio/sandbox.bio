@@ -19,6 +19,17 @@ const TOOLS_DEFAULT = [{
 }];
 ```
 
+### Local aioli builds
+
+```javascript
+// cli.js
+	_aioli = await new Aioli(config.tools, {
+		env: window.location.hostname == "localhost" ? "stg" : "prd",
+		debug: window.location.hostname == "localhost",
+		urlAioli: "http://localhost:12346/aioli/dist/aioli.worker.js"
+	});
+```
+
 ### Run command on load
 
 ```javascript
