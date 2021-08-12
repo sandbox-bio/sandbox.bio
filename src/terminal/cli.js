@@ -41,7 +41,7 @@ async function init(config={})
 	_fs = _aioli.tools[1].module.FS;
 
 	// Pre-load files onto the main folder
-	if(config.files.length > 0) {
+	if(config.files?.length > 0) {
 		// Mount URLs
 		const urls = config.files.map(f => `${window.location.origin}/${f}`);
 		const paths = await _aioli.mount(urls)
