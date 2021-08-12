@@ -1,5 +1,11 @@
 # sandbox.bio
 
+## Development
+
+* Branches
+  * `dev`: Development branch, pushing there deploys a preview site
+  * `main`: Production branch; merge dev into main to deploy to sandbox.bio
+
 ## Testing
 
 ### Local biowasm builds
