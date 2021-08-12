@@ -14,30 +14,23 @@ const TOOLS_DEFAULT = ["samtools/1.10", "bcftools/1.10", "bedtools/2.29.2", "bow
 
 // Autocomplete subcommands
 const AUTOCOMPLETE = {
-	samtools: () => ["view", "sort", "depth", "index", "idxstats", "flags", "flagstats"],
-	bedtools: () => ["intersect", "merge", "complement", "genomecov", "jaccard", "makewindows", "flank"],
-	bcftools: () => ["view", "index", "call"],
-	bowtie2: () => [],
-	ls: async args => {
-		let pathSearch = args[0];                                                      // /samtools/examples/toy
-		let pathBase = pathSearch.substring(0, pathSearch.lastIndexOf("/")+1) || ".";  // /samtools/examples/
-		const files = await $CLI.coreutils.ls([pathBase], true);
-		if(pathBase == ".")
-			pathBase = "";
-		return files.map(f => `${pathBase}${f.name}`);
-	},
-	cat: () => [],
-	head: () => [],
-	tail: () => [],
-	wc: () => [],
-	pwd: () => [],
-	cd: () => [],
-	echo: () => [],
-	mv: () => [],
-	rm: () => [],
-	mkdir: () => [],
-	rmdir: () => [],
-	env: () => []
+	samtools: ["view", "sort", "depth", "index", "idxstats", "flags", "flagstats"],
+	bedtools: ["intersect", "merge", "complement", "genomecov", "jaccard", "makewindows", "flank"],
+	bcftools: ["view", "index", "call"],
+	bowtie2: [],
+	ls: [],
+	cat: [],
+	head: [],
+	tail: [],
+	wc: [],
+	pwd: [],
+	cd: [],
+	echo: [],
+	mv: [],
+	rm: [],
+	mkdir: [],
+	rmdir: [],
+	env: []
 };
 
 
@@ -174,9 +167,11 @@ async function handleAutocomplete(data)
 	if(data != "\t")
 		return;
 	const input = $xtermAddons.echo._input;
-	const prgm = input.split(" ")[0].trim();  // ls /samtools/examples/toy
-	const args = input.split(" ").slice(1);   // ["/samtools/examples/toy"]
-	let cacheAutocomplete = [];
+	const prgm = input.split(" ")[0].trim();      // ls /samtools/examples/toy
+	const args = input.split(" ").slice(1);       // ["/samtools/examples/toy"]
+	const userFragment = input.split(" ").pop();  // The fragment the user entered
+	let cacheAutocomplete = [];                   // Options to list to the user
+	let appendExtraSpace = true;                  // Whether we should append a space to the user's input (do that if have 1 option left and it's not a folder listing)
 
 	// Turn off local-echo so we can override it's default behavior
 	$xtermAddons.echo.detach();
@@ -184,13 +179,37 @@ async function handleAutocomplete(data)
 	// Autocomplete main commands
 	// e.g. "<TAB>" --> "samtools   bedtools"
 	if(args.length == 0)
-		cacheAutocomplete = Object.keys(AUTOCOMPLETE).filter(d => d.startsWith(prgm));
+		cacheAutocomplete = Object.keys(AUTOCOMPLETE).filter(d => d.startsWith(userFragment));
 
 	// Autocomplete subcommands
-	// e.g. "samtools " --> "view   sort   index  idxstats"
-	// e.g. "samtools i" --> "index   idxstats"
-	else if(args.length < 2 && prgm in AUTOCOMPLETE)
-		cacheAutocomplete = (await AUTOCOMPLETE[prgm](args)).filter(d => d.startsWith(args[0]));
+	else if(prgm in AUTOCOMPLETE) {
+		let subcommands = [];
+
+		// e.g. "samtools " --> "view   sort   index  idxstats"
+		// e.g. "samtools i" --> "index   idxstats"
+		if(args.length < 2) {
+			subcommands = AUTOCOMPLETE[prgm];
+			cacheAutocomplete = subcommands.filter(d => d.startsWith(userFragment));
+		}
+
+		// Autocomplete file listings if no subcommands available
+		// e.g. "samtools view to" --> "samtools view toy.bam"
+		if(subcommands.length == 0)
+		{
+			// let pathSearch = args[0];                                                      // /samtools/examples/toy
+			let pathBase =userFragment.substring(0,userFragment.lastIndexOf("/")+1) || ".";  // /samtools/examples/
+			const files = await $CLI.coreutils.ls([pathBase], true);
+			if(pathBase == ".")
+				pathBase = "";
+			cacheAutocomplete = files
+				.map(d => pathBase + d.name)
+				.filter(d => d.startsWith(userFragment));
+
+			// If we're listing folders and there's only 1 option, don't add a space yet because we'll want to keep autocompleting past that folder
+			if(cacheAutocomplete.length == 1 && cacheAutocomplete[0].endsWith("/"))
+				appendExtraSpace = false;
+		}
+	}
 
 	// Process autocomplete
 	// If nothing to autocomplete, just add a space
@@ -200,9 +219,8 @@ async function handleAutocomplete(data)
 	}
 	// If only one autocomplete option, then autocomplete it!
 	else if(cacheAutocomplete.length == 1) {
-		const remainingFragment = cacheAutocomplete[0].slice(args.length == 0 ? prgm.length : args[0].length);
-		const extraSpacing = (prgm == "ls" && args.length != 0) ? "" : " ";
-		$xtermAddons.echo.handleCursorInsert(remainingFragment + extraSpacing);
+		const remainingFragment = cacheAutocomplete[0].slice(userFragment.length);
+		$xtermAddons.echo.handleCursorInsert(remainingFragment + (appendExtraSpace ? " " : ""));
 	// Otherwise, output all candidates
 	} else {
 		$xtermAddons.echo.printAndRestartPrompt(() => $xtermAddons.echo.printWide(cacheAutocomplete));
