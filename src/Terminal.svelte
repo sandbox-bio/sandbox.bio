@@ -161,6 +161,7 @@ function handleShortcuts(key)
 
 // Autocomplete for subcommands. For some reason, it doesn't seem to work with local-echo. When I did "samtools <TAB>",
 // it would output "samtools samtools <TAB>" along with the subcommands :(
+// NOTE: this only supports autocompleting the ends of commands, not in the middle
 async function handleAutocomplete(data)
 {
 	// Parse user input (only care about tabbing to autocomplete)
@@ -179,7 +180,7 @@ async function handleAutocomplete(data)
 	// Autocomplete main commands
 	// e.g. "<TAB>" --> "samtools   bedtools"
 	if(args.length == 0)
-		cacheAutocomplete = Object.keys(AUTOCOMPLETE).filter(d => d.startsWith(userFragment));
+		cacheAutocomplete = Object.keys(AUTOCOMPLETE);
 
 	// Autocomplete subcommands
 	else if(prgm in AUTOCOMPLETE) {
@@ -189,7 +190,7 @@ async function handleAutocomplete(data)
 		// e.g. "samtools i" --> "index   idxstats"
 		if(args.length < 2) {
 			subcommands = AUTOCOMPLETE[prgm];
-			cacheAutocomplete = subcommands.filter(d => d.startsWith(userFragment));
+			cacheAutocomplete = subcommands;
 		}
 
 		// Autocomplete file listings if no subcommands available
@@ -201,15 +202,16 @@ async function handleAutocomplete(data)
 			const files = await $CLI.coreutils.ls([pathBase], true);
 			if(pathBase == ".")
 				pathBase = "";
-			cacheAutocomplete = files
-				.map(d => pathBase + d.name)
-				.filter(d => d.startsWith(userFragment));
+			cacheAutocomplete = files.map(d => pathBase + d.name);
 
 			// If we're listing folders and there's only 1 option, don't add a space yet because we'll want to keep autocompleting past that folder
 			if(cacheAutocomplete.length == 1 && cacheAutocomplete[0].endsWith("/"))
 				appendExtraSpace = false;
 		}
 	}
+
+	// Only show those that match what the user entered
+	cacheAutocomplete = cacheAutocomplete.filter(d => d.startsWith(userFragment));
 
 	// Process autocomplete
 	// If nothing to autocomplete, just add a space
