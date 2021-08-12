@@ -183,35 +183,30 @@ async function handleAutocomplete(data)
 		cacheAutocomplete = Object.keys(AUTOCOMPLETE);
 
 	// Autocomplete subcommands
-	else if(prgm in AUTOCOMPLETE) {
-		let subcommands = [];
-
+	else if(prgm in AUTOCOMPLETE)
+	{
 		// e.g. "samtools " --> "view   sort   index  idxstats"
 		// e.g. "samtools i" --> "index   idxstats"
-		if(args.length < 2) {
-			subcommands = AUTOCOMPLETE[prgm];
-			cacheAutocomplete = subcommands;
-		}
+		if(args.length < 2)
+			cacheAutocomplete = AUTOCOMPLETE[prgm];
 
 		// Autocomplete file listings if no subcommands available
 		// e.g. "samtools view to" --> "samtools view toy.bam"
-		if(subcommands.length == 0)
-		{
-			// let pathSearch = args[0];                                                      // /samtools/examples/toy
-			let pathBase =userFragment.substring(0,userFragment.lastIndexOf("/")+1) || ".";  // /samtools/examples/
-			const files = await $CLI.coreutils.ls([pathBase], true);
-			if(pathBase == ".")
-				pathBase = "";
+		if(cacheAutocomplete.length == 0) {
+			// Infer base path and files within it (default to `.`)
+			const pathBase = userFragment.substring(0, userFragment.lastIndexOf("/") + 1);
+			const files = await $CLI.coreutils.ls([ pathBase || "." ], true);
+			// Prepend base path since `ls` doesn't do that for us
 			cacheAutocomplete = files.map(d => pathBase + d.name);
-
-			// If we're listing folders and there's only 1 option, don't add a space yet because we'll want to keep autocompleting past that folder
-			if(cacheAutocomplete.length == 1 && cacheAutocomplete[0].endsWith("/"))
-				appendExtraSpace = false;
 		}
 	}
 
 	// Only show those that match what the user entered
 	cacheAutocomplete = cacheAutocomplete.filter(d => d.startsWith(userFragment));
+	// If we're listing folders and there's only 1 option, don't add a space yet
+	// because the user will want to keep autocompleting within that folder!
+	if(cacheAutocomplete.length == 1 && cacheAutocomplete[0].endsWith("/"))
+		appendExtraSpace = false;
 
 	// Process autocomplete
 	// If nothing to autocomplete, just add a space
