@@ -6,7 +6,7 @@ export const config = {
 	name: "Decode data stored in DNA",
 	description: "TODO",
 	tags: ["bowtie2", "bcftools", "IGV"],
-	tools: ["samtools/1.10", "bowtie2/bowtie2-align-s/2.4.2"],
+	tools: ["samtools/1.10", "bcftools/1.10", "bowtie2/bowtie2-align-s/2.4.2"],
 	difficulty: ["intermediate"],
 	steps: [
 		{ name: "Your mission", component: Intro },
