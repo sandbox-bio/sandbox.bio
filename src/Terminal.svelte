@@ -72,15 +72,16 @@ onMount(async () => {
 	// Prepare UI but don't allow input yet
 	$xterm.open(divTerminal);
 
-	// Initialize Aioli
+	// Delete autocomplete programs if we haven't loaded them
 	try {
-		// Delete autocomplete programs if we haven't loaded them
 		TOOLS_DEFAULT.map(toolName => {
 			if(tools.find(d => d == toolName) == null)
 				delete AUTOCOMPLETE[toolName.split("/")[0]];
 		});
+	} catch (error) {}
 
-		// Initialize Aioli
+	// Initialize Aioli
+	try {
 		await $CLI.init({ tools, files });
 		if(init)
 			await $CLI.exec(init);
