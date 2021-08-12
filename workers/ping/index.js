@@ -8,7 +8,7 @@ async function handleRequest(request) {
     const url = new URL(request.url);
 	const pingFrom = url.searchParams.get("from");
 	const pingTo = url.searchParams.get("to");
-	if(!pingFrom || !pingTo)
+	if(!pingFrom || !pingTo || request.method != "POST")
 		return new Response("", { status: 404 });
 
 	// Store in KV, where key = <timestamp>:<uuid>
