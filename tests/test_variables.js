@@ -10,10 +10,10 @@ describe("Test variables", () => {
 			tools: ["samtools/1.10"]
 		});
 	});
-	
+
 	it("Set/Read variable", async () => {
 		observed = await $CLI.exec(`abc=123`);
-		observed = await $CLI.exec(`echo $abc`);
+		observed = await $CLI.exec(`echo $abcc`);
 		expect(observed).to.equal("123");
 
 		observed = await $CLI.exec(`echo $doesntexist`);
