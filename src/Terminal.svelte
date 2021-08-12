@@ -146,8 +146,9 @@ function handleShortcuts(key)
 {
 	// Ctrl + L = Clear terminal (also clear input in case user had written something on the line)
 	if(key.domEvent.ctrlKey && key.domEvent.key == "l") {
+		const originalInput = $xtermAddons.echo._input;
 		$xterm.write(ANSI_CLEAR);
-		$xtermAddons.echo.setInput("");
+		$xtermAddons.echo.setInput(originalInput);
 	}
 
 	// Ctrl + A = Beginning of line
