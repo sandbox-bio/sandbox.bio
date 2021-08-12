@@ -6,7 +6,7 @@
     "build": "./build.sh && rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
-    "test": "cypress open"
+    "test": "cypress run"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
