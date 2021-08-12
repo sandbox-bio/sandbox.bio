@@ -1,5 +1,29 @@
 # sandbox.bio
 
+## Testing
+
+### Local biowasm builds
+
+```javascript
+// Terminal.svelte
+const TOOLS_DEFAULT = [{
+	tool: "samtools",
+	version: "1.10",
+	urlPrefix: "http://localhost:12346/biowasm/tools/samtools/build/"
+}];
+```
+
+### Run command on load
+
+```javascript
+// Terminal.svelte
+setTimeout(async () => {
+  $xtermAddons.echo.setInput("samtools view -b /samtools/examples/toy.sam > bad.bam; samtools quickcheck bad.bam");
+	$xtermAddons.echo.handleData("\r");
+}, 1000)
+```
+
+
 ## Tutorials
 
 ### bedtools-tutorial
