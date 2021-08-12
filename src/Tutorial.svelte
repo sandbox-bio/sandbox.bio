@@ -26,11 +26,13 @@ function nextStep(step)
 		url.searchParams.set("step", step);
 
 		// Handle analytics before updating the URL
-		try {
-			const pingFrom = encodeURIComponent(new URL(window.location).toString());
-			const pingTo = encodeURIComponent(url.toString());
-			fetch(`https://ping.sandbox.bio?from=${pingFrom}&to=${pingTo}`, { method: "POST", mode: "no-cors" });
-		} catch (error) {}
+		if(window.location.hostname != "localhost") {
+			try {
+				const pingFrom = encodeURIComponent(new URL(window.location).toString());
+				const pingTo = encodeURIComponent(url.toString());
+				fetch(`https://ping.sandbox.bio?from=${pingFrom}&to=${pingTo}`, { method: "POST", mode: "no-cors" });
+			} catch (error) {}
+		}
 
 		window.history.pushState({}, "", url);
 	}
