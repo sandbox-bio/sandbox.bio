@@ -4,5 +4,6 @@
     "pluginsFile": false,
     "supportFile": false,
     "defaultCommandTimeout": 40000,
+    "video": false,
     "port": 11111
 }
