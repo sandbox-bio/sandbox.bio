@@ -13,7 +13,7 @@ describe("Test variables", () => {
 
 	it("Set/Read variable", async () => {
 		observed = await $CLI.exec(`abc=123`);
-		observed = await $CLI.exec(`echo $abcc`);
+		observed = await $CLI.exec(`echo $abc`);
 		expect(observed).to.equal("123");
 
 		observed = await $CLI.exec(`echo $doesntexist`);
