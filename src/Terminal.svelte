@@ -117,7 +117,7 @@ async function exec(cmd)
 	try {
 		// Get output from the command (only the synchronous commands that didn't use `&`).
 		// Note: 2nd arg = callback that is called when an asynchronous command finishes.
-		output = await $CLI.exec(cmd, out => $xterm.writeln(out));
+		output = await $CLI.exec(cmd, out => $xterm.write(out));
 		// Add extra break line so there's room to see what's going on in the terminal
 	} catch (error) {
 		output = error;
