@@ -33,7 +33,8 @@ async function init(config={})
 	// Initialize
 	_aioli = await new Aioli(config.tools, {
 		env: window.location.hostname == "localhost" ? "stg" : "prd",
-		debug: window.location.hostname == "localhost"
+		debug: window.location.hostname == "localhost",
+		printInterleaved: false
 	});
 	_fs = _aioli.tools[1].module.FS;
 
@@ -77,7 +78,7 @@ function transform(cmd)
 // =============================================================================
 
 // Run a command
-async function exec(cmd, callback)
+async function exec(cmd, callback=console.warn)
 {
 	// console.log("[exec]", cmd);
 
@@ -176,8 +177,13 @@ async function exec(cmd, callback)
 			if(tool in coreutils)
 				output = await coreutils[tool](args);
 			// Otherwise, try running the command with Aioli
-			else
-				output = await _aioli.exec(`${tool} ${argsRaw.join(" ")}`.trim());
+			else {
+				const outputAioli = await _aioli.exec(`${tool} ${argsRaw.join(" ")}`.trim());
+				// Output the stderr now
+				callback(outputAioli.stderr);
+				// Either output the stdout or pass it along with the pipe
+				output = outputAioli.stdout;
+			}
 
 			// -----------------------------------------------------------------
 			// Handle redirects, e.g. `... | head`, `... > test.txt`
