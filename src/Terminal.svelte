@@ -192,14 +192,19 @@ async function handleAutocomplete(data)
 		if(args.length < 2)
 			cacheAutocomplete = AUTOCOMPLETE[prgm];
 
-		// Autocomplete file listings if no subcommands available
+		// Autocomplete variables and file listings if no subcommands available
 		// e.g. "samtools view to" --> "samtools view toy.bam"
 		if(cacheAutocomplete.length == 0) {
-			// Infer base path and files within it (default to `.`)
-			const pathBase = userFragment.substring(0, userFragment.lastIndexOf("/") + 1);
-			const files = await $CLI.coreutils.ls([ pathBase || "." ], true);
-			// Prepend base path since `ls` doesn't do that for us
-			cacheAutocomplete = files.map(d => pathBase + d.name);
+			// Autocomplete variables
+			if(userFragment.startsWith("$")) {
+				cacheAutocomplete = Object.keys($CLI._vars).map(d => `$${d}`);
+			} else {
+				// Infer base path and files within it (default to `.`)
+				const pathBase = userFragment.substring(0, userFragment.lastIndexOf("/") + 1);
+				const files = await $CLI.coreutils.ls([ pathBase || "." ], true);
+				// Prepend base path since `ls` doesn't do that for us
+				cacheAutocomplete = files.map(d => pathBase + d.name);
+			}
 		}
 	}
 

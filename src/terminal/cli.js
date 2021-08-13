@@ -479,5 +479,6 @@ const minimistConfig = {
 export const CLI = readable({
 	init,
 	exec,
-	coreutils
+	coreutils,
+	_vars
 });
