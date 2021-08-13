@@ -68,7 +68,6 @@ function transform(cmd)
 	if(tool == "bowtie2")
 		tool = cmd.command.value = "bowtie2-align-s";
 
-
 	return cmd;
 }
 
