@@ -19,6 +19,7 @@ const AUTOCOMPLETE = {
 	bcftools: ["view", "index", "call"],
 	bowtie2: [],
 	ls: [],
+	ll: [],
 	cat: [],
 	head: [],
 	tail: [],

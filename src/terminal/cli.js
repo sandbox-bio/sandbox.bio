@@ -62,11 +62,11 @@ async function init(config={})
 
 function transform(cmd)
 {
-	let tool = cmd.command.value;
+	const tool = cmd.command.value;
 
 	// Handle aliases (just bowtie for now)
 	if(tool == "bowtie2")
-		tool = cmd.command.value = "bowtie2-align-s";
+		cmd.command.value = "bowtie2-align-s";
 
 	return cmd;
 }
