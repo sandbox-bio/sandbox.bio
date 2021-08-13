@@ -129,7 +129,7 @@ samtools index sample.bam
 
 ---
 
-### hidden-message
+### dna-secrets
 
 **Prepare**:
 
@@ -142,7 +142,7 @@ vi ref.fa
 
 # Simulate reads; easiest = no mutations :)
 wgsim -N 500 -e 0 -r 0 -R 0 -X 0 -S 42 ref.fa r1.fq r2.fq
-cp r1.fq ~/Documents/dev/sandbox.bio/src/tutorials/hidden-message/data/reads.fq
+cp r1.fq ~/Documents/dev/sandbox.bio/src/tutorials/dna-secrets/data/reads.fq
 cd /Users/robert/Documents/dev/sandbox.bio/ && ./build.sh && cd -
 
 # 
@@ -154,9 +154,8 @@ cd /Users/robert/Documents/dev/sandbox.bio/ && ./build.sh && cd -
 bowtie2 -x $REF -U reads.fq -S aligned.sam
 samtools sort -o aligned.sorted.bam aligned.sam
 samtools index aligned.sorted.bam
-bcftools mpileup -f $REF_FASTA -o variants.vcf aligned.sorted.bam
-bcftools call -mv -Ob -o variants.bcf variants.vcf
-bcftools query -f'%ALT' variants.bcf -o secret  # output to screen doesn't work b/c not flushed
+bcftools mpileup -f $REF_FASTA aligned.sorted.bam | bcftools call -mv - > variants.vcf
+bcftools query -f'%ALT' variants.vcf -o secret  # output to screen doesnt work because not flushed
 cat secret
 
 # One liner:
