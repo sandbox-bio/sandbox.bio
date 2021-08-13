@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Add build date and commit ID
+echo "<!-- Build: $(TZ=America/Los_Angeles date); $(git rev-parse HEAD) -->" >> public/index.html
+
 # Crude way to support routing: copy index.html and 
 mkdir -p public/tutorials public/playground
 cp public/index.html public/tutorials/
