@@ -60,7 +60,7 @@ function nextStep(step)
 								</span>
 							{/each}
 							{#each tutorial.difficulty as tag}
-								<span class="badge" class:bg-success={tag == "beginner"} class:bg-warning={tag == "intermediate"} class:bg-danger={tag == "difficult"}>{tag}</span>
+								<span class="badge" class:bg-success={tag == "beginner"} class:bg-danger={tag == "difficult"} style={tag == "intermediate" ? "background-color:#fd7e14" : ""}>{tag}</span>
 							{/each}
 						</h6>
 					</div>
