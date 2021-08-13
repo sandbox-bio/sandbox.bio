@@ -222,18 +222,31 @@ async function handleAutocomplete(data)
 	if(cacheAutocomplete.length == 0) {
 		if(!input.endsWith(" "))
 			$xtermAddons.echo.handleCursorInsert(" ");
-	}
+
 	// If only one autocomplete option, then autocomplete it!
-	else if(cacheAutocomplete.length == 1) {
+	} else if(cacheAutocomplete.length == 1) {
 		const remainingFragment = cacheAutocomplete[0].slice(userFragment.length);
 		$xtermAddons.echo.handleCursorInsert(remainingFragment + (appendExtraSpace ? " " : ""));
+
 	// Otherwise, output all candidates
 	} else {
+		// Do all remaining candidates share a substring in common? If so, output it
+		const sharedFragment = getSharedSubstring(cacheAutocomplete);
+		$xtermAddons.echo.handleCursorInsert(sharedFragment.replace(userFragment, ""));
+		// Output all candidates
 		$xtermAddons.echo.printAndRestartPrompt(() => $xtermAddons.echo.printWide(cacheAutocomplete));
 	}
 
 	// Re-enable local-echo
 	$xtermAddons.echo.attach();
+}
+
+// Source: <https://stackoverflow.com/a/1917041>
+function getSharedSubstring(array){
+	const A = array.concat().sort();
+	let a1 = A[0], a2 = A[A.length-1], L = a1.length, i = 0;
+	while(i < L && a1.charAt(i) === a2.charAt(i)) i++;
+	return a1.substring(0, i);
 }
 </script>
 
