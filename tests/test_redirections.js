@@ -91,4 +91,36 @@ describe("Test redirections", () => {
 		expect(observed).to.equal("1.10+htslib-1.10");
 	});
 
+	it("Test `;`, `&`, `&&`, and `||`", async () => {
+		// Just `;`
+		observed = await $CLI.exec(`echo 123; echo 456; echo 789`);
+		expect(observed).to.equal("123\n456\n789");
+
+		// Just `&&`
+		observed = await $CLI.exec(`echo 123 && echo 456 && echo 789`);
+		expect(observed).to.equal("123\n456\n789");
+
+		// Just `&`
+		let extra = "";
+		observed = await $CLI.exec(`echo 1 & echo 2`, d => extra += d);
+		expect(observed).to.equal("2");
+		expect(extra).to.equal("[0] 10000 launched\n1\n[0] 10000 done\n");
+
+		// Both `&` and `>` (must be after just `&` b/c of process id!)
+		extra = "";
+		observed = await $CLI.exec(`echo 1 & echo 2 > test`, d => extra += d);
+		expect(observed).to.equal("");
+		expect(extra).to.equal("[0] 10001 launched\n1\n[0] 10001 done\n");
+		expect(await $CLI.exec(`cat test`)).to.equal("2");
+
+		// Both `;` and `&&`
+		observed = await $CLI.exec(`echo 123; echo 456 && echo 789`);
+		expect(observed).to.equal("123\n456\n789");
+
+		// // FIXME: In the test below, 1 and 2 are not output!
+		// extra = "";
+		// observed = await $CLI.exec(`echo 1 & echo 2 &`, d => extra += d);
+		// expect(observed).to.equal("");
+		// expect(extra).to.equal("[0] 10002 launched\n[1] 10003 launched\n");
+	});
 });
