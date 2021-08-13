@@ -48,6 +48,14 @@ setTimeout(async () => {
 
 ## Tutorials
 
+### Add a new one
+
+* Create `src/tutorials/my-tutorial/config.js` + import it in `src/config.js`
+* Add tests in `tests/test_tutorials.js`
+
+
+## Tutorial notes
+
 ### bedtools-tutorial
 
 http://quinlanlab.org/tutorials/bedtools/bedtools.html
