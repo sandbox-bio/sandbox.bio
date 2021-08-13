@@ -17,3 +17,6 @@ jobs:
 
       - name: Run tests
         run: npm run test
+
+      - name: Deploy to Cloudflare Pages DEV
+        run: curl -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/${{ secrets.CF_PAGES_HOOK_TOKEN_DEV }}"
