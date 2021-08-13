@@ -3,6 +3,10 @@ name: Sandbox.bio Tests
 on:
   push:
     branches: [ dev ]
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
+      - 'workers/**'
 
 jobs:
   deploy:
