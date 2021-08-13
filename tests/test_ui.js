@@ -1,11 +1,12 @@
 // Test that the exercise functionality works as expected
 
-describe("Test exercises", () => {
-	it("Criteria checker", async () => {
-		// Exercise 1
+describe("Test UI", () => {
+	before(() => {
 		cy.visit("http://localhost:5000/tutorials?id=bedtools-intro&step=14");
 		cy.get("body").get(".spinner-border").should("not.exist");
+	});
 
+	it("Exercise criteria checker", () => {
 		// Initially, there should be no checkmarks
 		cy.get("#tutorial-wrapper").find(".bi-check-circle-fill").should("have.length", 0);
 
@@ -27,4 +28,4 @@ describe("Test exercises", () => {
 		cy.get(".xterm-screen").type("rm notexons.bed{enter}");
 		cy.get("#tutorial-wrapper").find(".bi-check-circle-fill").should("have.length", 0);
 	});
-})
+});
