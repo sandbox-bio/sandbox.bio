@@ -117,10 +117,10 @@ async function exec(cmd, callback=console.warn)
 				const summary = `[${_jobs++}] ${_pid++} `;
 				exec(command, callback).then(out => {
 					callback(out);
-					callback(summary + "done");
+					callback("\n" + summary + "done\n");
 					_jobs--;
 				});
-				callback(summary + "launched");
+				callback(summary + "launched\n");
 				continue;
 			}
 
