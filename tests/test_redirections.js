@@ -58,4 +58,15 @@ describe("Test piping", () => {
 		expect(observed).to.equal("test\ntest");
 	});
 
+	it("Using '-' as a replacement for stdin", async () => {
+		observed = await $CLI.exec(`echo "test" | cat -`);
+		expect(observed).to.equal("test");
+
+		observed = await $CLI.exec(`echo "test" | cat`);
+		expect(observed).to.equal("test");
+
+		observed = await $CLI.exec(`samtools view /samtools/examples/toy.sam | cat - | wc -l`);
+		expect(observed).to.equal("12");
+	});
+
 });
