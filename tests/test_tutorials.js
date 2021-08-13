@@ -28,8 +28,10 @@ describe("Test tutorial contents (1 representative command)", () => {
 	});
 
 	it("bowtie2", async () => {
-		observed = await $CLI.exec("REF=/bowtie2/example/index/lambda_virus; bowtie2 -x $REF -1 reads_1.fq -2 reads_2.fq -S eg2.sam");
-		expect(observed).to.equal("pthread_sigmask() is not supported: this is a no-op.\n25 reads; of these:\n  25 (100.00%) were paired; of these:\n    0 (0.00%) aligned concordantly 0 times\n    25 (100.00%) aligned concordantly exactly 1 time\n    0 (0.00%) aligned concordantly >1 times\n    ----\n    0 pairs aligned concordantly 0 times; of these:\n      0 (0.00%) aligned discordantly 1 time\n    ----\n    0 pairs aligned 0 times concordantly or discordantly; of these:\n      0 mates make up the pairs; of these:\n        0 (0.00%) aligned 0 times\n        0 (0.00%) aligned exactly 1 time\n        0 (0.00%) aligned >1 times\n100.00% overall alignment rate");
+		let stderr = "";
+		observed = await $CLI.exec("REF=/bowtie2/example/index/lambda_virus; bowtie2 -x $REF -1 reads_1.fq -2 reads_2.fq -S eg2.sam", d => stderr += d);
+		expect(observed).to.equal("");
+		expect(stderr).to.equal("pthread_sigmask() is not supported: this is a no-op.\n25 reads; of these:\n  25 (100.00%) were paired; of these:\n    0 (0.00%) aligned concordantly 0 times\n    25 (100.00%) aligned concordantly exactly 1 time\n    0 (0.00%) aligned concordantly >1 times\n    ----\n    0 pairs aligned concordantly 0 times; of these:\n      0 (0.00%) aligned discordantly 1 time\n    ----\n    0 pairs aligned 0 times concordantly or discordantly; of these:\n      0 mates make up the pairs; of these:\n        0 (0.00%) aligned 0 times\n        0 (0.00%) aligned exactly 1 time\n        0 (0.00%) aligned >1 times\n100.00% overall alignment rate\n");
 	});
 
 	it("samtools", async () => {
