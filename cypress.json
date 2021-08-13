@@ -6,6 +6,5 @@
     "defaultCommandTimeout": 40000,
     "video": false,
     "screenshotOnRunFailure": false,
-    "port": 11111,
-    "baseUrl": "http://localhost:5000"
+    "port": 11111
 }

@@ -1,9 +1,9 @@
 // Test that the exercise functionality works as expected
 
-describe("Test exercise criteria checker", () => {
-	it("ls (folder)", async () => {
+describe("Test exercises", () => {
+	it("Criteria checker", async () => {
 		// Exercise 1
-		cy.visit("/tutorials?id=bedtools-intro&step=14");
+		cy.visit("http://localhost:5000/tutorials?id=bedtools-intro&step=14");
 		cy.get("body").get(".spinner-border").should("not.exist");
 
 		// Initially, there should be no checkmarks
