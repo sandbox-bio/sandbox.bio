@@ -1,3 +1,5 @@
+// Test variable support
+
 import { get } from "svelte/store";
 import { CLI } from "../src/terminal/cli";
 const $CLI = get(CLI);

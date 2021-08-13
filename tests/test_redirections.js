@@ -1,3 +1,5 @@
+// Test redirections, e.g. pipe, file redirection, etc
+
 import { get } from "svelte/store";
 import { CLI } from "../src/terminal/cli";
 

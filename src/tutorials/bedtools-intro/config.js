@@ -30,7 +30,7 @@ export const config = {
 	tools: ["bedtools/2.29.2"],
 	difficulty: ["beginner"],
 
-	// Lessons
+	// Lessons. Make sure to update `tests/test_exercises.js` if the order of these steps is modified
 	steps: [
 		{ name: "Introduction to bedtools", component: Intro },
 		{ name: "The data", component: Step1 },

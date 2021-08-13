@@ -1,3 +1,5 @@
+// Test 1 representative command per tutorial
+
 import { get } from "svelte/store";
 import { CLI } from "../src/terminal/cli"; const $CLI = get(CLI);
 let observed;

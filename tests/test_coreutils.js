@@ -1,6 +1,7 @@
+// Test coreutils
+
 import { get } from "svelte/store";
-import { CLI } from "../src/terminal/cli";
-const $CLI = get(CLI);
+import { CLI } from "../src/terminal/cli"; const $CLI = get(CLI);
 
 const FILE_SAM = "/samtools/examples/toy.sam";
 const FILE_FA = "/samtools/examples/toy.fa";
