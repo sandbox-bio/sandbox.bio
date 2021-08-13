@@ -57,8 +57,7 @@ async function init(config={})
 
 
 // =============================================================================
-// Custom transformations to apply to CLI commands, esp to fix commands such as:
-//   samtools view -b file.sam > file.bam --> samtools view -b file.sam -o file.bam
+// Custom transformations to apply to CLI commands (for now just aliases)
 // =============================================================================
 
 function transform(cmd)
@@ -72,6 +71,8 @@ function transform(cmd)
 
 	return cmd;
 }
+
+
 // =============================================================================
 // Execute a command
 // =============================================================================
