@@ -189,8 +189,13 @@ async function exec(cmd, callback)
 					// Save `output` to a temp file
 					const pathTmpFile = await coreutils.mktemp();
 					await _fs.writeFile(pathTmpFile, output);
-					// Run commands with appending arg called temp file
-					redirect.command.args.push({ type: "literal", value: pathTmpFile });
+					// Run commands with appending arg called temp file, unless
+					// user specified we should use stdin via the argument "-".
+					const argStdinIndex = redirect.command.args.findIndex(arg => arg.value == "-");
+					if(argStdinIndex != -1)
+						redirect.command.args[argStdinIndex].value = pathTmpFile
+					else
+						redirect.command.args.push({ type: "literal", value: pathTmpFile });
 					return exec(redirect.command, callback);
 
 				// Handle redirection to a file
