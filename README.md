@@ -154,7 +154,7 @@ cd /Users/robert/Documents/dev/sandbox.bio/ && ./build.sh && cd -
 bowtie2 -x $REF -U reads.fq -S aligned.sam
 samtools sort -o aligned.sorted.bam aligned.sam
 samtools index aligned.sorted.bam
-bcftools mpileup -f $REF_FASTA -o variants.vcf eg1.sorted.bam
+bcftools mpileup -f $REF_FASTA -o variants.vcf aligned.sorted.bam
 bcftools call -mv -Ob -o variants.bcf variants.vcf
 bcftools query -f'%ALT' variants.bcf -o secret  # output to screen doesn't work b/c not flushed
 cat secret
