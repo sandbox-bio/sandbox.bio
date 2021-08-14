@@ -9,6 +9,6 @@ export const config = readable({
 		bedtoolsIntro,
 		bowtie2Intro,
 		samtoolsIntro,
-		// hiddenMessage  // uncomment this + add "bcftools/1.10" to src/Terminal.svelte
+		dnaSecrets
 	]
 });
