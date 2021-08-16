@@ -3,17 +3,17 @@
 //    bowtie2 -x $REF -U reads.fq -S aligned.sam
 //    samtools sort -o aligned.sorted.bam aligned.sam
 
-
 import Exercise from "./components/Exercise.svelte";
 
 let criteria = [
 {
-	name: "File <code>aligned.sam</code> contains reads mapped to the genome",
+	name: "File <code>aligned.sam</code> contains reads mapped to the genome using <code>bowtie2</code>",
 	checks: [{
 		type: "file",
 		path: "aligned.sam",
 		action: "contents",
-		contents: "yes"
+		command: "bowtie2 -x $REF -U /shared/data/reads.fq",
+		filter: d => d.split("\n").filter(l => !l.startsWith("@")).join("\n")
 	}]
 },
 {
@@ -28,8 +28,8 @@ let criteria = [
 ];
 </script>
 
-First, use `bowtie2` to align the sequencing reads in `reads.fq` to the reference genome using the index located at `$REF`. Then, sort the SAM file and index it.
+First, use `bowtie2` to align the sequencing reads in `reads.fq` to the reference genome using the index located at `$REF`; the reads are single-ended. Output the resulting SAM file to the file `aligned.sam`.
 
-Assume the reads are single-ended. Output the resulting SAM file to the file `aligned.sam`.
+Then, sort the SAM file and index it:
 
 <Exercise {criteria} />

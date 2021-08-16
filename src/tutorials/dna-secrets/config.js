@@ -20,7 +20,8 @@ export const config = {
 		{ name: "Steps", component: Intro, subtitle: "Decode the message" },
 	],
 	files: [
-		"data/dna-secrets/reads.fq"
+		"data/dna-secrets/reads.fq",
+		"data/dna-secrets/morereads.fq"
 	],
 	init: "REF=/bowtie2/example/index/lambda_virus; REF_FASTA=/bowtie2/example/reference/lambda_virus.fa"
 };
