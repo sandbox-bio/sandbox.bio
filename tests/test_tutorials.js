@@ -39,7 +39,7 @@ describe("Test tutorial contents (1 representative command)", () => {
 	// Must run after bowtie2
 	it("bcftools", async () => {
 		let stderr = "";
-		observed = await $CLI.exec("REF_FA=/bowtie2/example/reference/lambda_virus.fa; samtools view eg2.sam -o eg2.bam; samtools sort eg2.sam -o eg2.sorted.bam; bcftools mpileup -f $REF_FA eg2.sorted.bam | head -n2", d => stderr = d);
+		observed = await $CLI.exec("REF_FASTA=/bowtie2/example/reference/lambda_virus.fa; samtools view eg2.sam -o eg2.bam; samtools sort eg2.sam -o eg2.sorted.bam; bcftools mpileup -f $REF_FASTA eg2.sorted.bam | head -n2", d => stderr = d);
 		expect(observed).to.equal(`##fileformat=VCFv4.2\n##FILTER=<ID=PASS,Description="All filters passed">`);
 		expect(stderr).to.equal(`[mpileup] 1 samples in 1 input files\n[mpileup] maximum number of reads per input file set to -d 250\n`);
 	});

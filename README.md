@@ -105,7 +105,7 @@ TODO: Add `bcftools` to tutorial:
 ```bash
 bowtie2  -x $REF  -1 reads_1.fq  -2 reads_2.fq  -S eg2.sam; samtools view eg2.sam -o eg2.bam; samtools sort eg2.sam -o eg2.sorted.bam
 
-bcftools mpileup -f $REF_FA eg2.sorted.bam
+bcftools mpileup -f $REF_FASTA eg2.sorted.bam
 ```
 
 Setup:

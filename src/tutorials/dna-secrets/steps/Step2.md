@@ -1,7 +1,6 @@
 <script>
 // Solution:
-//    bowtie2 -x $REF -U reads.fq -S aligned.sam
-//    samtools sort -o aligned.sorted.bam aligned.sam
+//    bowtie2 -x $REF -U reads.fq -S aligned.sam; samtools sort -o aligned.sorted.bam aligned.sam
 
 import Exercise from "./components/Exercise.svelte";
 
@@ -24,12 +23,11 @@ let criteria = [
 		action: "contents",
 		command: "samtools sort -o /tmp/__dnasecret.bam aligned.sam; cat /tmp/__dnasecret.bam"
 	}]
-},
-];
+}];
 </script>
 
 First, use `bowtie2` to align the sequencing reads in `reads.fq` to the reference genome using the index located at `$REF`; the reads are single-ended. Output the resulting SAM file to the file `aligned.sam`.
 
-Then, sort the SAM file and index it:
+Then, sort the SAM file and index it. Complete the following exercises before moving on to the next step:
 
 <Exercise {criteria} />

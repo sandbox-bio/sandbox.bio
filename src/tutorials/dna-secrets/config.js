@@ -2,6 +2,7 @@
 import Intro from "./steps/Intro.md";
 import Step1 from "./steps/Step1.md";
 import Step2 from "./steps/Step2.md";
+import Step3 from "./steps/Step3.md";
 
 export const config = {
 	id: "dna-secrets",
@@ -14,7 +15,7 @@ export const config = {
 		{ name: "Your mission", component: Intro },
 		{ name: "The data", component: Step1 },
 		{ name: "Steps", component: Step2, subtitle: "Align reads to the genome", header: true },
-		{ name: "Steps", component: Intro, subtitle: "Call variants" },
+		{ name: "Steps", component: Step3, subtitle: "Call variants" },
 		{ name: "Steps", component: Intro, subtitle: "Plot twist" },
 		{ name: "Steps", component: Intro, subtitle: "Extract encoded message" },
 		{ name: "Steps", component: Intro, subtitle: "Decode the message" },
