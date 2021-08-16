@@ -31,5 +31,5 @@ export const config = {
 		"data/bowtie2-intro/longreads.fq",
 		"data/bowtie2-intro/r1.fq",
 	],
-	init: "REF=/bowtie2/example/index/lambda_virus; REF_FA=/bowtie2/example/reference/lambda_virus.fa"
+	init: "REF=/bowtie2/example/index/lambda_virus; REF_FASTA=/bowtie2/example/reference/lambda_virus.fa"
 };
