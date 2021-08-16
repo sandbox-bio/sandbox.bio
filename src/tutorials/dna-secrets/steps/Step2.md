@@ -1,29 +1,35 @@
 <script>
 // Solution:
-//    bedtools complement -i exons.bed -g genome.txt > notexons.bed
+//    bowtie2 -x $REF -U reads.fq -S aligned.sam
+//    samtools sort -o aligned.sorted.bam aligned.sam
+
 
 import Exercise from "./components/Exercise.svelte";
 
 let criteria = [
 {
-	name: "File <code>notexons.bed</code> exists",
+	name: "File <code>aligned.sam</code> contains reads mapped to the genome",
 	checks: [{
 		type: "file",
-		path: "notexons.bed",
-		action: "exists"
+		path: "aligned.sam",
+		action: "contents",
+		contents: "yes"
 	}]
 },
 {
-	name: "File <code>notexons.bed</code> contains non-exonic regions",
+	name: "File <code>aligned.sorted.bam</code> is a sorted BAM file version of <code>aligned.sam</code>",
 	checks: [{
 		type: "file",
-		path: "notexons.bed",
+		path: "aligned.sorted.bam",
 		action: "contents",
-		command: "bedtools complement -i exons.bed -g genome.txt"
+		command: "samtools sort -o /tmp/__dnasecret.bam aligned.sam; cat /tmp/__dnasecret.bam"
 	}]
-}];
+},
+];
 </script>
 
-Create a BED file called `notexons.bed` that contains all of the intervals in the genome that are NOT exonic. Use the files `exons.bed` and `genome.txt` as input.
+First, use `bowtie2` to align the sequencing reads in `reads.fq` to the reference genome using the index located at `$REF`. Then, sort the SAM file and index it.
+
+Assume the reads are single-ended. Output the resulting SAM file to the file `aligned.sam`.
 
 <Exercise {criteria} />
