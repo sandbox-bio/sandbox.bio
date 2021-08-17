@@ -9,20 +9,20 @@ export let inline = false;
 function exec() {
 	if(!command)
 		return;
-	$xtermAddons.echo.setInput(command.replace(/\\/g, ""));
+	$xtermAddons.echo.setInput(command.replace(/ \\ /g, " "));
 	$xtermAddons.echo.handleData("\r");
 };
 </script>
 
 {#if inline}
 	<kbd on:click={exec}>
-		{@html command.replace(/\\/g, "\\ <br />&nbsp;&nbsp;&nbsp;")}
+		{@html command.replace(/ \\ /g, " \\ <br />&nbsp;&nbsp;&nbsp;")}
 	</kbd>
 
 {:else}
 	<div class="cursor-pointer mb-3 font-monospace">
 		<Card on:click={exec} body inverse color="dark">
-			{@html command.replace(/\\/g, "\\ <br />&nbsp;&nbsp;&nbsp;")}
+			{@html command.replace(/ \\ /g, " \\ <br />&nbsp;&nbsp;&nbsp;")}
 		</Card>
 	</div>
 {/if}
