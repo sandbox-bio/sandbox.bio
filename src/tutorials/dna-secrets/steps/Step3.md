@@ -1,6 +1,7 @@
 <script>
-// Solution:
-//    bowtie2 -x $REF -U reads.fq -S aligned.sam; samtools sort -o aligned.sorted.bam aligned.sam; bcftools mpileup -f $REF_FASTA aligned.sorted.bam | bcftools view -Ov -o variants.vcf -
+/*
+	bowtie2 -x $REF -U reads.fq -S aligned.sam; samtools sort -o aligned.sorted.bam aligned.sam; bcftools mpileup -f $REF_FASTA aligned.sorted.bam | bcftools call -m -v -Ov -o variants.vcf -
+*/
 
 import Link from "components/Link.svelte";
 import Alert from "components/Alert.svelte";
@@ -22,7 +23,7 @@ let criteria = [
 Now that we have reads aligned to the reference genome, let's call variants using `bcftools`. Output the variants to the file `variants.vcf`.
 
 <Alert>
-	**Hint**: Check out the <Link href="/tutorials?id=bowtie2-intro">bcftools section</Link> of the bowtie2 tutorial for an example of how to run `bcftools`.
+	**Hint**: Check out the <Link href="/tutorials?id=bowtie2-intro&step=6">bcftools section</Link> of the bowtie2 tutorial for an example of how to run `bcftools`.
 </Alert>
 
 <Exercise {criteria} />

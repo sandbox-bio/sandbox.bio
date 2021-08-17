@@ -1,6 +1,7 @@
 <script>
-// Solution:
-//    bowtie2 -x $REF -U reads.fq -S aligned.sam; samtools sort -o aligned.sorted.bam aligned.sam
+/*
+	bowtie2 -x $REF -U reads.fq -S aligned.sam; samtools sort -o aligned.sorted.bam aligned.sam
+*/
 
 import Exercise from "./components/Exercise.svelte";
 
