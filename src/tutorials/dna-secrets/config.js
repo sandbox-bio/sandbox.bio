@@ -1,5 +1,6 @@
 // Steps
 import Intro from "./steps/Intro.md";
+import Conclusion from "./steps/Conclusion.md";
 import Step1 from "./steps/Step1.md";
 import Step2 from "./steps/Step2.md";
 import Step3 from "./steps/Step3.md";
@@ -24,6 +25,7 @@ export const config = {
 		{ name: "Data analysis", component: Step5, subtitle: "Plot twist" },
 		{ name: "Data analysis", component: Step6, subtitle: "Extract encoded message" },
 		{ name: "Data analysis", component: Step7, subtitle: "Decode the message" },
+		{ name: "The end", component: Conclusion, header: true },
 	],
 	files: [
 		"data/dna-secrets/reads.fq",

@@ -16,7 +16,7 @@ const TOOLS_DEFAULT = ["samtools/1.10", "bcftools/1.10", "bedtools/2.29.2", "bow
 const AUTOCOMPLETE = {
 	samtools: ["view", "sort", "depth", "index", "idxstats", "flags", "flagstats"],
 	bedtools: ["intersect", "merge", "complement", "genomecov", "jaccard", "makewindows", "flank"],
-	bcftools: ["view", "index", "call", "merge"],
+	bcftools: ["view", "index", "call", "query", "merge"],
 	bowtie2: [],
 	ls: [],
 	ll: [],

@@ -166,28 +166,3 @@ cat secret
 # One liner:
 bowtie2  -x $REF  -U reads.fq  -S aligned.sam; samtools sort -o aligned.sorted.bam aligned.sam; samtools index aligned.sorted.bam; bcftools mpileup -f $REF_FASTA -o variants.vcf aligned.sorted.bam; bcftools call -mv -Ob -o variants.bcf variants.vcf; bcftools query -f'%ALT' variants.bcf -o secret; cat secret
 ```
-
-**Converter**
-
-```js
-// https://stackoverflow.com/a/53247859
-function binaryToString(input) {
-  let bytesLeft = input;
-  let result = '';
-
-  // Check if we have some bytes left
-  while (bytesLeft.length) {
-    // Get the first digits
-    const byte = bytesLeft.substr(0, 8);
-    bytesLeft = bytesLeft.substr(8);
-    result += String.fromCharCode(parseInt(byte, 2));
-  }
-  return result;
-}
-
-// https://science.sciencemag.org/content/337/6102/1628
-binaryToString("CTGGCATTATTAACCTCTTAGTTCCTGCCGCCCTGCCATCCGTATGTTCTGGGCCA".split("").map(b => {
-  if(b == "A" || b == "C") return "0";
-  else return "1";
-}).join(""))
-```

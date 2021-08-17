@@ -4,32 +4,18 @@
 
 	bowtie2 -x $REF -U morereads.fq -S aligned2.sam; samtools sort -o aligned2.sorted.bam aligned2.sam;  bcftools mpileup -f $REF_FASTA aligned2.sorted.bam | bcftools call -m -v -Ob -o variants2.bcf -; bcftools index variants2.bcf
 
-	bcftools merge variants.bcf variants2.bcf | bcftools query -f "%POS\t%ALT\n" - > secret.tsv
+	bcftools merge variants.bcf variants2.bcf > combined.vcf
 */
 
 import Execute from "./components/Execute.svelte";
-import Exercise from "./components/Exercise.svelte";
-
-let criteria = [
-{
-	name: "File <code>secret.tsv</code> is a tab-separated file with 2 columns: the genomic coordinate and the SNP at that position",
-	checks: [{
-		type: "file",
-		path: "secret.tsv",
-		action: "contents",
-		commandExpected: 'bcftools merge variants.bcf variants2.bcf | bcftools query -f "%POS\t%ALT\n" -'
-	}]
-}];
 </script>
 
-We now have SNPs in `variants.bcf` and `variants2.bcf`. We want those SNPs to end up in the right genomic order, so let's use the `bcftools merge` command:
+We now have SNPs in `variants.bcf` and `variants2.bcf`.
 
-<Execute command="bcftools merge variants.bcf variants2.bcf" />
+We want those SNPs to end up in the right genomic order, so let's use the `bcftools merge` command:
 
-Inspect the values in the `POS` column to make sure they are in the right order. To see a simpler view with just the position and alternate allele, use `bcftools query`:
+<Execute command="bcftools merge variants.bcf variants2.bcf > combined.vcf" />
 
-<Execute command='bcftools merge variants.bcf variants2.bcf | \ bcftools query -f "%POS\t%ALT\n" -' />
+Inspect the values in the `POS` column to make sure they are in the right order:
 
-Let's store all that information for later: save the output of the command above to `secret.tsv`:
-
-<Exercise {criteria} />
+<Execute command="bcftools view combined.vcf" />
