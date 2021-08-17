@@ -13,7 +13,7 @@ export const config = {
 	name: "Decode DNA secrets",
 	description: "Use variant calling and genome arithmetic to decode a secret message encoded in sequencing data.",
 	tags: ["bowtie2", "bcftools", "bedtools", "samtools"],
-	tools: ["samtools/1.10", "bcftools/1.10", "bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2"],
+	tools: ["samtools/1.10", "bcftools/1.10", "bowtie2/bowtie2-align-s/2.4.2"],
 	difficulty: ["intermediate"],
 	steps: [
 		{ name: "Your mission", component: Intro },
