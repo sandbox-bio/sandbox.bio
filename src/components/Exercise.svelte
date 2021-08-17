@@ -39,9 +39,9 @@ async function check(manual=false)
 					// Does file content match expectation? Define the right answer using a CLI invocation
 					else if(check.action == "contents") {
 						const filter = check.filter || (d => d);
-						const observed = filter(await $CLI.exec(`cat ${check.path}`));
-						const expected = filter(await $CLI.exec(check.command));
-						statuses[i] = observed == expected;
+						const observed = await $CLI.exec(`cat ${check.path}`);
+						const expected = await $CLI.exec(check.command);
+						statuses[i] = filter(observed) == filter(expected);
 					}
 				}
 		} catch (error) {
