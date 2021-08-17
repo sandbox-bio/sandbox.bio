@@ -16,12 +16,12 @@ export const config = {
 	steps: [
 		{ name: "Your mission", component: Intro },
 		{ name: "The data", component: Step1 },
-		{ name: "Steps", component: Step2, subtitle: "Align reads to the genome", header: true },
-		{ name: "Steps", component: Step3, subtitle: "Call variants" },
-		{ name: "Steps", component: Step4, subtitle: "View the variants" },
-		{ name: "Steps", component: Step5, subtitle: "Plot twist" },
-		{ name: "Steps", component: Step5, subtitle: "Extract encoded message" },
-		{ name: "Steps", component: Intro, subtitle: "Decode the message" },
+		{ name: "Data analysis", component: Step2, subtitle: "Align reads to the genome", header: true },
+		{ name: "Data analysis", component: Step3, subtitle: "Call variants" },
+		{ name: "Data analysis", component: Step4, subtitle: "View the variants" },
+		{ name: "Data analysis", component: Step5, subtitle: "Plot twist" },
+		{ name: "Data analysis", component: Step5, subtitle: "Extract encoded message" },
+		{ name: "Data analysis", component: Intro, subtitle: "Decode the message" },
 	],
 	files: [
 		"data/dna-secrets/reads.fq",

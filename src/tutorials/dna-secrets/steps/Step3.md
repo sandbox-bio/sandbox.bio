@@ -1,6 +1,6 @@
 <script>
 /*
-	bowtie2 -x $REF -U reads.fq -S aligned.sam; samtools sort -o aligned.sorted.bam aligned.sam; bcftools mpileup -f $REF_FASTA aligned.sorted.bam | bcftools call -m -v -Ov -o variants.vcf -
+	bowtie2 -x $REF -U reads.fq -S aligned.sam; samtools sort -o aligned.sorted.bam aligned.sam;  bcftools mpileup -f $REF_FASTA aligned.sorted.bam | bcftools call -m -v -Ob -o variants.bcf -; bcftools index variants.bcf
 */
 
 import Link from "components/Link.svelte";
@@ -9,26 +9,35 @@ import Exercise from "./components/Exercise.svelte";
 
 let criteria = [
 {
-	name: "File <code>variants.vcf</code> exists (make sure to output a <strong>VCF file</strong>, not a BCF)",
+	name: "File <code>variants.bcf</code> exists",
 	checks: [{
 		type: "file",
-		path: "variants.vcf",
+		path: "variants.bcf",
 		action: "exists",
 	}]
 },
 {
-	name: "File <code>variants.vcf</code> contains variants called using <code>bcftools</code>",
+	name: "File <code>variants.bcf</code> contains the variants",
 	checks: [{
 		type: "file",
-		path: "variants.vcf",
+		path: "variants.bcf",
 		action: "contents",
-		command: "bcftools mpileup -f $REF_FASTA aligned.sorted.bam | bcftools call -m -v -Ov -",
-		filter: d => d.split("\n").filter(l => !l.startsWith("#")).join("\n")
+		commandExpected: "bcftools mpileup -f $REF_FASTA aligned.sorted.bam | bcftools call -m -v -Ob - -o /shared/tmp/__dnasecret.bcf; bcftools view --no-header /shared/tmp/__dnasecret.bcf",
+		commandObserved: "bcftools view --no-header variants.bcf"
 	}]
-}];
+},
+{
+	name: "File <code>variants.bcf.csi</code> is the index file of <code>variants.bcf</code> obtained with <code>bcftools index</code>",
+	checks: [{
+		type: "file",
+		path: "variants.bcf.csi",
+		action: "exists"
+	}]
+},
+];
 </script>
 
-Now that we have reads aligned to the reference genome, let's call variants using `bcftools`. Output the variants to the file `variants.vcf`.
+Now that we have reads aligned to the reference genome, let's call variants using `bcftools`. Output the variants to the file `variants.bcf`.
 
 <Alert>
 	**Hint**: Check out the <Link href="/tutorials?id=bowtie2-intro&step=6">bcftools section</Link> of the bowtie2 tutorial for an example of how to run `bcftools`.
