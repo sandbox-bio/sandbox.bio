@@ -12,7 +12,7 @@ let criteria = [
 		type: "file",
 		path: "count",
 		action: "contents",
-		command: "bedtools intersect -a exons.bed -b <(grep Enhancer hesc.chromHmm.bed) -wa -wb -f 1.0 | wc -l"
+		commandExpected: "bedtools intersect -a exons.bed -b <(grep Enhancer hesc.chromHmm.bed) -wa -wb -f 1.0 | wc -l"
 	}]
 }
 ];

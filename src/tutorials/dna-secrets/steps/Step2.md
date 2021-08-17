@@ -12,7 +12,7 @@ let criteria = [
 		type: "file",
 		path: "aligned.sam",
 		action: "contents",
-		command: "bowtie2 -x $REF -U /shared/data/reads.fq",
+		commandExpected: "bowtie2 -x $REF -U /shared/data/reads.fq",
 		filter: d => d.split("\n").filter(l => !l.startsWith("@")).join("\n")
 	}]
 },
@@ -22,7 +22,7 @@ let criteria = [
 		type: "file",
 		path: "aligned.sorted.bam",
 		action: "contents",
-		command: "samtools sort -o /tmp/__dnasecret.bam aligned.sam; cat /tmp/__dnasecret.bam"
+		commandExpected: "samtools sort -o /tmp/__dnasecret.bam aligned.sam; cat /tmp/__dnasecret.bam"
 	}]
 }];
 </script>

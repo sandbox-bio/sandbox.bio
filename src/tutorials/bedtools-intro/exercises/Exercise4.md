@@ -12,7 +12,7 @@ let criteria = [
 		type: "file",
 		path: "jaccard.enhancers.txt",
 		action: "contents",
-		command: "bedtools jaccard -a cpg.bed -b <(grep Enhancer hesc.chromHmm.bed)"
+		commandExpected: "bedtools jaccard -a cpg.bed -b <(grep Enhancer hesc.chromHmm.bed)"
 	}]
 },
 {
@@ -21,7 +21,7 @@ let criteria = [
 		type: "file",
 		path: "jaccard.promoters.txt",
 		action: "contents",
-		command: "bedtools jaccard -a cpg.bed -b <(grep Promoter hesc.chromHmm.bed)"
+		commandExpected: "bedtools jaccard -a cpg.bed -b <(grep Promoter hesc.chromHmm.bed)"
 	}]
 },
 ];

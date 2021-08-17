@@ -12,7 +12,7 @@ let criteria = [
 		type: "file",
 		path: "windows.bed",
 		action: "contents",
-		command: "bedtools makewindows -g genome.txt -w 500000",
+		commandExpected: "bedtools makewindows -g genome.txt -w 500000",
 	}]
 },
 {
@@ -21,7 +21,7 @@ let criteria = [
 		type: "file",
 		path: "windows.exons.bedg",
 		action: "contents",
-		command: "bedtools intersect -a <(bedtools makewindows -g genome.txt -w 500000) -b exons.bed -c"
+		commandExpected: "bedtools intersect -a <(bedtools makewindows -g genome.txt -w 500000) -b exons.bed -c"
 	}]
 }
 

@@ -13,7 +13,7 @@ let criteria = [
 		type: "file",
 		path: "splice-sites.bed",
 		action: "contents",
-		command: "bedtools flank -l 2 -r 2 -i exons.bed -g genome.txt"
+		commandExpected: "bedtools flank -l 2 -r 2 -i exons.bed -g genome.txt"
 	}]
 }
 ];
