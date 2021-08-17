@@ -9,12 +9,20 @@ import Exercise from "./components/Exercise.svelte";
 
 let criteria = [
 {
-	name: "File <code>variants.vcf</code> contains variants called using <code>bcftools</code> (make sure to <strong>output a VCF file</strong>, not a BCF)",
+	name: "File <code>variants.vcf</code> exists (make sure to output a <strong>VCF file</strong>, not a BCF)",
+	checks: [{
+		type: "file",
+		path: "variants.vcf",
+		action: "exists",
+	}]
+},
+{
+	name: "File <code>variants.vcf</code> contains variants called using <code>bcftools</code>",
 	checks: [{
 		type: "file",
 		path: "variants.vcf",
 		action: "contents",
-		command: "bcftools mpileup -f $REF_FASTA aligned.sorted.bam | bcftools view -Ov -",
+		command: "bcftools mpileup -f $REF_FASTA aligned.sorted.bam | bcftools call -m -v -Ov -",
 		filter: d => d.split("\n").filter(l => !l.startsWith("#")).join("\n")
 	}]
 }];
