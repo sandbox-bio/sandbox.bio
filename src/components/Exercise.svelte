@@ -51,9 +51,14 @@ async function check(manual=false)
 }
 setTimeout(check, 500);
 </script>
-<p class="mt-4">
-	<strong>Solution Criteria:</strong>
-</p>
+<div class="d-flex justify-content-between mt-4 mb-2">
+	<div>
+		<strong>Solution Criteria:</strong>
+	</div>
+	<div>
+		{statuses.filter(d => d).length} / {statuses.length}
+	</div>
+</div>
 
 <ul class="list-group">
 	{#each criteria as criterion, i}
