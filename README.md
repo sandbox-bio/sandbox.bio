@@ -7,6 +7,7 @@
 * Branches
   * `dev`: Development branch, pushing there deploys a preview site
   * `main`: Production branch; merge dev into main to deploy to sandbox.bio
+* Add a tag when deploy to prd
 
 ## Testing
 
