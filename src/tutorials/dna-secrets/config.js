@@ -5,6 +5,8 @@ import Step2 from "./steps/Step2.md";
 import Step3 from "./steps/Step3.md";
 import Step4 from "./steps/Step4.md";
 import Step5 from "./steps/Step5.md";
+import Step6 from "./steps/Step6.md";
+import Step7 from "./steps/Step7.md";
 
 export const config = {
 	id: "dna-secrets",
@@ -20,8 +22,8 @@ export const config = {
 		{ name: "Data analysis", component: Step3, subtitle: "Call variants" },
 		{ name: "Data analysis", component: Step4, subtitle: "View the variants" },
 		{ name: "Data analysis", component: Step5, subtitle: "Plot twist" },
-		{ name: "Data analysis", component: Step5, subtitle: "Extract encoded message" },
-		{ name: "Data analysis", component: Intro, subtitle: "Decode the message" },
+		{ name: "Data analysis", component: Step6, subtitle: "Extract encoded message" },
+		{ name: "Data analysis", component: Step7, subtitle: "Decode the message" },
 	],
 	files: [
 		"data/dna-secrets/reads.fq",
