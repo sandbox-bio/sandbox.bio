@@ -23,7 +23,7 @@
     "svelte-preprocess-markdown": "^2.7.3"
   },
   "dependencies": {
-    "@biowasm/aioli": "^2.1.0",
+    "@biowasm/aioli": "^2.2.0",
     "bootstrap": "5.0.2",
     "columnify": "^1.5.4",
     "local-echo": "github:wavesoft/local-echo",
