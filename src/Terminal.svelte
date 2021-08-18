@@ -159,6 +159,10 @@ function handleShortcuts(key)
 	// Ctrl + E = End of line
 	if(key.domEvent.ctrlKey && key.domEvent.key == "e")
 		$xtermAddons.echo.setCursor(Infinity);
+
+	// Ctrl + W = Delete last word
+	if(key.domEvent.ctrlKey && key.domEvent.key == "w")
+		$xtermAddons.echo.handleData("\x1b\x7F");
 }
 
 // Autocomplete for subcommands. For some reason, it doesn't seem to work with local-echo. When I did "samtools <TAB>",
