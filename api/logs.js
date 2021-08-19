@@ -2,11 +2,19 @@
 
 import { createClient } from "@supabase/supabase-js";
 
+// =============================================================================
 // Config
+// =============================================================================
+
 const PATHS_IGNORE = ["/favicon.ico"];
 
 // Supabase Client (variables stored as secrets in Cloudflare Worker)
 const supabase = createClient(SUPABASE_URL, SUPABASE_API_KEY);
+
+
+// =============================================================================
+// Utility functions
+// =============================================================================
 
 // Log an event and response
 export async function logEvent(event, response) {
