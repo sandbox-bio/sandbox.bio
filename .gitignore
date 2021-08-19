@@ -1,6 +1,5 @@
-/node_modules/
-/public/build/
-/public/data/
+node_modules/
+public/build/
+public/data/
 .DS_Store
-trash/
-src/tutorials/samtools-intro/data/original.*
+_trash/
