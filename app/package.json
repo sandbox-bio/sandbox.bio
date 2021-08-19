@@ -31,6 +31,7 @@
     "pretty-bytes": "^5.6.0",
     "shell-parse": "grncdr/js-shell-parse#f5f65af",
     "sirv-cli": "^1.0.0",
+    "svelte-routing": "^1.6.0",
     "svelte-watch-resize": "^1.0.3",
     "sveltestrap": "^5.5.1",
     "xterm": "^4.13.0",
