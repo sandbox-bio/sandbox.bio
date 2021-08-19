@@ -2,8 +2,7 @@
 	"name": "sandbox.bio-cloudflare-worker",
 	"main": "index.js",
 	"scripts": {
-		"build": "cd app && npm run build",
-		"deploy-dev": "npm run build && wrangler publish --env dev",
+		"deploy-dev": "npm install && cd app && npm install && npm run build && cd .. && wrangler publish --env dev",
 		"deploy-stg": "npm run build && wrangler publish --env stg",
 		"deploy-prd": "npm run build && wrangler publish --env prd"
 	},

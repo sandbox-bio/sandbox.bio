@@ -17,5 +17,4 @@ jobs:
       - name: Deploy
         run: |
           npm i -g @cloudflare/wrangler
-          npm install
           npm run deploy-dev
