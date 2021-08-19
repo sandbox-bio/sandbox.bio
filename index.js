@@ -1,6 +1,7 @@
 // Entrypoint for sandbox.bio; based on the Cloudflare Workers Site template.
 // TODO: Add logging for successes and failures in API calls
 
+import { logEvent } from "./api/logs";
 import { routerAPI } from "./api/index";
 import { getAssetFromKV } from "@cloudflare/kv-asset-handler";
 
@@ -38,6 +39,9 @@ addEventListener("fetch", event => {
 	} catch (e) {
 		response = new Response("Internal Error", { status: 500 });
 	}
+
+	// Log event *after* we return the response to the user
+	event.waitUntil(logEvent(event, response));
 
 	// Return result
 	event.respondWith(response);
