@@ -12,7 +12,7 @@ import Step7 from "./steps/Step7.md";
 export const config = {
 	id: "dna-secrets",
 	name: "Decode DNA secrets",
-	description: "Use variant calling and genome arithmetic to decode a secret message encoded in sequencing data.",
+	description: "Use variant calling and read mapping to decode a secret message stored in DNA sequencing data.",
 	tags: ["bowtie2", "bcftools", "samtools"],
 	tools: ["samtools/1.10", "bcftools/1.10", "bowtie2/bowtie2-align-s/2.4.2"],
 	difficulty: ["intermediate"],
