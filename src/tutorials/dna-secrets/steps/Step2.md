@@ -28,8 +28,8 @@ let criteria = [
 }];
 </script>
 
-First, use `bowtie2` to align the sequencing reads in `reads.fq` to the reference genome using the index located at `$REF`; the reads are single-ended. Output the resulting SAM file to the file `aligned.sam`.
+First, use `bowtie2` to align the sequencing reads in `reads.fq` to the reference genome using the index located at `$REF`; the reads are single-ended.
 
-Then, sort the SAM file and index it. Complete the following exercises before moving on to the next step:
+Output the results to the file `aligned.sam`, then sort the SAM file to output `aligned.sorted.bam`. Complete the following exercises before moving on to the next step:
 
 <Exercise {criteria} />
