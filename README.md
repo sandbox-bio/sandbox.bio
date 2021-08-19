@@ -1,13 +1,19 @@
 # sandbox.bio
 
+## Infrastructure
+
+|Environment|Domain|Access|Supabase DB|
+|-|-|-|-|
+|dev|[dev.sandbox.bio](https://dev.sandbox.bio)|[Only me](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps)|[dev](https://app.supabase.io/project/bqjvxpdzkembvixymfae/editor/table)|
+|stg|[stg.sandbox.bio](https://stg.sandbox.bio)|[Testers](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps)|[stg](https://app.supabase.io/project/rrwfplicenewptmeeteq/editor/table)|
+|prd|[[prd.]sandbox.bio](https://prd.sandbox.bio)|Public|[prd](https://app.supabase.io/project/vjmttfnyctkivaeljytg/editor/table)|
+
+
 ## Deploy
 
 ```bash
-# Build Svelte app
-npm run build
-
 # Build Svelte App + Deploy Cloudflare Worker
-npm run deploy
+npm run deploy-dev
 ```
 
 ## Setup
