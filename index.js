@@ -1,47 +1,38 @@
 // Entrypoint for sandbox.bio; based on the Cloudflare Workers Site template.
+// TODO: Add logging for successes and failures in API calls
 
-import { Router } from "itty-router";
+import { routerAPI } from "./api/index";
 import { getAssetFromKV } from "@cloudflare/kv-asset-handler";
-
 
 // =============================================================================
 // Config
 // =============================================================================
 
-const routerAPI = Router({ base: "/api/v1" });
+// Paths to reroute to index.html so Svelte can do the routing
+const PATHS_ROUTE_TO_MAIN = ["/tutorials", "/playground"];
+
+// Cache settings for static content (API is not cached)
 const CACHE_CONTROL = {
-	browserTTL: 604800,  // 1 week (default: null)
-	edgeTTL: 172800,     // 2 days (default: 2 days)
-	bypassCache: false   // Do not bypass Cloudflare's cache (default: false)
+	edgeTTL    : 172800,  // 2 days (default: 2 days)
+	browserTTL : 604800,  // 1 week (default: null)
+	bypassCache:  false,  // Do not bypass Cloudflare's cache (default: false)
 };
-
-
-// =============================================================================
-// Routes
-// =============================================================================
-
-routerAPI.get('/todos', () => new Response('Todos Index!'));
-routerAPI.get('/todos/:id', ({ params }) => new Response(`Todo #${params.id}`));
-routerAPI.post('/todos', async request => {
-	const content = await request.json();
-	return new Response('Creating Todo: ' + JSON.stringify(content));
-})
-routerAPI.all('*', () => new Response('Not Found.', { status: 404 }));
-
 
 // =============================================================================
 // Process requests
 // =============================================================================
 
+// Process all incoming requests to [stg.]sandbox.bio/*
 addEventListener("fetch", event => {
 	let response = {};
 
 	// Process user request
-	// TODO: Add logging for successes and failures
 	try {
 		const url = new URL(event.request.url);
+		// Use separate router for API
 		if(url.pathname.startsWith("/api/"))
 			response = routerAPI.handle(event.request);
+		// But use Cloudflare Worker Sites logic for everything else
 		else
 			response = handleStaticPage(event);
 	} catch (e) {
@@ -52,8 +43,8 @@ addEventListener("fetch", event => {
 	event.respondWith(response);
 })
 
+// Retrieve KV value given a path, or show 404
 async function handleStaticPage(event) {
-	// Retrieve KV value given a path, or show 404
 	try {
 		return await getAssetFromKV(event, {
 			mapRequestToAsset: handlePrefix,
@@ -64,11 +55,18 @@ async function handleStaticPage(event) {
 	}
 }
 
+// Custom logic for handling directories and routes
 function handlePrefix(request) {
-	// If path looks like a directory, append index.html
 	const parsedUrl = new URL(request.url);
 	let pathname = parsedUrl.pathname;
-	if (pathname.endsWith("/"))
+
+	// Route app paths to index.html so that Svelte can do the routing
+	for(let path of PATHS_ROUTE_TO_MAIN)
+		if(pathname == path || pathname.startsWith(`${path}/`))
+			pathname = "index.html";
+
+	// If path looks like a directory, append index.html
+	else if (pathname.endsWith("/"))
 		pathname = pathname.concat("index.html");
 
 	parsedUrl.pathname = pathname;
