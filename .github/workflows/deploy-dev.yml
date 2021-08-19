@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy sandbox.bio (${{ github.ref }})
+    name: Deploy dev.sandbox.bio
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -17,4 +17,5 @@ jobs:
       - name: Deploy
         run: |
           npm i -g @cloudflare/wrangler
+          npm install
           npm run deploy-dev
