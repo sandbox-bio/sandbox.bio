@@ -5,7 +5,7 @@ import Execute from "components/Execute.svelte";
 
 **1. The sequencing reads**
 
-The reads have been preloaded to your working directory. Try <Execute command="ls reads.fq" inline="true" /> and <Execute command="head -n 8 reads.fq" inline="true" /> (why did we pick a multiple in 4 in our `head` command?).
+The reads have been preloaded to your working directory. Try <Execute command="ls reads.fq" inline="true" /> and <Execute command="head -n 8 reads.fq" inline="true" /> (why did we pick a multiple of 4 in our `head` command?).
 
 **2. The reference genome**
 
