@@ -1,10 +1,12 @@
-# Main
-node_modules/
-*/public/build/
-*/public/data/
+# App
+app/public/build/
+app/public/data/
+app/public/tutorials/
+app/public/playground/
 # Cloudflare Worker Sites
 dist/
 worker/script.js
-# Other
+# General
+node_modules/
 .DS_Store
 _trash/
