@@ -1,4 +1,4 @@
-# sandbox.bio
+# sandbox.bio App
 
 [![Tests](https://github.com/robertaboukhalil/sandbox.bio/actions/workflows/tests.yml/badge.svg)](https://github.com/robertaboukhalil/sandbox.bio/actions/workflows/tests.yml)
 
