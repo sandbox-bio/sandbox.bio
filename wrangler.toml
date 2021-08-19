@@ -9,7 +9,3 @@ entry-point = "."
 [env.stg]
 name = "sandboxbio-stg"
 route = "stg.sandbox.bio/*"
-
-# kv_namespaces = [
-#    { binding = "LOGS", id = "dd7c61572f59436796f1404eff1eec3a" }
-# ]

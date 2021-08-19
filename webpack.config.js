@@ -2,8 +2,9 @@ module.exports = {
 	target: "webworker",
 	entry: "./index.js",
 	mode: "production",
-	// supabase.js relies on "cross-fetch", which uses XMLHttpRequest, which isn't supported
 	externals: [{
+		// supabase.js uses "cross-fetch", which uses "XMLHttpRequest", which
+		// isn't supported in Cloudflare Workers.
 		"cross-fetch": "fetch"
 	}]
 }
