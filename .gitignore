@@ -1,5 +1,5 @@
 node_modules/
-public/build/
-public/data/
+*/public/build/
+*/public/data/
 .DS_Store
 _trash/
