@@ -9,3 +9,7 @@ entry-point = "."
 [env.stg]
 name = "sandboxbio-stg"
 route = "stg.sandbox.bio/*"
+
+[env.prd]
+name = "sandboxbio"
+route = "prd.sandbox.bio/*"
