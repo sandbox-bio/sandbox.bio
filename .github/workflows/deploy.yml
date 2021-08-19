@@ -1,3 +1,4 @@
+# FIXME: Write steps that do the deploy
 name: Deploy sandbox.bio
 
 on:
@@ -9,16 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy sandbox.bio (${{ github.ref }})
     steps:
-      - name: Deploy to Cloudflare Pages
-        if: ${{ github.ref == 'refs/heads/dev' }}
-        run: curl -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/${{ secrets.CF_PAGES_HOOK_TOKEN_DEV }}"
-
       - name: Checkout repo
         uses: actions/checkout@v2
-
-      - name: Deploy to Cloudflare Pages
-        if: ${{ github.ref == 'refs/heads/main' }}
-        run: |
-          git pull origin dev && \
-          git push origin main && \
-          curl -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/${{ secrets.CF_PAGES_HOOK_TOKEN_PRD }}"
