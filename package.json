@@ -3,7 +3,8 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "cd app && npm run build",
-		"deploy": "npm run build && echo WRANGLER"
+		"deploy": "npm run build && wrangler publish --env=stg",
+		"deploy-prd": "echo TODO"
 	},
 	"dependencies": {
 		"@cloudflare/kv-asset-handler": "^0.0.9",
