@@ -5,9 +5,6 @@ on:
     branches: [ dev ]
     paths:
       - 'app/*'
-    paths-ignore:
-      - 'README.md'
-      - '.gitignore'
 
 jobs:
   deploy:
