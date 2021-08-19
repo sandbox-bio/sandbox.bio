@@ -1,7 +1,10 @@
+# Main
 node_modules/
 */public/build/
 */public/data/
+# Cloudflare Worker Sites
 dist/
 worker/script.js
+# Other
 .DS_Store
 _trash/
