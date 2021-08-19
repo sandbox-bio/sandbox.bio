@@ -1,0 +1,20 @@
+# Deploy to dev.sandbox.bio whenever push to dev branch
+
+name: Deploy dev.sandbox.bio
+
+on:
+  push:
+    branches: [ dev ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy sandbox.bio (${{ github.ref }})
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Deploy
+        run: |
+          npm i -g @cloudflare/wrangler
+          npm run deploy-dev

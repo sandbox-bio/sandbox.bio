@@ -6,10 +6,14 @@ zone_id = "d590ecbf2de803f296e6ad0b9b9c9f3d"
 bucket = "./app/public"
 entry-point = "."
 
+[env.dev]
+name = "sandboxbio-dev"
+routes = ["dev.sandbox.bio/*"]
+
 [env.stg]
 name = "sandboxbio-stg"
-route = "stg.sandbox.bio/*"
+routes = ["stg.sandbox.bio/*"]
 
 [env.prd]
 name = "sandboxbio"
-route = "prd.sandbox.bio/*"
+routes = ["prd.sandbox.bio/*"]  # TODO: add sandbox.bio/*

@@ -1,3 +1,5 @@
+# Run app tests whenever push to dev branch
+
 name: Sandbox.bio Tests
 
 on:
