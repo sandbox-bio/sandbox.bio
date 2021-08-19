@@ -1,0 +1,22 @@
+type = "javascript"   # webpack; https://github.com/cloudflare/service-worker-custom-build/blob/master/wrangler.toml
+workers_dev = false
+vars = { ENVIRONMENT = "stg" }
+
+[site]
+bucket = "./app/public"
+entry-point = "."
+
+### TODO: does both `site` and `build` work?
+
+[build]
+command = "npm install && npm run build"
+upload.format = "service-worker"
+
+[env.stg]
+name = "sandboxbio-stg"
+vars = { ENVIRONMENT = "stg" }
+route = "stg.sandbox.bio/*"
+
+# kv_namespaces = [
+#    { binding = "LOGS", id = "dd7c61572f59436796f1404eff1eec3a" }
+# ]
