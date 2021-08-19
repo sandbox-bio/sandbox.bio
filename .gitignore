@@ -1,5 +1,7 @@
 node_modules/
 */public/build/
 */public/data/
+dist/
+worker/script.js
 .DS_Store
 _trash/

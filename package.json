@@ -1,6 +1,10 @@
 {
 	"name": "sandbox.bio-cloudflare-worker",
 	"main": "index.js",
+	"scripts": {
+		"build": "echo BUILD_SVELTE_APP",
+		"deploy": "npm run build && echo WRANGLER"
+	},
 	"dependencies": {
 		"@cloudflare/kv-asset-handler": "^0.0.9"
 	}

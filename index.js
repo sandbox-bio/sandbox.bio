@@ -16,16 +16,19 @@ addEventListener("fetch", event => {
 
 	// Process user request
 	try {
+		const url = new URL(event.request.url);
 		// TODO: Do routing with /app/playground
 		// TODO: Do routing with /app/tutorials/<id>
 
-		// TODO: Differntiate app and home page
-		// if(path.startsWith("/app"))
-		// if(path == "/")
-		response = handleStaticPage(event);
-
-		// if(path.startsWith("/api/v1/"))
 		// TODO: API
+		if(url.pathname.startsWith("/api/v1/")) {
+			response = new Response("API v1", { status: 200 });
+		} else {
+			// TODO: Differntiate app and home page
+			// if(path.startsWith("/app"))
+			// if(path == "/")
+			response = handleStaticPage(event);
+		}
 	} catch (e) {
 		response = new Response("Internal Error", { status: 500 });
 	}
