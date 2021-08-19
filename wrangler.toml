@@ -1,4 +1,5 @@
 type = "webpack"
+webpack_config = "webpack.config.js"
 zone_id = "d590ecbf2de803f296e6ad0b9b9c9f3d"
 
 [site]

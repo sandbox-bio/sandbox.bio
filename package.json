@@ -7,6 +7,7 @@
 	},
 	"dependencies": {
 		"@cloudflare/kv-asset-handler": "^0.0.9",
+		"@supabase/supabase-js": "^1.22.0",
 		"itty-router": "^2.4.2"
 	}
 }
