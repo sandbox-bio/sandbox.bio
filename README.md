@@ -12,6 +12,14 @@
 |prd|[[prd.]sandbox.bio](https://prd.sandbox.bio)|Public|[prd](https://app.supabase.io/project/vjmttfnyctkivaeljytg/editor/table)|
 
 
+## Database
+
+|Table|Description|Access|
+|-|-|-|
+|logs|Log all calls to sandbox.bio/*|anon|
+|pings|Analytics for tutorial progress|anon|
+
+
 ## Deploy
 
 ```bash
