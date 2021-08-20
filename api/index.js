@@ -1,11 +1,31 @@
 // API logic
 
 import { Router } from "itty-router";
+import { supabase, hash } from "./utils";
 
 // API Router
 export const routerAPI = Router({ base: "/api/v1" });
 
+// -----------------------------------------------------------------------------
 // Routes
-routerAPI.get('/todos', () => new Response("Todos"));
-routerAPI.get('/todos/:id', ({ params }) => new Response(`Todo #${params.id}`));
-routerAPI.all('*', () => new Response('Not Found.', { status: 404 }));
+// -----------------------------------------------------------------------------
+
+// Analytics on tutorial progress
+routerAPI.post("/ping", async request => {
+	const data = await request.json();
+
+	await supabase.from("pings").insert([{
+		ip: await hash(request.headers.get("CF-Connecting-IP")),
+		tutorial: data.tutorial,
+		step_from: data.from,
+		step_to: data.to
+	}]);
+
+	return new Response("pong");
+});
+
+// -----------------------------------------------------------------------------
+// Otherwise, 404
+// -----------------------------------------------------------------------------
+
+routerAPI.all("*", () => new Response("Not Found.", { status: 404 }));

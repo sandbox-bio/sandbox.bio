@@ -1,9 +1,0 @@
-zone_id = "d590ecbf2de803f296e6ad0b9b9c9f3d"
-type = "javascript"
-workers_dev = false
-route = "ping.sandbox.bio/*"
-name = "sandboxbio-ping"
-
-kv_namespaces = [
-    { binding = "PING", id = "3996e0995fc84c95a329ea453aacf41f" }
-]

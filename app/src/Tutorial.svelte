@@ -26,13 +26,17 @@ function nextStep(step)
 		url.searchParams.set("step", step);
 
 		// Handle analytics before updating the URL
-		if(window.location.hostname != "localhost") {
-			try {
-				const pingFrom = encodeURIComponent(new URL(window.location).toString());
-				const pingTo = encodeURIComponent(url.toString());
-				fetch(`https://ping.sandbox.bio?from=${pingFrom}&to=${pingTo}`, { method: "POST", mode: "no-cors" });
-			} catch (error) {}
-		}
+		try {
+			fetch(`${$config.api}/ping`, {
+				method: "POST",
+				mode: "no-cors",
+				body: JSON.stringify({
+					tutorial: tutorial.id,
+					from: +new URL(window.location).searchParams.get("step"),
+					to: +new URL(url).searchParams.get("step")
+				})
+			});
+		} catch (error) {}
 
 		window.history.pushState({}, "", url);
 	}

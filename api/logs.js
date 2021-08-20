@@ -1,15 +1,12 @@
 // Manage logging
 
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "./utils";
 
 // =============================================================================
 // Config
 // =============================================================================
 
 const PATHS_IGNORE = ["/favicon.ico"];
-
-// Supabase Client (variables stored as secrets in Cloudflare Worker)
-const supabase = createClient(SUPABASE_URL, SUPABASE_API_KEY);
 
 // =============================================================================
 // Utility functions
