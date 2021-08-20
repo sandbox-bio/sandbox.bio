@@ -52,7 +52,7 @@ let criteria = [
 onMount(async () => {
 	setInterval(async () => {
 		dnaEncoded = await $CLI.exec("cat secret");
-	}, 700);
+	}, 500);
 });
 </script>
 
