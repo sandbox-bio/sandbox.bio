@@ -1,6 +1,6 @@
 # Deploy to stg.sandbox.bio whenever push to main branch
 
-name: Deploy stg.sandbox.bio
+name: stg.sandbox.bio
 
 on:
   push:

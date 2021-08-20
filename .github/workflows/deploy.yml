@@ -1,6 +1,6 @@
 # Deploy to sandbox.bio manually
 
-name: Deploy sandbox.bio
+name: prd.sandbox.bio
 
 on:
   workflow_dispatch:

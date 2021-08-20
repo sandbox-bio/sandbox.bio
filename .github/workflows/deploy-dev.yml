@@ -1,6 +1,6 @@
 # Deploy to dev.sandbox.bio whenever push to dev branch
 
-name: Deploy dev.sandbox.bio
+name: dev.sandbox.bio
 
 on:
   push:
