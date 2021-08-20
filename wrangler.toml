@@ -16,4 +16,4 @@ routes = ["stg.sandbox.bio/*"]
 
 [env.prd]
 name = "sandboxbio"
-routes = ["prd.sandbox.bio/*"]  # TODO: add sandbox.bio/*
+routes = ["sandbox.bio/*", "prd.sandbox.bio/*"]
