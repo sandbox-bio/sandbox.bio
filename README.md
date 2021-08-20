@@ -5,6 +5,8 @@
 
 ## Infrastructure
 
+### Domains
+
 |Environment|Domain|Access|Supabase DB|
 |-|-|-|-|
 |dev|[dev.sandbox.bio](https://dev.sandbox.bio)|[Only me](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps)|[dev](https://app.supabase.io/project/bqjvxpdzkembvixymfae/editor/table)|
@@ -12,24 +14,32 @@
 |prd|[[prd.]sandbox.bio](https://prd.sandbox.bio)|Public|[prd](https://app.supabase.io/project/vjmttfnyctkivaeljytg/editor/table)|
 
 
-## Database
+### Database
 
 |Table|Description|Access|
 |-|-|-|
-|logs|Log all calls to sandbox.bio/*|anon|
-|pings|Analytics for tutorial progress|anon|
+|logs|Log all calls to sandbox.bio/*|RLS|
+|pings|Analytics for tutorial progress|RLS|
 
 
-## Deploy
+## How to
+
+### Create a new table
+
+[ ] Create table in dev
+[ ] In pgAdmin, right click on the table --> Scripts --> CREATE --> paste it in the UI for the new environment
+[ ] Enable Row-Level Security
+
+
+### Deploy
 
 ```bash
 # Build Svelte App + Deploy Cloudflare Worker
 npm run deploy-dev
 ```
 
-## Setup
 
-### Secrets
+### Setup Secrets
 
 ```bash
 wrangler secret put SUPABASE_URL --env prd      # Supabase endpoint
