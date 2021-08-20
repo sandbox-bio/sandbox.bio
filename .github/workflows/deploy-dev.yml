@@ -5,6 +5,9 @@ name: dev.sandbox.bio
 on:
   push:
     branches: [ dev ]
+    paths-ignore:
+      - README.md
+      - .gitignore
 
 jobs:
   deploy:
