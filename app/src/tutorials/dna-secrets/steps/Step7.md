@@ -58,12 +58,6 @@ onMount(async () => {
 
 Finally, it's time to decode the secret message!
 
-Use the `bcftools query` command we introduced earlier to extract the `%ALT` column from the file `combined.vcf` and show 1 SNP per line:
-
-<Exercise {criteria} />
-
-&nbsp;
-
 We implemented a simple DNA decoder below based on the algorithm described in <Link href="https://science.sciencemag.org/content/337/6102/1628">Church et al, 2013</Link>. It will show the decoded value of the DNA stored in the file `secret`.
 
 <div class="form-floating mb-3">
@@ -75,4 +69,10 @@ We implemented a simple DNA decoder below based on the algorithm described in <L
 	<label for="floatingInput2">Decoded Message</label>
 </div>
 
-For another example, try <Execute command='echo "CGGCGAACAGGCCTAGATTAGGCCCTTCTTCCCGGCGGTG" > secret' inline />
+&nbsp;
+
+For example, try <Execute command='echo "CGGCGAACAGGCCTAGATTAGGCCCTTCTTCCCGGCGGTG" > secret' inline />
+
+Use the `bcftools query` command we introduced earlier to extract the `%ALT` column from the file `combined.vcf` and show 1 SNP per line:
+
+<Exercise {criteria} />

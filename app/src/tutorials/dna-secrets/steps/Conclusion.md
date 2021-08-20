@@ -2,7 +2,7 @@
 import Link from "components/Link.svelte";
 </script>
 
-This concludes the DNA decoding challenge!
+Congrats, you decoded the secret message!
 
 Here are additional resources to check out:
 * <Link href="http://samtools.github.io/bcftools/howtos/index.html">Official `bcftools` documentation</Link>
