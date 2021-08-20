@@ -4,7 +4,7 @@
 
 	bowtie2 -x $REF -U morereads.fq -S aligned2.sam; samtools sort -o aligned2.bam aligned2.sam;  bcftools mpileup -f $REF_FASTA aligned2.bam | bcftools call -m -v -Ob -o variants2.bcf -; bcftools index variants2.bcf
 
-	bcftools merge variants.bcf variants2.bcf > combined.vcf; bcftools query -f "%ALT\n" combined.vcf > secret
+	bcftools merge variants.bcf variants2.bcf > combined.vcf; bcftools query -f "%ALT" combined.vcf > secret
 */
 
 import { onMount } from "svelte";
@@ -40,12 +40,12 @@ function binaryToString(input) {
 
 let criteria = [
 {
-	name: "File <code>secret</code> is a file containing 1 SNP per line",
+	name: "File <code>secret</code> is a file containing the DNA secret",
 	checks: [{
 		type: "file",
 		path: "secret",
 		action: "contents",
-		commandExpected: 'bcftools query -f "%ALT\n" combined.vcf'
+		commandExpected: 'bcftools query -f "%ALT" combined.vcf'
 	}]
 }];
 
@@ -67,6 +67,6 @@ Finally, it's time to decode the secret message!
 	<label for="floatingInput2">Decoded Message</label>
 </div>
 
-Use the `bcftools query` command we introduced earlier to extract the `%ALT` column from the file `combined.vcf` and show 1 SNP per line:
+Use the `bcftools query` command we introduced earlier to extract the `%ALT` column from the file `combined.vcf`, but show all the SNPs on one line (i.e. we don't need the `\n`).
 
 <Exercise {criteria} />
