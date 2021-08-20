@@ -16,6 +16,7 @@ const PATHS_IGNORE = ["/favicon.ico"];
 export async function logEvent(event, response) {
 	const url = new URL(event.request.url);
 	const pathname = url.pathname;
+	const search = url.search;
 
 	// Ignore certain paths
 	if(PATHS_IGNORE.includes(pathname))
@@ -24,6 +25,7 @@ export async function logEvent(event, response) {
 	// Store path and status
 	await supabase.from("logs").insert([{
 		pathname,
+		search,
 		status: (await response).status
 	}]);
 }
