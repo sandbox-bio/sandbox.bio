@@ -28,8 +28,7 @@ export const config = {
 	files: [
 		"data/bowtie2-intro/reads_1.fq",
 		"data/bowtie2-intro/reads_2.fq",
-		"data/bowtie2-intro/longreads.fq",
-		"data/bowtie2-intro/r1.fq",
+		"data/bowtie2-intro/longreads.fq"
 	],
 	init: "REF=/bowtie2/example/index/lambda_virus; REF_FASTA=/bowtie2/example/reference/lambda_virus.fa"
 };
