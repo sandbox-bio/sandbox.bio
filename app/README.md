@@ -1,13 +1,10 @@
 # sandbox.bio App
 
-[![Tests](https://github.com/robertaboukhalil/sandbox.bio/actions/workflows/tests.yml/badge.svg)](https://github.com/robertaboukhalil/sandbox.bio/actions/workflows/tests.yml)
-
 ## Development
 
 * Branches
-  * `dev`: Development branch, pushing there deploys a preview site
-  * `main`: Production branch; merge dev into main to deploy to sandbox.bio
-* Add a tag when deploy to prd
+  * `dev`: Development branch, pushing there runs tests if changes to app/* were made + auto deploys to dev.sandbox.bio
+  * `main`: Production branch; merge dev into main to deploy to stg.sandbox.bio
 
 ## Testing
 

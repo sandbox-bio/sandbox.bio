@@ -1,5 +1,8 @@
 # sandbox.bio
 
+[![Deploy sandbox.bio](https://github.com/sandbox-bio/sandbox.bio/actions/workflows/deploy.yml/badge.svg)](https://github.com/sandbox-bio/sandbox.bio/actions/workflows/deploy.yml) [![Deploy stg.sandbox.bio](https://github.com/sandbox-bio/sandbox.bio/actions/workflows/deploy-stg.yml/badge.svg)](https://github.com/sandbox-bio/sandbox.bio/actions/workflows/deploy-stg.yml) [![Deploy dev.sandbox.bio](https://github.com/sandbox-bio/sandbox.bio/actions/workflows/deploy-dev.yml/badge.svg)](https://github.com/sandbox-bio/sandbox.bio/actions/workflows/deploy-dev.yml) [![Tests](https://github.com/robertaboukhalil/sandbox.bio/actions/workflows/tests.yml/badge.svg)](https://github.com/robertaboukhalil/sandbox.bio/actions/workflows/tests.yml)
+
+
 ## Infrastructure
 
 |Environment|Domain|Access|Supabase DB|
