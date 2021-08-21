@@ -20,7 +20,7 @@ const tutorial = $config.tutorials.find(t => t.id == id);
 	</div>
 	<div class="row align-items-md-stretch">
 		{#each $config.tutorials.slice(0, maxListings) as info}
-			<div class="col-md-6 col-lg-3 mt-2">
+			<div class="col-md-6 col-lg-4 mt-2">
 				<div class="h-100 p-3 border rounded-3">
 					{#each info.difficulty as tag}
 						<span class="badge" class:bg-success={tag == "beginner"} class:bg-danger={tag == "difficult"} style={tag == "intermediate" ? "background-color:#fd7e14" : ""}>{tag}</span>
