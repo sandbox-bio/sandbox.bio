@@ -56,6 +56,9 @@ const intro = `# This playground is for open-ended exploration.
 			</ul>
 		</li>
 		<li class="nav-item">
+			<a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a>
+		</li>
+		<li class="nav-item">
 			<button class="btn btn-link text-decoration-none" style="padding-top:7px" on:click={() => aboutIsOpen = !aboutIsOpen}>About</button>
 		</li>
 	</ul>
