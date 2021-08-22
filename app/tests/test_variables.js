@@ -1,4 +1,4 @@
-// Test variable support
+// Test variable support 
 
 import { get } from "svelte/store";
 import { CLI } from "../src/terminal/cli";
