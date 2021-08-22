@@ -18,8 +18,7 @@ const intro = `\u001b[0;37m# This playground is for open-ended exploration.
 #   samtools view -o test.bam /samtools/examples/toy.sam
 #   samtools index test.bam
 #   ls test.bam.bai
-#   samtools idxstats test.bam  # idxstats uses the .bai file
-\u001b[0m
+#   samtools idxstats test.bam  # idxstats uses the .bai file \u001b[0m
 `;
 </script>
 
