@@ -6,6 +6,7 @@ import { WebLinksAddon } from "xterm-addon-web-links";
 import { SerializeAddon } from "xterm-addon-serialize";
 import { FitAddon } from "xterm-addon-fit";
 import LocalEchoController from "local-echo";
+import ansiRegex from "ansi-regex";
 
 
 // =============================================================================
@@ -39,6 +40,14 @@ addons.echo.handleData = (data) => {
 		return;
 	return addons.echo.handleData_(data);
 }
+
+// Make sure to remove ANSI color codes when calculating the cursor so it doesn't look moved to the right.
+// Source: <https://github.com/wavesoft/local-echo/issues/24#issuecomment-774676509>
+addons.echo.applyPromptOffset = function(input, offset) {
+	const newInput = addons.echo.applyPrompts(input.substr(0, offset));
+	return newInput.replace(ansiRegex(), "").length;
+}
+
 
 // =============================================================================
 // Export as readable stores
