@@ -7,6 +7,7 @@ import "xterm/css/xterm.css";
 // Imports
 import { xterm, xtermAddons } from "terminal/xterm";
 import { CLI } from "terminal/cli";
+import { vars, config } from "./config";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";
@@ -107,7 +108,7 @@ async function input(toPrint)
 	$xterm.focus();
 
 	// Prepare prompt, e.g. "guest@sandbox$ "
-	const prompt = "guest@sandbox$";
+	const prompt = $vars["PS1"].replaceAll('\\u', $vars["USER"]).replaceAll('\\h', $config.hostname);
 	$xtermAddons.echo.read(`\u001b[1;34m${prompt}\u001b[0m `)
 		.then(exec)
 		.catch(console.error);
@@ -208,7 +209,7 @@ async function handleAutocomplete(data)
 		if(cacheAutocomplete.length == 0) {
 			// Autocomplete variables
 			if(userFragment.startsWith("$")) {
-				cacheAutocomplete = Object.keys($CLI._vars).map(d => `$${d}`);
+				cacheAutocomplete = Object.keys($vars).map(d => `$${d}`);
 
 			// Autocomplete file paths
 			} else {
