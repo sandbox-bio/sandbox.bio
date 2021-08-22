@@ -31,7 +31,9 @@ const AUTOCOMPLETE = {
 	rm: [],
 	mkdir: [],
 	rmdir: [],
-	env: []
+	env: [],
+	hostname: [],
+	uname: []
 };
 
 

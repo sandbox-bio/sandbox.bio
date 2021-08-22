@@ -274,6 +274,8 @@ const coreutils = {
 
 	// env
 	env: args => Object.keys(_vars).map(v => `${v}=${_vars[v]}`).join("\n"),
+	hostname: args => "sandbox",
+	uname: args => "sandbox.bio",
 
 	// -------------------------------------------------------------------------
 	// File system management
