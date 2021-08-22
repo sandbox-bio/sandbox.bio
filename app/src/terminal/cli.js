@@ -25,7 +25,6 @@ let _pid = 10000;  // Current pid
 // Convenient way of using svelte store shortcut ($vars) outside .svelte files
 let $vars = null;
 localforage.getItem("vars").then(d => $vars = d);
-
 // When any user variable changes, update local storage
 vars.subscribe(async d => {
 	$vars = d;
