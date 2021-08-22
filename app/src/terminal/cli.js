@@ -7,19 +7,19 @@
 // * Tail doesn't support `tail -n +3` format (but `head -n-2` and `head/tail -2` supported)
 
 // Imports
-import { readable } from "svelte/store";
+import { readable, get } from "svelte/store";
 import parse from "shell-parse";         // Transforms a bash command into an AST
 import columnify from "columnify";       // Prettify columnar output
 import prettyBytes from "pretty-bytes";  // Prettify number of bytes
 import minimist from "minimist";         // Parse CLI arguments
 import Aioli from "@biowasm/aioli";
+import { vars } from "../config"; let $vars = get(vars);
 
 // State
 let _aioli = {};   // Aioli object
 let _fs = {};      // Aioli filesystem object
 let _jobs = 0;     // Number of jobs running in background
 let _pid = 10000;  // Current pid
-let _vars = {};    // User-defined variables!
 
 
 // =============================================================================
@@ -148,7 +148,7 @@ async function exec(cmd, callback=console.warn)
 	if(cmd.type == "variableAssignment") {
 		const name = cmd.name;
 		const value = await utils.getValue(cmd.value);
-		_vars[name] = value;
+		$vars[name] = value;
 		return "";
 	}
 
@@ -273,7 +273,7 @@ const coreutils = {
 	},
 
 	// env
-	env: args => Object.keys(_vars).map(v => `${v}=${_vars[v]}`).join("\n"),
+	env: args => Object.keys($vars).map(v => `${v}=${$vars[v]}`).join("\n"),
 	hostname: args => "sandbox",
 	uname: args => "sandbox.bio",
 
@@ -424,7 +424,7 @@ const utils = {
 		if(arg.type == "literal")
 			return arg.value;
 		else if(arg.type == "variable")
-			return _vars[arg.name] || "";
+			return $vars[arg.name] || "";
 		// e.g. echo "something $abc $def"
 		else if(arg.type == "concatenation")
 			return (await Promise.all(arg.pieces.map(utils.getValue))).join("");
@@ -481,6 +481,5 @@ const minimistConfig = {
 export const CLI = readable({
 	init,
 	exec,
-	coreutils,
-	_vars
+	coreutils
 });
