@@ -103,7 +103,7 @@ function input(toPrint)
 	if(toPrint)
 		$xterm.writeln(toPrint);
 	$xterm.focus();
-	$xtermAddons.echo.read("$ ")
+	$xtermAddons.echo.read("\u001b[1;34mguest@sandbox$\u001b[0m ")
 		.then(exec)
 		.catch(console.error);
 }
