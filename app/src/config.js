@@ -1,12 +1,12 @@
 import { readable, writable } from "svelte/store";
 
-const URL_API = `https://${window.location.hostname != "localhost" ? window.location.hostname : "dev.sandbox.bio"}/api/v1`;
-
+// App settings (read-only)
 export const config = readable({
-	api: URL_API,
-	hostname: "sandbox"
+	hostname: "sandbox",
+	api: `https://${window.location.hostname != "localhost" ? window.location.hostname : "dev.sandbox.bio"}/api/v1`
 });
 
+// User-defined variables
 export const vars = writable({
 	PS1: "\\u@\\h$",
 	USER: "guest"
