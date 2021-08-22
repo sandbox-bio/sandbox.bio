@@ -50,9 +50,10 @@ export let files = [];                     // Files to preload on the filesystem
 export let tools = TOOLS_DEFAULT;          // Aioli tools to load
 
 let divTerminal;                           // HTML element where terminal will be drawn
-$: if(ready) input();                      // Ask for user input once ready
-
+let modalIsOpen = false;                   // Whether settings modal is open
 const dispatch = createEventDispatcher();  // Send info to parent component when cmd is done
+
+$: if(ready) input();                      // Ask for user input once ready
 
 
 // =============================================================================
