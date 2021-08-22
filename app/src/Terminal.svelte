@@ -2,8 +2,6 @@
 import { onMount, createEventDispatcher } from "svelte";
 import { watchResize } from "svelte-watch-resize";
 import { Spinner } from "sveltestrap";
-import localforage from "localforage";
-import { config } from "./config";
 import "xterm/css/xterm.css";
 
 // Imports
@@ -109,9 +107,8 @@ async function input(toPrint)
 	$xterm.focus();
 
 	// Prepare prompt, e.g. "guest@sandbox$ "
-	$config.cli.user = await localforage.getItem("cli.user") || $config.cli.user;
-	$config.cli.hostname = await localforage.getItem("cli.hostname") || $config.cli.hostname;
-	$xtermAddons.echo.read(`\u001b[1;34m${$config.cli.user}@${$config.cli.hostname}$\u001b[0m `)
+	const prompt = "guest@sandbox$";
+	$xtermAddons.echo.read(`\u001b[1;34m${prompt}\u001b[0m `)
 		.then(exec)
 		.catch(console.error);
 }
