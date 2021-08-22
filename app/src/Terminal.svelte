@@ -265,7 +265,25 @@ function getSharedSubstring(array){
 </script>
 
 <div bind:this={divTerminal} use:watchResize={handleResize} style="opacity: { ready ? 1 : 0.6 }; height:85vh; max-height:85vh; overflow:hidden">
+	<!-- Hamburger menu for settings (nothing to show now, maybe later) -->
+	<!-- <div class="cli-options text-muted">
+		<i class="bi bi-three-dots-vertical" on:click={() => modalIsOpen = true}></i>
+	</div> -->
 	{#if !ready}
 		<Spinner color="light" type="border" />
 	{/if}
 </div>
+
+<style>
+/* Hamburger menu */
+/* .cli-options {
+	position: absolute;
+	right: 0;
+	z-index: 100;
+	cursor: pointer;
+}
+
+.cli-options:hover {
+	color: white !important;
+} */
+</style>
