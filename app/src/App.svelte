@@ -11,7 +11,7 @@ import { config } from "config";
 // State
 let aboutIsOpen = false;  // Whether "About" modal is showing or not
 const path = window.location.pathname;
-const intro = `# This playground is for open-ended exploration.
+const intro = `\u001b[0;37m# This playground is for open-ended exploration.
 # For guided tutorials, see https://sandbox.bio/tutorials
 #
 # Example:
@@ -19,6 +19,7 @@ const intro = `# This playground is for open-ended exploration.
 #   samtools index test.bam
 #   ls test.bam.bai
 #   samtools idxstats test.bam  # idxstats uses the .bai file
+\u001b[0m
 `;
 </script>
 
