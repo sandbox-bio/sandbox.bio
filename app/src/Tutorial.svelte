@@ -1,6 +1,7 @@
 <script>
-import { config } from "config";
-import { status } from "status";
+import { config } from "./config";
+import { status } from "./status";
+import { tutorials } from "./tutorials";
 import Terminal from "./Terminal.svelte";
 import { DropdownItem, Offcanvas } from "sveltestrap";
 
@@ -8,7 +9,7 @@ export let id;
 export let step = 0;
 
 // State
-const tutorial = $config.tutorials.find(t => t.id == id);
+const tutorial = $tutorials.find(t => t.id == id);
 const tocToggle = () => tocOpen = !tocOpen;
 let tocOpen = false;
 let stepInfo = {};

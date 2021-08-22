@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./routes/Home.svelte";
 import Tutorials from "./routes/Tutorials.svelte";
 import Terminal from "./Terminal.svelte";
-import { config } from "config";
+import { tutorials } from "./tutorials";
 
 // State
 let aboutIsOpen = false;  // Whether "About" modal is showing or not
@@ -38,7 +38,7 @@ const intro = `\u001b[0;37m# This playground is for open-ended exploration.
 				Tutorials
 			</a>
 			<ul class="dropdown-menu" aria-labelledby="navTutorials">
-				{#each $config.tutorials as tutorial}
+				{#each $tutorials as tutorial}
 					<li><a class="dropdown-item" href="/tutorials?id={tutorial.id}">{tutorial.name}</a></li>
 				{/each}
 			</ul>
@@ -71,7 +71,7 @@ const intro = `\u001b[0;37m# This playground is for open-ended exploration.
 		<Tutorials />
 	{:else if path.startsWith("/playground")}
 		<div class="p-2" style="background-color:#000">
-			<Terminal {intro} files={$config.tutorials[0].files} />
+			<Terminal {intro} files={$tutorials[0].files} />
 		</div>
 	{/if}
 </main>

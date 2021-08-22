@@ -1,12 +1,12 @@
 <script>
-import { config } from "config";
+import { tutorials } from "./tutorials";
 import Tutorial from "./Tutorial.svelte";
 
 export let maxListings = Infinity;  // max number of tutorials to list
 
 const id = new URL(window.location).searchParams.get("id");
 const step = +new URL(window.location).searchParams.get("step") || 0;
-const tutorial = $config.tutorials.find(t => t.id == id);
+const tutorial = $tutorials.find(t => t.id == id);
 </script>
 
 <!-- Load tutorial if we know which one we want -->
@@ -19,7 +19,7 @@ const tutorial = $config.tutorials.find(t => t.id == id);
 		<h3 class="pb-2">Tutorials</h3>
 	</div>
 	<div class="row align-items-md-stretch">
-		{#each $config.tutorials.slice(0, maxListings) as info}
+		{#each $tutorials.slice(0, maxListings) as info}
 			<div class="col-md-6 col-lg-4 mt-2">
 				<div class="h-100 p-3 border rounded-3">
 					{#each info.difficulty as tag}
