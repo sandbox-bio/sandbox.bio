@@ -12,14 +12,25 @@ import parse from "shell-parse";         // Transforms a bash command into an AS
 import columnify from "columnify";       // Prettify columnar output
 import prettyBytes from "pretty-bytes";  // Prettify number of bytes
 import minimist from "minimist";         // Parse CLI arguments
+import localforage from "localforage";
 import Aioli from "@biowasm/aioli";
-import { vars } from "../config"; let $vars = get(vars);
+import { vars } from "../config";
 
 // State
 let _aioli = {};   // Aioli object
 let _fs = {};      // Aioli filesystem object
 let _jobs = 0;     // Number of jobs running in background
 let _pid = 10000;  // Current pid
+
+// Convenient way of using svelte store shortcut ($vars) outside .svelte files
+let $vars = null;
+localforage.getItem("vars").then(d => $vars = d);
+
+// When any user variable changes, update local storage
+vars.subscribe(async d => {
+	$vars = d;
+	await localforage.setItem("vars", d);
+});
 
 
 // =============================================================================
@@ -148,7 +159,7 @@ async function exec(cmd, callback=console.warn)
 	if(cmd.type == "variableAssignment") {
 		const name = cmd.name;
 		const value = await utils.getValue(cmd.value);
-		$vars[name] = value;
+		vars.set({ ...$vars, [name]: value });
 		return "";
 	}
 

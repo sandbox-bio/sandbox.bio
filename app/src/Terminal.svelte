@@ -49,7 +49,6 @@ export let files = [];                     // Files to preload on the filesystem
 export let tools = TOOLS_DEFAULT;          // Aioli tools to load
 
 let divTerminal;                           // HTML element where terminal will be drawn
-let modalIsOpen = false;                   // Whether settings modal is open
 const dispatch = createEventDispatcher();  // Send info to parent component when cmd is done
 
 $: if(ready) input();                      // Ask for user input once ready
@@ -108,8 +107,10 @@ async function input(toPrint)
 	$xterm.focus();
 
 	// Prepare prompt, e.g. "guest@sandbox$ "
-	const prompt = $vars["PS1"].replaceAll('\\u', $vars["USER"]).replaceAll('\\h', $config.hostname);
-	$xtermAddons.echo.read(`\u001b[1;34m${prompt}\u001b[0m `)
+	const PS1 = $vars["PS1"] || '\\u@\\h$ ';
+	const user = $vars["USER"] || "guest";
+	const prompt = PS1.replaceAll('\\u', user).replaceAll('\\h', $config.hostname);
+	$xtermAddons.echo.read(`\u001b[1;34m${prompt}\u001b[0m`)
 		.then(exec)
 		.catch(console.error);
 }
