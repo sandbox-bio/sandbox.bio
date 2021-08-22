@@ -8,6 +8,6 @@ export const config = readable({
 
 // User-defined variables
 export const vars = writable({
-	PS1: "\\u@\\h$",
+	PS1: "\\u@\\h$ ",
 	USER: "guest"
 });
