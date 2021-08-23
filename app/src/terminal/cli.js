@@ -14,7 +14,7 @@ import prettyBytes from "pretty-bytes";  // Prettify number of bytes
 import minimist from "minimist";         // Parse CLI arguments
 import localforage from "localforage";
 import Aioli from "@biowasm/aioli";
-import { config, vars } from "./stores/config";
+import { config, vars } from "../stores/config";
 
 // State
 let _aioli = {};   // Aioli object
