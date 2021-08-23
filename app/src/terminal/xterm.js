@@ -16,7 +16,8 @@ import ansiRegex from "ansi-regex";
 // Xterm.js
 const term = new Terminal({
 	convertEol: true,
-	cursorBlink: true
+	cursorBlink: true,
+	// bellStyle: "sound" // only works if do: $xterm.writeln("\x07");
 });
 
 // Xterm.js add-ons
@@ -41,12 +42,6 @@ addons.echo.handleData = (data) => {
 	return addons.echo.handleData_(data);
 }
 
-// Make sure to remove ANSI color codes when calculating the cursor so it doesn't look moved to the right.
-// Source: <https://github.com/wavesoft/local-echo/issues/24#issuecomment-774676509>
-addons.echo.applyPromptOffset = function(input, offset) {
-	const newInput = addons.echo.applyPrompts(input.substr(0, offset));
-	return newInput.replace(ansiRegex(), "").length;
-}
 
 
 // =============================================================================
