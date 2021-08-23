@@ -109,7 +109,7 @@ async function input(toPrint)
 
 	// Prepare prompt, e.g. "guest@sandbox$ "
 	const prompt = $vars["PS1"].replaceAll('\\u', $vars["USER"]).replaceAll('\\h', $config.hostname);
-	$xtermAddons.echo.read(prompt)
+	$xtermAddons.echo.read(`\u001b[1;34m${prompt}\u001b[0m`)
 		.then(exec)
 		.catch(console.error);
 }
