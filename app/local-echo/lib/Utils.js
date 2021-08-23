@@ -43,7 +43,7 @@ export function closestRightBoundary(input, offset) {
 export function offsetToColRow(input, offset, maxCols) {
   let row = 0,
     col = 0;
-
+  let extra = 0;  // FIXED: When entering multiline inputs, the cursor is off by the number of breaklines
   for (let i = 0; i < offset; ++i) {
     const chr = input.charAt(i);
     if (chr == "\n") {
@@ -52,7 +52,7 @@ export function offsetToColRow(input, offset, maxCols) {
     } else {
       col += 1;
       if (col > maxCols) {
-        col = 0;
+        col = ++extra;  // FIXED: When entering multiline inputs, the cursor is off by the number of breaklines
         row += 1;
       }
     }
