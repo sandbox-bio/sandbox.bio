@@ -1,7 +1,7 @@
 <script>
-import { config } from "./config";
-import { status } from "./status";
-import { tutorials } from "./tutorials";
+import { config } from "./stores/config";
+import { status } from "./stores/status";
+import { tutorials } from "./stores/tutorials";
 import Terminal from "./Terminal.svelte";
 import { DropdownItem, Offcanvas } from "sveltestrap";
 

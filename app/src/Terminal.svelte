@@ -7,7 +7,7 @@ import "xterm/css/xterm.css";
 // Imports
 import { xterm, xtermAddons } from "terminal/xterm";
 import { CLI } from "terminal/cli";
-import { vars, config } from "./config";
+import { vars, config } from "./stores/config";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";

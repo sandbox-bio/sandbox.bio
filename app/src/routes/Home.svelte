@@ -1,5 +1,5 @@
 <script>
-import { tutorials, explore } from "./tutorials";
+import { tutorials, explore } from "./stores/tutorials";
 import Listings from "./components/Listings.svelte";
 </script>
 

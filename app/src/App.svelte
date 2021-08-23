@@ -7,8 +7,8 @@ import Home from "./routes/Home.svelte";
 import Tutorial from "./Tutorial.svelte";
 import Terminal from "./Terminal.svelte";
 import Listings from "./components/Listings.svelte";
-import { config } from "./config";
-import { tutorials } from "./tutorials";
+import { config } from "./stores/config";
+import { tutorials } from "./stores/tutorials";
 
 // State
 let aboutIsOpen = false;  // Whether "About" modal is showing or not

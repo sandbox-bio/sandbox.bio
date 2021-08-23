@@ -6,7 +6,6 @@ import { WebLinksAddon } from "xterm-addon-web-links";
 import { SerializeAddon } from "xterm-addon-serialize";
 import { FitAddon } from "xterm-addon-fit";
 import LocalEchoController from "local-echo";
-import ansiRegex from "ansi-regex";
 
 
 // =============================================================================
