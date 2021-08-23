@@ -52,7 +52,7 @@ async function init(config={})
 	// Initialize
 	_aioli = await new Aioli(config.tools, {
 		env: window.location.hostname == "localhost" ? "stg" : "prd",
-		debug: window.location.hostname == "localhost",
+		// debug: window.location.hostname == "localhost",
 		printInterleaved: false
 	});
 	_fs = _aioli.tools[1].module.FS;
