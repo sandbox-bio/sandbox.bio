@@ -1,5 +1,6 @@
 <script>
-import Tutorials from "./Tutorials.svelte";
+import { tutorials } from "./tutorials";
+import Listings from "./components/Listings.svelte";
 </script>
 
 <div class="container-fluid pt-3">
@@ -18,7 +19,7 @@ import Tutorials from "./Tutorials.svelte";
 	</div>
 </div>
 
-<Tutorials maxListings={4} />
+<Listings items={$tutorials} />
 
 <footer class="pt-3 mt-4 mb-4 text-muted border-top">
 	Built by <a href="https://robertaboukhalil.com">Robert Aboukhalil</a>.

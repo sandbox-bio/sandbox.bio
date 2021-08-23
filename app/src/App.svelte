@@ -4,22 +4,19 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Home from "./routes/Home.svelte";
-import Tutorials from "./routes/Tutorials.svelte";
+import Tutorial from "./Tutorial.svelte";
 import Terminal from "./Terminal.svelte";
+import Listings from "./components/Listings.svelte";
+import { config } from "./config";
 import { tutorials } from "./tutorials";
 
 // State
 let aboutIsOpen = false;  // Whether "About" modal is showing or not
+
+// Config
+const intro = $config.playground;
 const path = window.location.pathname;
-const intro = `\u001b[0;37m# This playground is for open-ended exploration.
-# For guided tutorials, see https://sandbox.bio/tutorials
-#
-# Example:
-#   samtools view -o test.bam /samtools/examples/toy.sam
-#   samtools index test.bam
-#   ls test.bam.bai
-#   samtools idxstats test.bam  # idxstats uses the .bai file \u001b[0m
-`;
+const params = new URL(window.location).searchParams;
 </script>
 
 <svelte:head>
@@ -68,7 +65,11 @@ const intro = `\u001b[0;37m# This playground is for open-ended exploration.
 	{#if path == "/"}
 		<Home />
 	{:else if path.startsWith("/tutorials")}
-		<Tutorials />
+		{#if params.get("id")}
+			<Tutorial id={params.get("id")} step={+params.get("step") || 0} />
+		{:else}
+			<Listings items={$tutorials} />
+		{/if}
 	{:else if path.startsWith("/playground")}
 		<div class="p-2" style="background-color:#000">
 			<Terminal {intro} files={$tutorials[0].files} />
