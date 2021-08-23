@@ -20,7 +20,7 @@ export class HistoryController {
     // Keep track of entries
     this.entries.push(entry);
     if (this.entries.length > this.size) {
-      this.entries.pop(0);
+      this.entries.shift();  // FIXED: History limit removes the newest command, not the oldest. Source: <https://github.com/wavesoft/local-echo/issues/34>
     }
     this.cursor = this.entries.length;
   }
