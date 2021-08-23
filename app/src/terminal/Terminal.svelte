@@ -30,6 +30,7 @@ const AUTOCOMPLETE = {
 	echo: [],
 	mv: [],
 	rm: [],
+	cp: [],
 	mkdir: [],
 	rmdir: [],
 	env: [],
@@ -85,8 +86,8 @@ onMount(async () => {
 			await $CLI.exec(init);
 		ready = true;
 	} catch (error) {
-		console.error("Could not load terminal:", error);
-		alert("Could not load the terminal. Please try refreshing the page.");
+		console.error("Could not load terminal");
+		console.error(error)
 	}
 });
 

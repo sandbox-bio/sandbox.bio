@@ -295,6 +295,7 @@ const coreutils = {
 	env: args => Object.keys($vars).map(v => `${v}=${$vars[v]}`).join("\n"),
 	hostname: args => "sandbox",
 	uname: args => "sandbox.bio",
+	date: args => new Date().toLocaleString(),
 
 	// -------------------------------------------------------------------------
 	// File system management
@@ -315,7 +316,31 @@ const coreutils = {
 		_fs.writeFile(path, "");
 		return path;
 	},
-	date: args => new Date().toLocaleString(),
+	cp: async args => {
+		// Copy file contents if it exists
+		let data;
+		try {
+			// Read source file
+			await coreutils.ls({_: [args._[0]]});
+			data = await _fs.readFile(args._[0], { encoding: "binary" });
+
+			// Delete destination file if it exists (otherwise can get errors if destination = lazyloaded URL)
+			try {
+				await coreutils.ls({_: [args._[1]]});
+				await coreutils.rm({_: [args._[1]]});
+			} catch (error) {}  // don't error if the destination doesn't exist
+
+			// Copy data over
+			try {
+				await _fs.writeFile(args._[1], data, { encoding: "binary" });
+				return "";
+			} catch (error) {
+				return error;
+			}
+		} catch (error) {
+			return error;
+		}
+	},
 
 	// -------------------------------------------------------------------------
 	// File contents utilities
