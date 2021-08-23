@@ -5,7 +5,7 @@ import { Terminal } from "xterm";
 import { WebLinksAddon } from "xterm-addon-web-links";
 import { SerializeAddon } from "xterm-addon-serialize";
 import { FitAddon } from "xterm-addon-fit";
-import LocalEchoController from "local-echo";
+import LocalEchoController from "../../local-echo/index";
 
 
 // =============================================================================
