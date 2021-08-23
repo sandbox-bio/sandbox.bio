@@ -2,7 +2,7 @@
 import { config } from "./stores/config";
 import { status } from "./stores/status";
 import { tutorials } from "./stores/tutorials";
-import Terminal from "./Terminal.svelte";
+import Terminal from "./terminal/Terminal.svelte";
 import { DropdownItem, Offcanvas } from "sveltestrap";
 
 export let id;

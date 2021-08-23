@@ -4,8 +4,8 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Home from "./routes/Home.svelte";
-import Tutorial from "./Tutorial.svelte";
-import Terminal from "./Terminal.svelte";
+import Tutorial from "./tutorials/Tutorial.svelte";
+import Terminal from "./terminal/Terminal.svelte";
 import Listings from "./components/Listings.svelte";
 import { config } from "./stores/config";
 import { tutorials } from "./stores/tutorials";
