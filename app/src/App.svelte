@@ -77,7 +77,7 @@ const params = new URL(window.location).searchParams;
 		All the files you read and write to are temporarily stored in memory using Emscripten's <a href="https://emscripten.org/docs/api_reference/Filesystem-API.html" target="_blank">virtual file system</a>.</p>
 
 	<p class="lead fw-bold mt-4 mb-1">How to contribute</p>
-	<p>If you have feedback, ideas for new tutorials, or if one of your own bioinformatics tutorials could benefit from being interactive, please <a href="mailto:robert.aboukhalil+sandboxbio@gmail.com">reach out</a>! Note that currently, only the C/C++ bioinformatics tools listed <a href="https://github.com/biowasm/biowasm#supported-tools" target="_blank">here</a> are supported.</p>
+	<p>If you have feedback, ideas for new tutorials, or if one of your own bioinformatics tutorials could benefit from being interactive, please <a href="https://github.com/sandbox-bio/feedback/discussions" target="_blank">reach out</a>! Note that currently, only the C/C++ bioinformatics tools listed <a href="https://github.com/biowasm/biowasm#supported-tools" target="_blank">here</a> are supported.</p>
 
 	<p class="lead fw-bold mt-4 mb-1">Author</p>
 	<p>Built by <a href="https://www.robertaboukhalil.com/" target="_blank">Robert Aboukhalil</a>.</p>
