@@ -14,7 +14,7 @@ import prettyBytes from "pretty-bytes";  // Prettify number of bytes
 import minimist from "minimist";         // Parse CLI arguments
 import localforage from "localforage";
 import Aioli from "@biowasm/aioli";
-import { vars } from "../config";
+import { config, vars } from "../config";
 
 // State
 let _aioli = {};   // Aioli object
@@ -23,12 +23,21 @@ let _jobs = 0;     // Number of jobs running in background
 let _pid = 10000;  // Current pid
 
 // Convenient way of using svelte store shortcut ($vars) outside .svelte files
-let $vars = null;
-localforage.getItem("vars").then(d => $vars = d);
+let $vars = {};
 // When any user variable changes, update local storage
 vars.subscribe(async d => {
+	if(!d || Object.keys(d).length == 0)
+		return;
 	$vars = d;
 	await localforage.setItem("vars", d);
+	// TODO: API call to save contents in DB?
+});
+// Get vars stored in localStorage, then trigger subscribe above
+localforage.getItem("vars").then(d => {
+	// If the user doesn't have anything in local storage, initialize it with default values
+	if(d == null)
+		d = get(config).env;
+	vars.set(d);
 });
 
 

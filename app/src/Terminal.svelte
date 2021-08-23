@@ -107,10 +107,10 @@ async function input(toPrint)
 	$xterm.focus();
 
 	// Prepare prompt, e.g. "guest@sandbox$ "
-	const PS1 = $vars["PS1"] || '\\u@\\h$ ';
-	const user = $vars["USER"] || "guest";
+	const PS1 = $vars["PS1"];
+	const user = $vars["USER"];
 	const prompt = PS1.replaceAll('\\u', user).replaceAll('\\h', $config.hostname);
-	$xtermAddons.echo.read(`\u001b[1;34m${prompt}\u001b[0m`)
+	$xtermAddons.echo.read(prompt)
 		.then(exec)
 		.catch(console.error);
 }
