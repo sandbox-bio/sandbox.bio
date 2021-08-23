@@ -1,3 +1,4 @@
+import ansiRegex from "ansi-regex";
 import { HistoryController } from "./HistoryController";
 import {
   closestLeftBoundary,
@@ -234,7 +235,7 @@ export default class LocalEchoController {
    */
   applyPromptOffset(input, offset) {
     const newInput = this.applyPrompts(input.substr(0, offset));
-    return newInput.length;
+    return newInput.replace(ansiRegex(), "").length;  // FIXED: Make sure cursor behaves well with a color prompt. Source: <https://github.com/wavesoft/local-echo/issues/24>
   }
 
   /**
