@@ -6,5 +6,5 @@ Copied from [wavesoft/local-echo](https://github.com/wavesoft/local-echo) repo; 
 
 Changes are denoted by `FIXED:` labels
 
-* History limit removes the newest command, not the oldest: commit 7e5e3e1f08104614bb6aa442ca8cf23aa438d290
-
+* History: Limit removes the newest command, not the oldest; [7e5e3e1](https://github.com/sandbox-bio/sandbox.bio/commit/7e5e3e1)
+* History: Fix bug where if ran the previous command again, the history pointer would shift, which is very confusing; [3b9f5b0](https://github.com/sandbox-bio/sandbox.bio/commit/3b9f5b0)
