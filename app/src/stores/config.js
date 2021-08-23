@@ -17,7 +17,8 @@ export const config = readable({
 #   samtools view -o test.bam /samtools/examples/toy.sam
 #   samtools index test.bam
 #   ls test.bam.bai
-#   samtools idxstats test.bam  # idxstats uses the .bai file \u001b[0m`
+#   samtools idxstats test.bam  # idxstats uses the .bai file \u001b[0m
+`
 });
 
 // User-defined variables
