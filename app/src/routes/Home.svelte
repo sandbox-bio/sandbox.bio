@@ -1,5 +1,5 @@
 <script>
-import { tutorials } from "./tutorials";
+import { tutorials, explore } from "./tutorials";
 import Listings from "./components/Listings.svelte";
 </script>
 
@@ -20,6 +20,8 @@ import Listings from "./components/Listings.svelte";
 </div>
 
 <Listings items={$tutorials} />
+
+<Listings items={$explore} title="Explore" />
 
 <footer class="pt-3 mt-4 mb-4 text-muted border-top">
 	Built by <a href="https://robertaboukhalil.com">Robert Aboukhalil</a>.

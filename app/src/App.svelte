@@ -40,18 +40,6 @@ const params = new URL(window.location).searchParams;
 				{/each}
 			</ul>
 		</li>
-		<li class="nav-item dropdown">
-			<!-- svelte-ignore a11y-invalid-attribute -->
-			<a class="nav-link dropdown-toggle" href="#" id="navExplore" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				Explore
-			</a>
-			<ul class="dropdown-menu" aria-labelledby="navExplore">
-				<li><a class="dropdown-item" href="https://alignment.sandbox.bio" target="_blank">Sequence alignment</a></li>
-				<li><a class="dropdown-item" href="https://tsne.sandbox.bio" target="_blank">tSNE algorithm</a></li>
-				<li><a class="dropdown-item" href="https://fastq.sandbox.bio" target="_blank">FASTQ QC metrics</a></li>
-				<li><a class="dropdown-item" href="https://wgsim.sandbox.bio" target="_blank">Simulate DNA sequences</a></li>
-			</ul>
-		</li>
 		<li class="nav-item">
 			<a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a>
 		</li>
