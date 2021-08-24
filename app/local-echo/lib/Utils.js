@@ -52,7 +52,7 @@ export function offsetToColRow(input, offset, maxCols) {
     } else {
       col += 1;
       if (col > maxCols) {
-        col = 0;
+        col = 1;  // FIXED: When entering multiline inputs, the cursor is off
         row += 1;
       }
     }
