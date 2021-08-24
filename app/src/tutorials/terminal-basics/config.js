@@ -6,7 +6,6 @@ import Step3 from "./steps/Step3.md";
 import Step4 from "./steps/Step4.md";
 import Step5 from "./steps/Step5.md";
 import Step6 from "./steps/Step6.md";
-import Step7 from "./steps/Step7.md";
 import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
@@ -23,8 +22,7 @@ export const config = {
 		{ name: "The Basics", component: Step3, subtitle: "Filter files" },
 		{ name: "Pipelines", component: Step4, subtitle: "Pipes", header: true },
 		{ name: "Pipelines", component: Step5, subtitle: "Output to a file" },
-		{ name: "Pipelines", component: Step6, subtitle: "A warning about '<code>&gt;</code>'" },
-		{ name: "Pipelines", component: Step7, subtitle: "Environment variables" },
+		{ name: "Pipelines", component: Step6, subtitle: "Environment variables" },
 		{ name: "The end", component: Conclusion, header: true }
 	],
 	files: [
