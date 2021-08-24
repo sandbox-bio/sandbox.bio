@@ -483,6 +483,8 @@ const utils = {
 		// e.g. ls c*.b?d
 		} else if(arg.type == "glob") {
 			// Get files at the base path
+			if(arg.value.endsWith("/"))
+				arg.value = arg.value.slice(0, -1);
 			const pathBase = arg.value.substring(0, arg.value.lastIndexOf("/") + 1) || "";
 			let pathPattern = arg.value.replace(pathBase, "");
 			if(pathPattern == "*")
@@ -490,15 +492,17 @@ const utils = {
 			const files = await coreutils.ls([ pathBase || "." ], true);
 
 			// Convert bash regex to JS regex; "*" in bash == ".*" in js; "?" in bash == "." in js
-			const pattern = new RegExp("^" + pathPattern
+			const pattern = pathPattern
 				.replaceAll("*", "###__ASTERISK__###")
 				.replaceAll("?", "###__QUESTION__###")
 				.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&")  // escape non-regex chars (e.g. the "." in the file extension)
 				.replaceAll("###__ASTERISK__###", ".*")
-				.replaceAll("###__QUESTION__###", ".") + "$");
+				.replaceAll("###__QUESTION__###", ".");
+			// If user specifies ls *txt, match both hello.txt and my_txt/
+			const re = new RegExp("^" + pattern + "$|" + "^" + pattern + "/$");
 
 			// If find no matches, return original glob value
-			const filesMatching = files.filter(f => f.name.match(pattern)).map(f => `${pathBase}${f.name}`)
+			const filesMatching = files.filter(f => f.name.match(re)).map(f => `${pathBase}${f.name}`)
 			if(filesMatching.length > 0)
 				return filesMatching;
 			if(pathPattern == "")
