@@ -2,7 +2,7 @@
 // for the small utilities and Aioli for the bioinformatics tools.
 //
 // Known Limitations:
-// * Doesn't support subshells, globbing
+// * Doesn't support subshells
 // * Ctrl + C doesn't stop running process (e.g. `sleep 2 & sleep 5` + ^C does nothing)
 // * Tail doesn't support `tail -n +3` format (but `head -n-2` and `head/tail -2` supported)
 
@@ -164,7 +164,7 @@ async function exec(cmd, callback=console.warn)
 	// Assign a value to a variable
 	if(cmd.type == "variableAssignment") {
 		const name = cmd.name;
-		const value = await utils.getValue(cmd.value);
+		const value = cmd.value == null ? "" : await utils.getValue(cmd.value);
 		vars.set({ ...$vars, [name]: value });
 		return "";
 	}
