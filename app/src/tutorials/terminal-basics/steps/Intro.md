@@ -1,4 +1,5 @@
 <script>
+import Link from "components/Link.svelte";
 import Alert from "components/Alert.svelte";
 import Execute from "components/Execute.svelte";
 </script>
@@ -51,54 +52,104 @@ To list the files inside this folder, use `ls`:
 
 <Execute command="ls" />
 
+You should see the file `orders.tsv`, which contains data about restaurant <Link href="https://github.com/TheUpshot/chipotle/">take-out orders</Link> placed in 2015.
 
+In the next step, we'll start exploring that data.
 
 ---
 
-A common task we perform on the command-line is previewing files using the `head`, `tail` and `grep` commands.
+To view the first 10 lines of our orders dataset, use `head`:
 
-To view the first 10 lines of a file, use `head`:
-
-<Execute command="head bla" />
+<Execute command="head orders.tsv" />
 
 To view the first 3 lines, use the `-n` parameter:
 
-<Execute command="head -n 3 bla" />
+<Execute command="head -n 3 orders.tsv" />
 
 To view the **last** 3 lines, we can instead use the `tail` command:
 
-* <Execute command="tail -n 3 bla" />
+<Execute command="tail -n 3 orders.tsv" />
 
-Finally, the `grep` utility is a great way to filter lines in a file by patterns of interest:
+From that, we can infer that there is information about `1834` orders, and that the columns of this file contain the order ID, the quantity, and the item ordered.
 
-* <Execute command="grep 'Promoter' bla" />
+If we're just interested in the lines in `orders.tsv` that contain burrito orders, we can use `grep` to filter lines using a pattern of interest:
 
-* <Execute command="grep -v 'Promoter' bla" />
+<Execute command='grep "Burrito" orders.tsv' />
 
-* <Execute command="grep 'promoter' bla" />
+Note that `grep` is case-sensitive:
 
-* <Execute command="grep -i 'promoter' bla" />
+<Execute command='grep "burrito" orders.tsv' />
 
-* <Execute command="grep -i 'promoter' bla | wc -l" />
+For convenience, we can ask `grep` to ignore case:
 
----
+<Execute command='grep -i "burrito" orders.tsv' />
 
-* Piping
+Another command pattern of inquiry is to find lines that do **not** match a pattern. To find all orders that aren't burritos:
 
----
-
-* Output to a file with `>`
+<Execute command='grep -v "Burrito" orders.tsv' />
 
 ---
 
-* <Execute command="abc=123" />
+Next, let's cover **piping**, which helps you string together many command-line tools, such that the output of one is the input of the other.
 
-* <Execute command="echo $abc" />
+For example, to find all orders that aren't burritos, and only display the last 3, we can pipe (i.e. `|`) the output of `grep` to `tail`:
 
-* <Execute command="env" />
+<Execute command='grep -v "Burrito" orders.tsv | tail -n 3' />
 
-* <Execute command="USER=yourNameGoesHere" />
+We can also use the `wc -l` command to only **count** the number of lines without displaying them:
 
-* <Execute command='echo "Hello $USER!"' />
+<Execute command='grep "Chicken Burrito" orders.tsv | wc -l' />
 
-* <Execute command="unset abc" />
+<Execute command='grep "Steak Burrito" orders.tsv | wc -l' />
+
+---
+
+We can store the result of our analyses in files using the `>` operator.
+
+For example, to store all chicken burrito orders into `burritos.tsv`:
+
+<Execute command='grep "Chicken Burrito" orders.tsv > burritos.tsv' />
+
+Now notice that <Execute command="ls" inline /> shows the newly-created file!
+
+<Alert color="warning">
+
+Be careful when using `>`. If you have a FASTA file and you want to extract lines with the character `>`, make sure to put it in quotes! Otherwise, grep interprets `>` as an operator and will truncate your FASTA file.
+
+This is a rite of passage in bioinformatics but can be avoided if you prepend `cat` to your pipelines, e.g. `cat ref.fa | grep ">"` (this is why there is no such thing as a _useless use of cat_).
+
+<!-- Let's illustrate this pitfall in our sandbox. If we grep for `>` with quotes, it works as expected:
+<Execute command='grep ">" copy.fa' />
+Whereas not quoting results in a truncated file!
+<Execute command='grep > copy.fa' />
+You can verify that using `ls`:
+<Execute command='ls' /> -->
+</Alert>
+
+---
+
+Finally, let's explore environment variables. These are variables you can define in the terminal:
+
+<Execute command="abc=123" />
+
+Make sure there are no spaces surrounding the equal sign, otherwise the terminal treats the variable name as a command!
+
+To display the content of a variable, use `echo`:
+
+<Execute command="echo $abc" />
+
+To delete a variable, use `unset`:
+
+<Execute command="unset abc" />
+
+To list all variables available in your environment:
+
+<Execute command="env" />
+
+Note that there's a variable called `USER` that we use while displaying the command-line prompt.
+
+You can modify this variable to customize your environment:
+
+<Execute command="USER=yourNameGoesHere" />
+
+Now your prompt should update to reflect your name instead of `guest`!
