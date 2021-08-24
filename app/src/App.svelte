@@ -4,22 +4,19 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Home from "./routes/Home.svelte";
-import Tutorials from "./routes/Tutorials.svelte";
-import Terminal from "./Terminal.svelte";
-import { config } from "config";
+import Tutorial from "./tutorials/Tutorial.svelte";
+import Terminal from "./terminal/Terminal.svelte";
+import Listings from "./components/Listings.svelte";
+import { config } from "./stores/config";
+import { tutorials } from "./stores/tutorials";
 
 // State
 let aboutIsOpen = false;  // Whether "About" modal is showing or not
+
+// Config
+const intro = $config.playground;
 const path = window.location.pathname;
-const intro = `# This playground is for open-ended exploration.
-# For guided tutorials, see https://sandbox.bio/tutorials
-#
-# Example:
-#   samtools view -o test.bam /samtools/examples/toy.sam
-#   samtools index test.bam
-#   ls test.bam.bai
-#   samtools idxstats test.bam  # idxstats uses the .bai file
-`;
+const params = new URL(window.location).searchParams;
 </script>
 
 <svelte:head>
@@ -38,21 +35,9 @@ const intro = `# This playground is for open-ended exploration.
 				Tutorials
 			</a>
 			<ul class="dropdown-menu" aria-labelledby="navTutorials">
-				{#each $config.tutorials as tutorial}
+				{#each $tutorials as tutorial}
 					<li><a class="dropdown-item" href="/tutorials?id={tutorial.id}">{tutorial.name}</a></li>
 				{/each}
-			</ul>
-		</li>
-		<li class="nav-item dropdown">
-			<!-- svelte-ignore a11y-invalid-attribute -->
-			<a class="nav-link dropdown-toggle" href="#" id="navExplore" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				Explore
-			</a>
-			<ul class="dropdown-menu" aria-labelledby="navExplore">
-				<li><a class="dropdown-item" href="https://alignment.sandbox.bio" target="_blank">Sequence alignment</a></li>
-				<li><a class="dropdown-item" href="https://tsne.sandbox.bio" target="_blank">tSNE algorithm</a></li>
-				<li><a class="dropdown-item" href="https://fastq.sandbox.bio" target="_blank">FASTQ QC metrics</a></li>
-				<li><a class="dropdown-item" href="https://wgsim.sandbox.bio" target="_blank">Simulate DNA sequences</a></li>
 			</ul>
 		</li>
 		<li class="nav-item">
@@ -68,10 +53,14 @@ const intro = `# This playground is for open-ended exploration.
 	{#if path == "/"}
 		<Home />
 	{:else if path.startsWith("/tutorials")}
-		<Tutorials />
+		{#if params.get("id")}
+			<Tutorial id={params.get("id")} step={+params.get("step") || 0} />
+		{:else}
+			<Listings items={$tutorials} />
+		{/if}
 	{:else if path.startsWith("/playground")}
 		<div class="p-2" style="background-color:#000">
-			<Terminal {intro} files={$config.tutorials[0].files} />
+			<Terminal {intro} files={$tutorials[0].files} />
 		</div>
 	{/if}
 </main>
@@ -88,7 +77,7 @@ const intro = `# This playground is for open-ended exploration.
 		All the files you read and write to are temporarily stored in memory using Emscripten's <a href="https://emscripten.org/docs/api_reference/Filesystem-API.html" target="_blank">virtual file system</a>.</p>
 
 	<p class="lead fw-bold mt-4 mb-1">How to contribute</p>
-	<p>If you have feedback, ideas for new tutorials, or if one of your own bioinformatics tutorials could benefit from being interactive, please <a href="mailto:robert.aboukhalil+sandboxbio@gmail.com">reach out</a>! Note that currently, only the C/C++ bioinformatics tools listed <a href="https://github.com/biowasm/biowasm#supported-tools" target="_blank">here</a> are supported.</p>
+	<p>If you have feedback, ideas for new tutorials, or if one of your own bioinformatics tutorials could benefit from being interactive, please <a href="https://github.com/sandbox-bio/feedback/discussions" target="_blank">reach out</a>! Note that currently, only the C/C++ bioinformatics tools listed <a href="https://github.com/biowasm/biowasm#supported-tools" target="_blank">here</a> are supported.</p>
 
 	<p class="lead fw-bold mt-4 mb-1">Author</p>
 	<p>Built by <a href="https://www.robertaboukhalil.com/" target="_blank">Robert Aboukhalil</a>.</p>

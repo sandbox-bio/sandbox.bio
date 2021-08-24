@@ -46,6 +46,22 @@ setTimeout(async () => {
 }, 1000)
 ```
 
+### Comlink transfer
+
+```javascript
+// const data = new Uint8Array([1, 2, 3, 4, 5]);
+// console.log(await _aioli.wat(Comlink.transfer(data, [data.buffer])));
+
+// const abc = Comlink.proxy(data => { 
+// 	console.warn("inside the function")
+// 	return 123
+//  });
+// abc(123)
+// _aioli.onready = abc
+// const data = await _aioli.filesystem("readFile", "cpg.bed", { encoding: "binary" })
+// console.log(await _aioli.filesystem("writeFile", "cpg2.bed", data, { encoding: "binary" }))
+```
+
 
 ## Tutorials
 

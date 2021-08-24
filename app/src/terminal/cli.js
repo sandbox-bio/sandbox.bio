@@ -7,19 +7,38 @@
 // * Tail doesn't support `tail -n +3` format (but `head -n-2` and `head/tail -2` supported)
 
 // Imports
-import { readable } from "svelte/store";
+import { readable, get } from "svelte/store";
 import parse from "shell-parse";         // Transforms a bash command into an AST
 import columnify from "columnify";       // Prettify columnar output
 import prettyBytes from "pretty-bytes";  // Prettify number of bytes
 import minimist from "minimist";         // Parse CLI arguments
+import localforage from "localforage";
 import Aioli from "@biowasm/aioli";
+import { config, vars } from "../stores/config";
 
 // State
 let _aioli = {};   // Aioli object
 let _fs = {};      // Aioli filesystem object
 let _jobs = 0;     // Number of jobs running in background
 let _pid = 10000;  // Current pid
-let _vars = {};    // User-defined variables!
+
+// Convenient way of using svelte store shortcut ($vars) outside .svelte files
+let $vars = {};
+// When any user variable changes, update local storage
+vars.subscribe(async d => {
+	if(!d || Object.keys(d).length == 0)
+		return;
+	$vars = d;
+	await localforage.setItem("vars", d);
+	// TODO: API call to save contents in DB?
+});
+// Get vars stored in localStorage, then trigger subscribe above
+localforage.getItem("vars").then(d => {
+	// If the user doesn't have anything in local storage, initialize it with default values
+	if(d == null)
+		d = get(config).env;
+	vars.set(d);
+});
 
 
 // =============================================================================
@@ -33,7 +52,7 @@ async function init(config={})
 	// Initialize
 	_aioli = await new Aioli(config.tools, {
 		env: window.location.hostname == "localhost" ? "stg" : "prd",
-		debug: window.location.hostname == "localhost",
+		// debug: window.location.hostname == "localhost",
 		printInterleaved: false
 	});
 	_fs = _aioli.tools[1].module.FS;
@@ -89,8 +108,6 @@ async function exec(cmd, callback=console.warn)
 		throw "Error: subshells are not supported.";
 	if(cmd.body)
 		throw `Error: ${cmd.type} is not supported.`;
-	if(cmd.args && cmd.args.find(a => a.type == "glob"))
-		throw "Error: globbing (e.g. `ls *.txt`) is not supported.";
 
 	// If string, convert it to an AST
 	if(typeof cmd === "string") {
@@ -148,7 +165,7 @@ async function exec(cmd, callback=console.warn)
 	if(cmd.type == "variableAssignment") {
 		const name = cmd.name;
 		const value = await utils.getValue(cmd.value);
-		_vars[name] = value;
+		vars.set({ ...$vars, [name]: value });
 		return "";
 	}
 
@@ -169,8 +186,8 @@ async function exec(cmd, callback=console.warn)
 			cmd = transform(cmd);
 
 			// Parse args
-			const tool = cmd.command.value;
-			const argsRaw = await Promise.all(cmd.args.map(utils.getValue));
+			const tool = cmd.command.value.trim();  // trim removes \n that get introduced if use \
+			const argsRaw = (await Promise.all(cmd.args.map(utils.getValue))).flat();
 			const args = minimist(argsRaw, minimistConfig[tool]);
 
 			// If it's a coreutils
@@ -273,7 +290,10 @@ const coreutils = {
 	},
 
 	// env
-	env: args => Object.keys(_vars).map(v => `${v}=${_vars[v]}`).join("\n"),
+	env: args => Object.keys($vars).map(v => `${v}=${$vars[v]}`).join("\n"),
+	hostname: args => "sandbox",
+	uname: args => "sandbox.bio",
+	date: args => new Date().toLocaleString(),
 
 	// -------------------------------------------------------------------------
 	// File system management
@@ -294,7 +314,31 @@ const coreutils = {
 		_fs.writeFile(path, "");
 		return path;
 	},
-	date: args => new Date().toLocaleString(),
+	cp: async args => {
+		// Copy file contents if it exists
+		let data;
+		try {
+			// Read source file
+			await coreutils.ls({_: [args._[0]]});
+			data = await _fs.readFile(args._[0], { encoding: "binary" });
+
+			// Delete destination file if it exists (otherwise can get errors if destination = lazyloaded URL)
+			try {
+				await coreutils.ls({_: [args._[1]]});
+				await coreutils.rm({_: [args._[1]]});
+			} catch (error) {}  // don't error if the destination doesn't exist
+
+			// Copy data over
+			try {
+				await _fs.writeFile(args._[1], data, { encoding: "binary" });
+				return "";
+			} catch (error) {
+				return error;
+			}
+		} catch (error) {
+			return error;
+		}
+	},
 
 	// -------------------------------------------------------------------------
 	// File contents utilities
@@ -390,6 +434,7 @@ const coreutils = {
 					}
 				}
 			} catch (error) {
+				console.error(error);
 				throw `${path}: No such file or directory`;
 			}
 		}
@@ -422,7 +467,7 @@ const utils = {
 		if(arg.type == "literal")
 			return arg.value;
 		else if(arg.type == "variable")
-			return _vars[arg.name] || "";
+			return $vars[arg.name] || "";
 		// e.g. echo "something $abc $def"
 		else if(arg.type == "concatenation")
 			return (await Promise.all(arg.pieces.map(utils.getValue))).join("");
@@ -435,6 +480,34 @@ const utils = {
 			const pathTmpFile = await coreutils.mktemp();
 			await _fs.writeFile(pathTmpFile, output);
 			return pathTmpFile;
+		// e.g. ls c*.b?d
+		} else if(arg.type == "glob") {
+			// Get files at the base path
+			if(arg.value.endsWith("/"))
+				arg.value = arg.value.slice(0, -1);
+			const pathBase = arg.value.substring(0, arg.value.lastIndexOf("/") + 1) || "";
+			let pathPattern = arg.value.replace(pathBase, "");
+			if(pathPattern == "*")
+				pathPattern = "";
+			const files = await coreutils.ls([ pathBase || "." ], true);
+
+			// Convert bash regex to JS regex; "*" in bash == ".*" in js; "?" in bash == "." in js
+			const pattern = pathPattern
+				.replaceAll("*", "###__ASTERISK__###")
+				.replaceAll("?", "###__QUESTION__###")
+				.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&")  // escape non-regex chars (e.g. the "." in the file extension)
+				.replaceAll("###__ASTERISK__###", ".*")
+				.replaceAll("###__QUESTION__###", ".");
+			// If user specifies ls *txt, match both hello.txt and my_txt/
+			const re = new RegExp("^" + pattern + "$|" + "^" + pattern + "/$");
+
+			// If find no matches, return original glob value
+			const filesMatching = files.filter(f => f.name.match(re)).map(f => `${pathBase}${f.name}`)
+			if(filesMatching.length > 0)
+				return filesMatching;
+			if(pathPattern == "")
+				return [pathBase || "."];
+			return arg.value;
 		}
 		else
 			throw `Error: ${arg.type} arguments not supported.`;
@@ -479,6 +552,5 @@ const minimistConfig = {
 export const CLI = readable({
 	init,
 	exec,
-	coreutils,
-	_vars
+	coreutils
 });

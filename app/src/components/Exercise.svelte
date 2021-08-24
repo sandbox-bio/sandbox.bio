@@ -1,5 +1,5 @@
 <script>
-import { status } from "status";
+import { status } from "./stores/status";
 import { CLI } from "terminal/cli";
 import { Icon, Spinner } from "sveltestrap";
 

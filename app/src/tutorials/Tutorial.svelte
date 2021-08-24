@@ -1,14 +1,15 @@
 <script>
-import { config } from "config";
-import { status } from "status";
-import Terminal from "./Terminal.svelte";
+import { config } from "./stores/config";
+import { status } from "./stores/status";
+import { tutorials } from "./stores/tutorials";
+import Terminal from "./terminal/Terminal.svelte";
 import { DropdownItem, Offcanvas } from "sveltestrap";
 
 export let id;
 export let step = 0;
 
 // State
-const tutorial = $config.tutorials.find(t => t.id == id);
+const tutorial = $tutorials.find(t => t.id == id);
 const tocToggle = () => tocOpen = !tocOpen;
 let tocOpen = false;
 let stepInfo = {};
@@ -80,12 +81,17 @@ function nextStep(step)
 
 			<div class="w-100 p-2 border-top pt-4">
 				<div class="row">
-					<div class="col-10">
-						<button type="button" class="btn btn-sm" on:click={() => step--} class:btn-primary={step != 0} class:btn-secondary={step == 0} disabled={step == 0}>&larr; Previous</button>
-						<button class="btn btn-sm" on:click={() => step++} class:btn-primary={step != tutorial.steps.length - 1} class:btn-secondary={step == tutorial.steps.length - 1} disabled={step == tutorial.steps.length - 1}>Next &rarr;</button>
-					</div>
-					<div class="col-2 text-end">
-						<span on:click={tocToggle} class="badge rounded-pill bg-info">{step + 1} / {tutorial.steps.length}</span>
+					<div class="d-flex justify-content-between">
+						<div>
+							<button type="button" class="btn btn-sm" on:click={() => step--} class:btn-primary={step != 0} class:btn-secondary={step == 0} disabled={step == 0}>&larr; Previous</button>
+							<button class="btn btn-sm" on:click={() => step++} class:btn-primary={step != tutorial.steps.length - 1} class:btn-secondary={step == tutorial.steps.length - 1} disabled={step == tutorial.steps.length - 1}>Next &rarr;</button>	
+						</div>
+						<div>
+							<a href="https://github.com/sandbox-bio/feedback/discussions/categories/questions" target="_blank">
+								<span class="badge rounded-pill bg-secondary">Help</span>
+							</a>
+							<span on:click={tocToggle} class="badge rounded-pill bg-info">{step + 1} / {tutorial.steps.length}</span>
+						</div>
 					</div>
 				</div>
 			</div>

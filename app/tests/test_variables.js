@@ -23,7 +23,7 @@ describe("Test variables", () => {
 
 		observed = await $CLI.exec(`def=456`);
 		observed = await $CLI.exec(`env`);
-		expect(observed).to.equal("abc=123\ndef=456");
+		expect(observed).to.have.string("abc=123\ndef=456");
 	});
 
 	it("Concatenate variables", async () => {

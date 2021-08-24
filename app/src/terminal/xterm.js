@@ -5,7 +5,7 @@ import { Terminal } from "xterm";
 import { WebLinksAddon } from "xterm-addon-web-links";
 import { SerializeAddon } from "xterm-addon-serialize";
 import { FitAddon } from "xterm-addon-fit";
-import LocalEchoController from "local-echo";
+import LocalEchoController from "../../local-echo/index";
 
 
 // =============================================================================
@@ -15,7 +15,8 @@ import LocalEchoController from "local-echo";
 // Xterm.js
 const term = new Terminal({
 	convertEol: true,
-	cursorBlink: true
+	cursorBlink: true,
+	// bellStyle: "sound" // only works if do: $xterm.writeln("\x07");
 });
 
 // Xterm.js add-ons
@@ -39,6 +40,8 @@ addons.echo.handleData = (data) => {
 		return;
 	return addons.echo.handleData_(data);
 }
+
+
 
 // =============================================================================
 // Export as readable stores

@@ -7,6 +7,7 @@ import "xterm/css/xterm.css";
 // Imports
 import { xterm, xtermAddons } from "terminal/xterm";
 import { CLI } from "terminal/cli";
+import { vars, config } from "./stores/config";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";
@@ -29,9 +30,12 @@ const AUTOCOMPLETE = {
 	echo: [],
 	mv: [],
 	rm: [],
+	cp: [],
 	mkdir: [],
 	rmdir: [],
-	env: []
+	env: [],
+	hostname: [],
+	uname: []
 };
 
 
@@ -46,9 +50,9 @@ export let files = [];                     // Files to preload on the filesystem
 export let tools = TOOLS_DEFAULT;          // Aioli tools to load
 
 let divTerminal;                           // HTML element where terminal will be drawn
-$: if(ready) input();                      // Ask for user input once ready
-
 const dispatch = createEventDispatcher();  // Send info to parent component when cmd is done
+
+$: if(ready) input();                      // Ask for user input once ready
 
 
 // =============================================================================
@@ -60,6 +64,7 @@ onMount(async () => {
 	$xterm.onKey(handleShortcuts);
 	$xterm.onData(handleAutocomplete);
 
+	// Write out an intro if any specified
 	if(intro)
 		$xterm.writeln(intro);
 
@@ -81,8 +86,8 @@ onMount(async () => {
 			await $CLI.exec(init);
 		ready = true;
 	} catch (error) {
-		console.error("Could not load terminal:", error);
-		alert("Could not load the terminal. Please try refreshing the page.");
+		console.error("Could not load terminal");
+		console.error(error)
 	}
 });
 
@@ -96,12 +101,15 @@ function handleResize() {
 // =============================================================================
 
 // Get user input 
-function input(toPrint)
+async function input(toPrint)
 {
 	if(toPrint)
 		$xterm.writeln(toPrint);
 	$xterm.focus();
-	$xtermAddons.echo.read("$ ")
+
+	// Prepare prompt, e.g. "guest@sandbox$ "
+	const prompt = $vars["PS1"].replaceAll('\\u', $vars["USER"]).replaceAll('\\h', $config.hostname);
+	$xtermAddons.echo.read(`\u001b[1;34m${prompt}\u001b[0m`)
 		.then(exec)
 		.catch(console.error);
 }
@@ -201,7 +209,7 @@ async function handleAutocomplete(data)
 		if(cacheAutocomplete.length == 0) {
 			// Autocomplete variables
 			if(userFragment.startsWith("$")) {
-				cacheAutocomplete = Object.keys($CLI._vars).map(d => `$${d}`);
+				cacheAutocomplete = Object.keys($vars).map(d => `$${d}`);
 
 			// Autocomplete file paths
 			} else {
@@ -255,7 +263,25 @@ function getSharedSubstring(array){
 </script>
 
 <div bind:this={divTerminal} use:watchResize={handleResize} style="opacity: { ready ? 1 : 0.6 }; height:85vh; max-height:85vh; overflow:hidden">
+	<!-- Hamburger menu for settings (nothing to show now, maybe later) -->
+	<!-- <div class="cli-options text-muted">
+		<i class="bi bi-three-dots-vertical" on:click={() => modalIsOpen = true}></i>
+	</div> -->
 	{#if !ready}
 		<Spinner color="light" type="border" />
 	{/if}
 </div>
+
+<style>
+/* Hamburger menu */
+/* .cli-options {
+	position: absolute;
+	right: 0;
+	z-index: 100;
+	cursor: pointer;
+}
+
+.cli-options:hover {
+	color: white !important;
+} */
+</style>

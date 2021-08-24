@@ -1,5 +1,6 @@
 <script>
-import Tutorials from "./Tutorials.svelte";
+import { tutorials, explore } from "./stores/tutorials";
+import Listings from "./components/Listings.svelte";
 </script>
 
 <div class="container-fluid pt-3">
@@ -13,15 +14,17 @@ import Tutorials from "./Tutorials.svelte";
 			</div>
 		</div>
 		<div class="align-center col-lg-5 p-0 offset-lg-1 overflow-hidden shadow-lg">
-			<img class="rounded-lg-3" src="images/cli.cropped.png" alt="Screenshot of terminal and exercises" width="800">
+			<img class="rounded-lg-3" src="images/cli.png" alt="Screenshot of terminal and exercises" width="800">
 		</div>
 	</div>
 </div>
 
-<Tutorials maxListings={4} />
+<Listings items={$tutorials} />
+
+<Listings items={$explore} title="Explore" />
 
 <footer class="pt-3 mt-4 mb-4 text-muted border-top">
-	Built by <a href="https://robertaboukhalil.com">Robert Aboukhalil</a>. Reach out if you have tutorial ideas.
+	Built by <a href="https://robertaboukhalil.com">Robert Aboukhalil</a>.
 </footer>
 
 <style>

@@ -6,6 +6,7 @@ import { CLI } from "../src/terminal/cli"; const $CLI = get(CLI);
 const FILE_SAM = "/samtools/examples/toy.sam";
 const FILE_FA = "/samtools/examples/toy.fa";
 let observed;
+let expected;
 
 describe("Test coreutils", () => {
 	before(async () => {
@@ -118,6 +119,20 @@ describe("Test coreutils", () => {
 
 		observed = await $CLI.exec("ls");
 		expect(observed).to.contain("b/");
+	});
+
+	it("cp", async () => {
+		// Copy file and make sure contents are identical
+		await $CLI.exec(`cp ${FILE_SAM} copied.sam`);
+		observed = await $CLI.exec(`cat copied.sam`);
+		expected = await $CLI.exec(`cat ${FILE_SAM}`);
+		expect(observed).to.equal(expected);
+
+		// Overwrite and make sure it still works
+		await $CLI.exec(`echo "hello" > somefile`);
+		await $CLI.exec(`cp somefile ${FILE_SAM}`);
+		observed = await $CLI.exec(`cat ${FILE_SAM}`);
+		expect(observed).to.equal("hello");
 	});
 
 	// Run this test last since we're deleting files :)
