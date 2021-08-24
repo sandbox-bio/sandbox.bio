@@ -498,8 +498,12 @@ const utils = {
 				.replaceAll("###__QUESTION__###", ".") + "$");
 
 			// If find no matches, return original glob value
-			const filesMatching = files.map(f => f.name).filter(f => f.match(pattern))
-			return filesMatching.length > 0 ? filesMatching : arg.value;
+			const filesMatching = files.filter(f => f.name.match(pattern)).map(f => `${pathBase}${f.name}`)
+			if(filesMatching.length > 0)
+				return filesMatching;
+			if(pathPattern == "")
+				return [pathBase || "."];
+			return arg.value;
 		}
 		else
 			throw `Error: ${arg.type} arguments not supported.`;
