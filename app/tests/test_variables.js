@@ -14,29 +14,38 @@ describe("Test variables", () => {
 	});
 
 	it("Set/Read variable", async () => {
-		observed = await $CLI.exec(`abc=123`);
+		await $CLI.exec(`abc=123`);
 		observed = await $CLI.exec(`echo $abc`);
 		expect(observed).to.equal("123");
 
 		observed = await $CLI.exec(`echo $doesntexist`);
 		expect(observed).to.equal("");
 
-		observed = await $CLI.exec(`def=456`);
+		await $CLI.exec(`def=456`);
 		observed = await $CLI.exec(`env`);
-		expect(observed).to.have.string("abc=123\ndef=456");
+		expect(observed).to.include("abc=123\ndef=456");
 	});
 
 	it("Concatenate variables", async () => {
-		observed = await $CLI.exec(`abc=123`);
-		observed = await $CLI.exec(`def=456`);
+		await $CLI.exec(`abc=123`);
+		await $CLI.exec(`def=456`);
 		observed = await $CLI.exec(`echo "this  $abc is a $def test"`);
 		expect(observed).to.equal("this  123 is a 456 test");
 	});
 
 	it("Redirect to filename stored in variable", async () => {
-		observed = await $CLI.exec(`abc=test.txt`);
-		observed = await $CLI.exec(`echo 789 > $abc`);
+		await $CLI.exec(`abc=test.txt`);
+		await $CLI.exec(`echo 789 > $abc`);
 		observed = await $CLI.exec(`cat $abc`);
 		expect(observed).to.equal("789");
+	});
+
+	it("Unset variable", async () => {
+		await $CLI.exec(`abc=123`);
+		await $CLI.exec(`def=456`);
+		await $CLI.exec(`unset def`);
+		observed = await $CLI.exec(`env`);
+		expect(observed).to.include("abc=123");
+		expect(observed).to.not.include("abc=456");
 	});
 });
