@@ -186,7 +186,7 @@ async function exec(cmd, callback=console.warn)
 			cmd = transform(cmd);
 
 			// Parse args
-			const tool = cmd.command.value;
+			const tool = cmd.command.value.trim();  // trim removes \n that get introduced if use \
 			const argsRaw = (await Promise.all(cmd.args.map(utils.getValue))).flat();
 			const args = minimist(argsRaw, minimistConfig[tool]);
 
