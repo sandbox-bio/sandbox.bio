@@ -294,6 +294,11 @@ const coreutils = {
 	hostname: args => "sandbox",
 	uname: args => "sandbox.bio",
 	date: args => new Date().toLocaleString(),
+	unset: args => {
+		args._.map(v => delete $vars[v]);
+		vars.set($vars);
+		return "";
+	},
 
 	// -------------------------------------------------------------------------
 	// File system management
