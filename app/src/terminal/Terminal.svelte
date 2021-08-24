@@ -24,6 +24,7 @@ const AUTOCOMPLETE = {
 	cat: [],
 	head: [],
 	tail: [],
+	grep: [],
 	wc: [],
 	pwd: [],
 	cd: [],
