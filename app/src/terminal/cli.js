@@ -108,8 +108,6 @@ async function exec(cmd, callback=console.warn)
 		throw "Error: subshells are not supported.";
 	if(cmd.body)
 		throw `Error: ${cmd.type} is not supported.`;
-	if(cmd.args && cmd.args.find(a => a.type == "glob"))
-		throw "Error: globbing (e.g. `ls *.txt`) is not supported.";
 
 	// If string, convert it to an AST
 	if(typeof cmd === "string") {
@@ -189,7 +187,7 @@ async function exec(cmd, callback=console.warn)
 
 			// Parse args
 			const tool = cmd.command.value;
-			const argsRaw = await Promise.all(cmd.args.map(utils.getValue));
+			const argsRaw = (await Promise.all(cmd.args.map(utils.getValue))).flat();
 			const args = minimist(argsRaw, minimistConfig[tool]);
 
 			// If it's a coreutils
@@ -436,6 +434,7 @@ const coreutils = {
 					}
 				}
 			} catch (error) {
+				console.error(error);
 				throw `${path}: No such file or directory`;
 			}
 		}
@@ -481,6 +480,26 @@ const utils = {
 			const pathTmpFile = await coreutils.mktemp();
 			await _fs.writeFile(pathTmpFile, output);
 			return pathTmpFile;
+		// e.g. ls c*.b?d
+		} else if(arg.type == "glob") {
+			// Get files at the base path
+			const pathBase = arg.value.substring(0, arg.value.lastIndexOf("/") + 1) || "";
+			let pathPattern = arg.value.replace(pathBase, "");
+			if(pathPattern == "*")
+				pathPattern = "";
+			const files = await coreutils.ls([ pathBase || "." ], true);
+
+			// Convert bash regex to JS regex; "*" in bash == ".*" in js; "?" in bash == "." in js
+			const pattern = new RegExp("^" + pathPattern
+				.replaceAll("*", "###__ASTERISK__###")
+				.replaceAll("?", "###__QUESTION__###")
+				.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&")  // escape non-regex chars (e.g. the "." in the file extension)
+				.replaceAll("###__ASTERISK__###", ".*")
+				.replaceAll("###__QUESTION__###", ".") + "$");
+
+			// If find no matches, return original glob value
+			const filesMatching = files.map(f => f.name).filter(f => f.match(pattern))
+			return filesMatching.length > 0 ? filesMatching : arg.value;
 		}
 		else
 			throw `Error: ${arg.type} arguments not supported.`;
