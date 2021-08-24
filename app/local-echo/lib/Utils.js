@@ -42,6 +42,7 @@ export function closestRightBoundary(input, offset) {
  * the navigation on the terminal, wrapping when they reach the column width.
  */
 export function offsetToColRow(input, offset, maxCols) {
+  input = input.replace(ansiRegex(),"");  // FIXED: Using "\" with a color prompt creates extra empty lines
   let row = 0,
     col = 0;
   for (let i = 0; i < offset; ++i) {

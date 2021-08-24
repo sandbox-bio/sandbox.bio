@@ -290,7 +290,7 @@ export default class LocalEchoController {
     const newCursor = this.applyPromptOffset(newInput, this._cursor);
     const newLines = countLines(newPrompt, this._termSize.cols);
     const { col, row } = offsetToColRow(
-      newPrompt,
+      newPrompt.replace(ansiRegex(), ""),  // FIXED: Using "\" with a color prompt creates extra whitespace at the next line
       newCursor,
       this._termSize.cols
     );
