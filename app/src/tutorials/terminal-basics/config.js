@@ -28,5 +28,6 @@ export const config = {
 	files: [
 		"data/terminal-basics/orders.tsv",
 		"data/terminal-basics/ref.fa",
+		"data/terminal-basics/ref.fa.bak"
 	],
 };

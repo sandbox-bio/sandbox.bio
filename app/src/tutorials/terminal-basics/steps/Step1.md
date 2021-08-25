@@ -41,6 +41,6 @@ To list the files inside this folder, use `ls`:
 
 <Execute command="ls" />
 
-You should see two files, one of which is `orders.tsv`, which contains data about restaurant <Link href="https://github.com/TheUpshot/chipotle/">take-out orders</Link>.
+You should see three files, one of which is `orders.tsv`, which contains data about restaurant <Link href="https://github.com/TheUpshot/chipotle/">take-out orders</Link>.
 
 In the next step, we'll start exploring that data.
