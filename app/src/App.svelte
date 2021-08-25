@@ -60,7 +60,7 @@ const params = new URL(window.location).searchParams;
 		{/if}
 	{:else if path.startsWith("/playground")}
 		<div class="p-2" style="background-color:#000">
-			<Terminal {intro} files={$tutorials[0].files} />
+			<Terminal {intro} files={$tutorials[1].files} />
 		</div>
 	{/if}
 </main>
