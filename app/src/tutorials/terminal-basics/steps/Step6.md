@@ -2,13 +2,15 @@
 import Execute from "components/Execute.svelte";
 </script>
 
-Finally, let's explore environment variables. These are variables you can define in the terminal:
+Finally, let's explore environment variables. For example, to define a variable `abc` with contents `123`, and `def` with `hello`:
 
 <Execute command="abc=123" />
 
-Make sure there are no spaces surrounding the equal sign, otherwise the terminal treats the variable name as a command!
+<Execute command="def=hello" />
 
-To display the content of a variable, use `echo`:
+Make sure there are no spaces surrounding the equal sign, otherwise the terminal treats the variable name as a command (try it!).
+
+To display the content of the variable `abc`, use the `$` delimiter:
 
 <Execute command="echo $abc" />
 
@@ -16,14 +18,12 @@ To delete a variable, use `unset`:
 
 <Execute command="unset abc" />
 
-To list all variables available in your environment:
+Use `env` to view all available variables:
 
 <Execute command="env" />
 
-Note that there's a variable called `USER` that we use while displaying the command-line prompt.
-
-You can modify this variable to customize your environment:
+Note that there's a variable called `USER` that is set to `guest`. This is a special variable that sandbox.bio uses in the terminal prompt. Modify this variable to customize your environment:
 
 <Execute command="USER=yourNameGoesHere" />
 
-Now your prompt should update to reflect your name instead of `guest`!
+Now your prompt should update to reflect your name instead of `guest`.

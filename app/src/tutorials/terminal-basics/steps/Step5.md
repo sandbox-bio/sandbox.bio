@@ -41,4 +41,4 @@ And although putting quotes around `>` fixes the problem, a better way to avoid 
 
 <Execute command='cat ref.fa | grep ">"' />
 
-With this approach, missing quotes lead to an error message, and not data loss.
+With this approach, missing quotes lead to an error message instead of data loss.
