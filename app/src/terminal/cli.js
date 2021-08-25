@@ -303,11 +303,18 @@ const coreutils = {
 	// -------------------------------------------------------------------------
 	// File system management
 	// -------------------------------------------------------------------------
-	cd: args => _fs.chdir(args._[0]) && "",
 	mv: args => _fs.rename(args._[0], args._[1]) && "",
 	rm: args => Promise.all(args._.map(async arg => await _fs.unlink(arg))),
 	pwd: args => _fs.cwd(),
 	echo: args => args._.join(" "),
+	cd: async args => {
+		let dir = args._[0];
+		if(dir == "~")
+			dir = $vars.HOME;
+
+		await _fs.chdir(dir);
+		return "";
+	},
 	mkdir: async args => {
 		// Don't use async since can't get return value
 		args._.map(arg => { try { _fs.mkdir(arg); } catch (error) {} });
