@@ -6,6 +6,7 @@ export const config = readable({
 	api: `https://${window.location.hostname != "localhost" ? window.location.hostname : "dev.sandbox.bio"}/api/v1`,
 	// Default environment information
 	hostname: "sandbox",
+	// Default environment variables. These are auto-regenerated in Terminal.svelte:input() even if the user deletes them
 	env: {
 		PS1: '\\u@\\h$ ',
 		USER: "guest"

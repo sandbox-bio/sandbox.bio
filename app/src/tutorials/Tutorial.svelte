@@ -54,7 +54,7 @@ function nextStep(step)
 			<div id="tutorial-sidebar" class="w-100 p-2 mb-auto" style="max-height:77vh; overflow-y:scroll; overflow-x:hidden">
 				<h4>{stepInfo.name || tutorial.name}</h4>
 				{#if stepInfo.subtitle}
-					<h6>{stepInfo.subtitle}</h6>
+					<h6>{@html stepInfo.subtitle}</h6>
 				{/if}
 				{#if step == 0}
 					<div class="row mb-2">
@@ -111,9 +111,9 @@ function nextStep(step)
 		{/if}
 		<DropdownItem on:click={() => step = i}>
 			{#if i == step}
-				&rarr; <strong>{s.subtitle || s.name}</strong>
+				&rarr; <strong>{@html s.subtitle || s.name}</strong>
 			{:else}
-				<span style="visibility:hidden">&rarr;</span> {s.subtitle || s.name}
+				<span style="visibility:hidden">&rarr;</span> {@html s.subtitle || s.name}
 			{/if}
 		</DropdownItem>
 	{/each}

@@ -2,7 +2,7 @@
 // for the small utilities and Aioli for the bioinformatics tools.
 //
 // Known Limitations:
-// * Doesn't support subshells, globbing
+// * Doesn't support subshells
 // * Ctrl + C doesn't stop running process (e.g. `sleep 2 & sleep 5` + ^C does nothing)
 // * Tail doesn't support `tail -n +3` format (but `head -n-2` and `head/tail -2` supported)
 
@@ -164,7 +164,7 @@ async function exec(cmd, callback=console.warn)
 	// Assign a value to a variable
 	if(cmd.type == "variableAssignment") {
 		const name = cmd.name;
-		const value = await utils.getValue(cmd.value);
+		const value = cmd.value == null ? "" : await utils.getValue(cmd.value);
 		vars.set({ ...$vars, [name]: value });
 		return "";
 	}
@@ -211,7 +211,7 @@ async function exec(cmd, callback=console.warn)
 				if(redirect.type == "pipe") {
 					// Save `output` to a temp file
 					const pathTmpFile = await coreutils.mktemp();
-					await _fs.writeFile(pathTmpFile, output);
+					await utils.writeFile(pathTmpFile, output);
 					// Run commands with appending arg called temp file, unless
 					// user specified we should use stdin via the argument "-".
 					const argStdinIndex = redirect.command.args.findIndex(arg => arg.value == "-");
@@ -226,16 +226,16 @@ async function exec(cmd, callback=console.warn)
 					const path = await utils.getValue(redirect.filename);
 					// Write to file
 					if(redirect.op == ">")
-						await _fs.writeFile(path, "" + output);  // convert to string if it's not already
+						await utils.writeFile(path, "" + output);  // convert to string if it's not already
 					// Append to file (create it first if doesn't exist)
 					else if(redirect.op == ">>") {
 						try {
 							await _fs.stat(path);
 						} catch (error) {
-							await _fs.writeFile(path, "");
+							await utils.writeFile(path, "");
 						}
 						let contents = await utils.readFiles([ path ]);
-						await _fs.writeFile(path, (contents + "\n" + output).trim());
+						await utils.writeFile(path, (contents + "\n" + output).trim());
 					} else {
 						throw `Error: ${redirect.op} redirections are not supported.`;
 					}
@@ -294,6 +294,11 @@ const coreutils = {
 	hostname: args => "sandbox",
 	uname: args => "sandbox.bio",
 	date: args => new Date().toLocaleString(),
+	unset: args => {
+		args._.map(v => delete $vars[v]);
+		vars.set($vars);
+		return "";
+	},
 
 	// -------------------------------------------------------------------------
 	// File system management
@@ -322,19 +327,9 @@ const coreutils = {
 			await coreutils.ls({_: [args._[0]]});
 			data = await _fs.readFile(args._[0], { encoding: "binary" });
 
-			// Delete destination file if it exists (otherwise can get errors if destination = lazyloaded URL)
-			try {
-				await coreutils.ls({_: [args._[1]]});
-				await coreutils.rm({_: [args._[1]]});
-			} catch (error) {}  // don't error if the destination doesn't exist
-
 			// Copy data over
-			try {
-				await _fs.writeFile(args._[1], data, { encoding: "binary" });
-				return "";
-			} catch (error) {
-				return error;
-			}
+			await utils.writeFile(args._[1], data, { encoding: "binary" });
+			return "";
 		} catch (error) {
 			return error;
 		}
@@ -478,7 +473,7 @@ const utils = {
 		else if(arg.type == "processSubstitution" && arg.readWrite == "<") {
 			const output = await exec(arg.commands);
 			const pathTmpFile = await coreutils.mktemp();
-			await _fs.writeFile(pathTmpFile, output);
+			await utils.writeFile(pathTmpFile, output);
 			return pathTmpFile;
 		// e.g. ls c*.b?d
 		} else if(arg.type == "glob") {
@@ -532,8 +527,16 @@ const utils = {
 		return outputs.join("\n");
 	},
 
-	// Write file (used by Exercise.svelte)
-	writeFile: (path, contents) => _fs.writeFile(path, contents)
+	// Write file
+	writeFile: async (path, contents, opts={ encoding: "utf8" }) => {
+		// Delete destination file if it exists (otherwise can get errors if destination = lazyloaded URL)
+		try {
+			await coreutils.ls({_: [ path ]});
+			await coreutils.rm({_: [ path ]});
+		} catch (error) {}  // don't error if the destination doesn't exist
+
+		await _fs.writeFile(path, contents, opts);
+	}
 };
 
 // Custom minimist configs for certain coreutils

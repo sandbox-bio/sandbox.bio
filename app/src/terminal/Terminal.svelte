@@ -24,6 +24,7 @@ const AUTOCOMPLETE = {
 	cat: [],
 	head: [],
 	tail: [],
+	grep: [],
 	wc: [],
 	pwd: [],
 	cd: [],
@@ -35,7 +36,8 @@ const AUTOCOMPLETE = {
 	rmdir: [],
 	env: [],
 	hostname: [],
-	uname: []
+	uname: [],
+	unset: []
 };
 
 
@@ -107,6 +109,10 @@ async function input(toPrint)
 		$xterm.writeln(toPrint);
 	$xterm.focus();
 
+	// Set prompt defaults in case the user deleted those variables with `unset`
+	for(let envVar in $config.env)
+		if(!$vars[envVar])
+			$vars[envVar] = $config.env[envVar];
 	// Prepare prompt, e.g. "guest@sandbox$ "
 	const prompt = $vars["PS1"].replaceAll('\\u', $vars["USER"]).replaceAll('\\h', $config.hostname);
 	$xtermAddons.echo.read(`\u001b[1;34m${prompt}\u001b[0m`)
