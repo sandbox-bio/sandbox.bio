@@ -11,7 +11,7 @@ import Conclusion from "./steps/Conclusion.md";
 export const config = {
 	id: "terminal-basics",
 	name: "Terminal Basics",
-	description: "Get up to speed with using the terminal interface. Start here if you're new.",
+	description: "Get up to speed with the terminal. Start here if you're new to bioinformatics.",
 	tags: ["terminal"],
 	tools: ["samtools/1.10"],
 	difficulty: ["beginner"],
