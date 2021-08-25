@@ -475,23 +475,25 @@ const coreutils = {
 const utils = {
 	// Get the value of an argument (recursive if need-be)
 	getValue: async arg => {
-		if(arg.type == "literal")
-			return arg.value;
-		else if(arg.type == "variable")
+		// Literal; support ~
+		if(arg.type == "literal") {
+			return arg.value.replaceAll("~", $vars.HOME);
+		// Variable
+		} else if(arg.type == "variable")
 			return $vars[arg.name] || "";
-		// e.g. echo "something $abc $def"
+		// Variable concatenation, e.g. echo "something $abc $def"
 		else if(arg.type == "concatenation")
 			return (await Promise.all(arg.pieces.map(utils.getValue))).join("");
-		// e.g. someprgm $(grep "bla" test.txt | wc -l)
+		// Command Substitution, e.g. someprgm $(grep "bla" test.txt | wc -l)
 		else if(arg.type == "commandSubstitution")
 			return await exec(arg.commands);
-		// e.g. bedtools -a <(grep "Enhancer" data.bed)
+		// Process substitution, e.g. bedtools -a <(grep "Enhancer" data.bed)
 		else if(arg.type == "processSubstitution" && arg.readWrite == "<") {
 			const output = await exec(arg.commands);
 			const pathTmpFile = await coreutils.mktemp();
 			await utils.writeFile(pathTmpFile, output);
 			return pathTmpFile;
-		// e.g. ls c*.b?d
+		// Globbing, e.g. ls c*.b?d
 		} else if(arg.type == "glob") {
 			// Get files at the base path
 			if(arg.value.endsWith("/"))
