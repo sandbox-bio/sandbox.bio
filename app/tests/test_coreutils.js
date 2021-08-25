@@ -76,7 +76,18 @@ describe("Test coreutils", () => {
 		await $CLI.exec("cd /tmp");
 		observed = await $CLI.exec("pwd");
 		expect(observed).to.equal("/tmp");
-		await $CLI.exec("cd /shared/data");
+
+		// Test ~
+		await $CLI.exec("cd ~");
+		observed = await $CLI.exec("pwd");
+		expect(observed).to.equal("/shared/data");
+
+		// Test -
+		await $CLI.exec("cd /shared");
+		await $CLI.exec("cd /");
+		await $CLI.exec("cd -");
+		observed = await $CLI.exec("pwd");
+		expect(observed).to.equal("/shared");
 	});
 
 	it("echo", async () => {
