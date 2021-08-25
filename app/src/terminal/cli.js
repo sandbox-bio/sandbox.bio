@@ -310,7 +310,7 @@ const coreutils = {
 	cd: async args => {
 		let dir = args._[0];
 		if(dir == "~")
-			dir = $vars.HOME;
+			dir = $vars.HOME; 
 
 		await _fs.chdir(dir);
 		return "";
