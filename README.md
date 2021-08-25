@@ -51,3 +51,7 @@ wrangler secret put SUPABASE_API_KEY --env stg  # SECRET key available Supabase:
 wrangler secret put SUPABASE_URL --env dev      # Supabase endpoint
 wrangler secret put SUPABASE_API_KEY --env dev  # SECRET key available Supabase: Settings --> API
 ```
+
+## Known Issues
+
+* Tutorial `samtools-intro` relies on data stored in a [GCP bucket](https://console.cloud.google.com/storage/browser/sandbox.bio/data). This is because Cloudflare Worker Site doesn't seem to handle .bam/.bai properly: it returns content-type as plain/text and range requests don't return a 200. I tried fixing it by modifying the request but not successfully.
