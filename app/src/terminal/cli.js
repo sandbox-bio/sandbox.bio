@@ -316,7 +316,7 @@ const coreutils = {
 	rmdir: args => Promise.all(args._.map(async arg => await _fs.rmdir(arg))),
 	mktemp: args => {
 		const path = `/shared/tmp/tmp${parseInt(Math.random() * 1_000_000)}`;
-		utils.writeFile(path, "");
+		_fs.writeFile(path, "");
 		return path;
 	},
 	cp: async args => {
