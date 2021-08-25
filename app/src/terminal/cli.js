@@ -21,6 +21,7 @@ let _aioli = {};   // Aioli object
 let _fs = {};      // Aioli filesystem object
 let _jobs = 0;     // Number of jobs running in background
 let _pid = 10000;  // Current pid
+let _wd = null;    // Track the last folder we were in to support "cd -"
 
 // Convenient way of using svelte store shortcut ($vars) outside .svelte files
 let $vars = {};
@@ -309,10 +310,18 @@ const coreutils = {
 	echo: args => args._.join(" "),
 	cd: async args => {
 		let dir = args._[0];
+		// Support cd ~ and cd -
 		if(dir == "~")
-			dir = $vars.HOME; 
+			dir = $vars.HOME;
+		else if(dir == "-" && _wd)
+			dir = _wd;
 
-		await _fs.chdir(dir);
+		_wd = await _fs.cwd();
+		try {
+			await _fs.chdir(dir);
+		} catch (error) {
+			return `${dir}: No such file or directory`;
+		}
 		return "";
 	},
 	mkdir: async args => {
