@@ -5,6 +5,7 @@ import { CLI } from "../src/terminal/cli"; const $CLI = get(CLI);
 
 const FILE_SAM = "/samtools/examples/toy.sam";
 const FILE_FA = "/samtools/examples/toy.fa";
+const FILE_FA_CONTENTS = `>ref\nAGCATGTTAGATAAGATAGCTGTGCTAGTAGGCAGTCAGCGCCAT\n>ref2\naggttttataaaacaattaagtctacagagcaactacgcg`;
 let observed;
 let expected;
 
@@ -65,7 +66,7 @@ describe("Test coreutils", () => {
 
 	it("cat", async () => {
 		observed = await $CLI.exec(`cat ${FILE_FA}`);
-		expect(observed).to.equal(`>ref\nAGCATGTTAGATAAGATAGCTGTGCTAGTAGGCAGTCAGCGCCAT\n>ref2\naggttttataaaacaattaagtctacagagcaactacgcg`);
+		expect(observed).to.equal(FILE_FA_CONTENTS);
 	});
 
 	it("cd / pwd", async () => {
@@ -81,6 +82,12 @@ describe("Test coreutils", () => {
 		await $CLI.exec("cd ~");
 		observed = await $CLI.exec("pwd");
 		expect(observed).to.equal("/shared/data");
+
+		// Test ~ with other commands
+		await $CLI.exec("cd /");
+		await $CLI.exec(`cp ${FILE_FA} ~/test.fa`);
+		observed = await $CLI.exec(`cat ~/test.fa`);
+		expect(observed).to.equal(FILE_FA_CONTENTS);
 
 		// Test cd -
 		await $CLI.exec("cd /shared");
