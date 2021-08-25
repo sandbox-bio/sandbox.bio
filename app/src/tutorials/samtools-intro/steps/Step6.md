@@ -6,7 +6,7 @@ let isOpen = false;
 let igvOptions = {
 	locus: "chr20:1,299,889-1,300,567",
 	tracks: [
-		{ url: "/data/samtools-intro/sample.bam", name: "Read alignment" },
+		{ url: "https://storage.googleapis.com/sandbox.bio/data/sample.bam", name: "Read alignment" },
 	]
 };
 </script>
