@@ -1,4 +1,11 @@
 <script>
+
+// Resources:
+// * Monaco-editor + Svelte (USED): <https://stackoverflow.com/a/64607713>
+// * Monaco-editor + Svelte (USED): <https://github.com/fudgepop01/svelte-monaco-editor-example/blob/master/src/components/monaco/monaco.js>
+// * Monaco-editor + Rollup (DIDN'T USE): <https://github.com/chengcyber/rollup-plugin-monaco-editor/blob/master/example/index.js>
+
+// ---------------------------------------------------------------
 // Had to modify rollup.config.js to set inlineDynamicImports to true:
 // 		export default {
 // 			input: "src/main.js",
