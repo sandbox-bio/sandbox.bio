@@ -42,7 +42,7 @@ make
 cd ~
 sudo yum install -y pip
 pip install --user exodus-bundler
-exodus --tarball samtools/samtools | tar -zx
+exodus --tarball samtools/samtools jq | tar -zx
 cd exodus/
 
 # ------------------------------------------------------------------------------
