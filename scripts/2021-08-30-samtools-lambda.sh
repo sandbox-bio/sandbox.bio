@@ -65,19 +65,24 @@ do
   URL_AWS_CRAM="https://1000genomes.s3.amazonaws.com/phase3/data/NA12878/alignment/NA12878.mapped.ILLUMINA.bwa.CEU.low_coverage.20121211.bam.cram"
 
   cd /tmp
-  # /var/task/bin/samtools view -H http://labshare.cshl.edu/shares/schatzlab/www-data/ribbon/DRR01684_merged.chr1.bam > /tmp/samtools.out 2>&1
   # /var/task/bin/samtools idxstats http://labshare.cshl.edu/shares/schatzlab/www-data/ribbon/DRR01684_merged.chr1.bam > /tmp/samtools.out 2>&1
   # /var/task/bin/samtools view -c http://labshare.cshl.edu/shares/schatzlab/www-data/ribbon/DRR01684_merged.chr1.bam 1:10e6-10.05e6 > /tmp/samtools.out 2>&1
+  # /var/task/bin/samtools view -c "$URL_AWS_CRAM" 1:10e6-10.1e6 > /tmp/samtools.out 2>&1
+  /var/task/bin/samtools view -H http://labshare.cshl.edu/shares/schatzlab/www-data/ribbon/DRR01684_merged.chr1.bam > /tmp/samtools.out 2>&1
 
-  /var/task/bin/samtools view "$URL_AWS_CRAM"  > /tmp/samtools.out 2>&1
-  curl -X POST "http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/$REQUEST_ID/response" --data-binary "@/tmp/samtools.out"
+  /var/task/bin/jq --arg RESPONSE "$(cat /tmp/samtools.out)" '{"statusCode":200,"body": $RESPONSE}' <<< '{}' > /tmp/response.json
+  curl -X POST "http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/$REQUEST_ID/response" --data "@/tmp/response.json"
 done
 EOF
 
-chmod 755 bootstrap
+echo '' > function.sh
+
+chmod 755 bootstrap function.sh
 zip --symlinks -r9 ../samtools.zip *
 aws lambda update-function-code --function-name samtools --zip-file fileb://../samtools.zip
 time aws lambda invoke --function-name samtools --payload '{"text":"Hello"}' response.txt; cat response.txt
+
+
 
 
 
