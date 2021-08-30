@@ -26,7 +26,7 @@ make
 
 # ------------------------------------------------------------------------------
 # Bundle with Exodus
-# TODO: look into installing musl library (doesn't seem to be picked up)
+# TODO: look into installing musl library (doesn't seem to be picked up, even if set `LD_LIBRARY_PATH=/usr/local/musl/`)
 # ------------------------------------------------------------------------------
 
 # # Install musl
