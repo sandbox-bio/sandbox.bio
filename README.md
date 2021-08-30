@@ -26,9 +26,9 @@
 
 ### Create a new table
 
-[ ] Create table in dev
-[ ] In pgAdmin, right click on the table --> Scripts --> CREATE --> paste it in the UI for the new environment
-[ ] Enable Row-Level Security
+- [ ] Create table in dev
+- [ ] In pgAdmin, right click on the table --> Scripts --> CREATE --> paste it in the UI for the new environment
+- [ ] Enable Row-Level Security
 
 
 ### Deploy
