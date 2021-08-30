@@ -1,8 +1,12 @@
+# TODO:
+# x Test 42bp, http labshare, s3/gcp URLs from 1K genomes
+# - Test CRAM file subset --> mount EFS for CRAM ref genomes?
+
 # ------------------------------------------------------------------------------
 # Compile samtools/htslib on EC2 instance
 # ------------------------------------------------------------------------------
 
-ssh -i ~/D
+ssh -i ~/Desktop/2021-08-17-test-aws.cer ec2-user@54.177.12.96
 sudo yum install -y git zlib-devel bzip2-devel lzma liblzma-devel xz-devel libcurl-devel openssl-devel autoconf gcc ncurses-devel
 sudo yum groupinstall "Development Tools"
 git clone https://github.com/samtools/samtools.git
@@ -17,23 +21,22 @@ autoheader
 autoconf -Wno-syntax
 ./configure
 make
-make install
 
 
 
 # ------------------------------------------------------------------------------
 # Bundle with Exodus
-# TODO: look into installing musl library
+# TODO: look into installing musl library (doesn't seem to be picked up)
 # ------------------------------------------------------------------------------
 
-# Install musl
-cd ~
-git clone git://git.musl-libc.org/musl
-git checkout v1.2.2	
-cd musl
-./configure
-make
-sudo make install
+# # Install musl
+# cd ~
+# git clone git://git.musl-libc.org/musl
+# git checkout v1.2.2	
+# cd musl
+# ./configure
+# make
+# sudo make install
 
 # Install Exodus
 cd ~
@@ -45,12 +48,6 @@ cd exodus/
 # ------------------------------------------------------------------------------
 # Create entrypoint
 # ------------------------------------------------------------------------------
-
-# move this below
-chmod 755 function.sh bootstrap
-
-
-
 
 # Original code from https://docs.aws.amazon.com/lambda/latest/dg/runtimes-walkthrough.html
 cat <<'EOF' > bootstrap
@@ -77,24 +74,10 @@ do
 done
 EOF
 
+chmod 755 bootstrap
 zip --symlinks -r9 ../samtools.zip *
 aws lambda update-function-code --function-name samtools --zip-file fileb://../samtools.zip
 time aws lambda invoke --function-name samtools --payload '{"text":"Hello"}' response.txt; cat response.txt
-
-
-
-
-# TODO:
-# x Test 42bp URL
-# x Test http labshare data
-# x Test s3/gcp URLs from 1K genomes
-# x Test CRAM file + header
-# - Test CRAM file subset --> mount EFS for CRAM ref genomes?
-
-
-s3://1000genomes/phase3/data/NA12878/alignment/NA12878.chrom11.ILLUMINA.bwa.CEU.low_coverage.20121211.bam
-
-samtools view -H https://storage.googleapis.com/genomics-public-data/ftp-trace.ncbi.nih.gov/1000genomes/ftp/phase3/data/NA12878/alignment/NA12878.mapped.ILLUMINA.bwa.CEU.low_coverage.20121211.bam
 
 
 
