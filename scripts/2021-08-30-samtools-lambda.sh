@@ -2,6 +2,19 @@
 # x Test 42bp, http labshare, s3/gcp URLs from 1K genomes
 # - Test CRAM file subset --> mount EFS for CRAM ref genomes?
 
+# Sample data
+# URL_CSHL="http://labshare.cshl.edu/shares/schatzlab/www-data/ribbon/DRR01684_merged.chr1.bam"
+# URL_GCP="https://storage.googleapis.com/genomics-public-data/ftp-trace.ncbi.nih.gov/1000genomes/ftp/phase3/data/NA12878/alignment/NA12878.mapped.ILLUMINA.bwa.CEU.low_coverage.20121211.bam"
+# URL_AWS="https://1000genomes.s3.amazonaws.com/phase3/data/NA12878/alignment/NA12878.mapped.ILLUMINA.bwa.CEU.low_coverage.20121211.bam"
+# URL_AWS_CRAM="https://1000genomes.s3.amazonaws.com/phase3/data/NA12878/alignment/NA12878.mapped.ILLUMINA.bwa.CEU.low_coverage.20121211.bam.cram"
+
+# Sample commands
+# /var/task/bin/samtools idxstats $URL_CSHL > /tmp/samtools.out 2>&1
+# /var/task/bin/samtools view -c $URL_CSHL 1:10e6-10.05e6 > /tmp/samtools.out 2>&1
+# /var/task/bin/samtools view -c "$URL_AWS_CRAM" 1:10e6-10.1e6 > /tmp/samtools.out 2>&1
+# /var/task/bin/samtools view -H $URL_CSHL > /tmp/samtools.out 2>&1
+
+
 # ------------------------------------------------------------------------------
 # Compile samtools/htslib on EC2 instance
 # ------------------------------------------------------------------------------
@@ -60,16 +73,16 @@ do
   EVENT_DATA=$(curl -sS -LD "$HEADERS" -X GET "http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/next")
   REQUEST_ID=$(grep -Fi Lambda-Runtime-Aws-Request-Id "$HEADERS" | tr -d '[:space:]' | cut -d: -f2)
 
-  URL_GCP="https://storage.googleapis.com/genomics-public-data/ftp-trace.ncbi.nih.gov/1000genomes/ftp/phase3/data/NA12878/alignment/NA12878.mapped.ILLUMINA.bwa.CEU.low_coverage.20121211.bam"
-  URL_AWS="https://1000genomes.s3.amazonaws.com/phase3/data/NA12878/alignment/NA12878.mapped.ILLUMINA.bwa.CEU.low_coverage.20121211.bam"
-  URL_AWS_CRAM="https://1000genomes.s3.amazonaws.com/phase3/data/NA12878/alignment/NA12878.mapped.ILLUMINA.bwa.CEU.low_coverage.20121211.bam.cram"
+  # Parse parameters
+  echo "Parsing args..."
+  argsList=($(/var/task/bin/jq -rc '.args[]' <<< "$EVENT_DATA"))
+  argsList[0]=${argsList[0]//[^a-z]/}
 
   cd /tmp
-  # /var/task/bin/samtools idxstats http://labshare.cshl.edu/shares/schatzlab/www-data/ribbon/DRR01684_merged.chr1.bam > /tmp/samtools.out 2>&1
-  # /var/task/bin/samtools view -c http://labshare.cshl.edu/shares/schatzlab/www-data/ribbon/DRR01684_merged.chr1.bam 1:10e6-10.05e6 > /tmp/samtools.out 2>&1
-  # /var/task/bin/samtools view -c "$URL_AWS_CRAM" 1:10e6-10.1e6 > /tmp/samtools.out 2>&1
-  /var/task/bin/samtools view -H http://labshare.cshl.edu/shares/schatzlab/www-data/ribbon/DRR01684_merged.chr1.bam > /tmp/samtools.out 2>&1
-
+  echo /var/task/bin/samtools ${argsList[0]}
+  set +u
+  /var/task/bin/samtools ${argsList[@]} > /tmp/samtools.out 2>&1 || true
+  set -u
   /var/task/bin/jq --arg RESPONSE "$(cat /tmp/samtools.out)" '{"statusCode":200,"body": $RESPONSE}' <<< '{}' > /tmp/response.json
   curl -X POST "http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/$REQUEST_ID/response" --data "@/tmp/response.json"
 done
@@ -80,7 +93,7 @@ echo '' > function.sh
 chmod 755 bootstrap function.sh
 zip --symlinks -r9 ../samtools.zip *
 aws lambda update-function-code --function-name samtools --zip-file fileb://../samtools.zip
-time aws lambda invoke --function-name samtools --payload '{"text":"Hello"}' response.txt; cat response.txt
+time aws lambda invoke --function-name samtools --payload '{"args":["--version"]}' response.txt; cat response.txt
 
 
 
