@@ -66,7 +66,6 @@ cd exodus/
 cat <<'EOF' > bootstrap
 #!/bin/sh
 set -euo pipefail
-source $LAMBDA_TASK_ROOT/"$(echo $_HANDLER | cut -d. -f1).sh"
 while true
 do
   HEADERS="$(mktemp)"
@@ -76,12 +75,12 @@ do
   # Parse parameters
   echo "Parsing args..."
   argsList=($(/var/task/bin/jq -rc '.args[]' <<< "$EVENT_DATA"))
-  argsList[0]=${argsList[0]//[^a-z]/}
+  # argsList[0]=${argsList[0]//[^a-z]/}
 
   cd /tmp
   echo /var/task/bin/samtools ${argsList[0]}
   set +u
-  /var/task/bin/samtools ${argsList[@]} > /tmp/samtools.out 2>&1 || true
+  /var/task/bin/samtools view ${argsList[@]} > /tmp/samtools.out 2>&1 || true
   set -u
   /var/task/bin/jq --arg RESPONSE "$(cat /tmp/samtools.out)" '{"statusCode":200,"body": $RESPONSE}' <<< '{}' > /tmp/response.json
   curl -X POST "http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/$REQUEST_ID/response" --data "@/tmp/response.json"
@@ -93,7 +92,7 @@ echo '' > function.sh
 chmod 755 bootstrap function.sh
 zip --symlinks -r9 ../samtools.zip *
 aws lambda update-function-code --function-name samtools --zip-file fileb://../samtools.zip
-time aws lambda invoke --function-name samtools --payload '{"args":["--version"]}' response.txt; cat response.txt
+time aws lambda invoke --function-name samtools --payload '{"args":["-H", "http://labshare.cshl.edu/shares/schatzlab/www-data/ribbon/DRR01684_merged.chr1.bam"]}' response.txt; cat response.txt
 
 
 
