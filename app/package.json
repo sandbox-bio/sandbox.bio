@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "cypress": "^8.0.0",
     "rollup": "^2.3.4",
@@ -33,6 +34,7 @@
     "shell-parse": "grncdr/js-shell-parse#f5f65af",
     "shell-quote": "^1.7.2",
     "sirv-cli": "^1.0.0",
+    "supabase": "^0.5.0",
     "svelte-watch-resize": "^1.0.3",
     "sveltestrap": "^5.5.1",
     "xterm": "^4.13.0",
