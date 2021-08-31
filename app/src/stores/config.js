@@ -9,7 +9,8 @@ export const config = readable({
 	// Default environment variables. These are auto-regenerated in Terminal.svelte:input() even if the user deletes them
 	env: {
 		PS1: '\\u@\\h$ ',
-		USER: "guest"
+		USER: "guest",
+		HOME: "/shared/data"
 	},
 	playground: `\u001b[0;37m# This playground is for open-ended exploration.
 # For guided tutorials, see https://sandbox.bio/tutorials

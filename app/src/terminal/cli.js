@@ -21,6 +21,7 @@ let _aioli = {};   // Aioli object
 let _fs = {};      // Aioli filesystem object
 let _jobs = 0;     // Number of jobs running in background
 let _pid = 10000;  // Current pid
+let _wd = null;    // Track the last folder we were in to support "cd -"
 
 // Convenient way of using svelte store shortcut ($vars) outside .svelte files
 let $vars = {};
@@ -303,11 +304,26 @@ const coreutils = {
 	// -------------------------------------------------------------------------
 	// File system management
 	// -------------------------------------------------------------------------
-	cd: args => _fs.chdir(args._[0]) && "",
 	mv: args => _fs.rename(args._[0], args._[1]) && "",
 	rm: args => Promise.all(args._.map(async arg => await _fs.unlink(arg))),
 	pwd: args => _fs.cwd(),
 	echo: args => args._.join(" "),
+	cd: async args => {
+		let dir = args._[0];
+		// Support cd ~ and cd -
+		if(dir == "~")
+			dir = $vars.HOME;
+		else if(dir == "-" && _wd)
+			dir = _wd;
+
+		_wd = await _fs.cwd();
+		try {
+			await _fs.chdir(dir);
+		} catch (error) {
+			return `${dir}: No such file or directory`;
+		}
+		return "";
+	},
 	mkdir: async args => {
 		// Don't use async since can't get return value
 		args._.map(arg => { try { _fs.mkdir(arg); } catch (error) {} });
@@ -459,23 +475,25 @@ const coreutils = {
 const utils = {
 	// Get the value of an argument (recursive if need-be)
 	getValue: async arg => {
-		if(arg.type == "literal")
-			return arg.value;
-		else if(arg.type == "variable")
+		// Literal; support ~
+		if(arg.type == "literal") {
+			return arg.value.replaceAll("~", $vars.HOME);
+		// Variable
+		} else if(arg.type == "variable")
 			return $vars[arg.name] || "";
-		// e.g. echo "something $abc $def"
+		// Variable concatenation, e.g. echo "something $abc $def"
 		else if(arg.type == "concatenation")
 			return (await Promise.all(arg.pieces.map(utils.getValue))).join("");
-		// e.g. someprgm $(grep "bla" test.txt | wc -l)
+		// Command Substitution, e.g. someprgm $(grep "bla" test.txt | wc -l)
 		else if(arg.type == "commandSubstitution")
 			return await exec(arg.commands);
-		// e.g. bedtools -a <(grep "Enhancer" data.bed)
+		// Process substitution, e.g. bedtools -a <(grep "Enhancer" data.bed)
 		else if(arg.type == "processSubstitution" && arg.readWrite == "<") {
 			const output = await exec(arg.commands);
 			const pathTmpFile = await coreutils.mktemp();
 			await utils.writeFile(pathTmpFile, output);
 			return pathTmpFile;
-		// e.g. ls c*.b?d
+		// Globbing, e.g. ls c*.b?d
 		} else if(arg.type == "glob") {
 			// Get files at the base path
 			if(arg.value.endsWith("/"))
