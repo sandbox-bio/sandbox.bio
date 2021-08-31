@@ -1,11 +1,31 @@
 import { readable, writable } from "svelte/store";
 
+// Config
+const hostname = window.location.hostname == "localhost" ? "dev.sandbox.bio" : window.location.hostname;
+const urlAPI = `https://${hostname}/api/v1`;
+const supabase = {
+	"dev.sandbox.bio": {
+		url: "https://bqjvxpdzkembvixymfae.supabase.co",
+		publicKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTMyODIwNCwiZXhwIjoxOTQ0OTA0MjA0fQ.7DzKM4bOGK1t-pPkfSe-2ALxcW5xWwcsaZfbCMWDBbY"
+	},
+	"stg.sandbox.bio": {
+		url: "",
+		publicKey: ""
+	},
+	"prd.sandbox.bio": {
+		url: "",
+		publicKey: ""
+	}
+};
+
 // App settings (read-only)
 export const config = readable({
 	// API
-	api: `https://${window.location.hostname != "localhost" ? window.location.hostname : "dev.sandbox.bio"}/api/v1`,
+	api: urlAPI,
 	// Default environment information
 	hostname: "sandbox",
+	// Supabase
+	supabase: supabase[hostname],
 	// Default environment variables. These are auto-regenerated in Terminal.svelte:input() even if the user deletes them
 	env: {
 		PS1: '\\u@\\h$ ',
