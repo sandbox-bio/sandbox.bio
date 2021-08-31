@@ -85,6 +85,7 @@ async function logout() {
 				<button class="btn btn-link text-decoration-none" on:click={() => loginIsOpen = !loginIsOpen}>Log in</button>
 			{:else}
 				<div class="flex-shrink-0 dropdown pt-1 ps-3">
+					<!-- svelte-ignore a11y-invalid-attribute -->
 					<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
 						<img src="https://github.com/robertaboukhalil.png" alt="My profile" width="32" height="32" class="rounded-circle">
 					</a>
@@ -131,5 +132,3 @@ async function logout() {
 		</TabPane>
 	</TabContent>
 </Modal>
-
-<!-- <button on:click={signup}>sdfsdf</button> -->
