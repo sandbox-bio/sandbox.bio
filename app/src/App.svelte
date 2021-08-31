@@ -74,12 +74,12 @@ const params = new URL(window.location).searchParams;
 			<p class="mt-2 mb-2"><small>Log in to save your progress:</small></p>
 
 			<div class="form-floating mb-1">
-				<input type="email" class="form-control rounded-4" id="floatingInput" placeholder="name@example.com">
-				<label for="floatingInput">Email address</label>
+				<input type="email" class="form-control rounded-4" id="loginEmail" placeholder="name@example.com">
+				<label for="loginEmail">Email address</label>
 			</div>
 			<div class="form-floating mb-3">
-				<input type="password" class="form-control rounded-4" id="floatingPassword" placeholder="Password">
-				<label for="floatingPassword">Password</label>
+				<input type="password" class="form-control rounded-4" id="loginPassword" placeholder="Password">
+				<label for="loginPassword">Password</label>
 			</div>
 			<button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Login</button>
 
@@ -102,12 +102,12 @@ const params = new URL(window.location).searchParams;
 			<p class="mt-2 mb-2"><small>Create an account to save your progress:</small></p>
 
 			<div class="form-floating mb-1">
-				<input type="email" class="form-control rounded-4" id="floatingInput" placeholder="name@example.com">
-				<label for="floatingInput">Email address</label>
+				<input type="email" class="form-control rounded-4" id="signupEmail" placeholder="name@example.com">
+				<label for="signupEmail">Email address</label>
 			</div>
 			<div class="form-floating mb-3">
-				<input type="password" class="form-control rounded-4" id="floatingPassword" placeholder="Password">
-				<label for="floatingPassword">Password</label>
+				<input type="password" class="form-control rounded-4" id="signupPassword" placeholder="Password">
+				<label for="signupPassword">Password</label>
 			</div>
 			<button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Create account</button>
 
