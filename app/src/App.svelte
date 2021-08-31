@@ -1,6 +1,5 @@
 <script>
 import { Modal, TabContent, TabPane } from "sveltestrap";
-import { createClient } from "@supabase/supabase-js";
 import "bootstrap/dist/js/bootstrap.bundle";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -11,16 +10,16 @@ import Login from "./components/Login.svelte";
 import Listings from "./components/Listings.svelte";
 import { config } from "./stores/config";
 import { tutorials } from "./stores/tutorials";
+import { supabase } from "./stores/auth";
 
 // Config
 const intro = $config.playground;
 const path = window.location.pathname;
 const params = new URL(window.location).searchParams;
-const supabase = createClient($config.supabase.url, $config.supabase.publicKey);
 
 // State
 let loginIsOpen = false;          // Whether "About" modal is showing or not
-let userInfo = supabase.auth.user();  // Equals null if user isn't logged in
+let userInfo = $supabase.auth.user();  // Equals null if user isn't logged in
 let loginError = false;
 let loginSuccess = false;
 let signupError = false;
@@ -30,14 +29,14 @@ let signupSuccess = false;
 // User auth
 // -----------------------------------------------------------------------------
 async function signup(credentials) {
-	const { user, session, error } = await supabase.auth.signUp(credentials);
+	const { user, session, error } = await $supabase.auth.signUp(credentials);
 	signupError = error?.message;
 	if(!error)
 		signupSuccess = "Account successfully created. Check your email for the verification link.";
 }
 
 async function login(credentials) {
-	const { user, session, error } = await supabase.auth.signIn(credentials);
+	const { user, session, error } = await $supabase.auth.signIn(credentials);
 	loginError = error?.message;
 	if(!error) {
 		loginError = false;
@@ -47,7 +46,7 @@ async function login(credentials) {
 }
 
 async function logout() {
-	const { error } = await supabase.auth.signOut();
+	const { error } = await $supabase.auth.signOut();
 	console.error(error);
 	if(error == null)
 		userInfo = null;
