@@ -11,7 +11,7 @@ import Conclusion from "./steps/Conclusion.md";
 export const config = {
 	id: "bowtie2-intro",
 	name: "Introduction to bowtie2",
-	description: "Align DNA sequencing reads from <code>.fastq</code> files to a reference genome",
+	description: "Align DNA sequencing reads from <code>.fastq</code> files to a reference genome.",
 	tags: ["bowtie2", "bcftools"],
 	tools: ["samtools/1.10", "bcftools/1.10", "bowtie2/bowtie2-align-s/2.4.2"],
 	difficulty: ["beginner"],
