@@ -22,26 +22,24 @@ const supabase = createClient($config.supabase.url, $config.supabase.publicKey);
 let loginIsOpen = false;          // Whether "About" modal is showing or not
 let userInfo = supabase.auth.user();  // Equals null if user isn't logged in
 let loginError = false;
+let loginSuccess = false;
 let signupError = false;
+let signupSuccess = false;
 
 // -----------------------------------------------------------------------------
 // User auth
 // -----------------------------------------------------------------------------
-async function signup() {
-	const { user, session, error } = await supabase.auth.signUp({
-		email: "robert.aboukhalil@gmail.com",
-		password: "mypassword",
-	});
-
-	console.log(user, session, error)
+async function signup(credentials) {
+	const { user, session, error } = await supabase.auth.signUp(credentials);
+	signupError = error?.message;
+	if(!error)
+		signupSuccess = "Account successfully created. Check your email for the verification link.";
 }
 
 async function login(credentials) {
 	const { user, session, error } = await supabase.auth.signIn(credentials);
-
-	if(error) {
-		loginError = error.message;
-	} else {
+	loginError = error?.message;
+	if(!error) {
 		loginError = false;
 		loginIsOpen = false;
 		userInfo = user;
@@ -122,12 +120,14 @@ async function logout() {
 		<TabPane tabId="login" active>
 			<span slot="tab"><h5>Log in</h5></span>
 			<p class="mt-2 mb-2"><small>Log in to save your progress:</small></p>
-			<Login type="login" error={loginError} on:login={event => login(event.detail)} />
+
+			<Login type="login" error={loginError} success={loginSuccess} on:login={event => login(event.detail)} />
 		</TabPane>
 		<TabPane tabId="signup" >
 			<span slot="tab"><h5>Sign up</h5></span>
 			<p class="mt-2 mb-2"><small>Create an account to save your progress:</small></p>
-			<Login type="signup" error={signupError} on:signup={event => signup(event.detail)} />
+
+			<Login type="signup" error={signupError} success={signupSuccess} on:signup={event => signup(event.detail)} />
 		</TabPane>
 	</TabContent>
 </Modal>

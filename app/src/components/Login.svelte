@@ -36,7 +36,7 @@ function run() {
 {/if}
 
 {#if success}
-	<Alert color="danger">
+	<Alert color="success">
 		{success}
 	</Alert>
 {/if}
