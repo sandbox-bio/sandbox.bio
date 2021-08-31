@@ -30,15 +30,17 @@ const params = new URL(window.location).searchParams;
 
 	<ul class="nav nav-pills">
 		<li class="nav-item dropdown">
-			<!-- svelte-ignore a11y-invalid-attribute -->
-			<a href="#" class="nav-link dropdown-toggle" class:active={path == "/tutorials"} id="navTutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				Tutorials
-			</a>
-			<ul class="dropdown-menu" aria-labelledby="navTutorials">
-				{#each $tutorials as tutorial}
-					<li><a class="dropdown-item" href="/tutorials?id={tutorial.id}">{tutorial.name}</a></li>
-				{/each}
-			</ul>
+			<div class="input-group mb-3 nav-pills">
+				<a role="button" class="btn btn-link text-decoration-none pe-1 nav-link" class:active={path == "/tutorials"} href="/tutorials">Tutorials</a>
+				<button type="button" class="btn btn-link text-decoration-none dropdown-toggle dropdown-toggle-split ps-2 pe-3 nav-link" class:active={path == "/tutorials"} data-bs-toggle="dropdown" aria-expanded="false">
+					<span class="visually-hidden">Toggle Dropdown</span>
+				</button>
+				<ul class="dropdown-menu">
+					{#each $tutorials as tutorial}
+						<li><a class="dropdown-item" href="/tutorials?id={tutorial.id}">{tutorial.name}</a></li>
+					{/each}
+				</ul>
+			</div>
 		</li>
 		<li class="nav-item">
 			<a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a>
