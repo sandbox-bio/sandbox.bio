@@ -8,9 +8,8 @@ import Tutorial from "./tutorials/Tutorial.svelte";
 import Terminal from "./terminal/Terminal.svelte";
 import Login from "./components/Login.svelte";
 import Listings from "./components/Listings.svelte";
-import { config } from "./stores/config";
+import { config, supabase } from "./stores/config";
 import { tutorials } from "./stores/tutorials";
-import { supabase } from "./stores/auth";
 
 // Config
 const intro = $config.playground;

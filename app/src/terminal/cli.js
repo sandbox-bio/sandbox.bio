@@ -14,8 +14,8 @@ import prettyBytes from "pretty-bytes";  // Prettify number of bytes
 import minimist from "minimist";         // Parse CLI arguments
 import localforage from "localforage";
 import Aioli from "@biowasm/aioli";
-import { config, vars } from "../stores/config";
-import { supabase } from "../stores/auth"; const $supabase = get(supabase);
+import { config, env, supabase } from "../stores/config";
+const $supabase = get(supabase);
 
 // State
 let _aioli = {};   // Aioli object
@@ -24,26 +24,20 @@ let _jobs = 0;     // Number of jobs running in background
 let _pid = 10000;  // Current pid
 let _wd = null;    // Track the last folder we were in to support "cd -"
 
-// Convenient way of using svelte store shortcut ($vars) outside .svelte files
-let $vars = {};
+// Convenient way of using svelte store shortcut ($env) outside .svelte files
+let $env = {};
 // When any user variable changes, update local storage
 let user = $supabase.auth.user();
-vars.subscribe(async d => {
+env.subscribe(async d => {
 	if(!d || Object.keys(d).length == 0)
 		return;
-	$vars = d;
+	$env = d;
 	await localforage.setItem("vars", d);
 
 	if(user) {
-		const { data, error } = await $supabase
-			.from("state_env")
-			.update({ env: $vars })
-			.match({ user_id: user.id });
+		const { data, error } = await $supabase.from("state_env").update({ env: $env }).match({ user_id: user.id });
 		if(!data) {
-			const { data, error } = await $supabase
-				.from("state_env")
-				.insert({ env: $vars, user_id: user.id })
-
+			const { data, error } = await $supabase.from("state_env").insert({ env: $env, user_id: user.id })
 			console.log(data, error)
 		}
 	}
@@ -56,7 +50,7 @@ if(!user) {
 		// If the user doesn't have anything in local storage, initialize it with default values
 		if(d == null)
 			d = get(config).env;
-		vars.set(d);
+		env.set(d);
 	});
 } else {
 	$supabase
@@ -69,7 +63,7 @@ if(!user) {
 			}];
 		}
 		console.log("HELLO", d.data[0].env)
-		vars.set(d.data[0].env);
+		env.set(d.data[0].env);
 	});	
 }
 
@@ -198,7 +192,7 @@ async function exec(cmd, callback=console.warn)
 	if(cmd.type == "variableAssignment") {
 		const name = cmd.name;
 		const value = cmd.value == null ? "" : await utils.getValue(cmd.value);
-		vars.set({ ...$vars, [name]: value });
+		env.set({ ...$env, [name]: value });
 		return "";
 	}
 
@@ -323,13 +317,13 @@ const coreutils = {
 	},
 
 	// env
-	env: args => Object.keys($vars).map(v => `${v}=${$vars[v]}`).join("\n"),
+	env: args => Object.keys($env).map(v => `${v}=${$env[v]}`).join("\n"),
 	hostname: args => "sandbox",
 	uname: args => "sandbox.bio",
 	date: args => new Date().toLocaleString(),
 	unset: args => {
-		args._.map(v => delete $vars[v]);
-		vars.set($vars);
+		args._.map(v => delete $env[v]);
+		env.set($env);
 		return "";
 	},
 
@@ -344,7 +338,7 @@ const coreutils = {
 		let dir = args._[0];
 		// Support cd ~ and cd -
 		if(dir == "~")
-			dir = $vars.HOME;
+			dir = $env.HOME;
 		else if(dir == "-" && _wd)
 			dir = _wd;
 
@@ -509,10 +503,10 @@ const utils = {
 	getValue: async arg => {
 		// Literal; support ~
 		if(arg.type == "literal") {
-			return arg.value.replaceAll("~", $vars.HOME);
+			return arg.value.replaceAll("~", $env.HOME);
 		// Variable
 		} else if(arg.type == "variable")
-			return $vars[arg.name] || "";
+			return $env[arg.name] || "";
 		// Variable concatenation, e.g. echo "something $abc $def"
 		else if(arg.type == "concatenation")
 			return (await Promise.all(arg.pieces.map(utils.getValue))).join("");

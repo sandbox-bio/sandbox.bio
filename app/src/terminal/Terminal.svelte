@@ -7,7 +7,7 @@ import "xterm/css/xterm.css";
 // Imports
 import { xterm, xtermAddons } from "terminal/xterm";
 import { CLI } from "terminal/cli";
-import { vars, config } from "./stores/config";
+import { env, config } from "./stores/config";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";
@@ -111,10 +111,10 @@ async function input(toPrint)
 
 	// Set prompt defaults in case the user deleted those variables with `unset`
 	for(let envVar in $config.env)
-		if(!$vars[envVar])
-			$vars[envVar] = $config.env[envVar];
+		if(!$env[envVar])
+			$env[envVar] = $config.env[envVar];
 	// Prepare prompt, e.g. "guest@sandbox$ "
-	const prompt = $vars["PS1"].replaceAll('\\u', $vars["USER"]).replaceAll('\\h', $config.hostname);
+	const prompt = $env["PS1"].replaceAll('\\u', $env["USER"]).replaceAll('\\h', $config.hostname);
 	$xtermAddons.echo.read(`\u001b[1;34m${prompt}\u001b[0m`)
 		.then(exec)
 		.catch(console.error);
@@ -215,7 +215,7 @@ async function handleAutocomplete(data)
 		if(cacheAutocomplete.length == 0) {
 			// Autocomplete variables
 			if(userFragment.startsWith("$")) {
-				cacheAutocomplete = Object.keys($vars).map(d => `$${d}`);
+				cacheAutocomplete = Object.keys($env).map(d => `$${d}`);
 
 			// Autocomplete file paths
 			} else {

@@ -1,9 +1,13 @@
 import { readable, writable } from "svelte/store";
+import { createClient } from "@supabase/supabase-js";
 
+// -----------------------------------------------------------------------------
 // Config
+// -----------------------------------------------------------------------------
+
 const hostname = window.location.hostname == "localhost" ? "dev.sandbox.bio" : window.location.hostname;
 const urlAPI = `https://${hostname}/api/v1`;
-const supabase = {
+const urlSupabase = {
 	"dev.sandbox.bio": {
 		url: "https://bqjvxpdzkembvixymfae.supabase.co",
 		publicKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTMyODIwNCwiZXhwIjoxOTQ0OTA0MjA0fQ.7DzKM4bOGK1t-pPkfSe-2ALxcW5xWwcsaZfbCMWDBbY"
@@ -18,14 +22,22 @@ const supabase = {
 	}
 };
 
+// -----------------------------------------------------------------------------
+// Exports
+// -----------------------------------------------------------------------------
+
+// User-defined variables
+export const env = writable({});
+
+// Supabase client
+export const supabase = readable(createClient(urlSupabase[hostname].url, urlSupabase[hostname].publicKey));
+
 // App settings (read-only)
 export const config = readable({
 	// API
 	api: urlAPI,
 	// Default environment information
 	hostname: "sandbox",
-	// Supabase
-	supabase: supabase[hostname],
 	// Default environment variables. These are auto-regenerated in Terminal.svelte:input() even if the user deletes them
 	env: {
 		PS1: '\\u@\\h$ ',
@@ -42,6 +54,3 @@ export const config = readable({
 #   samtools idxstats test.bam  # idxstats uses the .bai file \u001b[0m
 `
 });
-
-// User-defined variables
-export const vars = writable({});
