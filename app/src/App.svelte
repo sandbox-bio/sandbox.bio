@@ -28,26 +28,26 @@ let signupSuccess = false;
 // -----------------------------------------------------------------------------
 
 async function signup(credentials) {
-	const { userInfo, session, error } = await $supabase.auth.signUp(credentials);
-	signupError = error?.message;
-	if(!error)
+	const data = await $supabase.auth.signUp(credentials);
+	signupError = data.error?.message;
+	if(!data.error)
 		signupSuccess = "Account successfully created. Check your email for the verification link.";
 }
 
 async function login(credentials) {
-	const { userInfo, session, error } = await $supabase.auth.signIn(credentials);
-	loginError = error?.message;
-	if(!error) {
+	const data = await $supabase.auth.signIn(credentials);
+	loginError = data.error?.message;
+	if(!data.error) {
 		loginError = false;
 		loginIsOpen = false;
-		$user = userInfo;
+		$user = data.user;
 	}
 }
 
 async function logout() {
-	const { error } = await $supabase.auth.signOut();
-	console.error(error);
-	if(error == null)
+	const data = await $supabase.auth.signOut();
+	console.error(data.error);
+	if(data.error == null)
 		$user = null;
 }
 </script>

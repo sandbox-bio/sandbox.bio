@@ -110,9 +110,17 @@ async function input(toPrint)
 	$xterm.focus();
 
 	// Set prompt defaults in case the user deleted those variables with `unset`
+	let $envNew = $env;
+	let nothingNew = true;
 	for(let envVar in $config.env)
-		if(!$env[envVar])
-			$env[envVar] = $config.env[envVar];
+		if(!$env[envVar]) {
+			$envNew[envVar] = $config.env[envVar];
+			nothingNew = false;
+		}
+	// Want to only update this var once because it's being subscribed by localStorage + DB
+	if(!nothingNew)
+		$env = $envNew;
+	
 	// Prepare prompt, e.g. "guest@sandbox$ "
 	const prompt = $env["PS1"].replaceAll('\\u', $env["USER"]).replaceAll('\\h', $config.hostname);
 	$xtermAddons.echo.read(`\u001b[1;34m${prompt}\u001b[0m`)
