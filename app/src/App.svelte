@@ -8,7 +8,7 @@ import Tutorial from "./tutorials/Tutorial.svelte";
 import Terminal from "./terminal/Terminal.svelte";
 import Login from "./components/Login.svelte";
 import Listings from "./components/Listings.svelte";
-import { config, supabase, user, loginModal } from "./stores/config";
+import { config, supabase, user, progress, loginModal } from "./stores/config";
 import { tutorials } from "./stores/tutorials";
 
 // Config
@@ -70,7 +70,7 @@ async function logout() {
 				<li><a class="dropdown-item" href="/tutorials">Browse all</a></li>
 				<li><hr class="dropdown-divider"></li>
 				{#each $tutorials as tutorial}
-					<li><a class="dropdown-item" href="/tutorials?id={tutorial.id}">{tutorial.name}</a></li>
+					<li><a class="dropdown-item" class:text-success={tutorial.steps.length - 1 == $progress[tutorial.id]?.step} href="/tutorials?id={tutorial.id}">{tutorial.name}</a></li>
 				{/each}
 			</ul>
 		</li>
