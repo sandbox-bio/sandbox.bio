@@ -73,7 +73,7 @@ user.subscribe(async userUpdated => {
 
 	// User is logged in ==> use env vars from DB
 	} else {
-		dataEnv = (await get(supabase).from("state_env").select()).data;
+		dataEnv = (await get(supabase).from("state").select()).data;
 		if(dataEnv?.length == 0)
 			dataEnv = null;
 		else
@@ -96,12 +96,12 @@ env.subscribe(async envUpdated => {
 	// And update state in DB if user is logged in
 	if(get(user) !== null) {
 		const { data, error } = await get(supabase)
-			.from("state_env")
+			.from("state")
 			.update({ env: envUpdated })
 			.match({ user_id: get(user).id });
 		if(!data) {
 			const { data, error } = await get(supabase)
-				.from("state_env")
+				.from("state")
 				.insert({ env: envUpdated, user_id: get(user).id });
 		}
 	}
