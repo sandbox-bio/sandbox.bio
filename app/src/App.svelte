@@ -26,6 +26,7 @@ let signupSuccess = false;
 // -----------------------------------------------------------------------------
 // User auth
 // -----------------------------------------------------------------------------
+
 async function signup(credentials) {
 	const { userInfo, session, error } = await $supabase.auth.signUp(credentials);
 	signupError = error?.message;

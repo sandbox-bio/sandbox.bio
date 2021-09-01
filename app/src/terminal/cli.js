@@ -14,8 +14,10 @@ import prettyBytes from "pretty-bytes";  // Prettify number of bytes
 import minimist from "minimist";         // Parse CLI arguments
 import localforage from "localforage";
 import Aioli from "@biowasm/aioli";
-import { config, env, supabase } from "../stores/config";
+import { config, env, supabase, user } from "../stores/config";
+// Convenience store declarations
 const $supabase = get(supabase);
+const $user = get(user);
 
 // State
 let _aioli = {};   // Aioli object
@@ -29,24 +31,23 @@ let _wd = null;    // Track the last folder we were in to support "cd -"
 // Convenient way of using svelte store shortcut ($env) outside .svelte files
 let $env = {};
 // When any user variable changes, update local storage
-let user = $supabase.auth.user();
 env.subscribe(async d => {
 	if(!d || Object.keys(d).length == 0)
 		return;
 	$env = d;
 	await localforage.setItem("vars", d);
 
-	if(user) {
-		const { data, error } = await $supabase.from("state_env").update({ env: $env }).match({ user_id: user.id });
+	if($user) {
+		const { data, error } = await $supabase.from("state_env").update({ env: $env }).match({ user_id: $user.id });
 		if(!data) {
-			const { data, error } = await $supabase.from("state_env").insert({ env: $env, user_id: user.id })
+			const { data, error } = await $supabase.from("state_env").insert({ env: $env, user_id: $user.id })
 			console.log(data, error)
 		}
 	}
 });
 
 // Get vars stored in localStorage, then trigger subscribe above
-if(!user) {
+if(!$user) {
 	// TODO: use localStorage if not logged in
 	localforage.getItem("vars").then(d => {
 		// If the user doesn't have anything in local storage, initialize it with default values
