@@ -12,7 +12,7 @@ export let max = Infinity;  // max number of tutorials to list
 </div>
 <div class="row align-items-md-stretch">
 	{#each items.slice(0, max) as info}
-		<div class="col-md-6 col-lg-4 col-xl-3 mt-2">
+		<div class="col-md-6 col-lg-4 col-xxl-3 mt-2">
 			<div class="h-100 p-3 border rounded-3">
 				{#each (info.difficulty || []) as tag}
 					<span class="badge" class:bg-success={tag == "beginner"} class:bg-danger={tag == "difficult"} style={tag == "intermediate" ? "background-color:#fd7e14" : ""}>{tag}</span>
