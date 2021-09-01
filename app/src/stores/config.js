@@ -33,6 +33,9 @@ export const env = writable({});
 // Progress in completing tutorials
 export const progress = writable({});
 
+// Login/Signup modal open or not
+export const loginModal = writable(false);
+
 // Supabase client
 export const supabase = readable(createClient(urlSupabase[hostname].url, urlSupabase[hostname].publicKey));
 export const user = writable(get(supabase).auth.user());
@@ -106,13 +109,24 @@ env.subscribe(async envUpdated => {
 });
 
 // When progress changes, update it in DB
+let progressLoggedOutCnt = 0;
 progress.subscribe(async progressUpdated => {
 	if(JSON.stringify(progressUpdated) === "{}")
 		return;
 
-	console.log("PROGRESS SUBSCRIBE", progressUpdated)
-	if(get(user) !== null)
+	// Track # steps while being logged out
+	if(get(user) === null) {
+		progressLoggedOutCnt++;
+	// If logged in, update DB
+	} else {
 		await updateState({ progress: progressUpdated });
+		progressLoggedOutCnt = 0;
+	}
+
+	// If user has been advancing for a bit while logged out, suggest they login
+	if(progressLoggedOutCnt == 3)
+		loginModal.set(true);
+	console.log(progressLoggedOutCnt)
 });
 
 // Utility function to update user state
