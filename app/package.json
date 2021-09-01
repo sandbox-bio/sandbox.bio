@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@biowasm/aioli": "^2.2.0",
+    "@supabase/supabase-js": "^1.22.4",
     "ansi-regex": "^6.0.0",
     "bootstrap": "5.0.2",
     "columnify": "^1.5.4",
@@ -34,7 +35,6 @@
     "shell-parse": "grncdr/js-shell-parse#f5f65af",
     "shell-quote": "^1.7.2",
     "sirv-cli": "^1.0.0",
-    "supabase": "^0.5.0",
     "svelte-watch-resize": "^1.0.3",
     "sveltestrap": "^5.5.1",
     "xterm": "^4.13.0",
