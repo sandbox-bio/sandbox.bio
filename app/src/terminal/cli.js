@@ -24,6 +24,8 @@ let _jobs = 0;     // Number of jobs running in background
 let _pid = 10000;  // Current pid
 let _wd = null;    // Track the last folder we were in to support "cd -"
 
+// TODO: when user logs in, update env variables
+
 // Convenient way of using svelte store shortcut ($env) outside .svelte files
 let $env = {};
 // When any user variable changes, update local storage

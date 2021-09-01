@@ -1,4 +1,4 @@
-import { readable, writable } from "svelte/store";
+import { get, readable, writable } from "svelte/store";
 import { createClient } from "@supabase/supabase-js";
 
 // -----------------------------------------------------------------------------
@@ -31,6 +31,7 @@ export const env = writable({});
 
 // Supabase client
 export const supabase = readable(createClient(urlSupabase[hostname].url, urlSupabase[hostname].publicKey));
+export const user = writable(get(supabase).auth.user());
 
 // App settings (read-only)
 export const config = readable({

@@ -8,7 +8,7 @@ import Tutorial from "./tutorials/Tutorial.svelte";
 import Terminal from "./terminal/Terminal.svelte";
 import Login from "./components/Login.svelte";
 import Listings from "./components/Listings.svelte";
-import { config, supabase } from "./stores/config";
+import { config, supabase, user } from "./stores/config";
 import { tutorials } from "./stores/tutorials";
 
 // Config
@@ -18,7 +18,6 @@ const params = new URL(window.location).searchParams;
 
 // State
 let loginIsOpen = false;          // Whether "About" modal is showing or not
-let userInfo = $supabase.auth.user();  // Equals null if user isn't logged in
 let loginError = false;
 let loginSuccess = false;
 let signupError = false;
@@ -28,19 +27,19 @@ let signupSuccess = false;
 // User auth
 // -----------------------------------------------------------------------------
 async function signup(credentials) {
-	const { user, session, error } = await $supabase.auth.signUp(credentials);
+	const { userInfo, session, error } = await $supabase.auth.signUp(credentials);
 	signupError = error?.message;
 	if(!error)
 		signupSuccess = "Account successfully created. Check your email for the verification link.";
 }
 
 async function login(credentials) {
-	const { user, session, error } = await $supabase.auth.signIn(credentials);
+	const { userInfo, session, error } = await $supabase.auth.signIn(credentials);
 	loginError = error?.message;
 	if(!error) {
 		loginError = false;
 		loginIsOpen = false;
-		userInfo = user;
+		$user = userInfo;
 	}
 }
 
@@ -48,7 +47,7 @@ async function logout() {
 	const { error } = await $supabase.auth.signOut();
 	console.error(error);
 	if(error == null)
-		userInfo = null;
+		$user = null;
 }
 </script>
 
@@ -79,16 +78,16 @@ async function logout() {
 			<a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a>
 		</li>
 		<li class="nav-item">
-			{#if userInfo == null}
+			{#if $user == null}
 				<button class="btn btn-link text-decoration-none" on:click={() => loginIsOpen = !loginIsOpen}>Log in</button>
 			{:else}
-				<div class="flex-shrink-0 dropdown pt-1 ps-3">
+				<div class="flex-shrink-0 dropdown pt-1 ps-2">
 					<!-- svelte-ignore a11y-invalid-attribute -->
 					<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
 						<img src="https://github.com/robertaboukhalil.png" alt="My profile" width="32" height="32" class="rounded-circle">
 					</a>
 					<ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2" style="">
-						<li><button class="dropdown-item disabled btn-sm" type="button">{userInfo.email}</button></li>
+						<li><button class="dropdown-item disabled btn-sm" type="button">{$user.email}</button></li>
 						<li><button class="dropdown-item" type="button" on:click={logout}>Log out</button></li>
 					</ul>
 				</div>
