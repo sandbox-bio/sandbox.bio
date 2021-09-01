@@ -15,6 +15,7 @@ import minimist from "minimist";         // Parse CLI arguments
 import localforage from "localforage";
 import Aioli from "@biowasm/aioli";
 import { config, vars } from "../stores/config";
+import { supabase } from "../stores/auth"; const $supabase = get(supabase);
 
 // State
 let _aioli = {};   // Aioli object
@@ -26,20 +27,51 @@ let _wd = null;    // Track the last folder we were in to support "cd -"
 // Convenient way of using svelte store shortcut ($vars) outside .svelte files
 let $vars = {};
 // When any user variable changes, update local storage
+let user = $supabase.auth.user();
 vars.subscribe(async d => {
 	if(!d || Object.keys(d).length == 0)
 		return;
 	$vars = d;
 	await localforage.setItem("vars", d);
-	// TODO: API call to save contents in DB?
+
+	if(user) {
+		const { data, error } = await $supabase
+			.from("state_env")
+			.update({ env: $vars })
+			.match({ user_id: user.id });
+		if(!data) {
+			const { data, error } = await $supabase
+				.from("state_env")
+				.insert({ env: $vars, user_id: user.id })
+
+			console.log(data, error)
+		}
+	}
 });
+
 // Get vars stored in localStorage, then trigger subscribe above
-localforage.getItem("vars").then(d => {
-	// If the user doesn't have anything in local storage, initialize it with default values
-	if(d == null)
-		d = get(config).env;
-	vars.set(d);
-});
+if(!user) {
+	// TODO: use localStorage if not logged in
+	localforage.getItem("vars").then(d => {
+		// If the user doesn't have anything in local storage, initialize it with default values
+		if(d == null)
+			d = get(config).env;
+		vars.set(d);
+	});
+} else {
+	$supabase
+	.from("state_env")
+	.select()
+	.then(d => {
+		if(d.data.length == 0) {
+			d.data = [{
+				env: get(config).env
+			}];
+		}
+		console.log("HELLO", d.data[0].env)
+		vars.set(d.data[0].env);
+	});	
+}
 
 
 // =============================================================================
