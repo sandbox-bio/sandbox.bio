@@ -8,7 +8,7 @@ import Tutorial from "./tutorials/Tutorial.svelte";
 import Terminal from "./terminal/Terminal.svelte";
 import Login from "./components/Login.svelte";
 import Listings from "./components/Listings.svelte";
-import { config, supabase, user } from "./stores/config";
+import { config, supabase, user, loginModal } from "./stores/config";
 import { tutorials } from "./stores/tutorials";
 
 // Config
@@ -17,7 +17,6 @@ const path = window.location.pathname;
 const params = new URL(window.location).searchParams;
 
 // State
-let loginIsOpen = false;          // Whether "About" modal is showing or not
 let loginError = false;
 let loginSuccess = false;
 let signupError = false;
@@ -39,7 +38,7 @@ async function login(credentials) {
 	loginError = data.error?.message;
 	if(!data.error) {
 		loginError = false;
-		loginIsOpen = false;
+		$loginModal = false;
 		$user = data.user;
 	}
 }
@@ -80,7 +79,7 @@ async function logout() {
 		</li>
 		<li class="nav-item">
 			{#if $user == null}
-				<button class="btn btn-link text-decoration-none" on:click={() => loginIsOpen = !loginIsOpen}>Log in</button>
+				<button class="btn btn-link text-decoration-none" on:click={() => $loginModal = !$loginModal}>Log in</button>
 			{:else}
 				<div class="flex-shrink-0 dropdown pt-1 ps-2">
 					<!-- svelte-ignore a11y-invalid-attribute -->
@@ -114,7 +113,7 @@ async function logout() {
 </main>
 
 <!-- Login/Signup modal -->
-<Modal body header="" toggle={() => loginIsOpen = !loginIsOpen} isOpen={loginIsOpen}>
+<Modal body header="" toggle={() => $loginModal = !$loginModal} isOpen={$loginModal}>
 	<TabContent>
 		<TabPane tabId="login" active>
 			<span slot="tab"><h5>Log in</h5></span>
