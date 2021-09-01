@@ -126,7 +126,6 @@ progress.subscribe(async progressUpdated => {
 	// If user has been advancing for a bit while logged out, suggest they login
 	if(progressLoggedOutCnt == 3)
 		loginModal.set(true);
-	console.log(progressLoggedOutCnt)
 });
 
 // Utility function to update user state
