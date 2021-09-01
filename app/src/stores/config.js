@@ -58,23 +58,18 @@ export const config = readable({
 });
 
 // -----------------------------------------------------------------------------
-// Local storage
-// -----------------------------------------------------------------------------
-
-const LOCAL_STORAGE_ENV = `env:${get(user)?.id || "guest"}`;
-
-// -----------------------------------------------------------------------------
 // On change
 // -----------------------------------------------------------------------------
+
+const LOCAL_STORAGE_ENV = () => `env:${get(user)?.id || "guest"}`;
 
 // This is triggered when the page loads or when the user logs in / logs out
 user.subscribe(async userUpdated => {
 	let dataEnv = {};
-	console.log("USER SUBSCRIBE");
 
 	// User is logged out ==> use env vars from local storage
 	if(userUpdated === null) {
-		dataEnv = await localforage.getItem(LOCAL_STORAGE_ENV);
+		dataEnv = await localforage.getItem(LOCAL_STORAGE_ENV());
 
 	// User is logged in ==> use env vars from DB
 	} else {
@@ -91,8 +86,23 @@ user.subscribe(async userUpdated => {
 	env.set(dataEnv);
 });
 
-env.subscribe(async d => {
-	if(JSON.stringify(d) === "{}")
+env.subscribe(async envUpdated => {
+	if(JSON.stringify(envUpdated) === "{}")
 		return;
-	console.log("ENV SUBSCRIBE", d)
+
+	// Update localStorage for both guest/logged in users
+	await localforage.setItem(LOCAL_STORAGE_ENV(), envUpdated);
+
+	// And update state in DB if user is logged in
+	if(get(user) !== null) {
+		const { data, error } = await get(supabase)
+			.from("state_env")
+			.update({ env: envUpdated })
+			.match({ user_id: get(user).id });
+		if(!data) {
+			const { data, error } = await get(supabase)
+				.from("state_env")
+				.insert({ env: envUpdated, user_id: get(user).id });
+		}
+	}
 });
