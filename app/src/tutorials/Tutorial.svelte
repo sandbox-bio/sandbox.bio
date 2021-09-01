@@ -1,9 +1,9 @@
 <script>
+import { DropdownItem, Offcanvas } from "sveltestrap";
 import { config, progress } from "./stores/config";
 import { status } from "./stores/status";
 import { tutorials } from "./stores/tutorials";
 import Terminal from "./terminal/Terminal.svelte";
-import { DropdownItem, Offcanvas } from "sveltestrap";
 
 export let id;
 export let step = 0;
@@ -42,12 +42,15 @@ function nextStep(step)
 		window.history.pushState({}, "", url);
 	}
 
-	// Update progress
-	if(!(tutorial.id in $progress))
-		$progress[tutorial.id] = { step: 0 };
+	// Update progress in one shot (each time change $progress, makes call to DB)
+	let progressNew = $progress;
+	if(!(tutorial.id in progressNew))
+		progressNew[tutorial.id] = { step: 0 };
 	// But only if the current step is greater!
-	if(step > $progress[tutorial.id].step)
-		$progress[tutorial.id].step = step;
+	if(step > progressNew[tutorial.id].step) {
+		progressNew[tutorial.id].step = step;
+		$progress = progressNew;
+	}
 
 	// Scroll to the top when navigate pages
 	if(document.getElementById("tutorial-sidebar"))
