@@ -1,3 +1,4 @@
+import localforage from "localforage";
 import { get, readable, writable } from "svelte/store";
 import { createClient } from "@supabase/supabase-js";
 
@@ -54,4 +55,44 @@ export const config = readable({
 #   ls test.bam.bai
 #   samtools idxstats test.bam  # idxstats uses the .bai file \u001b[0m
 `
+});
+
+// -----------------------------------------------------------------------------
+// Local storage
+// -----------------------------------------------------------------------------
+
+const LOCAL_STORAGE_ENV = `env:${get(user)?.id || "guest"}`;
+
+// -----------------------------------------------------------------------------
+// On change
+// -----------------------------------------------------------------------------
+
+// This is triggered when the page loads or when the user logs in / logs out
+user.subscribe(async userUpdated => {
+	let dataEnv = {};
+	console.log("USER SUBSCRIBE");
+
+	// User is logged out ==> use env vars from local storage
+	if(userUpdated === null) {
+		dataEnv = await localforage.getItem(LOCAL_STORAGE_ENV);
+
+	// User is logged in ==> use env vars from DB
+	} else {
+		dataEnv = (await get(supabase).from("state_env").select()).data;
+		if(dataEnv?.length == 0)
+			dataEnv = null;
+		else
+			dataEnv = dataEnv[0]?.env;
+	}
+
+	// If no data, initialize with default env vars
+	if(dataEnv === null)
+		dataEnv = get(config).env;
+	env.set(dataEnv);
+});
+
+env.subscribe(async d => {
+	if(JSON.stringify(d) === "{}")
+		return;
+	console.log("ENV SUBSCRIBE", d)
 });
