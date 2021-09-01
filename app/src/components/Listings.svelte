@@ -49,7 +49,7 @@ export let max = Infinity;  // max number of tutorials to list
 						{#if $progress[info.id].step == (info.steps.length - 1)}
 							<a href={`/tutorials?id=${info.id}`} class="btn btn-outline-success text-center">Launch</a>
 						{:else}
-							<a href={`/tutorials?id=${info.id}`} class="btn btn-primary text-center">Resume</a>
+							<a href={`/tutorials?id=${info.id}&step=${$progress[info.id].step}`} class="btn btn-primary text-center">Resume</a>
 						{/if}
 					{:else}
 						<a href={`/tutorials?id=${info.id}`} class="btn btn-outline-primary text-center">Launch</a>
