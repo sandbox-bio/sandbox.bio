@@ -31,11 +31,7 @@ const urlSupabase = {
 export const env = writable({});
 
 // Progress in completing tutorials
-export const progress = writable({
-	"bedtools-intro": {
-		"step": 18
-	}
-});
+export const progress = writable({});
 
 // Supabase client
 export const supabase = readable(createClient(urlSupabase[hostname].url, urlSupabase[hostname].publicKey));
@@ -72,7 +68,7 @@ const LOCAL_STORAGE_ENV = () => `env:${get(user)?.id || "guest"}`;
 
 // This is triggered when the page loads or when the user logs in / logs out
 user.subscribe(async userUpdated => {
-	let dataEnv = {};
+	let dataEnv = {}, dataProgress = {};
 
 	// User is logged out ==> use env vars from local storage
 	if(userUpdated === null) {
@@ -83,14 +79,17 @@ user.subscribe(async userUpdated => {
 		const data = (await get(supabase).from("state").select()).data;
 		if(data?.length == 0)
 			dataEnv = null;
-		else
+		else {
 			dataEnv = data[0]?.env;
+			dataProgress = data[0]?.progress || {};
+		}
 	}
 
 	// If no data, initialize with default env vars
 	if(dataEnv === null)
 		dataEnv = get(config).env;
 	env.set(dataEnv);
+	progress.set(dataProgress);
 });
 
 // When an environment variable is updated, update local storage and DB
@@ -102,15 +101,28 @@ env.subscribe(async envUpdated => {
 	await localforage.setItem(LOCAL_STORAGE_ENV(), envUpdated);
 
 	// And update state in DB if user is logged in
-	if(get(user) !== null) {
-		const { data, error } = await get(supabase)
-			.from("state")
-			.update({ env: envUpdated })
-			.match({ user_id: get(user).id });
-		if(!data) {
-			await get(supabase)
-				.from("state")
-				.insert({ env: envUpdated, user_id: get(user).id });
-		}
-	}
+	if(get(user) !== null)
+		await updateState({ env: envUpdated });
 });
+
+// When progress changes, update it in DB
+progress.subscribe(async progressUpdated => {
+	if(JSON.stringify(progressUpdated) === "{}")
+		return;
+
+	console.log("PROGRESS SUBSCRIBE", progressUpdated)
+	if(get(user) !== null)
+		await updateState({ progress: progressUpdated });
+});
+
+// Utility function to update user state
+async function updateState(update) {
+	// Try to update
+	const { data, error } = await get(supabase).from("state").update(update).match({ user_id: get(user).id });
+
+	// If fails, do an insert
+	if(!data) {
+		update.user_id = get(user).id;
+		await get(supabase).from("state").insert(update);
+	}
+}
