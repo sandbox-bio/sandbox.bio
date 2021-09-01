@@ -30,6 +30,13 @@ const urlSupabase = {
 // User-defined variables
 export const env = writable({});
 
+// Progress in completing tutorials
+export const progress = writable({
+	"bedtools-intro": {
+		"step": 18
+	}
+});
+
 // Supabase client
 export const supabase = readable(createClient(urlSupabase[hostname].url, urlSupabase[hostname].publicKey));
 export const user = writable(get(supabase).auth.user());
@@ -73,11 +80,11 @@ user.subscribe(async userUpdated => {
 
 	// User is logged in ==> use env vars from DB
 	} else {
-		dataEnv = (await get(supabase).from("state").select()).data;
-		if(dataEnv?.length == 0)
+		const data = (await get(supabase).from("state").select()).data;
+		if(data?.length == 0)
 			dataEnv = null;
 		else
-			dataEnv = dataEnv[0]?.env;
+			dataEnv = data[0]?.env;
 	}
 
 	// If no data, initialize with default env vars
@@ -86,6 +93,7 @@ user.subscribe(async userUpdated => {
 	env.set(dataEnv);
 });
 
+// When an environment variable is updated, update local storage and DB
 env.subscribe(async envUpdated => {
 	if(JSON.stringify(envUpdated) === "{}")
 		return;
@@ -100,7 +108,7 @@ env.subscribe(async envUpdated => {
 			.update({ env: envUpdated })
 			.match({ user_id: get(user).id });
 		if(!data) {
-			const { data, error } = await get(supabase)
+			await get(supabase)
 				.from("state")
 				.insert({ env: envUpdated, user_id: get(user).id });
 		}

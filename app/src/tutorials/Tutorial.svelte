@@ -1,5 +1,5 @@
 <script>
-import { config } from "./stores/config";
+import { config, progress } from "./stores/config";
 import { status } from "./stores/status";
 import { tutorials } from "./stores/tutorials";
 import Terminal from "./terminal/Terminal.svelte";
@@ -41,6 +41,11 @@ function nextStep(step)
 
 		window.history.pushState({}, "", url);
 	}
+
+	// Update progress
+	if(!(tutorial.id in $progress))
+		$progress[tutorial.id] = { step: 0 };
+	$progress[tutorial.id].step = step;
 
 	// Scroll to the top when navigate pages
 	if(document.getElementById("tutorial-sidebar"))
