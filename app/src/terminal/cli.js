@@ -7,17 +7,15 @@
 // * Tail doesn't support `tail -n +3` format (but `head -n-2` and `head/tail -2` supported)
 
 // Imports
-import { readable, get } from "svelte/store";
+import { readable } from "svelte/store";
 import parse from "shell-parse";         // Transforms a bash command into an AST
 import columnify from "columnify";       // Prettify columnar output
 import prettyBytes from "pretty-bytes";  // Prettify number of bytes
 import minimist from "minimist";         // Parse CLI arguments
-import localforage from "localforage";
 import Aioli from "@biowasm/aioli";
-import { config, env, supabase, user } from "../stores/config";
-// Convenience store declarations
-const $supabase = get(supabase);
-const $user = get(user);
+import { env } from "../stores/config";
+// Define $env for convenience (since not in a .svelte file)
+let $env = {}; env.subscribe(d => $env = d);
 
 // State
 let _aioli = {};   // Aioli object
@@ -25,50 +23,6 @@ let _fs = {};      // Aioli filesystem object
 let _jobs = 0;     // Number of jobs running in background
 let _pid = 10000;  // Current pid
 let _wd = null;    // Track the last folder we were in to support "cd -"
-
-// TODO: when user logs in, update env variables
-
-// Convenient way of using svelte store shortcut ($env) outside .svelte files
-let $env = {};
-// When any user variable changes, update local storage
-env.subscribe(async d => {
-	if(!d || Object.keys(d).length == 0)
-		return;
-	$env = d;
-	await localforage.setItem("vars", d);
-
-	if($user) {
-		const { data, error } = await $supabase.from("state_env").update({ env: $env }).match({ user_id: $user.id });
-		if(!data) {
-			const { data, error } = await $supabase.from("state_env").insert({ env: $env, user_id: $user.id })
-			console.log(data, error)
-		}
-	}
-});
-
-// Get vars stored in localStorage, then trigger subscribe above
-if(!$user) {
-	// TODO: use localStorage if not logged in
-	localforage.getItem("vars").then(d => {
-		// If the user doesn't have anything in local storage, initialize it with default values
-		if(d == null)
-			d = get(config).env;
-		env.set(d);
-	});
-} else {
-	$supabase
-	.from("state_env")
-	.select()
-	.then(d => {
-		if(d.data.length == 0) {
-			d.data = [{
-				env: get(config).env
-			}];
-		}
-		console.log("HELLO", d.data[0].env)
-		env.set(d.data[0].env);
-	});	
-}
 
 
 // =============================================================================
