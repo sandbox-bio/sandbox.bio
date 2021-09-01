@@ -24,7 +24,7 @@ export let max = Infinity;  // max number of tutorials to list
 					{info.name}
 					{#if info.id in $progress}
 						{#if $progress[info.id].step == (info.steps.length - 1)}
-							<Icon id={`icon-${info.id}`} class="float-end text-primary" name="check-circle" />
+							<Icon id={`icon-${info.id}`} class="float-end text-success" name="check-circle" />
 							<Tooltip target={`icon-${info.id}`}>
 								Done!
 							</Tooltip>
@@ -42,15 +42,18 @@ export let max = Infinity;  // max number of tutorials to list
 				<!-- "Explore" listings -->
 				{#if info.url}
 					<a href={info.url} class="btn btn-outline-primary text-center" target="_blank">Launch</a>
+
 				<!-- "Tutorials" listings -->
 				{:else}
-					<a href={`/tutorials?id=${info.id}&step=${info.id in $progress ? $progress[info.id].step : 0}`} class="btn btn-outline-primary text-center">
-						{#if info.id in $progress}
-							Resume
+					{#if info.id in $progress}
+						{#if $progress[info.id].step == (info.steps.length - 1)}
+							<a href={`/tutorials?id=${info.id}`} class="btn btn-outline-success text-center">Launch</a>
 						{:else}
-							Launch
+							<a href={`/tutorials?id=${info.id}`} class="btn btn-outline-primary text-center">Resume</a>
 						{/if}
-					</a>
+					{:else}
+						<a href={`/tutorials?id=${info.id}`} class="btn btn-outline-primary text-center">Launch</a>
+					{/if}
 				{/if}
 			</div>
 		</div>
