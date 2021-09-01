@@ -45,7 +45,9 @@ function nextStep(step)
 	// Update progress
 	if(!(tutorial.id in $progress))
 		$progress[tutorial.id] = { step: 0 };
-	$progress[tutorial.id].step = step;
+	// But only if the current step is greater!
+	if(step > $progress[tutorial.id].step)
+		$progress[tutorial.id].step = step;
 
 	// Scroll to the top when navigate pages
 	if(document.getElementById("tutorial-sidebar"))
