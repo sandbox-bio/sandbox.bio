@@ -14,8 +14,6 @@ import prettyBytes from "pretty-bytes";  // Prettify number of bytes
 import minimist from "minimist";         // Parse CLI arguments
 import Aioli from "@biowasm/aioli";
 import { env } from "../stores/config";
-// Define $env for convenience (since not in a .svelte file)
-let $env = {}; env.subscribe(d => $env = d);
 
 // State
 let _aioli = {};   // Aioli object
@@ -23,6 +21,10 @@ let _fs = {};      // Aioli filesystem object
 let _jobs = 0;     // Number of jobs running in background
 let _pid = 10000;  // Current pid
 let _wd = null;    // Track the last folder we were in to support "cd -"
+
+// Define $env for convenience (since not in a .svelte file)
+let $env = {};
+env.subscribe(d => $env = d);
 
 
 // =============================================================================
