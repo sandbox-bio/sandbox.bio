@@ -31,9 +31,8 @@ let signupSuccess = false;
 // -----------------------------------------------------------------------------
 
 function remindLogin() {
-	if($user != null)
-		return;
-	toastToggle();
+	if($user === null)
+		toastToggle();
 	setTimeout(remindLogin, 60000);
 }
 setTimeout(remindLogin, 30000);
@@ -119,8 +118,8 @@ onMount(async () => {
 
 <!-- Toast Alert -->
 <div class="p-4 mb-4 me-3 position-fixed bottom-0 end-0" style="z-index: 15">
-	<Toast autohide isOpen={toastOpen} class="me-1">
-		<ToastHeader toggle={toastToggle}>Reminder</ToastHeader>
+	<Toast autohide isOpen={toastOpen} header="" class="me-1">
+		<ToastHeader toggle={toastToggle}>Note</ToastHeader>
 		<ToastBody>
 			Remember to log in to save your progress!
 		</ToastBody>
