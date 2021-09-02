@@ -62,13 +62,28 @@ let modalKbdToggle = () => modalKbdOpen = !modalKbdOpen;
 const dispatch = createEventDispatcher();  // Send info to parent component when cmd is done
 
 $: ready = aioliReady && $status.app;      // Ready to go once both Aioli and the app are initialized
-$: if(ready) { nbInit++; input(); }        // Ask for user input once ready
+$: if(ready) initTerminal();               // Ask for user input once ready
 
 
 // =============================================================================
 // Initialization
 // =============================================================================
 
+// Load filesystem from cache and get user input
+async function initTerminal() {
+	await $CLI.fsLoad($tutorial);
+	nbInit++;
+	input();
+	saveFS();
+}
+
+// Save filesystem state every few seconds
+async function saveFS() {
+	await $CLI.fsSave($tutorial);
+	setTimeout(saveFS, 3000);
+}
+
+// On mount
 onMount(async () => {
 	// Register handlers
 	$xterm.onKey(handleShortcuts);
