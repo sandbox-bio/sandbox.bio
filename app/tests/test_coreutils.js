@@ -17,12 +17,6 @@ describe("Test coreutils", () => {
 		});
 	});
 
-	it("whoami", async () => {
-		await $CLI.exec("USER=someuser");
-		observed = await $CLI.exec("whoami");
-		expect(observed).to.equal("someuser");
-	});
-
 	it("ls (folder)", async () => {
 		observed = await $CLI.exec(`ls ${FILE_SAM}`);
 		expect(observed).to.contain("toy.sam");
@@ -186,5 +180,21 @@ describe("Test coreutils", () => {
 		} catch (error) {
 			expect(error).to.equal(`${fileBlam}: No such file or directory`);
 		}
+	});
+
+	it("whoami", async () => {
+		await $CLI.exec("USER=someuser");
+		observed = await $CLI.exec("whoami");
+		expect(observed).to.equal("someuser");
+	});
+
+	it("touch", async () => {
+		try {
+			observed = await $CLI.exec("ls somefile");
+			expect(1).to.equal(2);  // test fails if ls does not throw an error
+		} catch (error) {}
+
+		await $CLI.exec("touch somefile");
+		observed = await $CLI.exec("ls somefile");  // test fails if ls throws an error
 	});
 });

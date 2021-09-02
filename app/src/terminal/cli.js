@@ -291,9 +291,20 @@ const coreutils = {
 	// File system management
 	// -------------------------------------------------------------------------
 	mv: args => _fs.rename(args._[0], args._[1]) && "",
-	rm: args => Promise.all(args._.map(async arg => await _fs.unlink(arg))),
+	rm: args => Promise.all(args._.map(async arg => await _fs.unlink(arg))) && "",
 	pwd: args => _fs.cwd(),
 	echo: args => args._.join(" "),
+	touch: async args => {
+		return Promise.all(args._.map(async path => {
+			try {
+				// Will throw if file doesn't exist
+				await _fs.stat(path);
+				await _fs.utime(path, new Date().getTime(), new Date().getTime());
+			} catch (error) {
+				await utils.writeFile(path, "");
+			}	
+		})) && "";
+	},
 	cd: async args => {
 		let dir = args._[0];
 		// Support cd ~ and cd -

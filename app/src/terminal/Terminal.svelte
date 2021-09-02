@@ -34,6 +34,7 @@ const AUTOCOMPLETE = {
 	mv: [],
 	rm: [],
 	cp: [],
+	touch: [],
 	mkdir: [],
 	rmdir: [],
 	env: [],
