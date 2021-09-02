@@ -31,7 +31,7 @@ let signupSuccess = false;
 // -----------------------------------------------------------------------------
 
 function remindLogin() {
-	if($user === null)
+	if($user === null && path.startsWith("/tutorials"))
 		toastToggle();
 	setTimeout(remindLogin, 60000);
 }
