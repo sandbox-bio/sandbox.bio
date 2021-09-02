@@ -105,6 +105,10 @@ user.subscribe(async userUpdated => {
 env.subscribe(async envUpdated => {
 	if(!get(status).app)
 		return;
+	// Don't update the DB if no values have actually changed
+	const envPrevious = await localforage.getItem(getLocalForageKey());
+	if(JSON.stringify(envPrevious) == JSON.stringify(envUpdated))
+		return;
 	console.log("env.subscribe", envUpdated);
 
 	// Update localForage for both guest/logged in users
