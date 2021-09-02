@@ -7,7 +7,7 @@ import "xterm/css/xterm.css";
 // Imports
 import { xterm, xtermAddons } from "terminal/xterm";
 import { CLI } from "terminal/cli";
-import { env, config } from "./stores/config";
+import { env, config, initEnv } from "./stores/config";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";
@@ -54,7 +54,7 @@ export let tools = TOOLS_DEFAULT;          // Aioli tools to load
 let divTerminal;                           // HTML element where terminal will be drawn
 const dispatch = createEventDispatcher();  // Send info to parent component when cmd is done
 
-$: if(ready) input();                      // Ask for user input once ready
+$: if(ready) initTerminal();                      // Ask for user input once ready
 
 
 // =============================================================================
@@ -102,6 +102,11 @@ function handleResize() {
 // xterm.js 
 // =============================================================================
 
+async function initTerminal() {
+	await initEnv();
+	await input();
+}
+
 // Get user input 
 async function input(toPrint)
 {
@@ -109,18 +114,6 @@ async function input(toPrint)
 		$xterm.writeln(toPrint);
 	$xterm.focus();
 
-	// Set prompt defaults in case the user deleted those variables with `unset`
-	let $envNew = $env;
-	let nothingNew = true;
-	for(let envVar in $config.env)
-		if(!$env[envVar]) {
-			$envNew[envVar] = $config.env[envVar];
-			nothingNew = false;
-		}
-	// Want to only update this var once because it's being subscribed by localStorage + DB
-	if(!nothingNew)
-		$env = $envNew;
-	
 	// Prepare prompt, e.g. "guest@sandbox$ "
 	const prompt = $env["PS1"].replaceAll('\\u', $env["USER"]).replaceAll('\\h', $config.hostname);
 	$xtermAddons.echo.read(`\u001b[1;34m${prompt}\u001b[0m`)

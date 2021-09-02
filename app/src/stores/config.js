@@ -21,6 +21,14 @@ const urlsSupabase = {
 		publicKey: ""
 	}
 };
+
+// -----------------------------------------------------------------------------
+// Variables that we'll export (_var will be exported as $var)
+// -----------------------------------------------------------------------------
+
+const _supabase = createClient(urlsSupabase[hostname].url, urlsSupabase[hostname].publicKey);
+const _user = _supabase.auth.user();
+
 const _config = {
 	// API
 	api: `https://${hostname}/api/v1`,
@@ -39,95 +47,67 @@ const _config = {
 // Exports
 // -----------------------------------------------------------------------------
 
-// User-defined variables
-export const env = writable({});
-
-// Progress in completing tutorials
-export const progress = writable({});
-
 // Login/Signup modal open or not
 export const loginModal = writable(false);
 
-// Supabase client
-export const supabase = readable(createClient(urlsSupabase[hostname].url, urlsSupabase[hostname].publicKey));
-export const user = writable(get(supabase).auth.user());
-
 // App settings (read-only)
 export const config = readable(_config);
+
+// User state
+export const supabase = readable(_supabase);
+export const user = writable(_user);
+export const env = writable({});
+export const progress = writable({});
 
 // -----------------------------------------------------------------------------
 // On change
 // -----------------------------------------------------------------------------
 
-const LOCAL_STORAGE_ENV = () => `env:${get(user)?.id || "guest"}`;
+const LOCAL_STORAGE_ENV = () => `env:${_user?.id || "guest"}`;
 
-// This is triggered when the page loads or when the user logs in / logs out
-user.subscribe(async userUpdated => {
-	let dataEnv = {}, dataProgress = {};
+// Fetch information from localForage / DB
+export async function initEnv()
+{
+	console.log("initEnv()")
+	let dataEnv = {};
 
-	// User is logged out ==> use env vars from local storage
-	if(userUpdated === null) {
+	// User is logged out ==> use env vars from localForage
+	if(_user === null) {
 		dataEnv = await localforage.getItem(LOCAL_STORAGE_ENV());
 
 	// User is logged in ==> use env vars from DB
 	} else {
-		const data = (await get(supabase).from("state").select()).data;
-		if(data?.length == 0)
-			dataEnv = null;
-		else {
-			dataEnv = data[0]?.env;
-			dataProgress = data[0]?.progress || {};
-		}
+		const data = (await _supabase.from("state").select()).data;  // always returns array, even if empty
+		dataEnv = data[0]?.env;
 	}
 
-	// If no data, initialize with default env vars
-	if(dataEnv === null)
-		dataEnv = get(config).env;
+	// Make sure default env vars are all defined
+	dataEnv = dataEnv || {};
+	for(let v in _config.env)
+		if(!dataEnv[v])
+			dataEnv[v] = _config.env[v];
+
 	env.set(dataEnv);
-	progress.set(dataProgress);
+}
+
+// This is triggered when the page loads or when the user logs in / logs out
+user.subscribe(async userUpdated => {
+	console.log("user.subscribe", userUpdated);
+	// let dataEnv = {}, dataProgress = {};
+	// progress.set(dataProgress);
 });
 
-// When an environment variable is updated, update local storage and DB
+// When an environment variable is updated, update localForage and DB
 env.subscribe(async envUpdated => {
 	if(JSON.stringify(envUpdated) === "{}")
 		return;
+	console.log("env.subscribe", envUpdated);
 
-	// Update localStorage for both guest/logged in users
-	await localforage.setItem(LOCAL_STORAGE_ENV(), envUpdated);
+	// // Update localForage for both guest/logged in users
+	// await localforage.setItem(LOCAL_STORAGE_ENV(), envUpdated);
 
-	// And update state in DB if user is logged in
-	if(get(user) !== null)
-		await updateState({ env: envUpdated });
+	// // And update state in DB if user is logged in
+	// if(_user !== null)
+	// 	await updateState({ env: envUpdated });
 });
 
-// When progress changes, update it in DB
-let progressLoggedOutCnt = 0;
-progress.subscribe(async progressUpdated => {
-	if(JSON.stringify(progressUpdated) === "{}")
-		return;
-
-	// Track # steps while being logged out
-	if(get(user) === null) {
-		progressLoggedOutCnt++;
-	// If logged in, update DB
-	} else {
-		await updateState({ progress: progressUpdated });
-		progressLoggedOutCnt = 0;
-	}
-
-	// If user has been advancing for a bit while logged out, suggest they login
-	if(progressLoggedOutCnt == 3)
-		loginModal.set(true);
-});
-
-// Utility function to update user state
-async function updateState(update) {
-	// Try to update
-	const { data, error } = await get(supabase).from("state").update(update).match({ user_id: get(user).id });
-
-	// If fails, do an insert
-	if(!data) {
-		update.user_id = get(user).id;
-		await get(supabase).from("state").insert(update);
-	}
-}
