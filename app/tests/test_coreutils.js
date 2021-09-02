@@ -17,6 +17,12 @@ describe("Test coreutils", () => {
 		});
 	});
 
+	it("whoami", async () => {
+		await $CLI.exec("USER=someuser");
+		observed = await $CLI.exec("whoami");
+		expect(observed).to.equal("someuser");
+	});
+
 	it("ls (folder)", async () => {
 		observed = await $CLI.exec(`ls ${FILE_SAM}`);
 		expect(observed).to.contain("toy.sam");
