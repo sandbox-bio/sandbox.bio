@@ -2,6 +2,7 @@
 import { onMount, createEventDispatcher } from "svelte";
 import { watchResize } from "svelte-watch-resize";
 import { Spinner, Table, Modal } from "sveltestrap";
+import AnsiUp from "ansi_up";
 import "xterm/css/xterm.css";
 
 // Imports
@@ -119,6 +120,19 @@ onMount(async () => {
 // Resize xterm when the window size changes
 function handleResize() {
 	$xtermAddons.fit.fit();
+}
+
+// =============================================================================
+// Export terminal as HTML
+// =============================================================================
+
+// Export ANSI to HTML and open in new tab
+function exportTerminal() {
+	const terminalRaw = $xtermAddons.serialize.serialize().replaceAll("[4C", "\t").replaceAll("[7C", "\t");
+	const terminalHTML = "<pre>" + (new AnsiUp).ansi_to_html(terminalRaw) + "</pre>";
+	const blob = new Blob([ terminalHTML ], { type: "text/html" });
+	const url = URL.createObjectURL(blob);
+	window.open(url);
 }
 
 // =============================================================================
