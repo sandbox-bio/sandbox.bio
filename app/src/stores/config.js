@@ -107,11 +107,22 @@ env.subscribe(async envUpdated => {
 	}
 	console.log("env.subscribe", envUpdated);
 
-	// // Update localForage for both guest/logged in users
-	// await localforage.setItem(LOCAL_STORAGE_ENV(), envUpdated);
-
-	// // And update state in DB if user is logged in
-	// if(_user !== null)
-	// 	await updateState({ env: envUpdated });
+	// Update localForage for both guest/logged in users
+	await localforage.setItem(LOCAL_STORAGE_ENV(), envUpdated);
+	// And update state in DB if user is logged in
+	if(_user !== null)
+		await updateState({ env: envUpdated });
 });
 
+// Utility function to update user state
+async function updateState(update) {
+	console.log("updateState", update)
+	// Try to update
+	const { data, error } = await _supabase.from("state").update(update).match({ user_id: _user.id });
+
+	// If fails, do an insert
+	if(!data) {
+		update.user_id = _user.id;
+		await _supabase.from("state").insert(update);
+	}
+}
