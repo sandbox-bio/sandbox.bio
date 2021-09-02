@@ -1,7 +1,7 @@
 <script>
 import { onMount, createEventDispatcher } from "svelte";
 import { watchResize } from "svelte-watch-resize";
-import { Spinner } from "sveltestrap";
+import { Spinner, Table, Modal } from "sveltestrap";
 import "xterm/css/xterm.css";
 
 // Imports
@@ -56,6 +56,8 @@ export let tools = TOOLS_DEFAULT;          // Aioli tools to load
 let aioliReady = false;                    // Equals true once Aioli is initialized
 let divTerminal;                           // HTML element where terminal will be drawn
 let nbInit = 0;                            // Number of times we've reinitialized the terminal (i.e. when user logs in/out)
+let modalKbdOpen = false;                  // Set to true when the shortcuts modal is open
+let modalKbdToggle = () => modalKbdOpen = !modalKbdOpen;
 const dispatch = createEventDispatcher();  // Send info to parent component when cmd is done
 
 $: ready = aioliReady && $status.app;      // Ready to go once both Aioli and the app are initialized
@@ -277,19 +279,59 @@ function getSharedSubstring(array){
 }
 </script>
 
+
+<!-- Terminal -->
 <div bind:this={divTerminal} use:watchResize={handleResize} style="opacity: { ready ? 1 : 0.6 }; height:85vh; max-height:85vh; overflow:hidden">
 	<!-- Hamburger menu for settings (nothing to show now, maybe later) -->
-	<!-- <div class="cli-options text-muted">
-		<i class="bi bi-three-dots-vertical" on:click={() => modalIsOpen = true}></i>
-	</div> -->
+	<div class="cli-options text-muted">
+		<i class="bi bi-three-dots-vertical" on:click={modalKbdToggle}></i>
+	</div>
 	{#if !ready}
 		<Spinner color="light" type="border" />
 	{/if}
 </div>
 
+<!-- Keyboard Shortcuts Modal -->
+<Modal body header="Keyboard Shortcuts" isOpen={modalKbdOpen} toggle={modalKbdToggle}>
+	<Table>
+		<thead>
+			<tr>
+				<th>Shortcut</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><code>Ctrl + L</code></td>
+				<td>Clear</td>
+			</tr>
+			<tr>
+				<td><code>Ctrl + A</code></td>
+				<td>Go to start of line</td>
+			</tr>
+			<tr>
+				<td><code>Ctrl + E</code></td>
+				<td>Go to end of line</td>
+			</tr>
+			<tr>
+				<td><code>Ctrl + W</code></td>
+				<td>Delete previous word</td>
+			</tr>
+			<tr>
+				<td><code>Alt + Left</code></td>
+				<td>Go to previous word</td>
+			</tr>
+			<tr>
+				<td><code>Alt + Right</code></td>
+				<td>Go to following word</td>
+			</tr>
+		</tbody>
+	</Table>
+</Modal>
+
 <style>
 /* Hamburger menu */
-/* .cli-options {
+.cli-options {
 	position: absolute;
 	right: 0;
 	z-index: 100;
@@ -298,5 +340,5 @@ function getSharedSubstring(array){
 
 .cli-options:hover {
 	color: white !important;
-} */
+}
 </style>
