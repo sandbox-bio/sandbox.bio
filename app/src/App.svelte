@@ -1,5 +1,5 @@
 <script>
-import { Modal, TabContent, TabPane } from "sveltestrap";
+import { Modal, TabContent, TabPane, Toast, ToastBody, ToastHeader } from "sveltestrap";
 import "bootstrap/dist/js/bootstrap.bundle";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -18,11 +18,26 @@ const path = window.location.pathname;
 const params = new URL(window.location).searchParams;
 
 // State
+let toastOpen = false;
+let toastToggle = () => toastOpen = !toastOpen;
 let loginModalOpen = false;
 let loginError = false;
 let loginSuccess = false;
 let signupError = false;
 let signupSuccess = false;
+
+// -----------------------------------------------------------------------------
+// Warn about losing progress if don't login
+// -----------------------------------------------------------------------------
+
+function remindLogin() {
+	if($user != null)
+		return;
+	toastToggle();
+	setTimeout(remindLogin, 60000);
+}
+setTimeout(remindLogin, 30000);
+
 
 // -----------------------------------------------------------------------------
 // User auth
@@ -102,6 +117,17 @@ onMount(async () => {
 	</ul>
 </header>
 
+<!-- Toast Alert -->
+<div class="p-4 mb-4 me-3 position-fixed bottom-0 end-0" style="z-index: 15">
+	<Toast autohide isOpen={toastOpen} class="me-1">
+		<ToastHeader toggle={toastToggle}>Reminder</ToastHeader>
+		<ToastBody>
+			Remember to log in to save your progress!
+		</ToastBody>
+	</Toast>
+</div>
+
+<!-- Main layout -->
 <main role="main" class="ps-4 pe-4">
 	{#if path == "/"}
 		<Home />
