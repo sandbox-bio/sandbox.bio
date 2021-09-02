@@ -7,7 +7,8 @@ import "xterm/css/xterm.css";
 // Imports
 import { xterm, xtermAddons } from "terminal/xterm";
 import { CLI } from "terminal/cli";
-import { config, env, envInit } from "./stores/config";
+import { config, env } from "./stores/config";
+import { status } from "./stores/status";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";
@@ -45,16 +46,17 @@ const AUTOCOMPLETE = {
 // State
 // =============================================================================
 
-export let ready = false;                  // Whether CLI is ready for user input
 export let intro = "";                     // Intro string to display on Terminal once ready (optional)
 export let init = "";                      // Command to run to initialize the environment (optional)
 export let files = [];                     // Files to preload on the filesystem
 export let tools = TOOLS_DEFAULT;          // Aioli tools to load
 
+let aioliReady = false;                    // Equals true once Aioli is initialized
 let divTerminal;                           // HTML element where terminal will be drawn
 const dispatch = createEventDispatcher();  // Send info to parent component when cmd is done
 
-$: if(ready) initTerminal();                      // Ask for user input once ready
+$: ready = aioliReady && $status.app;      // Ready to go once both Aioli and the app are initialized
+$: if(ready) input();                      // Ask for user input once ready
 
 
 // =============================================================================
@@ -86,7 +88,7 @@ onMount(async () => {
 		await $CLI.init({ tools, files });
 		if(init)
 			await $CLI.exec(init);
-		ready = true;
+		aioliReady = true;
 	} catch (error) {
 		console.error("Could not load terminal");
 		console.error(error)
@@ -101,11 +103,6 @@ function handleResize() {
 // =============================================================================
 // xterm.js 
 // =============================================================================
-
-async function initTerminal() {
-	await envInit();
-	await input();
-}
 
 // Get user input 
 async function input(toPrint)

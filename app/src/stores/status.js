@@ -2,5 +2,6 @@
 import { writable } from "svelte/store";
 
 export const status = writable({
-	terminal: "ready"
+	app: null,
+	terminal: null
 });

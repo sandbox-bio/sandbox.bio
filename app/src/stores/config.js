@@ -1,6 +1,7 @@
 import localforage from "localforage";
-import { get, readable, writable } from "svelte/store";
+import { get, set, readable, writable } from "svelte/store";
 import { createClient } from "@supabase/supabase-js";
+import { status } from "./stores/status";
 
 // -----------------------------------------------------------------------------
 // Config
@@ -63,24 +64,22 @@ export const progress = writable({});
 // On change
 // -----------------------------------------------------------------------------
 
-const LOCAL_STORAGE_ENV = () => `env:${_user?.id || "guest"}`;
-let dbDontUpdate = false;  // is set to true once the env info was fetched from the DB
-let appIsReady = false;    // is set to true once we get user login info on page load
-
 // Fetch information from localForage / DB
 export async function envInit()
 {
-	console.log("envInit()", _user.email);
-	let dataEnv = {};
+	status.set({ ...status, app: null });
+	console.log("envInit()", get(user)?.email);
+	let dataEnv = {}, dataProgress = {};
 
 	// User is logged out ==> use env vars from localForage
-	if(_user === null) {
-		dataEnv = await localforage.getItem(LOCAL_STORAGE_ENV());
+	if(get(user) === null) {
+		dataEnv = await localforage.getItem(getLocalForageKey());
 
 	// User is logged in ==> use env vars from DB
 	} else {
 		const data = (await _supabase.from("state").select()).data;  // always returns array, even if empty
 		dataEnv = data[0]?.env;
+		dataProgress = data[0]?.progress;
 	}
 
 	// Make sure default env vars are all defined
@@ -90,47 +89,63 @@ export async function envInit()
 			dataEnv[v] = _config.env[v];
 
 	// Update env variable but don't update DB because that's where we got the data from!
-	dbDontUpdate = true;
 	await env.set(dataEnv);
+	await progress.set(dataProgress);
+	status.set({ ...status, app: true });
 }
 
-// This is triggered when the user logs in / logs out (appIsReady means we don't trigger at page load)
+// When user logs in (object) or logs out (null)
 user.subscribe(async userUpdated => {
-	// Note that userUpdated == null is a valid state of being logged out
-	if(!appIsReady) {
-		appIsReady = true;
+	if(!get(status).app)
 		return;
-	}
-	console.log("user.subscribe", userUpdated.email);
+	console.log("user.subscribe", userUpdated?.email);
 	await envInit();
 });
 
-// When an environment variable is updated, update localForage and DB
+// When an environment variable is updated, update localForage+DB
 env.subscribe(async envUpdated => {
-	if(!envUpdated || JSON.stringify(envUpdated) === "{}")
+	if(!get(status).app)
 		return;
 	console.log("env.subscribe", envUpdated);
 
 	// Update localForage for both guest/logged in users
-	await localforage.setItem(LOCAL_STORAGE_ENV(), envUpdated);
+	await localforage.setItem(getLocalForageKey(), envUpdated);
 	// And update state in DB if user is logged in
-	if(_user !== null)
+	if(get(user) !== null)
 		await updateDB({ env: envUpdated });
 });
 
-// Utility function to update user state
-async function updateDB(update) {
-	if(dbDontUpdate) {
-		dbDontUpdate = false;
+// When tutorial progress is updated, update DB
+progress.subscribe(async progressUpdated => {
+	if(!get(status).app)
 		return;
-	}
+	console.log("progress.subscribe", progressUpdated);
+
+	// Update DB if user is logged in
+	if(get(user) !== null)
+		await updateDB({ progress: progressUpdated });
+});
+
+// -----------------------------------------------------------------------------
+// Utility functions
+// -----------------------------------------------------------------------------
+
+// The key to use for storing information in localForage
+function getLocalForageKey(type="env") {
+	if(type == "env")
+		return `env:${get(user)?.id || "guest"}`;
+	throw `Unexpected type ${type}.`;
+}
+
+// Update user state in DB
+async function updateDB(update) {
 	console.log("updateDB", update);
 
 	// Try to update
-	const { data, error } = await _supabase.from("state").update(update).match({ user_id: _user.id });
+	const { data, error } = await _supabase.from("state").update(update).match({ user_id: get(user).id });
 	// If fails, do an insert
 	if(!data) {
-		update.user_id = _user.id;
+		update.user_id = get(user).id;
 		await _supabase.from("state").insert(update);
 	}
 }

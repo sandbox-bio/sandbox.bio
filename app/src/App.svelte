@@ -8,8 +8,9 @@ import Tutorial from "./tutorials/Tutorial.svelte";
 import Terminal from "./terminal/Terminal.svelte";
 import Login from "./components/Login.svelte";
 import Listings from "./components/Listings.svelte";
-import { config, supabase, user, progress, loginModal } from "./stores/config";
+import { config, supabase, user, progress, loginModal, envInit } from "./stores/config";
 import { tutorials } from "./stores/tutorials";
+import { onMount } from "svelte";
 
 // Config
 const intro = $config.playground;
@@ -49,6 +50,10 @@ async function logout() {
 	if(data.error == null)
 		$user = null;
 }
+
+onMount(async () => {
+	await envInit();
+})
 </script>
 
 <svelte:head>

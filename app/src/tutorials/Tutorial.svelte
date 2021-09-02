@@ -43,7 +43,7 @@ function nextStep(step)
 	}
 
 	// Update progress in one shot (each time change $progress, makes call to DB)
-	let progressNew = $progress;
+	let progressNew = $progress || {};
 	if(!(tutorial.id in progressNew))
 		progressNew[tutorial.id] = { step: 0 };
 	// But only if the current step is greater!
