@@ -53,10 +53,11 @@ export let tools = TOOLS_DEFAULT;          // Aioli tools to load
 
 let aioliReady = false;                    // Equals true once Aioli is initialized
 let divTerminal;                           // HTML element where terminal will be drawn
+let nbInit = 0;                            // Number of times we've reinitialized the terminal (i.e. when user logs in/out)
 const dispatch = createEventDispatcher();  // Send info to parent component when cmd is done
 
 $: ready = aioliReady && $status.app;      // Ready to go once both Aioli and the app are initialized
-$: if(ready) input();                      // Ask for user input once ready
+$: if(ready) { nbInit++; input(); }        // Ask for user input once ready
 
 
 // =============================================================================
@@ -107,6 +108,10 @@ function handleResize() {
 // Get user input 
 async function input(toPrint)
 {
+	if(nbInit > 1) {
+		$xterm.writeln("");
+		nbInit = 1;
+	}
 	if(toPrint)
 		$xterm.writeln(toPrint);
 	$xterm.focus();
