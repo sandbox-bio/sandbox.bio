@@ -79,6 +79,7 @@ describe("Test coreutils", () => {
 		expect(observed).to.equal("/tmp");
 
 		// Test cd ~
+		await $CLI.exec("HOME=/shared/data")
 		await $CLI.exec("cd ~");
 		observed = await $CLI.exec("pwd");
 		expect(observed).to.equal("/shared/data");
