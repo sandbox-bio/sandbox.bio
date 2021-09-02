@@ -279,6 +279,7 @@ const coreutils = {
 	env: args => Object.keys($env).map(v => `${v}=${$env[v]}`).join("\n"),
 	hostname: args => "sandbox",
 	uname: args => "sandbox.bio",
+	whoami: args => $env?.USER || "guest",
 	date: args => new Date().toLocaleString(),
 	unset: args => {
 		args._.map(v => delete $env[v]);

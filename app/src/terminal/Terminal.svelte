@@ -30,6 +30,7 @@ const AUTOCOMPLETE = {
 	pwd: [],
 	cd: [],
 	echo: [],
+	unset: [],
 	mv: [],
 	rm: [],
 	cp: [],
@@ -38,7 +39,7 @@ const AUTOCOMPLETE = {
 	env: [],
 	hostname: [],
 	uname: [],
-	unset: []
+	whoami: []
 };
 
 
