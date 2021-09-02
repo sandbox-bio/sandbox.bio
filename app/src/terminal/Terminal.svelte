@@ -109,7 +109,7 @@ function handleResize() {
 async function input(toPrint)
 {
 	if(nbInit > 1) {
-		$xterm.writeln("");
+		$xterm.writeln("\n");
 		nbInit = 1;
 	}
 	if(toPrint)

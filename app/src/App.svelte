@@ -8,7 +8,7 @@ import Tutorial from "./tutorials/Tutorial.svelte";
 import Terminal from "./terminal/Terminal.svelte";
 import Login from "./components/Login.svelte";
 import Listings from "./components/Listings.svelte";
-import { config, supabase, user, progress, loginModal, envInit } from "./stores/config";
+import { config, supabase, user, progress, envInit } from "./stores/config";
 import { tutorials } from "./stores/tutorials";
 import { onMount } from "svelte";
 
@@ -18,6 +18,7 @@ const path = window.location.pathname;
 const params = new URL(window.location).searchParams;
 
 // State
+let loginModalOpen = false;
 let loginError = false;
 let loginSuccess = false;
 let signupError = false;
@@ -39,7 +40,7 @@ async function login(credentials) {
 	loginError = data.error?.message;
 	if(!data.error) {
 		loginError = false;
-		$loginModal = false;
+		loginModalOpen = false;
 		$user = data.user;
 	}
 }
@@ -84,7 +85,7 @@ onMount(async () => {
 		</li>
 		<li class="nav-item">
 			{#if $user == null}
-				<button class="btn btn-link text-decoration-none" on:click={() => $loginModal = !$loginModal}>Log in</button>
+				<button class="btn btn-link text-decoration-none" on:click={() => loginModalOpen = !loginModalOpen}>Log in</button>
 			{:else}
 				<div class="flex-shrink-0 dropdown pt-1 ps-2">
 					<!-- svelte-ignore a11y-invalid-attribute -->
@@ -118,7 +119,7 @@ onMount(async () => {
 </main>
 
 <!-- Login/Signup modal -->
-<Modal body header="" toggle={() => $loginModal = !$loginModal} isOpen={$loginModal}>
+<Modal body header="" toggle={() => loginModalOpen = !loginModalOpen} isOpen={loginModalOpen}>
 	<TabContent>
 		<TabPane tabId="login" active>
 			<span slot="tab"><h5>Log in</h5></span>

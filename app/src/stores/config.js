@@ -1,5 +1,5 @@
 import localforage from "localforage";
-import { get, set, readable, writable } from "svelte/store";
+import { get, readable, writable } from "svelte/store";
 import { createClient } from "@supabase/supabase-js";
 import { status } from "./status";
 
@@ -47,9 +47,6 @@ const _config = {
 // -----------------------------------------------------------------------------
 // Exports
 // -----------------------------------------------------------------------------
-
-// Login/Signup modal open or not
-export const loginModal = writable(false);
 
 // App settings (read-only)
 export const config = readable(_config);
