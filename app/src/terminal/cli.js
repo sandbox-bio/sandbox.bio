@@ -568,6 +568,8 @@ const minimistConfig = {
 // =============================================================================
 
 const fsSave = async function(tutorial) {
+	if(!tutorial?.id)
+		return;
 	console.log("Saving filesystem state...")
 	const files = await coreutils.ls(["/shared/data"], true);
 	const filesPreloaded = tutorial.files.map(f => f.split("/").pop());
@@ -581,6 +583,8 @@ const fsSave = async function(tutorial) {
 }
 
 const fsLoad = async function(tutorial) {
+	if(!tutorial?.id)
+		return;
 	console.log("Loading filesystem state...")
 	const data = await localforage.getItem(`${getLocalForageKey("fs")}${tutorial.id}`);
 	for(let path in data)
