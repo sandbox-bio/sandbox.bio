@@ -79,10 +79,9 @@ export async function envInit()
 		dataProgress = data[0]?.progress;
 	}
 
+	// Make sure default env vars are all defined
 	dataEnv = dataEnv || {};
 	dataProgress = dataProgress || {};
-
-	// Make sure default env vars are all defined
 	for(let v in _config.env)
 		if(!dataEnv[v])
 			dataEnv[v] = _config.env[v];
@@ -134,9 +133,11 @@ progress.subscribe(async progressUpdated => {
 // -----------------------------------------------------------------------------
 
 // The key to use for storing information in localForage
-function getLocalForageKey(type="env") {
+export function getLocalForageKey(type="env") {
 	if(type == "env")
 		return `env:${get(user)?.id || "guest"}`;
+	else if(type == "fs")
+		return `fs:${get(user)?.id || "guest"}:`;
 	throw `Unexpected type ${type}.`;
 }
 
