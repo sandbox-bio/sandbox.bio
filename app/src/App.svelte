@@ -118,12 +118,14 @@ onMount(async () => {
 			{#if $user == null}
 				<button class="btn btn-link text-decoration-none" on:click={() => loginModalOpen = !loginModalOpen}>Log in</button>
 			{:else}
-				<div class="flex-shrink-0 dropdown pt-1 ps-2">
+				<div class="flex-shrink-0 dropdown ps-2">
 					<!-- svelte-ignore a11y-invalid-attribute -->
-					<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-						<img src="https://github.com/robertaboukhalil.png" alt="My profile" width="32" height="32" class="rounded-circle">
+					<a href="#" class="d-block link-dark text-decoration-none" id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
+						<span class="text-primary" style="font-size: 1.7rem;">
+							<Icon name="person-circle" />
+						</span>
 					</a>
-					<ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2" style="">
+					<ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser" style="">
 						<li><button class="dropdown-item disabled btn-sm" type="button">{$user.email}</button></li>
 						<li><button class="dropdown-item" type="button" on:click={logout}>Log out</button></li>
 					</ul>
