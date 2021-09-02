@@ -64,12 +64,13 @@ export const progress = writable({});
 // -----------------------------------------------------------------------------
 
 const LOCAL_STORAGE_ENV = () => `env:${_user?.id || "guest"}`;
+let dbDontUpdate = false;  // is set to true once the env info was fetched from the DB
+let appIsReady = false;    // is set to true once we get user login info on page load
 
 // Fetch information from localForage / DB
-let envInitialized = false;  // is set to true once the env info was fetched from the DB
 export async function envInit()
 {
-	console.log("envInit()")
+	console.log("envInit()", _user.email);
 	let dataEnv = {};
 
 	// User is logged out ==> use env vars from localForage
@@ -88,38 +89,45 @@ export async function envInit()
 		if(!dataEnv[v])
 			dataEnv[v] = _config.env[v];
 
-	envInitialized = true;  // i.e. don't want env.subscribe to catch it
+	// Update env variable but don't update DB because that's where we got the data from!
+	dbDontUpdate = true;
 	await env.set(dataEnv);
 }
 
-// This is triggered when the page loads or when the user logs in / logs out
+// This is triggered when the user logs in / logs out (appIsReady means we don't trigger at page load)
 user.subscribe(async userUpdated => {
-	console.log("user.subscribe", userUpdated);
-	// let dataEnv = {}, dataProgress = {};
-	// progress.set(dataProgress);
+	// Note that userUpdated == null is a valid state of being logged out
+	if(!appIsReady) {
+		appIsReady = true;
+		return;
+	}
+	console.log("user.subscribe", userUpdated.email);
+	await envInit();
 });
 
 // When an environment variable is updated, update localForage and DB
 env.subscribe(async envUpdated => {
-	if(!envUpdated || JSON.stringify(envUpdated) === "{}" || envInitialized) {
-		envInitialized = false;
+	if(!envUpdated || JSON.stringify(envUpdated) === "{}")
 		return;
-	}
 	console.log("env.subscribe", envUpdated);
 
 	// Update localForage for both guest/logged in users
 	await localforage.setItem(LOCAL_STORAGE_ENV(), envUpdated);
 	// And update state in DB if user is logged in
 	if(_user !== null)
-		await updateState({ env: envUpdated });
+		await updateDB({ env: envUpdated });
 });
 
 // Utility function to update user state
-async function updateState(update) {
-	console.log("updateState", update)
+async function updateDB(update) {
+	if(dbDontUpdate) {
+		dbDontUpdate = false;
+		return;
+	}
+	console.log("updateDB", update);
+
 	// Try to update
 	const { data, error } = await _supabase.from("state").update(update).match({ user_id: _user.id });
-
 	// If fails, do an insert
 	if(!data) {
 		update.user_id = _user.id;
