@@ -66,9 +66,10 @@ export const progress = writable({});
 const LOCAL_STORAGE_ENV = () => `env:${_user?.id || "guest"}`;
 
 // Fetch information from localForage / DB
-export async function initEnv()
+let envInitialized = false;  // is set to true once the env info was fetched from the DB
+export async function envInit()
 {
-	console.log("initEnv()")
+	console.log("envInit()")
 	let dataEnv = {};
 
 	// User is logged out ==> use env vars from localForage
@@ -87,7 +88,8 @@ export async function initEnv()
 		if(!dataEnv[v])
 			dataEnv[v] = _config.env[v];
 
-	env.set(dataEnv);
+	envInitialized = true;  // i.e. don't want env.subscribe to catch it
+	await env.set(dataEnv);
 }
 
 // This is triggered when the page loads or when the user logs in / logs out
@@ -99,8 +101,10 @@ user.subscribe(async userUpdated => {
 
 // When an environment variable is updated, update localForage and DB
 env.subscribe(async envUpdated => {
-	if(JSON.stringify(envUpdated) === "{}")
+	if(!envUpdated || JSON.stringify(envUpdated) === "{}" || envInitialized) {
+		envInitialized = false;
 		return;
+	}
 	console.log("env.subscribe", envUpdated);
 
 	// // Update localForage for both guest/logged in users

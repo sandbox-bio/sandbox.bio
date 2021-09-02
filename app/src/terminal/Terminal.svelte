@@ -7,7 +7,7 @@ import "xterm/css/xterm.css";
 // Imports
 import { xterm, xtermAddons } from "terminal/xterm";
 import { CLI } from "terminal/cli";
-import { env, config, initEnv } from "./stores/config";
+import { config, env, envInit } from "./stores/config";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";
@@ -103,7 +103,7 @@ function handleResize() {
 // =============================================================================
 
 async function initTerminal() {
-	await initEnv();
+	await envInit();
 	await input();
 }
 
