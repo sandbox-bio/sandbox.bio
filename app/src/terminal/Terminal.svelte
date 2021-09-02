@@ -312,9 +312,15 @@ function getSharedSubstring(array){
 
 <!-- Terminal -->
 <div bind:this={divTerminal} use:watchResize={handleResize} style="opacity: { ready ? 1 : 0.6 }; height:85vh; max-height:85vh; overflow:hidden">
-	<!-- Hamburger menu for settings (nothing to show now, maybe later) -->
+	<!-- Hamburger menu for settings -->
 	<div class="cli-options text-muted">
-		<i class="bi bi-three-dots-vertical" on:click={modalKbdToggle}></i>
+		<button class="btn btn-outline-secondary p-0 m-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<i class="bi bi-three-dots-vertical"></i>
+		</button>
+		<ul class="dropdown-menu">
+			<li><button class="dropdown-item" on:click={exportTerminal}>Export as HTML</button></li>
+			<li><button class="dropdown-item" on:click={modalKbdToggle}>Keyboard Shortcuts</button></li>
+		</ul>
 	</div>
 	{#if !ready}
 		<Spinner color="light" type="border" />
