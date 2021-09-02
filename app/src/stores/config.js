@@ -1,7 +1,7 @@
 import localforage from "localforage";
 import { get, set, readable, writable } from "svelte/store";
 import { createClient } from "@supabase/supabase-js";
-import { status } from "./stores/status";
+import { status } from "./status";
 
 // -----------------------------------------------------------------------------
 // Config
