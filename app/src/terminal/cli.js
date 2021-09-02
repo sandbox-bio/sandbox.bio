@@ -12,8 +12,9 @@ import parse from "shell-parse";         // Transforms a bash command into an AS
 import columnify from "columnify";       // Prettify columnar output
 import prettyBytes from "pretty-bytes";  // Prettify number of bytes
 import minimist from "minimist";         // Parse CLI arguments
+import localforage from "localforage";
 import Aioli from "@biowasm/aioli";
-import { env } from "../stores/config";
+import { env, getLocalForageKey } from "../stores/config";
 
 // State
 let _aioli = {};   // Aioli object
@@ -562,6 +563,28 @@ const minimistConfig = {
 	echo: { boolean: ["e", "n"] }
 };
 
+// =============================================================================
+// File system caching functions
+// =============================================================================
+
+const fsSave = async function(tutorial) {
+	const files = await coreutils.ls(["/shared/data"], true);
+	const filesPreloaded = tutorial.files.map(f => f.split("/").pop());
+	const filesToCache = files.map(f => f.name).filter(f => !filesPreloaded.includes(f));
+
+	// Cache user-created files in a tutorial-specific localforage key
+	const data = {};
+	for(let path of filesToCache)
+		data[path] = await _fs.readFile(path, { "encoding": "binary" });
+	await localforage.setItem(`${getLocalForageKey("fs")}${tutorial.id}`, data);
+}
+
+const fsLoad = async function(tutorial) {
+	const data = await localforage.getItem(`${getLocalForageKey("fs")}${tutorial.id}`);
+	for(let path in data)
+		await utils.writeFile(path, data[path], { encoding: "binary" });
+}
+
 
 // =============================================================================
 // Export CLI as a readable store
@@ -570,5 +593,7 @@ const minimistConfig = {
 export const CLI = readable({
 	init,
 	exec,
-	coreutils
+	coreutils,
+	fsSave,
+	fsLoad
 });
