@@ -136,7 +136,7 @@ async function exec(cmd)
 	try {
 		// Get output from the command (only the synchronous commands that didn't use `&`).
 		// Note: 2nd arg = callback that is called when an asynchronous command finishes.
-		output = await $CLI.exec(cmd, out => $xterm.write(out));
+		output = await $CLI.exec(cmd, out => $xterm.write(filter(out)));
 		// Add extra break line so there's room to see what's going on in the terminal
 	} catch (error) {
 		output = error;
@@ -148,14 +148,18 @@ async function exec(cmd)
 	// so it can be reused in other applications that don't have it.
 	dispatch("status", "execDone");
 
-	// Band-aid: don't show bowtie2 thread warnings
-	if(typeof output === "string")
-		output = output.replaceAll("pthread_sigmask() is not supported: this is a no-op.\n", "");
-
 	// Ask the user for the next input
 	return input(output);
 }
 
+// Filter out warnings
+function filter(output) {
+	// Band-aid: don't show bowtie2 thread warnings
+	if(typeof output === "string")
+		output = output.replaceAll("pthread_sigmask() is not supported: this is a no-op.\n", "");
+
+	return output;
+}
 
 // =============================================================================
 // xterm.js handlers
