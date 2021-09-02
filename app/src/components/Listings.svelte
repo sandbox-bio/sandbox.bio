@@ -24,13 +24,13 @@ export let max = Infinity;  // max number of tutorials to list
 					{info.name}
 					{#if info.id in $progress}
 						{#if $progress[info.id].step == (info.steps.length - 1)}
-							<Icon id={`icon-${info.id}`} class="float-end text-success" name="check-circle" />
+							<Icon id={`icon-${info.id}`} class="float-end text-success" name="check-circle-fill" />
 							<Tooltip target={`icon-${info.id}`}>
 								Done!
 							</Tooltip>
 						{:else if $progress[info.id].step && $progress[info.id].step > 0}
 							<a href={`/tutorials?id=${info.id}&step=${$progress[info.id].step}`}>
-								<Icon id={`icon-${info.id}`} class="float-end text-primary" name="hourglass-split" />
+								<Icon id={`icon-${info.id}`} class="float-end text-primary" name="circle-half" />
 							</a>	
 							<Tooltip target={`icon-${info.id}`}>
 								You're at step {$progress[info.id].step + 1} / {info.steps.length}

@@ -79,8 +79,10 @@ export async function envInit()
 		dataProgress = data[0]?.progress;
 	}
 
-	// Make sure default env vars are all defined
 	dataEnv = dataEnv || {};
+	dataProgress = dataProgress || {};
+
+	// Make sure default env vars are all defined
 	for(let v in _config.env)
 		if(!dataEnv[v])
 			dataEnv[v] = _config.env[v];

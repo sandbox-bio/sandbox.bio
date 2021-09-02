@@ -1,5 +1,6 @@
 <script>
-import { Modal, TabContent, TabPane, Toast, ToastBody, ToastHeader } from "sveltestrap";
+import { onMount } from "svelte";
+import { Modal, TabContent, TabPane, Toast, ToastBody, ToastHeader, Icon } from "sveltestrap";
 import "bootstrap/dist/js/bootstrap.bundle";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -10,7 +11,6 @@ import Login from "./components/Login.svelte";
 import Listings from "./components/Listings.svelte";
 import { config, supabase, user, progress, envInit } from "./stores/config";
 import { tutorials } from "./stores/tutorials";
-import { onMount } from "svelte";
 
 // Config
 const intro = $config.playground;
@@ -90,7 +90,24 @@ onMount(async () => {
 				<li><a class="dropdown-item" href="/tutorials">Browse all</a></li>
 				<li><hr class="dropdown-divider"></li>
 				{#each $tutorials as tutorial}
-					<li><a class="dropdown-item" class:text-success={tutorial.steps.length - 1 == $progress[tutorial.id]?.step} href="/tutorials?id={tutorial.id}">{tutorial.name}</a></li>
+					<li>
+						{#if $progress[tutorial.id]?.step == tutorial.steps.length - 1}
+							<a class="dropdown-item text-success" href="/tutorials?id={tutorial.id}">
+								<Icon name="check-circle-fill" />
+								{tutorial.name}
+							</a>
+						{:else if $progress[tutorial.id]?.step > 0}
+							<a class="dropdown-item text-primary" href="/tutorials?id={tutorial.id}&step={$progress[tutorial.id]?.step}">
+								<Icon name="circle-half" />
+								{tutorial.name}
+							</a>
+						{:else}
+							<a class="dropdown-item" href="/tutorials?id={tutorial.id}">
+								<Icon name="circle" />
+								{tutorial.name}
+							</a>
+						{/if}
+					</li>
 				{/each}
 			</ul>
 		</li>
