@@ -182,7 +182,7 @@ async function exec(cmd, callback=console.warn)
 				output = await coreutils[tool](args);
 			// Otherwise, try running the command with Aioli
 			else {
-				const outputAioli = await _aioli.exec(`${tool} ${argsRaw.join(" ")}`.trim());
+				const outputAioli = await _aioli.exec(tool, argsRaw);
 				// Output the stderr now
 				callback(outputAioli.stderr);
 				// Either output the stdout or pass it along with the pipe
