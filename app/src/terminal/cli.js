@@ -403,7 +403,17 @@ const coreutils = {
 	// -------------------------------------------------------------------------
 	curl: async args => {
 		const url = args._[0];
-		return await fetch(url).then(d => d.text());
+		const contents = await fetch(url).then(d => d.text());
+
+		// Output to file
+		if(args.o || args.O) {
+			if(args.O)
+				args.o = url.split("/").pop();
+			await utils.writeFile(args.o, contents);
+			return "";
+		}
+
+		return contents;
 	},
 
 	// -------------------------------------------------------------------------
