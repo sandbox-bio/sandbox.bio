@@ -7,6 +7,10 @@ Before I can use `sort` to sort the labels from my GitHub API request, I need to
 
 `jq` is a filter in the UNIX command line sense. You pipe (`|`) a JSON document to it, and it filters it and outputs it to standard out. I could easily use this feature to chain together `jq` invocations like this:
 
+<Execute command={`echo '{"title":"JQ Select"}' | \\ jq '.title' | \\ jq 'length'`} />
+
+This is a wordy, though simple, way to determine the length of a string in a JSON document. You can use this same idea to combine various `jq` built-in functions with the features I've shown so far. But there is an easier way, though. You can use pipes inside of `jq` and conceptually they work just like shell pipes:
+
 <Execute command={`echo '{"title": "JQ Select"}' | \\ jq '.title | length'`} />
 
 Here are some more examples:
