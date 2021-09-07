@@ -27,7 +27,7 @@ Other built-ins that mirror JavaScript functionality are available, like `length
 
 If I can combine these built-ins with the selectors I've built up so far, I'll have solved my label sorting problem. So I'll show that next.
 
-<Alert color="secondary">
+<Alert>
 	**What I Learned: Array-Index**:
 
 	`jq` has many built-in functions. There are probably too many to remember but the built-ins tend to mirror JavaScript functions, so give those a try before heading to the <Link href="https://stedolan.github.io/jq/manual/#Builtinoperatorsandfunctions">jq manual</Link>, and you might get lucky.

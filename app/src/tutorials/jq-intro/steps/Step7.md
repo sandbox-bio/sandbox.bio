@@ -23,7 +23,7 @@ And if you want just a label count that is easy as well:
 
 <Execute command={`jq '{ title: .title, number: .number, labels: .labels | length }' issue.json`} />
 
-<Alert color="secondary">
+<Alert>
 	**What I Learned: Pipes and Filters**:
 
 	Everything in `jq` is a filter that you can combine with pipes (`|`). This mimics the behavior of a UNIX shell.

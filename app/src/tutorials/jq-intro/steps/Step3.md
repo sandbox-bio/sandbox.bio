@@ -24,7 +24,7 @@ My GitHub issue title filter (`.[].title`) then becomes `[ .[].title ]` like thi
 
 Now I have a valid JSON document.
 
-<Alert color="secondary">
+<Alert>
 	**What I Learned: Array Constructors**:
 
 	If your `jq` query returns more than one element, they will be returned newline delimited.

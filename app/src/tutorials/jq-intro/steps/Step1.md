@@ -21,7 +21,7 @@ You can drill in as far as you want like this:
 
 <Execute command={`jq '.owner.login' repo.json`} />
 
-<Alert color="secondary">
+<Alert>
 	**What I Learned: Object Identifier-Index**:
 	
 	`jq` lets you select elements in a JSON document like it's a JavaScript object. Just start with `.` (for the whole document) and drill down to the value you want. It ends up looking something like this:

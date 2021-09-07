@@ -32,7 +32,7 @@ Returning to my GitHub API problem, to wrap the number and the title up into an 
 
 <Execute command={`jq '[ .[] | { title: .title, number: .number}]' issues.json`} />
 
-<Alert color="secondary">
+<Alert>
 	**What I Learned: Object Constructors**:
 
 	To put the elements you've selected back into a JSON document, you can wrap them in an object constructor <code>&#123; ... &#125;</code>.

@@ -37,7 +37,7 @@ And you can use `[]` to get all the elements in the array. For example, here is 
 
 <Execute command={`jq '.[].title' issues.json`} />
 
-<Alert color="secondary">
+<Alert>
 	**What I Learned: Array-Index**:
 
 	`jq` lets you select the whole array `[]`, a specific element `[3]`, or ranges `[2:5]` and combine these with the object index if needed.
