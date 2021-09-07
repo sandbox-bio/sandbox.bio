@@ -3,9 +3,9 @@ import Alert from "components/Alert.svelte";
 import Execute from "components/Execute.svelte";
 </script>
 
-I'm going to use `jq` to filter the data returned by the GitHub repository API:
+I'm going to use `jq` to filter the data returned by the GitHub repository API. The data I get back by default looks like this:
 
-<Execute command={`curl "https://api.github.com/repos/stedolan/jq" > repo.json`} />
+<Execute command={`curl "https://api.github.com/repos/stedolan/jq" > repo.json; cat repo.json`} />
 
 `jq` lets us treat the JSON document as an object and select elements inside of it.
 

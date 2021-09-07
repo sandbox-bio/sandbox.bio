@@ -6,7 +6,7 @@ import Execute from "components/Execute.svelte";
 
 The next problem I have is that I want to summarize some this JSON data. Each issue returned by GitHub has a collection of labels:
 
-<Execute command={`jq '.' issue.json`} />
+<Execute command={`jq '{ title: .title, number: .number, labels: .labels }' issue.json`} />
 
 If I want those labels in alphabetical order I can use the built in `sort` function. It works like this:
 

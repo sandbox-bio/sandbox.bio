@@ -39,7 +39,7 @@ Returning to my GitHub API problem, to wrap the number and the title up into an 
 
 	If you were building up a JSON object out of several selectors, it would end up looking something like this:
 
-	<code>jq '&#123; "key1": &lt;&lt;jq filter&gt;&gt;, "key2": &lt;&lt;jq filter&gt;&gt; &#125;'`</code><br /><br />
+	<code>jq '&#123; "key1": &lt;&lt;jq filter&gt;&gt;, "key2": &lt;&lt;jq filter&gt;&gt; &#125;'</code><br /><br />
 
 	Which is the same syntax for an object in a JSON document, except with jq you can use filters as values.
 </Alert>

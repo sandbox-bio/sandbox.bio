@@ -3,6 +3,8 @@ import Alert from "components/Alert.svelte";
 import Execute from "components/Execute.svelte";
 </script>
 
+This concludes the tutorial on using `jq`!
+
 <Alert>
 	**What I Learned**:
 
