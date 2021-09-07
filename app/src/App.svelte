@@ -33,9 +33,9 @@ let signupSuccess = false;
 function remindLogin() {
 	if($user === null && path.startsWith("/tutorials"))
 		toastToggle();
-	setTimeout(remindLogin, 60000);
+	setTimeout(remindLogin, 300_000);  // every 5 mins
 }
-setTimeout(remindLogin, 30000);
+setTimeout(remindLogin, 30_000);
 
 
 // -----------------------------------------------------------------------------

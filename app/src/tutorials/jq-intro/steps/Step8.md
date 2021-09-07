@@ -30,19 +30,3 @@ Putting this all together looks like this:
 <Execute command={`jq 'map({ title: .title, number: .number, labels: .labels | length }) | \\ map(select(.labels > 0))' issues.json`} />
 
 This uses three object indexes, two maps, two pipes, a `length` function, and a `select` predicate. But if you've followed along, this should all make sense. It's all just composing together filters until you get the result you need.
-
-<Alert>
-	**What I Learned**:
-
-	`jq` lets you select elements by starting with a `.` and accessing keys and arrays like it's a JavaScript Object (which it is). This feature uses the Object and Array index `jq` creates of a JSON document and look like this:
-
-	`jq '.key[0].subkey[2:3].subsubkey'`
-
-	`jq` programs can contain object constructors `&#123; ... &#125;` and array constructors `[ ... ]`. You use these when you want to wrap back up something you've pulled out of a JSON document using the above indexes:
-
-	`jq '[&#123; key1: .key1, key2: .key2 &#125;]'`
-
-	`jq` contains built-in functions (`length`, `sort`, `select`, `map`) and pipes (`|`), and you can compose these together just like you can combine pipes and filters at the command line:
-
-	`jq 'map(&#123; order-of-magitude: .items | length | tostring | length &#125;)`
-</Alert>

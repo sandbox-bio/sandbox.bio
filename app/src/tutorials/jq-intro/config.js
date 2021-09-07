@@ -9,7 +9,6 @@ import Step6 from "./steps/Step6.md";
 import Step7 from "./steps/Step7.md";
 import Step8 from "./steps/Step8.md";
 import Step9 from "./steps/Step9.md";
-import Step10 from "./steps/Step10.md";
 
 export const config = {
 	id: "jq-intro",
@@ -20,16 +19,15 @@ export const config = {
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "Introduction to jq", component: Intro },
-		{ name: "Select Elements", component: Step1 },
-		{ name: "Select Arrays", component: Step2 },
-		{ name: "Putting Elements in an Array", component: Step3 },
-		{ name: "Select Multiple Fields", component: Step4 },
-		{ name: "Putting Elements Into an Object", component: Step5 },
-		{ name: "Sorting and Counting", component: Step6 },
-		{ name: "Pipes and Filters", component: Step7 },
-		{ name: "Maps and Selects", component: Step8 },
-		{ name: "In Review", component: Step9 },
-		// { name: "The end", component: Conclusion, header: true }
+		{ name: "Filter data", component: Step1, subtitle: "Select Elements", header: true },
+		{ name: "Filter data", component: Step2, subtitle: "Select Arrays" },
+		{ name: "Filter data", component: Step3, subtitle: "Putting Elements in an Array" },
+		{ name: "Filter data", component: Step4, subtitle: "Select Multiple Fields" },
+		{ name: "Filter data", component: Step5, subtitle: "Putting Elements Into an Object" },
+		{ name: "Summarize data", component: Step6, subtitle: "Sorting and Counting", header: true },
+		{ name: "Summarize data", component: Step7, subtitle: "Pipes and Filters" },
+		{ name: "Summarize data", component: Step8, subtitle: "Maps and Selects" },
+		{ name: "The end", component: Step9, subtitle: "In Review", header: true }
 	],
 	files: [
 		"data/jq-intro/repo.json",
