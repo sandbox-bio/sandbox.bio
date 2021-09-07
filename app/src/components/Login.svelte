@@ -5,6 +5,7 @@ import { Alert } from "sveltestrap";
 export let type = "login";  // Supported: login, signup
 export let error = false;
 export let success = false;
+export let busy = false;
 
 // Form state
 let email = "";
@@ -20,12 +21,12 @@ function run() {
 </script>
 
 <div class="form-floating mb-1">
-	<input type="email" class="form-control rounded-4" id="email-{type}" placeholder="name@example.com" bind:value={email}>
+	<input type="email" class="form-control rounded-4" id="email-{type}" placeholder="name@example.com" bind:value={email} disabled={busy}>
 	<label for="email-{type}">Email address</label>
 </div>
 
 <div class="form-floating mb-3">
-	<input type="password" class="form-control rounded-4" id="password-{type}" placeholder="Password" bind:value={password} on:keypress={e => { if (e.key === "Enter")run(); }}>
+	<input type="password" class="form-control rounded-4" id="password-{type}" placeholder="Password" bind:value={password} on:keypress={e => { if (e.key === "Enter")run(); }} disabled={busy}>
 	<label for="password-{type}">Password</label>
 </div>
 
@@ -41,7 +42,7 @@ function run() {
 	</Alert>
 {/if}
 
-<button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" on:click={run}>
+<button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" on:click={run} disabled={busy}>
 	{#if type == "login"}
 		Log in
 	{:else}
