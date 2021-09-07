@@ -14,12 +14,12 @@ const urlsSupabase = {
 		publicKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTMyODIwNCwiZXhwIjoxOTQ0OTA0MjA0fQ.7DzKM4bOGK1t-pPkfSe-2ALxcW5xWwcsaZfbCMWDBbY"
 	},
 	"stg.sandbox.bio": {
-		url: "",
-		publicKey: ""
+		url: "https://jpdymnmaakzeyqyfomcs.supabase.co",
+		publicKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTQ5NDc2OCwiZXhwIjoxOTQ1MDcwNzY4fQ.yDPUlm_KtaGQDW6CaCkbvVBpPFAokW5VBNmFcPPp0fg"
 	},
 	"prd.sandbox.bio": {
-		url: "",
-		publicKey: ""
+		url: "https://vjmttfnyctkivaeljytg.supabase.co",
+		publicKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTMyNzMyOSwiZXhwIjoxOTQ0OTAzMzI5fQ.V5Lo9CuFHJFyzmS9d3rMQMqAO_eSzNN50sm0CxHwD7M"
 	}
 };
 
