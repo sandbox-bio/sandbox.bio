@@ -8,7 +8,7 @@ import Step5 from "./steps/Step5.md";
 import Step6 from "./steps/Step6.md";
 import Step7 from "./steps/Step7.md";
 import Step8 from "./steps/Step8.md";
-import Step9 from "./steps/Step9.md";
+import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "jq-intro",
@@ -27,7 +27,7 @@ export const config = {
 		{ name: "Summarize data", component: Step6, subtitle: "Sorting and Counting", header: true },
 		{ name: "Summarize data", component: Step7, subtitle: "Pipes and Filters" },
 		{ name: "Summarize data", component: Step8, subtitle: "Maps and Selects" },
-		{ name: "The end", component: Step9, subtitle: "In Review", header: true }
+		{ name: "The end", component: Conclusion, subtitle: "In Review", header: true }
 	],
 	files: [
 		"data/jq-intro/repo.json",
