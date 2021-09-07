@@ -131,7 +131,7 @@ function handleResize() {
 
 // Export ANSI to HTML and open in new tab
 function exportTerminal() {
-	const terminalRaw = $xtermAddons.serialize.serialize().replaceAll("[4C", "\t").replaceAll("[7C", "\t");
+	const terminalRaw = $xtermAddons.serialize.serialize().replace(/\[[0-9]C/g, "\t");
 	const terminalHTML = "<pre>" + (new AnsiUp).ansi_to_html(terminalRaw) + "</pre>";
 	const blob = new Blob([ terminalHTML ], { type: "text/html" });
 	const url = URL.createObjectURL(blob);
