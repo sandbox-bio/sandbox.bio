@@ -23,6 +23,7 @@ let toastToggle = () => toastOpen = !toastOpen;
 let loginModalOpen = false;
 let loginError = false;
 let loginSuccess = false;
+let loginBusy = false;
 let signupError = false;
 let signupSuccess = false;
 
@@ -43,16 +44,22 @@ setTimeout(remindLogin, 30_000);
 // -----------------------------------------------------------------------------
 
 async function signup(credentials) {
+	loginBusy = true;
 	const data = await $supabase.auth.signUp(credentials);
 	signupError = data.error?.message;
-	if(!data.error)
+	if(data.error)
+		loginBusy = false;
+	else
 		signupSuccess = "Account successfully created. Check your email for the verification link.";
 }
 
 async function login(credentials) {
+	loginBusy = true;
 	const data = await $supabase.auth.signIn(credentials);
 	loginError = data.error?.message;
-	if(!data.error) {
+	if(data.error) {
+		loginBusy = false;
+	} else {
 		loginError = false;
 		loginModalOpen = false;
 		$user = data.user;
@@ -169,13 +176,13 @@ onMount(async () => {
 			<span slot="tab"><h5>Log in</h5></span>
 			<p class="mt-2 mb-2"><small>Log in to save your progress:</small></p>
 
-			<Login type="login" error={loginError} success={loginSuccess} on:login={event => login(event.detail)} />
+			<Login type="login" error={loginError} success={loginSuccess} on:login={event => login(event.detail)} busy={loginBusy} />
 		</TabPane>
 		<TabPane tabId="signup" >
 			<span slot="tab"><h5>Sign up</h5></span>
 			<p class="mt-2 mb-2"><small>Create an account to save your progress:</small></p>
 
-			<Login type="signup" error={signupError} success={signupSuccess} on:signup={event => signup(event.detail)} />
+			<Login type="signup" error={signupError} success={signupSuccess} on:signup={event => signup(event.detail)} busy={loginBusy} />
 		</TabPane>
 	</TabContent>
 </Modal>
