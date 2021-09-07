@@ -8,7 +8,7 @@ describe("Test tutorial contents (1 representative command)", () => {
 	before(async () => {
 		console.log("Initializing Aioli");
 		await $CLI.init({
-			tools: ["bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2", "samtools/1.10", "bcftools/1.10"],
+			tools: ["bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2", "samtools/1.10", "bcftools/1.10", "jq/1.6"],
 			files: [
 				// bedtools
 				"public/data/bedtools-intro/exons.bed",
@@ -47,5 +47,14 @@ describe("Test tutorial contents (1 representative command)", () => {
 	it("samtools", async () => {
 		observed = await $CLI.exec("samtools view -b sample.sam -o sample.bam; samtools sort sample.bam -o sample.sorted.bam; samtools index sample.sorted.bam; samtools view -c sample.sorted.bam 20:1.4e6-1.5e6");
 		expect(observed).to.equal("338");
+	});
+
+	it("jq", async () => {
+		observed = await $CLI.exec(`echo '{"test":{"something": "here"}}' | jq -r '.test.something'`);
+		expect(observed).to.equal(`here`);
+
+		// If don't specify `-r`, we get color output!
+		observed = await $CLI.exec(`echo '{"test":{"something": "here"}}' | jq '.test.something'`);
+		expect(observed).to.equal(`\u001b[0;32m"here"\u001b[0m`);
 	});
 });
