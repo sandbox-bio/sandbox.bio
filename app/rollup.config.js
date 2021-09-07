@@ -1,6 +1,7 @@
-import svelte from "rollup-plugin-svelte";
+import json from "@rollup/plugin-json";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
+import svelte from "rollup-plugin-svelte";
 import livereload from "rollup-plugin-livereload";
 import includePaths from "rollup-plugin-includepaths";
 import css from "rollup-plugin-css-only";
@@ -53,6 +54,9 @@ export default {
 		// Resolve external dependencies installed from npm
 		resolve({ browser: true, dedupe: ["svelte"] }),
 		commonjs(),
+
+		// Needed for Supabase
+		json(),
 
 		// Launch server in dev mode
 		!production && serve(),

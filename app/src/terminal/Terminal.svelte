@@ -1,24 +1,30 @@
 <script>
 import { onMount, createEventDispatcher } from "svelte";
 import { watchResize } from "svelte-watch-resize";
-import { Spinner } from "sveltestrap";
+import { Spinner, Table, Modal } from "sveltestrap";
+import AnsiUp from "ansi_up";
 import "xterm/css/xterm.css";
 
 // Imports
 import { xterm, xtermAddons } from "terminal/xterm";
 import { CLI } from "terminal/cli";
-import { vars, config } from "./stores/config";
+import { config, env } from "./stores/config";
+import { status } from "./stores/status";
+import { tutorial } from "./stores/tutorials";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";
-const TOOLS_DEFAULT = ["samtools/1.10", "bcftools/1.10", "bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2"];
+const TOOLS_DEFAULT = ["samtools/1.10", "bcftools/1.10", "bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2", "jq/1.6"];
 
 // Autocomplete subcommands
 const AUTOCOMPLETE = {
+	// Bioinformatics tools
 	samtools: ["view", "sort", "depth", "index", "idxstats", "flags", "flagstats"],
 	bedtools: ["intersect", "merge", "complement", "genomecov", "jaccard", "makewindows", "flank"],
 	bcftools: ["view", "index", "call", "query", "merge"],
 	bowtie2: [],
+	jq: [],
+	// Coreutils
 	ls: [],
 	ll: [],
 	cat: [],
@@ -29,15 +35,17 @@ const AUTOCOMPLETE = {
 	pwd: [],
 	cd: [],
 	echo: [],
+	unset: [],
 	mv: [],
 	rm: [],
 	cp: [],
+	touch: [],
 	mkdir: [],
 	rmdir: [],
 	env: [],
 	hostname: [],
 	uname: [],
-	unset: []
+	whoami: []
 };
 
 
@@ -45,22 +53,41 @@ const AUTOCOMPLETE = {
 // State
 // =============================================================================
 
-export let ready = false;                  // Whether CLI is ready for user input
 export let intro = "";                     // Intro string to display on Terminal once ready (optional)
 export let init = "";                      // Command to run to initialize the environment (optional)
 export let files = [];                     // Files to preload on the filesystem
 export let tools = TOOLS_DEFAULT;          // Aioli tools to load
 
+let aioliReady = false;                    // Equals true once Aioli is initialized
 let divTerminal;                           // HTML element where terminal will be drawn
+let nbInit = 0;                            // Number of times we've reinitialized the terminal (i.e. when user logs in/out)
+let modalKbdOpen = false;                  // Set to true when the shortcuts modal is open
+let modalKbdToggle = () => modalKbdOpen = !modalKbdOpen;
 const dispatch = createEventDispatcher();  // Send info to parent component when cmd is done
 
-$: if(ready) input();                      // Ask for user input once ready
+$: ready = aioliReady && $status.app;      // Ready to go once both Aioli and the app are initialized
+$: if(ready) initTerminal();               // Ask for user input once ready
 
 
 // =============================================================================
 // Initialization
 // =============================================================================
 
+// Load filesystem from cache and get user input
+async function initTerminal() {
+	await $CLI.fsLoad($tutorial);
+	nbInit++;
+	input();
+	saveFS();
+}
+
+// Save filesystem state every few seconds
+async function saveFS() {
+	await $CLI.fsSave($tutorial);
+	setTimeout(saveFS, 3000);
+}
+
+// On mount
 onMount(async () => {
 	// Register handlers
 	$xterm.onKey(handleShortcuts);
@@ -86,7 +113,7 @@ onMount(async () => {
 		await $CLI.init({ tools, files });
 		if(init)
 			await $CLI.exec(init);
-		ready = true;
+		aioliReady = true;
 	} catch (error) {
 		console.error("Could not load terminal");
 		console.error(error)
@@ -99,22 +126,35 @@ function handleResize() {
 }
 
 // =============================================================================
+// Export terminal as HTML
+// =============================================================================
+
+// Export ANSI to HTML and open in new tab
+function exportTerminal() {
+	const terminalRaw = $xtermAddons.serialize.serialize().replace(/\[[0-9]C/g, "\t");
+	const terminalHTML = "<pre>" + (new AnsiUp).ansi_to_html(terminalRaw) + "</pre>";
+	const blob = new Blob([ terminalHTML ], { type: "text/html" });
+	const url = URL.createObjectURL(blob);
+	window.open(url);
+}
+
+// =============================================================================
 // xterm.js 
 // =============================================================================
 
 // Get user input 
 async function input(toPrint)
 {
+	if(nbInit > 1) {
+		$xterm.writeln("\n");
+		nbInit = 1;
+	}
 	if(toPrint)
 		$xterm.writeln(toPrint);
 	$xterm.focus();
 
-	// Set prompt defaults in case the user deleted those variables with `unset`
-	for(let envVar in $config.env)
-		if(!$vars[envVar])
-			$vars[envVar] = $config.env[envVar];
 	// Prepare prompt, e.g. "guest@sandbox$ "
-	const prompt = $vars["PS1"].replaceAll('\\u', $vars["USER"]).replaceAll('\\h', $config.hostname);
+	const prompt = $env["PS1"].replaceAll('\\u', $env["USER"]).replaceAll('\\h', $config.hostname);
 	$xtermAddons.echo.read(`\u001b[1;34m${prompt}\u001b[0m`)
 		.then(exec)
 		.catch(console.error);
@@ -131,7 +171,7 @@ async function exec(cmd)
 	try {
 		// Get output from the command (only the synchronous commands that didn't use `&`).
 		// Note: 2nd arg = callback that is called when an asynchronous command finishes.
-		output = await $CLI.exec(cmd, out => $xterm.write(out));
+		output = await $CLI.exec(cmd, out => $xterm.write(filter(out)));
 		// Add extra break line so there's room to see what's going on in the terminal
 	} catch (error) {
 		output = error;
@@ -143,14 +183,18 @@ async function exec(cmd)
 	// so it can be reused in other applications that don't have it.
 	dispatch("status", "execDone");
 
-	// Band-aid: don't show bowtie2 thread warnings
-	if(typeof output === "string")
-		output = output.replaceAll("pthread_sigmask() is not supported: this is a no-op.\n", "");
-
 	// Ask the user for the next input
 	return input(output);
 }
 
+// Filter out warnings
+function filter(output) {
+	// Band-aid: don't show bowtie2 thread warnings
+	if(typeof output === "string")
+		output = output.replaceAll("pthread_sigmask() is not supported: this is a no-op.\n", "");
+
+	return output;
+}
 
 // =============================================================================
 // xterm.js handlers
@@ -215,7 +259,7 @@ async function handleAutocomplete(data)
 		if(cacheAutocomplete.length == 0) {
 			// Autocomplete variables
 			if(userFragment.startsWith("$")) {
-				cacheAutocomplete = Object.keys($vars).map(d => `$${d}`);
+				cacheAutocomplete = Object.keys($env).map(d => `$${d}`);
 
 			// Autocomplete file paths
 			} else {
@@ -268,19 +312,65 @@ function getSharedSubstring(array){
 }
 </script>
 
+
+<!-- Terminal -->
 <div bind:this={divTerminal} use:watchResize={handleResize} style="opacity: { ready ? 1 : 0.6 }; height:85vh; max-height:85vh; overflow:hidden">
-	<!-- Hamburger menu for settings (nothing to show now, maybe later) -->
-	<!-- <div class="cli-options text-muted">
-		<i class="bi bi-three-dots-vertical" on:click={() => modalIsOpen = true}></i>
-	</div> -->
+	<!-- Hamburger menu for settings -->
+	<div class="cli-options text-muted">
+		<button class="btn btn-outline-secondary p-0 m-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<i class="bi bi-three-dots-vertical"></i>
+		</button>
+		<ul class="dropdown-menu">
+			<li><button class="dropdown-item" on:click={exportTerminal}>Export as HTML</button></li>
+			<li><button class="dropdown-item" on:click={modalKbdToggle}>Keyboard Shortcuts</button></li>
+		</ul>
+	</div>
 	{#if !ready}
 		<Spinner color="light" type="border" />
 	{/if}
 </div>
 
+<!-- Keyboard Shortcuts Modal -->
+<Modal body header="Keyboard Shortcuts" isOpen={modalKbdOpen} toggle={modalKbdToggle}>
+	<Table>
+		<thead>
+			<tr>
+				<th>Shortcut</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><code>Ctrl + L</code></td>
+				<td>Clear</td>
+			</tr>
+			<tr>
+				<td><code>Ctrl + A</code></td>
+				<td>Go to start of line</td>
+			</tr>
+			<tr>
+				<td><code>Ctrl + E</code></td>
+				<td>Go to end of line</td>
+			</tr>
+			<tr>
+				<td><code>Ctrl + W</code></td>
+				<td>Delete previous word</td>
+			</tr>
+			<tr>
+				<td><code>Alt + Left</code></td>
+				<td>Go to previous word</td>
+			</tr>
+			<tr>
+				<td><code>Alt + Right</code></td>
+				<td>Go to following word</td>
+			</tr>
+		</tbody>
+	</Table>
+</Modal>
+
 <style>
 /* Hamburger menu */
-/* .cli-options {
+.cli-options {
 	position: absolute;
 	right: 0;
 	z-index: 100;
@@ -289,5 +379,5 @@ function getSharedSubstring(array){
 
 .cli-options:hover {
 	color: white !important;
-} */
+}
 </style>

@@ -7,14 +7,15 @@
 // * Tail doesn't support `tail -n +3` format (but `head -n-2` and `head/tail -2` supported)
 
 // Imports
-import { readable, get } from "svelte/store";
+import { readable } from "svelte/store";
 import parse from "shell-parse";         // Transforms a bash command into an AST
 import columnify from "columnify";       // Prettify columnar output
 import prettyBytes from "pretty-bytes";  // Prettify number of bytes
 import minimist from "minimist";         // Parse CLI arguments
+import ansiRegex from "ansi-regex";      // Regex for all ANSI codes
 import localforage from "localforage";
 import Aioli from "@biowasm/aioli";
-import { config, vars } from "../stores/config";
+import { env, getLocalForageKey } from "../stores/config";
 
 // State
 let _aioli = {};   // Aioli object
@@ -23,23 +24,9 @@ let _jobs = 0;     // Number of jobs running in background
 let _pid = 10000;  // Current pid
 let _wd = null;    // Track the last folder we were in to support "cd -"
 
-// Convenient way of using svelte store shortcut ($vars) outside .svelte files
-let $vars = {};
-// When any user variable changes, update local storage
-vars.subscribe(async d => {
-	if(!d || Object.keys(d).length == 0)
-		return;
-	$vars = d;
-	await localforage.setItem("vars", d);
-	// TODO: API call to save contents in DB?
-});
-// Get vars stored in localStorage, then trigger subscribe above
-localforage.getItem("vars").then(d => {
-	// If the user doesn't have anything in local storage, initialize it with default values
-	if(d == null)
-		d = get(config).env;
-	vars.set(d);
-});
+// Define $env for convenience (since not in a .svelte file)
+let $env = {};
+env.subscribe(d => $env = d);
 
 
 // =============================================================================
@@ -166,7 +153,7 @@ async function exec(cmd, callback=console.warn)
 	if(cmd.type == "variableAssignment") {
 		const name = cmd.name;
 		const value = cmd.value == null ? "" : await utils.getValue(cmd.value);
-		vars.set({ ...$vars, [name]: value });
+		env.set({ ...$env, [name]: value });
 		return "";
 	}
 
@@ -196,7 +183,7 @@ async function exec(cmd, callback=console.warn)
 				output = await coreutils[tool](args);
 			// Otherwise, try running the command with Aioli
 			else {
-				const outputAioli = await _aioli.exec(`${tool} ${argsRaw.join(" ")}`.trim());
+				const outputAioli = await _aioli.exec(tool, argsRaw);
 				// Output the stderr now
 				callback(outputAioli.stderr);
 				// Either output the stdout or pass it along with the pipe
@@ -291,13 +278,14 @@ const coreutils = {
 	},
 
 	// env
-	env: args => Object.keys($vars).map(v => `${v}=${$vars[v]}`).join("\n"),
+	env: args => Object.keys($env).map(v => `${v}=${$env[v]}`).join("\n"),
 	hostname: args => "sandbox",
 	uname: args => "sandbox.bio",
+	whoami: args => $env?.USER || "guest",
 	date: args => new Date().toLocaleString(),
 	unset: args => {
-		args._.map(v => delete $vars[v]);
-		vars.set($vars);
+		args._.map(v => delete $env[v]);
+		env.set($env);
 		return "";
 	},
 
@@ -305,14 +293,25 @@ const coreutils = {
 	// File system management
 	// -------------------------------------------------------------------------
 	mv: args => _fs.rename(args._[0], args._[1]) && "",
-	rm: args => Promise.all(args._.map(async arg => await _fs.unlink(arg))),
+	rm: args => Promise.all(args._.map(async arg => await _fs.unlink(arg))) && "",
 	pwd: args => _fs.cwd(),
 	echo: args => args._.join(" "),
+	touch: async args => {
+		return Promise.all(args._.map(async path => {
+			try {
+				// Will throw if file doesn't exist
+				await _fs.stat(path);
+				await _fs.utime(path, new Date().getTime(), new Date().getTime());
+			} catch (error) {
+				await utils.writeFile(path, "");
+			}	
+		})) && "";
+	},
 	cd: async args => {
 		let dir = args._[0];
 		// Support cd ~ and cd -
 		if(dir == "~")
-			dir = $vars.HOME;
+			dir = $env.HOME;
 		else if(dir == "-" && _wd)
 			dir = _wd;
 
@@ -401,6 +400,24 @@ const coreutils = {
 	},
 
 	// -------------------------------------------------------------------------
+	// curl <http...>
+	// -------------------------------------------------------------------------
+	curl: async args => {
+		const url = args._[0];
+		const contents = await fetch(url).then(d => d.text());
+
+		// Output to file
+		if(args.o || args.O) {
+			if(args.O)
+				args.o = url.split("/").pop();
+			await utils.writeFile(args.o, contents);
+			return "";
+		}
+
+		return contents;
+	},
+
+	// -------------------------------------------------------------------------
 	// ls [-l] <file1> <file2>
 	// -------------------------------------------------------------------------
 	ll: (args, raw) => coreutils.ls(args, raw),
@@ -477,10 +494,10 @@ const utils = {
 	getValue: async arg => {
 		// Literal; support ~
 		if(arg.type == "literal") {
-			return arg.value.replaceAll("~", $vars.HOME);
+			return arg.value.replaceAll("~", $env.HOME);
 		// Variable
 		} else if(arg.type == "variable")
-			return $vars[arg.name] || "";
+			return $env[arg.name] || "";
 		// Variable concatenation, e.g. echo "something $abc $def"
 		else if(arg.type == "concatenation")
 			return (await Promise.all(arg.pieces.map(utils.getValue))).join("");
@@ -553,6 +570,10 @@ const utils = {
 			await coreutils.rm({_: [ path ]});
 		} catch (error) {}  // don't error if the destination doesn't exist
 
+		// Remove ANSI characters from file contents before saving (only if string; could also be Uint8Array for binary files)
+		if(typeof contents === "string")
+			contents = contents.replace(ansiRegex(), "");
+
 		await _fs.writeFile(path, contents, opts);
 	}
 };
@@ -565,6 +586,34 @@ const minimistConfig = {
 	echo: { boolean: ["e", "n"] }
 };
 
+// =============================================================================
+// File system caching functions
+// =============================================================================
+
+const fsSave = async function(tutorial) {
+	if(!tutorial?.id)
+		return;
+	console.log("Saving filesystem state...")
+	const files = await coreutils.ls(["/shared/data"], true);
+	const filesPreloaded = tutorial.files.map(f => f.split("/").pop());
+	const filesToCache = files.map(f => f.name).filter(f => !filesPreloaded.includes(f));
+
+	// Cache user-created files in a tutorial-specific localforage key
+	const data = {};
+	for(let path of filesToCache)
+		data[path] = await _fs.readFile(path, { "encoding": "binary" });
+	await localforage.setItem(`${getLocalForageKey("fs")}${tutorial.id}`, data);
+}
+
+const fsLoad = async function(tutorial) {
+	if(!tutorial?.id)
+		return;
+	console.log("Loading filesystem state...")
+	const data = await localforage.getItem(`${getLocalForageKey("fs")}${tutorial.id}`);
+	for(let path in data)
+		await utils.writeFile(path, data[path], { encoding: "binary" });
+}
+
 
 // =============================================================================
 // Export CLI as a readable store
@@ -573,5 +622,7 @@ const minimistConfig = {
 export const CLI = readable({
 	init,
 	exec,
-	coreutils
+	coreutils,
+	fsSave,
+	fsLoad
 });
