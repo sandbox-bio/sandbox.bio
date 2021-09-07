@@ -1,5 +1,6 @@
 // Steps
 import Intro from "./steps/Intro.md";
+import Step1 from "./steps/Step1.md";
 
 export const config = {
 	id: "jq-intro",
@@ -10,17 +11,10 @@ export const config = {
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "Introduction to jq", component: Intro },
-		// { name: "The data", component: Step1 },
-		// { name: "Samtools help", component: Step2 },
-		// { name: "Samtools utilities", component: Step3, subtitle: "Converting SAM to BAM", header: true },
-		// { name: "Samtools utilities", component: Step4, subtitle: "Sort BAM files" },
-		// { name: "Samtools utilities", component: Step5, subtitle: "Index BAM files" },
-		// { name: "Explore BAM files", component: Step6, subtitle: "Scrutinize alignments", header: true },
-		// { name: "Explore BAM files", component: Step7, subtitle: "Inspect the header" },
-		// { name: "Explore BAM files", component: Step8, subtitle: "Capture the flag" },
+		{ name: "Select Elements", component: Step1 },
 		// { name: "The end", component: Conclusion, header: true }
 	],
 	files: [
-		// "data/samtools-intro/sample.sam"
+		"data/jq-intro/repo.json"
 	],
 };
