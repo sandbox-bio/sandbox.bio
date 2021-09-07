@@ -12,6 +12,7 @@ import parse from "shell-parse";         // Transforms a bash command into an AS
 import columnify from "columnify";       // Prettify columnar output
 import prettyBytes from "pretty-bytes";  // Prettify number of bytes
 import minimist from "minimist";         // Parse CLI arguments
+import ansiRegex from "ansi-regex";      // Regex for all ANSI codes
 import localforage from "localforage";
 import Aioli from "@biowasm/aioli";
 import { env, getLocalForageKey } from "../stores/config";
@@ -568,6 +569,10 @@ const utils = {
 			await coreutils.ls({_: [ path ]});
 			await coreutils.rm({_: [ path ]});
 		} catch (error) {}  // don't error if the destination doesn't exist
+
+		// Remove ANSI characters from file contents before saving (only if string; could also be Uint8Array for binary files)
+		if(typeof contents === "string")
+			contents = contents.replace(ansiRegex(), "");
 
 		await _fs.writeFile(path, contents, opts);
 	}
