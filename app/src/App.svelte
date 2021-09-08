@@ -98,12 +98,12 @@ onMount(async () => {
 				<li><hr class="dropdown-divider"></li>
 				{#each $tutorials as tutorial}
 					<li>
-						{#if $progress[tutorial.id]?.step == tutorial.steps.length - 1}
+						{#if $user !== null && $progress[tutorial.id]?.step == tutorial.steps.length - 1}
 							<a class="dropdown-item text-success" href="/tutorials?id={tutorial.id}">
 								<Icon name="check-circle-fill" />
 								{tutorial.name}
 							</a>
-						{:else if $progress[tutorial.id]?.step > 0}
+						{:else if $user !== null && $progress[tutorial.id]?.step > 0}
 							<a class="dropdown-item text-primary" href="/tutorials?id={tutorial.id}&step={$progress[tutorial.id]?.step}">
 								<Icon name="circle-half" />
 								{tutorial.name}
