@@ -20,6 +20,7 @@
 |-|-|-|
 |logs|Log all calls to sandbox.bio/*|RLS|
 |pings|Analytics for tutorial progress|RLS|
+|state|Save environment variables and tutorial progress|RLS|
 
 
 ## How to
