@@ -17,7 +17,7 @@ Here are some more examples:
 
 * `.title | length` will return the length of the title
 * `.number | tostring` will return the issue number as a string
-* `.[] | .key` will return the values of key key in the array (this is equivalent to this `.[].key`)
+* `.[] | .key` will return the values of key `key` in the array (this is equivalent to this `.[].key`)
 
 This means that sorting my labels array is simple. I can just change `.labels` to `.labels | sort`:
 
