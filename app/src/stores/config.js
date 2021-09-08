@@ -17,7 +17,7 @@ const urlsSupabase = {
 		url: "https://jpdymnmaakzeyqyfomcs.supabase.co",
 		publicKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTQ5NDc2OCwiZXhwIjoxOTQ1MDcwNzY4fQ.yDPUlm_KtaGQDW6CaCkbvVBpPFAokW5VBNmFcPPp0fg"
 	},
-	"prd.sandbox.bio": {
+	"sandbox.bio": {
 		url: "https://vjmttfnyctkivaeljytg.supabase.co",
 		publicKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTMyNzMyOSwiZXhwIjoxOTQ0OTAzMzI5fQ.V5Lo9CuFHJFyzmS9d3rMQMqAO_eSzNN50sm0CxHwD7M"
 	}
