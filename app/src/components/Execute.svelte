@@ -9,7 +9,7 @@ export let inline = false;
 function exec() {
 	if(!command)
 		return;
-	$xtermAddons.echo.setInput(command.replace(/ \\ /g, " "));
+	$xtermAddons.echo.handleData(command.replace(/ \\ /g, " "))
 	$xtermAddons.echo.handleData("\r");
 };
 </script>
