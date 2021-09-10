@@ -83,7 +83,7 @@ do
   cd /tmp
   set +u
 
-  time /var/task/bin/samtools view ${argsList[@]} > /tmp/samtools.out 2>&1 || true
+  time /var/task/bin/samtools ${argsList[@]} > /tmp/samtools.out 2>&1 || true
 
   set -u
   time /var/task/bin/jq --arg RESPONSE "$(cat /tmp/samtools.out)" '{"statusCode":200,"body": $RESPONSE}' <<< '{}' > /tmp/response.json
@@ -97,7 +97,7 @@ chmod 755 bootstrap function.sh
 rm ../samtools.zip
 zip --symlinks -r9 ../samtools.zip *
 aws lambda update-function-code --function-name samtools --zip-file fileb://../samtools.zip
-time aws lambda invoke --function-name samtools --payload '{"args":["-H", "http://labshare.cshl.edu/shares/schatzlab/www-data/ribbon/DRR01684_merged.chr1.bam"]}' response.txt; cat response.txt
+# time aws lambda invoke --function-name samtools --payload '{"args":["index"]}' response.txt; cat response.txt
 
 
 
