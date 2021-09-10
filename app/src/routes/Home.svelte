@@ -14,7 +14,7 @@ let aboutIsOpen = false;  // Whether "About" modal is showing or not
 			<br />
 			<p class="lead">Learn how to use bioinformatics tools right from your browser.<br />Everything runs in a sandbox, so you can experiment all you want.</p>
 			<div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mt-5 mb-lg-3">
-				<a href="/tutorials?id=bedtools-intro" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Get started &rarr;</a>
+				<a href="/tutorials?id=terminal-basics" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Get started &rarr;</a>
 			</div>
 		</div>
 		<div class="align-center col-lg-5 p-0 offset-lg-1 overflow-hidden shadow-lg">
