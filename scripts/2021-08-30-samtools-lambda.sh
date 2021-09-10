@@ -78,13 +78,12 @@ do
 
   # Parse parameters
   echo "Parsing args..."
-  # argsList=($(/var/task/bin/jq -rc '.args[]' <<< "$EVENT_DATA"))
+  argsList=($(/var/task/bin/jq -rc '.args[]' <<< "$EVENT_DATA"))
 
   cd /tmp
   set +u
 
-  # time /var/task/bin/samtools view ${argsList[@]} > /tmp/samtools.out 2>&1 || true
-  time /var/task/bin/samtools > /tmp/samtools.out 2>&1 || true
+  time /var/task/bin/samtools view ${argsList[@]} > /tmp/samtools.out 2>&1 || true
 
   set -u
   time /var/task/bin/jq --arg RESPONSE "$(cat /tmp/samtools.out)" '{"statusCode":200,"body": $RESPONSE}' <<< '{}' > /tmp/response.json
