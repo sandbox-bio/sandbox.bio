@@ -55,7 +55,7 @@ make
 cd ~
 sudo yum install -y pip
 pip install --user exodus-bundler
-exodus --tarball samtools/samtools jq | tar -zx
+exodus --tarball samtools/samtools | tar -zx  # to bundle, just do "samtools/samtools jq"
 cd exodus/
 
 # ------------------------------------------------------------------------------
@@ -74,13 +74,15 @@ do
 
   # Parse parameters
   echo "Parsing args..."
-  argsList=($(/var/task/bin/jq -rc '.args[]' <<< "$EVENT_DATA"))
-  # argsList[0]=${argsList[0]//[^a-z]/}
+  # argsList=($(/var/task/bin/jq -rc '.args[]' <<< "$EVENT_DATA"))
 
   cd /tmp
-  echo /var/task/bin/samtools ${argsList[0]}
   set +u
-  /var/task/bin/samtools view ${argsList[@]} > /tmp/samtools.out 2>&1 || true
+
+  echo "just a test" > /tmp/samtools.out
+  # time /var/task/bin/samtools view ${argsList[@]} > /tmp/samtools.out 2>&1 || true
+  # /var/task/bin/samtools > /tmp/samtools.out 2>&1 || true
+
   set -u
   /var/task/bin/jq --arg RESPONSE "$(cat /tmp/samtools.out)" '{"statusCode":200,"body": $RESPONSE}' <<< '{}' > /tmp/response.json
   curl -X POST "http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/$REQUEST_ID/response" --data "@/tmp/response.json"
