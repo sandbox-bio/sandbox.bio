@@ -19,7 +19,8 @@
 # Compile samtools/htslib on EC2 instance
 # ------------------------------------------------------------------------------
 
-ssh -i ~/Desktop/2021-08-17-test-aws.cer ec2-user@54.177.12.96
+IP_ADDDRESS=?
+ssh -i ~/Desktop/2021-08-17-test-aws.cer ec2-user@$IP_ADDDRESS
 sudo yum install -y git zlib-devel bzip2-devel lzma liblzma-devel xz-devel libcurl-devel openssl-devel autoconf gcc ncurses-devel
 sudo yum groupinstall "Development Tools"
 git clone https://github.com/samtools/samtools.git
@@ -39,17 +40,19 @@ make
 
 # ------------------------------------------------------------------------------
 # Bundle with Exodus
-# TODO: look into installing musl library (doesn't seem to be picked up, even if set `LD_LIBRARY_PATH=/usr/local/musl/`)
 # ------------------------------------------------------------------------------
 
-# # Install musl
-# cd ~
-# git clone git://git.musl-libc.org/musl
-# git checkout v1.2.2	
-# cd musl
-# ./configure
-# make
-# sudo make install
+# Install musl
+cd ~
+git clone git://git.musl-libc.org/musl
+git checkout v1.2.2	
+cd musl
+./configure
+make
+sudo make install
+
+# Make sure musl-gcc can be found
+export PATH=$PATH:/usr/local/musl/bin/
 
 # Install Exodus
 cd ~
@@ -57,6 +60,7 @@ sudo yum install -y pip
 pip install --user exodus-bundler
 exodus --tarball samtools/samtools | tar -zx  # to bundle, just do "samtools/samtools jq"
 cd exodus/
+
 
 # ------------------------------------------------------------------------------
 # Create entrypoint
