@@ -95,6 +95,7 @@ EOF
 echo '' > function.sh
 
 chmod 755 bootstrap function.sh
+rm ../samtools.zip
 zip --symlinks -r9 ../samtools.zip *
 aws lambda update-function-code --function-name samtools --zip-file fileb://../samtools.zip
 time aws lambda invoke --function-name samtools --payload '{"args":["-H", "http://labshare.cshl.edu/shares/schatzlab/www-data/ribbon/DRR01684_merged.chr1.bam"]}' response.txt; cat response.txt
