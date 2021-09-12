@@ -14,7 +14,14 @@ import { tutorial } from "./stores/tutorials";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";
-const TOOLS_DEFAULT = ["samtools/1.10", "bcftools/1.10", "bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2", "jq/1.6", "minimap2/2.22"];
+const TOOLS_DEFAULT = [
+	{ loading: "lazy", tool: "samtools", version: "1.10" },
+	{ loading: "lazy", tool: "bcftools", program: "bcftools", version: "1.10" },
+	{ loading: "lazy", tool: "bedtools", version: "2.29.2" },
+	{ loading: "lazy", tool: "bowtie2", program: "bowtie2-align-s", version: "2.4.2" },
+	{ loading: "lazy", tool: "minimap2", version: "2.22" },
+	{ loading: "lazy", tool: "jq", version: "1.6" },
+];
 
 // Autocomplete subcommands
 const AUTOCOMPLETE = {
@@ -101,13 +108,11 @@ onMount(async () => {
 	// Prepare UI but don't allow input yet
 	$xterm.open(divTerminal);
 
-	// Delete autocomplete programs if we haven't loaded them
-	try {
-		TOOLS_DEFAULT.map(toolName => {
-			if(tools.find(d => d == toolName) == null)
-				delete AUTOCOMPLETE[toolName.split("/")[0]];
-		});
-	} catch (error) {}
+	// Put main tools at the beginning and the rest at the end of the list of tools.
+	// That way, we eager load the important stuff but lazy load the rest.
+	const toolsEagerLoad = TOOLS_DEFAULT.filter(tool => tools.includes(tool.tool)).map(tool => { tool.loading = "eager"; return tool; });
+	const toolsLazyLoad = TOOLS_DEFAULT.filter(tool => !tools.includes(tool.tool));
+	tools = [...toolsEagerLoad, ...toolsLazyLoad];
 
 	// Initialize Aioli
 	try {
