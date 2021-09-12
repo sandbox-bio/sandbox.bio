@@ -39,7 +39,6 @@ const _config = {
 	api: `https://${hostname}/api/v1`,
 	// Default environment information
 	hostname: "sandbox",
-	playground: `\u001b[0;37m# This playground is for open-ended exploration.\n# For guided tutorials, see https://sandbox.bio/tutorials\n#\n# Example:\n#   samtools view -o test.bam /samtools/examples/toy.sam\n#   samtools index test.bam\n#   ls test.bam.bai\n#   samtools idxstats test.bam  # idxstats uses the .bai file \u001b[0m\n`,
 	// Default environment variables. These are auto-regenerated in Terminal.svelte:input() even if the user deletes them
 	env: {
 		PS1: '\\u@\\h$ ',
