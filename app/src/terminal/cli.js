@@ -237,8 +237,9 @@ async function exec(cmd, callback=console.warn)
 
 			// -----------------------------------------------------------------
 			// Handle next command, e.g. `echo 123 && echo 456`, `echo 123 ; echo 456`
+			// But if we had `echo 123 || echo 456` and the LHS didn't throw, then we're done
 			// -----------------------------------------------------------------
-			if(cmd.next) {
+			if(cmd.next && cmd.control != "||") {
 				output += "\n" + await exec(cmd.next, callback);
 				output = output.trim();
 			}
