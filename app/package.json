@@ -38,6 +38,7 @@
     "sirv-cli": "^1.0.0",
     "svelte-watch-resize": "^1.0.3",
     "sveltestrap": "^5.5.1",
+    "wasm-feature-detect": "^1.2.11",
     "xterm": "^4.13.0",
     "xterm-addon-fit": "^0.5.0",
     "xterm-addon-search": "^0.8.0",
