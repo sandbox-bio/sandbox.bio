@@ -60,52 +60,54 @@ function nextStep(step)
 
 <div class="container-fluid pb-3">
 	<div class="d-grid gap-3" style="grid-template-columns: 1fr 2fr; height:85vh; max-height:85vh">
-		<div class="bg-light border rounded-3 p-2 d-flex align-items-end flex-column">
-			<div id="tutorial-sidebar" class="w-100 p-2 mb-auto" style="max-height:77vh; overflow-y:scroll; overflow-x:hidden">
-				<h4>{stepInfo.name || $tutorial.name}</h4>
-				{#if stepInfo.subtitle}
-					<h6>{@html stepInfo.subtitle}</h6>
-				{/if}
-				{#if step == 0}
-					<div class="row mb-2">
-						<h6>
-							{#each $tutorial.tags as tag}
-								<span class="badge bg-primary ms-1">
-									{tag}
-								</span>
-							{/each}
-							{#each $tutorial.difficulty as tag}
-								<span class="badge" class:bg-success={tag == "beginner"} class:bg-danger={tag == "difficult"} style={tag == "intermediate" ? "background-color:#fd7e14" : ""}>{tag}</span>
-							{/each}
-						</h6>
-					</div>
-				{/if}
-				<hr class="border-2 border-top border-secondary" />
-
-				<div id="tutorial-wrapper" class="row" style="overflow-x: hidden">
-					<div class="container">
-						<svelte:component this={stepInfo.component} />
-					</div>
-				</div>
-			</div>
-
-			<div class="w-100 p-2 border-top pt-4">
-				<div class="row">
-					<div class="d-flex justify-content-between">
-						<div>
-							<button type="button" class="btn btn-sm" on:click={() => step--} class:btn-primary={step != 0} class:btn-secondary={step == 0} disabled={step == 0}>&larr; Previous</button>
-							<button class="btn btn-sm" on:click={() => step++} class:btn-primary={step != $tutorial.steps.length - 1} class:btn-secondary={step == $tutorial.steps.length - 1} disabled={step == $tutorial.steps.length - 1}>Next &rarr;</button>	
+		{#if $tutorial.steps.length > 0}
+			<div class="bg-light border rounded-3 p-2 d-flex align-items-end flex-column">
+				<div id="tutorial-sidebar" class="w-100 p-2 mb-auto" style="max-height:77vh; overflow-y:scroll; overflow-x:hidden">
+					<h4>{stepInfo.name || $tutorial.name}</h4>
+					{#if stepInfo.subtitle}
+						<h6>{@html stepInfo.subtitle}</h6>
+					{/if}
+					{#if step == 0}
+						<div class="row mb-2">
+							<h6>
+								{#each $tutorial.tags as tag}
+									<span class="badge bg-primary ms-1">
+										{tag}
+									</span>
+								{/each}
+								{#each $tutorial.difficulty as tag}
+									<span class="badge" class:bg-success={tag == "beginner"} class:bg-danger={tag == "difficult"} style={tag == "intermediate" ? "background-color:#fd7e14" : ""}>{tag}</span>
+								{/each}
+							</h6>
 						</div>
-						<div>
-							<a href="https://github.com/sandbox-bio/feedback/discussions/categories/questions" target="_blank">
-								<span class="badge rounded-pill bg-secondary">Help</span>
-							</a>
-							<span on:click={tocToggle} class="badge rounded-pill bg-info">{step + 1} / {$tutorial.steps.length}</span>
+					{/if}
+					<hr class="border-2 border-top border-secondary" />
+
+					<div id="tutorial-wrapper" class="row" style="overflow-x: hidden">
+						<div class="container">
+							<svelte:component this={stepInfo.component} />
 						</div>
 					</div>
 				</div>
+
+				<div class="w-100 p-2 border-top pt-4">
+					<div class="row">
+						<div class="d-flex justify-content-between">
+							<div>
+								<button type="button" class="btn btn-sm" on:click={() => step--} class:btn-primary={step != 0} class:btn-secondary={step == 0} disabled={step == 0}>&larr; Previous</button>
+								<button class="btn btn-sm" on:click={() => step++} class:btn-primary={step != $tutorial.steps.length - 1} class:btn-secondary={step == $tutorial.steps.length - 1} disabled={step == $tutorial.steps.length - 1}>Next &rarr;</button>	
+							</div>
+							<div>
+								<a href="https://github.com/sandbox-bio/feedback/discussions/categories/questions" target="_blank">
+									<span class="badge rounded-pill bg-secondary">Help</span>
+								</a>
+								<span on:click={tocToggle} class="badge rounded-pill bg-info">{step + 1} / {$tutorial.steps.length}</span>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
+		{/if}
 		<div id="terminal-wrapper" class="border rounded-3 p-2">
 			<Terminal on:status={event => $status.terminal = event.detail} files={$tutorial.files} init={$tutorial.init} tools={$tutorial.tools} />
 		</div>
