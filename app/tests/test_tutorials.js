@@ -8,7 +8,7 @@ describe("Test tutorial contents (1 representative command)", () => {
 	before(async () => {
 		console.log("Initializing Aioli");
 		await $CLI.init({
-			tools: ["bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2", "samtools/1.10", "bcftools/1.10", "jq/1.6"],
+			tools: ["bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2", "samtools/1.10", "bcftools/1.10", "minimap2/2.22", "jq/1.6"],
 			files: [
 				// bedtools
 				"public/data/bedtools-intro/exons.bed",
@@ -47,6 +47,11 @@ describe("Test tutorial contents (1 representative command)", () => {
 	it("samtools", async () => {
 		observed = await $CLI.exec("samtools view -b sample.sam -o sample.bam; samtools sort sample.bam -o sample.sorted.bam; samtools index sample.sorted.bam; samtools view -c sample.sorted.bam 20:1.4e6-1.5e6");
 		expect(observed).to.equal("338");
+	});
+
+	it("minimap2", async () => {
+		observed = await $CLI.exec("minimap2 -a /minimap2/MT-human.fa /minimap2/MT-orang.fa");
+		expect(observed).to.contain("@SQ\tSN:MT_human\tLN:16569\n@PG\tID:minimap2\tPN:minimap2\tVN:2.22-r1101\tCL:minimap2 -a /minimap2/MT-human.fa /minimap2/MT-orang.fa\nMT_orang\t0\tMT_human\t577\t60\t14M2D4M3I37M1D85M1D232M1I559M1D6M1I550M1D2M1D146M2I3M1D3M1D132M1D3M1I40M3I13M1D1M1D335M3I4M1D3M2D342M1D52M1I13M3I1M2D52M1I592M1D3M1I485M1D5M1I974M3I4M3D230M1D59M1D156M1D31M1I98M1I26M14I329M3I7M3D1203M1D4M1I70M1D345M1D9M1I398M7I8M8I1M1I9M3I2M1I2M1D390M1I5M1D193M1I6M1D195M1D7M1I1826M1D10M1I1256M1D49M1D157M3D5M3I48M2I1M1I3M3D1203M1I2M2D1M1I44M2D2M1I2M1I38M2D16M2I2079M1I5M1D50M1D3M1I43M5I57M1I54M4D19M1I39M2D8M1I7M1I22M1I5M1I4M1D5M1I2M2D29M2I20M1D13M2I1M1D8M1D45M1D15M1I5M2D17M1D56M1D2M1I131M1I38M474S");
 	});
 
 	it("jq", async () => {
