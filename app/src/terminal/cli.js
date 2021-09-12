@@ -13,6 +13,7 @@ import columnify from "columnify";       // Prettify columnar output
 import prettyBytes from "pretty-bytes";  // Prettify number of bytes
 import minimist from "minimist";         // Parse CLI arguments
 import ansiRegex from "ansi-regex";      // Regex for all ANSI codes
+import { simd } from "wasm-feature-detect";
 import localforage from "localforage";
 import Aioli from "@biowasm/aioli";
 import { env, getLocalForageKey } from "../stores/config";
@@ -68,13 +69,15 @@ async function init(config={})
 // Custom transformations to apply to CLI commands (for now just aliases)
 // =============================================================================
 
-function transform(cmd)
+async function transform(cmd)
 {
 	const tool = cmd.command.value;
 
-	// Handle aliases (just bowtie for now)
+	// Handle aliases
 	if(tool == "bowtie2")
 		cmd.command.value = "bowtie2-align-s";
+	if(tool == "minimap2" && !await simd())
+		cmd.command.value = "minimap2-nosimd";
 
 	return cmd;
 }
@@ -171,7 +174,7 @@ async function exec(cmd, callback=console.warn)
 			let output;
 
 			// Handle custom transforms on the command
-			cmd = transform(cmd);
+			cmd = await transform(cmd);
 
 			// Parse args
 			const tool = cmd.command.value.trim();  // trim removes \n that get introduced if use \
