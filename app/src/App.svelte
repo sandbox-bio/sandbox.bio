@@ -6,14 +6,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Home from "./routes/Home.svelte";
 import Tutorial from "./tutorials/Tutorial.svelte";
-import Terminal from "./terminal/Terminal.svelte";
 import Login from "./components/Login.svelte";
 import Listings from "./components/Listings.svelte";
-import { config, supabase, user, progress, envInit } from "./stores/config";
+import { supabase, user, progress, envInit } from "./stores/config";
 import { tutorials } from "./stores/tutorials";
 
 // Config
-const intro = $config.playground;
 const path = window.location.pathname;
 const params = new URL(window.location).searchParams;
 
@@ -163,9 +161,7 @@ onMount(async () => {
 			<Listings items={$tutorials} />
 		{/if}
 	{:else if path.startsWith("/playground")}
-		<div class="p-2" style="background-color:#000">
-			<Terminal {intro} files={$tutorials[1].files} />
-		</div>
+		<Tutorial id="playground" />
 	{/if}
 </main>
 
