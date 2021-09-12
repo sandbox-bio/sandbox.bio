@@ -27,7 +27,7 @@ export const config = {
 	name: "Introduction to bedtools",
 	description: "Explore, analyze, and manipulate genomic interval <code>.bed</code> files.",
 	tags: ["bedtools", "IGV"],
-	tools: ["bedtools/2.29.2"],
+	tools: ["bedtools"],
 	difficulty: ["beginner"],
 
 	// Lessons. Make sure to update `tests/test_exercises.js` if the order of these steps is modified

@@ -13,7 +13,7 @@ export const config = {
 	name: "Terminal Basics",
 	description: "Get up to speed with the terminal. Start here if you're new to bioinformatics.",
 	tags: ["terminal"],
-	tools: ["samtools/1.10"],
+	tools: ["jq"],
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "Introduction", component: Intro },

@@ -15,7 +15,7 @@ export const config = {
 	name: "Introduction to samtools",
 	description: "Explore, process and manipulate <code>.sam</code> and <code>.bam</code> files with samtools.",
 	tags: ["samtools", "IGV"],
-	tools: ["samtools/1.10"],
+	tools: ["samtools"],
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "Introduction to samtools", component: Intro },
