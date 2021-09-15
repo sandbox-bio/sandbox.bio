@@ -49,7 +49,7 @@ async function init(config={})
 	if(config.files?.length > 0) {
 		// Mount URLs
 		const urls = config.files.map(f => `${window.location.origin}/${f}`);
-		const paths = await _aioli.mount(urls)
+		const paths = await _aioli.mount(urls);  // e.g. ["/shared/data/localhost:5000-data-terminal-basics-orders.tsv", ...]
 
 		// Rename Aioli-mounted URLs that are automatically given long names
 		for(let i in urls) {
@@ -433,7 +433,7 @@ const coreutils = {
 		let stats = [];
 		for(let path of paths)
 		{
-			try {		
+			try {
 				let stat = await _fs.stat(path);
 				// If the path is a file, we already have the info we need
 				if(!await _fs.isDir(stat.mode))
