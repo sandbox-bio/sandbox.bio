@@ -603,8 +603,7 @@ const fsSave = async function(tutorial) {
 		return;
 	console.log("Saving filesystem state...")
 	const files = await coreutils.ls(["/shared/data"], true);
-	const filesPreloaded = tutorial.files.map(f => f.split("/").pop());
-	const filesToCache = files.map(f => f.name).filter(f => !filesPreloaded.includes(f));
+	const filesToCache = files.map(f => f.name);
 
 	// Cache user-created files in a tutorial-specific localforage key
 	const data = {};
