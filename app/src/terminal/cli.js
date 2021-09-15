@@ -46,19 +46,26 @@ async function init(config={})
 	_fs = _aioli.tools[1].module.FS;
 
 	// Pre-load files onto the main folder
-	if(config.files?.length > 0) {
-		// Mount URLs
-		const urls = config.files.map(f => `${window.location.origin}/${f}`);
-		const paths = await _aioli.mount(urls);  // e.g. ["/shared/data/localhost:5000-data-terminal-basics-orders.tsv", ...]
+	if(config.files?.length > 0)
+	{
 
-		// Rename Aioli-mounted URLs that are automatically given long names
-		for(let i in urls) {
-			const url = urls[i];
-			const path = paths[i];
+		// Loop through files (e.g. "data/terminal-basics/orders.tsv")
+		for(let file of config.files)
+		{
+			// Get filename without path (e.g. "orders.tsv")
+			const filename = file.split("/").pop();
 
-			const urlPrefix = url.split("/").slice(0, -1).join("/") + "/";
-			const pathPrefix = urlPrefix.split("//").pop().replace(/\//g, "-");  // from Aioli code
-			await exec(`mv ${path} ${path.replace(pathPrefix, "")}`);
+			// Only mount files if they don't exist already (==> means user can modify them and they will stay as is)
+			try {
+				await _fs.stat(filename);
+			} catch (error) {
+				// Mount URL
+				const url = `${window.location.origin}/${file}`;
+				const [path] = await _aioli.mount([ url ]);  // e.g. ["/shared/data/localhost:5000-data-terminal-basics-orders.tsv"]
+
+				// Rename Aioli-mounted URLs that are automatically given long names
+				await exec(`mv ${path} ${filename}`);				
+			}
 		}
 	}
 }
