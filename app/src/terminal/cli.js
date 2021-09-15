@@ -599,30 +599,44 @@ const minimistConfig = {
 // =============================================================================
 
 const fsSave = async function(tutorial) {
-	if(!tutorial?.id)
-		return;
 	console.log("Saving filesystem state...")
-	const files = await coreutils.ls(["/shared/data"], true);
-	const filesToCache = files.map(f => f.name);
+	const filesToCache = (await fsTraverse("/shared/data/")).map(d => d.replace("/shared/data/", ""));
 
-	// Cache user-created files in a tutorial-specific localforage key
-	const data = {};
+	// Cache user-created files in a localforage key
+	const files = {}, folders = {};
 	for(let path of filesToCache) {
-		// Ignore folders for now
+		// For folders, just need to know they're there
 		if(path.endsWith("/"))
-			continue;
-		data[path] = await _fs.readFile(path, { "encoding": "binary" });
+			folders[path] = true;
+		else
+			files[path] = await _fs.readFile(path, { "encoding": "binary" });
 	}
-	await localforage.setItem(`${getLocalForageKey("fs")}${tutorial.id}`, data);
+	await localforage.setItem(`${getLocalForageKey("fs")}files`, files);
+	await localforage.setItem(`${getLocalForageKey("fs")}folders`, folders);
 }
 
 const fsLoad = async function(tutorial) {
-	if(!tutorial?.id)
-		return;
 	console.log("Loading filesystem state...")
-	const data = await localforage.getItem(`${getLocalForageKey("fs")}${tutorial.id}`);
-	for(let path in data)
-		await utils.writeFile(path, data[path], { encoding: "binary" });
+	const files = await localforage.getItem(`${getLocalForageKey("fs")}files`);
+	const folders = await localforage.getItem(`${getLocalForageKey("fs")}folders`);
+	// First, create the folders, then the files they contain
+	for(let path in folders)
+		exec(`mkdir ${path}`)
+	for(let path in files)
+		await utils.writeFile(path, files[path], { encoding: "binary" });
+}
+
+// Recursively traverse folder path and get list of all files
+async function fsTraverse(path) {
+	let paths = [];
+	const files = await coreutils.ls([path], true);
+	for(let file of files) {
+		const filePath = path + file.name;
+		paths.push(filePath);
+		if(file.name.endsWith("/"))
+			paths = paths.concat(await fsTraverse(filePath));
+	}
+	return paths;
 }
 
 
