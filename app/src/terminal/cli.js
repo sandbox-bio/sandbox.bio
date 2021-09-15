@@ -604,7 +604,7 @@ const minimistConfig = {
 
 const fsSave = async function() {
 	console.log("Saving filesystem state...")
-	const filesToCache = (await fsTraverse("/shared/data/")).map(d => d.replace("/shared/data/", ""));
+	const filesToCache = (await fsTraverse(`${DIR_ROOT}/`)).map(d => d.replace(`${DIR_ROOT}/`, ""));
 
 	// Cache user-created files in a localforage key
 	const files = {}, folders = {};

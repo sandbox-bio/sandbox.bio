@@ -10,6 +10,7 @@ import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "terminal-basics",
+	pwd: "terminal-basics",
 	name: "Terminal Basics",
 	description: "Get up to speed with the terminal. Start here if you're new to bioinformatics.",
 	tags: ["terminal"],
@@ -29,5 +30,5 @@ export const config = {
 		"data/terminal-basics/orders.tsv",
 		"data/terminal-basics/ref.fa",
 		"data/terminal-basics/ref.fa.bak"
-	],
+	]
 };

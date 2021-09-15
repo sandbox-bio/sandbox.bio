@@ -110,7 +110,7 @@ function nextStep(step)
 			</div>
 		{/if}
 		<div id="terminal-wrapper" class="border rounded-3 p-2">
-			<Terminal on:status={event => $status.terminal = event.detail} files={$tutorial.files} init={$tutorial.init} tools={$tutorial.tools} intro={$tutorial.intro} pwd={$tutorial.folder} />
+			<Terminal on:status={event => $status.terminal = event.detail} files={$tutorial.files} init={$tutorial.init} tools={$tutorial.tools} intro={$tutorial.intro} pwd={$tutorial.pwd} />
 		</div>
 	</div>
 </div>

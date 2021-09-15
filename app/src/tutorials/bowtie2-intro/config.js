@@ -10,6 +10,7 @@ import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "bowtie2-intro",
+	pwd: "bowtie2-intro",
 	name: "Introduction to bowtie2",
 	description: "Align DNA sequencing reads from <code>.fastq</code> files to a reference genome.",
 	tags: ["bowtie2", "bcftools"],
