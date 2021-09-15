@@ -28,13 +28,16 @@ let _wd = null;    // Track the last folder we were in to support "cd -"
 let $env = {};
 env.subscribe(d => $env = d);
 
+const DIR_ROOT = "/shared/data";
+const DIR_TUTORIALS = `${DIR_ROOT}/tutorials`;
+
 
 // =============================================================================
 // Initialize
 // =============================================================================
 
 // Initialize Aioli / prepare bioinformatics tools
-// Format: { tools: [], files: [] }
+// Format: { tools: [], files: [], pwd: "tutorials/bla" }
 async function init(config={})
 {
 	// Initialize
@@ -45,9 +48,16 @@ async function init(config={})
 	});
 	_fs = _aioli.tools[1].module.FS;
 
-	// Pre-load files onto the main folder
+	// Pre-load files onto the main folder (this happens *before* we load the filesystem state
+	// so at this point, /shared/data is empty!)
 	if(config.files?.length > 0)
 	{
+		console.log("Preloading tutorial files...");
+
+		// Setup folders
+		const pathDest = `${DIR_TUTORIALS}/${config.pwd}`;
+		await exec(`mkdir ${DIR_TUTORIALS} ${pathDest}`);
+		await exec(`cd ${pathDest}`);
 
 		// Loop through files (e.g. "data/terminal-basics/orders.tsv")
 		for(let file of config.files)
@@ -55,17 +65,11 @@ async function init(config={})
 			// Get filename without path (e.g. "orders.tsv")
 			const filename = file.split("/").pop();
 
-			// Only mount files if they don't exist already (==> means user can modify them and they will stay as is)
-			try {
-				await _fs.stat(filename);
-			} catch (error) {
-				// Mount URL
-				const url = `${window.location.origin}/${file}`;
-				const [path] = await _aioli.mount([ url ]);  // e.g. ["/shared/data/localhost:5000-data-terminal-basics-orders.tsv"]
-
-				// Rename Aioli-mounted URLs that are automatically given long names
-				await exec(`mv ${path} ${filename}`);				
-			}
+			// Mount URL (don't need to check whether it exists first since this is empty)
+			const url = `${window.location.origin}/${file}`;
+			const [path] = await _aioli.mount([ url ]);  // e.g. ["/shared/data/localhost:5000-data-terminal-basics-orders.tsv"]
+			// Rename Aioli-mounted URLs that are automatically given long names
+			await exec(`mv ${path} ${filename}`);				
 		}
 	}
 }
@@ -621,7 +625,7 @@ const fsLoad = async function() {
 	const folders = await localforage.getItem(`${getLocalForageKey("fs")}folders`);
 	// First, create the folders, then the files they contain
 	for(let path in folders)
-		exec(`mkdir ${path}`)
+		exec(`mkdir ${path}`);
 	for(let path in files)
 		await utils.writeFile(path, files[path], { encoding: "binary" });
 }

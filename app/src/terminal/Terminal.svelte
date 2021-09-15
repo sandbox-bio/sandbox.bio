@@ -65,6 +65,7 @@ export let intro = "";                     // Intro string to display on Termina
 export let init = "";                      // Command to run to initialize the environment (optional)
 export let files = [];                     // Files to preload on the filesystem
 export let tools = TOOLS_DEFAULT;          // Aioli tools to load
+export let pwd = "";                       // Path relative to /shared/data where user should start at
 
 let aioliReady = false;                    // Equals true once Aioli is initialized
 let divTerminal;                           // HTML element where terminal will be drawn
@@ -118,7 +119,7 @@ onMount(async () => {
 
 	// Initialize Aioli
 	try {
-		await $CLI.init({ tools, files });
+		await $CLI.init({ tools, files, pwd });
 		if(init)
 			await $CLI.exec(init);
 		aioliReady = true;
