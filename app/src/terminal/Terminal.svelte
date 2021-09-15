@@ -91,7 +91,9 @@ async function initTerminal() {
 
 // Save filesystem state every few seconds
 async function saveFS() {
-	await $CLI.fsSave($tutorial);
+	try {
+		await $CLI.fsSave($tutorial);
+	} catch (error) {}
 	setTimeout(saveFS, 3000);
 }
 
