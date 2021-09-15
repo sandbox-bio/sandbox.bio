@@ -37,7 +37,7 @@ const DIR_TUTORIALS = `${DIR_ROOT}/tutorials`;
 // =============================================================================
 
 // Initialize Aioli / prepare bioinformatics tools
-// Format: { tools: [], files: [], pwd: "tutorials/bla" }
+// Format: { tools: [], files: [], pwd: "bla" }
 async function init(config={})
 {
 	// Initialize
@@ -604,7 +604,7 @@ const minimistConfig = {
 
 const fsSave = async function() {
 	console.log("Saving filesystem state...")
-	const filesToCache = (await fsTraverse(`${DIR_ROOT}/`)).map(d => d.replace(`${DIR_ROOT}/`, ""));
+	const filesToCache = await fsTraverse(`${DIR_ROOT}/`);
 
 	// Cache user-created files in a localforage key
 	const files = {}, folders = {};
@@ -624,8 +624,13 @@ const fsLoad = async function() {
 	const files = await localforage.getItem(`${getLocalForageKey("fs")}files`);
 	const folders = await localforage.getItem(`${getLocalForageKey("fs")}folders`);
 	// First, create the folders, then the files they contain
-	for(let path in folders)
-		exec(`mkdir ${path}`);
+	for(let path in folders) {
+		try {
+			await _fs.stat(path);
+		} catch (error) {
+			await exec(`mkdir ${path}`);
+		}
+	}
 	for(let path in files)
 		await utils.writeFile(path, files[path], { encoding: "binary" });
 }
