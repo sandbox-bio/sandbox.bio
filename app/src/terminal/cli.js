@@ -598,7 +598,7 @@ const minimistConfig = {
 // File system caching functions
 // =============================================================================
 
-const fsSave = async function(tutorial) {
+const fsSave = async function() {
 	console.log("Saving filesystem state...")
 	const filesToCache = (await fsTraverse("/shared/data/")).map(d => d.replace("/shared/data/", ""));
 
@@ -615,7 +615,7 @@ const fsSave = async function(tutorial) {
 	await localforage.setItem(`${getLocalForageKey("fs")}folders`, folders);
 }
 
-const fsLoad = async function(tutorial) {
+const fsLoad = async function() {
 	console.log("Loading filesystem state...")
 	const files = await localforage.getItem(`${getLocalForageKey("fs")}files`);
 	const folders = await localforage.getItem(`${getLocalForageKey("fs")}folders`);
