@@ -607,8 +607,12 @@ const fsSave = async function(tutorial) {
 
 	// Cache user-created files in a tutorial-specific localforage key
 	const data = {};
-	for(let path of filesToCache)
+	for(let path of filesToCache) {
+		// Ignore folders for now
+		if(path.endsWith("/"))
+			continue;
 		data[path] = await _fs.readFile(path, { "encoding": "binary" });
+	}
 	await localforage.setItem(`${getLocalForageKey("fs")}${tutorial.id}`, data);
 }
 
