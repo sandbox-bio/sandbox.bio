@@ -326,10 +326,10 @@ const coreutils = {
 			dir = $env.HOME;
 		else if(dir == "-" && _wd)
 			dir = _wd;
-
-		_wd = await _fs.cwd();
+		// Change directory
 		try {
-			await _fs.chdir(dir);
+			await _aioli.cd(dir);
+			_wd = dir;
 		} catch (error) {
 			return `${dir}: No such file or directory`;
 		}
