@@ -124,11 +124,12 @@ env.subscribe(async envUpdated => {
 progress.subscribe(async progressUpdated => {
 	if(!get(status).app)
 		return;
-	console.log("progress.subscribe", progressUpdated);
 
 	// Update DB if user is logged in
-	if(get(user) !== null)
+	if(get(user) !== null) {
+		console.log("progress.subscribe", progressUpdated);
 		await updateDB({ progress: progressUpdated });
+	}
 });
 
 // -----------------------------------------------------------------------------

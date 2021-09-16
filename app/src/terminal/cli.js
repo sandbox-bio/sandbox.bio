@@ -477,7 +477,7 @@ const coreutils = {
 					}
 				}
 			} catch (error) {
-				console.error(error);
+				// console.error(error);
 				throw `${path}: No such file or directory`;
 			}
 		}
