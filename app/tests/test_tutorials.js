@@ -8,6 +8,7 @@ describe("Test tutorial contents (1 representative command)", () => {
 	before(async () => {
 		console.log("Initializing Aioli");
 		await $CLI.init({
+			pwd: "tests",
 			tools: ["bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2", "samtools/1.10", "bcftools/1.10", "minimap2/2.22", "jq/1.6"],
 			files: [
 				// bedtools
