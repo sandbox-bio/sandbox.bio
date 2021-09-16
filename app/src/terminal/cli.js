@@ -55,7 +55,7 @@ async function init(config={})
 		console.log("Preloading tutorial files...");
 
 		// Setup folders
-		const pathDest = `${DIR_TUTORIALS}/${config.pwd}`;
+		const pathDest = `${DIR_TUTORIALS}/${config.pwd || ""}`;
 		await exec(`mkdir ${DIR_TUTORIALS} ${pathDest}`);
 		await exec(`cd ${pathDest}`);
 
