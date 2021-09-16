@@ -336,12 +336,14 @@ const coreutils = {
 		}
 		return "";
 	},
-	mkdir: async args => {
-		// Don't use async since can't get return value
-		args._.map(arg => { try { _fs.mkdir(arg); } catch (error) {} });
-		return "";
-	},
-	rmdir: args => Promise.all(args._.map(async arg => await _fs.rmdir(arg))),
+	mkdir: args => Promise.all(args._.map(async arg => {
+		try {
+			await _aioli.mkdir(arg);
+		} catch (error) {
+			return `${arg}: Cannot create folder`;
+		}
+	})) && "",
+	rmdir: args => Promise.all(args._.map(async arg => await _fs.rmdir(arg))) && "",
 	mktemp: args => {
 		const path = `/shared/tmp/tmp${parseInt(Math.random() * 1_000_000)}`;
 		_fs.writeFile(path, "");
