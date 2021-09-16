@@ -327,9 +327,10 @@ const coreutils = {
 		else if(dir == "-" && _wd)
 			dir = _wd;
 		// Change directory
+		const dirOld = await coreutils.pwd();
 		try {
 			await _aioli.cd(dir);
-			_wd = dir;
+			_wd = dirOld;
 		} catch (error) {
 			return `${dir}: No such file or directory`;
 		}
