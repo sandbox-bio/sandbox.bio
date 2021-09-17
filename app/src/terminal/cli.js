@@ -358,6 +358,8 @@ const coreutils = {
 			data = await _fs.readFile(args._[0], { encoding: "binary" });
 
 			// Copy data over
+			if(args._[1] == ".")
+				args._[1] = args._[0].split("/").pop();
 			await utils.writeFile(args._[1], data, { encoding: "binary" });
 			return "";
 		} catch (error) {
