@@ -11,7 +11,7 @@ export let max = Infinity;  // max number of tutorials to list
 	<h3 class="pb-2">{title}</h3>
 </div>
 <div class="row align-items-md-stretch">
-	{#each items.slice(0, max).filter(t => t.steps?.length > 0 || t.url) as info}
+	{#each items.slice(0, max).filter(t => t.listed !== false && (t.steps?.length > 0 || t.url)) as info}
 		<div class="col-md-6 col-lg-4 col-xxl-3 mt-2">
 			<div class="h-100 p-3 border rounded-3">
 				{#each (info.difficulty || []) as tag}
