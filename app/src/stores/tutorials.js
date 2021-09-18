@@ -14,12 +14,13 @@ export const tutorial = writable({});
 export const tutorials = readable([
 	// Playground
 	playground,
-	// Tutorials
+	// Terminal Tutorials
 	terminalIntro,
+	jqIntro,
+	// Bioinformatics
 	bedtoolsIntro,
 	bowtie2Intro,
 	samtoolsIntro,
-	jqIntro,
 	dnaSecrets
 ]);
 

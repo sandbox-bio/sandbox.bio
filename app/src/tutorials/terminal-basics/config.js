@@ -16,6 +16,7 @@ export const config = {
 	tags: ["terminal"],
 	tools: ["jq"],
 	difficulty: ["beginner"],
+	divider: "Terminal",
 	steps: [
 		{ name: "Introduction", component: Intro },
 		{ name: "The Basics", component: Step1, subtitle: "Navigate the terminal", header: true },
