@@ -46,5 +46,9 @@ def mathjax_to_md(string):
 	string = re.sub('\{\\\\textrm\{(.+?)\}\}', r'\1', string)
 	string = re.sub('\{\\\\mathrm\{(.+?)\}\}', r'\1', string)
 	string = re.sub('\\\\mathrm\{(.+?)\}', r'\1', string)
+	string = re.sub('\\\\mathscr\{(.+?)\}', r'\1', string)
+	string = re.sub('\\\\ldots', '...', string)
+	string = re.sub('\\\\{', '{', string)
+	string = re.sub('\\\\}', '}', string)
 	string = string.replace('\\leq', '<=')
 	return string
