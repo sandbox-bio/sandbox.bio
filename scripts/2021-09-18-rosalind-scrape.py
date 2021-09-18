@@ -33,6 +33,9 @@ problem = problems[0]
 	pb_given = mathjax_to_md(soup.select(".given-return")[0].parent.get_text()).replace('Given: ', '')
 	pb_return = mathjax_to_md(soup.select(".given-return")[1].parent.get_text()).replace('Return: ', '')
 
+	pb_sample_data = soup.select(".codehilite pre")[0].get_text()
+	pb_sample_output = soup.select(".codehilite pre")[1].get_text()
+
 
 # ------------------------------------------------------------------------------
 # Utilities
