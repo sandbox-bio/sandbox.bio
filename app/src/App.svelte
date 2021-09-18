@@ -94,9 +94,9 @@ onMount(async () => {
 			<ul class="dropdown-menu" aria-labelledby="navTutorials">
 				<li><a class="dropdown-item" href="/tutorials">Browse all</a></li>
 				<li><hr class="dropdown-divider"></li>
-				{#each $tutorials.filter(t => t.steps.length > 0) as tutorial}
+				{#each $tutorials.filter(t => t.steps.length > 0) as tutorial, i}
 					{#if tutorial.divider}
-						<li><h6 class="dropdown-header">{tutorial.divider}</h6></li>
+						<li><h6 class="dropdown-header mb-0 pb-1 { i > 0 ? "mt-2" : "" }">{tutorial.divider}</h6></li>
 					{/if}
 					<li>
 						{#if $user !== null && $progress[tutorial.id]?.step == tutorial.steps.length - 1}
