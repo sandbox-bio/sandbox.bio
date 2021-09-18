@@ -6,6 +6,7 @@ import { config as samtoolsIntro } from "tutorials/samtools-intro/config.js";
 import { config as jqIntro } from "tutorials/jq-intro/config.js";
 import { config as dnaSecrets } from "tutorials/dna-secrets/config.js";
 import { config as playground } from "tutorials/playground/config.js";
+import { config as rosalind } from "tutorials/rosalind/config.js";
 
 // Current tutorial
 export const tutorial = writable({});
@@ -14,6 +15,7 @@ export const tutorial = writable({});
 export const tutorials = readable([
 	// Playground
 	playground,
+	rosalind,
 	// Terminal Tutorials
 	terminalIntro,
 	jqIntro,
