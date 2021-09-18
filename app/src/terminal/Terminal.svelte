@@ -21,6 +21,13 @@ const TOOLS_DEFAULT = [
 	{ loading: "lazy", tool: "bowtie2", program: "bowtie2-align-s", version: "2.4.2" },
 	{ loading: "lazy", tool: "minimap2", version: "2.22" },
 	{ loading: "lazy", tool: "jq", version: "1.6" },
+	{
+		loading: "lazy",
+		tool: "gawk",
+		version: "1.2.3",
+		urlPrefix: "http://localhost:12346/biowasm/tools/gawk/build/",
+		reinit: true
+	}
 ];
 
 // Autocomplete subcommands
@@ -32,6 +39,7 @@ const AUTOCOMPLETE = {
 	bowtie2: [],
 	minimap2: [],
 	jq: [],
+	awk: [],
 	// Coreutils
 	ls: [],
 	ll: [],

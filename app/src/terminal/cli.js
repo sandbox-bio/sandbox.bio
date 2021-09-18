@@ -86,6 +86,8 @@ async function transform(cmd)
 	// Handle aliases
 	if(tool == "bowtie2")
 		cmd.command.value = "bowtie2-align-s";
+	else if(tool == "awk")
+		cmd.command.value = "gawk";
 
 	return cmd;
 }
