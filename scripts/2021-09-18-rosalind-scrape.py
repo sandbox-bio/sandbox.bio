@@ -24,17 +24,16 @@ for problem in soup_problems:
 # Get each problem's content
 # ------------------------------------------------------------------------------
 
-problem = problems[0]
-
-	time.sleep(2)
+for problem in problems:
 	r = requests.get(problem["url"])
+	time.sleep(0.5)
 	soup = BeautifulSoup(r.content, "html.parser")
 
-	pb_given = mathjax_to_md(soup.select(".given-return")[0].parent.get_text()).replace('Given: ', '')
-	pb_return = mathjax_to_md(soup.select(".given-return")[1].parent.get_text()).replace('Return: ', '')
+	problem['given'] = mathjax_to_md(soup.select(".given-return")[0].parent.get_text()).replace('Given: ', '')
+	problem['return'] = mathjax_to_md(soup.select(".given-return")[1].parent.get_text()).replace('Return: ', '')
 
-	pb_sample_data = soup.select(".codehilite pre")[0].get_text()
-	pb_sample_output = soup.select(".codehilite pre")[1].get_text()
+	problem['sample_data'] = soup.select(".codehilite pre")[0].get_text()
+	problem['sample_output'] = soup.select(".codehilite pre")[1].get_text()
 
 
 # ------------------------------------------------------------------------------
@@ -44,5 +43,8 @@ problem = problems[0]
 def mathjax_to_md(string):
 	for group in re.findall('\$.+?\$', string):
 		string = string.replace(group, "_" + group[1:-1] + "_")
+	string = re.sub('\{\\\\textrm\{(.+?)\}\}', r'\1', string)
+	string = re.sub('\{\\\\mathrm\{(.+?)\}\}', r'\1', string)
+	string = re.sub('\\\\mathrm\{(.+?)\}', r'\1', string)
 	string = string.replace('\\leq', '<=')
 	return string
