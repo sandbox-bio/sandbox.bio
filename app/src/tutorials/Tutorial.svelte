@@ -41,6 +41,7 @@ function nextStep(step)
 		} catch (error) {}
 
 		window.history.pushState({}, "", url);
+		$tutorial.step = step;
 	}
 
 	// Update progress in one shot (each time change $progress, makes call to DB)
@@ -57,6 +58,8 @@ function nextStep(step)
 	if(document.getElementById("tutorial-sidebar"))
 		document.getElementById("tutorial-sidebar").scrollTop = 0;
 }
+
+$tutorial.step = step;
 </script>
 
 <div class="container-fluid pb-3">
