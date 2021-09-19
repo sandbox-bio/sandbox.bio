@@ -65,7 +65,14 @@ async function initEditor()
 				run: function(ed) {
 					output = "";
 					try {
-						output = pyodide.runPython(ed.getValue() + `\nanswer("${input}")`);
+						output = pyodide.runPython(`
+import sys
+import io
+sys.stdout = io.StringIO()
+${ed.getValue()}
+answer("${input}")
+`);
+						console.log(pyodide.runPython("import sys\nsys.stdout.getvalue()"))
 					} catch (error) {
 						output = error;
 					}
@@ -109,13 +116,6 @@ init();
 				<pre class="m-2">{output}</pre>
 			</TabPane>
 		</TabContent>
-		  
-	
-
-		<!-- <h5>
-			Output
-			<small class="text-muted" style="font-size:0.6em">Powered by <a href="https://pyodide.org/" target="_blank">PyIodide</a></small>
-		</h5>
-		<pre>{output}</pre> -->
+		<!-- <small class="text-muted" style="font-size:0.6em">Powered by <a href="https://pyodide.org/" target="_blank">PyIodide</a></small> -->
 	</div>
 </div>
