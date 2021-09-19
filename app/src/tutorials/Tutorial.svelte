@@ -72,7 +72,7 @@ $tutorial.step = step;
 					{#if stepInfo.subtitle}
 						<h6>{@html stepInfo.subtitle}</h6>
 					{/if}
-					{#if step == 0}
+					{#if step == 0 && $tutorial.tags.length > 0}
 						<div class="row mb-2">
 							<h6>
 								{#each $tutorial.tags as tag}

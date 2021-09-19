@@ -45,13 +45,13 @@ async function initEditor()
 		require.config({ paths: { vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs" }});
 		require(["vs/editor/editor.main"], () => {
 			editor = monaco.editor.create(divEditor, {
-				value: `def answer(t):\n\treturn t.replace('T', 'U')\n`,
+				value: `def answer(t):\n\tprint('Running code...')\n\treturn t.replace('T', 'U')\n`,
 				theme: "vs-light",
 				language: "python",
 				minimap: { enabled: false },
 				automaticLayout: true
 			});
-	
+
 			// Custom keyboard shortcuts
 			editor.addAction({
 				id: "execute-python",
@@ -118,7 +118,7 @@ init();
 			<TabPane tabId="result" tab="Result">
 				<pre class="m-2">{output}</pre>
 			</TabPane>
-			<TabPane tabId="stdout" tab="Output">
+			<TabPane tabId="stdout" tab="Logging">
 				<pre class="m-2">{stdout}</pre>
 				<pre class="m-2">{stderr}</pre>
 			</TabPane>
