@@ -101,10 +101,13 @@ init();
 </svelte:head>
 
 <div>
-	<div bind:this={divEditor} id="container-editor" class="border rounded-3 pt-2" style="height:65vh"></div>
+	<div bind:this={divEditor} id="container-editor" class="border rounded-3 pt-2" style="height:70vh"></div>
 
 	<div class="border rounded-3 p-2 mt-2" style="height:15vh; z-index:999; overflow-y:scroll">
-		<h5>Output</h5>
+		<h5>
+			Output
+			<small class="text-muted" style="font-size:0.6em">Powered by <a href="https://pyodide.org/" target="_blank">PyIodide</a></small>
+		</h5>
 		<pre>{output}</pre>
 	</div>
 </div>
