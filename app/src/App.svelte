@@ -88,7 +88,7 @@ onMount(async () => {
 	<ul class="nav nav-pills">
 		<li class="nav-item dropdown">
 			<!-- svelte-ignore a11y-invalid-attribute -->
-			<a href="#" class="nav-link dropdown-toggle" class:active={path == "/tutorials"} id="navTutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<a href="#" class="nav-link dropdown-toggle" class:active={path == "/tutorials" && params.get("id") != "rosalind"} id="navTutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 				Tutorials
 			</a>
 			<ul class="dropdown-menu" aria-labelledby="navTutorials">
@@ -118,6 +118,9 @@ onMount(async () => {
 					</li>
 				{/each}
 			</ul>
+		</li>
+		<li class="nav-item">
+			<a href="/tutorials?id=rosalind" class="nav-link" class:active={path == "/tutorials" && params.get("id") == "rosalind"}>Rosalind Exercises</a>
 		</li>
 		<li class="nav-item">
 			<a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a>
