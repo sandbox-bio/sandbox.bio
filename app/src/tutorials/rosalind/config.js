@@ -4,6 +4,7 @@ import Exercise from "./steps/Exercise.md";
 export const config = {
 	id: "rosalind",
 	terminal: false,
+	ide: true,
 	listed: false,
 	// pwd: "samtools-intro",
 	name: "Rosalind Exercises",
@@ -13,7 +14,7 @@ export const config = {
 	difficulty: [],
 	steps: [
 		{ name: "Rosalind Exercises", component: Intro, subtitle: "Welcome" },
-		{ name: "Rosalind Exercises", component: Intro, subtitle: "Counting DNA Nucleotides", header: true },
+		{ name: "Rosalind Exercises", component: Exercise, subtitle: "Counting DNA Nucleotides", header: true },
 		{ name: "Rosalind Exercises", component: Exercise, subtitle: "Transcribing DNA into RNA" }
 	]
 };

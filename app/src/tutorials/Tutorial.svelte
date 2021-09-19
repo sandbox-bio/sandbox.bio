@@ -4,6 +4,7 @@ import { config, progress } from "./stores/config";
 import { status } from "./stores/status";
 import { tutorial, tutorials } from "./stores/tutorials";
 import Terminal from "./terminal/Terminal.svelte";
+import IDE from "./components/IDE.svelte";
 
 export let id;
 export let step = 0;
@@ -116,6 +117,9 @@ $tutorial.step = step;
 			<div id="terminal-wrapper" class="border rounded-3 p-2">
 				<Terminal on:status={event => $status.terminal = event.detail} files={$tutorial.files} init={$tutorial.init} tools={$tutorial.tools} intro={$tutorial.intro} pwd={$tutorial.pwd} />
 			</div>
+		{/if}
+		{#if $tutorial.ide === true}
+			<IDE />
 		{/if}
 	</div>
 </div>
