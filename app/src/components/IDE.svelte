@@ -1,4 +1,8 @@
 <script>
+import { TabContent, TabPane } from "sveltestrap";
+
+export let input = "";
+
 let divEditor;
 let editor;
 let pyodide;
@@ -35,11 +39,11 @@ async function initEditor()
 	loading.editor = true;
 
 	try {
-		// require is provided by loader.min.js.
+		// require is provided by loader.min.js
 		require.config({ paths: { vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs" }});
 		require(["vs/editor/editor.main"], () => {
 			editor = monaco.editor.create(divEditor, {
-				value: `def answer(t):\n\treturn t.replace('T', 'U')\n\n# This should print GAUGGAACUUGACUACGUAAAUU\nprint(answer('GATGGAACTTGACTACGTAAATT'))`,
+				value: `def answer(t):\n\treturn t.replace('T', 'U')\n`,
 				theme: "vs-light",
 				language: "python",
 				minimap: { enabled: false },
@@ -48,35 +52,27 @@ async function initEditor()
 	
 			// Custom keyboard shortcuts
 			editor.addAction({
-				id: 'my-unique-id',
-				label: 'My Label!!!',
-				keybindings: [
-					monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
-				],
+				id: "execute-python",
+				label: "Execute my script",
+				keybindings: [ monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter ],
 				// A precondition for this action.
 				precondition: null,
 				// A rule to evaluate on top of the precondition in order to dispatch the keybindings.
 				keybindingContext: null,
-				contextMenuGroupId: 'navigation',
+				contextMenuGroupId: "navigation",
 				contextMenuOrder: 1.5,
 				// Method that will be executed when the action is triggered.
-				// @param editor The editor instance is passed in as a convinience
 				run: function(ed) {
 					output = "";
 					try {
-						pyodide.runPython(ed.getValue());
-						output = pyodide.runPython("answer('GATGGAACTTGACTACGTAAATT')");
-						// const expectedVal = "GAUGGAACUUGACUACGUAAAUU";
-						// output += `\n\n-------------------\n\nOutput  : ${answerVal}\nExpected: ${expectedVal}`
-						// output += answerVal == expectedVal ? '\nCorrect' : "\nIncorrect";
+						output = pyodide.runPython(ed.getValue() + `\nanswer("${input}")`);
 					} catch (error) {
-						output = error
+						output = error;
 					}
 					return null;
 				}
 			});
 		});
-
 	} catch (error) {
 		console.log("Editor Failed");
 		loading.editor = false;
@@ -101,13 +97,25 @@ init();
 </svelte:head>
 
 <div>
-	<div bind:this={divEditor} id="container-editor" class="border rounded-3 pt-2" style="height:70vh"></div>
 
-	<div class="border rounded-3 p-2 mt-2" style="height:15vh; z-index:999; overflow-y:scroll">
-		<h5>
+	<div bind:this={divEditor} id="container-editor" class="border rounded-3 pt-2" style="height:60vh"></div>
+
+	<div class="border rounded-3 p-2 mt-2" style="height:25vh; z-index:999; overflow-y:scroll">
+		<TabContent>
+			<TabPane tabId="input" tab="Input" active>
+				<textarea class="form-control m-2" bind:value={input}></textarea>
+			</TabPane>
+			<TabPane tabId="output" tab="Output">
+				<pre class="m-2">{output}</pre>
+			</TabPane>
+		</TabContent>
+		  
+	
+
+		<!-- <h5>
 			Output
 			<small class="text-muted" style="font-size:0.6em">Powered by <a href="https://pyodide.org/" target="_blank">PyIodide</a></small>
 		</h5>
-		<pre>{output}</pre>
+		<pre>{output}</pre> -->
 	</div>
 </div>

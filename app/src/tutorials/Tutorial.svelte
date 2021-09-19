@@ -119,7 +119,7 @@ $tutorial.step = step;
 			</div>
 		{/if}
 		{#if $tutorial.ide === true}
-			<IDE />
+			<IDE input="GATGGAACTTGACTACGTAAATT" />
 		{/if}
 	</div>
 </div>
