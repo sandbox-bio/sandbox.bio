@@ -1,6 +1,7 @@
 <script>
 import { Converter } from "showdown";
 import Alert from "./components/Alert.svelte";
+import { tutorial } from "./stores/tutorial";
 
 export let exercise = {};
 

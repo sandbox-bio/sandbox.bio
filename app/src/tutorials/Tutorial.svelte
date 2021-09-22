@@ -2,7 +2,8 @@
 import { DropdownItem, Offcanvas } from "sveltestrap";
 import { config, progress } from "./stores/config";
 import { status } from "./stores/status";
-import { tutorial, tutorials } from "./stores/tutorials";
+import { tutorials } from "./stores/tutorials";
+import { tutorial } from "./stores/tutorial";
 import Terminal from "./terminal/Terminal.svelte";
 import IDE from "./components/IDE.svelte";
 
