@@ -3,11 +3,9 @@ import { Converter } from "showdown";
 import Alert from "./components/Alert.svelte";
 import { tutorial } from "./stores/tutorial";
 
-$: exercise = $tutorial.steps[$tutorial.step].rosalind;
-
-$: console.log(exercise.sample_data)
-
 const converter = new Converter();
+
+$: exercise = $tutorial.steps[$tutorial.step].rosalind;
 </script>
 
 <Alert>
