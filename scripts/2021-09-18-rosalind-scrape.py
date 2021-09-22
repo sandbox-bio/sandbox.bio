@@ -30,11 +30,14 @@ for problem in problems:
 	time.sleep(0.5)
 	soup = BeautifulSoup(r.content, "html.parser")
 
-	problem['given'] = mathjax_to_md(soup.select(".given-return")[0].parent.get_text()).replace('Given: ', '')
-	problem['return'] = mathjax_to_md(soup.select(".given-return")[1].parent.get_text()).replace('Return: ', '')
+	problem['given'] = mathjax_to_md(soup.select(".given-return")[0].parent.get_text().strip()).replace('Given: ', '').replace('\n', ' ')
+	problem['return'] = mathjax_to_md(soup.select(".given-return")[1].parent.get_text().strip()).replace('Return: ', '').replace('\n', ' ')
 
-	problem['sample_data'] = soup.select(".codehilite pre")[0].get_text()
-	problem['sample_output'] = soup.select(".codehilite pre")[1].get_text()
+	problem['sample_data'] = soup.select(".codehilite pre")[0].get_text().strip().replace('\n', ' ')
+	problem['sample_output'] = soup.select(".codehilite pre")[1].get_text().strip().replace('\n', ' ')
+
+
+print(json.dumps(problems))
 
 
 # ------------------------------------------------------------------------------
