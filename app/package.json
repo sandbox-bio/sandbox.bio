@@ -35,6 +35,7 @@
     "pretty-bytes": "^5.6.0",
     "shell-parse": "grncdr/js-shell-parse#f5f65af",
     "shell-quote": "^1.7.2",
+    "showdown": "^1.9.1",
     "sirv-cli": "^1.0.0",
     "svelte-watch-resize": "^1.0.3",
     "sveltestrap": "^5.5.1",
