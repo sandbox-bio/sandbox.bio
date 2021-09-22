@@ -3,13 +3,13 @@ import { Converter } from "showdown";
 import Alert from "./components/Alert.svelte";
 import { tutorial } from "./stores/tutorial";
 
-export let exercise = {};
+$: exercise = $tutorial.steps[$tutorial.step].rosalind;
 
 const converter = new Converter();
 </script>
 
 <Alert>
-	Submit your answer on <a href={exercise.url} target="_blank">Rosalind</a>
+	Submit your answer on <a href="http://rosalind.info/problems/{exercise.id.toLowerCase()}" target="_blank">Rosalind</a>
 </Alert>
 
 <h6>Given:</h6>

@@ -6,6 +6,9 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
+N = 10  # number of problems
+
+
 # ------------------------------------------------------------------------------
 # Get list of problems (Bioinformatics Stronghold)
 # ------------------------------------------------------------------------------
@@ -18,16 +21,16 @@ for problem in soup_problems:
 	problems.append({
 		"id": problem.find_all("td")[0].get_text(),
 		"title": problem.find_all("td")[1].find("a").get_text().strip(),
-		"url": "http://rosalind.info" + problem.find_all("td")[1].find("a").get("href")
+		# "url": "http://rosalind.info" + problem.find_all("td")[1].find("a").get("href")
 	})
 
 # ------------------------------------------------------------------------------
 # Get each problem's content
 # ------------------------------------------------------------------------------
 
-for problem in problems:
-	r = requests.get(problem["url"])
-	time.sleep(0.5)
+for problem in problems[0:N]:
+	r = requests.get(f"http://rosalind.info/problems/{problem['id'].lower()}")
+	time.sleep(0.5)  # don't overwhelm the server
 	soup = BeautifulSoup(r.content, "html.parser")
 
 	problem['given'] = mathjax_to_md(soup.select(".given-return")[0].parent.get_text().strip()).replace('Given: ', '').replace('\n', ' ')
@@ -37,7 +40,11 @@ for problem in problems:
 	problem['sample_output'] = soup.select(".codehilite pre")[1].get_text().strip().replace('\n', ' ')
 
 
-print(json.dumps(problems))
+# ------------------------------------------------------------------------------
+# Output result
+# ------------------------------------------------------------------------------
+
+print(json.dumps(problems[0:N]).replace('{', '\n{'))
 
 
 # ------------------------------------------------------------------------------
