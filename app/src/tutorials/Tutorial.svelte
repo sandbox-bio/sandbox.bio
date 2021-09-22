@@ -121,7 +121,7 @@ $tutorial.step = step;
 		{#if $tutorial.ide === true}
 			<IDE
 				fn="dna_to_rna"
-				code={`def dna_to_rna(t):\n\tprint('Output a string')\n\treturn t.replace('T', 'U')\n`}
+				code={`def dna_to_rna(t):\n\t# Your solution goes here\n\tpass\n`}
 				input="GATGGAACTTGACTACGTAAATT"
 				expectedInput="GATGGAACTTGACTACGTAAATT"
 				expectedOutput="GAUGGAACUUGACUACGUAAAUU"
