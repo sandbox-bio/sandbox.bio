@@ -1,6 +1,11 @@
 <script>
+export let expectedInput = "";
+export let expectedOutput = "";
 export let input = "";
+export let code = "";
+export let fn = "";
 
+// State
 let divEditor;
 let editor;
 let pyodide;
@@ -10,6 +15,14 @@ let loading = {
 };
 let output = "";  // stdout, stderr
 let result = "";  // return value of answer() function
+let success = null;
+
+// Reactive statements
+$: {
+	input = expectedInput;
+	success = null;
+};
+
 
 // -----------------------------------------------------------------------------
 // Run code
@@ -17,13 +30,20 @@ let result = "";  // return value of answer() function
 
 // Execute code with given input
 function run() {
+	// Run code
 	output = "";
 	try {
-		pyodide.runPython(`${editor.getValue()}\n\nresult = dna_to_rna("${input}")`);
+		pyodide.runPython(`${editor.getValue()}\n\nresult = ${fn}("${input}")`);
 	} catch (error) {
 		output += error;
 	}
 	result = pyodide.globals.get("result");
+
+	// Update success status
+	if(input === expectedInput)
+		success = result == expectedOutput;
+	else
+		success = null;
 }
 
 // -----------------------------------------------------------------------------
@@ -62,7 +82,7 @@ async function initEditor()
 		require.config({ paths: { vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs" }});
 		require(["vs/editor/editor.main"], () => {
 			editor = monaco.editor.create(divEditor, {
-				value: `def dna_to_rna(t):\n\tprint('Output a string')\n\treturn t.replace('T', 'U')\n`,
+				value: code,
 				theme: "vs-light",
 				language: "python",
 				minimap: { enabled: false },
@@ -126,7 +146,8 @@ init();
 			Output
 			<small class="text-muted" style="font-size:0.6em">Powered by <a href="https://pyodide.org/" target="_blank">Pyodide</a></small>
 		</h6>
-		<textarea id="result" class="form-control font-monospace" disabled>{result}</textarea>
+		<textarea 
+			id="result" class="form-control font-monospace" class:border-2={success !== null} class:border-success={success === true} class:border-danger={success === false} disabled>{result}</textarea>
 
 		<h6 class="mt-3">Logs</h6>
 		<textarea id="output" class="form-control font-monospace" disabled>{output}</textarea>
