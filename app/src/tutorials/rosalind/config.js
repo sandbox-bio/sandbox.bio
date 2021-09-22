@@ -23,7 +23,13 @@ export const config = {
 	tools: [],
 	difficulty: [],
 	steps: [
-		{ name: "Rosalind Exercises", component: Intro, subtitle: "Introduction" },
+		{ name: "Rosalind Exercises", component: Intro, subtitle: "Introduction", rosalind: {
+			sample_data: "",
+			sample_output: "",
+			id: "",
+			given: "",
+			return: ""
+		} },
 		...rosalind.map((exercise, i) => {
 			return {
 				name: "Rosalind Exercises",
