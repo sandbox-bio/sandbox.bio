@@ -15,15 +15,24 @@ let output = "";  // stdout, stderr
 let result = "";  // return value of answer() function
 let success = null;
 
+// -----------------------------------------------------------------------------
 // Reactive statements
+// -----------------------------------------------------------------------------
+
+// Initialize on mount
 $: ready = loaded.editor === true && loaded.pyodide === true;
-$: {
-	input = expectedInput;
-	success = null;
-};
-$: if(code && ready)
-	editor.getModel().setValue(code);
 $: if(ready) editor.updateOptions({ readOnly: false });
+$: { input = expectedInput; success = null; };
+
+// When code prop changes, what to do with existing code?
+$: if(code && ready) {
+	// TODO: Backup current code?
+
+	// TODO: Check if there's something in localforage?
+
+	// If not, update the editor
+	editor.getModel().setValue(code);
+}
 
 
 // -----------------------------------------------------------------------------
