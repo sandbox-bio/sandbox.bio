@@ -99,21 +99,18 @@ init();
 </svelte:head>
 
 <div>
-	<div bind:this={divEditor} id="container-editor" class="border rounded-3 pt-2" style="height:60vh"></div>
+	<div bind:this={divEditor} id="container-editor" class="border rounded-3 pt-2" style="height:50vh"></div>
 
-	<div class="border rounded-3 p-2 mt-2" style="height:25vh; z-index:999; overflow-y:scroll">
-		<TabContent>
-			<TabPane tabId="input" tab="Input" active>
-				<textarea class="form-control m-2" bind:value={input}></textarea>
-			</TabPane>
-			<TabPane tabId="result" tab="Result">
-				<pre class="m-2">{output}</pre>
-			</TabPane>
-			<TabPane tabId="stdout" tab="Logging">
-				<pre class="m-2">{stdout}</pre>
-				<pre class="m-2">{stderr}</pre>
-			</TabPane>
-		</TabContent>
+	<div class="border rounded-3 p-2 mt-2" style="height:35vh; z-index:999; overflow-y:scroll">
+		<h6>Input</h6>
+		<input type="text" class="form-control font-monospace" id="input" bind:value={input}>
+
+		<h6 class="mt-3">Output</h6>
+		<textarea id="result" class="form-control font-monospace" disabled>{result}</textarea>
+
+		<h6 class="mt-3">Logs</h6>
+		<textarea id="output" class="form-control font-monospace" disabled>{output}</textarea>
+
 		<!-- <small class="text-muted" style="font-size:0.6em">Powered by <a href="https://pyodide.org/" target="_blank">PyIodide</a></small> -->
 	</div>
 </div>
