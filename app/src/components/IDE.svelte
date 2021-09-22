@@ -9,21 +9,21 @@ export let fn = "";
 let divEditor;
 let editor;
 let pyodide;
-let loading = {
-	editor: false,
-	pyodide: false,
-};
+let loading = { editor: false, pyodide: false };
+let loaded = { editor: false, pyodide: false };
 let output = "";  // stdout, stderr
 let result = "";  // return value of answer() function
 let success = null;
 
 // Reactive statements
+$: ready = loaded.editor === true && loaded.pyodide === true;
 $: {
 	input = expectedInput;
 	success = null;
 };
-$: if(code && editor !== undefined)
+$: if(code && ready)
 	editor.getModel().setValue(code);
+$: if(ready) editor.updateOptions({ readOnly: false });
 
 
 // -----------------------------------------------------------------------------
@@ -65,6 +65,7 @@ async function initPython(){
 			stdout: text => output += `${text}\n`,
 			stderr: text => output += `${text}\n`,
 		});
+		loaded.pyodide = true;
 	} catch (error) {
 		console.log("Pyodide Failed");
 		loading.pyodide = false;
@@ -88,7 +89,8 @@ async function initEditor()
 				theme: "vs-light",
 				language: "python",
 				minimap: { enabled: false },
-				automaticLayout: true
+				automaticLayout: true,
+				readOnly: true
 			});
 
 			// Custom keyboard shortcuts
@@ -106,6 +108,7 @@ async function initEditor()
 				run: run
 			});
 		});
+		loaded.editor = true;
 	} catch (error) {
 		console.log("Editor Failed");
 		loading.editor = false;
@@ -137,11 +140,11 @@ init();
 		<h6>Input</h6>
 
 		<div class="input-group mb-3">
-			<textarea id="sdf" class="form-control font-monospace" bind:value={input} on:keydown={e => {
+			<textarea id="sdf" class="form-control font-monospace" disabled={!ready} bind:value={input} on:keydown={e => {
 				if(e.key === "Enter" && e.metaKey === true)
 					run();
 			}}></textarea>
-			<button class="btn btn-outline-secondary" type="button" on:click={run}>Run</button>
+			<button class="btn btn-primary" type="button" disabled={!ready} on:click={run}>Run</button>
 		</div>
 
 		<h6 class="mt-3">
