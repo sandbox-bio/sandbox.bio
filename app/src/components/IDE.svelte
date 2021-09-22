@@ -22,8 +22,8 @@ async function initPython(){
 	try {
 		pyodide = await loadPyodide({
 			indexURL : "https://cdn.jsdelivr.net/pyodide/v0.18.0/full/",
-			stdout: text => output += text,
-			stderr: text => output += text,
+			stdout: text => output += `${text}\n`,
+			stderr: text => output += `${text}\n`,
 		});
 	} catch (error) {
 		console.log("Pyodide Failed");
@@ -43,7 +43,7 @@ async function initEditor()
 		require.config({ paths: { vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs" }});
 		require(["vs/editor/editor.main"], () => {
 			editor = monaco.editor.create(divEditor, {
-				value: `def answer(t):\n\tprint('Running code...')\n\treturn t.replace('T', 'U')\n`,
+				value: `def dna_to_rna(t):\n\tprint('Output a string')\n\treturn t.replace('T', 'U')\n`,
 				theme: "vs-light",
 				language: "python",
 				minimap: { enabled: false },
@@ -65,7 +65,7 @@ async function initEditor()
 				run: function(ed) {
 					output = "";
 					try {
-						pyodide.runPython(`${ed.getValue()}\n\nresult = answer("${input}")`);
+						pyodide.runPython(`${ed.getValue()}\n\nresult = dna_to_rna("${input}")`);
 					} catch (error) {
 						output += error;
 					}
