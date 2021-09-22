@@ -115,7 +115,10 @@ init();
 		<h6>Input</h6>
 
 		<div class="input-group mb-3">
-			<input type="text" class="form-control font-monospace" id="input" bind:value={input}>
+			<input type="text" class="form-control font-monospace" id="input" bind:value={input} on:keypress={e => {
+				if(e.key === "Enter")
+					run();
+			}} >
 			<button class="btn btn-outline-secondary" type="button" on:click={run}>Run</button>
 		</div>
 
