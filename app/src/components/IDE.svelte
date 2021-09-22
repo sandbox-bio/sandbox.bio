@@ -33,7 +33,7 @@ function run() {
 	// Run code
 	output = "";
 	try {
-		pyodide.runPython(`${editor.getValue()}\n\nresult = ${fn}("${input}")`);
+		pyodide.runPython(`${editor.getValue()}\n\nresult = ${fn}("${input.replace("\n", "\\n")}")`);
 	} catch (error) {
 		output += error;
 	}
