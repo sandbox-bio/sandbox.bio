@@ -1,5 +1,5 @@
 import Intro from "./steps/Intro.md";
-import Exercise from "./steps/Exercise.md";
+import Exercise from "./steps/Exercise.svelte";
 
 export const config = {
 	id: "rosalind",
