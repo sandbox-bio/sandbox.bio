@@ -10,9 +10,8 @@ let loading = {
 	editor: false,
 	pyodide: false,
 };
-let output = "";
-let stdout = "";
-let stderr = "";
+let output = "";  // stdout, stderr
+let result = "";  // return value of answer() function
 
 async function initPython(){
 	console.log("Initialize Python...")
@@ -23,10 +22,9 @@ async function initPython(){
 	try {
 		pyodide = await loadPyodide({
 			indexURL : "https://cdn.jsdelivr.net/pyodide/v0.18.0/full/",
-			stdout: (text) => output += text,
-			stderr: (text) => output += text,
+			stdout: text => output += text,
+			stderr: text => output += text,
 		});
-		console.log(pyodide.runPython("1 + 2"));
 	} catch (error) {
 		console.log("Pyodide Failed");
 		loading.pyodide = false;
@@ -67,19 +65,12 @@ async function initEditor()
 				run: function(ed) {
 					output = "";
 					try {
-						output = pyodide.runPython(`
-import sys
-import io
-sys.stdout = io.StringIO()
-sys.stderr = io.StringIO()
-${ed.getValue()}
-answer("${input}")
-`);
-						stdout = pyodide.runPython("import sys\nsys.stdout.getvalue()");
-						stderr = pyodide.runPython("import sys\nsys.stderr.getvalue()");
+						pyodide.runPython(`${ed.getValue()}\n\nresult = answer("${input}")`);
 					} catch (error) {
-						output = error;
+						output += error;
 					}
+					result = pyodide.globals.get("result");
+
 					return null;
 				}
 			});
