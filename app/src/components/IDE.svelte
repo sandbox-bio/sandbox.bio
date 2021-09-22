@@ -11,6 +11,9 @@ let loading = {
 let output = "";  // stdout, stderr
 let result = "";  // return value of answer() function
 
+// -----------------------------------------------------------------------------
+// Run code
+// -----------------------------------------------------------------------------
 
 // Execute code with given input
 function run() {
@@ -23,9 +26,13 @@ function run() {
 	result = pyodide.globals.get("result");
 }
 
-// 
+// -----------------------------------------------------------------------------
+// Initialization of Python + IDE
+// -----------------------------------------------------------------------------
+
+// Initialize Pyodide
 async function initPython(){
-	console.log("Initialize Python...")
+	console.log("Initialize Python...");
 	if(loading.pyodide)
 		return;
 	loading.pyodide = true;
@@ -42,9 +49,10 @@ async function initPython(){
 	}
 }
 
+// Initialize Monaco Editor
 async function initEditor()
 {
-	console.log("Initialize editor...")
+	console.log("Initialize editor...");
 	if(loading.editor)
 		return;
 	loading.editor = true;
