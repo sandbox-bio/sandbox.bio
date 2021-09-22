@@ -1,6 +1,4 @@
 <script>
-import { TabContent, TabPane } from "sveltestrap";
-
 export let input = "";
 
 let divEditor;
@@ -13,6 +11,19 @@ let loading = {
 let output = "";  // stdout, stderr
 let result = "";  // return value of answer() function
 
+
+// Execute code with given input
+function run() {
+	output = "";
+	try {
+		pyodide.runPython(`${editor.getValue()}\n\nresult = dna_to_rna("${input}")`);
+	} catch (error) {
+		output += error;
+	}
+	result = pyodide.globals.get("result");
+}
+
+// 
 async function initPython(){
 	console.log("Initialize Python...")
 	if(loading.pyodide)
@@ -62,17 +73,7 @@ async function initEditor()
 				contextMenuGroupId: "navigation",
 				contextMenuOrder: 1.5,
 				// Method that will be executed when the action is triggered.
-				run: function(ed) {
-					output = "";
-					try {
-						pyodide.runPython(`${ed.getValue()}\n\nresult = dna_to_rna("${input}")`);
-					} catch (error) {
-						output += error;
-					}
-					result = pyodide.globals.get("result");
-
-					return null;
-				}
+				run: run
 			});
 		});
 	} catch (error) {
@@ -81,6 +82,7 @@ async function initEditor()
 	}
 }
 
+// Initialize on page load
 async function init() {
 	console.log("init")
 	if(!loading.pyodide)
@@ -103,14 +105,19 @@ init();
 
 	<div class="border rounded-3 p-2 mt-2" style="height:35vh; z-index:999; overflow-y:scroll">
 		<h6>Input</h6>
-		<input type="text" class="form-control font-monospace" id="input" bind:value={input}>
 
-		<h6 class="mt-3">Output</h6>
+		<div class="input-group mb-3">
+			<input type="text" class="form-control font-monospace" id="input" bind:value={input}>
+			<button class="btn btn-outline-secondary" type="button" on:click={run}>Run</button>
+		</div>
+
+		<h6 class="mt-3">
+			Output
+			<small class="text-muted" style="font-size:0.6em">Powered by <a href="https://pyodide.org/" target="_blank">Pyodide</a></small>
+		</h6>
 		<textarea id="result" class="form-control font-monospace" disabled>{result}</textarea>
 
 		<h6 class="mt-3">Logs</h6>
 		<textarea id="output" class="form-control font-monospace" disabled>{output}</textarea>
-
-		<!-- <small class="text-muted" style="font-size:0.6em">Powered by <a href="https://pyodide.org/" target="_blank">PyIodide</a></small> -->
 	</div>
 </div>
