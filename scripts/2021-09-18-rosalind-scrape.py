@@ -36,8 +36,8 @@ for problem in problems[0:N]:
 	problem['given'] = mathjax_to_md(soup.select(".given-return")[0].parent.get_text().strip()).replace('Given: ', '').replace('\n', ' ')
 	problem['return'] = mathjax_to_md(soup.select(".given-return")[1].parent.get_text().strip()).replace('Return: ', '').replace('\n', ' ')
 
-	problem['sample_data'] = soup.select(".codehilite pre")[0].get_text().strip().replace('\n', ' ')
-	problem['sample_output'] = soup.select(".codehilite pre")[1].get_text().strip().replace('\n', ' ')
+	problem['sample_data'] = soup.select(".codehilite pre")[0].get_text().strip()
+	problem['sample_output'] = soup.select(".codehilite pre")[1].get_text().strip()
 
 
 # ------------------------------------------------------------------------------

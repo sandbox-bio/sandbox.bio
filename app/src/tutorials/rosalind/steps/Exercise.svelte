@@ -5,6 +5,8 @@ import { tutorial } from "./stores/tutorial";
 
 $: exercise = $tutorial.steps[$tutorial.step].rosalind;
 
+$: console.log(exercise.sample_data)
+
 const converter = new Converter();
 </script>
 
@@ -20,10 +22,17 @@ const converter = new Converter();
 
 <h6>Sample Input:</h6>
 <code class="text-break">
-{@html converter.makeHtml(exercise.sample_data.trim())}
+	{@html exercise.sample_data.replaceAll("\n", "<br>")}
 </code>
 
-<h6>Sample Output:</h6>
+<h6 class="mt-3">Sample Output:</h6>
 <code class="text-break">
-{@html converter.makeHtml(exercise.sample_output.trim())}
+	{exercise.sample_output}
 </code>
+
+<style>
+code {
+	font-size: 0.8em;
+	color: #d63384;
+}
+</style>
