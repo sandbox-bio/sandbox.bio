@@ -22,6 +22,8 @@ $: {
 	input = expectedInput;
 	success = null;
 };
+$: if(code && editor !== undefined)
+	editor.getModel().setValue(code);
 
 
 // -----------------------------------------------------------------------------
@@ -135,10 +137,10 @@ init();
 		<h6>Input</h6>
 
 		<div class="input-group mb-3">
-			<input type="text" class="form-control font-monospace" id="input" bind:value={input} on:keypress={e => {
-				if(e.key === "Enter")
+			<textarea id="sdf" class="form-control font-monospace" bind:value={input} on:keydown={e => {
+				if(e.key === "Enter" && e.metaKey === true)
 					run();
-			}} >
+			}}></textarea>
 			<button class="btn btn-outline-secondary" type="button" on:click={run}>Run</button>
 		</div>
 
@@ -146,8 +148,7 @@ init();
 			Output
 			<small class="text-muted" style="font-size:0.6em">Powered by <a href="https://pyodide.org/" target="_blank">Pyodide</a></small>
 		</h6>
-		<textarea 
-			id="result" class="form-control font-monospace" class:border-2={success !== null} class:border-success={success === true} class:border-danger={success === false} disabled>{result}</textarea>
+		<textarea id="result" class="form-control font-monospace" class:border-2={success !== null} class:border-success={success === true} class:border-danger={success === false} disabled>{result}</textarea>
 
 		<h6 class="mt-3">Logs</h6>
 		<textarea id="output" class="form-control font-monospace" disabled>{output}</textarea>
