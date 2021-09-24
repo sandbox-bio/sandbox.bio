@@ -2,11 +2,12 @@
 import localforage from "localforage";
 import { getLocalForageKey } from "stores/config";
 
-export let expectedInput = "";
-export let expectedOutput = "";
-export let input = "";
-export let code = "";
-export let fn = "";
+export let expectedInput = "";   // Default input to show
+export let expectedOutput = "";  // Expected output given that input
+export let input = "";           // Current user input (starts out as expectedInput but can be modified by user)
+export let code = "";            // Code to initialize the IDE with
+export let codeExtra = "";       // Extra code to run when executing script
+export let fn = "";              // Function name; used to sync IDE state so use a unique name for this
 
 // State
 let divEditor;

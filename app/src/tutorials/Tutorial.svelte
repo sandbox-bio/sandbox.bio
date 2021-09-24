@@ -20,7 +20,10 @@ let rosalind = {};
 // Reactive statements
 $: nextStep(step);
 $: nbSteps = $tutorial.steps.length;
-$: if($tutorial.ide === true) rosalind = $tutorial.steps[step].rosalind;
+$: if($tutorial.ide === true) {
+	rosalind = $tutorial.steps[step].rosalind;
+	rosalind.fn = `solution_${rosalind.id.toLowerCase()}`;
+}
 
 function nextStep(step)
 {
@@ -123,8 +126,9 @@ $tutorial.step = step;
 		{/if}
 		{#if $tutorial.ide === true}
 			<IDE
-				fn={`solution_${rosalind.id.toLowerCase()}`}
-				code={`def solution_${rosalind.id.toLowerCase()}(${rosalind.params.join(", ")}):\n    # Your solution goes here\n    return "answer"\n`}
+				fn={rosalind.fn}
+				code={`def ${rosalind.fn}(${rosalind.params.join(", ")}):\n    # Your solution goes here\n    return "answer"\n`}
+				codeExtra={`result = ${rosalind.fn}("${rosalind.sample_data}")`}
 				input={rosalind.sample_data}
 				expectedInput={rosalind.sample_data}
 				expectedOutput={rosalind.sample_output}
