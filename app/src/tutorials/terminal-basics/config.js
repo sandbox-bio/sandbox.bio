@@ -10,11 +10,13 @@ import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "terminal-basics",
+	pwd: "terminal-basics",
 	name: "Terminal Basics",
 	description: "Get up to speed with the terminal. Start here if you're new to bioinformatics.",
 	tags: ["terminal"],
-	tools: ["samtools/1.10"],
+	tools: ["jq"],
 	difficulty: ["beginner"],
+	divider: "Terminal",
 	steps: [
 		{ name: "Introduction", component: Intro },
 		{ name: "The Basics", component: Step1, subtitle: "Navigate the terminal", header: true },
@@ -29,5 +31,5 @@ export const config = {
 		"data/terminal-basics/orders.tsv",
 		"data/terminal-basics/ref.fa",
 		"data/terminal-basics/ref.fa.bak"
-	],
+	]
 };

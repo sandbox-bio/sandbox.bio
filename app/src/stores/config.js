@@ -20,6 +20,10 @@ const urlsSupabase = {
 	"sandbox.bio": {
 		url: "https://vjmttfnyctkivaeljytg.supabase.co",
 		publicKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTMyNzMyOSwiZXhwIjoxOTQ0OTAzMzI5fQ.V5Lo9CuFHJFyzmS9d3rMQMqAO_eSzNN50sm0CxHwD7M"
+	},
+	"prd.sandbox.bio": {
+		url: "https://vjmttfnyctkivaeljytg.supabase.co",
+		publicKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTMyNzMyOSwiZXhwIjoxOTQ0OTAzMzI5fQ.V5Lo9CuFHJFyzmS9d3rMQMqAO_eSzNN50sm0CxHwD7M"
 	}
 };
 
@@ -35,7 +39,6 @@ const _config = {
 	api: `https://${hostname}/api/v1`,
 	// Default environment information
 	hostname: "sandbox",
-	playground: `\u001b[0;37m# This playground is for open-ended exploration.\n# For guided tutorials, see https://sandbox.bio/tutorials\n#\n# Example:\n#   samtools view -o test.bam /samtools/examples/toy.sam\n#   samtools index test.bam\n#   ls test.bam.bai\n#   samtools idxstats test.bam  # idxstats uses the .bai file \u001b[0m\n`,
 	// Default environment variables. These are auto-regenerated in Terminal.svelte:input() even if the user deletes them
 	env: {
 		PS1: '\\u@\\h$ ',
@@ -121,11 +124,12 @@ env.subscribe(async envUpdated => {
 progress.subscribe(async progressUpdated => {
 	if(!get(status).app)
 		return;
-	console.log("progress.subscribe", progressUpdated);
 
 	// Update DB if user is logged in
-	if(get(user) !== null)
+	if(get(user) !== null) {
+		console.log("progress.subscribe", progressUpdated);
 		await updateDB({ progress: progressUpdated });
+	}
 });
 
 // -----------------------------------------------------------------------------
@@ -138,6 +142,8 @@ export function getLocalForageKey(type="env") {
 		return `env:${get(user)?.id || "guest"}`;
 	else if(type == "fs")
 		return `fs:${get(user)?.id || "guest"}:`;
+	else if(type == "ide")
+		return `ide:${get(user)?.id || "guest"}:`;
 	throw `Unexpected type ${type}.`;
 }
 

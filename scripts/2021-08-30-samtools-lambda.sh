@@ -19,7 +19,8 @@
 # Compile samtools/htslib on EC2 instance
 # ------------------------------------------------------------------------------
 
-ssh -i ~/Desktop/2021-08-17-test-aws.cer ec2-user@54.177.12.96
+IP_ADDDRESS=?
+ssh -i ~/Desktop/2021-08-17-test-aws.cer ec2-user@$IP_ADDDRESS
 sudo yum install -y git zlib-devel bzip2-devel lzma liblzma-devel xz-devel libcurl-devel openssl-devel autoconf gcc ncurses-devel
 sudo yum groupinstall "Development Tools"
 git clone https://github.com/samtools/samtools.git
@@ -39,17 +40,19 @@ make
 
 # ------------------------------------------------------------------------------
 # Bundle with Exodus
-# TODO: look into installing musl library (doesn't seem to be picked up, even if set `LD_LIBRARY_PATH=/usr/local/musl/`)
 # ------------------------------------------------------------------------------
 
-# # Install musl
-# cd ~
-# git clone git://git.musl-libc.org/musl
-# git checkout v1.2.2	
-# cd musl
-# ./configure
-# make
-# sudo make install
+# Install musl
+cd ~
+git clone git://git.musl-libc.org/musl
+git checkout v1.2.2	
+cd musl
+./configure
+make
+sudo make install
+
+# Make sure musl-gcc can be found
+export PATH=$PATH:/usr/local/musl/bin/
 
 # Install Exodus
 cd ~
@@ -57,6 +60,7 @@ sudo yum install -y pip
 pip install --user exodus-bundler
 exodus --tarball samtools/samtools jq | tar -zx
 cd exodus/
+
 
 # ------------------------------------------------------------------------------
 # Create entrypoint
@@ -75,24 +79,25 @@ do
   # Parse parameters
   echo "Parsing args..."
   argsList=($(/var/task/bin/jq -rc '.args[]' <<< "$EVENT_DATA"))
-  # argsList[0]=${argsList[0]//[^a-z]/}
 
   cd /tmp
-  echo /var/task/bin/samtools ${argsList[0]}
   set +u
-  /var/task/bin/samtools view ${argsList[@]} > /tmp/samtools.out 2>&1 || true
+
+  time /var/task/bin/samtools ${argsList[@]} > /tmp/samtools.out 2>&1 || true
+
   set -u
-  /var/task/bin/jq --arg RESPONSE "$(cat /tmp/samtools.out)" '{"statusCode":200,"body": $RESPONSE}' <<< '{}' > /tmp/response.json
-  curl -X POST "http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/$REQUEST_ID/response" --data "@/tmp/response.json"
+  time /var/task/bin/jq --arg RESPONSE "$(cat /tmp/samtools.out)" '{"statusCode":200,"body": $RESPONSE}' <<< '{}' > /tmp/response.json
+  time curl -X POST "http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/$REQUEST_ID/response" --data "@/tmp/response.json"
 done
 EOF
 
 echo '' > function.sh
 
 chmod 755 bootstrap function.sh
+rm ../samtools.zip
 zip --symlinks -r9 ../samtools.zip *
 aws lambda update-function-code --function-name samtools --zip-file fileb://../samtools.zip
-time aws lambda invoke --function-name samtools --payload '{"args":["-H", "http://labshare.cshl.edu/shares/schatzlab/www-data/ribbon/DRR01684_merged.chr1.bam"]}' response.txt; cat response.txt
+# time aws lambda invoke --function-name samtools --payload '{"args":["index"]}' response.txt; cat response.txt
 
 
 

@@ -24,11 +24,13 @@ import Exercise5 from "./exercises/Exercise5.md";
 export const config = {
 	// Metadata
 	id: "bedtools-intro",
-	name: "Introduction to bedtools",
+	pwd: "bedtools-intro",
+	name: "Intro to bedtools",
 	description: "Explore, analyze, and manipulate genomic interval <code>.bed</code> files.",
 	tags: ["bedtools", "IGV"],
-	tools: ["bedtools/2.29.2"],
+	tools: ["bedtools"],
 	difficulty: ["beginner"],
+	divider: "Bioinformatics",
 
 	// Lessons. Make sure to update `tests/test_exercises.js` if the order of these steps is modified
 	steps: [

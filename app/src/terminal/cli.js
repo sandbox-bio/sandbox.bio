@@ -28,13 +28,16 @@ let _wd = null;    // Track the last folder we were in to support "cd -"
 let $env = {};
 env.subscribe(d => $env = d);
 
+const DIR_ROOT = "/shared/data";
+const DIR_TUTORIALS = `${DIR_ROOT}/tutorials`;
+
 
 // =============================================================================
 // Initialize
 // =============================================================================
 
 // Initialize Aioli / prepare bioinformatics tools
-// Format: { tools: [], files: [] }
+// Format: { tools: [], files: [], pwd: "bla" }
 async function init(config={})
 {
 	// Initialize
@@ -45,20 +48,28 @@ async function init(config={})
 	});
 	_fs = _aioli.tools[1].module.FS;
 
-	// Pre-load files onto the main folder
-	if(config.files?.length > 0) {
-		// Mount URLs
-		const urls = config.files.map(f => `${window.location.origin}/${f}`);
-		const paths = await _aioli.mount(urls)
+	// Pre-load files onto the main folder (this happens *before* we load the filesystem state
+	// so at this point, /shared/data is empty!)
+	if(config.files?.length > 0)
+	{
+		console.log("Preloading tutorial files...");
 
-		// Rename Aioli-mounted URLs that are automatically given long names
-		for(let i in urls) {
-			const url = urls[i];
-			const path = paths[i];
+		// Setup folders
+		const pathDest = `${DIR_TUTORIALS}/${config.pwd || ""}`;
+		await exec(`mkdir ${DIR_TUTORIALS} ${pathDest}`);
+		await exec(`cd ${pathDest}`);
 
-			const urlPrefix = url.split("/").slice(0, -1).join("/") + "/";
-			const pathPrefix = urlPrefix.split("//").pop().replace(/\//g, "-");  // from Aioli code
-			await exec(`mv ${path} ${path.replace(pathPrefix, "")}`);
+		// Loop through files (e.g. "data/terminal-basics/orders.tsv")
+		for(let file of config.files)
+		{
+			// Get filename without path (e.g. "orders.tsv")
+			const filename = file.split("/").pop();
+
+			// Mount URL (don't need to check whether it exists first since this is empty)
+			const url = `${window.location.origin}/${file}`;
+			const [path] = await _aioli.mount([ url ]);  // e.g. ["/shared/data/localhost:5000-data-terminal-basics-orders.tsv"]
+			// Rename Aioli-mounted URLs that are automatically given long names
+			await exec(`mv ${path} ${filename}`);				
 		}
 	}
 }
@@ -68,11 +79,11 @@ async function init(config={})
 // Custom transformations to apply to CLI commands (for now just aliases)
 // =============================================================================
 
-function transform(cmd)
+async function transform(cmd)
 {
 	const tool = cmd.command.value;
 
-	// Handle aliases (just bowtie for now)
+	// Handle aliases
 	if(tool == "bowtie2")
 		cmd.command.value = "bowtie2-align-s";
 
@@ -171,7 +182,7 @@ async function exec(cmd, callback=console.warn)
 			let output;
 
 			// Handle custom transforms on the command
-			cmd = transform(cmd);
+			cmd = await transform(cmd);
 
 			// Parse args
 			const tool = cmd.command.value.trim();  // trim removes \n that get introduced if use \
@@ -237,8 +248,9 @@ async function exec(cmd, callback=console.warn)
 
 			// -----------------------------------------------------------------
 			// Handle next command, e.g. `echo 123 && echo 456`, `echo 123 ; echo 456`
+			// But if we had `echo 123 || echo 456` and the LHS didn't throw, then we're done
 			// -----------------------------------------------------------------
-			if(cmd.next) {
+			if(cmd.next && cmd.control != "||") {
 				output += "\n" + await exec(cmd.next, callback);
 				output = output.trim();
 			}
@@ -314,21 +326,24 @@ const coreutils = {
 			dir = $env.HOME;
 		else if(dir == "-" && _wd)
 			dir = _wd;
-
-		_wd = await _fs.cwd();
+		// Change directory
+		const dirOld = await coreutils.pwd();
 		try {
-			await _fs.chdir(dir);
+			await _aioli.cd(dir);
+			_wd = dirOld;
 		} catch (error) {
 			return `${dir}: No such file or directory`;
 		}
 		return "";
 	},
-	mkdir: async args => {
-		// Don't use async since can't get return value
-		args._.map(arg => { try { _fs.mkdir(arg); } catch (error) {} });
-		return "";
-	},
-	rmdir: args => Promise.all(args._.map(async arg => await _fs.rmdir(arg))),
+	mkdir: args => Promise.all(args._.map(async arg => {
+		try {
+			await _aioli.mkdir(arg);
+		} catch (error) {
+			return `${arg}: Cannot create folder`;
+		}
+	})) && "",
+	rmdir: args => Promise.all(args._.map(async arg => await _fs.rmdir(arg))) && "",
 	mktemp: args => {
 		const path = `/shared/tmp/tmp${parseInt(Math.random() * 1_000_000)}`;
 		_fs.writeFile(path, "");
@@ -343,6 +358,8 @@ const coreutils = {
 			data = await _fs.readFile(args._[0], { encoding: "binary" });
 
 			// Copy data over
+			if(args._[1] == ".")
+				args._[1] = args._[0].split("/").pop();
 			await utils.writeFile(args._[1], data, { encoding: "binary" });
 			return "";
 		} catch (error) {
@@ -432,7 +449,7 @@ const coreutils = {
 		let stats = [];
 		for(let path of paths)
 		{
-			try {		
+			try {
 				let stat = await _fs.stat(path);
 				// If the path is a file, we already have the info we need
 				if(!await _fs.isDir(stat.mode))
@@ -462,7 +479,7 @@ const coreutils = {
 					}
 				}
 			} catch (error) {
-				console.error(error);
+				// console.error(error);
 				throw `${path}: No such file or directory`;
 			}
 		}
@@ -590,28 +607,50 @@ const minimistConfig = {
 // File system caching functions
 // =============================================================================
 
-const fsSave = async function(tutorial) {
-	if(!tutorial?.id)
-		return;
+const fsSave = async function() {
 	console.log("Saving filesystem state...")
-	const files = await coreutils.ls(["/shared/data"], true);
-	const filesPreloaded = tutorial.files.map(f => f.split("/").pop());
-	const filesToCache = files.map(f => f.name).filter(f => !filesPreloaded.includes(f));
+	const filesToCache = await fsTraverse(`${DIR_ROOT}/`);
 
-	// Cache user-created files in a tutorial-specific localforage key
-	const data = {};
-	for(let path of filesToCache)
-		data[path] = await _fs.readFile(path, { "encoding": "binary" });
-	await localforage.setItem(`${getLocalForageKey("fs")}${tutorial.id}`, data);
+	// Cache user-created files in a localforage key
+	const files = {}, folders = {};
+	for(let path of filesToCache) {
+		// For folders, just need to know they're there
+		if(path.endsWith("/"))
+			folders[path] = true;
+		else
+			files[path] = await _fs.readFile(path, { "encoding": "binary" });
+	}
+	await localforage.setItem(`${getLocalForageKey("fs")}files`, files);
+	await localforage.setItem(`${getLocalForageKey("fs")}folders`, folders);
 }
 
-const fsLoad = async function(tutorial) {
-	if(!tutorial?.id)
-		return;
+const fsLoad = async function() {
 	console.log("Loading filesystem state...")
-	const data = await localforage.getItem(`${getLocalForageKey("fs")}${tutorial.id}`);
-	for(let path in data)
-		await utils.writeFile(path, data[path], { encoding: "binary" });
+	const files = await localforage.getItem(`${getLocalForageKey("fs")}files`);
+	const folders = await localforage.getItem(`${getLocalForageKey("fs")}folders`);
+	// First, create the folders, then the files they contain
+	for(let path in folders) {
+		try {
+			await _fs.stat(path);
+		} catch (error) {
+			await exec(`mkdir ${path}`);
+		}
+	}
+	for(let path in files)
+		await utils.writeFile(path, files[path], { encoding: "binary" });
+}
+
+// Recursively traverse folder path and get list of all files
+async function fsTraverse(path) {
+	let paths = [];
+	const files = await coreutils.ls([path], true);
+	for(let file of files) {
+		const filePath = path + file.name;
+		paths.push(filePath);
+		if(file.name.endsWith("/"))
+			paths = paths.concat(await fsTraverse(filePath));
+	}
+	return paths;
 }
 
 

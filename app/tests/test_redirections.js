@@ -119,6 +119,13 @@ describe("Test redirections", () => {
 		observed = await $CLI.exec(`echo 123; echo 456 && echo 789`);
 		expect(observed).to.equal("123\n456\n789");
 
+		// Test `||`
+		observed = await $CLI.exec(`echo 123 || echo 456`);
+		expect(observed).to.equal("123");
+
+		observed = await $CLI.exec(`error || echo 456`);
+		expect(observed).to.equal("456");
+
 		// // FIXME: In the test below, 1 and 2 are not output!
 		// extra = "";
 		// observed = await $CLI.exec(`echo 1 & echo 2 &`, d => extra += d);

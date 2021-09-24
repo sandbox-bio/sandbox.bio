@@ -10,11 +10,18 @@ import { xterm, xtermAddons } from "terminal/xterm";
 import { CLI } from "terminal/cli";
 import { config, env } from "./stores/config";
 import { status } from "./stores/status";
-import { tutorial } from "./stores/tutorials";
+import { tutorial } from "./stores/tutorial";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";
-const TOOLS_DEFAULT = ["samtools/1.10", "bcftools/1.10", "bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2", "jq/1.6"];
+const TOOLS_DEFAULT = [
+	{ loading: "lazy", tool: "samtools", version: "1.10" },
+	{ loading: "lazy", tool: "bcftools", program: "bcftools", version: "1.10" },
+	{ loading: "lazy", tool: "bedtools", version: "2.29.2" },
+	{ loading: "lazy", tool: "bowtie2", program: "bowtie2-align-s", version: "2.4.2" },
+	{ loading: "lazy", tool: "minimap2", version: "2.22" },
+	{ loading: "lazy", tool: "jq", version: "1.6" },
+];
 
 // Autocomplete subcommands
 const AUTOCOMPLETE = {
@@ -23,6 +30,7 @@ const AUTOCOMPLETE = {
 	bedtools: ["intersect", "merge", "complement", "genomecov", "jaccard", "makewindows", "flank"],
 	bcftools: ["view", "index", "call", "query", "merge"],
 	bowtie2: [],
+	minimap2: [],
 	jq: [],
 	// Coreutils
 	ls: [],
@@ -57,6 +65,7 @@ export let intro = "";                     // Intro string to display on Termina
 export let init = "";                      // Command to run to initialize the environment (optional)
 export let files = [];                     // Files to preload on the filesystem
 export let tools = TOOLS_DEFAULT;          // Aioli tools to load
+export let pwd = "";                       // Path relative to /shared/data where user should start at
 
 let aioliReady = false;                    // Equals true once Aioli is initialized
 let divTerminal;                           // HTML element where terminal will be drawn
@@ -83,7 +92,9 @@ async function initTerminal() {
 
 // Save filesystem state every few seconds
 async function saveFS() {
-	await $CLI.fsSave($tutorial);
+	try {
+		await $CLI.fsSave($tutorial);
+	} catch (error) {}
 	setTimeout(saveFS, 3000);
 }
 
@@ -100,17 +111,15 @@ onMount(async () => {
 	// Prepare UI but don't allow input yet
 	$xterm.open(divTerminal);
 
-	// Delete autocomplete programs if we haven't loaded them
-	try {
-		TOOLS_DEFAULT.map(toolName => {
-			if(tools.find(d => d == toolName) == null)
-				delete AUTOCOMPLETE[toolName.split("/")[0]];
-		});
-	} catch (error) {}
+	// Put main tools at the beginning and the rest at the end of the list of tools.
+	// That way, we eager load the important stuff but lazy load the rest.
+	const toolsEagerLoad = TOOLS_DEFAULT.filter(tool => tools.includes(tool.tool)).map(tool => { tool.loading = "eager"; return tool; });
+	const toolsLazyLoad = TOOLS_DEFAULT.filter(tool => !tools.includes(tool.tool));
+	tools = [...toolsEagerLoad, ...toolsLazyLoad];
 
 	// Initialize Aioli
 	try {
-		await $CLI.init({ tools, files });
+		await $CLI.init({ tools, files, pwd });
 		if(init)
 			await $CLI.exec(init);
 		aioliReady = true;

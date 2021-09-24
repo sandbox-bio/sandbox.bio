@@ -12,10 +12,11 @@ import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "jq-intro",
-	name: "Introduction to jq",
+	pwd: "jq-intro",
+	name: "Intro to jq",
 	description: "Filter and wrangle <code>JSON</code> with jq.",
 	tags: ["jq", "terminal"],
-	tools: ["jq/1.6"],
+	tools: ["jq"],
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "Introduction to jq", component: Intro },

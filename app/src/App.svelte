@@ -6,14 +6,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Home from "./routes/Home.svelte";
 import Tutorial from "./tutorials/Tutorial.svelte";
-import Terminal from "./terminal/Terminal.svelte";
 import Login from "./components/Login.svelte";
 import Listings from "./components/Listings.svelte";
-import { config, supabase, user, progress, envInit } from "./stores/config";
+import { supabase, user, progress, envInit } from "./stores/config";
 import { tutorials } from "./stores/tutorials";
 
 // Config
-const intro = $config.playground;
 const path = window.location.pathname;
 const params = new URL(window.location).searchParams;
 
@@ -64,6 +62,8 @@ async function login(credentials) {
 		loginModalOpen = false;
 		$user = data.user;
 	}
+
+	window.location.reload();
 }
 
 async function logout() {
@@ -71,6 +71,8 @@ async function logout() {
 	console.error(data.error);
 	if(data.error == null)
 		$user = null;
+
+	window.location.reload();
 }
 
 onMount(async () => {
@@ -90,20 +92,23 @@ onMount(async () => {
 	<ul class="nav nav-pills">
 		<li class="nav-item dropdown">
 			<!-- svelte-ignore a11y-invalid-attribute -->
-			<a href="#" class="nav-link dropdown-toggle" class:active={path == "/tutorials"} id="navTutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<a href="#" class="nav-link dropdown-toggle" class:active={path == "/tutorials" && params.get("id") != "rosalind"} id="navTutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 				Tutorials
 			</a>
 			<ul class="dropdown-menu" aria-labelledby="navTutorials">
 				<li><a class="dropdown-item" href="/tutorials">Browse all</a></li>
 				<li><hr class="dropdown-divider"></li>
-				{#each $tutorials as tutorial}
+				{#each $tutorials.filter(t => t.listed !== false && t.steps.length > 0) as tutorial, i}
+					{#if tutorial.divider}
+						<li><h6 class="dropdown-header mb-0 pb-1 { i > 0 ? "mt-2" : "" }">{tutorial.divider}</h6></li>
+					{/if}
 					<li>
-						{#if $progress[tutorial.id]?.step == tutorial.steps.length - 1}
+						{#if $user !== null && $progress[tutorial.id]?.step == tutorial.steps.length - 1}
 							<a class="dropdown-item text-success" href="/tutorials?id={tutorial.id}">
 								<Icon name="check-circle-fill" />
 								{tutorial.name}
 							</a>
-						{:else if $progress[tutorial.id]?.step > 0}
+						{:else if $user !== null && $progress[tutorial.id]?.step > 0}
 							<a class="dropdown-item text-primary" href="/tutorials?id={tutorial.id}&step={$progress[tutorial.id]?.step}">
 								<Icon name="circle-half" />
 								{tutorial.name}
@@ -117,6 +122,9 @@ onMount(async () => {
 					</li>
 				{/each}
 			</ul>
+		</li>
+		<li class="nav-item">
+			<a href="/tutorials?id=rosalind" class="nav-link" class:active={path == "/tutorials" && params.get("id") == "rosalind"}>Rosalind Exercises</a>
 		</li>
 		<li class="nav-item">
 			<a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a>
@@ -163,9 +171,7 @@ onMount(async () => {
 			<Listings items={$tutorials} />
 		{/if}
 	{:else if path.startsWith("/playground")}
-		<div class="p-2" style="background-color:#000">
-			<Terminal {intro} files={$tutorials[1].files} />
-		</div>
+		<Tutorial id="playground" />
 	{/if}
 </main>
 
