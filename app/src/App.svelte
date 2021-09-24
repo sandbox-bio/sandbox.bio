@@ -120,7 +120,7 @@ onMount(async () => {
 			</ul>
 		</li>
 		<li class="nav-item">
-			<a href="/tutorials?id=rosalind" class="nav-link" class:active={path == "/tutorials" && params.get("id") == "rosalind"}>Rosalind Exercises</a>
+			<a href="/tutorials?id=rosalind&step={$progress["rosalind"]?.step || 0}" class="nav-link" class:active={path == "/tutorials" && params.get("id") == "rosalind"}>Rosalind Exercises</a>
 		</li>
 		<li class="nav-item">
 			<a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a>
