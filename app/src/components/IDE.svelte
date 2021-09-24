@@ -93,11 +93,12 @@ function run() {
 				params = paramsSpaces;
 		}
 
-// TODO: what if input params are integers, not strings
-
-		// Turn params into string
-		console.log(params)
-		params = params.map(d => `"${d}"`).join(", ");
+		// Turn params into string or numbers
+		params = params.map(d => {
+			if(!isNaN(d) && !isNaN(parseFloat(d)))
+				return `${parseFloat(d)}`;
+			return `"${d}"`;
+		}).join(", ");
 
 		// Run code
 		pyodide.runPython(`${editor.getValue()}\n\nresult = ${fn}(${params})`);
