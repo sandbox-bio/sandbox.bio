@@ -40,7 +40,7 @@ $: if(code && ready) updateEditor(code);
 async function updateEditor(newCode) {
 	// Check if there's something in localforage already?
 	const data = await localforage.getItem(getLocalForageKey("ide") + fn);
-	const codeIsDifferent = data !== newCode;
+	const codeIsDifferent = data !== null && data !== newCode;
 	if(data !== null)
 		newCode = data;
 
@@ -48,6 +48,8 @@ async function updateEditor(newCode) {
 	editor.getModel().setValue(newCode);
 	
 	// If user made changes to default code, then run it (i.e. will show the correct success/fail colors)
+	output = "";
+	result = "";
 	if(codeIsDifferent)
 		run();
 }
