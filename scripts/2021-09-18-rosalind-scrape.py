@@ -7,6 +7,18 @@ import requests
 from bs4 import BeautifulSoup
 
 N = 10  # number of problems
+PARAMS = {
+	'DNA': ['dna'],
+	'RNA': ['dna'],
+	'REVC': ['dna'],
+	'FIB': ['n', 'k'],
+	'GC': ['fasta'],
+	'HAMM': ['s', 't'],
+	'IPRB': ['k', 'm', 'n'],
+	'PROT': ['rna'],
+	'SUBS': ['s', 't'],
+	'CONS': ['fasta']
+};
 
 
 # ------------------------------------------------------------------------------
@@ -30,14 +42,18 @@ for problem in soup_problems:
 
 for problem in problems[0:N]:
 	r = requests.get(f"http://rosalind.info/problems/{problem['id'].lower()}")
-	time.sleep(0.5)  # don't overwhelm the server
+	time.sleep(0.2)  # don't overwhelm the server
 	soup = BeautifulSoup(r.content, "html.parser")
 
+	# Parse given/return
 	problem['given'] = mathjax_to_md(soup.select(".given-return")[0].parent.get_text().strip()).replace('Given: ', '').replace('\n', ' ')
 	problem['return'] = mathjax_to_md(soup.select(".given-return")[1].parent.get_text().strip()).replace('Return: ', '').replace('\n', ' ')
-
+	# Parse sample input/output
 	problem['sample_data'] = soup.select(".codehilite pre")[0].get_text().strip()
 	problem['sample_output'] = soup.select(".codehilite pre")[1].get_text().strip()
+
+	# Track function parameters
+	problem['params'] = PARAMS[problem['id']]
 
 
 # ------------------------------------------------------------------------------
