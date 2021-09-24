@@ -28,7 +28,8 @@ export const config = {
 			sample_output: "",
 			id: "welcome",
 			given: "",
-			return: ""
+			return: "",
+			params: []
 		} },
 		...rosalind.map((exercise, i) => {
 			return {

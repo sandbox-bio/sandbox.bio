@@ -15,10 +15,12 @@ $tutorial = $tutorials.find(t => t.id == id);
 const tocToggle = () => tocOpen = !tocOpen;
 let tocOpen = false;
 let stepInfo = {};
+let rosalind = {};
 
 // Reactive statements
 $: nextStep(step);
 $: nbSteps = $tutorial.steps.length;
+$: if($tutorial.ide === true) rosalind = $tutorial.steps[step].rosalind;
 
 function nextStep(step)
 {
@@ -121,11 +123,11 @@ $tutorial.step = step;
 		{/if}
 		{#if $tutorial.ide === true}
 			<IDE
-				fn={`solution_${$tutorial.steps[step].rosalind.id.toLowerCase()}`}
-				code={`def solution_${$tutorial.steps[step].rosalind.id.toLowerCase()}(t):\n    # Your solution goes here\n    return "answer"\n`}
-				input={$tutorial.steps[step].rosalind.sample_data}
-				expectedInput={$tutorial.steps[step].rosalind.sample_data}
-				expectedOutput={$tutorial.steps[step].rosalind.sample_output}
+				fn={`solution_${rosalind.id.toLowerCase()}`}
+				code={`def solution_${rosalind.id.toLowerCase()}(${rosalind.params.join(", ")}):\n    # Your solution goes here\n    return "answer"\n`}
+				input={rosalind.sample_data}
+				expectedInput={rosalind.sample_data}
+				expectedOutput={rosalind.sample_output}
 				/>
 		{/if}
 	</div>
