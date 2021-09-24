@@ -61,6 +61,7 @@ for problem in problems[0:N]:
 # ------------------------------------------------------------------------------
 
 # Manual fixes
+problems[4]['return'] = problems[4]['return'].replace('; please see the note on absolute error below', '')  # note isn't there :)
 problems[5]['given'] = problems[5]['return'] = 'The Hamming distance _dH(s, t)_.'  # remove extra italic
 
 print(json.dumps(problems[0:N]).replace('{', '\n{'))
