@@ -108,10 +108,35 @@ function run() {
 	result = pyodide.globals.get("result");
 
 	// Update success status
-	if(input === expectedInput && expectedOutput != "")
-		success = result == expectedOutput;
-	else
+	if(input !== expectedInput || expectedOutput == "")
 		success = null;
+	else {
+		let outputMatches = true;
+
+		// Check that output is as expected, while supporting floating point output
+		const observed = String(result).split(/\n| /);
+		const expected = expectedOutput.split(/\n| /);
+		if(observed.length != expected.length)
+			outputMatches = false;
+		else {
+			for(let i = 0; i < observed.length; i++) {
+				let valExpected = isNumber(expected[i]) ? parseFloat(expected[i]) : expected[i];
+				let valObserved = isNumber(observed[i]) ? parseFloat(observed[i]) : observed[i];
+
+				if(!isNumber(expected[i]) || !isNumber(observed[i])) {
+					if(valObserved != valExpected)	
+						outputMatches = false;
+				} else {
+					const diff = Math.abs(valExpected - valObserved);
+					if(diff >= 0.001)
+						outputMatches = false;
+				}
+			}
+		}
+
+		success = outputMatches;
+	}
+}
 
 function isNumber(d) {
 	return !isNaN(d) && !isNaN(parseFloat(d));
