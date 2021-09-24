@@ -6,7 +6,7 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-N = 10  # number of problems
+N = 9  # number of problems
 PARAMS = {
 	'DNA': ['dna'],
 	'RNA': ['dna'],
@@ -15,9 +15,9 @@ PARAMS = {
 	'GC': ['fasta'],
 	'HAMM': ['s', 't'],
 	'IPRB': ['k', 'm', 'n'],
-	'PROT': ['rna'],
+	'PROT': ['s'],
 	'SUBS': ['s', 't'],
-	'CONS': ['fasta']
+	# 'CONS': ['fasta']
 };
 
 
