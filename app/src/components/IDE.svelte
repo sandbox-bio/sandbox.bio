@@ -6,8 +6,8 @@ export let expectedInput = "";   // Default input to show
 export let expectedOutput = "";  // Expected output given that input
 export let input = "";           // Current user input (starts out as expectedInput but can be modified by user)
 export let code = "";            // Code to initialize the IDE with
-export let codeExtra = "";       // Extra code to run when executing script
 export let fn = "";              // Function name; used to sync IDE state so use a unique name for this
+export let fnParams = [];        // List of function parameter names
 
 // State
 let divEditor;
@@ -47,7 +47,7 @@ async function updateEditor(newCode) {
 
 	// If not, update the editor
 	editor.getModel().setValue(newCode);
-	
+
 	// If user made changes to default code, then run it (i.e. will show the correct success/fail colors)
 	output = "";
 	result = "";
@@ -77,10 +77,30 @@ saveIDE();
 
 // Execute code with given input
 function run() {
-	// Run code
 	output = "";
 	try {
-		pyodide.runPython(`${editor.getValue()}\n\nresult = ${fn}("${input.replaceAll("\n", "\\n")}")`);
+		// Figure out function parameters
+		const inputSanitized = input.replaceAll("\n", "\\n");
+		// By default, just pass one argument
+		let params = [inputSanitized];
+		// But could need more than 1
+		if(fnParams.length > 1) {
+			const paramsBreak = inputSanitized.split("\n");
+			const paramsSpaces = inputSanitized.split(" ");
+			if(paramsBreak.length === fnParams.length)
+				params = paramsBreak;
+			else if(paramsSpaces.length === fnParams.length)
+				params = paramsSpaces;
+		}
+
+// TODO: what if input params are integers, not strings
+
+		// Turn params into string
+		console.log(params)
+		params = params.map(d => `"${d}"`).join(", ");
+
+		// Run code
+		pyodide.runPython(`${editor.getValue()}\n\nresult = ${fn}(${params})`);
 	} catch (error) {
 		output += error;
 	}

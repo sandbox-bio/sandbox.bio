@@ -127,8 +127,8 @@ $tutorial.step = step;
 		{#if $tutorial.ide === true}
 			<IDE
 				fn={rosalind.fn}
+				fnParams={rosalind.params}
 				code={`def ${rosalind.fn}(${rosalind.params.join(", ")}):\n    # Your solution goes here\n    return "answer"\n`}
-				codeExtra={`result = ${rosalind.fn}("${rosalind.sample_data}")`}
 				input={rosalind.sample_data}
 				expectedInput={rosalind.sample_data}
 				expectedOutput={rosalind.sample_output}
