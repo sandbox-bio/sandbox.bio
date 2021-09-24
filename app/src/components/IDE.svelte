@@ -79,7 +79,7 @@ function run() {
 	// Run code
 	output = "";
 	try {
-		pyodide.runPython(`${editor.getValue()}\n\nresult = ${fn}("${input.replace("\n", "\\n")}")`);
+		pyodide.runPython(`${editor.getValue()}\n\nresult = ${fn}("${input.replaceAll("\n", "\\n")}")`);
 	} catch (error) {
 		output += error;
 	}

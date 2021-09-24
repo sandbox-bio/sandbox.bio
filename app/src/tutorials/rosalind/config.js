@@ -1,7 +1,7 @@
 import Intro from "./steps/Intro.md";
 import Exercise from "./steps/Exercise.svelte";
 
-const rosalind = [
+let rosalind = [
 	{"id": "DNA", "title": "Counting DNA Nucleotides", "given": "A DNA string _s_ of length at most 1000 nt.", "return": "Four integers (separated by spaces) counting the respective number of times that the symbols 'A', 'C', 'G', and 'T' occur in _s_.", "sample_data": "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC", "sample_output": "20 12 17 21"}, 
 	{"id": "RNA", "title": "Transcribing DNA into RNA", "given": "A DNA string _t_ having length at most 1000 nt.", "return": "The transcribed RNA string of _t_.", "sample_data": "GATGGAACTTGACTACGTAAATT", "sample_output": "GAUGGAACUUGACUACGUAAAUU"}, 
 	{"id": "REVC", "title": "Complementing a Strand of DNA", "given": "A DNA string _s_ of length at most 1000 bp.", "return": "The reverse complement _s^c_ of _s_.", "sample_data": "AAAACCCGGT", "sample_output": "ACCGGGTTTT"}, 
@@ -12,6 +12,10 @@ const rosalind = [
 	{"id": "PROT", "title": "Translating RNA into Protein", "given": "An RNA string _s_ corresponding to a strand of mRNA (of length at most 10 kbp).", "return": "The protein string encoded by _s_.", "sample_data": "AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA", "sample_output": "MAMAPRTEINSTRING"}, 
 	{"id": "SUBS", "title": "Finding a Motif in DNA", "given": "Two DNA strings _s_ and _t_ (each of length at most 1 kbp).", "return": "All locations of _t_ as a substring of _s_.", "sample_data": "GATATATGCATATACTT\nATAT", "sample_output": "2 4 10"}, 
 	{"id": "CONS", "title": "Consensus and Profile", "given": "A collection of at most 10 DNA strings of equal length (at most 1 kbp) in FASTA format.", "return": "A consensus string and profile matrix for the collection. (If several possible consensus strings exist, then you may return any one of them.)", "sample_data": ">Rosalind_1\nATCCAGCT\n>Rosalind_2\nGGGCAACT\n>Rosalind_3\nATGGATCT\n>Rosalind_4\nAAGCAACC\n>Rosalind_5\nTTGGAACT\n>Rosalind_6\nATGCCATT\n>Rosalind_7\nATGGCACT", "sample_output": "ATGCAACT\nA: 5 1 0 0 5 5 0 0\nC: 0 0 1 4 2 0 6 1\nG: 1 1 6 3 0 1 0 0\nT: 1 5 0 0 0 1 1 6"}];
+
+// Manual fixes
+rosalind[4]['sample_output'] = 'Rosalind_0808\n60.91954'
+rosalind[5]['given'] = rosalind[5]['return'] = 'The Hamming distance _dH(s, t)_.'
 
 export const config = {
 	id: "rosalind",

@@ -25,7 +25,7 @@ $: exercise = $tutorial.steps[$tutorial.step].rosalind;
 
 <h6 class="mt-3">Sample Output:</h6>
 <code class="text-break">
-	{exercise.sample_output}
+	{@html exercise.sample_output.replaceAll("\n", "<br>")}
 </code>
 
 <style>
