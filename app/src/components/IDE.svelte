@@ -114,6 +114,12 @@ function run() {
 		success = null;
 }
 
+// Reset IDE to original code
+function reset() {
+	editor.getModel().setValue(code);
+}
+
+
 // -----------------------------------------------------------------------------
 // Initialization of Python + IDE
 // -----------------------------------------------------------------------------
@@ -164,14 +170,17 @@ async function initEditor()
 				id: "execute-python",
 				label: "Execute my script",
 				keybindings: [ monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter ],
-				// A precondition for this action.
-				precondition: null,
-				// A rule to evaluate on top of the precondition in order to dispatch the keybindings.
-				keybindingContext: null,
 				contextMenuGroupId: "navigation",
 				contextMenuOrder: 1.5,
-				// Method that will be executed when the action is triggered.
 				run: run
+			});
+
+			editor.addAction({
+				id: "reset-script",
+				label: "Reset code to default (changes will be lost)",
+				contextMenuGroupId: "navigation",
+				contextMenuOrder: 1.5,
+				run: reset
 			});
 		});
 		loaded.editor = true;
