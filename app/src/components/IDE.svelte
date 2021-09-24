@@ -1,6 +1,7 @@
 <script>
 import localforage from "localforage";
 import { getLocalForageKey } from "stores/config";
+import { onMount } from "svelte";
 
 export let expectedInput = "";   // Default input to show
 export let expectedOutput = "";  // Expected output given that input
@@ -204,14 +205,34 @@ async function initEditor()
 			contextMenuOrder: 1.5,
 			run: reset
 		});
+
+		loaded.editor = true;
 	});
-	loaded.editor = true;
 }
+
+// Import 3rd-party tools in the right order
+onMount(async () => {
+	function loadScript(url) {
+		return new Promise(function(resolve, reject) {
+			let script = document.createElement("script");
+			script.src = url;
+			script.async = false;
+			script.onload = () => resolve(url);
+			script.onerror = () => reject(url);
+			document.body.appendChild(script);
+		});
+	}
+
+	// The order matters here for some reason...
+	await loadScript("https://cdn.jsdelivr.net/pyodide/v0.18.0/full/pyodide.js").then(initPython);
+	await loadScript("https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs/loader.min.js").then(initEditor);
+});
 </script>
 
 <svelte:head>
-	<script src="https://cdn.jsdelivr.net/pyodide/v0.18.0/full/pyodide.js" on:load={initPython}></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs/loader.min.js" on:load={initEditor}></script>
+	<!-- For some reason, loading both monaco and pyodide here fails when monaco loads first... -->
+	<!-- <script async src="https://cdn.jsdelivr.net/pyodide/v0.18.0/full/pyodide.js" on:load={initPython}></script> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs/loader.min.js" on:load={initEditor}></script> -->
 </svelte:head>
 
 <div>
