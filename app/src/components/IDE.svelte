@@ -142,6 +142,12 @@ init();
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs/loader.min.js"></script>
 </svelte:head>
 
+<style>
+textarea {
+	font-size: 0.75em;
+}
+</style>
+
 <div>
 	<div bind:this={divEditor} id="container-editor" class="border rounded-3 pt-2" style="height:50vh"></div>
 
@@ -152,7 +158,7 @@ init();
 			<textarea id="sdf" class="form-control font-monospace" disabled={!ready} bind:value={input} on:keydown={e => {
 				if(e.key === "Enter" && e.metaKey === true)
 					run();
-			}}></textarea>
+			}} rows="2"></textarea>
 			<button class="btn btn-primary" type="button" disabled={!ready} on:click={run}>Run</button>
 		</div>
 
@@ -160,9 +166,9 @@ init();
 			Output
 			<small class="text-muted" style="font-size:0.6em">Powered by <a href="https://pyodide.org/" target="_blank">Pyodide</a></small>
 		</h6>
-		<textarea id="result" class="form-control font-monospace" class:border-2={success !== null} class:border-success={success === true} class:border-danger={success === false} disabled>{result}</textarea>
+		<textarea id="result" class="form-control font-monospace" class:border-2={success !== null} class:border-success={success === true} class:border-danger={success === false} rows="2" disabled>{result}</textarea>
 
 		<h6 class="mt-3">Logs</h6>
-		<textarea id="output" class="form-control font-monospace" disabled>{output}</textarea>
+		<textarea id="output" class="form-control font-monospace" rows="2" disabled>{output}</textarea>
 	</div>
 </div>
