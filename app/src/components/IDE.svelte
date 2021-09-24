@@ -13,7 +13,6 @@ export let fnParams = [];        // List of function parameter names
 let divEditor;
 let editor;
 let pyodide;
-let loading = { editor: false, pyodide: false };
 let loaded = { editor: false, pyodide: false };
 let output = "";       // stdout, stderr
 let result = "";       // return value of answer() function
@@ -163,10 +162,6 @@ function reset() {
 // Initialize Pyodide
 async function initPython(){
 	console.log("Initialize Python...");
-	if(loading.pyodide)
-		return;
-	loading.pyodide = true;
-
 	try {
 		pyodide = await loadPyodide({
 			indexURL : "https://cdn.jsdelivr.net/pyodide/v0.18.0/full/",
@@ -175,8 +170,8 @@ async function initPython(){
 		});
 		loaded.pyodide = true;
 	} catch (error) {
+		console.error(error);
 		console.log("Pyodide Failed");
-		loading.pyodide = false;
 	}
 }
 
@@ -184,10 +179,6 @@ async function initPython(){
 async function initEditor()
 {
 	console.log("Initialize editor...");
-	if(loading.editor)
-		return;
-	loading.editor = true;
-
 	try {
 		// require is provided by loader.min.js
 		require.config({ paths: { vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs" }});
@@ -222,26 +213,13 @@ async function initEditor()
 		loaded.editor = true;
 	} catch (error) {
 		console.log("Editor Failed");
-		loading.editor = false;
 	}
 }
-
-// Initialize on page load
-async function init() {
-	console.log("init")
-	if(!loading.pyodide)
-		initPython();
-	if(!loading.editor)
-		initEditor();
-	if(!loading.pyodide || !loading.editor)
-		setTimeout(init, 400);
-}
-init();
 </script>
 
 <svelte:head>
-	<script src="https://cdn.jsdelivr.net/pyodide/v0.18.0/full/pyodide.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs/loader.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/pyodide/v0.18.0/full/pyodide.js" on:load={initPython}></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs/loader.min.js" on:load={initEditor}></script>
 </svelte:head>
 
 <style>
