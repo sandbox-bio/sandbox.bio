@@ -61,7 +61,6 @@ for problem in problems[0:N]:
 # ------------------------------------------------------------------------------
 
 # Manual fixes
-problems[4]['sample_output'] = 'Rosalind_0808\n60.91954'  # .40 -> .4
 problems[5]['given'] = problems[5]['return'] = 'The Hamming distance _dH(s, t)_.'  # remove extra italic
 
 print(json.dumps(problems[0:N]).replace('{', '\n{'))

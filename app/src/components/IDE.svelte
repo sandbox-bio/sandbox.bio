@@ -85,7 +85,7 @@ function run() {
 		let params = [inputSanitized];
 		// But could need more than 1
 		if(fnParams.length > 1) {
-			const paramsBreak = inputSanitized.split("\n");
+			const paramsBreak = input.split("\n");
 			const paramsSpaces = inputSanitized.split(" ");
 			if(paramsBreak.length === fnParams.length)
 				params = paramsBreak;
@@ -95,7 +95,7 @@ function run() {
 
 		// Turn params into string or numbers
 		params = params.map(d => {
-			if(!isNaN(d) && !isNaN(parseFloat(d)))
+			if(isNumber(d))
 				return `${parseFloat(d)}`;
 			return `"${d}"`;
 		}).join(", ");
@@ -112,6 +112,9 @@ function run() {
 		success = result == expectedOutput;
 	else
 		success = null;
+
+function isNumber(d) {
+	return !isNaN(d) && !isNaN(parseFloat(d));
 }
 
 // Reset IDE to original code
