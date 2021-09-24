@@ -13,10 +13,6 @@ let rosalind = [
 	{"id": "SUBS", "title": "Finding a Motif in DNA", "given": "Two DNA strings _s_ and _t_ (each of length at most 1 kbp).", "return": "All locations of _t_ as a substring of _s_.", "sample_data": "GATATATGCATATACTT\nATAT", "sample_output": "2 4 10"}, 
 	{"id": "CONS", "title": "Consensus and Profile", "given": "A collection of at most 10 DNA strings of equal length (at most 1 kbp) in FASTA format.", "return": "A consensus string and profile matrix for the collection. (If several possible consensus strings exist, then you may return any one of them.)", "sample_data": ">Rosalind_1\nATCCAGCT\n>Rosalind_2\nGGGCAACT\n>Rosalind_3\nATGGATCT\n>Rosalind_4\nAAGCAACC\n>Rosalind_5\nTTGGAACT\n>Rosalind_6\nATGCCATT\n>Rosalind_7\nATGGCACT", "sample_output": "ATGCAACT\nA: 5 1 0 0 5 5 0 0\nC: 0 0 1 4 2 0 6 1\nG: 1 1 6 3 0 1 0 0\nT: 1 5 0 0 0 1 1 6"}];
 
-// Manual fixes
-rosalind[4]['sample_output'] = 'Rosalind_0808\n60.91954'
-rosalind[5]['given'] = rosalind[5]['return'] = 'The Hamming distance _dH(s, t)_.'
-
 export const config = {
 	id: "rosalind",
 	terminal: false,
