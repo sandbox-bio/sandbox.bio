@@ -26,7 +26,7 @@ export const config = {
 		{ name: "Rosalind Exercises", component: Intro, subtitle: "Introduction", rosalind: {
 			sample_data: "",
 			sample_output: "",
-			id: "",
+			id: "welcome",
 			given: "",
 			return: ""
 		} },

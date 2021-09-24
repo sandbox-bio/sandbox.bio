@@ -86,7 +86,7 @@ function run() {
 	result = pyodide.globals.get("result");
 
 	// Update success status
-	if(input === expectedInput)
+	if(input === expectedInput && expectedOutput != "")
 		success = result == expectedOutput;
 	else
 		success = null;
