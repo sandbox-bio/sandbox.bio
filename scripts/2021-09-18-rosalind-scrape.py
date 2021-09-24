@@ -8,9 +8,9 @@ from bs4 import BeautifulSoup
 
 N = 9  # number of problems
 PARAMS = {
-	'DNA': ['dna'],
-	'RNA': ['dna'],
-	'REVC': ['dna'],
+	'DNA': ['s'],
+	'RNA': ['t'],
+	'REVC': ['s'],
 	'FIB': ['n', 'k'],
 	'GC': ['fasta'],
 	'HAMM': ['s', 't'],
@@ -18,7 +18,7 @@ PARAMS = {
 	'PROT': ['s'],
 	'SUBS': ['s', 't'],
 	# 'CONS': ['fasta']
-};
+}
 
 
 # ------------------------------------------------------------------------------
