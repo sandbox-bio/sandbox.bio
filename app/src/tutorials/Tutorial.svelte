@@ -122,7 +122,7 @@ $tutorial.step = step;
 		{#if $tutorial.ide === true}
 			<IDE
 				fn={`solution_${$tutorial.steps[step].rosalind.id.toLowerCase()}`}
-				code={`def solution_${$tutorial.steps[step].rosalind.id.toLowerCase()}(t):\n\t# Your solution goes here\n\treturn "answer"\n`}
+				code={`def solution_${$tutorial.steps[step].rosalind.id.toLowerCase()}(t):\n    # Your solution goes here\n    return "answer"\n`}
 				input={$tutorial.steps[step].rosalind.sample_data}
 				expectedInput={$tutorial.steps[step].rosalind.sample_data}
 				expectedOutput={$tutorial.steps[step].rosalind.sample_output}
