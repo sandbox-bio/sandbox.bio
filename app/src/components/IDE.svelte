@@ -17,6 +17,8 @@ let loaded = { editor: false, pyodide: false };
 let output = "";  // stdout, stderr
 let result = "";  // return value of answer() function
 let success = null;
+const CODE_LOADING = "Loading...";
+
 
 // -----------------------------------------------------------------------------
 // Reactive statements
@@ -36,8 +38,6 @@ $: if(code && ready) updateEditor(code);
 // -----------------------------------------------------------------------------
 
 async function updateEditor(newCode) {
-	await saveIDE(true);  // backup changes just in case
-
 	// Check if there's something in localforage already?
 	const data = await localforage.getItem(getLocalForageKey("ide") + fn);
 	if(data !== null)
@@ -52,7 +52,9 @@ async function saveIDE(once=false) {
 	if(ready) {
 		console.log("Saving IDE state...");
 		try {
-			await localforage.setItem(getLocalForageKey("ide") + fn, editor.getValue());
+			const state = editor.getValue();
+			if(state != CODE_LOADING)
+				await localforage.setItem(getLocalForageKey("ide") + fn, state);
 		} catch (error) {}
 	}
 	if(once === false)
@@ -120,7 +122,7 @@ async function initEditor()
 		require.config({ paths: { vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs" }});
 		require(["vs/editor/editor.main"], () => {
 			editor = monaco.editor.create(divEditor, {
-				value: "Loading...",
+				value: CODE_LOADING,
 				theme: "vs-light",
 				language: "python",
 				minimap: { enabled: false },
