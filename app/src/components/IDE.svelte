@@ -114,8 +114,9 @@ function run() {
 		let outputMatches = true;
 
 		// Check that output is as expected, while supporting floating point output
-		const observed = String(result).split(/\n| /);
-		const expected = expectedOutput.split(/\n| /);
+		const observed = String(result).trim().split(/\n| /);
+		const expected = expectedOutput.trim().split(/\n| /);
+
 		if(observed.length != expected.length)
 			outputMatches = false;
 		else {
