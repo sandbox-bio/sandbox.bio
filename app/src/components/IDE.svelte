@@ -143,10 +143,6 @@ function run() {
 	}
 }
 
-function isNumber(d) {
-	return !isNaN(d) && !isNaN(parseFloat(d));
-}
-
 // Reset IDE to original code
 function reset() {
 	updating = true;
@@ -154,6 +150,10 @@ function reset() {
 	updating = false;
 }
 
+// Utility function
+function isNumber(d) {
+	return !isNaN(d) && !isNaN(parseFloat(d));
+}
 
 // -----------------------------------------------------------------------------
 // Initialization of Python + IDE
@@ -162,58 +162,50 @@ function reset() {
 // Initialize Pyodide
 async function initPython(){
 	console.log("Initialize Python...");
-	try {
-		pyodide = await loadPyodide({
-			indexURL : "https://cdn.jsdelivr.net/pyodide/v0.18.0/full/",
-			stdout: text => output += `${text}\n`,
-			stderr: text => output += `${text}\n`,
-		});
-		loaded.pyodide = true;
-	} catch (error) {
-		console.error(error);
-		console.log("Pyodide Failed");
-	}
+	pyodide = await loadPyodide({
+		indexURL : "https://cdn.jsdelivr.net/pyodide/v0.18.0/full/",
+		stdout: text => output += `${text}\n`,
+		stderr: text => output += `${text}\n`,
+	});
+	loaded.pyodide = true;
 }
 
 // Initialize Monaco Editor
 async function initEditor()
 {
 	console.log("Initialize editor...");
-	try {
-		// require is provided by loader.min.js
-		require.config({ paths: { vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs" }});
-		require(["vs/editor/editor.main"], () => {
-			editor = monaco.editor.create(divEditor, {
-				value: CODE_LOADING,
-				theme: "vs-light",
-				language: "python",
-				minimap: { enabled: false },
-				automaticLayout: true,
-				readOnly: true
-			});
 
-			// Custom keyboard shortcuts
-			editor.addAction({
-				id: "execute-python",
-				label: "Execute my script",
-				keybindings: [ monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter ],
-				contextMenuGroupId: "navigation",
-				contextMenuOrder: 1.5,
-				run: run
-			});
-
-			editor.addAction({
-				id: "reset-script",
-				label: "Reset code to default (changes will be lost)",
-				contextMenuGroupId: "navigation",
-				contextMenuOrder: 1.5,
-				run: reset
-			});
+	// Note: "require" is provided by loader.min.js
+	require.config({ paths: { vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs" }});
+	require(["vs/editor/editor.main"], () => {
+		editor = monaco.editor.create(divEditor, {
+			value: CODE_LOADING,
+			theme: "vs-light",
+			language: "python",
+			minimap: { enabled: false },
+			automaticLayout: true,
+			readOnly: true
 		});
-		loaded.editor = true;
-	} catch (error) {
-		console.log("Editor Failed");
-	}
+
+		// Custom IDE menu items
+		editor.addAction({
+			id: "execute-python",
+			label: "Execute my script",
+			keybindings: [ monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter ],
+			contextMenuGroupId: "navigation",
+			contextMenuOrder: 1.5,
+			run: run
+		});
+
+		editor.addAction({
+			id: "reset-script",
+			label: "Reset code to default (changes will be lost)",
+			contextMenuGroupId: "navigation",
+			contextMenuOrder: 1.5,
+			run: reset
+		});
+	});
+	loaded.editor = true;
 }
 </script>
 
@@ -222,14 +214,8 @@ async function initEditor()
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs/loader.min.js" on:load={initEditor}></script>
 </svelte:head>
 
-<style>
-textarea {
-	font-size: 0.75em;
-}
-</style>
-
 <div>
-	<div bind:this={divEditor} id="container-editor" class="border rounded-3 pt-2" style="height:50vh"></div>
+	<div bind:this={divEditor} class="border rounded-3 pt-2" style="height:50vh"></div>
 
 	<div class="border rounded-3 p-2 mt-2" style="height:35vh; z-index:999; overflow-y:scroll">
 		<h6>Input</h6>
@@ -252,3 +238,9 @@ textarea {
 		<textarea id="output" class="form-control font-monospace" rows="2" disabled>{output}</textarea>
 	</div>
 </div>
+
+<style>
+textarea {
+	font-size: 0.75em;
+}
+</style>
