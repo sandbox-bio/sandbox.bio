@@ -62,6 +62,8 @@ async function login(credentials) {
 		loginModalOpen = false;
 		$user = data.user;
 	}
+
+	window.location.reload();
 }
 
 async function logout() {
@@ -69,6 +71,8 @@ async function logout() {
 	console.error(data.error);
 	if(data.error == null)
 		$user = null;
+
+	window.location.reload();
 }
 
 onMount(async () => {
@@ -120,7 +124,7 @@ onMount(async () => {
 			</ul>
 		</li>
 		<li class="nav-item">
-			<a href="/tutorials?id=rosalind&step={$progress["rosalind"]?.step || 0}" class="nav-link" class:active={path == "/tutorials" && params.get("id") == "rosalind"}>Rosalind Exercises</a>
+			<a href="/tutorials?id=rosalind" class="nav-link" class:active={path == "/tutorials" && params.get("id") == "rosalind"}>Rosalind Exercises</a>
 		</li>
 		<li class="nav-item">
 			<a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a>
