@@ -1,4 +1,7 @@
 <script>
+import localforage from "localforage";
+import { getLocalForageKey } from "stores/config";
+
 export let expectedInput = "";
 export let expectedOutput = "";
 export let input = "";
@@ -94,7 +97,7 @@ async function initEditor()
 		require.config({ paths: { vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs" }});
 		require(["vs/editor/editor.main"], () => {
 			editor = monaco.editor.create(divEditor, {
-				value: code,
+				value: "Loading...",
 				theme: "vs-light",
 				language: "python",
 				minimap: { enabled: false },
