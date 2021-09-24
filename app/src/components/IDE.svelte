@@ -28,14 +28,37 @@ $: if(ready) editor.updateOptions({ readOnly: false });
 $: { input = expectedInput; success = null; };
 
 // When code prop changes, what to do with existing code?
-$: if(code && ready) {
-	// TODO: Backup current code?
+$: if(code && ready) updateEditor(code);
 
-	// TODO: Check if there's something in localforage?
+
+// -----------------------------------------------------------------------------
+// Cache IDE state
+// -----------------------------------------------------------------------------
+
+async function updateEditor(newCode) {
+	await saveIDE(true);  // backup changes just in case
+
+	// Check if there's something in localforage already?
+	const data = await localforage.getItem(getLocalForageKey("ide") + fn);
+	if(data !== null)
+		newCode = data;
 
 	// If not, update the editor
-	editor.getModel().setValue(code);
+	editor.getModel().setValue(newCode);
 }
+
+// Save IDE state every few seconds
+async function saveIDE(once=false) {
+	if(ready) {
+		console.log("Saving IDE state...");
+		try {
+			await localforage.setItem(getLocalForageKey("ide") + fn, editor.getValue());
+		} catch (error) {}
+	}
+	if(once === false)
+		setTimeout(saveIDE, 1000);
+}
+saveIDE();
 
 
 // -----------------------------------------------------------------------------
