@@ -15,9 +15,10 @@ let editor;
 let pyodide;
 let loading = { editor: false, pyodide: false };
 let loaded = { editor: false, pyodide: false };
-let output = "";  // stdout, stderr
-let result = "";  // return value of answer() function
-let success = null;
+let output = "";       // stdout, stderr
+let result = "";       // return value of answer() function
+let success = null;    // whether to show green or red border around output box (or nothing if null)
+let updating = false;  // if editor is being updated and we shouldn't save state
 const CODE_LOADING = "Loading...";
 
 
@@ -39,6 +40,8 @@ $: if(code && ready) updateEditor(code);
 // -----------------------------------------------------------------------------
 
 async function updateEditor(newCode) {
+	updating = true;
+
 	// Check if there's something in localforage already?
 	const data = await localforage.getItem(getLocalForageKey("ide") + fn);
 	const codeIsDifferent = data !== null && data !== newCode;
@@ -53,11 +56,13 @@ async function updateEditor(newCode) {
 	result = "";
 	if(codeIsDifferent)
 		run();
+
+	updating = false;
 }
 
 // Save IDE state every few seconds
 async function saveIDE(once=false) {
-	if(ready) {
+	if(ready && !updating) {
 		console.log("Saving IDE state...");
 		try {
 			const state = editor.getValue();
@@ -66,7 +71,7 @@ async function saveIDE(once=false) {
 		} catch (error) {}
 	}
 	if(once === false)
-		setTimeout(saveIDE, 1000);
+		setTimeout(saveIDE, 1500);
 }
 saveIDE();
 
@@ -145,7 +150,9 @@ function isNumber(d) {
 
 // Reset IDE to original code
 function reset() {
+	updating = true;
 	editor.getModel().setValue(code);
+	updating = false;
 }
 
 
