@@ -40,11 +40,16 @@ $: if(code && ready) updateEditor(code);
 async function updateEditor(newCode) {
 	// Check if there's something in localforage already?
 	const data = await localforage.getItem(getLocalForageKey("ide") + fn);
+	const codeIsDifferent = data !== newCode;
 	if(data !== null)
 		newCode = data;
 
 	// If not, update the editor
 	editor.getModel().setValue(newCode);
+	
+	// If user made changes to default code, then run it (i.e. will show the correct success/fail colors)
+	if(codeIsDifferent)
+		run();
 }
 
 // Save IDE state every few seconds
