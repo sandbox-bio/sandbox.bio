@@ -124,7 +124,7 @@ onMount(async () => {
 			</ul>
 		</li>
 		<li class="nav-item">
-			<a href="/tutorials?id=rosalind" class="nav-link" class:active={path == "/tutorials" && params.get("id") == "rosalind"}>Rosalind Exercises</a>
+			<a href="/rosalind" class="nav-link" class:active={path == "/rosalind" || (path == "/tutorials" && params.get("id") == "rosalind")}>Rosalind Exercises</a>
 		</li>
 		<li class="nav-item">
 			<a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a>
@@ -172,6 +172,8 @@ onMount(async () => {
 		{/if}
 	{:else if path.startsWith("/playground")}
 		<Tutorial id="playground" />
+	{:else if path.startsWith("/rosalind")}
+		<Tutorial id="rosalind" step={+params.get("step") || 0} />
 	{/if}
 </main>
 
