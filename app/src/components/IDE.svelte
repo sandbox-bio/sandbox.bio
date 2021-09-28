@@ -249,10 +249,7 @@ onMount(async () => {
 			<button class="btn btn-primary" type="button" disabled={!ready} on:click={run}>Run</button>
 		</div>
 
-		<h6 class="mt-3">
-			Output
-			<small class="text-muted" style="font-size:0.6em">Powered by <a href="https://pyodide.org/" target="_blank">Pyodide</a></small>
-		</h6>
+		<h6 class="mt-3">Output</h6>
 		<textarea id="result" class="form-control font-monospace" class:border-2={success !== null} class:border-success={success === true} class:border-danger={success === false} rows="2" disabled>{result}</textarea>
 
 		<h6 class="mt-3">Logs</h6>
