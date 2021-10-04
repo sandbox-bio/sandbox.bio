@@ -13,7 +13,7 @@ import Conclusion from "./steps/Conclusion.md";
 export const config = {
 	id: "samtools-intro",
 	pwd: "samtools-intro",
-	name: "Introduction to samtools",
+	name: "Intro to samtools",
 	description: "Explore, process and manipulate <code>.sam</code> and <code>.bam</code> files with samtools.",
 	tags: ["samtools", "IGV"],
 	tools: ["samtools"],

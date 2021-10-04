@@ -2,8 +2,10 @@
 import { DropdownItem, Offcanvas } from "sveltestrap";
 import { config, progress } from "./stores/config";
 import { status } from "./stores/status";
-import { tutorial, tutorials } from "./stores/tutorials";
+import { tutorials } from "./stores/tutorials";
+import { tutorial } from "./stores/tutorial";
 import Terminal from "./terminal/Terminal.svelte";
+import IDE from "./components/IDE.svelte";
 
 export let id;
 export let step = 0;
@@ -13,10 +15,15 @@ $tutorial = $tutorials.find(t => t.id == id);
 const tocToggle = () => tocOpen = !tocOpen;
 let tocOpen = false;
 let stepInfo = {};
+let rosalind = {};
 
 // Reactive statements
 $: nextStep(step);
 $: nbSteps = $tutorial.steps.length;
+$: if($tutorial.ide === true) {
+	rosalind = $tutorial.steps[step].rosalind;
+	rosalind.fn = `solution_${rosalind.id.toLowerCase()}`;
+}
 
 function nextStep(step)
 {
@@ -41,6 +48,7 @@ function nextStep(step)
 		} catch (error) {}
 
 		window.history.pushState({}, "", url);
+		$tutorial.step = step;
 	}
 
 	// Update progress in one shot (each time change $progress, makes call to DB)
@@ -57,6 +65,8 @@ function nextStep(step)
 	if(document.getElementById("tutorial-sidebar"))
 		document.getElementById("tutorial-sidebar").scrollTop = 0;
 }
+
+$tutorial.step = step;
 </script>
 
 <div class="container-fluid pb-3">
@@ -68,7 +78,7 @@ function nextStep(step)
 					{#if stepInfo.subtitle}
 						<h6>{@html stepInfo.subtitle}</h6>
 					{/if}
-					{#if step == 0}
+					{#if step == 0 && $tutorial.tags.length > 0}
 						<div class="row mb-2">
 							<h6>
 								{#each $tutorial.tags as tag}
@@ -109,9 +119,21 @@ function nextStep(step)
 				</div>
 			</div>
 		{/if}
-		<div id="terminal-wrapper" class="border rounded-3 p-2">
-			<Terminal on:status={event => $status.terminal = event.detail} files={$tutorial.files} init={$tutorial.init} tools={$tutorial.tools} intro={$tutorial.intro} pwd={$tutorial.pwd} />
-		</div>
+		{#if $tutorial.terminal !== false}
+			<div id="terminal-wrapper" class="border rounded-3 p-2">
+				<Terminal on:status={event => $status.terminal = event.detail} files={$tutorial.files} init={$tutorial.init} tools={$tutorial.tools} intro={$tutorial.intro} pwd={$tutorial.pwd} />
+			</div>
+		{/if}
+		{#if $tutorial.ide === true}
+			<IDE
+				fn={rosalind.fn}
+				fnParams={rosalind.params}
+				code={`def ${rosalind.fn}(${rosalind.params.join(", ")}):\n    # Your solution goes here\n    return "answer"\n`}
+				input={rosalind.sample_data}
+				expectedInput={rosalind.sample_data}
+				expectedOutput={rosalind.sample_output}
+				/>
+		{/if}
 	</div>
 </div>
 

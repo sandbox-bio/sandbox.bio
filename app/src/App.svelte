@@ -62,6 +62,8 @@ async function login(credentials) {
 		loginModalOpen = false;
 		$user = data.user;
 	}
+
+	window.location.reload();
 }
 
 async function logout() {
@@ -69,6 +71,8 @@ async function logout() {
 	console.error(data.error);
 	if(data.error == null)
 		$user = null;
+
+	window.location.reload();
 }
 
 onMount(async () => {
@@ -88,13 +92,13 @@ onMount(async () => {
 	<ul class="nav nav-pills">
 		<li class="nav-item dropdown">
 			<!-- svelte-ignore a11y-invalid-attribute -->
-			<a href="#" class="nav-link dropdown-toggle" class:active={path == "/tutorials"} id="navTutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<a href="#" class="nav-link dropdown-toggle" class:active={path == "/tutorials" && params.get("id") != "rosalind"} id="navTutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 				Tutorials
 			</a>
 			<ul class="dropdown-menu" aria-labelledby="navTutorials">
 				<li><a class="dropdown-item" href="/tutorials">Browse all</a></li>
 				<li><hr class="dropdown-divider"></li>
-				{#each $tutorials.filter(t => t.steps.length > 0) as tutorial, i}
+				{#each $tutorials.filter(t => t.listed !== false && t.steps.length > 0) as tutorial, i}
 					{#if tutorial.divider}
 						<li><h6 class="dropdown-header mb-0 pb-1 { i > 0 ? "mt-2" : "" }">{tutorial.divider}</h6></li>
 					{/if}
@@ -118,6 +122,9 @@ onMount(async () => {
 					</li>
 				{/each}
 			</ul>
+		</li>
+		<li class="nav-item">
+			<a href="/rosalind" class="nav-link" class:active={path == "/rosalind" || (path == "/tutorials" && params.get("id") == "rosalind")}>Rosalind Exercises</a>
 		</li>
 		<li class="nav-item">
 			<a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a>
@@ -165,6 +172,8 @@ onMount(async () => {
 		{/if}
 	{:else if path.startsWith("/playground")}
 		<Tutorial id="playground" />
+	{:else if path.startsWith("/rosalind")}
+		<Tutorial id="rosalind" step={+params.get("step") || 0} />
 	{/if}
 </main>
 

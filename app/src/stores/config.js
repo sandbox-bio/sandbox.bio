@@ -142,6 +142,8 @@ export function getLocalForageKey(type="env") {
 		return `env:${get(user)?.id || "guest"}`;
 	else if(type == "fs")
 		return `fs:${get(user)?.id || "guest"}:`;
+	else if(type == "ide")
+		return `ide:${get(user)?.id || "guest"}:`;
 	throw `Unexpected type ${type}.`;
 }
 

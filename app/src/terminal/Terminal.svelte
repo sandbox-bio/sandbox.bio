@@ -10,7 +10,7 @@ import { xterm, xtermAddons } from "terminal/xterm";
 import { CLI } from "terminal/cli";
 import { config, env } from "./stores/config";
 import { status } from "./stores/status";
-import { tutorial } from "./stores/tutorials";
+import { tutorial } from "./stores/tutorial";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";

@@ -13,7 +13,7 @@ import Conclusion from "./steps/Conclusion.md";
 export const config = {
 	id: "jq-intro",
 	pwd: "jq-intro",
-	name: "Introduction to jq",
+	name: "Intro to jq",
 	description: "Filter and wrangle <code>JSON</code> with jq.",
 	tags: ["jq", "terminal"],
 	tools: ["jq"],
