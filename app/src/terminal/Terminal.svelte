@@ -34,6 +34,7 @@ const AUTOCOMPLETE = {
 	minimap2: [],
 	jq: [],
 	awk: [],
+	gawk: [],
 	// Coreutils
 	ls: [],
 	ll: [],
