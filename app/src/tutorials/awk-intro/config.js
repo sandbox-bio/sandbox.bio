@@ -6,26 +6,17 @@ import Step3 from "./steps/Step3.md";
 import Step4 from "./steps/Step4.md";
 import Step5 from "./steps/Step5.md";
 import Step6 from "./steps/Step6.md";
-// import Step7 from "./steps/Step7.md";
-// import Step8 from "./steps/Step8.md";
-// import Step9 from "./steps/Step9.md";
-// import Step10 from "./steps/Step10.md";
-// import Step11 from "./steps/Step11.md";
-// import Step12 from "./steps/Step12.md";
-// import Step13 from "./steps/Step13.md";
-// import Conclusion from "./steps/Conclusion.md";
+import Conclusion from "./steps/Conclusion.md";
 // Exercises
 import Exercise1 from "./exercises/Exercise1.md";
 import Exercise2 from "./exercises/Exercise2.md";
 import Exercise3 from "./exercises/Exercise3.md";
-// import Exercise4 from "./exercises/Exercise4.md";
-// import Exercise5 from "./exercises/Exercise5.md";
 
 export const config = {
 	id: "awk-intro",
 	pwd: "awk-intro",
 	name: "Intro to awk",
-	description: "FIXME:",
+	description: "Filter, extract and transform data files using `awk`",
 	tags: ["awk", "terminal"],
 	tools: ["awk"],
 	difficulty: ["beginner"],
@@ -40,7 +31,7 @@ export const config = {
 		{ name: "Arrays", subtitle: "Using arrays to tally burritos", component: Step5, header: true },
 		{ name: "Arrays", subtitle: "Using arrays to tally costs", component: Step6 },
 		{ name: "Arrays", subtitle: "Exercise", component: Exercise3 },
-		// { name: "The end", component: Conclusion, header: true }
+		{ name: "The end", component: Conclusion, header: true }
 	],
 	files: [
 		"data/awk-intro/orders.tsv"
