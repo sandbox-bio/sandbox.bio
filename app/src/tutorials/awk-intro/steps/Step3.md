@@ -8,4 +8,14 @@ So far, the filtering we did using `awk` could have been done using other comman
 
 To do so, we'll use `awk`'s `BEGIN` and `END` statement, which let you run some code once before processing your file, and once after all rows in the file have been processed:
 
-<Execute command={`awk -F "\\t" ' \\ BEGIN { sum = 0 } \\ { if($3 == "Chicken Bowl") sum += $2 } \\ END { print(sum) }' orders.tsv | head`} />
+<Execute command={`awk -F "\\t" ' \\ BEGIN { sum = 0 } \\ { if($3 == "Chicken Bowl") sum += $2 } \\ END { print(sum) }' orders.tsv`} />
+
+How this works:
+
+* We initialize `sum` to 0
+* If the customer ordered a `Chicken Bowl`, we increment `sum` by the number of bowls ordered
+* At the end, print the total `sum`
+
+Note that `awk` automatically initalizes variables for you, so `sum = 0` is not strictly necessary (but preferable for clarity):
+
+<Execute command={`awk -F "\\t" ' \\ { if($3 == "Chicken Bowl") sum += $2 } \\ END { print(sum) }' orders.tsv`} />
