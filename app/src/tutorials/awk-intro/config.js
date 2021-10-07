@@ -14,8 +14,8 @@ import Step2 from "./steps/Step2.md";
 // import Step12 from "./steps/Step12.md";
 // import Step13 from "./steps/Step13.md";
 // import Conclusion from "./steps/Conclusion.md";
-// // Exercises
-// import Exercise1 from "./exercises/Exercise1.md";
+// Exercises
+import Exercise1 from "./exercises/Exercise1.md";
 // import Exercise2 from "./exercises/Exercise2.md";
 // import Exercise3 from "./exercises/Exercise3.md";
 // import Exercise4 from "./exercises/Exercise4.md";
@@ -31,8 +31,9 @@ export const config = {
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "Introduction to awk", component: Intro },
-		{ name: "Filtering data", subtitle: "Filter columns", component: Step1, header: true },
-		{ name: "Filtering data", subtitle: "Filter rows", component: Step2 },
+		{ name: "Filtering data", subtitle: "Extract columns", component: Step1, header: true },
+		{ name: "Filtering data", subtitle: "Extract rows", component: Step2 },
+		{ name: "Filtering data", subtitle: "Exercise", component: Exercise1 },
 		// { name: "Bedtools help", component: Step2 },
 		// { name: "bedtools intersect", component: Step3, subtitle: "Intersect regions", header: true },
 		// { name: "bedtools intersect", component: Step4, subtitle: "Find overlaps" },

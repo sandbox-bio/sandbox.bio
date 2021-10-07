@@ -15,4 +15,3 @@ Or to only retrieve certain columns:
 An alternative to this pattern is to use an `if` statement to decide whether to `print` a line or not (I prefer this approach since it looks more like other programming languages):
 
 <Execute command={`awk -F "\\t" '{ if($3 == "Chicken Bowl") print $2, $3 }' orders.tsv | head`} />
-
