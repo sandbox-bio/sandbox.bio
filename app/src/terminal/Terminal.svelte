@@ -21,6 +21,7 @@ const TOOLS_DEFAULT = [
 	{ loading: "lazy", tool: "bowtie2", program: "bowtie2-align-s", version: "2.4.2" },
 	{ loading: "lazy", tool: "minimap2", version: "2.22" },
 	{ loading: "lazy", tool: "jq", version: "1.6" },
+	{ loading: "lazy", tool: "gawk", version: "5.1.0", reinit: true }
 ];
 
 // Autocomplete subcommands
@@ -32,6 +33,8 @@ const AUTOCOMPLETE = {
 	bowtie2: [],
 	minimap2: [],
 	jq: [],
+	awk: [],
+	gawk: [],
 	// Coreutils
 	ls: [],
 	ll: [],
