@@ -1,6 +1,4 @@
 <script>
-import Alert from "components/Alert.svelte";
-import Link from "components/Link.svelte";
 import Execute from "components/Execute.svelte";
 </script>
 
