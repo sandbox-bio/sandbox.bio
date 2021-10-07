@@ -1,7 +1,7 @@
 // Steps
 import Intro from "./steps/Intro.md";
 import Step1 from "./steps/Step1.md";
-// import Step2 from "./steps/Step2.md";
+import Step2 from "./steps/Step2.md";
 // import Step3 from "./steps/Step3.md";
 // import Step4 from "./steps/Step4.md";
 // import Step5 from "./steps/Step5.md";
@@ -31,7 +31,8 @@ export const config = {
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "Introduction to awk", component: Intro },
-		{ name: "The data", component: Step1 },
+		{ name: "Filtering data", subtitle: "Filter columns", component: Step1, header: true },
+		{ name: "Filtering data", subtitle: "Filter rows", component: Step2 },
 		// { name: "Bedtools help", component: Step2 },
 		// { name: "bedtools intersect", component: Step3, subtitle: "Intersect regions", header: true },
 		// { name: "bedtools intersect", component: Step4, subtitle: "Find overlaps" },
