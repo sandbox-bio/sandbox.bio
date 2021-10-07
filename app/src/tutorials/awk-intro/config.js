@@ -2,7 +2,7 @@
 import Intro from "./steps/Intro.md";
 import Step1 from "./steps/Step1.md";
 import Step2 from "./steps/Step2.md";
-// import Step3 from "./steps/Step3.md";
+import Step3 from "./steps/Step3.md";
 // import Step4 from "./steps/Step4.md";
 // import Step5 from "./steps/Step5.md";
 // import Step6 from "./steps/Step6.md";
@@ -34,23 +34,7 @@ export const config = {
 		{ name: "Filtering data", subtitle: "Extract columns", component: Step1, header: true },
 		{ name: "Filtering data", subtitle: "Extract rows", component: Step2 },
 		{ name: "Filtering data", subtitle: "Exercise", component: Exercise1 },
-		// { name: "Bedtools help", component: Step2 },
-		// { name: "bedtools intersect", component: Step3, subtitle: "Intersect regions", header: true },
-		// { name: "bedtools intersect", component: Step4, subtitle: "Find overlaps" },
-		// { name: "bedtools intersect", component: Step5, subtitle: "Count overlaps" },
-		// { name: "bedtools intersect", component: Step6, subtitle: "Faster with sorted data" },
-		// { name: "bedtools intersect", component: Step7, subtitle: "Intersect multiple files" },
-		// { name: "bedtools merge", component: Step8, subtitle: "Merge regions", header: true },
-		// { name: "bedtools merge", component: Step9, subtitle: "Merge and count intervals" },
-		// { name: "bedtools merge", component: Step10, subtitle: "Merge nearby features" },
-		// { name: "bedtools complement", component: Step11, subtitle: "Find uncovered regions", header: true},
-		// { name: "bedtools genomecov", component: Step12, subtitle: "Measure genome-wide coverage", header: true },
-		// { name: "bedtools jaccard", component: Step13, subtitle: "Measure dataset similarity", header: true },
-		// { name: "Exercises", component: Exercise1, subtitle: "Find non-exons", header: true },
-		// { name: "Exercises", component: Exercise2, subtitle: "Find exons in 500kb regions" },
-		// { name: "Exercises", component: Exercise3, subtitle: "Find flanking splice sites" },
-		// { name: "Exercises", component: Exercise5, subtitle: "Find overlapping exons" },
-		// { name: "Exercises", component: Exercise4, subtitle: "Calculate Jaccard statistics" },
+		{ name: "Variables", subtitle: "Using variables to count", component: Step3, header: true },
 		// { name: "The end", component: Conclusion, header: true }
 	],
 	files: [
