@@ -4,6 +4,7 @@ import { config as bedtoolsIntro } from "tutorials/bedtools-intro/config.js";
 import { config as bowtie2Intro } from "tutorials/bowtie2-intro/config.js";
 import { config as samtoolsIntro } from "tutorials/samtools-intro/config.js";
 import { config as jqIntro } from "tutorials/jq-intro/config.js";
+import { config as awkIntro } from "tutorials/awk-intro/config.js";
 import { config as dnaSecrets } from "tutorials/dna-secrets/config.js";
 import { config as playground } from "tutorials/playground/config.js";
 import { config as rosalind } from "tutorials/rosalind/config.js";
@@ -16,6 +17,7 @@ export const tutorials = readable([
 	// Terminal Tutorials
 	terminalIntro,
 	jqIntro,
+	awkIntro,
 	// Bioinformatics
 	bedtoolsIntro,
 	bowtie2Intro,
