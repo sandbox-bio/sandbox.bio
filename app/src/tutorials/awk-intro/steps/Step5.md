@@ -8,7 +8,7 @@ First, let's extract all the lines with information about burrito orders. Instea
 
 <Execute command={`awk -F "\\t" '{ if($3 ~ /Burrito/) print }' orders.tsv | head`} />
 
-Now at each line, we'll update the array value using the syntax `arrayName[index] += toAdd`, and output the number of chicken burritos encountered:
+Now we can use the array `counts` to track how many of each burrito was ordered. We'll use the syntax `counts[burritoType]` to access the counts of each burrito filling, and we can output the number of chicken burritos at the end:
 
 <Execute command={`awk -F "\\t" ' \\ { if($3 ~ /Burrito/) counts[$3] += $2 } \\ END { print counts["Chicken Burrito"] }' orders.tsv`} />
 

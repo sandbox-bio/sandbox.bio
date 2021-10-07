@@ -8,4 +8,4 @@ Hopefully this tutorial gave you a good sense of the kinds of things you can do 
 
 `Awk` is indeed a powerful language (we didn't even cover functions, or how to output to files from within an `awk` script!).
 
-Although we ended doing some interesting ~~math~~ data science in some of the steps, keep in mind that `awk` is most commonly used for quick one-liners, and that you generally would want to switch to a language like Python for more complex transformations or analyses.
+Although we did some interesting ~~math~~ data science in this tutorial, keep in mind that `awk` is most commonly used for quick one-liners, and that you would generally want to switch to a language like Python for more complex transformations or analyses.

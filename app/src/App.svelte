@@ -61,9 +61,8 @@ async function login(credentials) {
 		loginError = false;
 		loginModalOpen = false;
 		$user = data.user;
+		window.location.reload();
 	}
-
-	window.location.reload();
 }
 
 async function logout() {
