@@ -14,7 +14,7 @@ let criteria = [
 	}]
 },
 {
-	name: "File <code>large_orders.tsv</code> contains orders where the same item was ordered >= 5 times (print all columns)",
+	name: "File <code>large_orders.tsv</code> contains orders where the same item was ordered >= 5 times (print all columns; no need to skip the header line)",
 	checks: [{
 		type: "file",
 		path: "large_orders.tsv",

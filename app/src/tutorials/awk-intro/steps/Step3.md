@@ -2,14 +2,14 @@
 import Execute from "components/Execute.svelte";
 </script>
 
-So far, the filtering we did using `awk` could have been done using other command-line tools such as `cut` and `grep`. Let's now tackle something a bit more involved: counting the total number of times in this dataset where someone ordered a chicken bowl.
+So far, the filtering we did using `awk` could have been done using other command-line tools such as `cut` and `grep`. Let's now tackle something more involved: counting the number of times someone ordered a chicken bowl.
 
-To do so, we'll use `awk`'s `BEGIN` and `END` statement, which let you run some code once before processing your file, and once after all rows in the file have been processed:
+To do so, we'll use `awk`'s `BEGIN` and `END` statements, which let you run some code once before processing your file (`BEGIN`), and once after all rows in the file have been processed (`END`):
 
 <Execute command={`awk -F "\\t" ' \\ BEGIN { sum = 0 } \\ { if($3 == "Chicken Bowl") sum += $2 } \\ END { print(sum) }' orders.tsv`} />
 
 Let's break this down:
 
-* **Begin block**: We initialize `sum` to 0
-* **Body block**: For each line we see, if the customer ordered a `Chicken Bowl`, we increment `sum` by the number of bowls ordered
-* **End block**: After we've processed all lines, print the total `sum`
+* **Begin block**: We initialize the variable `sum` to 0
+* **Body block**: For each line in the file, if the customer ordered a `Chicken Bowl`, we increment `sum` by the number of bowls ordered
+* **End block**: Once we processed all lines, print the total `sum`

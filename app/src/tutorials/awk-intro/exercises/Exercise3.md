@@ -24,6 +24,6 @@ let criteria = [
 }];
 </script>
 
-For each type of burrito, output the percentage (between 0 and 1) of burritos ordered that included guacamole. In those cases, column `$4` will contain the string `Guacamole` (double check this using `grep`).
+For each type of burrito, output the percentage (between 0 and 1) of burritos ordered that included guacamole. In those cases when a burrito contained guacamole, column `$4` will contain the string `Guacamole`.
 
 <Exercise {criteria} />
