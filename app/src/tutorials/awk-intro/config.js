@@ -19,7 +19,7 @@ export const config = {
 	description: "Filter, extract and transform data files using <code>awk</code>.",
 	tags: ["awk", "terminal"],
 	tools: ["awk"],
-	difficulty: ["beginner"],
+	difficulty: ["intermediate"],
 	steps: [
 		{ name: "Introduction to awk", component: Intro },
 		{ name: "Filtering data", subtitle: "Extract columns", component: Step1, header: true },
