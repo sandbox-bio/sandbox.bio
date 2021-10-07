@@ -10,18 +10,8 @@ To do so, we'll use `awk`'s `BEGIN` and `END` statement, which let you run some 
 
 <Execute command={`awk -F "\\t" ' \\ BEGIN { sum = 0 } \\ { if($3 == "Chicken Bowl") sum += $2 } \\ END { print(sum) }' orders.tsv`} />
 
-How this works:
+Let's break this down:
 
-* We initialize `sum` to 0
-* If the customer ordered a `Chicken Bowl`, we increment `sum` by the number of bowls ordered
-* At the end, print the total `sum`
-
-Note that `awk` automatically initalizes variables for you, so `sum = 0` is not strictly necessary (but preferable for clarity):
-
-<Execute command={`awk -F "\\t" ' \\ { if($3 == "Chicken Bowl") sum += $2 } \\ END { print(sum) }' orders.tsv`} />
-
-As a side note, `awk` doesn't actually need a file to work on if you only provide a `BEGIN` statement with no body:
-
-<Execute command={`awk 'BEGIN{ print(5/7) }'`} />
-
-(that's another way to do floating-point math on the command line without using the `bc` command)
+* **Begin block**: We initialize `sum` to 0
+* **Body block**: For each line we see, if the customer ordered a `Chicken Bowl`, we increment `sum` by the number of bowls ordered
+* **End block**: After we've processed all lines, print the total `sum`
