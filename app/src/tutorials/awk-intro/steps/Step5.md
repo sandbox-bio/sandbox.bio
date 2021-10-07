@@ -10,12 +10,12 @@ First, let's extract all the lines with information about burrito orders. Instea
 
 <Execute command={`awk -F "\\t" '{ if($3 ~ /Burrito/) print }' orders.tsv | head`} />
 
-Now at each line, we'll increment how often we've seen each type of burrito simply by using the syntax `arrayName[index]++`, and output the number of `Chicken Burrito`s we've encountered:
+Now at each line, we'll update the array value using the syntax `arrayName[index] += toAdd`, and output the number of chicken burritos encountered:
 
-<Execute command={`awk -F "\\t" ' \\ { if($3 ~ /Burrito/) counts[$3]++ } \\ END { print counts["Chicken Burrito"] }' orders.tsv`} />
+<Execute command={`awk -F "\\t" ' \\ { if($3 ~ /Burrito/) counts[$3] += $2 } \\ END { print counts["Chicken Burrito"] }' orders.tsv`} />
 
 To loop through all keys and values of the array, we can simply use a `for` loop:
 
-<Execute command={`awk -F "\\t" ' \\ { if($3 ~ /Burrito/) counts[$3]++ } \\ END { for(k in counts) print(k, counts[k]) }' orders.tsv`} />
+<Execute command={`awk -F "\\t" ' \\ { if($3 ~ /Burrito/) counts[$3] += $2 } \\ END { for(k in counts) print(k, counts[k]) }' orders.tsv`} />
 
 Note that there are 6 unmarked burritos in our dataset, likely due to missing data!

@@ -5,7 +5,7 @@ import Step2 from "./steps/Step2.md";
 import Step3 from "./steps/Step3.md";
 import Step4 from "./steps/Step4.md";
 import Step5 from "./steps/Step5.md";
-// import Step6 from "./steps/Step6.md";
+import Step6 from "./steps/Step6.md";
 // import Step7 from "./steps/Step7.md";
 // import Step8 from "./steps/Step8.md";
 // import Step9 from "./steps/Step9.md";
@@ -17,7 +17,7 @@ import Step5 from "./steps/Step5.md";
 // Exercises
 import Exercise1 from "./exercises/Exercise1.md";
 import Exercise2 from "./exercises/Exercise2.md";
-// import Exercise3 from "./exercises/Exercise3.md";
+import Exercise3 from "./exercises/Exercise3.md";
 // import Exercise4 from "./exercises/Exercise4.md";
 // import Exercise5 from "./exercises/Exercise5.md";
 
@@ -38,7 +38,8 @@ export const config = {
 		{ name: "Variables", subtitle: "Auto-initialization", component: Step4 },
 		{ name: "Variables", subtitle: "Exercise", component: Exercise2 },
 		{ name: "Arrays", subtitle: "Using arrays to count burritos", component: Step5, header: true },
-		{ name: "Arrays", subtitle: "?", component: Step5 },
+		{ name: "Arrays", subtitle: "Track burrito costs", component: Step6 },
+		{ name: "Arrays", subtitle: "Exercise", component: Exercise3 },
 		// { name: "The end", component: Conclusion, header: true }
 	],
 	files: [

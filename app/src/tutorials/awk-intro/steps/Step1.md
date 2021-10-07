@@ -14,6 +14,10 @@ Note that `print $0` (or just `print`) refers to the entire line:
 
 <Execute command={`awk '{ print $0 }' orders.tsv | head`} />
 
+`Awk` also provides built-in variables like `$NF`, which point to the last columns (in our case, price)
+
+<Execute command={`awk '{ print $NF }' orders.tsv | head`} />
+
 Let's now extract columns 2 and 3 to obtain the items ordered and the quantity for each:
 
 <Execute command={`awk '{ print $2, $3 }' orders.tsv | head`} />
