@@ -513,7 +513,9 @@ const utils = {
 	getValue: async arg => {
 		// Literal; support ~
 		if(arg.type == "literal") {
-			return arg.value.replaceAll("~", $env.HOME);
+			if(arg.value === "~" || arg.value?.startsWith("~/"))
+				return arg.value.replaceAll("~", $env.HOME);
+			return arg.value;
 		// Variable
 		} else if(arg.type == "variable")
 			return $env[arg.name] || "";
