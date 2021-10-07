@@ -16,7 +16,7 @@ import Step3 from "./steps/Step3.md";
 // import Conclusion from "./steps/Conclusion.md";
 // Exercises
 import Exercise1 from "./exercises/Exercise1.md";
-// import Exercise2 from "./exercises/Exercise2.md";
+import Exercise2 from "./exercises/Exercise2.md";
 // import Exercise3 from "./exercises/Exercise3.md";
 // import Exercise4 from "./exercises/Exercise4.md";
 // import Exercise5 from "./exercises/Exercise5.md";
@@ -35,6 +35,7 @@ export const config = {
 		{ name: "Filtering data", subtitle: "Extract rows", component: Step2 },
 		{ name: "Filtering data", subtitle: "Exercise", component: Exercise1 },
 		{ name: "Variables", subtitle: "Using variables to count", component: Step3, header: true },
+		{ name: "Variables", subtitle: "Exercises", component: Exercise2, header: true },
 		// { name: "The end", component: Conclusion, header: true }
 	],
 	files: [
