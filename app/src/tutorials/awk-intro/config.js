@@ -4,7 +4,7 @@ import Step1 from "./steps/Step1.md";
 import Step2 from "./steps/Step2.md";
 import Step3 from "./steps/Step3.md";
 import Step4 from "./steps/Step4.md";
-// import Step5 from "./steps/Step5.md";
+import Step5 from "./steps/Step5.md";
 // import Step6 from "./steps/Step6.md";
 // import Step7 from "./steps/Step7.md";
 // import Step8 from "./steps/Step8.md";
@@ -36,7 +36,9 @@ export const config = {
 		{ name: "Filtering data", subtitle: "Exercise", component: Exercise1 },
 		{ name: "Variables", subtitle: "Using variables to count", component: Step3, header: true },
 		{ name: "Variables", subtitle: "Auto-initialization", component: Step4 },
-		{ name: "Variables", subtitle: "Exercises", component: Exercise2},
+		{ name: "Variables", subtitle: "Exercise", component: Exercise2 },
+		{ name: "Arrays", subtitle: "Using arrays to count burritos", component: Step5, header: true },
+		{ name: "Arrays", subtitle: "?", component: Step5 },
 		// { name: "The end", component: Conclusion, header: true }
 	],
 	files: [
