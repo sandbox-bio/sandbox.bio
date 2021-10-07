@@ -16,7 +16,7 @@ export const config = {
 	id: "awk-intro",
 	pwd: "awk-intro",
 	name: "Intro to awk",
-	description: "Filter, extract and transform data files using `awk`",
+	description: "Filter, extract and transform data files using <code>awk</code>.",
 	tags: ["awk", "terminal"],
 	tools: ["awk"],
 	difficulty: ["beginner"],
