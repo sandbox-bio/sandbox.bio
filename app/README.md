@@ -180,3 +180,23 @@ cat secret
 # One liner:
 bowtie2  -x $REF  -U reads.fq  -S aligned.sam; samtools sort -o aligned.sorted.bam aligned.sam; samtools index aligned.sorted.bam; bcftools mpileup -f $REF_FASTA -o variants.vcf aligned.sorted.bam; bcftools call -mv -Ob -o variants.bcf variants.vcf; bcftools query -f'%ALT' variants.bcf -o secret; cat secret
 ```
+
+---
+
+### awk-intro
+
+#### Not covered
+
+```bash
+# Execute script saved in a file!
+echo "BEGIN{ n=0; }{ n+=\$2 } END { print n }" > script.awk
+awk -f script.awk orders.tsv
+
+# Write to a file within an awk script
+awk '{ if($3 != "Chicken") print > "orders_not_chicken.tsv" }' orders.tsv   
+head orders_not_chicken.tsv
+
+# Functions!
+awk 'function hello(a, b){ return a + b; }{ print $1, $2, hello($1, $2) }' orders.tsv | head
+awk ' { print($2) }' orders.tsv | head
+```
