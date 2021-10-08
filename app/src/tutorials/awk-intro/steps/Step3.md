@@ -2,7 +2,7 @@
 import Execute from "components/Execute.svelte";
 </script>
 
-So far, the filtering we did using `awk` could have been done using other command-line tools such as `cut` and `grep`. Let's now tackle something more involved: counting the number of times someone ordered a chicken bowl.
+Let's now tackle something more involved: counting the number of times someone ordered a chicken bowl.
 
 To do so, we'll use `awk`'s `BEGIN` and `END` statements, which let you run some code once before processing your file (`BEGIN`), and once after all rows in the file have been processed (`END`):
 

@@ -13,7 +13,7 @@ Note that `print $0` (or just `print`) refers to the entire line:
 
 <Execute command={`awk '{ print $0 }' orders.tsv | head`} />
 
-`Awk` also provides built-in variables like `$NF`, which point to the last columns (in our case, price)
+`Awk` also provides built-in variables: for example, `NF` (number of fields) tells you how many columns there are on the current line. In turn, `$NF` means fetch the last column of the file:
 
 <Execute command={`awk '{ print $NF }' orders.tsv | head`} />
 
