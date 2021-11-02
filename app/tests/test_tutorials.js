@@ -67,13 +67,7 @@ describe("Test tutorial contents (1 representative command)", () => {
 	});
 
 	it("gawk", async () => {
-		observed = await $CLI.exec(`echo '1 2 3' | gawk -F " " '{ print $2 }'`);
-		expect(observed).to.equal(`2`);
-
-		observed = await $CLI.exec(`echo '1 2 3' | gawk -F " " '{ print $2 }'`);
-		expect(observed).to.equal(`2`);
-
-		observed = await $CLI.exec(`gawk -F "\t" ' { if($3 == "Chicken Bowl") sum += $2 } END { print(sum) }' orders.tsv`);
+		observed = await $CLI.exec(`awk -F "\t" ' { if($3 == "Chicken Bowl") sum += $2 } END { print(sum) }' orders.tsv`);
 		expect(observed).to.equal(`761`);
 	});
 });
