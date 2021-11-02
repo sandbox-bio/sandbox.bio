@@ -24,7 +24,7 @@
     "svelte-preprocess-markdown": "^2.7.3"
   },
   "dependencies": {
-    "@biowasm/aioli": "^2.4.0-rc2",
+    "@biowasm/aioli": "^2.4.0",
     "@supabase/supabase-js": "^1.22.4",
     "ansi-regex": "^6.0.0",
     "ansi_up": "^5.0.1",
