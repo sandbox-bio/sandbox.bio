@@ -65,4 +65,15 @@ describe("Test tutorial contents (1 representative command)", () => {
 		observed = await $CLI.exec(`echo '{"test":{"something": "here"}}' | jq '.test.something'`);
 		expect(observed).to.equal(`\u001b[0;32m"here"\u001b[0m`);
 	});
+
+	it("gawk", async () => {
+		observed = await $CLI.exec(`echo '1 2 3' | gawk -F " " '{ print $2 }'`);
+		expect(observed).to.equal(`2`);
+
+		observed = await $CLI.exec(`echo '1 2 3' | gawk -F " " '{ print $2 }'`);
+		expect(observed).to.equal(`2`);
+
+		observed = await $CLI.exec(`gawk -F "\t" ' { if($3 == "Chicken Bowl") sum += $2 } END { print(sum) }' orders.tsv`);
+		expect(observed).to.equal(`761`);
+	});
 });
