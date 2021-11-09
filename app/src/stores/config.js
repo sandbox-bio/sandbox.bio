@@ -67,6 +67,11 @@ export const progress = writable({});
 // Fetch information from localForage / DB
 export async function envInit()
 {
+	// Refresh user. This fixes the issue where you go to sandbox.bio and it shows
+	// you as logged out, but when you refresh it shows you as logged in.
+	user.set(_supabase.auth.user());
+
+	// Initialize
 	status.set({ ...status, app: null });
 	console.log("envInit()", get(user)?.email);
 	let dataEnv = {}, dataProgress = {};
