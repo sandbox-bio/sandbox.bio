@@ -9,7 +9,7 @@ describe("Test tutorial contents (1 representative command)", () => {
 		console.log("Initializing Aioli");
 		await $CLI.init({
 			pwd: "tests",
-			tools: ["bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2", "samtools/1.10", "bcftools/1.10", "minimap2/2.22", "jq/1.6"],
+			tools: ["bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2", "samtools/1.10", "bcftools/1.10", "minimap2/2.22", "jq/1.6", "gawk/5.1.0"],
 			files: [
 				// bedtools
 				"public/data/bedtools-intro/exons.bed",
@@ -21,6 +21,8 @@ describe("Test tutorial contents (1 representative command)", () => {
 				"public/data/bowtie2-intro/reads_2.fq",
 				// samtools
 				"public/data/samtools-intro/sample.sam",
+				// gawk
+				"public/data/awk-intro/orders.tsv",
 			]
 		});
 	});
@@ -62,5 +64,10 @@ describe("Test tutorial contents (1 representative command)", () => {
 		// If don't specify `-r`, we get color output!
 		observed = await $CLI.exec(`echo '{"test":{"something": "here"}}' | jq '.test.something'`);
 		expect(observed).to.equal(`\u001b[0;32m"here"\u001b[0m`);
+	});
+
+	it("gawk", async () => {
+		observed = await $CLI.exec(`awk -F "\t" ' { if($3 == "Chicken Bowl") sum += $2 } END { print(sum) }' orders.tsv`);
+		expect(observed).to.equal(`761`);
 	});
 });
