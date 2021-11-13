@@ -67,6 +67,20 @@ export const progress = writable({});
 // Fetch information from localForage / DB
 export async function envInit()
 {
+	// Refresh user. This fixes the issue where you go to sandbox.bio and it shows
+	// you as logged out, but when you refresh it shows you as logged in.
+	// To test:
+	// 	  data = JSON.parse(localStorage.getItem("supabase.auth.token"))
+	// 	  data.currentSession.expires_at = data.currentSession.expires_at - 1e6
+	// 	  data.expiresAt = data.expiresAt - 1e6
+	// 	  localStorage.setItem("supabase.auth.token", JSON.stringify(data))
+	if(_supabase.auth.user() === null)
+		_supabase.auth.onAuthStateChange((event, session) => {
+			if(event === "SIGNED_IN")
+				window.location.reload();
+		});
+
+	// Initialize
 	status.set({ ...status, app: null });
 	console.log("envInit()", get(user)?.email);
 	let dataEnv = {}, dataProgress = {};
