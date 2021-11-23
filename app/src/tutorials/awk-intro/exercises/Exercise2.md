@@ -24,6 +24,6 @@ let criteria = [
 }];
 </script>
 
-Create a file called `large_order.tsv` that outputs the largest order of `Bottled Water` by a single customer. You only need to output the number of water bottles, so the file should only contain an integer. Note that column 3 contains the item name, and column 2 contains the quantity of each item.
+Create a file called `largest_order.tsv` that outputs the largest order of `Bottled Water` by a single customer. You only need to output the number of water bottles, so the file should only contain an integer. Note that column 3 contains the item name, and column 2 contains the quantity of each item.
 
 <Exercise {criteria} />
