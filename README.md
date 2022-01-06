@@ -39,7 +39,6 @@
 npm run deploy-dev
 ```
 
-
 ### Setup Secrets
 
 ```bash

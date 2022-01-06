@@ -5,6 +5,8 @@ name: stg.sandbox.bio
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
+    inputs:
 
 jobs:
   deploy:
