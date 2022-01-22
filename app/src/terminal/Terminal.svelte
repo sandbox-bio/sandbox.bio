@@ -202,8 +202,10 @@ async function exec(cmd)
 // Filter out warnings
 function filter(output) {
 	// Band-aid: don't show bowtie2 thread warnings
-	if(typeof output === "string")
+	if(typeof output === "string") {
 		output = output.replaceAll("pthread_sigmask() is not supported: this is a no-op.\n", "");
+		output = output.replaceAll("warning: unsupported syscall: __sys_prlimit64\n", "");
+	}
 
 	return output;
 }
