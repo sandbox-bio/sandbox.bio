@@ -51,8 +51,7 @@ let aboutIsOpen = false;  // Whether "About" modal is showing or not
 
 	<p>To simulate a terminal environment, we implemented features such as piping (<code>|</code>), file redirection (<code>></code>, <code>>></code>), process substitution (<code>&lt;()</code>), conditional commands (<code>&&</code>, <code>||</code>), asynchronous commands (<code>&</code>), variables (<code>abc=123</code>), and autocomplete. The terminal UI is based on <a href="https://github.com/xtermjs/xterm.js/" target="_blank">xterm.js</a>.</p>
 
-	<p>GNU Coreutils such as <code>ls</code>, <code>cat</code>, <code>grep</code>, <code>head</code>, <code>wc</code>, and <code>echo</code> were also implemented, though keep in mind we don't currently support most flags (to address that in the future, we'll compile coreutils to WebAssembly!).
-		All the files you read and write to are temporarily stored in memory using Emscripten's <a href="https://emscripten.org/docs/api_reference/Filesystem-API.html" target="_blank">virtual file system</a>.</p>
+	<p>GNU Coreutils such as <code>ls</code>, <code>cat</code>, <code>grep</code>, <code>head</code>, <code>wc</code>, and <code>echo</code> were also implemented, though keep in mind we don't currently support most flags. All the files you read and write to are temporarily stored in memory using Emscripten's <a href="https://emscripten.org/docs/api_reference/Filesystem-API.html" target="_blank">virtual file system</a>.</p>
 
 	<p class="lead fw-bold mt-4 mb-1">How to contribute</p>
 	<p>If you have feedback, ideas for new tutorials, or if one of your own bioinformatics tutorials could benefit from being interactive, please <a href="https://github.com/sandbox-bio/feedback/discussions" target="_blank">reach out</a>! Note that currently, only the C/C++ bioinformatics tools listed <a href="https://github.com/biowasm/biowasm#supported-tools" target="_blank">here</a> are supported.</p>
