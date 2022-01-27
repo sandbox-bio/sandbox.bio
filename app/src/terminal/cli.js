@@ -296,7 +296,6 @@ const coreutils = {
 	hostname: args => "sandbox",
 	uname: args => "sandbox.bio",
 	whoami: args => $env?.USER || "guest",
-	date: args => new Date().toLocaleString(),
 	unset: args => {
 		args._.map(v => delete $env[v]);
 		env.set($env);
@@ -309,7 +308,6 @@ const coreutils = {
 	mv: args => _fs.rename(args._[0], args._[1]) && "",
 	rm: args => Promise.all(args._.map(async arg => await _fs.unlink(arg))) && "",
 	pwd: args => _fs.cwd(),
-	echo: args => args._.join(" "),
 	touch: async args => {
 		return Promise.all(args._.map(async path => {
 			try {
@@ -367,55 +365,6 @@ const coreutils = {
 		} catch (error) {
 			return error;
 		}
-	},
-
-	// -------------------------------------------------------------------------
-	// File contents utilities
-	// -------------------------------------------------------------------------
-	// cat file1 [file2 ... fileN]
-	cat: args => utils.readFiles(args._),
-
-	// tail [-n 10|-10]
-	tail: args => coreutils.head(args, true),
-
-	// head [-n 10|-10]
-	head: (args, tail=false) => {
-		// Support older `head -5 myfile` format ==> args={ 5: myfile, _: [] }
-		const nOld = Object.keys(args).find(arg => parseInt(arg));
-		if(nOld)
-			args = { n: nOld, _: [ args[nOld] ] };
-
-		// Get first n lines
-		const n = args.n || 10;
-		return utils.readFiles(args._, tail ? [-n] : [0, n]);
-	},
-
-	// wc [-l|-w|-c] <file>
-	wc: async args => {
-		// Count number of lines/words/chars
-		const output = await utils.readFiles(args._);
-		let nbLines = output.trim().split("\n").length;
-		let nbWords = output.trim().split(/\s+/).length;
-		let nbChars = output.length;
-		if(output == "")
-			nbLines = nbWords = nbChars = 0;
-
-		// Return result
-		if(args.l) return nbLines;
-		else if(args.w) return nbWords;
-		else if(args.c) return nbChars;
-		else return `${nbLines}\t${nbWords}\t${nbChars}`;
-	},
-
-	// grep [-v] [-i] [-e] [-E] <pattern> <file>
-	grep: async args => {
-		const pattern = new RegExp(args._[0], `g${args.i ? "i" : ""}`);
-		const output = await utils.readFiles(args._.slice(1));
-		return output.split("\n").filter(line => {
-			if(args.v)
-				return !line.match(pattern);
-			return line.match(pattern);
-		}).join("\n");
 	},
 
 	// -------------------------------------------------------------------------
