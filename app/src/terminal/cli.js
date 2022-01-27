@@ -42,7 +42,7 @@ async function init(config={})
 {
 	// Initialize
 	_aioli = await new Aioli(config.tools, {
-		env: window.location.hostname == "localhost" ? "stg" : "prd",
+		env: ["localhost", "dev.sandbox.bio"].includes(window.location.hostname) ? "stg" : "prd",
 		// debug: window.location.hostname == "localhost",
 		printInterleaved: false
 	});
