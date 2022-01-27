@@ -189,7 +189,7 @@ async function exec(cmd, callback=console.warn)
 			// Parse args
 			const tool = cmd.command.value.trim();  // trim removes \n that get introduced if use \
 			const argsRaw = (await Promise.all(cmd.args.map(utils.getValue))).flat();
-			const args = minimist(argsRaw, minimistConfig[tool]);
+			const args = minimist(argsRaw);
 
 			// If it's a coreutils
 			if(tool in coreutils)
@@ -599,13 +599,6 @@ const utils = {
 	}
 };
 
-// Custom minimist configs for certain coreutils
-const minimistConfig = {
-	wc: { boolean: ["l", "c", "w"] },
-	grep: { boolean: ["v", "i", "e", "E"] },
-	ls: { boolean: ["l", "a", "t", "r", "s", "h"] },
-	echo: { boolean: ["e", "n"] }
-};
 
 // =============================================================================
 // File system caching functions
