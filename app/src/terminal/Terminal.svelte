@@ -14,6 +14,7 @@ import { tutorial } from "./stores/tutorial";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";
+const COREUTILS = ["basename", "cat", "comm", "cut", "date", "echo", "fold", "head", "join", "ls", "md5sum", "paste", "seq", "shuf", "sort", "tail", "tr", "uniq", "wc"];
 const TOOLS_DEFAULT = [
 	{ loading: "lazy", tool: "samtools", version: "1.10" },
 	{ loading: "lazy", tool: "bcftools", program: "bcftools", version: "1.10" },
@@ -21,7 +22,9 @@ const TOOLS_DEFAULT = [
 	{ loading: "lazy", tool: "bowtie2", program: "bowtie2-align-s", version: "2.4.2" },
 	{ loading: "lazy", tool: "minimap2", version: "2.22" },
 	{ loading: "lazy", tool: "jq", version: "1.6" },
-	{ loading: "lazy", tool: "gawk", version: "5.1.0", reinit: true }
+	{ loading: "lazy", tool: "gawk", version: "5.1.0", reinit: true },
+	{ loading: "lazy", tool: "grep", version: "3.7", reinit: true  },
+	...COREUTILS.map(program => ({ program, tool: "coreutils", loading: "lazy", version: "8.32", reinit: true }))
 ];
 
 // Autocomplete subcommands

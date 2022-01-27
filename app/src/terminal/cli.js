@@ -88,6 +88,10 @@ async function transform(cmd)
 		cmd.command.value = "bowtie2-align-s";
 	else if(tool == "awk")
 		cmd.command.value = "gawk";
+	else if(tool == "ll") {
+		cmd.command.value = "ls";
+		cmd.args.push({type: "literal", value: "-l"});
+	}
 
 	return cmd;
 }
@@ -191,8 +195,9 @@ async function exec(cmd, callback=console.warn)
 			const argsRaw = (await Promise.all(cmd.args.map(utils.getValue))).flat();
 			const args = minimist(argsRaw);
 
-			// If it's a coreutils
-			if(tool in coreutils)
+			// If it's a coreutils (except ls; we need coreutils.ls() for saving FS state + need biowasm/ls for tutorials)
+			// FIXME: move coreutils.ls() to utils.ls()
+			if(tool in coreutils && tool !== "ls")
 				output = await coreutils[tool](args);
 			// Otherwise, try running the command with Aioli
 			else {
@@ -387,8 +392,9 @@ const coreutils = {
 
 	// -------------------------------------------------------------------------
 	// ls [-l] <file1> <file2>
+	// We still need this to store the FS state in localStorage
+	// FIXME: Move this logic to `utils`
 	// -------------------------------------------------------------------------
-	ll: (args, raw) => coreutils.ls(args, raw),
 	ls: async (args, raw=false) => {
 		// Input validation and dedupping
 		let paths = args._ || args;
