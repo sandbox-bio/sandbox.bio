@@ -2,6 +2,7 @@
 
 import { get } from "svelte/store";
 import { CLI } from "../src/terminal/cli"; const $CLI = get(CLI);
+import { TOOLS } from "./utils";
 
 const FILE_SAM = "/samtools/examples/toy.sam";
 const FILE_FA = "/samtools/examples/toy.fa";
@@ -12,19 +13,17 @@ let expected;
 describe("Test coreutils", () => {
 	before(async () => {
 		console.log("Initializing Aioli");
-		await $CLI.init({
-			tools: ["samtools/1.10"]
-		});
+		await $CLI.init({ tools: TOOLS });
 	});
 
 	it("ls (folder)", async () => {
-		observed = await $CLI.exec(`ls ${FILE_SAM}`);
+		observed = await $CLI.exec(`ls -lah ${FILE_SAM}`);
 		expect(observed).to.contain("toy.sam");
-		expect(observed).to.contain("786 B");
+		expect(observed).to.contain("786");
 
 		observed = await $CLI.exec("ls /");
-		expect(observed).to.contain("tmp/");
-		expect(observed).to.contain("home/");
+		expect(observed).to.contain("tmp");
+		expect(observed).to.contain("home");
 	});
 
 	it("head", async () => {
@@ -49,19 +48,18 @@ describe("Test coreutils", () => {
 		expect(observed).to.equal("x6\t0\tref2\t14\t30\t23M\t*\t0\t0\tTaattaagtctacagagcaacta\t???????????????????????");
 	});
 
-	// FIXME: technically this should be 786 bytes, but modifying utils.readFiles messes up head/tail
 	it("wc", async () => {
 		observed = await $CLI.exec(`wc ${FILE_SAM}`);
-		expect(observed).to.equal("14\t139\t785");
+		expect(observed).to.equal(`14 139 786 ${FILE_SAM}`);
 
 		observed = await $CLI.exec(`wc -l ${FILE_SAM}`);
-		expect(observed).to.equal("14");
+		expect(observed).to.equal(`14 ${FILE_SAM}`);
 
 		observed = await $CLI.exec(`wc -w ${FILE_SAM}`);
-		expect(observed).to.equal("139");
+		expect(observed).to.equal(`139 ${FILE_SAM}`);
 
 		observed = await $CLI.exec(`wc -c ${FILE_SAM}`);
-		expect(observed).to.equal("785");
+		expect(observed).to.equal(`786 ${FILE_SAM}`);
 	});
 
 	it("cat", async () => {
@@ -103,7 +101,6 @@ describe("Test coreutils", () => {
 		expect(observed).to.equal("output something");
 	});
 
-
 	it("mktemp", async () => {
 		observed = await $CLI.exec(`mktemp`);
 		expect(observed).to.contain("/shared/tmp/tmp");
@@ -112,17 +109,17 @@ describe("Test coreutils", () => {
 		expect(observed).to.contain("tmp");
 	});
 
-	it("grep", async () => {
-		observed = await $CLI.exec(`grep "Taa" ${FILE_SAM} | wc -l`);
+	it("grep+cut", async () => {
+		observed = await $CLI.exec(`grep "Taa" ${FILE_SAM} | wc -l | cut -f1 -d' '`);
 		expect(observed).to.equal("4");
 
-		observed = await $CLI.exec(`grep "TAA" ${FILE_SAM} | wc -l`);
+		observed = await $CLI.exec(`grep "TAA" ${FILE_SAM} | wc -l | cut -f1 -d' '`);
 		expect(observed).to.equal("3");
 
-		observed = await $CLI.exec(`grep -i "TAA" ${FILE_SAM} | wc -l`);
+		observed = await $CLI.exec(`grep -i "TAA" ${FILE_SAM} | wc -l | cut -f1 -d' '`);
 		expect(observed).to.equal("9");
 
-		observed = await $CLI.exec(`grep -i -v "TAA" ${FILE_SAM} | wc -l`);
+		observed = await $CLI.exec(`grep -i -v "TAA" ${FILE_SAM} | wc -l | cut -f1 -d' '`);
 		expect(observed).to.equal("5");
 	});
 
@@ -130,14 +127,14 @@ describe("Test coreutils", () => {
 		await $CLI.exec("mkdir a b c");
 
 		observed = await $CLI.exec("ls");
-		expect(observed).to.contain("a/");
-		expect(observed).to.contain("b/");
-		expect(observed).to.contain("c/");
+		expect(observed).to.contain("a");
+		expect(observed).to.contain("b");
+		expect(observed).to.contain("c");
 
 		await $CLI.exec("rmdir a c");
 
 		observed = await $CLI.exec("ls");
-		expect(observed).to.contain("b/");
+		expect(observed).to.contain("b");
 	});
 
 	it("cp", async () => {
