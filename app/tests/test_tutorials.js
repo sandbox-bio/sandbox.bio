@@ -31,7 +31,7 @@ describe("Test tutorial contents (1 representative command)", () => {
 
 	it("bedtools", async () => {
 		observed = await $CLI.exec("bedtools intersect -a exons.bed -b cpg.bed gwas.bed hesc.chromHmm.bed -sorted -wa -wb -names cpg gwas chromhmm | head -n 10000 | tail -n 10");
-		expect(observed).to.equal("chr1\t935245\t935552\tNM_021170_exon_3_0_chr1_935246_r\t0\t-\tchromhmm\tchr1\t932537\t937537\t3_Poised_Promoter\nchr1\t948846\t948956\tNM_005101_exon_0_0_chr1_948847_f\t0\t+\tcpg\tchr1\t948670\t948894\tCpG:_19\nchr1\t948846\t948956\tNM_005101_exon_0_0_chr1_948847_f\t0\t+\tchromhmm\tchr1\t948337\t949337\t4_Strong_Enhancer\nchr1\t949363\t949919\tNM_005101_exon_1_0_chr1_949364_f\t0\t+\tcpg\tchr1\t949329\t949851\tCpG:_35\nchr1\t949363\t949919\tNM_005101_exon_1_0_chr1_949364_f\t0\t+\tchromhmm\tchr1\t949337\t949537\t2_Weak_Promoter\nchr1\t949363\t949919\tNM_005101_exon_1_0_chr1_949364_f\t0\t+\tchromhmm\tchr1\t949537\t949937\t6_Weak_Enhancer\nchr1\t955502\t955753\tNM_198576_exon_0_0_chr1_955503_f\t0\t+\tcpg\tchr1\t954768\t956343\tCpG:_148\nchr1\t955502\t955753\tNM_198576_exon_0_0_chr1_955503_f\t0\t+\tchromhmm\tchr1\t954537\t955537\t6_Weak_Enhancer\nchr1\t955502\t955753\tNM_198576_exon_0_0_chr1_955503_f\t0\t+\tchromhmm\tchr1\t955537\t956137\t2_Weak_Promoter\nchr1\t957580\t957842\tNM_198576_exon_1_0_chr1_957581_f\t0\t+\tchromhmm\tchr1\t957537\t958937\t9_Txn_Transition");
+		expect(observed).to.equal("chr1\t935245\t935552\tNM_021170_exon_3_0_chr1_935246_r\t0\t-\tchromhmm\tchr1\t932537\t937537\t3_Poised_Promoter\nchr1\t948846\t948956\tNM_005101_exon_0_0_chr1_948847_f\t0\t+\tcpg\tchr1\t948670\t948894\tCpG:_19\nchr1\t948846\t948956\tNM_005101_exon_0_0_chr1_948847_f\t0\t+\tchromhmm\tchr1\t948337\t949337\t4_Strong_Enhancer\nchr1\t949363\t949919\tNM_005101_exon_1_0_chr1_949364_f\t0\t+\tcpg\tchr1\t949329\t949851\tCpG:_35\nchr1\t949363\t949919\tNM_005101_exon_1_0_chr1_949364_f\t0\t+\tchromhmm\tchr1\t949337\t949537\t2_Weak_Promoter\nchr1\t949363\t949919\tNM_005101_exon_1_0_chr1_949364_f\t0\t+\tchromhmm\tchr1\t949537\t949937\t6_Weak_Enhancer\nchr1\t955502\t955753\tNM_198576_exon_0_0_chr1_955503_f\t0\t+\tcpg\tchr1\t954768\t956343\tCpG:_148\nchr1\t955502\t955753\tNM_198576_exon_0_0_chr1_955503_f\t0\t+\tchromhmm\tchr1\t954537\t955537\t6_Weak_Enhancer\nchr1\t955502\t955753\tNM_198576_exon_0_0_chr1_955503_f\t0\t+\tchromhmm\tchr1\t955537\t956137\t2_Weak_Promoter\nchr1\t957580\t957842\tNM_198576_exon_1_0_chr1_957581_f\t0\t+\tchromhmm\tchr1\t957537\t958937\t9_Txn_Transition\n");
 	});
 
 	it("bowtie2", async () => {
@@ -51,7 +51,7 @@ describe("Test tutorial contents (1 representative command)", () => {
 
 	it("samtools", async () => {
 		observed = await $CLI.exec("samtools view -b sample.sam -o sample.bam; samtools sort sample.bam -o sample.sorted.bam; samtools index sample.sorted.bam; samtools view -c sample.sorted.bam 20:1.4e6-1.5e6");
-		expect(observed).to.equal("338");
+		expect(observed).to.equal("338\n");
 	});
 
 	it("minimap2", async () => {
@@ -61,15 +61,15 @@ describe("Test tutorial contents (1 representative command)", () => {
 
 	it("jq", async () => {
 		observed = await $CLI.exec(`echo '{"test":{"something": "here"}}' | jq -r '.test.something'`);
-		expect(observed).to.equal(`here`);
+		expect(observed).to.equal(`here\n`);
 
 		// If don't specify `-r`, we get color output!
 		observed = await $CLI.exec(`echo '{"test":{"something": "here"}}' | jq '.test.something'`);
-		expect(observed).to.equal(`\u001b[0;32m"here"\u001b[0m`);
+		expect(observed).to.equal(`\u001b[0;32m"here"\u001b[0m\n`);
 	});
 
 	it("gawk", async () => {
 		observed = await $CLI.exec(`awk -F "\t" ' { if($3 == "Chicken Bowl") sum += $2 } END { print(sum) }' orders.tsv`);
-		expect(observed).to.equal(`761`);
+		expect(observed).to.equal(`761\n`);
 	});
 });
