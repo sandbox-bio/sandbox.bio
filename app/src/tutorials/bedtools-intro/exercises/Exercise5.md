@@ -1,6 +1,6 @@
 <script>
 // Solution:
-//    bedtools intersect -a exons.bed -b <(grep Enhancer hesc.chromHmm.bed) -wa -wb -f 1.0 | wc -l > count
+//    bedtools intersect -a exons.bed -b <(grep Enhancer hesc.chromHmm.bed) -wa -wb -f 1.0 | wc -l | cut -f1 -d' ' > count
 
 import Alert from "components/Alert.svelte";
 import Exercise from "components/Exercise.svelte";
@@ -12,7 +12,7 @@ let criteria = [
 		type: "file",
 		path: "count",
 		action: "contents",
-		commandExpected: "bedtools intersect -a exons.bed -b <(grep Enhancer hesc.chromHmm.bed) -wa -wb -f 1.0 | wc -l"
+		commandExpected: "bedtools intersect -a exons.bed -b <(grep Enhancer hesc.chromHmm.bed) -wa -wb -f 1.0 | wc -l | cut -f1 -d' '"
 	}]
 }
 ];

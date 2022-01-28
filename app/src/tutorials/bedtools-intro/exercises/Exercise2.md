@@ -1,6 +1,6 @@
 <script>
 // Solution:
-//    bedtools intersect -a <(bedtools makewindows -g genome.txt -w 500000) -b exons.bed -c > windows.exons.bedg
+//    bedtools makewindows -g genome.txt -w 500000 > windows.bed; bedtools intersect -a windows.bed -b exons.bed -c > windows.exons.bedg
 
 import Alert from "components/Alert.svelte";
 import Exercise from "components/Exercise.svelte";
