@@ -2,6 +2,8 @@
 
 import { get } from "svelte/store";
 import { CLI } from "../src/terminal/cli"; const $CLI = get(CLI);
+import { TOOLS } from "./utils";
+
 let observed;
 
 describe("Test tutorial contents (1 representative command)", () => {
@@ -9,7 +11,7 @@ describe("Test tutorial contents (1 representative command)", () => {
 		console.log("Initializing Aioli");
 		await $CLI.init({
 			pwd: "tests",
-			tools: ["bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2", "samtools/1.10", "bcftools/1.10", "minimap2/2.22", "jq/1.6", "gawk/5.1.0"],
+			tools: ["bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2", "bcftools/1.10", "minimap2/2.22", "jq/1.6", "gawk/5.1.0", ...TOOLS],
 			files: [
 				// bedtools
 				"public/data/bedtools-intro/exons.bed",
@@ -42,8 +44,8 @@ describe("Test tutorial contents (1 representative command)", () => {
 	// Must run after bowtie2
 	it("bcftools", async () => {
 		let stderr = "";
-		observed = await $CLI.exec("REF_FASTA=/bowtie2/example/reference/lambda_virus.fa; samtools view eg2.sam -o eg2.bam; samtools sort eg2.sam -o eg2.sorted.bam; bcftools mpileup -f $REF_FASTA eg2.sorted.bam | head -n2", d => stderr = d);
-		expect(observed).to.equal(`##fileformat=VCFv4.2\n##FILTER=<ID=PASS,Description="All filters passed">`);
+		observed = await $CLI.exec("REF_FASTA=/bowtie2/example/reference/lambda_virus.fa; samtools view eg2.sam -o eg2.bam; samtools sort eg2.sam -o eg2.sorted.bam; bcftools mpileup -f $REF_FASTA eg2.sorted.bam", d => stderr = d);
+		expect(observed).to.contain(`##fileformat=VCFv4.2\n##FILTER=<ID=PASS,Description="All filters passed">`);
 		expect(stderr).to.equal(`[mpileup] 1 samples in 1 input files\n[mpileup] maximum number of reads per input file set to -d 250\n`);
 	});
 
