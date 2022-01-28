@@ -42,7 +42,7 @@ async function init(config={})
 {
 	// Initialize
 	_aioli = await new Aioli(config.tools, {
-		env: window.location.hostname == "localhost" ? "stg" : "prd",
+		env: ["localhost", "dev.sandbox.bio"].includes(window.location.hostname) ? "stg" : "prd",
 		// debug: window.location.hostname == "localhost",
 		printInterleaved: false
 	});
@@ -88,6 +88,10 @@ async function transform(cmd)
 		cmd.command.value = "bowtie2-align-s";
 	else if(tool == "awk")
 		cmd.command.value = "gawk";
+	else if(tool == "ll") {
+		cmd.command.value = "ls";
+		cmd.args.push({type: "literal", value: "-l"});
+	}
 
 	return cmd;
 }
@@ -135,7 +139,7 @@ async function exec(cmd, callback=console.warn)
 				const summary = `[${_jobs++}] ${_pid++} `;
 				exec(command, callback).then(out => {
 					callback(out);
-					callback("\n" + summary + "done\n");
+					callback(summary + "done\n");
 					_jobs--;
 				});
 				callback(summary + "launched\n");
@@ -144,8 +148,7 @@ async function exec(cmd, callback=console.warn)
 
 			// Otherwise, run the steps one after the other
 			// Note: `&&` and `||` are  handled below
-			output += "\n" + await exec(command, callback);
-			output = output.trim();
+			output += await exec(command, callback);
 		}
 		return output;
 	}
@@ -189,13 +192,16 @@ async function exec(cmd, callback=console.warn)
 			// Parse args
 			const tool = cmd.command.value.trim();  // trim removes \n that get introduced if use \
 			const argsRaw = (await Promise.all(cmd.args.map(utils.getValue))).flat();
-			const args = minimist(argsRaw, minimistConfig[tool]);
+			const args = minimist(argsRaw);
 
-			// If it's a coreutils
-			if(tool in coreutils)
+			// If it's a coreutils (except ls; we need coreutils.ls() for saving FS state + need biowasm/ls for tutorials)
+			// FIXME: move coreutils.ls() to utils.ls()
+			if(tool in coreutils && tool !== "ls") {
 				output = await coreutils[tool](args);
+				if(typeof output === "string" && !output.endsWith("\n"))
+					output += "\n";
 			// Otherwise, try running the command with Aioli
-			else {
+			} else {
 				const outputAioli = await _aioli.exec(tool, argsRaw);
 				// Output the stderr now
 				callback(outputAioli.stderr);
@@ -235,8 +241,8 @@ async function exec(cmd, callback=console.warn)
 						} catch (error) {
 							await utils.writeFile(path, "");
 						}
-						let contents = await utils.readFiles([ path ]);
-						await utils.writeFile(path, (contents + "\n" + output).trim());
+						const contents = await _fs.readFile(path, { "encoding": "utf8" });
+						await utils.writeFile(path, contents + output);
 					} else {
 						throw `Error: ${redirect.op} redirections are not supported.`;
 					}
@@ -252,10 +258,8 @@ async function exec(cmd, callback=console.warn)
 			// Handle next command, e.g. `echo 123 && echo 456`, `echo 123 ; echo 456`
 			// But if we had `echo 123 || echo 456` and the LHS didn't throw, then we're done
 			// -----------------------------------------------------------------
-			if(cmd.next && cmd.control != "||") {
-				output += "\n" + await exec(cmd.next, callback);
-				output = output.trim();
-			}
+			if(cmd.next && cmd.control != "||")
+				output += await exec(cmd.next, callback);  // FIXME: remove breakline and trim
 
 			// If no redirections, just return the result
 			return output;
@@ -267,7 +271,9 @@ async function exec(cmd, callback=console.warn)
 				callback(error);
 				return await exec(cmd.next, callback);
 			}
-			// Reaches this line if e.g. using `&&`
+			// Reaches this line if e.g. using `&&` or enter unrecognized program name
+			if(typeof error === "string")
+				error += "\n";
 			throw error;
 		}
 	}
@@ -296,7 +302,6 @@ const coreutils = {
 	hostname: args => "sandbox",
 	uname: args => "sandbox.bio",
 	whoami: args => $env?.USER || "guest",
-	date: args => new Date().toLocaleString(),
 	unset: args => {
 		args._.map(v => delete $env[v]);
 		env.set($env);
@@ -309,7 +314,6 @@ const coreutils = {
 	mv: args => _fs.rename(args._[0], args._[1]) && "",
 	rm: args => Promise.all(args._.map(async arg => await _fs.unlink(arg))) && "",
 	pwd: args => _fs.cwd(),
-	echo: args => args._.join(" "),
 	touch: async args => {
 		return Promise.all(args._.map(async path => {
 			try {
@@ -370,55 +374,6 @@ const coreutils = {
 	},
 
 	// -------------------------------------------------------------------------
-	// File contents utilities
-	// -------------------------------------------------------------------------
-	// cat file1 [file2 ... fileN]
-	cat: args => utils.readFiles(args._),
-
-	// tail [-n 10|-10]
-	tail: args => coreutils.head(args, true),
-
-	// head [-n 10|-10]
-	head: (args, tail=false) => {
-		// Support older `head -5 myfile` format ==> args={ 5: myfile, _: [] }
-		const nOld = Object.keys(args).find(arg => parseInt(arg));
-		if(nOld)
-			args = { n: nOld, _: [ args[nOld] ] };
-
-		// Get first n lines
-		const n = args.n || 10;
-		return utils.readFiles(args._, tail ? [-n] : [0, n]);
-	},
-
-	// wc [-l|-w|-c] <file>
-	wc: async args => {
-		// Count number of lines/words/chars
-		const output = await utils.readFiles(args._);
-		let nbLines = output.trim().split("\n").length;
-		let nbWords = output.trim().split(/\s+/).length;
-		let nbChars = output.length;
-		if(output == "")
-			nbLines = nbWords = nbChars = 0;
-
-		// Return result
-		if(args.l) return nbLines;
-		else if(args.w) return nbWords;
-		else if(args.c) return nbChars;
-		else return `${nbLines}\t${nbWords}\t${nbChars}`;
-	},
-
-	// grep [-v] [-i] [-e] [-E] <pattern> <file>
-	grep: async args => {
-		const pattern = new RegExp(args._[0], `g${args.i ? "i" : ""}`);
-		const output = await utils.readFiles(args._.slice(1));
-		return output.split("\n").filter(line => {
-			if(args.v)
-				return !line.match(pattern);
-			return line.match(pattern);
-		}).join("\n");
-	},
-
-	// -------------------------------------------------------------------------
 	// curl <http...>
 	// -------------------------------------------------------------------------
 	curl: async args => {
@@ -438,8 +393,9 @@ const coreutils = {
 
 	// -------------------------------------------------------------------------
 	// ls [-l] <file1> <file2>
+	// We still need this to store the FS state in localStorage
+	// FIXME: Move this logic to `utils`
 	// -------------------------------------------------------------------------
-	ll: (args, raw) => coreutils.ls(args, raw),
 	ls: async (args, raw=false) => {
 		// Input validation and dedupping
 		let paths = args._ || args;
@@ -564,25 +520,6 @@ const utils = {
 			throw `Error: ${arg.type} arguments not supported.`;
 	},
 
-	// Read entire file contents from virtual file system, and can subset by line numbers
-	// e.g. lineRange=`[0]`, `[0,1]`, `[0,5]`
-	readFiles: async (paths, lineRange) => {
-		if(!Array.isArray(paths))
-			paths = [ paths ];
-
-		// For each path, read entire file contents
-		const outputs = await Promise.all(paths.map(async path => {
-			let output = (await _fs.readFile(path, { "encoding": "utf8" })).trim();
-			// Then subset by lines of interest (not efficient at all, but `FS.read()` fails due to WebWorker issues)
-			if(Array.isArray(lineRange))
-				output = output.split("\n").slice(...lineRange).join("\n");
-			return output;
-		}));
-
-		// Add break line between different files
-		return outputs.join("\n");
-	},
-
 	// Write file
 	writeFile: async (path, contents, opts={ encoding: "utf8" }) => {
 		// Delete destination file if it exists (otherwise can get errors if destination = lazyloaded URL)
@@ -599,13 +536,6 @@ const utils = {
 	}
 };
 
-// Custom minimist configs for certain coreutils
-const minimistConfig = {
-	wc: { boolean: ["l", "c", "w"] },
-	grep: { boolean: ["v", "i", "e", "E"] },
-	ls: { boolean: ["l", "a", "t", "r", "s", "h"] },
-	echo: { boolean: ["e", "n"] }
-};
 
 // =============================================================================
 // File system caching functions

@@ -32,13 +32,19 @@ async function check(manual=false)
 				{
 					// Does file exist?
 					if(check.action == "exists") {
-						await $CLI.exec(`ls ${check.path}`);
+						let stderr = null;
+						await $CLI.exec(`ls ${check.path}`, d => stderr = d);
+						if(stderr)
+							throw "File not found";
 						statuses[i] = true;
 					}
 
 					// Does file content match expectation? Define the right answer using a CLI invocation
 					else if(check.action == "contents") {
-						await $CLI.exec(`ls ${check.path}`);
+						let stderr = null;
+						await $CLI.exec(`ls ${check.path}`, d => stderr = d);
+						if(stderr)
+							throw "File not found";
 
 						// Parse settings
 						const commandExpected = check.commandExpected;

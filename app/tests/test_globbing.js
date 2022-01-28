@@ -2,6 +2,8 @@
 
 import { get } from "svelte/store";
 import { CLI } from "../src/terminal/cli";
+import { TOOLS } from "./utils";
+
 const $CLI = get(CLI);
 let observed;
 let expected;
@@ -9,9 +11,7 @@ let expected;
 describe("Test globbing", () => {
 	before(async () => {
 		console.log("Initializing Aioli");
-		await $CLI.init({
-			tools: ["samtools/1.10"]
-		});
+		await $CLI.init({ tools: TOOLS });
 		await $CLI.exec(`echo abc > test1.txt; echo abc > test2.txt; echo abc > test3.bed`);
 		await $CLI.exec(`mkdir folder1 folder2 folder3`);
 		await $CLI.exec(`echo abc > folder1/file1-inside-folder1; echo abc > folder1/file2-inside-folder1`);
@@ -33,7 +33,7 @@ describe("Test globbing", () => {
 
 	it("ls f*", async () => {
 		observed = await $CLI.exec(`ls f*`);
-		expected = await $CLI.exec(`ls folder1 folder2 folder3`);
+		expected = await $CLI.exec(`ls folder1/ folder2/ folder3/`);
 		expect(observed).to.equal(expected);
 	});
 
@@ -94,11 +94,8 @@ describe("Test globbing", () => {
 
 	it("ls doesn*exist", async () => {
 		// This should fail because the path doesn't exist
-		try {
-			await $CLI.exec(`ls test4*`)			
-		} catch (error) {
-			return;
-		}
-		expect(1).to.equal(2);
+		observed = await $CLI.exec(`ls test4*`);
+		console.log(observed)
+		expect(observed).to.equal("");
 	});
 });

@@ -16,11 +16,11 @@
 
 
 # ------------------------------------------------------------------------------
-# Compile samtools/htslib on EC2 instance
+# Compile samtools/htslib on EC2 instance (using same OS as Lambda; Amazon Linux 2 AMI; amzn2-ami-hvm-2.0.20210721.2-x86_64-gp2)
 # ------------------------------------------------------------------------------
 
-IP_ADDDRESS=?
-ssh -i ~/Desktop/2021-08-17-test-aws.cer ec2-user@$IP_ADDDRESS
+IP_ADDDRESS=13.57.23.164
+ssh -i ~/Desktop/credentials/2021-08-17-test-aws.cer ec2-user@$IP_ADDDRESS
 sudo yum install -y git zlib-devel bzip2-devel lzma liblzma-devel xz-devel libcurl-devel openssl-devel autoconf gcc ncurses-devel
 sudo yum groupinstall "Development Tools"
 git clone https://github.com/samtools/samtools.git

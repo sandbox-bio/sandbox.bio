@@ -27,9 +27,9 @@ Let's illustrate this pitfall in our sandbox. If we `grep` for `>` with quotes, 
 
 <Execute command='grep > ref.fa' />
 
-Using `ls`, verify that `ref.fa` is empty (i.e. `0 B`):
+Using `ls`, verify that `ref.fa` is empty (i.e. `0` in the 5th column):
 
-<Execute command='ls' />
+<Execute command='ls -l' />
 
 Not to worry, we had prepared a backup file `ref.fa.bak` that you can use to regenerate `ref.fa` with the `cp` (**c**o**p**y) command:
 

@@ -1,6 +1,6 @@
 <script>
 // Solution:
-//    awk -F "\t" '$3 ~ /Burrito/{ if($4 ~ /Guacamole/) with[$3] += $2; else without[$3] += $2; } END { for(k in with) print(k, with[k] / (with[k] + without[k])) }' orders.tsv
+//    awk -F "\t" '$3 ~ /Burrito/{ if($4 ~ /Guacamole/) with[$3] += $2; else without[$3] += $2; } END { for(k in with) print(k, with[k] / (with[k] + without[k])) }' orders.tsv > burritos_guac.tsv
 
 import Exercise from "components/Exercise.svelte";
 

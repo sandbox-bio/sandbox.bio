@@ -22,7 +22,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1638553602631,
+  "iteration": 1643297458271,
   "links": [],
   "panels": [
     {
@@ -1084,7 +1084,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "sandbox.bio Stats",
+  "title": "sandbox.bio",
   "uid": "IVCoGOVnz",
-  "version": 47
+  "version": 49
 }

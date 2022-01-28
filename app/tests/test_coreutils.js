@@ -2,66 +2,64 @@
 
 import { get } from "svelte/store";
 import { CLI } from "../src/terminal/cli"; const $CLI = get(CLI);
+import { TOOLS } from "./utils";
 
 const FILE_SAM = "/samtools/examples/toy.sam";
 const FILE_FA = "/samtools/examples/toy.fa";
-const FILE_FA_CONTENTS = `>ref\nAGCATGTTAGATAAGATAGCTGTGCTAGTAGGCAGTCAGCGCCAT\n>ref2\naggttttataaaacaattaagtctacagagcaactacgcg`;
+const FILE_FA_CONTENTS = `>ref\nAGCATGTTAGATAAGATAGCTGTGCTAGTAGGCAGTCAGCGCCAT\n>ref2\naggttttataaaacaattaagtctacagagcaactacgcg\n`;
 let observed;
 let expected;
 
 describe("Test coreutils", () => {
 	before(async () => {
 		console.log("Initializing Aioli");
-		await $CLI.init({
-			tools: ["samtools/1.10"]
-		});
+		await $CLI.init({ tools: TOOLS });
 	});
 
 	it("ls (folder)", async () => {
-		observed = await $CLI.exec(`ls ${FILE_SAM}`);
+		observed = await $CLI.exec(`ls -lah ${FILE_SAM}`);
 		expect(observed).to.contain("toy.sam");
-		expect(observed).to.contain("786 B");
+		expect(observed).to.contain("786");
 
 		observed = await $CLI.exec("ls /");
-		expect(observed).to.contain("tmp/");
-		expect(observed).to.contain("home/");
+		expect(observed).to.contain("tmp");
+		expect(observed).to.contain("home");
 	});
 
 	it("head", async () => {
-		observed = (await $CLI.exec(`head ${FILE_SAM}`)).split("\n").length;
+		observed = (await $CLI.exec(`head ${FILE_SAM}`)).trim().split("\n").length;
 		expect(observed).to.equal(10);
 
-		observed = (await $CLI.exec(`head -n 5 ${FILE_SAM}`)).split("\n").length;
+		observed = (await $CLI.exec(`head -n 5 ${FILE_SAM}`)).trim().split("\n").length;
 		expect(observed).to.equal(5);
 
 		observed = await $CLI.exec(`head -n 1 ${FILE_SAM}`);
-		expect(observed).to.equal("@SQ\tSN:ref\tLN:45");
+		expect(observed).to.equal("@SQ\tSN:ref\tLN:45\n");
 	});
 
 	it("tail", async () => {
-		observed = (await $CLI.exec(`tail ${FILE_SAM}`)).split("\n").length;
+		observed = (await $CLI.exec(`tail ${FILE_SAM}`)).trim().split("\n").length;
 		expect(observed).to.equal(10);
 
-		observed = (await $CLI.exec(`tail -n 5 ${FILE_SAM}`)).split("\n").length;
+		observed = (await $CLI.exec(`tail -n 5 ${FILE_SAM}`)).trim().split("\n").length;
 		expect(observed).to.equal(5);
 
 		observed = await $CLI.exec(`tail -n 1 ${FILE_SAM}`);
-		expect(observed).to.equal("x6\t0\tref2\t14\t30\t23M\t*\t0\t0\tTaattaagtctacagagcaacta\t???????????????????????");
+		expect(observed).to.equal("x6\t0\tref2\t14\t30\t23M\t*\t0\t0\tTaattaagtctacagagcaacta\t???????????????????????\n");
 	});
 
-	// FIXME: technically this should be 786 bytes, but modifying utils.readFiles messes up head/tail
 	it("wc", async () => {
 		observed = await $CLI.exec(`wc ${FILE_SAM}`);
-		expect(observed).to.equal("14\t139\t785");
+		expect(observed).to.equal(` 14 139 786 ${FILE_SAM}\n`);
 
 		observed = await $CLI.exec(`wc -l ${FILE_SAM}`);
-		expect(observed).to.equal("14");
+		expect(observed).to.equal(`14 ${FILE_SAM}\n`);
 
 		observed = await $CLI.exec(`wc -w ${FILE_SAM}`);
-		expect(observed).to.equal("139");
+		expect(observed).to.equal(`139 ${FILE_SAM}\n`);
 
 		observed = await $CLI.exec(`wc -c ${FILE_SAM}`);
-		expect(observed).to.equal("785");
+		expect(observed).to.equal(`786 ${FILE_SAM}\n`);
 	});
 
 	it("cat", async () => {
@@ -71,18 +69,18 @@ describe("Test coreutils", () => {
 
 	it("cd / pwd", async () => {
 		observed = await $CLI.exec("pwd");
-		expect(observed).to.equal("/shared/data");
+		expect(observed).to.equal("/shared/data\n");
 
 		// Change directory
 		await $CLI.exec("cd /tmp");
 		observed = await $CLI.exec("pwd");
-		expect(observed).to.equal("/tmp");
+		expect(observed).to.equal("/tmp\n");
 
 		// Test cd ~
 		await $CLI.exec("HOME=/shared/data")
 		await $CLI.exec("cd ~");
 		observed = await $CLI.exec("pwd");
-		expect(observed).to.equal("/shared/data");
+		expect(observed).to.equal("/shared/data\n");
 
 		// Test ~ with other commands
 		await $CLI.exec("cd /");
@@ -95,14 +93,13 @@ describe("Test coreutils", () => {
 		await $CLI.exec("cd /");
 		await $CLI.exec("cd -");
 		observed = await $CLI.exec("pwd");
-		expect(observed).to.equal("/shared");
+		expect(observed).to.equal("/shared\n");
 	});
 
 	it("echo", async () => {
 		observed = await $CLI.exec("echo 'output something'");
-		expect(observed).to.equal("output something");
+		expect(observed).to.equal("output something\n");
 	});
-
 
 	it("mktemp", async () => {
 		observed = await $CLI.exec(`mktemp`);
@@ -112,32 +109,32 @@ describe("Test coreutils", () => {
 		expect(observed).to.contain("tmp");
 	});
 
-	it("grep", async () => {
-		observed = await $CLI.exec(`grep "Taa" ${FILE_SAM} | wc -l`);
-		expect(observed).to.equal("4");
+	it("grep+cut", async () => {
+		observed = await $CLI.exec(`grep "Taa" ${FILE_SAM} | wc -l | cut -f1 -d' '`);
+		expect(observed.trim()).to.equal("4");
 
-		observed = await $CLI.exec(`grep "TAA" ${FILE_SAM} | wc -l`);
-		expect(observed).to.equal("3");
+		observed = await $CLI.exec(`grep "TAA" ${FILE_SAM} | wc -l | cut -f1 -d' '`);
+		expect(observed.trim()).to.equal("3");
 
-		observed = await $CLI.exec(`grep -i "TAA" ${FILE_SAM} | wc -l`);
-		expect(observed).to.equal("9");
+		observed = await $CLI.exec(`grep -i "TAA" ${FILE_SAM} | wc -l | cut -f1 -d' '`);
+		expect(observed.trim()).to.equal("9");
 
-		observed = await $CLI.exec(`grep -i -v "TAA" ${FILE_SAM} | wc -l`);
-		expect(observed).to.equal("5");
+		observed = await $CLI.exec(`grep -i -v "TAA" ${FILE_SAM} | wc -l | cut -f1 -d' '`);
+		expect(observed.trim()).to.equal("5");
 	});
 
 	it("mkdir / rmdir", async () => {
 		await $CLI.exec("mkdir a b c");
 
 		observed = await $CLI.exec("ls");
-		expect(observed).to.contain("a/");
-		expect(observed).to.contain("b/");
-		expect(observed).to.contain("c/");
+		expect(observed).to.contain("a");
+		expect(observed).to.contain("b");
+		expect(observed).to.contain("c");
 
 		await $CLI.exec("rmdir a c");
 
 		observed = await $CLI.exec("ls");
-		expect(observed).to.contain("b/");
+		expect(observed).to.contain("b");
 	});
 
 	it("cp", async () => {
@@ -151,7 +148,7 @@ describe("Test coreutils", () => {
 		await $CLI.exec(`echo "hello" > somefile`);
 		await $CLI.exec(`cp somefile ${FILE_SAM}`);
 		observed = await $CLI.exec(`cat ${FILE_SAM}`);
-		expect(observed).to.equal("hello");
+		expect(observed).to.equal("hello\n");
 	});
 
 	// Run this test last since we're deleting files :)
@@ -185,7 +182,7 @@ describe("Test coreutils", () => {
 	it("whoami", async () => {
 		await $CLI.exec("USER=someuser");
 		observed = await $CLI.exec("whoami");
-		expect(observed).to.equal("someuser");
+		expect(observed).to.equal("someuser\n");
 	});
 
 	it("touch", async () => {
