@@ -4,6 +4,7 @@ describe("Test UI", () => {
 	before(() => {
 		cy.visit("http://localhost:5000/tutorials?id=bedtools-intro&step=14");
 		cy.get("body").get(".spinner-border").should("not.exist");
+		cy.wait(1000);
 	});
 
 	it("Exercise criteria checker", () => {
