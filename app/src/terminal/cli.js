@@ -139,7 +139,7 @@ async function exec(cmd, callback=console.warn)
 				const summary = `[${_jobs++}] ${_pid++} `;
 				exec(command, callback).then(out => {
 					callback(out);
-					callback("\n" + summary + "done\n");
+					callback(summary + "done\n");
 					_jobs--;
 				});
 				callback(summary + "launched\n");
@@ -148,8 +148,7 @@ async function exec(cmd, callback=console.warn)
 
 			// Otherwise, run the steps one after the other
 			// Note: `&&` and `||` are  handled below
-			output += "\n" + await exec(command, callback);
-			output = output.trim();
+			output += await exec(command, callback);
 		}
 		return output;
 	}
@@ -197,10 +196,12 @@ async function exec(cmd, callback=console.warn)
 
 			// If it's a coreutils (except ls; we need coreutils.ls() for saving FS state + need biowasm/ls for tutorials)
 			// FIXME: move coreutils.ls() to utils.ls()
-			if(tool in coreutils && tool !== "ls")
+			if(tool in coreutils && tool !== "ls") {
 				output = await coreutils[tool](args);
+				if(typeof output === "string" && !output.endsWith("\n"))
+					output += "\n";
 			// Otherwise, try running the command with Aioli
-			else {
+			} else {
 				const outputAioli = await _aioli.exec(tool, argsRaw);
 				// Output the stderr now
 				callback(outputAioli.stderr);
@@ -240,8 +241,8 @@ async function exec(cmd, callback=console.warn)
 						} catch (error) {
 							await utils.writeFile(path, "");
 						}
-						let contents = await utils.readFiles([ path ]);
-						await utils.writeFile(path, (contents + "\n" + output).trim());
+						const contents = await _fs.readFile(path, { "encoding": "utf8" });
+						await utils.writeFile(path, contents + output);
 					} else {
 						throw `Error: ${redirect.op} redirections are not supported.`;
 					}
@@ -257,10 +258,8 @@ async function exec(cmd, callback=console.warn)
 			// Handle next command, e.g. `echo 123 && echo 456`, `echo 123 ; echo 456`
 			// But if we had `echo 123 || echo 456` and the LHS didn't throw, then we're done
 			// -----------------------------------------------------------------
-			if(cmd.next && cmd.control != "||") {
-				output += "\n" + await exec(cmd.next, callback);
-				output = output.trim();
-			}
+			if(cmd.next && cmd.control != "||")
+				output += await exec(cmd.next, callback);  // FIXME: remove breakline and trim
 
 			// If no redirections, just return the result
 			return output;
@@ -517,25 +516,6 @@ const utils = {
 		}
 		else
 			throw `Error: ${arg.type} arguments not supported.`;
-	},
-
-	// Read entire file contents from virtual file system, and can subset by line numbers
-	// e.g. lineRange=`[0]`, `[0,1]`, `[0,5]`
-	readFiles: async (paths, lineRange) => {
-		if(!Array.isArray(paths))
-			paths = [ paths ];
-
-		// For each path, read entire file contents
-		const outputs = await Promise.all(paths.map(async path => {
-			let output = (await _fs.readFile(path, { "encoding": "utf8" })).trim();
-			// Then subset by lines of interest (not efficient at all, but `FS.read()` fails due to WebWorker issues)
-			if(Array.isArray(lineRange))
-				output = output.split("\n").slice(...lineRange).join("\n");
-			return output;
-		}));
-
-		// Add break line between different files
-		return outputs.join("\n");
 	},
 
 	// Write file

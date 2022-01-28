@@ -165,7 +165,7 @@ async function input(toPrint)
 		nbInit = 1;
 	}
 	if(toPrint)
-		$xterm.writeln(toPrint);
+		$xterm.write(toPrint);
 	$xterm.focus();
 
 	// Prepare prompt, e.g. "guest@sandbox$ "
