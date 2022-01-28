@@ -271,7 +271,9 @@ async function exec(cmd, callback=console.warn)
 				callback(error);
 				return await exec(cmd.next, callback);
 			}
-			// Reaches this line if e.g. using `&&`
+			// Reaches this line if e.g. using `&&` or enter unrecognized program name
+			if(typeof error === "string")
+				error += "\n";
 			throw error;
 		}
 	}
