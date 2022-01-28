@@ -6,6 +6,7 @@ import { TOOLS } from "./utils";
 
 const $CLI = get(CLI);
 const FILE_SAM = "/samtools/examples/toy.sam";
+const SAMTOOLS_USAGE = "\nUsage: samtools view [options] <in.bam>|<in.sam>|<in.cram> [region ...]\n";
 
 let observed;
 
@@ -17,57 +18,57 @@ describe("Test redirections", () => {
 
 	it("Single pipe", async () => {
 		observed = await $CLI.exec(`samtools view | head -n 2`);
-		expect(observed).to.equal("Usage: samtools view [options] <in.bam>|<in.sam>|<in.cram> [region ...]");
+		expect(observed).to.equal(SAMTOOLS_USAGE);
 	});
 
 	it("Single pipe + file redirection", async () => {
 		observed = await $CLI.exec(`samtools view | head -n 2 > tmp`);
 		observed = await $CLI.exec(`cat tmp`);
-		expect(observed).to.equal("Usage: samtools view [options] <in.bam>|<in.sam>|<in.cram> [region ...]");
+		expect(observed).to.equal(SAMTOOLS_USAGE);
 	});
 
 	it("Multiple pipes", async () => {
 		observed = await $CLI.exec(`samtools view | head -n 7 | wc -l | cut -f1 -d' '`);
-		expect(observed).to.equal("7");
+		expect(observed).to.equal("7\n");
 	});
 
 	it("Multiple pipes + file redirection + output is not a string", async () => {
 		observed = await $CLI.exec(`samtools view | head -n 7 | wc -l | cut -f1 -d' ' > tmp`);
 		observed = await $CLI.exec(`cat tmp`);
-		expect(observed).to.equal("7");
+		expect(observed).to.equal("7\n");
 	});
 
 	it("Process substitution", async () => {
-		observed = await $CLI.exec(`wc -l <(head -n 7 ${FILE_SAM})`);
-		expect(observed).to.equal("7");
+		observed = await $CLI.exec(`wc -l <(head -n 7 ${FILE_SAM}) | cut -f1 -d' '`);
+		expect(observed).to.equal("7\n");
 	});
 
 	it("Command substitution", async () => {
-		observed = await $CLI.exec(`head -n $(head -n 7 ${FILE_SAM} | wc -l) ${FILE_SAM} | wc -l`);
-		expect(observed).to.equal("7");
+		observed = await $CLI.exec(`echo -n $(head -n 7 ${FILE_SAM}) | wc -l | cut -f1 -d' '`);
+		expect(observed).to.equal("7\n");
 	});
 
 	it("Write/Append to file", async () => {
 		observed = await $CLI.exec(`echo "test" > tmp`);
 		observed = await $CLI.exec(`echo "test" > tmp`);
 		observed = await $CLI.exec(`cat tmp`);
-		expect(observed).to.equal("test");
+		expect(observed).to.equal("test\n");
 
 		observed = await $CLI.exec(`echo "test" > tmp`);
 		observed = await $CLI.exec(`echo "test" >> tmp`);
 		observed = await $CLI.exec(`cat tmp`);
-		expect(observed).to.equal("test\ntest");
+		expect(observed).to.equal("test\ntest\n");
 	});
 
 	it("Using '-' as a replacement for stdin", async () => {
 		observed = await $CLI.exec(`echo "test" | cat -`);
-		expect(observed).to.equal("test");
+		expect(observed).to.equal("test\n");
 
 		observed = await $CLI.exec(`echo "test" | cat`);
-		expect(observed).to.equal("test");
+		expect(observed).to.equal("test\n");
 
 		observed = await $CLI.exec(`samtools view /samtools/examples/toy.sam | cat - | wc -l | cut -f1 -d' '`);
-		expect(observed).to.equal("12");
+		expect(observed).to.equal("12\n");
 	});
 
 	it("Treating stderr correctly", async () => {
@@ -85,22 +86,22 @@ describe("Test redirections", () => {
 
 		// samtools --version-only outputs to stdout
 		observed = await $CLI.exec("samtools --version-only");
-		expect(observed).to.equal("1.10+htslib-1.10");
+		expect(observed).to.equal("1.10+htslib-1.10\n");
 	});
 
 	it("Test `;`, `&`, `&&`, and `||`", async () => {
 		// Just `;`
 		observed = await $CLI.exec(`echo 123; echo 456; echo 789`);
-		expect(observed).to.equal("123\n456\n789");
+		expect(observed).to.equal("123\n456\n789\n");
 
 		// Just `&&`
 		observed = await $CLI.exec(`echo 123 && echo 456 && echo 789`);
-		expect(observed).to.equal("123\n456\n789");
+		expect(observed).to.equal("123\n456\n789\n");
 
 		// Just `&`
 		let extra = "";
 		observed = await $CLI.exec(`echo 1 & echo 2`, d => extra += d);
-		expect(observed).to.equal("2");
+		expect(observed).to.equal("2\n");
 		expect(extra).to.equal("[0] 10000 launched\n1\n[0] 10000 done\n");
 
 		// Both `&` and `>` (must be after just `&` b/c of process id!)
@@ -108,18 +109,18 @@ describe("Test redirections", () => {
 		observed = await $CLI.exec(`echo 1 & echo 2 > test`, d => extra += d);
 		expect(observed).to.equal("");
 		expect(extra).to.equal("[0] 10001 launched\n1\n[0] 10001 done\n");
-		expect(await $CLI.exec(`cat test`)).to.equal("2");
+		expect(await $CLI.exec(`cat test`)).to.equal("2\n");
 
 		// Both `;` and `&&`
 		observed = await $CLI.exec(`echo 123; echo 456 && echo 789`);
-		expect(observed).to.equal("123\n456\n789");
+		expect(observed).to.equal("123\n456\n789\n");
 
 		// Test `||`
 		observed = await $CLI.exec(`echo 123 || echo 456`);
-		expect(observed).to.equal("123");
+		expect(observed).to.equal("123\n");
 
 		observed = await $CLI.exec(`error || echo 456`);
-		expect(observed).to.equal("456");
+		expect(observed).to.equal("456\n");
 
 		// // FIXME: In the test below, 1 and 2 are not output!
 		// extra = "";
