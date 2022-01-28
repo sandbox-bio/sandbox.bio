@@ -2,6 +2,7 @@
 
 import { get } from "svelte/store";
 import { CLI } from "../src/terminal/cli";
+import { TOOLS } from "./utils";
 
 const $CLI = get(CLI);
 const FILE_SAM = "/samtools/examples/toy.sam";
@@ -11,29 +12,27 @@ let observed;
 describe("Test redirections", () => {
 	before(async () => {
 		console.log("Initializing Aioli");
-		await $CLI.init({
-			tools: ["samtools/1.10"]
-		});
+		await $CLI.init({ tools: TOOLS });
 	});
 
 	it("Single pipe", async () => {
-		observed = await $CLI.exec(`samtools view | head -n 1`);
+		observed = await $CLI.exec(`samtools view | head -n 2`);
 		expect(observed).to.equal("Usage: samtools view [options] <in.bam>|<in.sam>|<in.cram> [region ...]");
 	});
 
 	it("Single pipe + file redirection", async () => {
-		observed = await $CLI.exec(`samtools view | head -n 1 > tmp`);
+		observed = await $CLI.exec(`samtools view | head -n 2 > tmp`);
 		observed = await $CLI.exec(`cat tmp`);
 		expect(observed).to.equal("Usage: samtools view [options] <in.bam>|<in.sam>|<in.cram> [region ...]");
 	});
 
 	it("Multiple pipes", async () => {
-		observed = await $CLI.exec(`samtools view | head -n 7 | wc -l`);
+		observed = await $CLI.exec(`samtools view | head -n 7 | wc -l | cut -f1 -d' '`);
 		expect(observed).to.equal("7");
 	});
 
 	it("Multiple pipes + file redirection + output is not a string", async () => {
-		observed = await $CLI.exec(`samtools view | head -n 7 | wc -l > tmp`);
+		observed = await $CLI.exec(`samtools view | head -n 7 | wc -l | cut -f1 -d' ' > tmp`);
 		observed = await $CLI.exec(`cat tmp`);
 		expect(observed).to.equal("7");
 	});
@@ -67,7 +66,7 @@ describe("Test redirections", () => {
 		observed = await $CLI.exec(`echo "test" | cat`);
 		expect(observed).to.equal("test");
 
-		observed = await $CLI.exec(`samtools view /samtools/examples/toy.sam | cat - | wc -l`);
+		observed = await $CLI.exec(`samtools view /samtools/examples/toy.sam | cat - | wc -l | cut -f1 -d' '`);
 		expect(observed).to.equal("12");
 	});
 
@@ -77,10 +76,6 @@ describe("Test redirections", () => {
 
 		// samtools outputs its main help screen to stderr
 		observed = await $CLI.exec("samtools", d => stderr = d);
-		expect(observed).to.equal("");
-		expect(stderr).to.equal(samtoolsHelp);
-
-		observed = await $CLI.exec("samtools | head -n 1", d => stderr = d);
 		expect(observed).to.equal("");
 		expect(stderr).to.equal(samtoolsHelp);
 
