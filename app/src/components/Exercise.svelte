@@ -32,7 +32,10 @@ async function check(manual=false)
 				{
 					// Does file exist?
 					if(check.action == "exists") {
-						await $CLI.exec(`ls ${check.path}`);
+						let stderr = null;
+						await $CLI.exec(`ls ${check.path}`, d => stderr = d);
+						if(stderr)
+							throw "File not found";
 						statuses[i] = true;
 					}
 
