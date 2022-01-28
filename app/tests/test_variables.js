@@ -2,15 +2,15 @@
 
 import { get } from "svelte/store";
 import { CLI } from "../src/terminal/cli";
+import { TOOLS } from "./utils";
+
 const $CLI = get(CLI);
 let observed;
 
 describe("Test variables", () => {
 	before(async () => {
 		console.log("Initializing Aioli");
-		await $CLI.init({
-			tools: ["samtools/1.10"]
-		});
+		await $CLI.init({ tools: TOOLS });
 	});
 
 	it("Set/Read variable", async () => {
