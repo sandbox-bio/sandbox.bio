@@ -11,9 +11,12 @@ export let colXxl = 3;  // == 12 / how many boxes we can fit on xxl screens
 export let skip = [];   // Specific tutorial IDs to not show
 </script>
 
+{#if title}
 <div class="row mt-5">
 	<h3 class="pb-2">{title}</h3>
 </div>
+{/if}
+
 <div class="row align-items-md-stretch">
 	{#each items.slice(0, max).filter(t => !skip.includes(t.id) && t.listed !== false && (t.steps?.length > 0 || t.url)) as info}
 		<div class="col-md-{colMd} col-lg-{colLg} col-xxl-{colXxl} mt-2">
