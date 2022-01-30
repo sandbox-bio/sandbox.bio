@@ -282,7 +282,7 @@ async function handleAutocomplete(data)
 			} else {
 				// Infer base path and files within it (default to `.`)
 				const pathBase = userFragment.substring(0, userFragment.lastIndexOf("/") + 1);
-				const files = await $CLI.coreutils.ls([ pathBase || "." ], true);
+				const files = await $CLI.utils.ls([ pathBase || "." ], true);
 				// Prepend base path since `ls` doesn't do that for us
 				cacheAutocomplete = files.map(d => pathBase + d.name);
 			}

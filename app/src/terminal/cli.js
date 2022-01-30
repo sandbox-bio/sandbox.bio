@@ -194,9 +194,8 @@ async function exec(cmd, callback=console.warn)
 			const argsRaw = (await Promise.all(cmd.args.map(utils.getValue))).flat();
 			const args = minimist(argsRaw);
 
-			// If it's a coreutils (except ls; we need coreutils.ls() for saving FS state + need biowasm/ls for tutorials)
-			// FIXME: move coreutils.ls() to utils.ls()
-			if(tool in coreutils && tool !== "ls") {
+			// If it's a JS-rewritten coreutils, run it
+			if(tool in coreutils) {
 				output = await coreutils[tool](args);
 				if(typeof output === "string" && !output.endsWith("\n"))
 					output += "\n";
@@ -360,7 +359,7 @@ const coreutils = {
 		let data;
 		try {
 			// Read source file
-			await coreutils.ls({_: [args._[0]]});
+			await utils.ls({_: [args._[0]]});
 			data = await _fs.readFile(args._[0], { encoding: "binary" });
 
 			// Copy data over
@@ -390,11 +389,88 @@ const coreutils = {
 
 		return contents;
 	},
+};
+
+
+// =============================================================================
+// Utility functions
+// =============================================================================
+
+const utils = {
+	// Get the value of an argument (recursive if need-be)
+	getValue: async arg => {
+		// Literal; support ~
+		if(arg.type == "literal") {
+			if(arg.value === "~" || arg.value?.startsWith("~/"))
+				return arg.value.replaceAll("~", $env.HOME);
+			return arg.value;
+		// Variable
+		} else if(arg.type == "variable")
+			return $env[arg.name] || "";
+		// Variable concatenation, e.g. echo "something $abc $def"
+		else if(arg.type == "concatenation")
+			return (await Promise.all(arg.pieces.map(utils.getValue))).join("");
+		// Command Substitution, e.g. someprgm $(grep "bla" test.txt | wc -l)
+		else if(arg.type == "commandSubstitution")
+			return await exec(arg.commands);
+		// Process substitution, e.g. bedtools -a <(grep "Enhancer" data.bed)
+		else if(arg.type == "processSubstitution" && arg.readWrite == "<") {
+			const output = await exec(arg.commands);
+			const pathTmpFile = await coreutils.mktemp();
+			await utils.writeFile(pathTmpFile, output);
+			return pathTmpFile;
+		// Globbing, e.g. ls c*.b?d
+		} else if(arg.type == "glob") {
+			// Get files at the base path
+			if(arg.value.endsWith("/"))
+				arg.value = arg.value.slice(0, -1);
+			const pathBase = arg.value.substring(0, arg.value.lastIndexOf("/") + 1) || "";
+			let pathPattern = arg.value.replace(pathBase, "");
+			if(pathPattern == "*")
+				pathPattern = "";
+			const files = await utils.ls([ pathBase || "." ], true);
+
+			// Convert bash regex to JS regex; "*" in bash == ".*" in js; "?" in bash == "." in js
+			const pattern = pathPattern
+				.replaceAll("*", "###__ASTERISK__###")
+				.replaceAll("?", "###__QUESTION__###")
+				.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&")  // escape non-regex chars (e.g. the "." in the file extension)
+				.replaceAll("###__ASTERISK__###", ".*")
+				.replaceAll("###__QUESTION__###", ".");
+			// If user specifies ls *txt, match both hello.txt and my_txt/
+			const re = new RegExp("^" + pattern + "$|" + "^" + pattern + "/$");
+
+			// If find no matches, return original glob value
+			const filesMatching = files.filter(f => f.name.match(re)).map(f => `${pathBase}${f.name}`)
+			if(filesMatching.length > 0)
+				return filesMatching;
+			if(pathPattern == "")
+				return [pathBase || "."];
+			return arg.value;
+		}
+		else
+			throw `Error: ${arg.type} arguments not supported.`;
+	},
+
+	// Write file
+	writeFile: async (path, contents, opts={ encoding: "utf8" }) => {
+		// Delete destination file if it exists (otherwise can get errors if destination = lazyloaded URL)
+		try {
+			await utils.ls({_: [ path ]});
+			await coreutils.rm({_: [ path ]});
+		} catch (error) {}  // don't error if the destination doesn't exist
+
+		// Remove ANSI characters from file contents before saving (only if string; could also be Uint8Array for binary files)
+		if(typeof contents === "string")
+			contents = contents.replace(ansiRegex(), "");
+
+		await _fs.writeFile(path, contents, opts);
+	},
+
 
 	// -------------------------------------------------------------------------
 	// ls [-l] <file1> <file2>
-	// We still need this to store the FS state in localStorage
-	// FIXME: Move this logic to `utils`
+	// We need this to e.g. store the FS state in localStorage, and for other coreutils above
 	// -------------------------------------------------------------------------
 	ls: async (args, raw=false) => {
 		// Input validation and dedupping
@@ -461,83 +537,6 @@ const coreutils = {
 
 
 // =============================================================================
-// Utility functions
-// =============================================================================
-
-const utils = {
-	// Get the value of an argument (recursive if need-be)
-	getValue: async arg => {
-		// Literal; support ~
-		if(arg.type == "literal") {
-			if(arg.value === "~" || arg.value?.startsWith("~/"))
-				return arg.value.replaceAll("~", $env.HOME);
-			return arg.value;
-		// Variable
-		} else if(arg.type == "variable")
-			return $env[arg.name] || "";
-		// Variable concatenation, e.g. echo "something $abc $def"
-		else if(arg.type == "concatenation")
-			return (await Promise.all(arg.pieces.map(utils.getValue))).join("");
-		// Command Substitution, e.g. someprgm $(grep "bla" test.txt | wc -l)
-		else if(arg.type == "commandSubstitution")
-			return await exec(arg.commands);
-		// Process substitution, e.g. bedtools -a <(grep "Enhancer" data.bed)
-		else if(arg.type == "processSubstitution" && arg.readWrite == "<") {
-			const output = await exec(arg.commands);
-			const pathTmpFile = await coreutils.mktemp();
-			await utils.writeFile(pathTmpFile, output);
-			return pathTmpFile;
-		// Globbing, e.g. ls c*.b?d
-		} else if(arg.type == "glob") {
-			// Get files at the base path
-			if(arg.value.endsWith("/"))
-				arg.value = arg.value.slice(0, -1);
-			const pathBase = arg.value.substring(0, arg.value.lastIndexOf("/") + 1) || "";
-			let pathPattern = arg.value.replace(pathBase, "");
-			if(pathPattern == "*")
-				pathPattern = "";
-			const files = await coreutils.ls([ pathBase || "." ], true);
-
-			// Convert bash regex to JS regex; "*" in bash == ".*" in js; "?" in bash == "." in js
-			const pattern = pathPattern
-				.replaceAll("*", "###__ASTERISK__###")
-				.replaceAll("?", "###__QUESTION__###")
-				.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&")  // escape non-regex chars (e.g. the "." in the file extension)
-				.replaceAll("###__ASTERISK__###", ".*")
-				.replaceAll("###__QUESTION__###", ".");
-			// If user specifies ls *txt, match both hello.txt and my_txt/
-			const re = new RegExp("^" + pattern + "$|" + "^" + pattern + "/$");
-
-			// If find no matches, return original glob value
-			const filesMatching = files.filter(f => f.name.match(re)).map(f => `${pathBase}${f.name}`)
-			if(filesMatching.length > 0)
-				return filesMatching;
-			if(pathPattern == "")
-				return [pathBase || "."];
-			return arg.value;
-		}
-		else
-			throw `Error: ${arg.type} arguments not supported.`;
-	},
-
-	// Write file
-	writeFile: async (path, contents, opts={ encoding: "utf8" }) => {
-		// Delete destination file if it exists (otherwise can get errors if destination = lazyloaded URL)
-		try {
-			await coreutils.ls({_: [ path ]});
-			await coreutils.rm({_: [ path ]});
-		} catch (error) {}  // don't error if the destination doesn't exist
-
-		// Remove ANSI characters from file contents before saving (only if string; could also be Uint8Array for binary files)
-		if(typeof contents === "string")
-			contents = contents.replace(ansiRegex(), "");
-
-		await _fs.writeFile(path, contents, opts);
-	}
-};
-
-
-// =============================================================================
 // File system caching functions
 // =============================================================================
 
@@ -577,7 +576,7 @@ const fsLoad = async function() {
 // Recursively traverse folder path and get list of all files
 async function fsTraverse(path) {
 	let paths = [];
-	const files = await coreutils.ls([path], true);
+	const files = await utils.ls([path], true);
 	for(let file of files) {
 		const filePath = path + file.name;
 		paths.push(filePath);
@@ -596,6 +595,7 @@ export const CLI = readable({
 	init,
 	exec,
 	coreutils,
+	utils,
 	fsSave,
 	fsLoad
 });
