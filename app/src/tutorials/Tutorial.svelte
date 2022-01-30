@@ -82,7 +82,7 @@ $tutorial.step = step;
 						<div class="row mb-2">
 							<h6>
 								{#each $tutorial.tags as tag}
-									<span class="badge bg-primary ms-1">
+									<span class="badge bg-primary ms-1" class:bg-info={tag == "course"}>
 										{tag}
 									</span>
 								{/each}
