@@ -35,7 +35,7 @@ $: if($status.app) {
 		<p>Before we get started, it's encouraged (but not required) to finish the <strong>Terminal Basics</strong> tutorial before you proceed with this course. That tutorial will introduce you to important concepts to help you get up to speed.</p>
 
 		{#if prereqStatus === PREREQ_STATUS_STARTED}
-			<p>You already completed {$progress[PREREQ_ID]?.step} out of {tutorial.steps.length - 1} steps.</p>
+			<p>You're already at step {$progress[PREREQ_ID]?.step + 1} out of {tutorial.steps.length}:</p>
 		{/if}
 
 		<Listings items={[tutorial]} colMd="12" colLg="12" colXxl="12" title={null} />
