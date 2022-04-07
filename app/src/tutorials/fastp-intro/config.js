@@ -15,7 +15,7 @@ import Intro from "./steps/Intro.md";
 export const config = {
 	id: "fastp-intro",
 	pwd: "fastp-intro",
-	name: "DNA sequencing QC",
+	name: "DNA sequencing QC with fastp",
 	description: "Evaluate the quality of a sequencing run by running <code>fastp</code> on your FASTQ files.",
 	tags: ["fastp", "QC", "sequencing"],
 	tools: ["fastp"],
