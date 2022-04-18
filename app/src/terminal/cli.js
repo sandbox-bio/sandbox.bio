@@ -371,6 +371,16 @@ const coreutils = {
 			return error;
 		}
 	},
+	open: async args => {
+		const type = args._[0].endsWith(".html") ? "text/html" : "text/plain";
+
+		// Create html blob from file contents (can't use _aioli.download b/c need to specify type)
+		const contents = await _aioli.cat(args._[0]);
+		const blob = new Blob([ contents ], { type });
+		const url = URL.createObjectURL(blob);
+		window.open(url);
+		return "";
+	},
 
 	// -------------------------------------------------------------------------
 	// curl <http...>
