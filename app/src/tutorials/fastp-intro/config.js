@@ -34,6 +34,7 @@ export const config = {
 		// { name: "The end", component: Conclusion, header: true }
 	],
 	files: [
-		// "data/fastp-intro/orders.tsv"
+		"data/fastp-intro/HG004_R1.fastq.gz",
+		"data/fastp-intro/HG004_R2.fastq.gz"
 	]
 }
