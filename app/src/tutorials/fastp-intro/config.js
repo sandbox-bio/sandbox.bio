@@ -1,6 +1,6 @@
 // Steps
 import Intro from "./steps/Intro.md";
-// import Step1 from "./steps/Step1.md";
+import Step1 from "./steps/Step1.md";
 // import Step2 from "./steps/Step2.md";
 // import Step3 from "./steps/Step3.md";
 // import Step4 from "./steps/Step4.md";
@@ -22,9 +22,9 @@ export const config = {
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "DNA sequencing QC", component: Intro },
-		// { name: "Filtering data", subtitle: "Extract columns", component: Step1, header: true },
-		// { name: "Filtering data", subtitle: "Extract rows", component: Step2 },
+		{ name: "The data", component: Step1 },
 		// { name: "Filtering data", subtitle: "Exercise", component: Exercise1 },
+		{ name: "QC Reports", subtitle: "A basic report", component: Step2 },
 		// { name: "Variables", subtitle: "Using variables to count sums", component: Step3, header: true },
 		// { name: "Variables", subtitle: "Auto-initialization of variables", component: Step4 },
 		// { name: "Variables", subtitle: "Exercise", component: Exercise2 },
