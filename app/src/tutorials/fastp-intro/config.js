@@ -7,6 +7,7 @@ import Step4 from "./steps/Step4.md";
 import Step5 from "./steps/Step5.md";
 import Step6 from "./steps/Step6.md";
 import Step7 from "./steps/Step7.md";
+import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "fastp-intro",
@@ -25,6 +26,7 @@ export const config = {
 		{ name: "Filter Options", subtitle: "Output filtered data", component: Step5, header: true },
 		{ name: "Filter Options", subtitle: "Filter out short reads", component: Step6 },
 		{ name: "Filter Options", subtitle: "Trim low quality bases", component: Step7 },
+		{ name: "The end", component: Conclusion, header: true }
 	],
 	files: [
 		"data/fastp-intro/HG004_R1.fastq.gz",
