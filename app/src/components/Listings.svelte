@@ -5,14 +5,21 @@ import { progress } from "./stores/config";
 export let items = [];
 export let title = "Tutorials";
 export let max = Infinity;  // max number of tutorials to list
+export let colMd = 6;   // == 12 / how many boxes we can fit on medium screens
+export let colLg = 4;   // == 12 / how many boxes we can fit on large screens
+export let colXxl = 3;  // == 12 / how many boxes we can fit on xxl screens
+export let skip = [];   // Specific tutorial IDs to not show
 </script>
 
+{#if title}
 <div class="row mt-5">
 	<h3 class="pb-2">{title}</h3>
 </div>
+{/if}
+
 <div class="row align-items-md-stretch">
-	{#each items.slice(0, max).filter(t => t.listed !== false && (t.steps?.length > 0 || t.url)) as info}
-		<div class="col-md-6 col-lg-4 col-xxl-3 mt-2">
+	{#each items.slice(0, max).filter(t => !skip.includes(t.id) && t.listed !== false && (t.steps?.length > 0 || t.url)) as info}
+		<div class="col-md-{colMd} col-lg-{colLg} col-xxl-{colXxl} mt-2">
 			<div class="h-100 p-3 border rounded-3">
 				{#each (info.difficulty || []) as tag}
 					<span class="badge" class:bg-success={tag == "beginner"} class:bg-danger={tag == "difficult"} style={tag == "intermediate" ? "background-color:#fd7e14" : ""}>{tag}</span>

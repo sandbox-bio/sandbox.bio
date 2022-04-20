@@ -21,6 +21,7 @@ const TOOLS_DEFAULT = [
 	{ loading: "lazy", tool: "bedtools", version: "2.29.2" },
 	{ loading: "lazy", tool: "bowtie2", program: "bowtie2-align-s", version: "2.4.2" },
 	{ loading: "lazy", tool: "minimap2", version: "2.22" },
+	{ loading: "lazy", tool: "fastp", version: "0.20.1" },
 	{ loading: "lazy", tool: "jq", version: "1.6" },
 	{ loading: "lazy", tool: "gawk", version: "5.1.0", reinit: true },
 	{ loading: "lazy", tool: "grep", version: "3.7", reinit: true  },
@@ -35,6 +36,7 @@ const AUTOCOMPLETE = {
 	bcftools: ["view", "index", "call", "query", "merge"],
 	bowtie2: [],
 	minimap2: [],
+	fastp: [],
 	jq: [],
 	awk: [],
 	gawk: [],
@@ -53,6 +55,7 @@ const AUTOCOMPLETE = {
 	mv: [],
 	rm: [],
 	cp: [],
+	open: [],
 	touch: [],
 	mkdir: [],
 	rmdir: [],
@@ -282,7 +285,7 @@ async function handleAutocomplete(data)
 			} else {
 				// Infer base path and files within it (default to `.`)
 				const pathBase = userFragment.substring(0, userFragment.lastIndexOf("/") + 1);
-				const files = await $CLI.coreutils.ls([ pathBase || "." ], true);
+				const files = await $CLI.utils.ls([ pathBase || "." ], true);
 				// Prepend base path since `ls` doesn't do that for us
 				cacheAutocomplete = files.map(d => pathBase + d.name);
 			}

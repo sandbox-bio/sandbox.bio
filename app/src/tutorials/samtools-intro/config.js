@@ -13,13 +13,13 @@ import Conclusion from "./steps/Conclusion.md";
 export const config = {
 	id: "samtools-intro",
 	pwd: "samtools-intro",
-	name: "Intro to samtools",
+	name: "BAM parsing with samtools",
 	description: "Explore, process and manipulate <code>.sam</code> and <code>.bam</code> files with samtools.",
 	tags: ["samtools", "IGV"],
 	tools: ["samtools"],
 	difficulty: ["beginner"],
 	steps: [
-		{ name: "Introduction to samtools", component: Intro },
+		{ name: "BAM parsing with samtools", component: Intro },
 		{ name: "The data", component: Step1 },
 		{ name: "Samtools help", component: Step2 },
 		{ name: "Samtools utilities", component: Step3, subtitle: "Converting SAM to BAM", header: true },

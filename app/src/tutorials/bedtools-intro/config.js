@@ -25,8 +25,8 @@ export const config = {
 	// Metadata
 	id: "bedtools-intro",
 	pwd: "bedtools-intro",
-	name: "Intro to bedtools",
-	description: "Explore, analyze, and manipulate genomic interval <code>.bed</code> files.",
+	name: "Genomic intervals with bedtools",
+	description: "Explore and manipulate <code>.bed</code> files.",
 	tags: ["bedtools", "IGV"],
 	tools: ["bedtools"],
 	difficulty: ["beginner"],
@@ -34,7 +34,7 @@ export const config = {
 
 	// Lessons. Make sure to update `tests/test_exercises.js` if the order of these steps is modified
 	steps: [
-		{ name: "Introduction to bedtools", component: Intro },
+		{ name: "Genomic intervals with bedtools", component: Intro },
 		{ name: "The data", component: Step1 },
 		{ name: "Bedtools help", component: Step2 },
 		{ name: "bedtools intersect", component: Step3, subtitle: "Intersect regions", header: true },

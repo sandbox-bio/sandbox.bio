@@ -15,13 +15,13 @@ import Exercise3 from "./exercises/Exercise3.md";
 export const config = {
 	id: "awk-intro",
 	pwd: "awk-intro",
-	name: "Intro to awk",
+	name: "Data exploration with awk",
 	description: "Filter, extract and transform data files using <code>awk</code>.",
 	tags: ["awk", "terminal"],
 	tools: ["awk"],
 	difficulty: ["intermediate"],
 	steps: [
-		{ name: "Introduction to awk", component: Intro },
+		{ name: "Data exploration with awk", component: Intro },
 		{ name: "Filtering data", subtitle: "Extract columns", component: Step1, header: true },
 		{ name: "Filtering data", subtitle: "Extract rows", component: Step2 },
 		{ name: "Filtering data", subtitle: "Exercise", component: Exercise1 },

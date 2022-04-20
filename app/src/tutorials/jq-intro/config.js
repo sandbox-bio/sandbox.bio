@@ -13,13 +13,13 @@ import Conclusion from "./steps/Conclusion.md";
 export const config = {
 	id: "jq-intro",
 	pwd: "jq-intro",
-	name: "Intro to jq",
-	description: "Filter and wrangle <code>JSON</code> with jq.",
+	name: "JSON wrangling with jq",
+	description: "Filter and wrangle JSON files on the command-line using <code>jq</code>.",
 	tags: ["jq", "terminal"],
 	tools: ["jq"],
 	difficulty: ["beginner"],
 	steps: [
-		{ name: "Introduction to jq", component: Intro },
+		{ name: "JSON wrangling with jq", component: Intro },
 		{ name: "Filter data", component: Step1, subtitle: "Select Elements", header: true },
 		{ name: "Filter data", component: Step2, subtitle: "Select Arrays" },
 		{ name: "Filter data", component: Step3, subtitle: "Putting Elements in an Array" },

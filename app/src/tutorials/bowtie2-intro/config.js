@@ -11,13 +11,13 @@ import Conclusion from "./steps/Conclusion.md";
 export const config = {
 	id: "bowtie2-intro",
 	pwd: "bowtie2-intro",
-	name: "Intro to bowtie2",
-	description: "Align DNA sequencing reads from <code>.fastq</code> files to a reference genome.",
+	name: "Sequence alignment with bowtie2",
+	description: "Align reads to a reference genome.",
 	tags: ["bowtie2", "bcftools"],
 	tools: ["bowtie2", "samtools", "bcftools"],
 	difficulty: ["beginner"],
 	steps: [
-		{ name: "Introduction to bowtie2", component: Intro },
+		{ name: "Sequence alignment with bowtie2", component: Intro },
 		{ name: "The data", component: Step1 },
 		{ name: "Aligning example reads", component: Step2, header: true, subtitle: "Align single-end reads" },
 		{ name: "Aligning example reads", component: Step3, subtitle: "Align paired-end reads" },
