@@ -28,7 +28,7 @@ export const config = {
 		{ name: "Filter Options", subtitle: "Output filtered data", component: Step5, header: true },
 		{ name: "Filter Options", subtitle: "Filter out short reads", component: Step6 },
 		{ name: "Filter Options", subtitle: "Trim low quality bases", component: Step7 },
-		{ name: "Exercises", subtitle: "Too much data, too little time", component: Exercise1, header: true },
+		{ name: "Exercise", subtitle: "Too much data, too little time", component: Exercise1, header: true },
 		{ name: "The end", component: Conclusion, header: true }
 	],
 	files: [
