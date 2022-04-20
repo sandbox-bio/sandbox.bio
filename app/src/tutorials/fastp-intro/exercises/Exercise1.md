@@ -20,6 +20,6 @@ let criteria = [
 
 Sometimes, a sequencing run generates a lot of data. Say we're only interested in getting a quick preview of data quality without having to analyze our entire dataset.
 
-Use the <Link href="https://github.com/OpenGene/fastp/tree/v0.20.1#all-options">fastp README</Link> to find a parameter that allows you to **only analyze the first 10,000 reads** of the FASTQ files `HG004_R1.fastq.gz` and `HG004_R2.fastq.gz`.
+Use the <Link href="https://github.com/OpenGene/fastp/tree/v0.20.1#all-options">fastp README</Link> to find a parameter that allows you to **only process the first 10,000 reads** of the FASTQ files `HG004_R1.fastq.gz` and `HG004_R2.fastq.gz`.
 
 <Exercise {criteria} />

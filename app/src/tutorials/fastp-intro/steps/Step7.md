@@ -17,4 +17,18 @@ Similarly, to remove low quality bases at the ends of reads, you can use the `--
 
 <Execute command="fastp \ --in1 HG004_R1.fastq.gz \ --in2 HG004_R2.fastq.gz \ --cut_front \ --cut_right" />
 
-Compared to only using `--cut_front`, using both flags results in *fewer* total bases, but a *higher* percentage of bases that are Q20/Q30, as expected.
+Note that, when using only `--cut_front`, the total number of bases is 3,657,586:
+
+```
+Read2 aftering filtering:
+total reads: 24459
+total bases: 3657586
+```
+
+whereas `--cut_front --cut_right` shows *fewer* bases, as expected:
+
+```
+Read2 aftering filtering:
+total reads: 24421
+total bases: 3393780
+```
