@@ -30,6 +30,7 @@ env.subscribe(d => $env = d);
 
 const DIR_ROOT = "/shared/data";
 const DIR_TUTORIALS = `${DIR_ROOT}/tutorials`;
+const MAX_FILE_SIZE_TO_CACHE = 50 * 1024 * 1024;  // 50MB
 
 
 // =============================================================================
@@ -202,10 +203,22 @@ async function exec(cmd, callback=console.warn)
 			// Otherwise, try running the command with Aioli
 			} else {
 				const outputAioli = await _aioli.exec(tool, argsRaw);
-				// Output the stderr now
-				callback(outputAioli.stderr);
-				// Either output the stdout or pass it along with the pipe
-				output = outputAioli.stdout;
+				const redirect = (cmd.redirects || [])[0];
+
+				// Handle "2>&1" redirection (doesn't yet support "redirectFd" such as 2>somefile)
+				if(redirect?.type === "duplicateFd" && redirect?.srcFd === 2 && redirect?.destFd === 1) {
+					// Example: "fastp 2>&1 | grep json": at this point we ran fastp and the usage is stored in `outputAioli.stderr`.
+					// Instead of outputting it to screen, we add it to the output and using .shift(), remove the 2>&1 operation so
+					// we can process the next redirection, if any.
+					output = outputAioli.stderr + outputAioli.stdout;
+					cmd.redirects.shift();
+
+				// Otherwise, output stderr to screen immediately
+				} else {
+					callback(outputAioli.stderr);
+					// Either output the stdout or pass it along with the pipe
+					output = outputAioli.stdout;
+				}
 			}
 
 			// -----------------------------------------------------------------
@@ -477,6 +490,10 @@ const utils = {
 		await _fs.writeFile(path, contents, opts);
 	},
 
+	// Mount file(s)
+	mount: async (files) => {
+		return await _aioli.mount(files);
+	},
 
 	// -------------------------------------------------------------------------
 	// ls [-l] <file1> <file2>
@@ -557,6 +574,17 @@ const fsSave = async function() {
 	// Cache user-created files in a localforage key
 	const files = {}, folders = {};
 	for(let path of filesToCache) {
+		// Don't cache large files (e.g. accidentally create large temp file or mount large local file)
+		// If .stat fails, then skip this file
+		try {
+			const size = (await _fs.stat(path)).size;
+			if(size > MAX_FILE_SIZE_TO_CACHE)
+				continue;
+		} catch (error) {
+			console.warn(error);
+			continue;			
+		}
+
 		// For folders, just need to know they're there
 		if(path.endsWith("/"))
 			folders[path] = true;

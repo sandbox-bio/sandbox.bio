@@ -78,6 +78,7 @@ export let pwd = "";                       // Path relative to /shared/data wher
 
 let aioliReady = false;                    // Equals true once Aioli is initialized
 let divTerminal;                           // HTML element where terminal will be drawn
+let fileInput;                             // Hidden HTML file input element for mounting local file
 let nbInit = 0;                            // Number of times we've reinitialized the terminal (i.e. when user logs in/out)
 let modalKbdOpen = false;                  // Set to true when the shortcuts modal is open
 let modalKbdToggle = () => modalKbdOpen = !modalKbdOpen;
@@ -144,7 +145,7 @@ function handleResize() {
 }
 
 // =============================================================================
-// Export terminal as HTML
+// Sidebar operations
 // =============================================================================
 
 // Export ANSI to HTML and open in new tab
@@ -154,6 +155,20 @@ function exportTerminal() {
 	const blob = new Blob([ terminalHTML ], { type: "text/html" });
 	const url = URL.createObjectURL(blob);
 	window.open(url);
+}
+
+// Mount local file to virtual file system
+async function mountLocalFile(event) {
+	const files = event.target.files;
+	if(!files) {
+		console.warn("No file specified.");
+		return;
+	}
+
+	// Note that files that already exist will be overwritten!
+	const paths = await $CLI.utils.mount(event.target.files);
+	const pathsTxt = paths.map(d => `#   ${d}`).join("\n");
+	input(`\n\u001b[0;32m# Files mounted:\n${pathsTxt}\u001b[0m\n\n`);
 }
 
 // =============================================================================
@@ -341,6 +356,7 @@ function getSharedSubstring(array){
 			<i class="bi bi-three-dots-vertical"></i>
 		</button>
 		<ul class="dropdown-menu">
+			<li><button class="dropdown-item" on:click={() => fileInput.click()}>Mount local files</button></li>
 			<li><button class="dropdown-item" on:click={exportTerminal}>Export as HTML</button></li>
 			<li><button class="dropdown-item" on:click={modalKbdToggle}>Keyboard Shortcuts</button></li>
 		</ul>
@@ -349,6 +365,9 @@ function getSharedSubstring(array){
 		<Spinner color="light" type="border" />
 	{/if}
 </div>
+
+<!-- Hidden input file for mounting local files -->
+<input type="file" on:change={mountLocalFile} bind:this={fileInput} style="display:none" multiple />
 
 <!-- Keyboard Shortcuts Modal -->
 <Modal body header="Keyboard Shortcuts" isOpen={modalKbdOpen} toggle={modalKbdToggle}>
