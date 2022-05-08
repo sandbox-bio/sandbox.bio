@@ -78,6 +78,7 @@ export let pwd = "";                       // Path relative to /shared/data wher
 
 let aioliReady = false;                    // Equals true once Aioli is initialized
 let divTerminal;                           // HTML element where terminal will be drawn
+let fileInput;                             // Hidden HTML file input element for mounting local file
 let nbInit = 0;                            // Number of times we've reinitialized the terminal (i.e. when user logs in/out)
 let modalKbdOpen = false;                  // Set to true when the shortcuts modal is open
 let modalKbdToggle = () => modalKbdOpen = !modalKbdOpen;
@@ -144,7 +145,7 @@ function handleResize() {
 }
 
 // =============================================================================
-// Export terminal as HTML
+// Sidebar operations
 // =============================================================================
 
 // Export ANSI to HTML and open in new tab

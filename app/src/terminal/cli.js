@@ -30,6 +30,7 @@ env.subscribe(d => $env = d);
 
 const DIR_ROOT = "/shared/data";
 const DIR_TUTORIALS = `${DIR_ROOT}/tutorials`;
+const MAX_FILE_SIZE_TO_CACHE = 50 * 1024 * 1024;  // 50MB
 
 
 // =============================================================================
@@ -489,6 +490,10 @@ const utils = {
 		await _fs.writeFile(path, contents, opts);
 	},
 
+	// Mount file(s)
+	mount: async (files) => {
+		return await _aioli.mount(files);
+	},
 
 	// -------------------------------------------------------------------------
 	// ls [-l] <file1> <file2>
@@ -569,6 +574,17 @@ const fsSave = async function() {
 	// Cache user-created files in a localforage key
 	const files = {}, folders = {};
 	for(let path of filesToCache) {
+		// Don't cache large files (e.g. accidentally create large temp file or mount large local file)
+		// If .stat fails, then skip this file
+		try {
+			const size = (await _fs.stat(path)).size;
+			if(size > MAX_FILE_SIZE_TO_CACHE)
+				continue;
+		} catch (error) {
+			console.warn(error);
+			continue;			
+		}
+
 		// For folders, just need to know they're there
 		if(path.endsWith("/"))
 			folders[path] = true;
