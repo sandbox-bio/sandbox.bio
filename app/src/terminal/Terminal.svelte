@@ -40,29 +40,16 @@ const AUTOCOMPLETE = {
 	jq: [],
 	awk: [],
 	gawk: [],
-	// Coreutils
-	ls: [],
-	ll: [],
-	cat: [],
-	head: [],
-	tail: [],
 	grep: [],
-	wc: [],
-	pwd: [],
-	cd: [],
-	echo: [],
-	unset: [],
-	mv: [],
-	rm: [],
-	cp: [],
-	open: [],
-	touch: [],
-	mkdir: [],
-	rmdir: [],
-	env: [],
-	hostname: [],
-	uname: [],
-	whoami: []
+	// Open/download files
+	open: [], download: [],
+	// Host info
+	hostname: [], uname: [], whoami: [],
+	// Env variables
+	env: [], unset: [],
+	// Coreutils
+	ls: [], ll: [], cat: [], head: [], tail: [], wc: [], pwd: [], cd: [], echo: [],
+	mv: [], rm: [], cp: [], mkdir: [], rmdir: [], touch: [],
 };
 
 
