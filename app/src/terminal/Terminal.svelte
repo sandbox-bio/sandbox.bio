@@ -8,7 +8,7 @@ import "xterm/css/xterm.css";
 // Imports
 import { xterm, xtermAddons } from "terminal/xterm";
 import { CLI } from "terminal/cli";
-import { config, env } from "./stores/config";
+import { config, env, MAX_FILE_SIZE_TO_CACHE } from "./stores/config";
 import { status } from "./stores/status";
 import { tutorial } from "./stores/tutorial";
 

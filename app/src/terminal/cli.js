@@ -4,7 +4,6 @@
 // Known Limitations:
 // * Doesn't support subshells
 // * Ctrl + C doesn't stop running process (e.g. `sleep 2 & sleep 5` + ^C does nothing)
-// * Tail doesn't support `tail -n +3` format (but `head -n-2` and `head/tail -2` supported)
 
 // Imports
 import { readable } from "svelte/store";
@@ -15,7 +14,7 @@ import minimist from "minimist";         // Parse CLI arguments
 import ansiRegex from "ansi-regex";      // Regex for all ANSI codes
 import localforage from "localforage";
 import Aioli from "@biowasm/aioli";
-import { env, getLocalForageKey } from "../stores/config";
+import { env, getLocalForageKey, MAX_FILE_SIZE_TO_CACHE } from "../stores/config";
 
 // State
 let _aioli = {};   // Aioli object
@@ -30,7 +29,6 @@ env.subscribe(d => $env = d);
 
 const DIR_ROOT = "/shared/data";
 const DIR_TUTORIALS = `${DIR_ROOT}/tutorials`;
-const MAX_FILE_SIZE_TO_CACHE = 50 * 1024 * 1024;  // 50MB
 
 
 // =============================================================================

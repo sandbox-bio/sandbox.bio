@@ -1,7 +1,7 @@
 import localforage from "localforage";
 import { get, readable, writable } from "svelte/store";
 import { createClient } from "@supabase/supabase-js";
-import { status } from "./status";
+import { status } from "./status";
 
 // -----------------------------------------------------------------------------
 // Config
@@ -59,6 +59,10 @@ export const supabase = readable(_supabase);
 export const user = writable(_user);
 export const env = writable({});
 export const progress = writable({});
+
+// Constants
+export const MAX_FILE_SIZE_TO_CACHE = 50 * 1024 * 1024;  // 50MB
+
 
 // -----------------------------------------------------------------------------
 // On change
