@@ -167,7 +167,8 @@ async function mountLocalFile(event) {
 
 	// Note that files that already exist will be overwritten!
 	const paths = await $CLI.utils.mount(event.target.files);
-	console.log(paths);
+	const pathsTxt = paths.map(d => `#   ${d}`).join("\n");
+	input(`\n\u001b[0;32m# Files mounted:\n${pathsTxt}\u001b[0m\n\n`);
 }
 
 // =============================================================================
@@ -355,7 +356,7 @@ function getSharedSubstring(array){
 			<i class="bi bi-three-dots-vertical"></i>
 		</button>
 		<ul class="dropdown-menu">
-			<li><button class="dropdown-item" on:click={() => fileInput.click()}>Mount local file</button></li>
+			<li><button class="dropdown-item" on:click={() => fileInput.click()}>Mount local files</button></li>
 			<li><button class="dropdown-item" on:click={exportTerminal}>Export as HTML</button></li>
 			<li><button class="dropdown-item" on:click={modalKbdToggle}>Keyboard Shortcuts</button></li>
 		</ul>
