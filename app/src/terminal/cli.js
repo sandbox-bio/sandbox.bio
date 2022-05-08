@@ -202,10 +202,22 @@ async function exec(cmd, callback=console.warn)
 			// Otherwise, try running the command with Aioli
 			} else {
 				const outputAioli = await _aioli.exec(tool, argsRaw);
-				// Output the stderr now
-				callback(outputAioli.stderr);
-				// Either output the stdout or pass it along with the pipe
-				output = outputAioli.stdout;
+				const redirect = (cmd.redirects || [])[0];
+
+				// Handle "2>&1" redirection (doesn't yet support "redirectFd" such as 2>somefile)
+				if(redirect?.type === "duplicateFd" && redirect?.srcFd === 2 && redirect?.destFd === 1) {
+					// Example: "fastp 2>&1 | grep json": at this point we ran fastp and the usage is stored in `outputAioli.stderr`.
+					// Instead of outputting it to screen, we add it to the output and using .shift(), remove the 2>&1 operation so
+					// we can process the next redirection, if any.
+					output = outputAioli.stderr + outputAioli.stdout;
+					cmd.redirects.shift();
+
+				// Otherwise, output stderr to screen immediately
+				} else {
+					callback(outputAioli.stderr);
+					// Either output the stdout or pass it along with the pipe
+					output = outputAioli.stdout;
+				}
 			}
 
 			// -----------------------------------------------------------------
