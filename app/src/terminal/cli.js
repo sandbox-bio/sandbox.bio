@@ -31,7 +31,6 @@ env.subscribe(d => $env = d);
 const DIR_ROOT = "/shared/data";
 const DIR_TUTORIALS = `${DIR_ROOT}/tutorials`;
 const MAX_FILE_SIZE_TO_CACHE = 50 * 1024 * 1024;  // 50MB
-const EXTENSIONS_PLAIN_TEXT = ["html", "txt", "json"];
 
 
 // =============================================================================
@@ -403,12 +402,9 @@ const coreutils = {
 	// download <file>: command that downloads a file
 	download: async args => {
 		const file = args._[0];
-		const extension = file.split(".").pop();
 
-		// Read file contents, either as plain text or binary file
-		const contents = await _fs.readFile(file, {
-			encoding: EXTENSIONS_PLAIN_TEXT.includes(extension) ? "utf8" : "binary"
-		});
+		// Read file as binary, even if it's a plain text file since we're just downloading it
+		const contents = await _fs.readFile(file, { encoding: "binary" });
 
 		// Create Blob from contents (can't use _aioli.download b/c need to specify encoding/type).
 		// Set type to "application/octet-stream" so that location.href downloads the file.
