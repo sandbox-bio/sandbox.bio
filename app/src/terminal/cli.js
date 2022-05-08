@@ -31,6 +31,7 @@ env.subscribe(d => $env = d);
 const DIR_ROOT = "/shared/data";
 const DIR_TUTORIALS = `${DIR_ROOT}/tutorials`;
 const MAX_FILE_SIZE_TO_CACHE = 50 * 1024 * 1024;  // 50MB
+const EXTENSIONS_PLAIN_TEXT = ["html", "txt", "json"];
 
 
 // =============================================================================
@@ -384,11 +385,14 @@ const coreutils = {
 			return error;
 		}
 	},
-	open: async args => {
-		const type = args._[0].endsWith(".html") ? "text/html" : "text/plain";
 
-		// Create html blob from file contents (can't use _aioli.download b/c need to specify type)
-		const contents = await _aioli.cat(args._[0]);
+	// open <file>: command that loads a file in a new tab (used by tutorials to open html files)
+	open: async args => {
+		const file = args._[0];
+		const type = file.endsWith(".html") ? "text/html" : "text/plain";
+
+		// Create Blob from contents (can't use _aioli.download b/c need to specify type)
+		const contents = await _aioli.cat(file);
 		const blob = new Blob([ contents ], { type });
 		const url = URL.createObjectURL(blob);
 		window.open(url);
