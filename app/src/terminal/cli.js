@@ -396,6 +396,31 @@ const coreutils = {
 		const blob = new Blob([ contents ], { type });
 		const url = URL.createObjectURL(blob);
 		window.open(url);
+
+		return "";
+	},
+
+	// download <file>: command that downloads a file
+	download: async args => {
+		const file = args._[0];
+		const extension = file.split(".").pop();
+
+		// Read file contents, either as plain text or binary file
+		const contents = await _fs.readFile(file, {
+			encoding: EXTENSIONS_PLAIN_TEXT.includes(extension) ? "utf8" : "binary"
+		});
+
+		// Create Blob from contents (can't use _aioli.download b/c need to specify encoding/type).
+		// Set type to "application/octet-stream" so that location.href downloads the file.
+		const blob = new Blob([ contents ], { type: "application/octet-stream" });
+		const url = URL.createObjectURL(blob);
+
+		// Create link element to customize the filename, otherwise it's a UUID.
+		const fileLink = document.createElement("a");
+		fileLink.href = url;
+		fileLink.download = file;
+		fileLink.click();
+
 		return "";
 	},
 
