@@ -157,6 +157,19 @@ function exportTerminal() {
 	window.open(url);
 }
 
+// Mount local file to virtual file system
+async function mountLocalFile(event) {
+	const files = event.target.files;
+	if(!files) {
+		console.warn("No file specified.");
+		return;
+	}
+
+	// Note that files that already exist will be overwritten!
+	const paths = await $CLI.utils.mount(event.target.files);
+	console.log(paths);
+}
+
 // =============================================================================
 // xterm.js 
 // =============================================================================
@@ -342,6 +355,7 @@ function getSharedSubstring(array){
 			<i class="bi bi-three-dots-vertical"></i>
 		</button>
 		<ul class="dropdown-menu">
+			<li><button class="dropdown-item" on:click={() => fileInput.click()}>Mount local file</button></li>
 			<li><button class="dropdown-item" on:click={exportTerminal}>Export as HTML</button></li>
 			<li><button class="dropdown-item" on:click={modalKbdToggle}>Keyboard Shortcuts</button></li>
 		</ul>
@@ -350,6 +364,9 @@ function getSharedSubstring(array){
 		<Spinner color="light" type="border" />
 	{/if}
 </div>
+
+<!-- Hidden input file for mounting local files -->
+<input type="file" on:change={mountLocalFile} bind:this={fileInput} style="display:none" multiple />
 
 <!-- Keyboard Shortcuts Modal -->
 <Modal body header="Keyboard Shortcuts" isOpen={modalKbdOpen} toggle={modalKbdToggle}>
