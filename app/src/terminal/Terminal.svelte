@@ -8,7 +8,7 @@ import "xterm/css/xterm.css";
 // Imports
 import { xterm, xtermAddons } from "terminal/xterm";
 import { CLI } from "terminal/cli";
-import { config, env } from "./stores/config";
+import { config, env, MAX_FILE_SIZE_TO_CACHE } from "./stores/config";
 import { status } from "./stores/status";
 import { tutorial } from "./stores/tutorial";
 
@@ -40,29 +40,16 @@ const AUTOCOMPLETE = {
 	jq: [],
 	awk: [],
 	gawk: [],
-	// Coreutils
-	ls: [],
-	ll: [],
-	cat: [],
-	head: [],
-	tail: [],
 	grep: [],
-	wc: [],
-	pwd: [],
-	cd: [],
-	echo: [],
-	unset: [],
-	mv: [],
-	rm: [],
-	cp: [],
-	open: [],
-	touch: [],
-	mkdir: [],
-	rmdir: [],
-	env: [],
-	hostname: [],
-	uname: [],
-	whoami: []
+	// Open/download files
+	open: [], download: [],
+	// Host info
+	hostname: [], uname: [], whoami: [],
+	// Env variables
+	env: [], unset: [],
+	// Coreutils
+	ls: [], ll: [], cat: [], head: [], tail: [], wc: [], pwd: [], cd: [], echo: [],
+	mv: [], rm: [], cp: [], mkdir: [], rmdir: [], touch: [],
 };
 
 
@@ -167,7 +154,10 @@ async function mountLocalFile(event) {
 
 	// Note that files that already exist will be overwritten!
 	const paths = await $CLI.utils.mount(event.target.files);
-	const pathsTxt = paths.map(d => `#   ${d}`).join("\n");
+	const pathsTxt = paths.map((path, i) => {
+		const extra = files[i].size <= MAX_FILE_SIZE_TO_CACHE ? "" : "   (large file; won't persist on page refresh)";
+		return `#   ${path}${extra}`;
+	}).join("\n");
 	input(`\n\u001b[0;32m# Files mounted:\n${pathsTxt}\u001b[0m\n\n`);
 }
 
