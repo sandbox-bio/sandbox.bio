@@ -40,7 +40,7 @@ const AUTOCOMPLETE = {
 	bcftools: ["view", "index", "call", "query", "merge"],
 	bowtie2: [],
 	minimap2: [],
-	ivar: [],
+	ivar: ["trim", "variants", "filtervariants", "consensus", "getmasked", "removereads", "version"],
 	fastp: [],
 	tabix: [], htsfile: [], bgzip: [],
 	jq: [],
