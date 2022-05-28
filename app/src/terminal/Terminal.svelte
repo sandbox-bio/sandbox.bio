@@ -43,6 +43,8 @@ const AUTOCOMPLETE = {
 	minimap2: [],
 	ivar: ["trim", "variants", "filtervariants", "consensus", "getmasked", "removereads", "version"],
 	fastp: [],
+	seqtk: ["seq", "comp", "sample", "subseq", "fqchk", "mergepe", "trimfq", "hety", "gc", "mutfa", "mergefa", "famask", "dropse", "rename", "randbase", "cutN", "listhet"],
+	kalign: [],
 	tabix: [], htsfile: [], bgzip: [],
 	jq: [],
 	awk: [],
