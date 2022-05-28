@@ -15,20 +15,21 @@ import { tutorial } from "./stores/tutorial";
 // Constants
 const ANSI_CLEAR = "\x1bc";
 const COREUTILS = ["basename", "cat", "comm", "cut", "date", "echo", "fold", "head", "join", "ls", "md5sum", "paste", "seq", "shuf", "sort", "tail", "tr", "uniq", "wc"];
+const HTSLIB_TOOLS = ["tabix", "htsfile", "bgzip"];
 const TOOLS_DEFAULT = [
 	{ loading: "lazy", tool: "samtools", version: "1.10" },
 	{ loading: "lazy", tool: "bcftools", program: "bcftools", version: "1.10" },
 	{ loading: "lazy", tool: "bedtools", version: "2.29.2" },
 	{ loading: "lazy", tool: "bowtie2", program: "bowtie2-align-s", version: "2.4.2" },
 	{ loading: "lazy", tool: "minimap2", version: "2.22" },
+	{ loading: "lazy", tool: "seqtk", version: "1.3" },
+	{ loading: "lazy", tool: "kalign", version: "3.3.1" },
 	{ loading: "lazy", tool: "ivar", version: "1.3.1" },
 	{ loading: "lazy", tool: "fastp", version: "0.20.1" },
 	{ loading: "lazy", tool: "jq", version: "1.6" },
 	{ loading: "lazy", tool: "gawk", version: "5.1.0", reinit: true },
 	{ loading: "lazy", tool: "grep", version: "3.7", reinit: true  },
-	{ loading: "lazy", tool: "htslib", program: "tabix", version: "1.10", reinit: true  },
-	{ loading: "lazy", tool: "htslib", program: "htsfile", version: "1.10", reinit: true  },
-	{ loading: "lazy", tool: "htslib", program: "bgzip", version: "1.10", reinit: true  },
+	...HTSLIB_TOOLS.map(program => ({ program, tool: "htslib", loading: "lazy", version: "1.10", reinit: true })),
 	...COREUTILS.map(program => ({ program, tool: "coreutils", loading: "lazy", version: "8.32", reinit: true }))
 ];
 
