@@ -6,7 +6,7 @@
 // * Ctrl + C doesn't stop running process (e.g. `sleep 2 & sleep 5` + ^C does nothing)
 
 // Imports
-import { readable } from "svelte/store";
+import { get, readable } from "svelte/store";
 import parse from "shell-parse";         // Transforms a bash command into an AST
 import columnify from "columnify";       // Prettify columnar output
 import prettyBytes from "pretty-bytes";  // Prettify number of bytes
@@ -14,6 +14,7 @@ import minimist from "minimist";         // Parse CLI arguments
 import ansiRegex from "ansi-regex";      // Regex for all ANSI codes
 import localforage from "localforage";
 import Aioli from "@biowasm/aioli";
+import { xtermAddons } from "./xterm";
 import { env, getLocalForageKey, MAX_FILE_SIZE_TO_CACHE } from "../stores/config";
 
 // State
@@ -587,11 +588,11 @@ const utils = {
 
 
 // =============================================================================
-// File system caching functions
+// File system / CLI history caching functions
 // =============================================================================
 
 const fsSave = async function() {
-	console.log("Saving filesystem state...")
+	// console.log("Saving filesystem state...")
 	const filesToCache = await fsTraverse(`${DIR_ROOT}/`);
 
 	// Cache user-created files in a localforage key
@@ -616,12 +617,17 @@ const fsSave = async function() {
 	}
 	await localforage.setItem(`${getLocalForageKey("fs")}files`, files);
 	await localforage.setItem(`${getLocalForageKey("fs")}folders`, folders);
+	
+	// While we're here, also save command history
+	const history = get(xtermAddons)?.echo?.history?.entries || [];
+	await localforage.setItem(getLocalForageKey("history"), history);
 }
 
 const fsLoad = async function() {
 	console.log("Loading filesystem state...")
 	const files = await localforage.getItem(`${getLocalForageKey("fs")}files`);
 	const folders = await localforage.getItem(`${getLocalForageKey("fs")}folders`);
+
 	// First, create the folders, then the files they contain
 	for(let path in folders) {
 		try {
@@ -632,6 +638,14 @@ const fsLoad = async function() {
 	}
 	for(let path in files)
 		await utils.writeFile(path, files[path], { encoding: "binary" });
+
+	// While we're here, also load saved command history
+	const history = await localforage.getItem(getLocalForageKey("history"));
+	const historyController = get(xtermAddons)?.echo?.history;
+	if(historyController) {
+		historyController.entries = history;
+		historyController.cursor = history.length;
+	}
 }
 
 // Recursively traverse folder path and get list of all files
