@@ -11,3 +11,6 @@ worker/script.js
 node_modules/
 .DS_Store
 _trash/
+# Biowasm copy for local development
+app/public/biowasm/*
+!app/public/biowasm/README.md
