@@ -156,7 +156,7 @@ progress.subscribe(async progressUpdated => {
 
 // The key to use for storing information in localForage
 export function getLocalForageKey(type="env") {
-	if(!["env", "fs", "ide"].includes(type))
+	if(!["env", "fs", "ide", "history"].includes(type))
 		throw `Unexpected type ${type}.`;
 
 	let key = `${type}:${get(user)?.id || "guest"}`;
