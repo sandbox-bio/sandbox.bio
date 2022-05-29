@@ -640,7 +640,7 @@ const fsLoad = async function() {
 		await utils.writeFile(path, files[path], { encoding: "binary" });
 
 	// While we're here, also load saved command history
-	const history = await localforage.getItem(getLocalForageKey("history"));
+	const history = await localforage.getItem(getLocalForageKey("history")) || [];
 	const historyController = get(xtermAddons)?.echo?.history;
 	if(historyController) {
 		historyController.entries = history;
