@@ -591,7 +591,7 @@ const utils = {
 // =============================================================================
 
 const fsSave = async function() {
-	console.log("Saving filesystem state...")
+	// console.log("Saving filesystem state...")
 	const filesToCache = await fsTraverse(`${DIR_ROOT}/`);
 
 	// Cache user-created files in a localforage key
