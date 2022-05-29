@@ -170,6 +170,16 @@ async function mountLocalFile(event) {
 	input(`\n\u001b[0;32m# Files mounted:\n${pathsTxt}\u001b[0m\n\n`);
 }
 
+// Clear command-line history
+async function clearHistory() {
+	const historyController = $xtermAddons?.echo?.history;
+	if(historyController) {
+		historyController.entries = [];
+		historyController.cursor = 0;
+	}
+}
+
+
 // =============================================================================
 // xterm.js 
 // =============================================================================
@@ -357,6 +367,7 @@ function getSharedSubstring(array){
 		<ul class="dropdown-menu">
 			<li><button class="dropdown-item" on:click={() => fileInput.click()}>Mount local files</button></li>
 			<li><button class="dropdown-item" on:click={exportTerminal}>Export as HTML</button></li>
+			<li><button class="dropdown-item" on:click={clearHistory}>Clear command history</button></li>
 			<li><button class="dropdown-item" on:click={modalKbdToggle}>Keyboard Shortcuts</button></li>
 		</ul>
 	</div>
