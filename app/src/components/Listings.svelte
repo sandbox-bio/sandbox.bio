@@ -18,7 +18,11 @@ export let skip = [];   // Specific tutorial IDs to not show
 {/if}
 
 <div class="row align-items-md-stretch">
-	{#each items.slice(0, max).filter(t => !skip.includes(t.id) && t.listed !== false && (t.steps?.length > 0 || t.url)) as info}
+	{#each items.slice(0, max).filter(t => !skip.includes(t.id) && t.listed !== false && (t.steps?.length > 0 || t.url)) as info, i}
+		{#if info.divider}
+			<h5 class:mt-4={i > 0}>{info.divider}</h5>
+		{/if}
+
 		<div class="col-md-{colMd} col-lg-{colLg} col-xxl-{colXxl} mt-2">
 			<div class="h-100 p-3 border rounded-3">
 				{#each (info.difficulty || []) as tag}
