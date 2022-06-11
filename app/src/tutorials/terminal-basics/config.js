@@ -12,6 +12,7 @@ export const config = {
 	id: "terminal-basics",
 	pwd: "terminal-basics",
 	name: "Terminal Basics",
+	subtitle: `by <a href="https://robert.bio" target="_blank">Robert Aboukhalil</a>`,
 	description: "Get up to speed with the terminal. Start here if you're new to bioinformatics.",
 	tags: ["terminal"],
 	tools: ["jq"],

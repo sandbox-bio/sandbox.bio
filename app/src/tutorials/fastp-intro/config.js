@@ -15,6 +15,7 @@ export const config = {
 	id: "fastp-intro",
 	pwd: "fastp-intro",
 	name: "DNA sequencing QC with fastp",
+	subtitle: `by <a href="https://robert.bio" target="_blank">Robert Aboukhalil</a>`,
 	description: "Evaluate the quality of a sequencing run by running <code>fastp</code> on your FASTQ files.",
 	tags: ["fastp", "QC", "sequencing"],
 	tools: ["fastp", "jq"],

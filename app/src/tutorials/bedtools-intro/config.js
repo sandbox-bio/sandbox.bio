@@ -26,6 +26,7 @@ export const config = {
 	id: "bedtools-intro",
 	pwd: "bedtools-intro",
 	name: "Genomic intervals with bedtools",
+	subtitle: `by <a href="http://quinlanlab.org/" target="_blank">Aaron Quinlan</a>`,
 	description: "Explore and manipulate <code>.bed</code> files.",
 	tags: ["bedtools", "IGV"],
 	tools: ["bedtools"],
