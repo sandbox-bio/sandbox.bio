@@ -17,6 +17,6 @@ Use `samtools sort` to convert the BAM file to a sorted BAM file:
 We now have a sorted BAM file called `eg2.sorted.bam`. Sorted BAM is a useful format because the alignments are (a) compressed, which is convenient for long-term storage, and (b) sorted, which is convenient for variant discovery.
 
 <Alert>
-	**Note**: To learn more about `samtools`, check out our <Link href="/tutorials?id=samtools-intro">samtools tutorial</Link>.
+	To learn more about `samtools`, check out our <Link href="/tutorials?id=samtools-intro">samtools tutorial</Link>.
 </Alert>
 

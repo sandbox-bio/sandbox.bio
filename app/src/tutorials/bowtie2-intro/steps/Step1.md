@@ -11,5 +11,5 @@ Type <Execute command={"ls"} inline={true} /> in the command line to see the two
 We preloaded the Lambda phage reference genome into your sandbox, and stored the path in the variable `$REF` for convenience: <Execute command={"echo $REF"} inline={true} />
 
 <Alert>
-	**Note**: You can find pre-built Bowtie2 indexes for many genomes at <Link href="https://benlangmead.github.io/aws-indexes/bowtie">benlangmead.github.io/aws-indexes</Link>.
+	You can find pre-built Bowtie2 indexes for many genomes at <Link href="https://benlangmead.github.io/aws-indexes/bowtie">benlangmead.github.io/aws-indexes</Link>.
 </Alert>

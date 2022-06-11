@@ -8,7 +8,7 @@ By default, `intersect` reports intervals that represent overlaps between your t
 <Execute command={"bedtools intersect -a cpg.bed -b exons.bed | head -n 5"} />
 
 <Alert>
-	**Note**: In this case, the intervals reported are NOT the original CpG intervals, but rather a refined interval reflecting solely the portion of each original CpG interval that overlapped with the exon(s).
+	In this case, the intervals reported are NOT the original CpG intervals, but rather a refined interval reflecting solely the portion of each original CpG interval that overlapped with the exon(s).
 </Alert>
 
 The `-wa` (write A) and `-wb` (write B) options allow one to see the original records from the A and B files that overlapped.

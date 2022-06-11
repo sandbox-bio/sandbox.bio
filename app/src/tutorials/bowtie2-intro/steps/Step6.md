@@ -15,7 +15,7 @@ where:
 * `-v`: only output the variants (i.e. don't list the sites where we match the reference sequence)
 
 <Alert>
-	**Note**: We preloaded your sandbox with the variable `$REF_FASTA`. You can use the <Execute command="env" inline={true} /> command to list variables and `echo` to view their value, e.g. <Execute command="echo $REF_FASTA" inline={true} />.
+	We preloaded your sandbox with the variable `$REF_FASTA`. You can use the <Execute command="env" inline={true} /> command to list variables and `echo` to view their value, e.g. <Execute command="echo $REF_FASTA" inline={true} />.
 </Alert>
 
 Then to view the variants, run:

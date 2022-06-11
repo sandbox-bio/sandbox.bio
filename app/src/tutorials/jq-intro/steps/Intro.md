@@ -5,7 +5,7 @@ import Execute from "components/Execute.svelte";
 </script>
 
 <Alert>
-	**Note**: This tutorial is an interactive version of the <Link href="https://earthly.dev/blog/jq-select/">jq tutorial</Link> developed by <Link href="https://adamgordonbell.com/">Adam Gordon Bell</Link>. The contents are the same, but presented in an interactive sandbox.
+	This tutorial is an interactive version of the <Link href="https://earthly.dev/blog/jq-select/">jq tutorial</Link> developed by <Link href="https://adamgordonbell.com/">Adam Gordon Bell</Link>. The contents are the same, but presented in an interactive sandbox.
 </Alert>
 
 `jq` is a lightweight, command-line JSON processor. To use it, you construct one or more filters, and it applies those filters to a JSON document.
