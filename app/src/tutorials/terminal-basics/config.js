@@ -18,7 +18,7 @@ export const config = {
 	difficulty: ["beginner"],
 	divider: "Terminal",
 	steps: [
-		{ name: "Introduction", component: Intro },
+		{ name: "Terminal Basics", component: Intro },
 		{ name: "The Basics", component: Step1, subtitle: "Navigate the terminal", header: true },
 		{ name: "The Basics", component: Step2, subtitle: "Preview files" },
 		{ name: "The Basics", component: Step3, subtitle: "Filter files" },
