@@ -14,6 +14,7 @@ done
 mkdir -p public/data
 for tutorial in $(ls -d src/tutorials/*/);
 do
+	[[ ! -e $tutorial/data ]] && continue;
 	dest=public/data/$(basename $tutorial)
 	mkdir -p $dest
 	cp $tutorial/data/* $dest
