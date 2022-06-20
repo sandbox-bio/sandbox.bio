@@ -34,33 +34,34 @@ const TOOLS_DEFAULT = [
 	...COREUTILS.map(program => ({ program, tool: "coreutils", loading: "lazy", version: "8.32", reinit: true }))
 ];
 
+// Generate default autocomplete
+const AUTOCOMPLETE_DEFAULT = {};
+TOOLS_DEFAULT.forEach(d => {
+	if(d.tool === "bowtie2")
+		AUTOCOMPLETE_DEFAULT[d.tool] = [];
+	else
+		AUTOCOMPLETE_DEFAULT[d.program || d.tool] = [];
+});
+
 // Autocomplete subcommands
 const AUTOCOMPLETE = {
+	...AUTOCOMPLETE_DEFAULT,
 	// Bioinformatics tools
 	samtools: ["view", "sort", "depth", "index", "idxstats", "flags", "flagstats"],
 	bedtools: ["intersect", "merge", "complement", "genomecov", "jaccard", "makewindows", "flank"],
 	bcftools: ["view", "index", "call", "query", "merge"],
-	bowtie2: [],
-	minimap2: [],
 	ivar: ["trim", "variants", "filtervariants", "consensus", "getmasked", "removereads", "version"],
-	fasttree: [],
-	fastp: [],
 	seqtk: ["seq", "comp", "sample", "subseq", "fqchk", "mergepe", "trimfq", "hety", "gc", "mutfa", "mergefa", "famask", "dropse", "rename", "randbase", "cutN", "listhet"],
-	kalign: [],
-	tabix: [], htsfile: [], bgzip: [],
-	jq: [],
-	awk: [],
-	gawk: [],
-	grep: [],
 	// Open/download files
 	open: [], download: [],
 	// Host info
 	hostname: [], uname: [], whoami: [],
 	// Env variables
 	env: [], unset: [],
-	// Coreutils
-	ls: [], ll: [], cat: [], head: [], tail: [], wc: [], pwd: [], cd: [], echo: [],
-	mv: [], rm: [], cp: [], mkdir: [], rmdir: [], touch: [],
+	// Aliases
+	ll: [],
+	// Simulated coreutils
+	pwd: [], cd: [], mv: [], rm: [], cp: [], mkdir: [], rmdir: [], touch: [],
 };
 
 
