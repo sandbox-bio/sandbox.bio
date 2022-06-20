@@ -30,6 +30,7 @@ const TOOLS_DEFAULT = [
 	{ loading: "lazy", tool: "jq", version: "1.6" },
 	{ loading: "lazy", tool: "gawk", version: "5.1.0", reinit: true },
 	{ loading: "lazy", tool: "grep", version: "3.7", reinit: true  },
+	{ loading: "lazy", tool: "sed", version: "4.8", reinit: true  },
 	...HTSLIB_TOOLS.map(program => ({ program, tool: "htslib", loading: "lazy", version: "1.10", reinit: true })),
 	...COREUTILS.map(program => ({ program, tool: "coreutils", loading: "lazy", version: "8.32", reinit: true }))
 ];
