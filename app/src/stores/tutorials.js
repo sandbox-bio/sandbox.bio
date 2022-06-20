@@ -30,6 +30,12 @@ export const tutorials = readable([
 // Linkouts
 export const explore = readable([
 	{
+		name: "Bioinformatics Algorithms",
+		description: "Try your hand at solving Rosalind exercises using Python.",
+		url: "/rosalind",
+		tags: ["rosalind", "python", "exercises"]
+	},
+	{
 		name: "Align DNA sequences",
 		description: "Explore the Smith-Waterman and Needleman-Wunsch sequence alignment algorithms.",
 		url: "https://alignment.sandbox.bio/",

@@ -123,9 +123,6 @@ onMount(async () => {
 			</ul>
 		</li>
 		<li class="nav-item">
-			<a href="/rosalind" class="nav-link" class:active={path == "/rosalind" || (path == "/tutorials" && params.get("id") == "rosalind")}>Python Exercises</a>
-		</li>
-		<li class="nav-item">
 			<a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a>
 		</li>
 		<li class="nav-item">
