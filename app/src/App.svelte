@@ -157,7 +157,7 @@ onMount(async () => {
 </div>
 
 <!-- Main layout -->
-<main role="main" class="ps-4 pe-4">
+<main class="px-4">
 	{#if path == "/"}
 		<Home />
 	{:else if path.startsWith("/tutorials")}
