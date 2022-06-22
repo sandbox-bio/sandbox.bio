@@ -105,8 +105,8 @@ $tutorial.step = step;
 					<div class="row">
 						<div class="d-flex justify-content-between">
 							<div>
-								<button type="button" class="btn btn-sm" on:click={() => step--} class:btn-primary={step != 0} class:btn-secondary={step == 0} disabled={step == 0}>&larr; Previous</button>
-								<button class="btn btn-sm" on:click={() => step++} class:btn-primary={step != $tutorial.steps.length - 1} class:btn-secondary={step == $tutorial.steps.length - 1} disabled={step == $tutorial.steps.length - 1}>Next &rarr;</button>	
+								<button type="button" class="btn btn-sm" on:click={() => step--} class:btn-primary={step != 0} class:btn-secondary={step == 0} disabled={step == 0}>&larr;<span class="mobile-hide">&nbsp;Previous</span></button>
+								<button class="btn btn-sm" on:click={() => step++} class:btn-primary={step != $tutorial.steps.length - 1} class:btn-secondary={step == $tutorial.steps.length - 1} disabled={step == $tutorial.steps.length - 1}><span class="mobile-hide">Next&nbsp;</span>&rarr;</button>
 							</div>
 							<div>
 								<a href="https://github.com/sandbox-bio/feedback/discussions/categories/questions" target="_blank">
@@ -161,5 +161,11 @@ $tutorial.step = step;
 
 .rounded-pill:hover {
 	cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+	.mobile-hide {
+		display: none;
+	}
 }
 </style>
