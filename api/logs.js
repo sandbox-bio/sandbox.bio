@@ -6,7 +6,8 @@ import { supabase } from "./utils";
 // Config
 // =============================================================================
 
-const PATHS_IGNORE = ["/favicon.ico"];
+const PATHS_INCLUDE = ["/", "/rosalind", "/rosalind/", "/playground", "/playground/", "/tutorials", "/tutorials/"];
+
 
 // =============================================================================
 // Utility functions
@@ -19,7 +20,7 @@ export async function logEvent(event, response) {
 	const search = url.search;
 
 	// Ignore certain paths
-	if(PATHS_IGNORE.includes(pathname))
+	if(!PATHS_INCLUDE.includes(pathname))
 		return;
 
 	// Store path and status
