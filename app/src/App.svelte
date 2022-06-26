@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Home from "./routes/Home.svelte";
 import Tutorial from "./tutorials/Tutorial.svelte";
+import Sandbox from "./sandboxes/Sandbox.svelte";
 import Login from "./components/Login.svelte";
 import Listings from "./components/Listings.svelte";
 import { supabase, user, progress, envInit } from "./stores/config";
@@ -170,6 +171,8 @@ onMount(async () => {
 		<Tutorial id="playground" />
 	{:else if path.startsWith("/rosalind")}
 		<Tutorial id="rosalind" step={+params.get("step") || 0} />
+	{:else if path.startsWith("/sandboxes")}
+		<Sandbox />
 	{/if}
 </main>
 
