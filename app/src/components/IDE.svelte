@@ -2,18 +2,30 @@
 import { createEventDispatcher } from "svelte";
 import { EditorView, basicSetup } from "codemirror"
 import { EditorState } from "@codemirror/state";
-import { json } from "@codemirror/lang-json";  // json input/output
-import { cpp } from "@codemirror/lang-cpp";  // cmd
+import { json } from "@codemirror/lang-json";
+import { cpp } from "@codemirror/lang-cpp";
 
 export let lang;  // json, cpp, null=no syntax highlighting
 export let code;
 
+// State
 const dispatch = createEventDispatcher();
 let divIDE;
 let editor;
 
 // (Re)initialize editor if the language changes (but not the code)
 $: if(divIDE) initEditor(lang);
+
+// If code changes, update the editor
+$: if(code && editor && code !== editor.state.doc.toString()) {
+	editor.dispatch({
+		changes: {
+			from: 0,
+			to: editor.state.doc.length,
+			insert: code
+		}
+	});
+}
 
 function initEditor(lang) {
 	// Define basic extensions
