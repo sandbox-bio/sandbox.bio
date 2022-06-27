@@ -89,7 +89,11 @@ async function run() {
 	<!-- Command box -->
 	<div class="d-flex flex-row">
 		<div class="w-100">
-			<IDE lang={langCmd} code={command} on:update={d => command = d.detail} />
+			<IDE
+				lang={langCmd}
+				code={command}
+				on:update={d => command = d.detail}
+				on:run={run} />
 		</div>
 		<div class="flex-shrink-1 ps-3">
 			<Button color="primary" size="lg" on:click={run}>Run</Button>
@@ -106,11 +110,17 @@ async function run() {
 <div class="row">
 	<div class="col-md-6 ide">
 		<h5>Input</h5>
-		<IDE lang={langIO} code={input} on:update={d => input = d.detail} />
+		<IDE
+			lang={langIO}
+			code={input}
+			on:update={d => input = d.detail} />
 	</div>
 	<div class="col-md-6 ide">
 		<h5>Output</h5>
-		<IDE lang={langIO} code={output} on:update={d => output = d.detail} editable={false} />
+		<IDE
+			lang={langIO}
+			code={output}
+			on:update={d => output = d.detail} editable={false} />
 	</div>
 </div>
 
