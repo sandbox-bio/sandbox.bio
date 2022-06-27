@@ -36,10 +36,13 @@ onMount(async () => {
 
 // Run command with given input and show resulting output/error
 async function run() {
-	await CLI.fs.writeFile("sandbox", input);
+	const params = [];
+	if(tool === "jq")
+		params.push("-M");
 
 	try {
-		const { stdout, stderr } = await CLI.exec(tool, ["-M", command, "sandbox"]);
+		await CLI.fs.writeFile("sandbox", input);
+		const { stdout, stderr } = await CLI.exec(tool, [...params, command, "sandbox"]);
 		output = stdout;
 		error = stderr;
 	} catch (error) {
@@ -51,7 +54,7 @@ async function run() {
 <div class="form-floating col-md-3">
 	<select class="form-select" id="tool" bind:value={tool}>
 		<option value="jq">jq</option>
-		<option value="awk">awk</option>
+		<option value="gawk">awk</option>
 		<option value="grep">grep</option>
 		<option value="sed">sed</option>
 	</select>
@@ -62,7 +65,7 @@ async function run() {
 	<h5>Command</h5>
 	<IDE lang={langCmd} code={command} on:update={d => command = d.detail} />
 	{#if error}
-		<p class="text-danger">{error}</p>
+		<pre class="text-danger pre-scrollable">{error}</pre>
 	{/if}
 </div>
 
