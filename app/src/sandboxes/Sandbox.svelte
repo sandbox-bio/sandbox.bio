@@ -38,10 +38,13 @@ onMount(async () => {
 async function run() {
 	await CLI.fs.writeFile("sandbox", input);
 
-	const { stdout, stderr } = await CLI.exec(tool, ["-M", command, "sandbox"]);
-	if(!stderr)
+	try {
+		const { stdout, stderr } = await CLI.exec(tool, ["-M", command, "sandbox"]);
 		output = stdout;
-	error = stderr;
+		error = stderr;
+	} catch (error) {
+		console.error(error);
+	}
 }
 </script>
 

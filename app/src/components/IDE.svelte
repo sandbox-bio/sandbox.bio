@@ -18,7 +18,7 @@ let editor;
 $: if(divIDE) initEditor(lang);
 
 // If code changes, update the editor
-$: if(code && editor && code !== editor.state.doc.toString()) {
+$: if(editor && code !== editor.state.doc.toString()) {
 	editor.dispatch({
 		changes: {
 			from: 0,
