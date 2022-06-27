@@ -1,6 +1,7 @@
 <script>
 import { onMount } from "svelte";
 import Aioli from "@biowasm/aioli";
+import { Input, Tooltip } from "sveltestrap";
 import IDE from "../components/IDE.svelte";
 
 // Tools to load in playground
@@ -14,16 +15,21 @@ const TOOLS = [
 // State
 let CLI = {};
 let tool = "jq";
+let settings = {
+	interactive: true
+};
 
-let command = `. | length`;
+let command = `. | length\n`;
 let input = JSON.stringify({"abc": "sdf", "def": "fsd", "ghi": { "a": 123, "b": 456 }}, null, 2);
 let output;
 let error;
 
+let divSettingEnter;
+
 // Reactive logic
 $: langCmd = tool === "jq" ? "json" : "cpp";
 $: langIO = tool === "jq" ? "json" : null;
-$: if(CLI.ready && input && command && tool) run();
+$: if(CLI.ready && input && command && tool && settings.interactive) run();
 
 // Initialize Aioli
 onMount(async () => {
@@ -40,9 +46,13 @@ async function run() {
 	if(tool === "jq")
 		params.push("-M");
 
+	// Prepare inputs
+	const commandTxt = command.trim();
+
+	// Run 
 	try {
 		await CLI.fs.writeFile("sandbox", input);
-		const { stdout, stderr } = await CLI.exec(tool, [...params, command, "sandbox"]);
+		const { stdout, stderr } = await CLI.exec(tool, [...params, commandTxt, "sandbox"]);
 		output = stdout;
 		error = stderr;
 	} catch (error) {
@@ -51,7 +61,7 @@ async function run() {
 }
 </script>
 
-<div class="form-floating col-md-3">
+<div class="form-floating col-md-2">
 	<select class="form-select" id="tool" bind:value={tool}>
 		<option value="jq">jq</option>
 		<option value="gawk">awk</option>
@@ -61,14 +71,30 @@ async function run() {
 	<label for="tool">Choose a tool</label>
 </div>
 
+<!-- Command -->
 <div class="row ide ide-command mb-4 mt-4">
-	<h5>Command</h5>
+	<div class="d-flex flex-row">
+		<div class="pe-4">
+			<h5>Command</h5>
+		</div>
+		<div bind:this={divSettingEnter}>
+			<Input type="switch" label="Interactive" bind:checked={settings.interactive} />
+		</div>
+		<Tooltip target={divSettingEnter}>
+			Run after each keypress
+		</Tooltip>
+	</div>
+
+	<!-- Command box -->
 	<IDE lang={langCmd} code={command} on:update={d => command = d.detail} />
+
+	<!-- Errors -->
 	{#if error}
 		<pre class="text-danger pre-scrollable">{error}</pre>
 	{/if}
 </div>
 
+<!-- Input / Output -->
 <div class="row">
 	<div class="col-md-6 ide">
 		<h5>Input</h5>
