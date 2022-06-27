@@ -1,7 +1,7 @@
 <script>
 import { onMount } from "svelte";
 import Aioli from "@biowasm/aioli";
-import { Input, Tooltip } from "sveltestrap";
+import { Button, Input, Tooltip } from "sveltestrap";
 import IDE from "../components/IDE.svelte";
 
 // Tools to load in playground
@@ -61,6 +61,7 @@ async function run() {
 }
 </script>
 
+<!-- Select a tool -->
 <div class="form-floating col-md-2">
 	<select class="form-select" id="tool" bind:value={tool}>
 		<option value="jq">jq</option>
@@ -86,7 +87,14 @@ async function run() {
 	</div>
 
 	<!-- Command box -->
-	<IDE lang={langCmd} code={command} on:update={d => command = d.detail} />
+	<div class="d-flex flex-row">
+		<div class="w-100">
+			<IDE lang={langCmd} code={command} on:update={d => command = d.detail} />
+		</div>
+		<div class="flex-shrink-1 ps-3">
+			<Button color="primary" size="lg" on:click={run}>Run</Button>
+		</div>
+	</div>
 
 	<!-- Errors -->
 	{#if error}
