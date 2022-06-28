@@ -44,17 +44,17 @@ onMount(async () => {
 async function run() {
 	busy = true;
 
+	// Prepare inputs
+	const toolName = tool === "awk" ? "gawk" : tool;
 	const params = [];
 	if(tool === "jq")
 		params.push("-M");
-
-	// Prepare inputs
-	const commandTxt = command.trim();
+	params.push(command.trim());
 
 	// Run 
 	try {
 		await CLI.fs.writeFile("sandbox", input);
-		const { stdout, stderr } = await CLI.exec(tool, [...params, commandTxt, "sandbox"]);
+		const { stdout, stderr } = await CLI.exec(toolName, [...params, "sandbox"]);
 		output = stdout;
 		error = stderr;
 	} catch (error) {
@@ -68,7 +68,7 @@ async function run() {
 <h4>{tool} sandbox</h4>
 
 <!-- Command -->
-<div class="row ide ide-command mb-4 mt-4">
+<div class="row ide mb-4 mt-4">
 	<div class="d-flex flex-row">
 		<div class="pe-4">
 			<h5>Command</h5>
@@ -124,10 +124,5 @@ async function run() {
 <style>
 .ide {
 	font-size: 15px;  /* default = 16px */
-}
-
-.ide-command {
-	max-height: 120px;
-	overflow: scroll;
 }
 </style>
