@@ -172,7 +172,7 @@ onMount(async () => {
 	{:else if path.startsWith("/rosalind")}
 		<Tutorial id="rosalind" step={+params.get("step") || 0} />
 	{:else if path.startsWith("/sandboxes")}
-		<Sandbox />
+		<Sandbox tool={params.get("id") || "awk"} />
 	{/if}
 </main>
 

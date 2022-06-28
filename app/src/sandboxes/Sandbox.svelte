@@ -14,17 +14,17 @@ const TOOLS = [
 
 // State
 let CLI = {};
-let tool = "jq";
+export let tool = "jq";
+let busy = false;
 let settings = {
 	interactive: true
 };
+let divSettingEnter;
 
 let command = `. | length\n`;
 let input = JSON.stringify({"abc": "sdf", "def": "fsd", "ghi": { "a": 123, "b": 456 }}, null, 2);
 let output;
 let error;
-
-let divSettingEnter;
 
 // Reactive logic
 $: langCmd = tool === "jq" ? "json" : "cpp";
@@ -42,6 +42,8 @@ onMount(async () => {
 
 // Run command with given input and show resulting output/error
 async function run() {
+	busy = true;
+
 	const params = [];
 	if(tool === "jq")
 		params.push("-M");
@@ -57,20 +59,13 @@ async function run() {
 		error = stderr;
 	} catch (error) {
 		console.error(error);
+	} finally {
+		busy = false;
 	}
 }
 </script>
 
-<!-- Select a tool -->
-<div class="form-floating col-md-2">
-	<select class="form-select" id="tool" bind:value={tool}>
-		<option value="jq">jq</option>
-		<option value="gawk">awk</option>
-		<option value="grep">grep</option>
-		<option value="sed">sed</option>
-	</select>
-	<label for="tool">Choose a tool</label>
-</div>
+<h4>{tool} sandbox</h4>
 
 <!-- Command -->
 <div class="row ide ide-command mb-4 mt-4">
@@ -96,7 +91,9 @@ async function run() {
 				on:run={run} />
 		</div>
 		<div class="flex-shrink-1 ps-3">
-			<Button color="primary" size="lg" on:click={run}>Run</Button>
+			<Button color="primary" size="lg" on:click={run} disabled={busy}>
+				Run
+			</Button>
 		</div>
 	</div>
 
