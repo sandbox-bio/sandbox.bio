@@ -32,8 +32,6 @@ let aboutIsOpen = false;  // Whether "About" modal is showing or not
 	<div class="col-3">
 		<h5>sandbox.bio</h5>
 		<ul class="nav flex-column">
-			<li class="nav-item mb-2"><a href="/tutorials" class="nav-link p-0">Tutorials</a></li>
-			<li class="nav-item mb-2"><a href="/playground" class="nav-link p-0">Playground</a></li>
 			<li class="nav-item mb-2"><a href="https://github.com/sandbox-bio/feedback/discussions" class="nav-link p-0">Feedback</a></li>
 			<li class="nav-item mb-2">
 				<button class="btn btn-link p-0 pb-1 text-decoration-none" on:click={() => aboutIsOpen = !aboutIsOpen}>About</button>
