@@ -2,8 +2,11 @@
 import { onMount } from "svelte";
 import Aioli from "@biowasm/aioli";
 import { Button, Input, Tooltip } from "sveltestrap";
-import IDE from "components/IDE.svelte";
 import { sandbox } from "stores/sandbox";
+import IDE from "components/IDE.svelte";
+import awk_data from "./orders.txt";
+
+export let tool = "jq";
 
 // Tools to load in playground
 const TOOLS = [
@@ -15,13 +18,13 @@ const TOOLS = [
 
 // State
 let CLI = {};
-export let tool = "jq";
 let busy = false;
 let divSettingEnter;
 
-let command = `. | length\n`;
-let input = JSON.stringify({"abc": "sdf", "def": "fsd", "ghi": { "a": 123, "b": 456 }}, null, 2);
+let command = `/Burrito/ { print }`;
+let input = awk_data;
 let output;
+let flags = ["-v", "abc=2", "-F", "\t"];
 let error;
 
 // Reactive logic
@@ -57,7 +60,7 @@ async function run() {
 	// Run 
 	try {
 		await CLI.fs.writeFile("sandbox", input);
-		const { stdout, stderr } = await CLI.exec(toolName, [...params, "sandbox"]);
+		const { stdout, stderr } = await CLI.exec(toolName, [...flags, ...params, "sandbox"]);
 		output = stdout;
 		error = stderr;
 	} catch (error) {
@@ -70,40 +73,48 @@ async function run() {
 
 <h4>{tool} sandbox</h4>
 
-<!-- Command -->
-<div class="row ide mb-4 mt-4">
-	<div class="d-flex flex-row">
-		<div class="pe-4">
-			<h5>Command</h5>
-		</div>
-		<div bind:this={divSettingEnter} class="pe-4">
-			<Input type="switch" label="Interactive" bind:checked={$sandbox.settings.interactive} />
-		</div>
-		<Tooltip target={divSettingEnter}>
-			Run after each keypress
-		</Tooltip>
-	</div>
+<div class="row">
+	<div class="col-md-6">
+		<!-- Command -->
+		<div class="row ide mb-4 mt-4">
+			<div class="d-flex flex-row">
+				<div class="pe-4">
+					<h5>Command</h5>
+				</div>
+				<div bind:this={divSettingEnter} class="pe-4">
+					<Input type="switch" label="Interactive" bind:checked={$sandbox.settings.interactive} />
+				</div>
+				<Tooltip target={divSettingEnter}>
+					Run after each keypress
+				</Tooltip>
+			</div>
 
-	<!-- Command box -->
-	<div class="d-flex flex-row">
-		<div class="w-100">
-			<IDE
-				lang={langCmd}
-				code={command}
-				on:update={d => command = d.detail}
-				on:run={run} />
-		</div>
-		<div class="flex-shrink-1 ps-3">
-			<Button color="primary" size="lg" on:click={run} disabled={busy}>
-				Run
-			</Button>
+			<!-- Command box -->
+			<div class="d-flex flex-row">
+				<div class="w-100">
+					<IDE
+						lang={langCmd}
+						code={command}
+						on:update={d => command = d.detail}
+						on:run={run} />
+				</div>
+				<div class="flex-shrink-1 ps-3">
+					<Button color="primary" size="lg" on:click={run} disabled={busy}>
+						Run
+					</Button>
+				</div>
+			</div>
+
+			<!-- Errors -->
+			{#if error}
+				<pre class="text-danger pre-scrollable">{error}</pre>
+			{/if}
 		</div>
 	</div>
-
-	<!-- Errors -->
-	{#if error}
-		<pre class="text-danger pre-scrollable">{error}</pre>
-	{/if}
+	<div class="col-md-6">
+		<h5>Flags</h5>
+		
+	</div>
 </div>
 
 <!-- Input / Output -->
