@@ -6,6 +6,7 @@ import livereload from "rollup-plugin-livereload";
 import includePaths from "rollup-plugin-includepaths";
 import css from "rollup-plugin-css-only";
 import { terser } from "rollup-plugin-terser";
+import { string } from "rollup-plugin-string";
 import { markdown } from "svelte-preprocess-markdown";
 
 const production = !process.env.ROLLUP_WATCH;
@@ -46,6 +47,10 @@ export default {
 			preprocess: markdown(),
 			// Run-time checks when not in production
 			compilerOptions: { dev: !production }
+		}),
+
+		string({
+			include: "**/*.txt",
 		}),
 
 		// Extract component CSS into a separate file - better for performance
