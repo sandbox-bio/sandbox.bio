@@ -1,7 +1,7 @@
 <script>
 import { onMount } from "svelte";
 import Aioli from "@biowasm/aioli";
-import { Button, Input, Tooltip } from "sveltestrap";
+import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Tooltip } from "sveltestrap";
 import { sandbox } from "stores/sandbox";
 import IDE from "components/IDE.svelte";
 import awk_data from "./orders.txt";
@@ -21,16 +21,34 @@ let CLI = {};
 let busy = false;
 let divSettingEnter;
 
-let command = `/Burrito/ { print }`;
+let command = `/Burrito/ { print $3 }`;
 let input = awk_data;
 let output;
-let flags = ["-v", "abc=2", "-F", "\t"];
+let flags = ["-F", "\\t", "-v", "abc=2"];
 let error;
+
+
+const FLAGS  =[
+	{
+		name: "Set delimiter",
+		flags: "-F",  // 
+		values: [
+			{ name: "Spaces", value: " " },
+			{ name: "Tabs", value: "\t" },
+			{ name: "Commas", value: "," }
+		]
+	},
+	{
+		name: "Add Variable",
+		flag: "-v",  // varname=value
+		multiple: true
+	},
+];
 
 // Reactive logic
 $: langCmd = tool === "jq" ? "json" : "cpp";
 $: langIO = tool === "jq" ? "json" : null;
-$: if(CLI.ready && input && command && tool && $sandbox.settings.interactive) run();
+$: if(CLI.ready && input && command && tool && flags && $sandbox.settings.interactive) run();
 
 
 // Initialize sandbox
@@ -74,8 +92,8 @@ async function run() {
 <h4>{tool} sandbox</h4>
 
 <div class="row">
+	<!-- Command -->
 	<div class="col-md-6">
-		<!-- Command -->
 		<div class="row ide mb-4 mt-4">
 			<div class="d-flex flex-row">
 				<div class="pe-4">
@@ -99,7 +117,7 @@ async function run() {
 						on:run={run} />
 				</div>
 				<div class="flex-shrink-1 ps-3">
-					<Button color="primary" size="lg" on:click={run} disabled={busy}>
+					<Button color="primary" size="sm" on:click={run} disabled={busy}>
 						Run
 					</Button>
 				</div>
@@ -111,9 +129,29 @@ async function run() {
 			{/if}
 		</div>
 	</div>
+
+	<!-- Flags -->
 	<div class="col-md-6">
-		<h5>Flags</h5>
-		
+		<div class="row ide mb-4 mt-4">
+			<div class="d-flex flex-row">
+				<div class="pe-4">
+					<h5>Flags</h5>
+				</div>
+				<ButtonDropdown size="sm">
+					<DropdownToggle color="primary" caret>Add flag</DropdownToggle>
+					<DropdownMenu>
+						{#each FLAGS as flag}
+							<DropdownItem>{flag.name}</DropdownItem>
+						{/each}
+					</DropdownMenu>
+				</ButtonDropdown>
+			</div>
+
+			<IDE
+				lang={null}
+				code={flags.join(" ")}
+				on:update={d => flags = d.detail.split(" ")} />
+		</div>
 	</div>
 </div>
 
