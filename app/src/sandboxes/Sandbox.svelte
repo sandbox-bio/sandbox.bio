@@ -2,7 +2,8 @@
 import { onMount } from "svelte";
 import Aioli from "@biowasm/aioli";
 import { Button, Input, Tooltip } from "sveltestrap";
-import IDE from "../components/IDE.svelte";
+import IDE from "components/IDE.svelte";
+import { sandbox } from "stores/sandbox";
 
 // Tools to load in playground
 const TOOLS = [
@@ -16,9 +17,6 @@ const TOOLS = [
 let CLI = {};
 export let tool = "jq";
 let busy = false;
-let settings = {
-	interactive: true
-};
 let divSettingEnter;
 
 let command = `. | length\n`;
@@ -29,10 +27,15 @@ let error;
 // Reactive logic
 $: langCmd = tool === "jq" ? "json" : "cpp";
 $: langIO = tool === "jq" ? "json" : null;
-$: if(CLI.ready && input && command && tool && settings.interactive) run();
+$: if(CLI.ready && input && command && tool && $sandbox.settings.interactive) run();
 
-// Initialize Aioli
+
+// Initialize sandbox
 onMount(async () => {
+	// Initialize store with data from localforage
+	await sandbox.init();
+
+	// Initialize Aioli
 	CLI = await new Aioli(TOOLS, {
 		env: ["localhost", "dev.sandbox.bio"].includes(window.location.hostname) ? "stg" : "prd",
 		printInterleaved: false
@@ -73,8 +76,8 @@ async function run() {
 		<div class="pe-4">
 			<h5>Command</h5>
 		</div>
-		<div bind:this={divSettingEnter}>
-			<Input type="switch" label="Interactive" bind:checked={settings.interactive} />
+		<div bind:this={divSettingEnter} class="pe-4">
+			<Input type="switch" label="Interactive" bind:checked={$sandbox.settings.interactive} />
 		</div>
 		<Tooltip target={divSettingEnter}>
 			Run after each keypress
