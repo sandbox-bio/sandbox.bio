@@ -75,7 +75,7 @@ $tutorial.step = step;
 			<div class="bg-light border rounded-3 p-2 d-flex align-items-end flex-column">
 				<div id="tutorial-sidebar" class="w-100 p-2 mb-auto" style="max-height:77vh; overflow-y:scroll; overflow-x:hidden">
 					<h4>{stepInfo.name || $tutorial.name}</h4>
-					{#if stepInfo.subtitle || $tutorial.subtitle}
+					{#if stepInfo.subtitle || ($tutorial.step == 0 && $tutorial.subtitle)}
 						<h6>{@html stepInfo.subtitle || $tutorial.subtitle}</h6>
 					{/if}
 					{#if step == 0 && $tutorial.tags.length > 0}

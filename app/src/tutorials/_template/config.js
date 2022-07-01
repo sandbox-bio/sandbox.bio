@@ -14,6 +14,7 @@ export const config = {
 	id: "msa-intro",
 	pwd: "msa-intro",
 	name: "Multiple sequence alignment",
+	subtitle: `by <a href="site" target="_blank">Author</a>`,
 	description: "Align protein sequences with <code>kalign</code>, and generate a phylogenetic tree with <code>FastTree</code>.",
 	tags: ["msa", "kalign", "fasttree"],
 	tools: ["kalign", "fasttree", "head"],
