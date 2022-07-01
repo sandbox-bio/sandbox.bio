@@ -10,7 +10,7 @@ Next, we'll use `ivar` to trim the reads in the sorted BAM file we created in th
 
 Run the following:
 
-<Execute command="ivar trim -x 5 -e -i untrimmed.sorted.bam -b $PRIMER_BED -p trimmed.unsorted" inline="false" />
+<Execute command="ivar trim -x 5 -e \ -i untrimmed.sorted.bam \ -b $PRIMER_BED \ -p trimmed.unsorted" />
 
 Let's break this seemingly complex command into its individual components to make some sense of it:
 
@@ -32,4 +32,4 @@ After running the above command, we will have sucessfully trimmed our mapped rea
 
 To see the first few lines of the (unsorted) trimmed BAM output file in the human-readable SAM format, run the following:
 
-<Execute command="samtools view -h trimmed.unsorted.bam | head -n 5" inline="false" />
+<Execute command="samtools view -h trimmed.unsorted.bam | \ head -n 5" />

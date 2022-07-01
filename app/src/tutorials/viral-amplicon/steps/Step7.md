@@ -5,7 +5,7 @@ import Execute from "components/Execute.svelte";
 
 With the same pile-up file from which called variants, we'll use `ivar` to call a "consensus sequence": a viral genome sequence containing the "consensus" (i.e., most abundant) nucleotide at each position. Run the following:
 
-<Execute command="zcat pileup.txt.gz | ivar consensus -p consensus.fas -m 10 -t 0.5 -n N" inline="false" />
+<Execute command="zcat pileup.txt.gz | \ ivar consensus \ -p consensus.fas \ -m 10 -t 0.5 -n N" />
 
 Let's break this seemingly complex command into its individual components to make some sense of it:
 
@@ -27,6 +27,6 @@ After running the above command, we will have sucessfully called a consensus gen
 
 To see the contents of the consensus genome sequence output file, run the following:
 
-<Execute command="cat consensus.fas" inline="false" />
+<Execute command="cat consensus.fas" />
 
 This consensus genome FASTA file is the other key result of our amplicon sequencing analysis, and it is what will be used in any downstream analyses (e.g. transmission clustering, phylogenetic inference, lineage assignment, etc.).

@@ -5,7 +5,7 @@ import Execute from "components/Execute.svelte";
 
 Next, we'll use `samtools` to re-sort our trimmed BAM file. Run the following:
 
-<Execute command="samtools sort -o trimmed.sorted.bam trimmed.unsorted.bam" inline="false" />
+<Execute command="samtools sort -o trimmed.sorted.bam trimmed.unsorted.bam" />
 
 This command is very similar to one that we saw previously:
 
@@ -18,4 +18,4 @@ After running the above command, we will have sucessfully sorted our (unsorted) 
 
 To see the first few lines of the sorted trimmed BAM output file in the human-readable SAM format, run the following:
 
-<Execute command="samtools view -h trimmed.sorted.bam | head -n 5" inline="false" />
+<Execute command="samtools view -h trimmed.sorted.bam | \ head -n 5" />

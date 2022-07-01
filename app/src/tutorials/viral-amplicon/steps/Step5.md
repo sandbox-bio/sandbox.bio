@@ -5,7 +5,7 @@ import Execute from "components/Execute.svelte";
 
 Now that we have a BAM file that is trimmed and sorted, we'll use `samtools` to generate a pile-up file that lists all of the nucleotides and corresponding quality scores covering each position of the reference genome. While `samtools` produces the pile-up, we will pipe the resulting pile-up stream to `gzip` to compress. Run the following:
 
-<Execute command="samtools mpileup -A -aa -d 0 -Q 0 --reference $REF_FASTA trimmed.sorted.bam | gzip -9 > pileup.txt.gz" inline="false" />
+<Execute command="samtools mpileup \ -A -aa -d 0 -Q 0 \ --reference $REF_FASTA \ trimmed.sorted.bam | \ gzip -9 > pileup.txt.gz" />
 
 Let's break this seemingly complex command into its individual components to make some sense of it:
 
@@ -32,4 +32,4 @@ After running the above command, we will have sucessfully computed a pile-up fil
 
 To see the first few lines of the pile-up output file, run the following:
 
-<Execute command="zcat pileup.txt.gz | head -n 5" inline="false" />
+<Execute command="zcat pileup.txt.gz | \ head -n 5" />

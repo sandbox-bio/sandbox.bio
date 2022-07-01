@@ -5,7 +5,7 @@ import Execute from "components/Execute.svelte";
 
 First, we'll use `minimap2` to align the sequencing paired-end reads in `reads_R1.fq.gz` and `reads_R2.fq.gz`to the reference genome located at `$REF`. While `minimap2` aligns the reads, we will <Link href="https://en.wikipedia.org/wiki/Pipeline_(Unix)#Pipelines_in_command_line_interfaces">pipe</Link> the resulting SAM stream to `samtools` to sort. Run the following:
 
-<Execute command="minimap2 -a -x sr $REF_FASTA reads_R1.fq.gz reads_R2.fq.gz | samtools sort -o untrimmed.sorted.bam" inline="false" />
+<Execute command="minimap2 -a -x sr $REF_FASTA \ reads_R1.fq.gz reads_R2.fq.gz | \ samtools sort -o untrimmed.sorted.bam" />
 
 Let's break this seemingly complex command into its individual components to make some sense of it:
 
@@ -29,6 +29,6 @@ After running the above command, we will have sucessfully mapped our reads (`rea
 
 To see the first few lines of the BAM output file in the human-readable SAM format, run the following:
 
-<Execute command="samtools view -h untrimmed.sorted.bam | head -n 5" inline="false" />
+<Execute command="samtools view -h untrimmed.sorted.bam | \ head -n 5" />
 
 The first few lines (beginning with `@`) are SAM header lines, and the rest of the lines are SAM alignments, one line per read or mate. See the <Link href="http://samtools.sourceforge.net/SAM1.pdf">SAM specification</Link> for details about how to interpret the SAM file format.

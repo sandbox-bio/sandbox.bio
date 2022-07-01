@@ -5,7 +5,7 @@ import Execute from "components/Execute.svelte";
 
 Now that we have a pile-up file, we'll use `ivar` to call variants: all positions in which our sample deviates from the reference genome. Run the following:
 
-<Execute command="zcat pileup.txt.gz | ivar variants -r $REF_FASTA -g $REF_GFF -p variants.tsv -m 10" inline="false" />
+<Execute command="zcat pileup.txt.gz | \ ivar variants \ -r $REF_FASTA \ -g $REF_GFF \ -p variants.tsv -m 10" />
 
 Let's break this seemingly complex command into its individual components to make some sense of it:
 
@@ -25,6 +25,6 @@ After running the above command, we will have sucessfully called variants and wr
 
 To see the first few lines of the variants output file, run the following:
 
-<Execute command="head -n 5 variants.tsv" inline="false" />
+<Execute command="head -n 5 variants.tsv" />
 
 This variants TSV file is one of the key results of our amplicon sequencing analysis.
