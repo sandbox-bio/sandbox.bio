@@ -5,13 +5,11 @@ import Execute from "components/Execute.svelte";
 
 With the same pile-up file from which called variants, we'll use `ivar` to call a "consensus sequence": a viral genome sequence containing the "consensus" (i.e., most abundant) nucleotide at each position. Run the following:
 
-<Execute command="zcat pileup.txt.gz | \ ivar consensus \ -p consensus.fas \ -m 10 -t 0.5 -n N" />
+<Execute command="cat pileup.txt | \ ivar consensus \ -p consensus.fas \ -m 10 -t 0.5 -n N" />
 
 Let's break this seemingly complex command into its individual components to make some sense of it:
 
-- First, we're calling the following command: `zcat pileup.txt.gz`
-  - `zcat` decompresses the contents of `pileup.txt.gz` and prints them to standard output
-- Then, we're using the pipe character `|` to pipe the output of `zcat` (via standard output) to `ivar` (via standard input)
+- We're using the pipe character `|` to pipe the output of `cat` (via standard output) to `ivar` (via standard input)
 - The `ivar` command we're piping the pile-up stream into is the following: `ivar consensus -p consensus.fas -m 10 -n N -t 0.5`
   - `consensus` tells `ivar` that we want to use its consensus-sequence-calling functionality
   - `-p consensus.fas` tells `ivar` that we want to write the output consensus genome sequence to the file `consensus.fas`

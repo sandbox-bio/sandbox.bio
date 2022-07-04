@@ -5,13 +5,13 @@ import Execute from "components/Execute.svelte";
 
 Now that we have a pile-up file, we'll use `ivar` to call variants: all positions in which our sample deviates from the reference genome. Run the following:
 
-<Execute command="zcat pileup.txt.gz | \ ivar variants \ -r $REF_FASTA \ -g $REF_GFF \ -p variants.tsv -m 10" />
+<Execute command="cat pileup.txt | \ ivar variants \ -r $REF_FASTA \ -g $REF_GFF \ -p variants.tsv -m 10" />
 
 Let's break this seemingly complex command into its individual components to make some sense of it:
 
-- First, we're calling the following command: `zcat pileup.txt.gz`
-  - `zcat` decompresses the contents of `pileup.txt.gz` and prints them to standard output
-- Then, we're using the pipe character `|` to pipe the output of `zcat` (via standard output) to `ivar` (via standard input)
+- First, we're calling the following command: `cat pileup.txt`
+  - `cat` prints the contents of `pileup.txt` to standard output
+- Then, we're using the pipe character `|` to pipe the output of `cat` (via standard output) to `ivar` (via standard input)
 - The `ivar` command we're piping the pile-up stream into is the following: `ivar variants -r $REF_FASTA -g $REF_GFF -p variants.tsv -m 10`
   - `variants` tells `ivar` that we want to use its variant-calling functionality
   - `-r $REF_FASTA` tells `ivar` that we want to use the file `$REF_FASTA` as our reference genome FASTA

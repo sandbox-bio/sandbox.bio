@@ -15,7 +15,7 @@ export const config = {
 	subtitle: `by <a href="https://niema.net/" target="_blank">Niema Moshiri</a>`,
 	description: "TODO:",
 	tags: ["ivar"],
-	tools: ["ls", "ivar"],
+	tools: ["ivar", "ls", "echo"],
 	difficulty: ["intermediate"],
 	steps: [
 		{ name: "Viral Amplicon Sequencing", component: Intro },
@@ -31,8 +31,8 @@ export const config = {
 		"data/viral-amplicon/primer.bed",
 		"data/viral-amplicon/reference.fasta",
 		"data/viral-amplicon/reference.gff3",
-		"data/viral-amplicon/reads_R1.fq.gz",
-		"data/viral-amplicon/reads_R2.fq.gz",
+		"data/viral-amplicon/reads_R1.fq",
+		"data/viral-amplicon/reads_R2.fq",
 	],
 	init: "REF_FASTA=reference.fasta; REF_GFF=reference.gff3; PRIMER_BED=primer.bed"
 };
