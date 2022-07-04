@@ -234,7 +234,7 @@ async function exec(cmd, callback=console.warn)
 					// user specified we should use stdin via the argument "-".
 					const argStdinIndex = redirect.command.args.findIndex(arg => arg.value == "-");
 					if(argStdinIndex != -1)
-						redirect.command.args[argStdinIndex].value = pathTmpFile
+						redirect.command.args[argStdinIndex].value = pathTmpFile;
 					else
 						redirect.command.args.push({ type: "literal", value: pathTmpFile });
 					return exec(redirect.command, callback);
