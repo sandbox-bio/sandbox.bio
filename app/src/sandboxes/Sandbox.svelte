@@ -24,23 +24,26 @@ let divSettingEnter;
 let command = `/Burrito/ { print $3 }`;
 let input = awk_data;
 let output;
-let flags = ["-F", "\\t", "-v", "abc=2"];
+let flags = `-F \\t -v abc=2`; // ["-F", "\\t", "-v", "abc=2"];
 let error;
 
-
-const FLAGS  =[
+// Supported flags
+const FLAGS = [
 	{
 		name: "Set delimiter",
-		flags: "-F",  // 
-		values: [
-			{ name: "Spaces", value: " " },
-			{ name: "Tabs", value: "\t" },
-			{ name: "Commas", value: "," }
+		flag: "-F",  // 
+		options: [
+			{ name: "Tabs", value: "\\t" },
+			{ name: "Commas", value: "," },
+			{ name: "Spaces", value: `" "` }
 		]
 	},
 	{
-		name: "Add Variable",
+		name: "Define Variable",
 		flag: "-v",  // varname=value
+		options: [
+			{ name: "Add new variable", value: "myvar=123" },
+		],
 		multiple: true
 	},
 ];
@@ -50,6 +53,10 @@ $: langCmd = tool === "jq" ? "json" : "cpp";
 $: langIO = tool === "jq" ? "json" : null;
 $: if(CLI.ready && input && command && tool && flags && $sandbox.settings.interactive) run();
 
+
+// =============================================================================
+// 
+// =============================================================================
 
 // Initialize sandbox
 onMount(async () => {
@@ -66,6 +73,8 @@ onMount(async () => {
 
 // Run command with given input and show resulting output/error
 async function run() {
+	if(busy)
+		return;
 	busy = true;
 
 	// Prepare inputs
@@ -75,10 +84,14 @@ async function run() {
 		params.push("-M");
 	params.push(command.trim());
 
+const flagsArr = parseFlags(flags);
+console.log("FLAGS", flagsArr);
+
 	// Run 
 	try {
 		await CLI.fs.writeFile("sandbox", input);
-		const { stdout, stderr } = await CLI.exec(toolName, [...flags, ...params, "sandbox"]);
+console.warn([...flagsArr, ...params, "sandbox"]);
+		const { stdout, stderr } = await CLI.exec(toolName, [...flagsArr, ...params, "sandbox"]);
 		output = stdout;
 		error = stderr;
 	} catch (error) {
@@ -86,6 +99,48 @@ async function run() {
 	} finally {
 		busy = false;
 	}
+}
+
+// Convert flags strings into array. Don't just do `.split(" ")` because a flag could
+// be `-F " "`, which we want to treat as [`-F`, `" "`], not [`-F`, `"`, `"`]
+function parseFlags(flags) {
+	return flags.match(/[A-Za-z0-9-_=\\,\.]+|"[^"]+"/g);
+	// // AST parser doesn't support equal sign in bash yet
+	// str = str.replaceAll("=", "{EQUAL}");
+
+	// // Parse as AST and retrieve array of arguments
+	// const args = parse(`awk ${str} --end`)[0].args.map(d => d.value.replaceAll("{EQUAL}", "="));
+	// console.warn("args", args);
+	// return args;
+}
+
+//
+async function setFlag(flag, value) {
+	console.log("flag", flag, value)
+	let flagsArr = parseFlags(flags);
+
+	// Only allow a single copy of this flag
+	if(!flag.multiple) {
+		const flagIndex = flagsArr.findIndex(d => d === flag.flag);
+		if(flagIndex === -1)
+			return;
+		console.log(flagIndex)
+
+		if(flag.boolean) {
+			// TODO:
+		} else {
+			flagsArr[flagIndex + 1] = value;
+		}
+		console.log(flagsArr);
+
+	// Allow multiple copies of this flag (e.g. `-v` in awk for defining variables)
+	} else {
+		flagsArr.push(flag.flag);
+		flagsArr.push(value);
+	}
+
+	console.warn("flagsArr", flagsArr);
+	flags = flagsArr.join(" ");
 }
 </script>
 
@@ -140,8 +195,16 @@ async function run() {
 				<ButtonDropdown size="sm">
 					<DropdownToggle color="primary" caret>Add flag</DropdownToggle>
 					<DropdownMenu>
-						{#each FLAGS as flag}
-							<DropdownItem>{flag.name}</DropdownItem>
+						{#each FLAGS as flag, i}
+							<DropdownItem header>{flag.name}</DropdownItem>
+							{#each flag.options || [] as option}
+								<DropdownItem on:click={() => {
+									setFlag(flag, option.value)
+								}}>{option.name}</DropdownItem>
+							{/each}
+							{#if i < FLAGS.length - 1}
+								<DropdownItem divider />
+							{/if}
 						{/each}
 					</DropdownMenu>
 				</ButtonDropdown>
@@ -149,8 +212,8 @@ async function run() {
 
 			<IDE
 				lang={null}
-				code={flags.join(" ")}
-				on:update={d => flags = d.detail.split(" ")} />
+				code={flags}
+				on:update={d => flags = d.detail} />
 		</div>
 	</div>
 </div>
