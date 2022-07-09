@@ -10,10 +10,10 @@ export let tool = "awk";
 
 // Tools to load in playground
 const TOOLS = [
-	{ loading: "eager", tool: "jq", version: "1.6" },
-	{ loading: "eager", tool: "gawk", version: "5.1.0", reinit: true },
-	{ loading: "eager", tool: "grep", version: "3.7", reinit: true  },
-	{ loading: "eager", tool: "sed", version: "4.8", reinit: true  },
+	{ name: "jq", aioliConfig: { tool: "jq", version: "1.6" }},
+	{ name: "awk", aioliConfig: { tool: "gawk", version: "5.1.0", reinit: true }},
+	{ name: "grep", aioliConfig: { tool: "grep", version: "3.7", reinit: true }},
+	{ name: "sed", aioliConfig: { tool: "sed", version: "4.8", reinit: true }}
 ];
 
 // State
@@ -51,6 +51,7 @@ const FLAGS = {
 }
 
 // Reactive logic
+$: toolAioli = TOOLS.find(d => d.name === tool)?.aioliConfig;
 $: langCmd = tool === "jq" ? "json" : "cpp";
 $: langIO = tool === "jq" ? "json" : null;
 $: if(CLI.ready && input && command && tool && flags && $sandbox.settings.interactive) run();
@@ -66,7 +67,7 @@ onMount(async () => {
 	await sandbox.init();
 
 	// Initialize Aioli
-	CLI = await new Aioli(TOOLS, {
+	CLI = await new Aioli(toolAioli, {
 		env: ["localhost", "dev.sandbox.bio"].includes(window.location.hostname) ? "stg" : "prd",
 		printInterleaved: false
 	});
@@ -80,17 +81,21 @@ async function run() {
 		return;
 	busy = true;
 
-	// Prepare inputs
-	const toolName = tool === "awk" ? "gawk" : tool;
-	const params = [];
+	// Prepare parameters
+	let params = [];
 	if(tool === "jq")
 		params.push("-M");
+	// Add user flags
+	params = params.concat(parseFlags(flags));
+	// Add user command
 	params.push(command.trim());
+	// Add file to operate on
+	params.push("sandbox");
 
-	// Run 
+	// Run
 	try {
 		await CLI.fs.writeFile("sandbox", input);
-		const { stdout, stderr } = await CLI.exec(toolName, [...parseFlags(flags), ...params, "sandbox"]);
+		const { stdout, stderr } = await CLI.exec(toolAioli.tool, params);
 		output = stdout;
 		error = stderr;
 	} catch (error) {
