@@ -6,7 +6,7 @@ import { sandbox } from "stores/sandbox";
 import IDE from "components/IDE.svelte";
 import awk_data from "./orders.txt";
 
-export let tool = "jq";
+export let tool = "awk";
 
 // Tools to load in playground
 const TOOLS = [
@@ -18,35 +18,37 @@ const TOOLS = [
 
 // State
 let CLI = {};
-let busy = false;
+let busy = true;
 let divSettingEnter;
 
 let command = `/Burrito/ { print $3 }`;
 let input = awk_data;
 let output;
-let flags = `-F \\t -v abc=2`; // ["-F", "\\t", "-v", "abc=2"];
+let flags = `-F \\t -v abc=2`;
 let error;
 
 // Supported flags
-const FLAGS = [
-	{
-		name: "Set delimiter",
-		flag: "-F",  // 
-		options: [
-			{ name: "Tabs", value: "\\t" },
-			{ name: "Commas", value: "," },
-			{ name: "Spaces", value: `" "` }
-		]
-	},
-	{
-		name: "Define Variable",
-		flag: "-v",  // varname=value
-		options: [
-			{ name: "Add new variable", value: "myvar=123" },
-		],
-		multiple: true
-	},
-];
+const FLAGS = {
+	awk: [
+		{
+			name: "Set delimiter",
+			flag: "-F",
+			options: [
+				{ name: "Tabs", value: "\\t" },
+				{ name: "Commas", value: "," },
+				// { name: "Spaces", value: `" "` }
+			]
+		},
+		{
+			name: "Define Variable",
+			flag: "-v",
+			options: [
+				{ name: "Add new variable", value: "myvar=123" },
+			],
+			multiple: true
+		}
+	]
+}
 
 // Reactive logic
 $: langCmd = tool === "jq" ? "json" : "cpp";
@@ -55,7 +57,7 @@ $: if(CLI.ready && input && command && tool && flags && $sandbox.settings.intera
 
 
 // =============================================================================
-// 
+// Main logic
 // =============================================================================
 
 // Initialize sandbox
@@ -69,6 +71,7 @@ onMount(async () => {
 		printInterleaved: false
 	});
 	CLI.ready = true;
+	busy = false;
 });
 
 // Run command with given input and show resulting output/error
@@ -84,14 +87,10 @@ async function run() {
 		params.push("-M");
 	params.push(command.trim());
 
-const flagsArr = parseFlags(flags);
-console.log("FLAGS", flagsArr);
-
 	// Run 
 	try {
 		await CLI.fs.writeFile("sandbox", input);
-console.warn([...flagsArr, ...params, "sandbox"]);
-		const { stdout, stderr } = await CLI.exec(toolName, [...flagsArr, ...params, "sandbox"]);
+		const { stdout, stderr } = await CLI.exec(toolName, [...parseFlags(flags), ...params, "sandbox"]);
 		output = stdout;
 		error = stderr;
 	} catch (error) {
@@ -101,20 +100,19 @@ console.warn([...flagsArr, ...params, "sandbox"]);
 	}
 }
 
+
+// =============================================================================
+// Flag Management
+// =============================================================================
+
 // Convert flags strings into array. Don't just do `.split(" ")` because a flag could
 // be `-F " "`, which we want to treat as [`-F`, `" "`], not [`-F`, `"`, `"`]
 function parseFlags(flags) {
+	// Note that the AST parser doesn't support equal sign in bash yet
 	return flags.match(/[A-Za-z0-9-_=\\,\.]+|"[^"]+"/g);
-	// // AST parser doesn't support equal sign in bash yet
-	// str = str.replaceAll("=", "{EQUAL}");
-
-	// // Parse as AST and retrieve array of arguments
-	// const args = parse(`awk ${str} --end`)[0].args.map(d => d.value.replaceAll("{EQUAL}", "="));
-	// console.warn("args", args);
-	// return args;
 }
 
-//
+// Add or modify a flag
 async function setFlag(flag, value) {
 	console.log("flag", flag, value)
 	let flagsArr = parseFlags(flags);
@@ -142,6 +140,11 @@ async function setFlag(flag, value) {
 	console.warn("flagsArr", flagsArr);
 	flags = flagsArr.join(" ");
 }
+
+
+// =============================================================================
+// HTML
+// =============================================================================
 </script>
 
 <h4>{tool} sandbox</h4>
@@ -193,16 +196,16 @@ async function setFlag(flag, value) {
 					<h5>Flags</h5>
 				</div>
 				<ButtonDropdown size="sm">
-					<DropdownToggle color="primary" caret>Add flag</DropdownToggle>
+					<DropdownToggle color="primary" caret>{tool} flags</DropdownToggle>
 					<DropdownMenu>
-						{#each FLAGS as flag, i}
-							<DropdownItem header>{flag.name}</DropdownItem>
+						{#each FLAGS[tool] as flag, i}
+							<DropdownItem header class="text-primary">{flag.name}</DropdownItem>
 							{#each flag.options || [] as option}
-								<DropdownItem on:click={() => {
-									setFlag(flag, option.value)
-								}}>{option.name}</DropdownItem>
+								<DropdownItem on:click={() => setFlag(flag, option.value)}>
+									&bullet; {option.name}
+								</DropdownItem>
 							{/each}
-							{#if i < FLAGS.length - 1}
+							{#if i < FLAGS[tool].length - 1}
 								<DropdownItem divider />
 							{/if}
 						{/each}
