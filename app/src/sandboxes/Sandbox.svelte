@@ -13,8 +13,8 @@ let CLI = {};
 let busy = true;
 let divSettingEnter;
 
-let command = `.`;
-let input = `{"a": 4, "b":      5}`;
+let command = `/Burrito/ { print $3 }`;  // `.`;
+let input = awk_data;  // `{"a": 4, "b":      5}`;
 let output;
 let flags = `-F \\t -v abc=2`;
 let error;
@@ -87,38 +87,28 @@ function parseFlags(flags) {
 }
 
 // Add or modify a flag
-async function setFlag(flag, value) {
-	console.log("flag", flag, value)
+async function setFlag(option) {
 	let flagsArr = parseFlags(flags);
-	console.log("flagsArr", flagsArr);
 
 	// Only allow a single copy of this flag
-	if(!flag.multiple) {
-		const flagIndex = flagsArr.findIndex(d => d === flag.flag);
+	if(!option.multiple) {
+		const flagIndex = flagsArr.findIndex(d => d === option.flag);
 		// If flag doesn't exist yet
 		if(flagIndex === -1) {
-			console.log("flagIndex=-1", flag);
-			if(flag.boolean) flagsArr.push(flag.flag);
-			else flagsArr = flagsArr.concat([ flag.flag, value ]);
+			if(option.boolean) flagsArr.push(option.flag);
+			else flagsArr = flagsArr.concat([ option.flag, option.value ]);
 		// If flag exists, overwrite its value
 		} else {
-			console.log(flagIndex)
-			if(flag.boolean) {
-				// TODO:
-				delete flagsArr[flagIndex];
-			} else {
-				flagsArr[flagIndex + 1] = value;
-			}
-			console.log(flagsArr);
+			if(option.boolean) delete flagsArr[flagIndex];
+			else flagsArr[flagIndex + 1] = option.value;
 		}
 
 	// Allow multiple copies of this flag (e.g. `-v` in awk for defining variables)
 	} else {
-		flagsArr = flagsArr.concat([flag.flag, value]);
+		flagsArr = flagsArr.concat([ option.flag, option.value ]);
 	}
 
-	console.warn("flagsArr", flagsArr);
-	flags = flagsArr.join(" ");
+	flags = flagsArr.join(" ").trim();
 }
 
 
@@ -178,10 +168,10 @@ async function setFlag(flag, value) {
 				<ButtonDropdown size="sm">
 					<DropdownToggle color="primary" caret>{tool} flags</DropdownToggle>
 					<DropdownMenu>
-						{#each FLAGS[tool] as flag, i}
-							<DropdownItem header class="text-primary">{flag.name}</DropdownItem>
-							{#each flag.options || [] as option}
-								<DropdownItem on:click={() => setFlag(flag, option.value)}>
+						{#each FLAGS[tool] as category, i}
+							<DropdownItem header class="text-primary">{category.name}</DropdownItem>
+							{#each category.options || [] as option}
+								<DropdownItem on:click={() => setFlag(option)}>
 									&bullet; {option.name}
 								</DropdownItem>
 							{/each}

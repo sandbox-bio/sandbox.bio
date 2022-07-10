@@ -40,25 +40,29 @@ export const TOOLS = [
 
 // Supported flags
 export const FLAGS = {
-	awk: [{
-		name: "Set delimiter",
-		flag: "-F",
-		options: [
-			{ name: "Tabs", value: "\\t" },
-			{ name: "Commas", value: "," },
-			// { name: "Spaces", value: `" "` }
-		]
-	},
-	{
-		name: "Define Variable",
-		flag: "-v",
-		options: [{ name: "Add new variable", value: "myvar=123" }],
-		multiple: true
-	}],
-	jq: [{
-		name: "Compact",
-		flag: "-c",
-		options: [{ flag: "-c", name: "Toggle compact view" }],
-		boolean: true
-	}]
+	awk: [
+		{
+			name: "Set delimiter",
+			options: [
+				{ name: "Tabs", flag: "-F", value: "\\t" },
+				{ name: "Commas", flag: "-F", value: "," },
+				// { name: "Spaces", value: `" "` }
+			]
+		},
+		{
+			name: "Define Variable",
+			options: [
+				{ name: "Add new variable", flag: "-v", value: "myvar=123", multiple: true }
+			]
+		}
+	],
+	jq: [
+		{
+			name: "Output",
+			options: [
+				{ name: "Compact view", flag: "-c", boolean: true },
+				{ name: "Sorted keys", flag: "-S", boolean: true },
+			]
+		}
+	]
 };
