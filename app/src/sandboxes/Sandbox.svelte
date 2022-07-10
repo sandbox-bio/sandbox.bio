@@ -2,59 +2,28 @@
 import { onMount } from "svelte";
 import Aioli from "@biowasm/aioli";
 import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Tooltip } from "sveltestrap";
-import { sandbox } from "stores/sandbox";
+import { sandbox, TOOLS, FLAGS } from "stores/sandbox";
 import IDE from "components/IDE.svelte";
 import awk_data from "./orders.txt";
 
 export let tool = "awk";
-
-// Tools to load in playground
-const TOOLS = [
-	{ name: "jq", aioliConfig: { tool: "jq", version: "1.6" }},
-	{ name: "awk", aioliConfig: { tool: "gawk", version: "5.1.0", reinit: true }},
-	{ name: "grep", aioliConfig: { tool: "grep", version: "3.7", reinit: true }},
-	{ name: "sed", aioliConfig: { tool: "sed", version: "4.8", reinit: true }}
-];
 
 // State
 let CLI = {};
 let busy = true;
 let divSettingEnter;
 
-let command = `/Burrito/ { print $3 }`;
-let input = awk_data;
+let command = `.`;
+let input = `{"a": 4, "b":      5}`;
 let output;
 let flags = `-F \\t -v abc=2`;
 let error;
-
-// Supported flags
-const FLAGS = {
-	awk: [
-		{
-			name: "Set delimiter",
-			flag: "-F",
-			options: [
-				{ name: "Tabs", value: "\\t" },
-				{ name: "Commas", value: "," },
-				// { name: "Spaces", value: `" "` }
-			]
-		},
-		{
-			name: "Define Variable",
-			flag: "-v",
-			options: [
-				{ name: "Add new variable", value: "myvar=123" },
-			],
-			multiple: true
-		}
-	]
-}
 
 // Reactive logic
 $: toolAioli = TOOLS.find(d => d.name === tool)?.aioliConfig;
 $: langCmd = tool === "jq" ? "json" : "cpp";
 $: langIO = tool === "jq" ? "json" : null;
-$: if(CLI.ready && input && command && tool && flags && $sandbox.settings.interactive) run();
+$: if(CLI.ready && input && command && tool && $sandbox.settings.interactive) run(flags);
 
 
 // =============================================================================
@@ -114,32 +83,38 @@ async function run() {
 // be `-F " "`, which we want to treat as [`-F`, `" "`], not [`-F`, `"`, `"`]
 function parseFlags(flags) {
 	// Note that the AST parser doesn't support equal sign in bash yet
-	return flags.match(/[A-Za-z0-9-_=\\,\.]+|"[^"]+"/g);
+	return flags.match(/[A-Za-z0-9-_=\\,\.]+|"[^"]+"/g) || [];
 }
 
 // Add or modify a flag
 async function setFlag(flag, value) {
 	console.log("flag", flag, value)
 	let flagsArr = parseFlags(flags);
+	console.log("flagsArr", flagsArr);
 
 	// Only allow a single copy of this flag
 	if(!flag.multiple) {
 		const flagIndex = flagsArr.findIndex(d => d === flag.flag);
-		if(flagIndex === -1)
-			return;
-		console.log(flagIndex)
-
-		if(flag.boolean) {
-			// TODO:
+		// If flag doesn't exist yet
+		if(flagIndex === -1) {
+			console.log("flagIndex=-1", flag);
+			if(flag.boolean) flagsArr.push(flag.flag);
+			else flagsArr = flagsArr.concat([ flag.flag, value ]);
+		// If flag exists, overwrite its value
 		} else {
-			flagsArr[flagIndex + 1] = value;
+			console.log(flagIndex)
+			if(flag.boolean) {
+				// TODO:
+				delete flagsArr[flagIndex];
+			} else {
+				flagsArr[flagIndex + 1] = value;
+			}
+			console.log(flagsArr);
 		}
-		console.log(flagsArr);
 
 	// Allow multiple copies of this flag (e.g. `-v` in awk for defining variables)
 	} else {
-		flagsArr.push(flag.flag);
-		flagsArr.push(value);
+		flagsArr = flagsArr.concat([flag.flag, value]);
 	}
 
 	console.warn("flagsArr", flagsArr);

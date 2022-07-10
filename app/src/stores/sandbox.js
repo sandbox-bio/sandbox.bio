@@ -29,3 +29,36 @@ export const sandbox = {
 	},
 	subscribe,
 };
+
+// Tools to load in playground
+export const TOOLS = [
+	{ name: "jq", aioliConfig: { tool: "jq", version: "1.6" }},
+	{ name: "awk", aioliConfig: { tool: "gawk", version: "5.1.0", reinit: true }},
+	{ name: "grep", aioliConfig: { tool: "grep", version: "3.7", reinit: true }},
+	{ name: "sed", aioliConfig: { tool: "sed", version: "4.8", reinit: true }}
+];
+
+// Supported flags
+export const FLAGS = {
+	awk: [{
+		name: "Set delimiter",
+		flag: "-F",
+		options: [
+			{ name: "Tabs", value: "\\t" },
+			{ name: "Commas", value: "," },
+			// { name: "Spaces", value: `" "` }
+		]
+	},
+	{
+		name: "Define Variable",
+		flag: "-v",
+		options: [{ name: "Add new variable", value: "myvar=123" }],
+		multiple: true
+	}],
+	jq: [{
+		name: "Compact",
+		flag: "-c",
+		options: [{ flag: "-c", name: "Toggle compact view" }],
+		boolean: true
+	}]
+};
