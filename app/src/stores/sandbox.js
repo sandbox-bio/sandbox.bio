@@ -46,13 +46,13 @@ export const FLAGS = {
 			options: [
 				{ name: "Tabs", flag: "-F", value: "\\t" },
 				{ name: "Commas", flag: "-F", value: "," },
-				// { name: "Spaces", value: `" "` }
+				{ name: "Spaces", flag: "-F", value: `" "` }
 			]
 		},
 		{
-			name: "Define Variable",
+			name: "Variables",
 			options: [
-				{ name: "Add new variable", flag: "-v", value: "myvar=123", multiple: true }
+				{ name: "Add new variable", flag: "-v", value: `myVar="Hello World"`, multiple: true }
 			]
 		}
 	],
@@ -62,6 +62,19 @@ export const FLAGS = {
 			options: [
 				{ name: "Compact view", flag: "-c", boolean: true },
 				{ name: "Sorted keys", flag: "-S", boolean: true },
+				{ name: "Tab indentation", flag: "--tab", boolean: true }
+			]
+		},
+		{
+			name: "Input",
+			options: [
+				{ name: "Read input into array (slurp)", flag: "-s", boolean: true }
+			]
+		},
+		{
+			name: "Variables",
+			options: [
+				{ name: "Add new variable", flag: "--arg", value: `myVar "Hello World"`, multiple: true }
 			]
 		}
 	]

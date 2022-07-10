@@ -13,10 +13,10 @@ let CLI = {};
 let busy = true;
 let divSettingEnter;
 
-let command = `/Burrito/ { print $3 }`;  // `.`;
+let command = `/Burrito/ { print abc, $3 }`;  // `.`;
 let input = awk_data;  // `{"a": 4, "b":      5}`;
+let flags = `-F \\t -v abc="I like"`;  // '';
 let output;
-let flags = `-F \\t -v abc=2`;
 let error;
 
 // Reactive logic
@@ -55,7 +55,7 @@ async function run() {
 	if(tool === "jq")
 		params.push("-M");
 	// Add user flags
-	params = params.concat(parseFlags(flags));
+	params = params.concat(parseFlags(flags)).map(d => d.replaceAll('"', ''));
 	// Add user command
 	params.push(command.trim());
 	// Add file to operate on
@@ -82,8 +82,9 @@ async function run() {
 // Convert flags strings into array. Don't just do `.split(" ")` because a flag could
 // be `-F " "`, which we want to treat as [`-F`, `" "`], not [`-F`, `"`, `"`]
 function parseFlags(flags) {
+	// Source: https://stackoverflow.com/a/16261693
 	// Note that the AST parser doesn't support equal sign in bash yet
-	return flags.match(/[A-Za-z0-9-_=\\,\.]+|"[^"]+"/g) || [];
+	return flags.match(/(?:[^\s"]+|"[^"]*")+/g) || [];
 }
 
 // Add or modify a flag
@@ -117,17 +118,17 @@ async function setFlag(option) {
 // =============================================================================
 </script>
 
-<h4>{tool} sandbox</h4>
+<h4 class="mb-0">{tool} sandbox</h4>
 
 <div class="row">
 	<!-- Command -->
 	<div class="col-md-6">
 		<div class="row ide mb-4 mt-4">
-			<div class="d-flex flex-row">
-				<div class="pe-4">
+			<div class="d-flex flex-row mb-2">
+				<div class="pe-3 pt-1 pb-1">
 					<h5>Command</h5>
 				</div>
-				<div bind:this={divSettingEnter} class="pe-4">
+				<div bind:this={divSettingEnter} class="pt-1">
 					<Input type="switch" label="Interactive" bind:checked={$sandbox.settings.interactive} />
 				</div>
 				<Tooltip target={divSettingEnter}>
@@ -161,8 +162,8 @@ async function setFlag(option) {
 	<!-- Flags -->
 	<div class="col-md-6">
 		<div class="row ide mb-4 mt-4">
-			<div class="d-flex flex-row">
-				<div class="pe-4">
+			<div class="d-flex flex-row mb-2">
+				<div class="pe-2 pt-2">
 					<h5>Flags</h5>
 				</div>
 				<ButtonDropdown size="sm">
