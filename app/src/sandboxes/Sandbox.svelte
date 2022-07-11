@@ -159,7 +159,7 @@ function setFlag(option, value) {
 						<IDE
 							lang={langCmd}
 							code={$data.command}
-							on:update={d => $data.command = d.detail}
+							on:update={d => $sandbox.data[$tool.name].command = d.detail}
 							on:run={run} />
 					</div>
 					<div class="flex-shrink-1 ps-3">
@@ -225,7 +225,7 @@ function setFlag(option, value) {
 			<IDE
 				lang={langIO}
 				code={$data.input}
-				on:update={d => $data.input = d.detail} />
+				on:update={d => $sandbox.data[$tool.name].input = d.detail} />
 		</div>
 		<div class="col-md-6 ide">
 			<h5>Output</h5>
