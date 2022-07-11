@@ -7,7 +7,8 @@ import { merge } from "lodash";
 const DEFAULT = {
 	settings: {
 		interactive: true,
-	}
+	},
+	flags: ""
 };
 
 // Create store
@@ -73,9 +74,9 @@ export const FLAGS = {
 			type: FLAG_BOOLEAN,
 		},
 		{
-			name: "Tab indentation",
-			flag: "--tab",
+			name: "Slurp (read input into array)",
+			flag: "-s",
 			type: FLAG_BOOLEAN,
-		},
+		}
 	]
 };

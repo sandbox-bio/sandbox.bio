@@ -87,7 +87,6 @@ function parseFlags(flags) {
 	return flags.match(/(?:[^\s"]+|"[^"]*")+/g) || [];
 }
 
-
 // Add or modify a flag (`value` only used by "setting" flag)
 function setFlag(option, value) {
 	let flagsArr = parseFlags(flags);
