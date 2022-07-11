@@ -1,7 +1,10 @@
-import { get, writable, derived } from "svelte/store";
-import localforage from "localforage";
-import { getLocalForageKey } from "stores/config";
 import { merge } from "lodash";
+import localforage from "localforage";
+import { get, writable, derived } from "svelte/store";
+import { getLocalForageKey } from "stores/config";
+
+import awk_data from "sandboxes/orders.txt";
+
 
 // =============================================================================
 // Constants
@@ -64,7 +67,14 @@ const DEFAULT = {
 	},
 	data: {
 		awk: {
-			flags: "-F \\t"
+			flags: "-F \\t",
+			command: `/Burrito/ { print $3 }`,
+			input: awk_data
+		},
+		jq: {
+			flags: "-S",
+			command: ".",
+			input: `{"lastname": "Aboukhalil", "firstname":"Robert"}`
 		}
 	},
 };
@@ -97,8 +107,8 @@ export const sandbox = {
 //
 export const tool = writable(null);
 
-// Create derived store for flags
-export const flags = derived(
+// Create derived store for data
+export const data = derived(
 	sandbox,
-	$sandbox => $sandbox?.data[get(tool)?.name]?.flags || ""
+	$sandbox => $sandbox?.data[get(tool)?.name]
 );

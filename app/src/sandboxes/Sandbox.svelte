@@ -2,24 +2,20 @@
 import { onMount } from "svelte";
 import Aioli from "@biowasm/aioli";
 import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Tooltip } from "sveltestrap";
-import { tool, flags, sandbox, TOOLS, FLAGS, FLAG_SETTING, FLAG_BOOLEAN, FLAG_PARAM } from "stores/sandbox";
+import { tool, data, sandbox, TOOLS, FLAGS, FLAG_SETTING, FLAG_BOOLEAN, FLAG_PARAM } from "stores/sandbox";
 import IDE from "components/IDE.svelte";
-import awk_data from "./orders.txt";
 
 // State
 let CLI = {};
 let busy = true;
 let divSettingEnter;
-
-let command = `/Burrito/ { print abc, $3 }`;  // `.`;
-let input = awk_data;  // `{"a": 4, "b":      5}`;
 let output;
 let error;
 
 // Reactive logic
 $: langCmd = $tool?.name === "jq" ? "json" : "cpp";
 $: langIO = $tool?.name === "jq" ? "json" : null;
-$: if(CLI.ready && input && command && $tool?.name && $sandbox.settings.interactive) run($flags);
+$: if(CLI.ready && $data.input && $data.command && $tool?.name && $sandbox.settings.interactive) run($data.flags);
 
 
 // =============================================================================
@@ -36,7 +32,7 @@ onMount(async () => {
 	$tool = TOOLS.find(d => d.name === (params.get("id") || "awk"));
 	if(!$tool)
 		throw "Unrecognized tool";
-	$sandbox = $sandbox;  // force update the $flags derived store
+	$sandbox = $sandbox;  // force update the $data.flags derived store
 
 	// Initialize Aioli
 	CLI = await new Aioli($tool.aioliConfig, {
@@ -58,15 +54,15 @@ async function run() {
 	if($tool.name === "jq")
 		params.push("-M");
 	// Add user flags
-	params = params.concat(parseFlags($flags)).map(d => d.replaceAll('"', ''));
+	params = params.concat(parseFlags($data.flags)).map(d => d.replaceAll('"', ''));
 	// Add user command
-	params.push(command.trim());
+	params.push($data.command.trim());
 	// Add file to operate on
 	params.push("sandbox");
 
 	// Run
 	try {
-		await CLI.fs.writeFile("sandbox", input);
+		await CLI.fs.writeFile("sandbox", $data.input);
 		const { stdout, stderr } = await CLI.exec($tool.aioliConfig.tool, params);
 		output = stdout;
 		error = stderr;
@@ -90,9 +86,24 @@ function parseFlags(flags) {
 	return flags.match(/(?:[^\s"]+|"[^"]*")+/g) || [];
 }
 
+function getFlag(option) {
+	const flagsArr = parseFlags($data.flags);
+	const flagIndex = flagsArr.findIndex(d => d === option.flag);
+
+	// Boolean flags: only true if the flag is present
+	if(option.type === FLAG_BOOLEAN)
+		return flagIndex !== -1;
+
+	// Setting flags: return the value if the flag is present
+	if(option.type === FLAG_SETTING)
+		return flagIndex !== -1 ? flagsArr[flagIndex + 1] : null;
+
+	throw "Should only use getFlag with option types 'boolean' or 'setting'";
+}
+
 // Add or modify a flag (`value` only used by "setting" flag)
 function setFlag(option, value) {
-	let flagsArr = parseFlags($flags);
+	let flagsArr = parseFlags($data.flags);
 	const flagIndex = flagsArr.findIndex(d => d === option.flag);
 
 	// Boolean flags: toggle true/false
@@ -147,8 +158,8 @@ function setFlag(option, value) {
 					<div class="w-100">
 						<IDE
 							lang={langCmd}
-							code={command}
-							on:update={d => command = d.detail}
+							code={$data.command}
+							on:update={d => $data.command = d.detail}
 							on:run={run} />
 					</div>
 					<div class="flex-shrink-1 ps-3">
@@ -189,7 +200,7 @@ function setFlag(option, value) {
 						<!-- Boolean Setting -->
 						{:else if option.type === FLAG_BOOLEAN}
 							<div class="mx-1 pt-2">
-								<Input type="checkbox" label={option.name} on:change={() => setFlag(option)} />
+								<Input type="checkbox" label={option.name} checked={getFlag(option)} on:change={() => setFlag(option)} />
 							</div>	
 
 						<!-- Parameters -->
@@ -201,7 +212,7 @@ function setFlag(option, value) {
 
 				<IDE
 					lang={null}
-					code={$flags}
+					code={$data.flags}
 					on:update={d => $sandbox.data[$tool.name].flags = d.detail} />
 			</div>
 		</div>
@@ -213,8 +224,8 @@ function setFlag(option, value) {
 			<h5>Input</h5>
 			<IDE
 				lang={langIO}
-				code={input}
-				on:update={d => input = d.detail} />
+				code={$data.input}
+				on:update={d => $data.input = d.detail} />
 		</div>
 		<div class="col-md-6 ide">
 			<h5>Output</h5>
