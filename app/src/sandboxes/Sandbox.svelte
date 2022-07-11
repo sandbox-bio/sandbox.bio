@@ -2,11 +2,9 @@
 import { onMount } from "svelte";
 import Aioli from "@biowasm/aioli";
 import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Tooltip } from "sveltestrap";
-import { sandbox, TOOLS, FLAGS, FLAG_SETTING, FLAG_BOOLEAN, FLAG_PARAM } from "stores/sandbox";
+import { tool, flags, sandbox, TOOLS, FLAGS, FLAG_SETTING, FLAG_BOOLEAN, FLAG_PARAM } from "stores/sandbox";
 import IDE from "components/IDE.svelte";
 import awk_data from "./orders.txt";
-
-export let tool = "awk";
 
 // State
 let CLI = {};
@@ -15,15 +13,13 @@ let divSettingEnter;
 
 let command = `/Burrito/ { print abc, $3 }`;  // `.`;
 let input = awk_data;  // `{"a": 4, "b":      5}`;
-let flags = `-F \\t`;  // '';
 let output;
 let error;
 
 // Reactive logic
-$: toolAioli = TOOLS.find(d => d.name === tool)?.aioliConfig;
-$: langCmd = tool === "jq" ? "json" : "cpp";
-$: langIO = tool === "jq" ? "json" : null;
-$: if(CLI.ready && input && command && tool && $sandbox.settings.interactive) run(flags);
+$: langCmd = $tool?.name === "jq" ? "json" : "cpp";
+$: langIO = $tool?.name === "jq" ? "json" : null;
+$: if(CLI.ready && input && command && $tool?.name && $sandbox.settings.interactive) run($flags);
 
 
 // =============================================================================
@@ -35,8 +31,15 @@ onMount(async () => {
 	// Initialize store with data from localforage
 	await sandbox.init();
 
+	// Get tool from URL
+	const params = new URL(window.location).searchParams;
+	$tool = TOOLS.find(d => d.name === (params.get("id") || "awk"));
+	if(!$tool)
+		throw "Unrecognized tool";
+	$sandbox = $sandbox;  // force update the $flags derived store
+
 	// Initialize Aioli
-	CLI = await new Aioli(toolAioli, {
+	CLI = await new Aioli($tool.aioliConfig, {
 		env: ["localhost", "dev.sandbox.bio"].includes(window.location.hostname) ? "stg" : "prd",
 		printInterleaved: false
 	});
@@ -52,10 +55,10 @@ async function run() {
 
 	// Prepare parameters
 	let params = [];
-	if(tool === "jq")
+	if($tool.name === "jq")
 		params.push("-M");
 	// Add user flags
-	params = params.concat(parseFlags(flags)).map(d => d.replaceAll('"', ''));
+	params = params.concat(parseFlags($flags)).map(d => d.replaceAll('"', ''));
 	// Add user command
 	params.push(command.trim());
 	// Add file to operate on
@@ -64,7 +67,7 @@ async function run() {
 	// Run
 	try {
 		await CLI.fs.writeFile("sandbox", input);
-		const { stdout, stderr } = await CLI.exec(toolAioli.tool, params);
+		const { stdout, stderr } = await CLI.exec($tool.aioliConfig.tool, params);
 		output = stdout;
 		error = stderr;
 	} catch (error) {
@@ -89,7 +92,7 @@ function parseFlags(flags) {
 
 // Add or modify a flag (`value` only used by "setting" flag)
 function setFlag(option, value) {
-	let flagsArr = parseFlags(flags);
+	let flagsArr = parseFlags($flags);
 	const flagIndex = flagsArr.findIndex(d => d === option.flag);
 
 	// Boolean flags: toggle true/false
@@ -111,7 +114,7 @@ function setFlag(option, value) {
 		flagsArr = flagsArr.concat([ option.flag, option.value ]);
 	}
 
-	flags = flagsArr.join(" ").trim();
+	$sandbox.data[$tool.name].flags = flagsArr.join(" ").trim();
 }
 
 
@@ -120,106 +123,108 @@ function setFlag(option, value) {
 // =============================================================================
 </script>
 
-<h4 class="mb-0">{tool} sandbox</h4>
+{#if $tool}
+	<h4 class="mb-0">{$tool.name} sandbox</h4>
 
-<div class="row">
-	<!-- Command -->
-	<div class="col-md-6">
-		<div class="row ide mb-4 mt-4">
-			<div class="d-flex flex-row mb-2">
-				<div class="pe-3 pt-1 pb-1">
-					<h5>Command</h5>
+	<div class="row">
+		<!-- Command -->
+		<div class="col-md-6">
+			<div class="row ide mb-4 mt-4">
+				<div class="d-flex flex-row mb-2">
+					<div class="pe-3 pt-1 pb-1">
+						<h5>Command</h5>
+					</div>
+					<div bind:this={divSettingEnter} class="pt-1">
+						<Input type="checkbox" label="Interactive" bind:checked={$sandbox.settings.interactive} />
+					</div>
+					<Tooltip target={divSettingEnter}>
+						Run after each keypress
+					</Tooltip>
 				</div>
-				<div bind:this={divSettingEnter} class="pt-1">
-					<Input type="switch" label="Interactive" bind:checked={$sandbox.settings.interactive} />
+
+				<!-- Command box -->
+				<div class="d-flex flex-row">
+					<div class="w-100">
+						<IDE
+							lang={langCmd}
+							code={command}
+							on:update={d => command = d.detail}
+							on:run={run} />
+					</div>
+					<div class="flex-shrink-1 ps-3">
+						<Button color="primary" size="sm" on:click={run} disabled={busy}>
+							Run
+						</Button>
+					</div>
 				</div>
-				<Tooltip target={divSettingEnter}>
-					Run after each keypress
-				</Tooltip>
+
+				<!-- Errors -->
+				{#if error}
+					<pre class="text-danger pre-scrollable">{error}</pre>
+				{/if}
 			</div>
+		</div>
 
-			<!-- Command box -->
-			<div class="d-flex flex-row">
-				<div class="w-100">
-					<IDE
-						lang={langCmd}
-						code={command}
-						on:update={d => command = d.detail}
-						on:run={run} />
+		<!-- Flags -->
+		<div class="col-md-6">
+			<div class="row ide mb-4 mt-4">
+				<div class="d-flex flex-row mb-2">
+					<div class="pe-1 pt-2">
+						<h5>Flags</h5>
+					</div>
+					{#each FLAGS[$tool.name] as option}
+						<!-- Setting -->
+						{#if option.type === FLAG_SETTING}
+							<ButtonDropdown size="sm" class="mx-1 my-1">
+								<DropdownToggle color="primary" caret>{option.name}</DropdownToggle>
+								<DropdownMenu>
+									{#each option.values as value}
+										<DropdownItem on:click={() => setFlag(option, value.value)} class="small">
+											{value.name} ({value.value})
+										</DropdownItem>
+									{/each}
+								</DropdownMenu>
+							</ButtonDropdown>
+
+						<!-- Boolean Setting -->
+						{:else if option.type === FLAG_BOOLEAN}
+							<div class="mx-1 pt-2">
+								<Input type="checkbox" label={option.name} on:change={() => setFlag(option)} />
+							</div>	
+
+						<!-- Parameters -->
+						{:else if option.type === FLAG_PARAM}
+							<Button size="sm" class="mx-1 my-1" on:click={() => setFlag(option)}>+ {option.name}</Button>
+						{/if}
+					{/each}
 				</div>
-				<div class="flex-shrink-1 ps-3">
-					<Button color="primary" size="sm" on:click={run} disabled={busy}>
-						Run
-					</Button>
-				</div>
+
+				<IDE
+					lang={null}
+					code={$flags}
+					on:update={d => $sandbox.data[$tool.name].flags = d.detail} />
 			</div>
-
-			<!-- Errors -->
-			{#if error}
-				<pre class="text-danger pre-scrollable">{error}</pre>
-			{/if}
 		</div>
 	</div>
 
-	<!-- Flags -->
-	<div class="col-md-6">
-		<div class="row ide mb-4 mt-4">
-			<div class="d-flex flex-row mb-2">
-				<div class="pe-1 pt-2">
-					<h5>Flags</h5>
-				</div>
-				{#each FLAGS[tool] as option}
-					<!-- Setting -->
-					{#if option.type === FLAG_SETTING}
-						<ButtonDropdown size="sm" class="mx-1 my-1">
-							<DropdownToggle color="primary" caret>{option.name}</DropdownToggle>
-							<DropdownMenu>
-								{#each option.values as value}
-									<DropdownItem on:click={() => setFlag(option, value.value)} class="small">
-										{value.name} ({value.value})
-									</DropdownItem>
-								{/each}
-							</DropdownMenu>
-						</ButtonDropdown>
-
-					<!-- Boolean Setting -->
-					{:else if option.type === FLAG_BOOLEAN}
-						<div class="mx-1 pt-2">
-							<Input type="checkbox" label={option.name} on:change={() => setFlag(option)} />
-						</div>	
-
-					<!-- Parameters -->
-					{:else if option.type === FLAG_PARAM}
-						<Button size="sm" class="mx-1 my-1" on:click={() => setFlag(option)}>+ {option.name}</Button>
-					{/if}
-				{/each}
-			</div>
-
+	<!-- Input / Output -->
+	<div class="row">
+		<div class="col-md-6 ide">
+			<h5>Input</h5>
 			<IDE
-				lang={null}
-				code={flags}
-				on:update={d => flags = d.detail} />
+				lang={langIO}
+				code={input}
+				on:update={d => input = d.detail} />
+		</div>
+		<div class="col-md-6 ide">
+			<h5>Output</h5>
+			<IDE
+				lang={langIO}
+				code={output}
+				on:update={d => output = d.detail} editable={false} />
 		</div>
 	</div>
-</div>
-
-<!-- Input / Output -->
-<div class="row">
-	<div class="col-md-6 ide">
-		<h5>Input</h5>
-		<IDE
-			lang={langIO}
-			code={input}
-			on:update={d => input = d.detail} />
-	</div>
-	<div class="col-md-6 ide">
-		<h5>Output</h5>
-		<IDE
-			lang={langIO}
-			code={output}
-			on:update={d => output = d.detail} editable={false} />
-	</div>
-</div>
+{/if}
 
 <style>
 .ide {
