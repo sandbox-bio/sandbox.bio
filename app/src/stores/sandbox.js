@@ -39,43 +39,43 @@ export const TOOLS = [
 ];
 
 // Supported flags
+export const FLAG_SETTING = "setting";    // Can only use flag once (dropdown)
+export const FLAG_BOOLEAN = "boolean";    // Can only use flag once; toggle between true/false (checkbox)
+export const FLAG_PARAM   = "parameter";  // Can use flag multiple times (button to add new parameter)
 export const FLAGS = {
 	awk: [
 		{
-			name: "Set delimiter",
-			options: [
-				{ name: "Tabs", flag: "-F", value: "\\t" },
-				{ name: "Commas", flag: "-F", value: "," },
-				{ name: "Spaces", flag: "-F", value: `" "` }
+			name: "Delimiter",
+			flag: "-F",
+			type: FLAG_SETTING,
+			values: [
+				{ name: "Tab", value: "\\t" },
+				{ name: "Comma", value: "," },
+				{ name: "Space", value: `" "` },
 			]
 		},
 		{
-			name: "Variables",
-			options: [
-				{ name: "Add new variable", flag: "-v", value: `myVar="Hello World"`, multiple: true }
-			]
+			name: "Add Variable",
+			flag: "-v",
+			type: FLAG_PARAM,
+			value: `myVar="Some value"`
 		}
 	],
 	jq: [
 		{
-			name: "Output",
-			options: [
-				{ name: "Compact view", flag: "-c", boolean: true },
-				{ name: "Sorted keys", flag: "-S", boolean: true },
-				{ name: "Tab indentation", flag: "--tab", boolean: true }
-			]
+			name: "Compact",
+			flag: "-c",
+			type: FLAG_BOOLEAN,
 		},
 		{
-			name: "Input",
-			options: [
-				{ name: "Read input into array (slurp)", flag: "-s", boolean: true }
-			]
+			name: "Sort keys",
+			flag: "-S",
+			type: FLAG_BOOLEAN,
 		},
 		{
-			name: "Variables",
-			options: [
-				{ name: "Add new variable", flag: "--arg", value: `myVar "Hello World"`, multiple: true }
-			]
-		}
+			name: "Tab indentation",
+			flag: "--tab",
+			type: FLAG_BOOLEAN,
+		},
 	]
 };

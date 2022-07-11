@@ -2,7 +2,7 @@
 import { onMount } from "svelte";
 import Aioli from "@biowasm/aioli";
 import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Tooltip } from "sveltestrap";
-import { sandbox, TOOLS, FLAGS } from "stores/sandbox";
+import { sandbox, TOOLS, FLAGS, FLAG_SETTING, FLAG_BOOLEAN, FLAG_PARAM } from "stores/sandbox";
 import IDE from "components/IDE.svelte";
 import awk_data from "./orders.txt";
 
@@ -15,7 +15,7 @@ let divSettingEnter;
 
 let command = `/Burrito/ { print abc, $3 }`;  // `.`;
 let input = awk_data;  // `{"a": 4, "b":      5}`;
-let flags = `-F \\t -v abc="I like"`;  // '';
+let flags = `-F \\t`;  // '';
 let output;
 let error;
 
@@ -87,25 +87,28 @@ function parseFlags(flags) {
 	return flags.match(/(?:[^\s"]+|"[^"]*")+/g) || [];
 }
 
-// Add or modify a flag
-async function setFlag(option) {
+
+// Add or modify a flag (`value` only used by "setting" flag)
+function setFlag(option, value) {
 	let flagsArr = parseFlags(flags);
+	const flagIndex = flagsArr.findIndex(d => d === option.flag);
 
-	// Only allow a single copy of this flag
-	if(!option.multiple) {
-		const flagIndex = flagsArr.findIndex(d => d === option.flag);
-		// If flag doesn't exist yet
-		if(flagIndex === -1) {
-			if(option.boolean) flagsArr.push(option.flag);
-			else flagsArr = flagsArr.concat([ option.flag, option.value ]);
-		// If flag exists, overwrite its value
-		} else {
-			if(option.boolean) delete flagsArr[flagIndex];
-			else flagsArr[flagIndex + 1] = option.value;
-		}
+	// Boolean flags: toggle true/false
+	if(option.type === FLAG_BOOLEAN) {
+		if(flagIndex !== -1)
+			delete flagsArr[flagIndex];
+		else
+			flagsArr.push(option.flag);
 
-	// Allow multiple copies of this flag (e.g. `-v` in awk for defining variables)
-	} else {
+	// Setting flag: add or change existing value
+	} else if(option.type === FLAG_SETTING) {
+		if(flagIndex !== -1)
+			flagsArr[flagIndex + 1] = value;
+		else
+			flagsArr = flagsArr.concat([ option.flag, value ]);
+
+	// Param flag: add a new param
+	} else if(option.type === FLAG_PARAM) {
 		flagsArr = flagsArr.concat([ option.flag, option.value ]);
 	}
 
@@ -163,25 +166,34 @@ async function setFlag(option) {
 	<div class="col-md-6">
 		<div class="row ide mb-4 mt-4">
 			<div class="d-flex flex-row mb-2">
-				<div class="pe-2 pt-2">
+				<div class="pe-1 pt-2">
 					<h5>Flags</h5>
 				</div>
-				<ButtonDropdown size="sm">
-					<DropdownToggle color="primary" caret>{tool} flags</DropdownToggle>
-					<DropdownMenu>
-						{#each FLAGS[tool] as category, i}
-							<DropdownItem header class="text-primary">{category.name}</DropdownItem>
-							{#each category.options || [] as option}
-								<DropdownItem on:click={() => setFlag(option)}>
-									&bullet; {option.name}
-								</DropdownItem>
-							{/each}
-							{#if i < FLAGS[tool].length - 1}
-								<DropdownItem divider />
-							{/if}
-						{/each}
-					</DropdownMenu>
-				</ButtonDropdown>
+				{#each FLAGS[tool] as option}
+					<!-- Setting -->
+					{#if option.type === FLAG_SETTING}
+						<ButtonDropdown size="sm" class="mx-1 my-1">
+							<DropdownToggle color="primary" caret>{option.name}</DropdownToggle>
+							<DropdownMenu>
+								{#each option.values as value}
+									<DropdownItem on:click={() => setFlag(option, value.value)} class="small">
+										{value.name} ({value.value})
+									</DropdownItem>
+								{/each}
+							</DropdownMenu>
+						</ButtonDropdown>
+
+					<!-- Boolean Setting -->
+					{:else if option.type === FLAG_BOOLEAN}
+						<div class="mx-1 pt-2">
+							<Input type="checkbox" label={option.name} on:change={() => setFlag(option)} />
+						</div>	
+
+					<!-- Parameters -->
+					{:else if option.type === FLAG_PARAM}
+						<Button size="sm" class="mx-1 my-1" on:click={() => setFlag(option)}>+ {option.name}</Button>
+					{/if}
+				{/each}
 			</div>
 
 			<IDE
