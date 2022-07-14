@@ -191,7 +191,7 @@ function setFlag(option, value) {
 								<DropdownMenu>
 									{#each option.values as value}
 										<DropdownItem on:click={() => setFlag(option, value.value)} class="small">
-											{value.name} ({value.value})
+											{value.name}: <code>{value.value}</code>
 										</DropdownItem>
 									{/each}
 								</DropdownMenu>
