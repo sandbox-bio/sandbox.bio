@@ -69,7 +69,7 @@ describe("Test tutorial contents (1 representative command)", () => {
 	});
 
 	it("gawk", async () => {
-		observed = await $CLI.exec(`awk -F "\t" ' { if($3 == "Chicken Bowl") sum += $2 } END { print(sum) }' orders.tsv`);
-		expect(observed).to.equal(`761\n`);
+		observed = await $CLI.exec(`awk -v abc=123 -F "\t" ' { if($3 == "Chicken Bowl") sum += $2 } END { print(sum + abc) }' orders.tsv`);
+		expect(observed).to.equal(`884\n`);
 	});
 });
