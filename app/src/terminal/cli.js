@@ -30,6 +30,7 @@ env.subscribe(d => $env = d);
 
 const DIR_ROOT = "/shared/data";
 const DIR_TUTORIALS = `${DIR_ROOT}/tutorials`;
+const ESCAPED_EQUAL_SIGN = "___SANDBOXBIO_EQUAL_SIGN___";
 
 
 // =============================================================================
@@ -119,8 +120,16 @@ async function exec(cmd, callback=console.warn)
 		try {
 			return await exec(parse(cmd), callback);
 		} catch (error) {
-			if(error.name == "SyntaxError")
+			if(error.name == "SyntaxError") {
+				// FIXME: This is a hack to support `awk -v abc=123`, which otherwise breaks
+				const awkVarMatch = cmd.matchAll("-v [A-Za-z0-9]+\=[A-Za-z0-9]+");
+				if(cmd.includes("awk") && awkVarMatch) {
+					for(let match of awkVarMatch)
+						cmd = cmd.replace(match[0], match[0].replace("=", ESCAPED_EQUAL_SIGN));
+					return await exec(cmd);
+				}
 				throw "Unrecognized command";
+			}
 			throw error;
 		}
 	}
@@ -201,7 +210,8 @@ async function exec(cmd, callback=console.warn)
 					output += "\n";
 			// Otherwise, try running the command with Aioli
 			} else {
-				const outputAioli = await _aioli.exec(tool, argsRaw);
+				const argsClean = argsRaw.map(d => d.replaceAll(ESCAPED_EQUAL_SIGN, "="));
+				const outputAioli = await _aioli.exec(tool, argsClean);
 				const redirect = (cmd.redirects || [])[0];
 
 				// Handle "2>&1" redirection (doesn't yet support "redirectFd" such as 2>somefile)
