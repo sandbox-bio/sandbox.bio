@@ -2,7 +2,7 @@
 import { onMount } from "svelte";
 import Aioli from "@biowasm/aioli";
 import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Tooltip } from "sveltestrap";
-import { tool, data, sandbox, TOOLS, FLAGS, FLAG_SETTING, FLAG_BOOLEAN, FLAG_PARAM } from "stores/sandbox";
+import { tool, data, sandbox, TOOLS, EXAMPLES, FLAGS, FLAG_SETTING, FLAG_BOOLEAN, FLAG_PARAM } from "stores/sandbox";
 import IDE from "components/IDE.svelte";
 
 // State
@@ -73,6 +73,10 @@ async function run() {
 	}
 }
 
+function updateVar(varName, value) {
+	$sandbox.data[$tool.name][varName] = value;
+}
+
 
 // =============================================================================
 // Flag Management
@@ -126,7 +130,7 @@ function setFlag(option, value) {
 		flagsArr = flagsArr.concat([ option.flag, option.value ]);
 	}
 
-	$sandbox.data[$tool.name].flags = flagsArr.join(" ").trim();
+	updateVar("flags", flagsArr.join(" ").trim());
 }
 
 
@@ -136,7 +140,24 @@ function setFlag(option, value) {
 </script>
 
 {#if $tool}
-	<h4 class="mb-0">{$tool.name} sandbox</h4>
+	<h4 class="mb-0">
+		{$tool.name} sandbox
+
+		<ButtonDropdown size="sm" class="mx-1 my-1">
+			<DropdownToggle color="primary" caret>Examples</DropdownToggle>
+			<DropdownMenu>
+				{#each EXAMPLES[$tool.name] as example}
+					<DropdownItem on:click={() => {
+						updateVar("input", example.input);
+						updateVar("flags", example.flags);
+						updateVar("command", example.command);
+					}} class="small">
+						{@html example.name}
+					</DropdownItem>
+				{/each}
+			</DropdownMenu>
+		</ButtonDropdown>
+	</h4>
 
 	<div class="row">
 		<!-- Command -->
@@ -160,7 +181,7 @@ function setFlag(option, value) {
 						<IDE
 							lang={langCmd}
 							code={$data.command}
-							on:update={d => $sandbox.data[$tool.name].command = d.detail}
+							on:update={d => updateVar("command", d.detail)}
 							on:run={run} />
 					</div>
 					<div class="flex-shrink-1 ps-3">
@@ -226,7 +247,7 @@ function setFlag(option, value) {
 			<IDE
 				lang={langIO}
 				code={$data.input}
-				on:update={d => $sandbox.data[$tool.name].input = d.detail} />
+				on:update={d => updateVar("input", d.detail)} />
 		</div>
 		<div class="col-md-6 ide">
 			<h5>Output</h5>

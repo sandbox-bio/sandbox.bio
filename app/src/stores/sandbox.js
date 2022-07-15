@@ -29,17 +29,17 @@ export const FLAGS = {
 			flag: "-F",
 			type: FLAG_SETTING,
 			values: [
-				{ name: "Tab", value: "\\t" },
-				{ name: "Comma", value: "," },
+				{ name: "Tab", value: `"\\t"` },
+				{ name: "Comma", value: `","` },
 				{ name: "Space", value: `" "` },
 			]
 		},
-		{
-			name: "Add Variable",
-			flag: "-v",
-			type: FLAG_PARAM,
-			value: `myVar="Some value"`
-		}
+		// {
+		// 	name: "Add Variable",
+		// 	flag: "-v",
+		// 	type: FLAG_PARAM,
+		// 	value: `myVar="Some value"`
+		// }
 	],
 	jq: [
 		{
@@ -59,6 +59,33 @@ export const FLAGS = {
 		}
 	]
 };
+
+// Examples
+export const EXAMPLES = {
+	awk: [
+		{
+			name: "Output nth column",
+			command: `{ print $3 }`,
+			input: awk_data,
+			flags: `-F "\\t"`
+		},
+		{
+			name: "Filter first, then output nth column",
+			command: `/Burrito/ { print $3 }`,
+			input: awk_data,
+			flags: `-F "\\t"`
+		},
+		{
+			name: "Pass variables into <code>awk</code> from the outside",
+			command: `# Use NR > 1 to skip the header line
+NR > 1 {
+	print substr($5, 2) * tax
+}`,
+			input: awk_data,
+			flags: `-F "\\t" -v tax=0.15`
+		},
+	]
+}
 
 // Store defaults
 const DEFAULT = {
