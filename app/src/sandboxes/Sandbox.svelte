@@ -83,6 +83,7 @@ async function run() {
 function parseFlags(flags) {
 	// Source: https://stackoverflow.com/a/16261693
 	// Note that the AST parser doesn't support equal sign in bash yet
+	// and "shell-quote"'s ShellQuote.parse() doesn't process \t properly
 	return flags.match(/(?:[^\s"]+|"[^"]*")+/g) || [];
 }
 
