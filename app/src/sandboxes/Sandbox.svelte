@@ -147,12 +147,13 @@ function setFlag(option, value) {
 			<DropdownToggle color="primary" caret>Examples</DropdownToggle>
 			<DropdownMenu>
 				{#each EXAMPLES[$tool.name] as example}
-					<DropdownItem on:click={() => {
+					{@const active = example.input == $data.input && example.flags == $data.flags && example.command == $data.command}
+					<DropdownItem active={active} on:click={() => {
 						updateVar("input", example.input);
 						updateVar("flags", example.flags);
 						updateVar("command", example.command);
 					}} class="small">
-						{@html example.name}
+						{example.name}
 					</DropdownItem>
 				{/each}
 			</DropdownMenu>
