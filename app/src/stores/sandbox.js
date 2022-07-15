@@ -64,26 +64,77 @@ export const FLAGS = {
 export const EXAMPLES = {
 	awk: [
 		{
-			name: "Output nth column",
-			command: `{ print $3 }`,
+			name: "Output 3rd column",
 			input: awk_data,
-			flags: `-F "\\t"`
+			flags: `-F "\\t"`,
+			command: `{ print $3 }`
 		},
 		{
-			name: "Filter first, then output nth column",
-			command: `/Burrito/ { print $3 }`,
+			name: "Filter first, then output 3rd column",
 			input: awk_data,
-			flags: `-F "\\t"`
+			flags: `-F "\\t"`,
+			command: `/Burrito/ { print $3 }`
 		},
 		{
-			name: "Pass variables into <code>awk</code> from the outside",
-			command: `# Use NR > 1 to skip the header line
-NR > 1 {
-	print substr($5, 2) * tax
+			name: "Sum over the 2nd column",
+			input: awk_data,
+			flags: `-F "\\t"`,
+			command: `# The END block runs once all lines are processed
+{
+  sum += $2
+} END {
+  print(sum)
+}`
+		},
+		{
+			name: "Sum over the 2nd column, with initial value",
+			input: awk_data,
+			flags: `-F "\\t"`,
+			command: `# The BEGIN block is optional 
+BEGIN {
+  sum = 10
+} {
+  sum += $2
+} END {
+  print(sum)
+}`
+		},
+		{
+			name: "Pass variables into awk from the outside",
+			input: awk_data,
+			flags: `-F "\\t" -v tax=0.15`,
+			command: `{
+  # Output header line
+  if(NR == 1) {
+    print "Price", "Price with Tax"
+
+  # Output price before and after tax
+  } else {
+    # Get price from column 5 and remove first character (dollar sign)
+    price = substr($5, 2)
+    # Tax rate is defined in the flags box on the right
+    print price, price * (1+ tax)
+  }
 }`,
-			input: awk_data,
-			flags: `-F "\\t" -v tax=0.15`
 		},
+		{
+			name: "Arrays and loops",
+			input: awk_data,
+			flags: `-F "\\t"`,
+			command: `# Skip first line (header)
+NR > 1 {
+  itemCount = $2
+  itemName = $3
+
+  # Track how often burritos were ordered
+  if(itemName ~ /Burrito/)
+    counts[itemName] += itemCount
+} END {
+  # Print burrito counts, split by filling
+  for(item in counts)
+    print(item, counts[item])
+}`,
+		}
 	]
 }
 
