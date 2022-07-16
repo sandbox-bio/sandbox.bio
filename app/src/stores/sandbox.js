@@ -64,105 +64,85 @@ export const FLAGS = {
 export const EXAMPLES = {
 	awk: [
 		{
-			name: "Output 3rd column",
+			name: "Output columns",
 			input: awk_data,
 			flags: `-F "\\t"`,
 			command: `{
-  print $3
+	print $3, $5
 }`
 		},
 		{
-			name: "Filter and output 3rd column",
+			name: "Filter and output columns",
 			input: awk_data,
 			flags: `-F "\\t"`,
 			command: `/Burrito/ {
-  print $3
+	print $3, $5
 }`
 		},
 		{
-			name: "Output multiple columns",
+			name: "Sum over a column",
 			input: awk_data,
 			flags: `-F "\\t"`,
-			command: `{
-  OFS="\\t"  # Use OFS to customize output separator
-  print $3, $5
-}`
-		},
-		{
-			name: "Sum over the 2nd column",
-			input: awk_data,
-			flags: `-F "\\t"`,
-			command: `{
-  sum += $2
-# This block only runs after the last line is processed
-} END {
-  print(sum)
-}`
-		},
-		{
-			name: "Sum over the 2nd column, with initial value",
-			input: awk_data,
-			flags: `-F "\\t"`,
-			command: `# The BEGIN block is optional 
-BEGIN {
-  sum = 10
+			command: `BEGIN {
+	sum = 0     # The BEGIN block is optional
 } {
-  sum += $2
+	sum += $2
 } END {
-  print(sum)
+	print(sum)  # The END block is executed at the very end
 }`
 		},
 		{
-			name: "Customize output format",
+			name: "Calculate a new column",
 			input: awk_data,
 			flags: `-F "\\t"`,
-			command: `{
-  tax_rate = 0.0725
+			command: `BEGIN {
+	tax = 0.0725
+	OFS = "\\t"  # Use tab as output separator
+} {
+	if (NR == 1) {
+		# Rename header
+		$6 = "item_price_plus_tax"
+    } else {
+		# Remove dollar sign from price in 5th column
+		price = substr($5, 2)
 
-  # Remove dollar sign from price from 5th column
-  price = substr($5, 2)
-  price_after_tax = price * (1 + tax_rate)
+		# Add 6th column with price including tax
+		$6 = sprintf("$%.2f", price * (1 + tax))
+	}
 
-  print sprintf("$%.2f\t$%.2f", price, price_after_tax)
-
-} END {
-  print(sum)
+	# Output all columns
+	print
 }`
 		},
 		{
-			name: "Pass variables into awk from the outside",
+			name: "Inject variables",
 			input: awk_data,
-			flags: `-F "\\t" -v tax=0.0725`,
+			flags: `-F "\\t" -v food=Chicken`,
 			command: `{
-  # Output header line
-  if(NR == 1) {
-    print "Price", "Price with Tax"
-
-  # Output price before and after tax
-  } else {
-    # Get price from column 5 and remove first character (dollar sign)
-    price = substr($5, 2)
-    # Tax rate is defined in the flags box on the right
-    print price, price * (1+ tax)
-  }
+	# Only print lines that match the food variable defined in the flags
+	# Try changing the variable to "Tacos"
+	if($3 ~ food)
+		print
 }`,
 		},
 		{
-			name: "Arrays and loops",
+			name: "Dictionaries and loops",
 			input: awk_data,
 			flags: `-F "\\t"`,
 			command: `# Skip first line (header)
 NR > 1 {
-  itemCount = $2
-  itemName = $3
+	itemCount = $2
+	itemName = $3
 
-  # Track how often burritos were ordered
-  if(itemName ~ /Burrito/)
-    counts[itemName] += itemCount
+	# Track how often burritos were ordered
+	# Notice that counts becomes a dictionary with
+	# default values of zero automatically!
+	if(itemName ~ /Burrito/)
+		counts[itemName] += itemCount
 } END {
-  # Print burrito counts, split by filling
-  for(item in counts)
-    print(item, counts[item])
+	# Print burrito counts, split by filling
+	for(item in counts)
+		print(item, counts[item])
 }`,
 		}
 	],
