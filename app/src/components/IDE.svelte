@@ -1,6 +1,7 @@
 <script>
 import { createEventDispatcher } from "svelte";
 import { EditorView, basicSetup } from "codemirror"
+import { indentWithTab } from "@codemirror/commands";
 import { EditorState } from "@codemirror/state";
 import { keymap } from "@codemirror/view";
 import { json } from "@codemirror/lang-json";
@@ -33,14 +34,17 @@ function initEditor(lang) {
 	// Define basic extensions
 	const extensions = [
 		// Support executing the code if press Cmd+Enter
-		keymap.of({
-			key: "Mod-Enter",
-			run: view => {
-				dispatch("run", view.state.doc.toString());
-				return true;
-			},
-			preventDefault: true
-		}),
+		keymap.of([
+			indentWithTab,
+			{
+				key: "Mod-Enter",
+				run: view => {
+					dispatch("run", view.state.doc.toString());
+					return true;
+				},
+				preventDefault: true
+			}
+		]),
 		// Don't need all of basicSetup (https://github.com/codemirror/basic-setup/blob/main/src/codemirror.ts#L47)
 		basicSetup.slice(2),
 		// Support read-only editors if needed

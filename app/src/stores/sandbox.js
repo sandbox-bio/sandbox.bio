@@ -94,8 +94,8 @@ export const EXAMPLES = {
 			flags: `-F "\\t"`,
 			command: `{
   sum += $2
-
-} END {  # This block only runs after the last line is processed
+# This block only runs after the last line is processed
+} END {
   print(sum)
 }`
 		},
