@@ -143,7 +143,7 @@ function setFlag(option, value) {
 	<h4 class="mb-0">
 		{$tool.name} sandbox
 
-		<ButtonDropdown size="sm" class="mx-1 my-1">
+		<ButtonDropdown class="mx-1 my-1">
 			<DropdownToggle color="primary" caret>Examples</DropdownToggle>
 			<DropdownMenu>
 				{#each EXAMPLES[$tool.name] as example}
@@ -152,7 +152,7 @@ function setFlag(option, value) {
 						updateVar("input", example.input);
 						updateVar("flags", example.flags);
 						updateVar("command", example.command);
-					}} class="small">
+					}}>
 						{example.name}
 					</DropdownItem>
 				{/each}

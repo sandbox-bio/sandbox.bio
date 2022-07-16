@@ -76,6 +76,16 @@ export const EXAMPLES = {
 			command: `/Burrito/ { print $3 }`
 		},
 		{
+			name: "Output multiple columns",
+			input: awk_data,
+			flags: `-F "\\t"`,
+			command: `{
+  # Use tabs instead of spaces as output separators
+  OFS="\\t"
+  print $3, $5
+}`
+		},
+		{
 			name: "Sum over the 2nd column",
 			input: awk_data,
 			flags: `-F "\\t"`,
@@ -135,7 +145,8 @@ NR > 1 {
     print(item, counts[item])
 }`,
 		}
-	]
+	],
+	jq: []
 }
 
 // Store defaults
