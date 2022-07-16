@@ -67,21 +67,24 @@ export const EXAMPLES = {
 			name: "Output 3rd column",
 			input: awk_data,
 			flags: `-F "\\t"`,
-			command: `{ print $3 }`
+			command: `{
+  print $3
+}`
 		},
 		{
-			name: "Filter first, then output 3rd column",
+			name: "Filter and output 3rd column",
 			input: awk_data,
 			flags: `-F "\\t"`,
-			command: `/Burrito/ { print $3 }`
+			command: `/Burrito/ {
+  print $3
+}`
 		},
 		{
 			name: "Output multiple columns",
 			input: awk_data,
 			flags: `-F "\\t"`,
 			command: `{
-  # Use tabs instead of spaces as output separators
-  OFS="\\t"
+  OFS="\\t"  # Use OFS to customize output separator
   print $3, $5
 }`
 		},
@@ -89,10 +92,10 @@ export const EXAMPLES = {
 			name: "Sum over the 2nd column",
 			input: awk_data,
 			flags: `-F "\\t"`,
-			command: `# The END block runs once all lines are processed
-{
+			command: `{
   sum += $2
-} END {
+
+} END {  # This block only runs after the last line is processed
   print(sum)
 }`
 		},
@@ -110,9 +113,26 @@ BEGIN {
 }`
 		},
 		{
+			name: "Customize output format",
+			input: awk_data,
+			flags: `-F "\\t"`,
+			command: `{
+  tax_rate = 0.0725
+
+  # Remove dollar sign from price from 5th column
+  price = substr($5, 2)
+  price_after_tax = price * (1 + tax_rate)
+
+  print sprintf("$%.2f\t$%.2f", price, price_after_tax)
+
+} END {
+  print(sum)
+}`
+		},
+		{
 			name: "Pass variables into awk from the outside",
 			input: awk_data,
-			flags: `-F "\\t" -v tax=0.15`,
+			flags: `-F "\\t" -v tax=0.0725`,
 			command: `{
   # Output header line
   if(NR == 1) {

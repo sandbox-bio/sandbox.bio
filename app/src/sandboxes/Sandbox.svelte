@@ -148,7 +148,7 @@ function setFlag(option, value) {
 			<DropdownMenu>
 				{#each EXAMPLES[$tool.name] as example}
 					{@const active = example.input == $data.input && example.flags == $data.flags && example.command == $data.command}
-					<DropdownItem active={active} on:click={() => {
+					<DropdownItem class="py-2" active={active} on:click={() => {
 						updateVar("input", example.input);
 						updateVar("flags", example.flags);
 						updateVar("command", example.command);

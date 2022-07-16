@@ -6,7 +6,7 @@ So far, we only used variables inside the awk script. But what if we wanted to p
 
 For example, let's define a variable that represents the tax rate:
 
-<Execute command={`TAX_RATE=0.15`} />
+<Execute command={`TAX_RATE=0.0725`} />
 
 We can now use `-v` to pass this variable into `awk`:
 
