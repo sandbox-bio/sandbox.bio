@@ -118,7 +118,7 @@ async function exec(cmd, callback=console.warn)
 	// If string, convert it to an AST
 	if(typeof cmd === "string") {
 		// FIXME: This is a hack to support `awk -v abc=123`, which otherwise breaks
-		const awkVarMatch = cmd.matchAll("-v [A-Za-z0-9]+\=[A-Za-z0-9]+");
+		const awkVarMatch = cmd.matchAll("-v [A-Za-z0-9_]+\=[A-Za-z0-9_\$]+");
 		if(cmd.includes("awk") && awkVarMatch) {
 			for(let match of awkVarMatch)
 				cmd = cmd.replace(match[0], match[0].replace("=", ESCAPED_EQUAL_SIGN));

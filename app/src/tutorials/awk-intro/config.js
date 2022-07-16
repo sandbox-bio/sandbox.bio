@@ -4,6 +4,7 @@ import Step1 from "./steps/Step1.md";
 import Step2 from "./steps/Step2.md";
 import Step3 from "./steps/Step3.md";
 import Step4 from "./steps/Step4.md";
+import Step4_2 from "./steps/Step4_2.md";
 import Step5 from "./steps/Step5.md";
 import Step6 from "./steps/Step6.md";
 import Conclusion from "./steps/Conclusion.md";
@@ -28,6 +29,7 @@ export const config = {
 		{ name: "Filtering data", subtitle: "Exercise", component: Exercise1 },
 		{ name: "Variables", subtitle: "Using variables to count sums", component: Step3, header: true },
 		{ name: "Variables", subtitle: "Auto-initialization of variables", component: Step4 },
+		{ name: "Variables", subtitle: "Passing variables from the outside", component: Step4_2 },
 		{ name: "Variables", subtitle: "Exercise", component: Exercise2 },
 		{ name: "Arrays", subtitle: "Using arrays to tally burritos", component: Step5, header: true },
 		{ name: "Arrays", subtitle: "Using arrays to tally costs", component: Step6 },
