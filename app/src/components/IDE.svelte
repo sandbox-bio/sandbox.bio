@@ -1,7 +1,7 @@
 <script>
 import { createEventDispatcher } from "svelte";
 import { EditorView, basicSetup } from "codemirror"
-import { indentWithTab } from "@codemirror/commands";
+import { insertTab, indentLess } from "@codemirror/commands";
 import { EditorState } from "@codemirror/state";
 import { keymap } from "@codemirror/view";
 import { json } from "@codemirror/lang-json";
@@ -33,9 +33,15 @@ $: if(editor && code !== editor.state.doc.toString()) {
 function initEditor(lang) {
 	// Define basic extensions
 	const extensions = [
-		// Support executing the code if press Cmd+Enter
 		keymap.of([
-			indentWithTab,
+			// When tab inside a string, output a tab; when tab at line beginning, indent the line
+			// (Note that `indentWithTab` instead indents lines even when you want to output a tab)
+			{
+				key: "Tab",
+				run: insertTab,
+				shift: indentLess
+			},
+			// Run code when do Cmd + Enter
 			{
 				key: "Mod-Enter",
 				run: view => {
