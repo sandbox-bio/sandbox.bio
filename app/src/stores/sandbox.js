@@ -3,7 +3,7 @@ import localforage from "localforage";
 import { get, writable, derived } from "svelte/store";
 import { getLocalForageKey } from "stores/config";
 
-import awk_data from "sandboxes/orders.txt";
+import awk_data from "playgrounds/orders.txt";
 
 
 // =============================================================================

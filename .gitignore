@@ -3,7 +3,7 @@ app/public/build/
 app/public/data/
 app/public/tutorials/
 app/public/playground/
-app/public/sandboxes/
+app/public/playgrounds/
 app/public/rosalind/
 # Cloudflare Worker Sites
 dist/

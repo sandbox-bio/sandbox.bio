@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Home from "./routes/Home.svelte";
 import Tutorial from "./tutorials/Tutorial.svelte";
-import Sandbox from "./sandboxes/Sandbox.svelte";
+import Sandbox from "./playgrounds/Sandbox.svelte";
 import Login from "./components/Login.svelte";
 import Listings from "./components/Listings.svelte";
 import { supabase, user, progress, envInit } from "./stores/config";
@@ -132,10 +132,10 @@ onMount(async () => {
 			</a>
 			<ul class="dropdown-menu" aria-labelledby="navPlaygrounds">
 				<li><a class="dropdown-item" href="/playground">Command Line</a></li>
-				<li><a class="dropdown-item" href="/sandboxes?id=awk">awk</a></li>
-				<li><a class="dropdown-item" href="/sandboxes?id=grep">grep</a></li>
-				<li><a class="dropdown-item" href="/sandboxes?id=sed">sed</a></li>
-				<li><a class="dropdown-item" href="/sandboxes?id=jq">jq (JSON)</a></li>
+				<li><a class="dropdown-item" href="/playgrounds?id=awk">awk</a></li>
+				<li><a class="dropdown-item" href="/playgrounds?id=grep">grep</a></li>
+				<li><a class="dropdown-item" href="/playgrounds?id=sed">sed</a></li>
+				<li><a class="dropdown-item" href="/playgrounds?id=jq">jq (JSON)</a></li>
 			</ul>
 		</li> -->
 		<li class="nav-item">
@@ -179,12 +179,12 @@ onMount(async () => {
 		{:else}
 			<Listings items={$tutorials} />
 		{/if}
+	{:else if path.startsWith("/playgrounds")}
+		<Sandbox />
 	{:else if path.startsWith("/playground")}
 		<Tutorial id="playground" />
 	{:else if path.startsWith("/rosalind")}
 		<Tutorial id="rosalind" step={+params.get("step") || 0} />
-	{:else if path.startsWith("/sandboxes")}
-		<Sandbox />
 	{/if}
 </main>
 
