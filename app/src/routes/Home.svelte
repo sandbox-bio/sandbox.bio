@@ -1,6 +1,6 @@
 <script>
 import { Modal } from "sveltestrap";
-import { tutorials, explore } from "./stores/tutorials";
+import { tutorials, explore, playgrounds } from "./stores/tutorials";
 import Listings from "./components/Listings.svelte";
 
 // State
@@ -24,6 +24,8 @@ let aboutIsOpen = false;  // Whether "About" modal is showing or not
 </div>
 
 <Listings items={$tutorials} />
+
+<!-- <Listings items={$playgrounds} title="Playgrounds" /> -->
 
 <Listings items={$explore} title="Explore" />
 
