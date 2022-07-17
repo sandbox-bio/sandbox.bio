@@ -1,17 +1,10 @@
-var words = {};
-function define(style, dict) {
-  for(var i = 0; i < dict.length; i++) {
-    words[dict[i]] = style;
-  }
-};
-
-var commonKeywords = [
+const words = {};
+const commonKeywords = [
 	"if", "else", "while", "for", "in", "function", "return",
 	"gsub", "print", "sprintf", "substr",
-	"OFS", "BEGIN", "END", "NR", "FS"
+	"OFS", "BEGIN", "END", "NR", "FS",
 ];
-
-define('keyword', commonKeywords);
+commonKeywords.forEach(w => words[w] = "keyword");
 
 function tokenBase(stream, state) {
   if (stream.eatSpace()) return null;
@@ -39,21 +32,8 @@ function tokenBase(stream, state) {
     state.tokens.unshift(tokenDollar);
     return tokenize(stream, state);
   }
-  if (ch === '+' || ch === '=') {
+  if (["+", "-", "=", "<", ">"].includes(ch)) {
     return 'operator';
-  }
-  if (ch === '-') {
-    stream.eat('-');
-    stream.eatWhile(/\w/);
-    return 'attribute';
-  }
-  if (ch == "<") {
-    if (stream.match("<<")) return "operator"
-    var heredoc = stream.match(/^<-?\s*['"]?([^'"]*)['"]?/)
-    if (heredoc) {
-      state.tokens.unshift(tokenHeredoc(heredoc[1]))
-      return 'string.special'
-    }
   }
   if (/\d/.test(ch)) {
     stream.eatWhile(/\d/);
@@ -114,23 +94,13 @@ var tokenDollar = function(stream, state) {
   return 'def';
 };
 
-function tokenHeredoc(delim) {
-  return function(stream, state) {
-    if (stream.sol() && stream.string == delim) state.tokens.shift()
-    stream.skipToEnd()
-    return "string.special"
-  }
-}
-
 function tokenize(stream, state) {
-  return (state.tokens[0] || tokenBase) (stream, state);
+  return (state.tokens[0] || tokenBase)(stream, state);
 };
 
-export const shell = {
+export const awk = {
   startState: function() {return {tokens:[]};},
-  token: function(stream, state) {
-    return tokenize(stream, state);
-  },
+  token: tokenize,
   languageData: {
     // autocomplete: commonKeywords,
     closeBrackets: {brackets: ["(", "[", "{", "'", '"', "`"]},
