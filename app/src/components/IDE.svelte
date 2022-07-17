@@ -5,9 +5,10 @@ import { insertTab, indentLess } from "@codemirror/commands";
 import { EditorState } from "@codemirror/state";
 import { keymap } from "@codemirror/view";
 import { json } from "@codemirror/lang-json";
-import { cpp } from "@codemirror/lang-cpp";
+import { StreamLanguage } from "@codemirror/language";
+import { shell } from "codemirror/shell";
 
-export let lang;  // json, cpp, null=no syntax highlighting
+export let lang;  // json, shell, null=no syntax highlighting
 export let code;
 export let editable = true;
 
@@ -63,8 +64,8 @@ function initEditor(lang) {
 	];
 
 	// Add syntax highlighting
-	if(lang === "cpp")
-		extensions.push(cpp());
+	if(lang === "shell")
+		extensions.push(StreamLanguage.define(shell));
 	else if(lang === "json")
 		extensions.push(json());
 

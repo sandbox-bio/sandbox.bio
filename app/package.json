@@ -27,7 +27,6 @@
   "dependencies": {
     "@biowasm/aioli": "^2.4.0",
     "@codemirror/commands": "^6.0.1",
-    "@codemirror/lang-cpp": "^6.0.1",
     "@codemirror/lang-json": "^6.0.0",
     "@codemirror/state": "^6.0.1",
     "@supabase/supabase-js": "^1.35.3",

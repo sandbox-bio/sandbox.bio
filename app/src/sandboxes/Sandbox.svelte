@@ -13,7 +13,7 @@ let output;
 let error;
 
 // Reactive logic
-$: langCmd = $tool?.name === "jq" ? "json" : "cpp";
+$: langCmd = $tool?.name === "jq" ? "json" : "shell";
 $: langIO = $tool?.name === "jq" ? "json" : null;
 $: if(CLI.ready && $data.input && $data.command && $tool?.name && $sandbox.settings.interactive) run($data.flags);
 
