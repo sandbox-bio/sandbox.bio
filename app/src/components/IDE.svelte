@@ -6,7 +6,7 @@ import { EditorState } from "@codemirror/state";
 import { keymap } from "@codemirror/view";
 import { json } from "@codemirror/lang-json";
 import { StreamLanguage } from "@codemirror/language";
-import { shell } from "codemirror/shell";
+import { shell } from "../../codemirror/shell";
 
 export let lang;  // json, shell, null=no syntax highlighting
 export let code;
