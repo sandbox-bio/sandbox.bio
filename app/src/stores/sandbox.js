@@ -25,7 +25,7 @@ export const FLAG_PARAM   = "parameter";  // Can use flag multiple times (button
 export const FLAGS = {
 	awk: [
 		{
-			name: "Delimiter",
+			name: "Input Delimiter",
 			flag: "-F",
 			type: FLAG_SETTING,
 			values: [

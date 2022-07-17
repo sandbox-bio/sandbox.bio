@@ -177,24 +177,24 @@ function setFlag(option, value) {
 				</div>
 
 				<!-- Command box -->
-				<div class="d-flex flex-row">
-					<div class="w-100">
+				<div class="d-flex w-100" style="border:0px solid red">
+					<div class="col-11" style="border:0px solid blue">
 						<IDE
 							lang={langCmd}
 							code={$data.command}
 							on:update={d => updateVar("command", d.detail)}
 							on:run={run} />
 					</div>
-					<div class="flex-shrink-1 ps-3">
+					<div class="col-1" style="border:0px solid green">
 						<Button color="primary" size="sm" on:click={run} disabled={busy}>
 							Run
 						</Button>
 					</div>
-				</div>
+				</div>				  
 
 				<!-- Errors -->
 				{#if error}
-					<pre class="text-danger pre-scrollable">{error}</pre>
+					<pre class="text-danger">{error}</pre>
 				{/if}
 			</div>
 		</div>
@@ -263,5 +263,9 @@ function setFlag(option, value) {
 <style>
 .ide {
 	font-size: 15px;  /* default = 16px */
+}
+
+pre {
+	white-space: pre-wrap;  /* to avoid scrolling horizontally for long error messages */
 }
 </style>
