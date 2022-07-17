@@ -10,7 +10,7 @@ import { getAssetFromKV } from "@cloudflare/kv-asset-handler";
 // =============================================================================
 
 // Paths to reroute to index.html so Svelte can do the routing
-const PATHS_ROUTE_TO_MAIN = ["/tutorials", "/playground", "/rosalind"];
+const PATHS_ROUTE_TO_MAIN = ["/tutorials", "/playground", "/rosalind", "/sandboxes"];
 
 // Cache settings for static content (API is not cached)
 const CACHE_CONTROL = {

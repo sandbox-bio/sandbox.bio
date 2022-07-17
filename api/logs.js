@@ -6,7 +6,7 @@ import { supabase } from "./utils";
 // Config
 // =============================================================================
 
-const PATHS_INCLUDE = ["/", "/rosalind", "/rosalind/", "/playground", "/playground/", "/tutorials", "/tutorials/"];
+const PATHS_INCLUDE = ["/", "/rosalind", "/rosalind/", "/playground", "/playground/", "/tutorials", "/tutorials/", "/sandboxes", "/sandboxes/"];
 
 
 // =============================================================================
