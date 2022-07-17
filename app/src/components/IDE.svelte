@@ -65,7 +65,7 @@ function initEditor(lang) {
 
 	// Add syntax highlighting
 	if(lang === "awk")
-		extensions.push(StreamLanguage.define(shell));
+		extensions.push(StreamLanguage.define(awk));
 	else if(lang === "json")
 		extensions.push(json());
 
