@@ -144,6 +144,63 @@ NR > 1 {
 	for(item in counts)
 		print(item, counts[item])
 }`,
+		},
+		{
+			name: "Cumulative sums on groups of rows",
+			input: awk_data,
+			flags: `-F "\\t"`,
+			command: `BEGIN {
+	currentOrderId = -1
+	totalPrice = 0
+
+# Print header
+} NR == 1 {
+	print "order_id", "order_price"
+
+# Add up prices of all items within the same order
+# (assumes input is sorted by the order_id column)
+} NR > 1 {
+	# If we come across a new order ID, output the
+	# total price of the previous order.
+	if($1 != currentOrderId) {
+		if(currentOrderId != -1)
+			print currentOrderId, totalPrice
+
+		# Reset price
+		currentOrderId = $1
+		totalPrice = 0
+    }
+
+	totalPrice += substr($5, 2)
+
+# Make sure you don't forget the last order in the file!
+} END {
+	print currentOrderId, totalPrice
+}`
+		},
+		{
+			name: "Functions",
+			input: awk_data,
+			flags: `-F "\\t"`,
+			command: `# Sanitize data so it's friendlier for analysis in other tools
+function sanitizeStr(str) {
+	# Replace spaces with underscores (\\s = whitespace)
+	gsub(/\\s/, "_", str)
+
+	# Remove square brackets
+	gsub(/\\[|\\]/, "", str)
+
+	return str
+
+} BEGIN {
+	OFS = "\\t"
+
+} {
+	# Overwrite 3rd/4th columns (doesn't affect source files!)
+	$3 = sanitizeStr($3)
+	$4 = sanitizeStr($4)
+	print
+}`
 		}
 	],
 	jq: []
