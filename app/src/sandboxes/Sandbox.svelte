@@ -1,13 +1,15 @@
 <script>
 import { onMount } from "svelte";
 import Aioli from "@biowasm/aioli";
-import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Tooltip } from "sveltestrap";
+import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Spinner, Tooltip } from "sveltestrap";
 import { tool, data, sandbox, TOOLS, EXAMPLES, FLAGS, FLAG_SETTING, FLAG_BOOLEAN, FLAG_PARAM } from "stores/sandbox";
 import IDE from "components/IDE.svelte";
 
 // State
 let CLI = {};
-let busy = true;
+let ready = false;    // whether CLI is done loading
+let busy = false;     // whether CLI is busy
+let busy_ui = false;  // whether UI is busy (CLI.busy is whether Aioli is busy)
 let divSettingEnter;
 let output;
 let error;
@@ -15,7 +17,7 @@ let error;
 // Reactive logic
 $: langCmd = $tool?.name === "jq" ? "json" : "shell";
 $: langIO = $tool?.name === "jq" ? "json" : null;
-$: if(CLI.ready && $data.input && $data.command && $tool?.name && $sandbox.settings.interactive) run($data.flags);
+$: if(ready && $data.input && $data.command && $tool?.name && $sandbox.settings.interactive) run($data.flags);
 
 
 // =============================================================================
@@ -39,15 +41,21 @@ onMount(async () => {
 		env: ["localhost", "dev.sandbox.bio"].includes(window.location.hostname) ? "stg" : "prd",
 		printInterleaved: false
 	});
-	CLI.ready = true;
+	ready = true;
 	busy = false;
 });
 
 // Run command with given input and show resulting output/error
 async function run() {
-	if(busy)
+	if(!ready || busy)
 		return;
+
+	// If the CLI is still busy after 100ms, show a spinner, otherwise don't (avoids flickering)
 	busy = true;
+	setTimeout(() => {
+		if(busy)
+			busy_ui = true;
+	}, 100);
 
 	// Prepare parameters
 	let params = [];
@@ -70,6 +78,7 @@ async function run() {
 		console.error(error);
 	} finally {
 		busy = false;
+		busy_ui = false;
 	}
 }
 
@@ -186,9 +195,15 @@ function setFlag(option, value) {
 							on:run={run} />
 					</div>
 					<div class="col-1" style="border:0px solid green">
-						<Button color="primary" size="sm" on:click={run} disabled={busy}>
-							Run
-						</Button>
+						{#if $sandbox.settings.interactive}
+							{#if busy_ui}
+								<Spinner class="ms-3" color="primary" />
+							{/if}
+						{:else}
+							<Button color="primary" size="sm" on:click={run} disabled={busy_ui}>
+								Run
+							</Button>
+						{/if}
 					</div>
 				</div>				  
 
