@@ -8,7 +8,7 @@ import { json } from "@codemirror/lang-json";
 import { StreamLanguage } from "@codemirror/language";
 import { shell } from "../../codemirror/shell";
 
-export let lang;  // json, shell, null=no syntax highlighting
+export let lang;  // json, awk, null=no syntax highlighting
 export let code;
 export let editable = true;
 
@@ -64,7 +64,7 @@ function initEditor(lang) {
 	];
 
 	// Add syntax highlighting
-	if(lang === "shell")
+	if(lang === "awk")
 		extensions.push(StreamLanguage.define(shell));
 	else if(lang === "json")
 		extensions.push(json());

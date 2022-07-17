@@ -132,7 +132,7 @@ export const shell = {
     return tokenize(stream, state);
   },
   languageData: {
-    autocomplete: commonKeywords,
+    // autocomplete: commonKeywords,
     closeBrackets: {brackets: ["(", "[", "{", "'", '"', "`"]},
     commentTokens: {line: "#"}
   }

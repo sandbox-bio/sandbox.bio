@@ -57,7 +57,9 @@ export const FLAGS = {
 			flag: "-s",
 			type: FLAG_BOOLEAN,
 		}
-	]
+	],
+	sed: [],
+	grep: []
 };
 
 // Examples
@@ -203,7 +205,9 @@ function sanitizeStr(str) {
 }`
 		}
 	],
-	jq: []
+	jq: [],
+	sed: [],
+	grep: []
 }
 
 // Store defaults
@@ -221,6 +225,16 @@ const DEFAULT = {
 			flags: "-S",
 			command: ".",
 			input: `{"lastname": "Aboukhalil", "firstname":"Robert"}`
+		},
+		sed: {
+			flags: "",
+			command: `s/CT/--/gi`,
+			input: "ACGTACTGACTGACTGAC"
+		},
+		grep: {
+			flags: "-E",
+			command: `Burrito|Tacos`,
+			input: awk_data
 		}
 	},
 };

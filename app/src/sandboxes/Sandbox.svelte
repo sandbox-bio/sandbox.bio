@@ -15,7 +15,7 @@ let output;
 let error;
 
 // Reactive logic
-$: langCmd = $tool?.name === "jq" ? "json" : "shell";
+$: langCmd = { awk: "awk", jq: "json" }[$tool?.name];
 $: langIO = $tool?.name === "jq" ? "json" : null;
 $: if(ready && $data.input && $data.command && $tool?.name && $sandbox.settings.interactive) run($data.flags);
 
@@ -196,7 +196,7 @@ function setFlag(option, value) {
 					</div>
 					<div class="col-1" style="border:0px solid green">
 						{#if $sandbox.settings.interactive}
-							{#if busy_ui}
+							{#if busy_ui || !ready}
 								<Spinner class="ms-3" color="primary" />
 							{/if}
 						{:else}
