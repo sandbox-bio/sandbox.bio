@@ -41,6 +41,33 @@ export const FLAGS = {
 		// 	value: `myVar="Some value"`
 		// }
 	],
+	grep: [
+		{
+			name: "Invert match",
+			flag: "-v",
+			type: FLAG_BOOLEAN,
+		},
+		{
+			name: "Regex",
+			flag: "-E",
+			type: FLAG_BOOLEAN,
+		},
+		{
+			name: "Ignore case",
+			flag: "-i",
+			type: FLAG_BOOLEAN,
+		},
+		{
+			name: "Count",
+			flag: "-c",
+			type: FLAG_BOOLEAN,
+		},
+		{
+			name: "Line numbers",
+			flag: "-n",
+			type: FLAG_BOOLEAN,
+		}
+	],
 	jq: [
 		{
 			name: "Compact",
@@ -204,9 +231,58 @@ function sanitizeStr(str) {
 }`
 		}
 	],
+	grep: [
+		{
+			name: "Basic filter",
+			input: awk_data,
+			flags: ``,
+			command: `Burrito`
+		},
+		{
+			name: "Reverse filter",
+			input: awk_data,
+			flags: `-v`,
+			command: `NULL`
+		},
+		{
+			name: "Regular expression 1",
+			input: awk_data,
+			flags: `-E`,
+			command: `Tomato|Tomatillo`
+		},
+		{
+			name: "Regular expression 2",
+			input: awk_data,
+			flags: `-E`,
+			command: `\\$1[0-9]+`
+		},
+		{
+			name: "Case insensitive filter",
+			input: awk_data,
+			flags: `-i`,
+			command: `bowl`
+		},
+		{
+			name: "Count matches",
+			input: awk_data,
+			flags: `-c`,
+			command: `Burrito`
+		},
+		{
+			name: "Output line numbers",
+			input: awk_data,
+			flags: `-n`,
+			command: `Chips and Guacamole`
+		},
+		{
+			name: "Show lines before/after match",
+			input: awk_data,
+			flags: `-A 1 -B 1 --group-separator "====="`,
+			command: `Canned Soda`
+		},
+	],
 	jq: [],
 	sed: [],
-	grep: []
 }
 
 // Store defaults
