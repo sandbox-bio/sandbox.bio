@@ -24,13 +24,18 @@ export let skip = [];   // Specific tutorial IDs to not show
 		{/if}
 
 		<div class="col-md-{colMd} col-lg-{colLg} col-xxl-{colXxl} mt-2">
-			<div class="h-100 p-3 border rounded-3">
-				{#each (info.difficulty || []) as tag}
-					<span class="badge" class:bg-success={tag == "beginner"} class:bg-danger={tag == "difficult"} style={tag == "intermediate" ? "background-color:#fd7e14" : ""}>{tag}</span>
-				{/each}
-				{#each (info.tags || []) as tag}
-					<span class="badge bg-primary me-1 mb-2">{tag}</span>
-				{/each}
+			<div class="listing-card h-100 p-3 border rounded-3 position-relative d-flex flex-column">
+				<!-- Tags -->
+				<div>
+					{#each (info.difficulty || []) as tag}
+						<span class="badge" class:bg-success={tag == "beginner"} class:bg-danger={tag == "difficult"} style={tag == "intermediate" ? "background-color:#fd7e14" : ""}>{tag}</span>
+					{/each}
+					{#each (info.tags || []) as tag}
+						<span class="badge bg-primary me-1 mb-2">{tag}</span>
+					{/each}
+				</div>
+
+				<!-- Tutorial Info -->
 				<h4>
 					{info.name}
 					{#if info.id in $progress}
@@ -50,23 +55,33 @@ export let skip = [];   // Specific tutorial IDs to not show
 					{/if}
 				</h4>
 				<p>{@html info.description}</p>
-				<!-- "Explore" listings -->
-				{#if info.url}
-					<a href={info.url} class="btn btn-outline-primary text-center" target="_blank">Launch</a>
+				
+				<!-- Launch link -->
+				<div>
+					<!-- "Explore" listings -->
+					{#if info.url}
+						<a href={info.url} class="btn btn-outline-primary text-center mt-auto stretched-link" target="_blank">Launch</a>
 
-				<!-- "Tutorials" listings -->
-				{:else}
-					{#if info.id in $progress}
-						{#if $progress[info.id].step == (info.steps.length - 1)}
-							<a href={`/tutorials?id=${info.id}`} class="btn btn-outline-success text-center">Launch</a>
-						{:else}
-							<a href={`/tutorials?id=${info.id}&step=${$progress[info.id].step}`} class="btn btn-primary text-center">Resume</a>
-						{/if}
+					<!-- "Tutorials" listings -->
 					{:else}
-						<a href={`/tutorials?id=${info.id}`} class="btn btn-outline-primary text-center">Launch</a>
+						{#if info.id in $progress}
+							{#if $progress[info.id].step == (info.steps.length - 1)}
+								<a href={`/tutorials?id=${info.id}`} class="btn btn-outline-success text-center mt-auto stretched-link">Launch</a>
+							{:else}
+								<a href={`/tutorials?id=${info.id}&step=${$progress[info.id].step}`} class="btn btn-primary text-center mt-auto stretched-link">Resume</a>
+							{/if}
+						{:else}
+							<a href={`/tutorials?id=${info.id}`} class="btn btn-outline-primary text-center mt-auto stretched-link">Launch</a>
+						{/if}
 					{/if}
-				{/if}
+				</div>
 			</div>
 		</div>
 	{/each}
 </div>
+
+<style>
+.listing-card:hover {
+	background-color: #eee !important;
+}
+</style>
