@@ -245,22 +245,28 @@ function sanitizeStr(str) {
 			command: `NULL`
 		},
 		{
-			name: "Regular expression 1",
-			input: awk_data,
-			flags: `-E`,
-			command: `Tomato|Tomatillo`
-		},
-		{
-			name: "Regular expression 2",
-			input: awk_data,
-			flags: `-E`,
-			command: `\\$1[0-9]+`
-		},
-		{
 			name: "Case insensitive filter",
 			input: awk_data,
 			flags: `-i`,
 			command: `bowl`
+		},
+		{
+			name: "Simple regular expressions",
+			input: awk_data,
+			flags: `-E`,
+			command: `(Chicken|Carnitas) Burrito`
+		},
+		{
+			name: "String patterns",
+			input: awk_data,
+			flags: `-E`,
+			command: `Chicken.*Fajita`
+		},
+		{
+			name: "Lines that start with a pattern",
+			input: awk_data,
+			flags: `-E`,
+			command: `^1[0-9]`
 		},
 		{
 			name: "Count matches",
