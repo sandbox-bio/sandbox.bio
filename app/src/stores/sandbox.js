@@ -281,38 +281,25 @@ function sanitizeStr(str) {
 			command: `Canned Soda`
 		},
 	],
-	jq: [],
 	sed: [],
+	jq: [],
 }
 
 // Store defaults
 const DEFAULT = {
+	data: {},
 	settings: {
 		interactive: true,
-	},
-	data: {
-		awk: {
-			flags: "-F \\t",
-			command: `/Burrito/ { print $3 }`,
-			input: awk_data
-		},
-		jq: {
-			flags: "-S",
-			command: ".",
-			input: `{"lastname": "Aboukhalil", "firstname":"Robert"}`
-		},
-		sed: {
-			flags: "",
-			command: `s/CT/--/gi`,
-			input: "ACGTACTGACTGACTGAC"
-		},
-		grep: {
-			flags: "-E",
-			command: `Burrito|Tacos`,
-			input: awk_data
-		}
-	},
+	}
 };
+
+TOOLS.forEach(t => {
+	DEFAULT.data[t] = {
+		flags: EXAMPLES[t]?.[0]?.flags,
+		command: EXAMPLES[t]?.[0]?.command,
+		input: EXAMPLES[t]?.[0]?.input
+	};
+});
 
 
 // =============================================================================
