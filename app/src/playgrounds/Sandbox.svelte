@@ -19,6 +19,10 @@ $: langCmd = { awk: "awk", jq: "json" }[$tool?.name];
 $: langIO = $tool?.name === "jq" ? "json" : null;
 $: if(ready && $data.input && $data.command && $tool?.name && $sandbox.settings.interactive) run($data.flags);
 
+// If update flags from input box, need to update checkboxes!
+$: if($data?.flags !== null) {
+	$tool = $tool;
+}
 
 // =============================================================================
 // Main logic

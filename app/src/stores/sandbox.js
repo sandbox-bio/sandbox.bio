@@ -58,8 +58,7 @@ export const FLAGS = {
 			type: FLAG_BOOLEAN,
 		}
 	],
-	sed: [],
-	grep: []
+	sed: []
 };
 
 // Examples
