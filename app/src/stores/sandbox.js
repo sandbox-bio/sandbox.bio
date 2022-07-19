@@ -307,22 +307,34 @@ function sanitizeStr(str) {
 			command: `s/a/*/g`
 		},
 		{
-			name: "Replace with regex",
-			input: awk_data,
-			flags: `-E`,
-			command: `s/\\[|\\]//g`
-		},
-		{
 			name: "Replace case insensitive",
 			input: awk_data,
 			flags: ``,
 			command: `s/a/*/gi`
 		},
 		{
-			name: "Replace multiple patterns",
+			name: "Convert tabs to commas",
 			input: awk_data,
-			flags: ``,
-			command: `s/Burrito/BURRITO/g;s/Tacos/TACOS/g`
+			flags: `-E`,
+			command: `s/\\t/,/g`
+		},
+		{
+			name: "Replace with regex",
+			input: awk_data,
+			flags: `-E`,
+			command: `s/\\w/*/g`
+		},
+		{
+			name: "Replace price pattern",
+			input: awk_data,
+			flags: `-E`,
+			command: `s/\\$[0-9]+.[0-9]+/Price Redacted/g`
+		},
+		{
+			name: "Replace everything in brackets",
+			input: awk_data,
+			flags: `-E`,
+			command: `s/\\[.*\\]/*/g`
 		},
 		{
 			name: "Extract subset of rows",
@@ -331,28 +343,10 @@ function sanitizeStr(str) {
 			command: `1,5p`
 		},
 		{
-			name: "Extract rows and replace matches",
-			input: awk_data,
-			flags: `-n`,
-			command: `s/Chips/CHIPS/g;1,5p`
-		},
-		{
 			name: "Remove header line",
 			input: awk_data,
 			flags: `-E`,
 			command: `1d`
-		},
-		{
-			name: "Remove last line",
-			input: awk_data,
-			flags: `-E`,
-			command: `$d`
-		},
-		{
-			name: "Remove multiple lines and ranges",
-			input: awk_data,
-			flags: ``,
-			command: `1d;20,40d`
 		},
 		{
 			name: "Remove lines using a pattern",
@@ -360,6 +354,18 @@ function sanitizeStr(str) {
 			flags: `-E`,
 			command: `/Burrito|Tacos/d`
 		},
+		{
+			name: "Multiple operations",
+			input: awk_data,
+			flags: ``,
+			command: `/Burrito|Tacos|Bowl/d;	# Remove entrées
+1d;						# Remove header
+s/\\$/USD/g;				# Replace dollar sign with USD
+s/\\t/,/g;				# Convert to CSV file
+s/NULL//g;				# Remove NULLs
+s/\\[|\\]//g				# Remove brackets
+`
+		}
 	],
 	jq: [],
 }
