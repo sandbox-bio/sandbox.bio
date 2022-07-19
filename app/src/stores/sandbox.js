@@ -318,12 +318,6 @@ function sanitizeStr(str) {
 			command: `s/a/*/gi`
 		},
 		{
-			name: "Convert tabs to commas",
-			input: awk_data,
-			flags: `-E`,
-			command: `s/\\t/,/g`
-		},
-		{
 			name: "Replace with regex",
 			input: awk_data,
 			flags: `-E`,
@@ -360,12 +354,21 @@ function sanitizeStr(str) {
 			command: `/Burrito|Tacos/d`
 		},
 		{
+			name: "Convert tabs to commas (TSV to CSV)",
+			input: awk_data,
+			flags: `-E`,
+			command: `s/,//g;		# Remove existing commas from description column
+s/\\t/,/g;	# Convert to CSV
+`
+		},
+		{
 			name: "Multiple operations",
 			input: awk_data,
 			flags: `-E`,
 			command: `/Burrito|Tacos|Bowl/d;	# Remove entrées
 1d;						# Remove header
 s/\\$/USD/g;				# Replace dollar sign with USD
+s/,//g					# Before converting to CSV, remove existing commas
 s/\\t/,/g;				# Convert to CSV file
 s/NULL//g;				# Remove NULLs
 s/\\[|\\]//g				# Remove brackets
