@@ -17,7 +17,7 @@ let error;
 // Reactive logic
 $: langCmd = { awk: "awk", jq: "json" }[$tool?.name];
 $: langIO = $tool?.name === "jq" ? "json" : null;
-$: if(ready && $data.input && $data.command && $tool?.name && $sandbox.settings.interactive) run($data.flags);
+$: if(ready && $data.input && $data.command !== null && $tool?.name && $sandbox.settings.interactive) run($data.flags);
 
 // If update flags from input box, need to update checkboxes!
 $: if($data?.flags !== null) {
@@ -68,7 +68,8 @@ async function run() {
 	// Add user flags
 	params = params.concat(parseFlags($data.flags)).map(d => d.replaceAll('"', ''));
 	// Add user command
-	params.push($data.command.trim());
+	if($data.command.trim())
+		params.push($data.command.trim());
 	// Add file to operate on
 	params.push("sandbox");
 

@@ -68,6 +68,13 @@ export const FLAGS = {
 			type: FLAG_BOOLEAN,
 		}
 	],
+	sed: [
+		{
+			name: "Regex",
+			flag: "-E",
+			type: FLAG_BOOLEAN,
+		},
+	],
 	jq: [
 		{
 			name: "Compact",
@@ -84,8 +91,7 @@ export const FLAGS = {
 			flag: "-s",
 			type: FLAG_BOOLEAN,
 		}
-	],
-	sed: []
+	]
 };
 
 // Examples
@@ -287,7 +293,74 @@ function sanitizeStr(str) {
 			command: `Canned Soda`
 		},
 	],
-	sed: [],
+	sed: [
+		{
+			name: "Replace first occurence on each line",
+			input: awk_data,
+			flags: ``,
+			command: `s/a/*/`
+		},
+		{
+			name: "Replace all occurences",
+			input: awk_data,
+			flags: ``,
+			command: `s/a/*/g`
+		},
+		{
+			name: "Replace with regex",
+			input: awk_data,
+			flags: `-E`,
+			command: `s/\\[|\\]//g`
+		},
+		{
+			name: "Replace case insensitive",
+			input: awk_data,
+			flags: ``,
+			command: `s/a/*/gi`
+		},
+		{
+			name: "Replace multiple patterns",
+			input: awk_data,
+			flags: ``,
+			command: `s/Burrito/BURRITO/g;s/Tacos/TACOS/g`
+		},
+		{
+			name: "Extract subset of rows",
+			input: awk_data,
+			flags: `-n`,
+			command: `1,5p`
+		},
+		{
+			name: "Extract rows and replace matches",
+			input: awk_data,
+			flags: `-n`,
+			command: `s/Chips/CHIPS/g;1,5p`
+		},
+		{
+			name: "Remove header line",
+			input: awk_data,
+			flags: `-E`,
+			command: `1d`
+		},
+		{
+			name: "Remove last line",
+			input: awk_data,
+			flags: `-E`,
+			command: `$d`
+		},
+		{
+			name: "Remove multiple lines and ranges",
+			input: awk_data,
+			flags: ``,
+			command: `1d;20,40d`
+		},
+		{
+			name: "Remove lines using a pattern",
+			input: awk_data,
+			flags: `-E`,
+			command: `/Burrito|Tacos/d`
+		},
+	],
 	jq: [],
 }
 
