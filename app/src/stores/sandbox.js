@@ -90,6 +90,11 @@ export const FLAGS = {
 			name: "Slurp (read input into array)",
 			flag: "-s",
 			type: FLAG_BOOLEAN,
+		},
+		{
+			name: "Raw input",
+			flag: "-R",
+			type: FLAG_BOOLEAN,
 		}
 	]
 };
@@ -198,7 +203,7 @@ NR > 1 {
 	# total price of the previous order.
 	if($1 != currentOrderId) {
 		if(currentOrderId != -1)
-			print currentOrderId, totalPrice
+			print currentOrderId, "$" totalPrice
 
 		# Reset price
 		currentOrderId = $1
@@ -209,7 +214,7 @@ NR > 1 {
 
 # Make sure you don't forget the last order in the file!
 } END {
-	print currentOrderId, totalPrice
+	print currentOrderId, "$" totalPrice
 }`
 		},
 		{
@@ -289,7 +294,7 @@ function sanitizeStr(str) {
 		{
 			name: "Show lines before/after match",
 			input: awk_data,
-			flags: `-A 1 -B 1 --group-separator "====="`,
+			flags: `-A 1 -B 1 --group-separator "=====" -n`,
 			command: `Canned Soda`
 		},
 	],
@@ -357,7 +362,7 @@ function sanitizeStr(str) {
 		{
 			name: "Multiple operations",
 			input: awk_data,
-			flags: ``,
+			flags: `-E`,
 			command: `/Burrito|Tacos|Bowl/d;	# Remove entrées
 1d;						# Remove header
 s/\\$/USD/g;				# Replace dollar sign with USD
@@ -367,7 +372,27 @@ s/\\[|\\]//g				# Remove brackets
 `
 		}
 	],
-	jq: [],
+	jq: [
+		{
+			name: "Convert a TSV file to JSON",
+			input: awk_data,
+			flags: `-R -s`,
+			command: `# Ignore first and last line (header and empty line)
+split("\\n")[1:-1] |
+
+	# Split fields by tab
+	map(split("\\t")) |
+
+	# Define a dictionary for each
+	map({
+      "id": .[0] | tonumber,
+      "quantity": .[1] | tonumber,
+      "name": .[2],
+      "description": .[3],
+      "price": .[4],
+    })`
+		}
+	],
 }
 
 // Store defaults
