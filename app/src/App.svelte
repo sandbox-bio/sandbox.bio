@@ -133,10 +133,10 @@ onMount(async () => {
 			</a>
 			<ul class="dropdown-menu" aria-labelledby="navPlaygrounds">
 				<li><a class="dropdown-item" href="/playground">Command Line</a></li>
-				<li><a class="dropdown-item" href="/playgrounds?id=awk">awk</a></li>
-				<li><a class="dropdown-item" href="/playgrounds?id=grep">grep</a></li>
-				<li><a class="dropdown-item" href="/playgrounds?id=sed">sed</a></li>
-				<li><a class="dropdown-item" href="/playgrounds?id=jq">jq (JSON)</a></li>
+				<li><a class="dropdown-item" href="/playgrounds?id=awk">Awk <span class="text-muted small">Wrangle tabular data</span></a></li>
+				<li><a class="dropdown-item" href="/playgrounds?id=jq">Jq <span class="text-muted small">Wrangle JSON data</span></a></li>
+				<li><a class="dropdown-item" href="/playgrounds?id=grep">Grep <span class="text-muted small">Search and filter</span></a></li>
+				<li><a class="dropdown-item" href="/playgrounds?id=sed">Sed <span class="text-muted small">Search and replace</span></a></li>
 			</ul>
 		</li> -->
 		<li class="nav-item">
