@@ -3,7 +3,8 @@ import localforage from "localforage";
 import { get, writable, derived } from "svelte/store";
 import { getLocalForageKey } from "stores/config";
 
-import awk_data from "playgrounds/orders.txt";
+import data_text from "playgrounds/orders.txt";
+import data_json from "playgrounds/orders.json";
 
 
 // =============================================================================
@@ -104,7 +105,7 @@ export const EXAMPLES = {
 	awk: [
 		{
 			name: "Output columns",
-			input: awk_data,
+			input: data_text,
 			flags: `-F "\\t"`,
 			command: `{
 	print $3, $5
@@ -112,7 +113,7 @@ export const EXAMPLES = {
 		},
 		{
 			name: "Filter and output columns",
-			input: awk_data,
+			input: data_text,
 			flags: `-F "\\t"`,
 			command: `/Burrito/ {
 	print $3, $5
@@ -120,7 +121,7 @@ export const EXAMPLES = {
 		},
 		{
 			name: "Sum over a column",
-			input: awk_data,
+			input: data_text,
 			flags: `-F "\\t"`,
 			command: `BEGIN {
 	sum = 0     # The BEGIN block is optional
@@ -132,7 +133,7 @@ export const EXAMPLES = {
 		},
 		{
 			name: "Calculate a new column",
-			input: awk_data,
+			input: data_text,
 			flags: `-F "\\t"`,
 			command: `BEGIN {
 	tax = 0.0725
@@ -155,7 +156,7 @@ export const EXAMPLES = {
 		},
 		{
 			name: "Inject variables",
-			input: awk_data,
+			input: data_text,
 			flags: `-F "\\t" -v food=Chicken`,
 			command: `{
 	# Only print lines that match the food variable defined in the flags
@@ -166,7 +167,7 @@ export const EXAMPLES = {
 		},
 		{
 			name: "Dictionaries and loops",
-			input: awk_data,
+			input: data_text,
 			flags: `-F "\\t"`,
 			command: `# Skip first line (header)
 NR > 1 {
@@ -186,7 +187,7 @@ NR > 1 {
 		},
 		{
 			name: "Cumulative sums on groups of rows",
-			input: awk_data,
+			input: data_text,
 			flags: `-F "\\t"`,
 			command: `BEGIN {
 	currentOrderId = -1
@@ -219,7 +220,7 @@ NR > 1 {
 		},
 		{
 			name: "Functions",
-			input: awk_data,
+			input: data_text,
 			flags: `-F "\\t"`,
 			command: `# Sanitize data so it's friendlier for analysis in other tools
 function sanitizeStr(str) {
@@ -245,55 +246,55 @@ function sanitizeStr(str) {
 	grep: [
 		{
 			name: "Basic filter",
-			input: awk_data,
+			input: data_text,
 			flags: ``,
 			command: `Burrito`
 		},
 		{
 			name: "Reverse filter",
-			input: awk_data,
+			input: data_text,
 			flags: `-v`,
 			command: `NULL`
 		},
 		{
 			name: "Case insensitive filter",
-			input: awk_data,
+			input: data_text,
 			flags: `-i`,
 			command: `bowl`
 		},
 		{
 			name: "Simple regular expressions",
-			input: awk_data,
+			input: data_text,
 			flags: `-E`,
 			command: `(Chicken|Carnitas) Burrito`
 		},
 		{
 			name: "String patterns",
-			input: awk_data,
+			input: data_text,
 			flags: `-E`,
 			command: `Chicken.*Fajita`
 		},
 		{
 			name: "Lines that start with a pattern",
-			input: awk_data,
+			input: data_text,
 			flags: `-E`,
 			command: `^1[0-9]`
 		},
 		{
 			name: "Count matches",
-			input: awk_data,
+			input: data_text,
 			flags: `-c`,
 			command: `Burrito`
 		},
 		{
 			name: "Output line numbers",
-			input: awk_data,
+			input: data_text,
 			flags: `-n`,
 			command: `Chips and Guacamole`
 		},
 		{
 			name: "Show lines before/after match",
-			input: awk_data,
+			input: data_text,
 			flags: `-A 1 -B 1 --group-separator "=====" -n`,
 			command: `Canned Soda`
 		},
@@ -301,61 +302,61 @@ function sanitizeStr(str) {
 	sed: [
 		{
 			name: "Replace first occurence on each line",
-			input: awk_data,
+			input: data_text,
 			flags: ``,
 			command: `s/a/*/`
 		},
 		{
 			name: "Replace all occurences",
-			input: awk_data,
+			input: data_text,
 			flags: ``,
 			command: `s/a/*/g`
 		},
 		{
 			name: "Replace case insensitive",
-			input: awk_data,
+			input: data_text,
 			flags: ``,
 			command: `s/a/*/gi`
 		},
 		{
 			name: "Replace with regex",
-			input: awk_data,
+			input: data_text,
 			flags: `-E`,
 			command: `s/\\w/*/g`
 		},
 		{
 			name: "Replace price pattern",
-			input: awk_data,
+			input: data_text,
 			flags: `-E`,
 			command: `s/\\$[0-9]+.[0-9]+/Price Redacted/g`
 		},
 		{
 			name: "Replace everything in brackets",
-			input: awk_data,
+			input: data_text,
 			flags: `-E`,
 			command: `s/\\[.*\\]/*/g`
 		},
 		{
 			name: "Extract subset of rows",
-			input: awk_data,
+			input: data_text,
 			flags: `-n`,
 			command: `1,5p`
 		},
 		{
 			name: "Remove header line",
-			input: awk_data,
+			input: data_text,
 			flags: `-E`,
 			command: `1d`
 		},
 		{
 			name: "Remove lines using a pattern",
-			input: awk_data,
+			input: data_text,
 			flags: `-E`,
 			command: `/Burrito|Tacos/d`
 		},
 		{
 			name: "Convert tabs to commas (TSV to CSV)",
-			input: awk_data,
+			input: data_text,
 			flags: `-E`,
 			command: `s/,//g;		# Remove existing commas from description column
 s/\\t/,/g;	# Convert to CSV
@@ -363,7 +364,7 @@ s/\\t/,/g;	# Convert to CSV
 		},
 		{
 			name: "Multiple operations",
-			input: awk_data,
+			input: data_text,
 			flags: `-E`,
 			command: `/Burrito|Tacos|Bowl/d;	# Remove entrées
 1d;						# Remove header
@@ -378,7 +379,7 @@ s/\\[|\\]//g				# Remove brackets
 	jq: [
 		{
 			name: "Convert a TSV file to JSON",
-			input: awk_data,
+			input: data_text,
 			flags: `-R -s`,
 			command: `# Ignore first and last line (header and empty line)
 split("\\n")[1:-1] |
@@ -388,12 +389,12 @@ split("\\n")[1:-1] |
 
 	# Define a dictionary for each
 	map({
-      "id": .[0] | tonumber,
-      "quantity": .[1] | tonumber,
-      "name": .[2],
-      "description": .[3],
-      "price": .[4],
-    })`
+		"id": .[0] | tonumber,
+		"quantity": .[1] | tonumber,
+		"name": .[2],
+		"description": .[3],
+		"price": .[4],
+	})`
 		}
 	],
 }
@@ -407,10 +408,10 @@ const DEFAULT = {
 };
 
 TOOLS.forEach(t => {
-	DEFAULT.data[t] = {
-		flags: EXAMPLES[t]?.[0]?.flags,
-		command: EXAMPLES[t]?.[0]?.command,
-		input: EXAMPLES[t]?.[0]?.input
+	DEFAULT.data[t.name] = {
+		flags: EXAMPLES[t.name]?.[0]?.flags,
+		command: EXAMPLES[t.name]?.[0]?.command,
+		input: EXAMPLES[t.name]?.[0]?.input
 	};
 });
 

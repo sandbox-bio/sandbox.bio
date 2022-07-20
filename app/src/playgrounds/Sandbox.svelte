@@ -54,12 +54,12 @@ async function run() {
 	if(!ready || busy)
 		return;
 
-	// If the CLI is still busy after 100ms, show a spinner, otherwise don't (avoids flickering)
+	// If the CLI is still busy after some time, show a spinner, otherwise don't (avoids flickering)
 	busy = true;
 	setTimeout(() => {
 		if(busy)
 			busy_ui = true;
-	}, 100);
+	}, 300);
 
 	// Prepare parameters
 	let params = [];
