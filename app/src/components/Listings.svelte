@@ -60,7 +60,7 @@ export let skip = [];   // Specific tutorial IDs to not show
 				<div>
 					<!-- "Explore" listings -->
 					{#if info.url}
-						<a href={info.url} class="btn btn-outline-primary text-center mt-auto stretched-link" target="_blank">Launch</a>
+						<a href={info.url} class="btn btn-outline-primary text-center mt-auto stretched-link">Launch</a>
 
 					<!-- "Tutorials" listings -->
 					{:else}

@@ -3,6 +3,7 @@ import { onMount } from "svelte";
 import Aioli from "@biowasm/aioli";
 import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Spinner, Tooltip } from "sveltestrap";
 import { tool, data, sandbox, TOOLS, EXAMPLES, FLAGS, FLAG_SETTING, FLAG_BOOLEAN, FLAG_PARAM } from "stores/sandbox";
+import { config } from "./stores/config";
 import IDE from "components/IDE.svelte";
 
 // State
@@ -79,6 +80,19 @@ async function run() {
 		const { stdout, stderr } = await CLI.exec($tool.aioliConfig.tool, params);
 		output = stdout;
 		error = stderr;
+
+		// Analytics
+		try {
+			const d = {
+				playground: $tool.name,
+				example: EXAMPLES[$tool.name].some(example => example.input == $data.input && example.flags == $data.flags && example.command == $data.command)
+			};
+			fetch(`${$config.api}/ping`, {
+				method: "POST",
+				mode: "no-cors",
+				body: JSON.stringify(d)
+			});
+		} catch (error) {}
 	} catch (error) {
 		console.error(error);
 	} finally {
