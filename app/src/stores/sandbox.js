@@ -13,7 +13,7 @@ import data_json from "playgrounds/orders.json.txt";
 
 // Tools to load in playground
 export const TOOLS = [
-	{ name: "jq", aioliConfig: { tool: "jq", version: "1.6" }},
+	{ name: "jq", aioliConfig: { tool: "jq", version: "1.6", reinit: true }},
 	{ name: "awk", aioliConfig: { tool: "gawk", version: "5.1.0", reinit: true }},
 	{ name: "grep", aioliConfig: { tool: "grep", version: "3.7", reinit: true }},
 	{ name: "sed", aioliConfig: { tool: "sed", version: "4.8", reinit: true }}
@@ -429,13 +429,19 @@ s/\\[|\\]//g				# Remove brackets
 			name: "Filter by value",
 			input: data_json,
 			flags: ``,
-			command: `map(select(.description == "NULL"))`
+			command: `map(select(.name == "Chicken Bowl"))`
 		},
 		{
 			name: "Filter by value and extract attributes",
 			input: data_json,
 			flags: ``,
-			command: `map(select(.description == "NULL") | .id)`
+			command: `map(select(.name == "Chicken Bowl") | .id)`
+		},
+		{
+			name: "Filter by value in a nested array",
+			input: data_json,
+			flags: ``,
+			command: `map(select(.description | contains(["Cheese", "Pinto Beans"]) ))`
 		},
 		{
 			name: "Rename fields",
@@ -445,8 +451,8 @@ s/\\[|\\]//g				# Remove brackets
   order_id: .id,
   item_price: .price,
   name,
+  quantity,
   description,
-  quantity
 })
 `
 		},
@@ -457,17 +463,21 @@ s/\\[|\\]//g				# Remove brackets
 			command: `# Ignore first and last line (header and empty line)
 split("\\n")[1:-1] |
 
-	# Split fields by tab
+	# Split fields by tab. This generates an array,
+	# accessible by .[0], .[1], etc.
 	map(split("\\t")) |
 
-	# Define a dictionary for each
+	# Define a dictionary for order using array elements
 	map({
 		"id": .[0] | tonumber,
 		"quantity": .[1] | tonumber,
 		"name": .[2],
-		"description": .[3],
 		"price": .[4],
-	})`
+		"description": .[3] |
+			split(",") |
+			map(gsub("\\\\[|]|^\\\\s"; ""))
+	})
+`
 		}
 	],
 }
