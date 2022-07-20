@@ -4,7 +4,7 @@ import { get, writable, derived } from "svelte/store";
 import { getLocalForageKey } from "stores/config";
 
 import data_text from "playgrounds/orders.txt";
-import data_json from "playgrounds/orders.json";
+import data_json from "playgrounds/orders.json.txt";
 
 
 // =============================================================================
@@ -377,6 +377,79 @@ s/\\[|\\]//g				# Remove brackets
 		}
 	],
 	jq: [
+		{
+			name: "Output formatted JSON",
+			input: data_json,
+			flags: ``,
+			command: `.`
+		},
+		{
+			name: "Output compact JSON",
+			input: data_json,
+			flags: `-c`,
+			command: `.`
+		},
+		{
+			name: "Sort keys in output",
+			input: data_json,
+			flags: `-S`,
+			command: `.`
+		},
+		{
+			name: "Count array elements",
+			input: data_json,
+			flags: ``,
+			command: `. | length`
+		},
+		{
+			name: "Get one order name",
+			input: data_json,
+			flags: ``,
+			command: `.[5].name`
+		},
+		{
+			name: "Get all order names",
+			input: data_json,
+			flags: ``,
+			command: `.[] | .name`
+		},
+		{
+			name: "Get all order names as array",
+			input: data_json,
+			flags: ``,
+			command: `[ .[] | .name ]`
+		},
+		{
+			name: "Get all order names as array using map()",
+			input: data_json,
+			flags: ``,
+			command: `map(.name)`
+		},
+		{
+			name: "Filter by value",
+			input: data_json,
+			flags: ``,
+			command: `map(select(.description == "NULL"))`
+		},
+		{
+			name: "Filter by value and extract attributes",
+			input: data_json,
+			flags: ``,
+			command: `map(select(.description == "NULL") | .id)`
+		},
+		{
+			name: "Rename fields",
+			input: data_json,
+			flags: ``,
+			command: `map({
+  order_id: .id,
+  item_price: .price,
+  name,
+  description,
+  quantity
+})
+`
+		},
 		{
 			name: "Convert a TSV file to JSON",
 			input: data_text,
