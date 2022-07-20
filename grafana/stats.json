@@ -22,7 +22,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1656219714116,
+  "iteration": 1658329486647,
   "links": [],
   "panels": [
     {
@@ -329,6 +329,7 @@
       "type": "table"
     },
     {
+      "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
@@ -337,6 +338,7 @@
         "y": 6
       },
       "id": 8,
+      "panels": [],
       "title": "General Stats",
       "type": "row"
     },
@@ -793,14 +795,14 @@
             "spanNulls": false,
             "stacking": {
               "group": "A",
-              "mode": "none"
+              "mode": "normal"
             },
             "thresholdsStyle": {
               "mode": "off"
             }
           },
           "mappings": [],
-          "min": -4,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -812,7 +814,38 @@
           },
           "unit": "none"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "tutorial false"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "tutorial true"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
@@ -831,7 +864,7 @@
       "options": {
         "legend": {
           "calcs": [],
-          "displayMode": "hidden",
+          "displayMode": "list",
           "placement": "bottom"
         },
         "tooltip": {
@@ -845,7 +878,7 @@
           "metricColumn": "none",
           "queryType": "randomWalk",
           "rawQuery": true,
-          "rawSql": "SELECT\n  $__timeGroup(time, '1h') as time,\n  COUNT(id) as value\nFROM pings\nWHERE $__timeFilter(time)\nGROUP BY 1\nORDER BY 1\n",
+          "rawSql": "SELECT\n  $__timeGroup(time, '1h') as time,\n  COUNT(id) as Tutorial,\n  (playground is NULL)::text as \"Playgrounds\"\nFROM pings\nWHERE $__timeFilter(time)\nGROUP BY 1, 3\nORDER BY 1\n",
           "refId": "A",
           "select": [
             [
@@ -1043,6 +1076,134 @@
         "x": 0,
         "y": 23
       },
+      "id": 71,
+      "panels": [],
+      "title": "Playground Stats",
+      "type": "row"
+    },
+    {
+      "datasource": "prd.sandbox.bio",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 14,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "stepBefore",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 24
+      },
+      "id": 69,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Details",
+          "url": "https://app.supabase.io/project/vjmttfnyctkivaeljytg/editor/table"
+        }
+      ],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "repeat": "playgroundName",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "queryType": "randomWalk",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  $__timeGroup(time, '1h') as time,\n  COUNT(id),\n  CONCAT(playground, '/', example)\nFROM pings\nWHERE $__timeFilter(time)\nAND playground = $playgroundName\nGROUP BY 1, 3\nORDER BY 1\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Pings - Playground $playgroundName",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 32
+      },
       "id": 6,
       "panels": [],
       "title": "Completion rates per lesson",
@@ -1086,7 +1247,7 @@
         "h": 8,
         "w": 6,
         "x": 0,
-        "y": 24
+        "y": 33
       },
       "id": 4,
       "maxPerRow": 4,
@@ -1145,7 +1306,7 @@
       "type": "barchart"
     }
   ],
-  "refresh": "5m",
+  "refresh": "",
   "schemaVersion": 30,
   "style": "dark",
   "tags": [],
@@ -1178,6 +1339,52 @@
         "skipUrlSync": false,
         "sort": 1,
         "type": "query"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
+        "description": null,
+        "error": null,
+        "hide": 2,
+        "includeAll": true,
+        "label": "Playground",
+        "multi": false,
+        "name": "playgroundName",
+        "options": [
+          {
+            "selected": true,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": false,
+            "text": "awk",
+            "value": "awk"
+          },
+          {
+            "selected": false,
+            "text": "grep",
+            "value": "grep"
+          },
+          {
+            "selected": false,
+            "text": "sed",
+            "value": "sed"
+          },
+          {
+            "selected": false,
+            "text": "jq",
+            "value": "jq"
+          }
+        ],
+        "query": "awk,grep,sed,jq",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
       }
     ]
   },
@@ -1189,5 +1396,5 @@
   "timezone": "",
   "title": "sandbox.bio",
   "uid": "IVCoGOVnz",
-  "version": 56
+  "version": 68
 }
