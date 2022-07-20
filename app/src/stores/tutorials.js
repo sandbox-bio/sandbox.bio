@@ -33,33 +33,33 @@ export const tutorials = readable([
 export const playgrounds = readable([
 	{
 		name: "Command Line",
-		description: "sdfsdf",
+		description: "Command line for open-ended exploration",
 		url: "/playground",
 		tags: ["command line", "terminal", "bash"]
 	},
 	{
 		name: "Awk",
-		description: "Wrangle tab/space-delimited datasets",
+		description: "Filter and wrangle tabular data",
 		url: "/playgrounds?id=awk",
 		tags: ["awk"]
 	},
 	{
+		name: "Jq",
+		description: "Filter and wrangle JSON data",
+		url: "/playgrounds?id=jq",
+		tags: ["jq", "json"]
+	},
+	{
 		name: "Grep",
-		description: "Search and filtering utility.",
+		description: "Search and filter utility",
 		url: "/playgrounds?id=grep",
 		tags: ["grep"]
 	},
 	{
 		name: "Sed",
-		description: "Search and replace utility.",
+		description: "Search and replace utility",
 		url: "/playgrounds?id=sed",
 		tags: ["sed"]
-	},
-	{
-		name: "Jq",
-		description: "Filter and wrangle JSON data.",
-		url: "/playgrounds?id=jq",
-		tags: ["jq", "json"]
 	}
 ]);
 

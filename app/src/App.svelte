@@ -124,10 +124,8 @@ onMount(async () => {
 				{/each}
 			</ul>
 		</li>
-		<li class="nav-item">
-			<a href="/playground" class="nav-link" class:active={path == "/playground"}>Playground</a>
-		</li>
-		<!-- <li class="nav-item dropdown">
+		<li class="nav-item dropdown">
+			<!-- svelte-ignore a11y-invalid-attribute -->
 			<a href="#" class="nav-link dropdown-toggle" class:active={path == "/playground"} id="navPlaygrounds" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 				Playgrounds
 			</a>
@@ -138,7 +136,7 @@ onMount(async () => {
 				<li><a class="dropdown-item" href="/playgrounds?id=grep">Grep <span class="text-muted small">Search and filter</span></a></li>
 				<li><a class="dropdown-item" href="/playgrounds?id=sed">Sed <span class="text-muted small">Search and replace</span></a></li>
 			</ul>
-		</li> -->
+		</li>
 		<li class="nav-item">
 			{#if $user == null}
 				<button class="btn btn-link text-decoration-none" on:click={() => loginModalOpen = !loginModalOpen}>Log in</button>

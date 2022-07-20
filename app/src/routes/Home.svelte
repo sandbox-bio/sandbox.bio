@@ -22,7 +22,7 @@ import Footer from "./components/Footer.svelte";
 
 <Listings items={$tutorials} />
 
-<!-- <Listings items={$playgrounds} title="Playgrounds" /> -->
+<Listings items={$playgrounds} title="Playgrounds" />
 
 <Listings items={$explore} title="Explore" />
 
