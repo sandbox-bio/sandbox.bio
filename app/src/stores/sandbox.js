@@ -472,10 +472,12 @@ split("\\n")[1:-1] |
 		"id": .[0] | tonumber,
 		"quantity": .[1] | tonumber,
 		"name": .[2],
-		"price": .[4],
+		"price": .[4] | rtrimstr(" "),
 		"description": .[3] |
 			split(",") |
-			map(gsub("\\\\[|]|^\\\\s"; ""))
+			map(
+      			ltrimstr(" ") | rtrimstr(" ") | gsub("\\\\[|]"; "")
+      		)
 	})
 `
 		}
