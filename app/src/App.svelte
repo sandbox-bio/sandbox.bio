@@ -9,6 +9,7 @@ import Tutorial from "./tutorials/Tutorial.svelte";
 import Sandbox from "./playgrounds/Sandbox.svelte";
 import Login from "./components/Login.svelte";
 import Listings from "./components/Listings.svelte";
+import Footer from "./components/Footer.svelte";
 import { supabase, user, progress, envInit } from "./stores/config";
 import { tutorials } from "./stores/tutorials";
 
@@ -178,9 +179,11 @@ onMount(async () => {
 			<Tutorial id={params.get("id")} step={+params.get("step") || 0} />
 		{:else}
 			<Listings items={$tutorials} />
+			<Footer />
 		{/if}
 	{:else if path.startsWith("/playgrounds")}
 		<Sandbox />
+		<Footer />
 	{:else if path.startsWith("/playground")}
 		<Tutorial id="playground" />
 	{:else if path.startsWith("/rosalind")}
