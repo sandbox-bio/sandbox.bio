@@ -18,7 +18,9 @@ routerAPI.post("/ping", async request => {
 		ip: await hash(request.headers.get("CF-Connecting-IP")),
 		tutorial: data.tutorial,
 		step_from: data.from,
-		step_to: data.to
+		step_to: data.to,
+		playground: data.playground,
+		example: data.example
 	}]);
 
 	return new Response("pong");
