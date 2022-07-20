@@ -28,7 +28,7 @@ let aboutIsOpen = false;  // Whether "About" modal is showing or not
 
 	<p>All the files you read and write to are temporarily stored in memory using Emscripten's <a href="https://emscripten.org/docs/api_reference/Filesystem-API.html" target="_blank">virtual file system</a>.</p>
 
-	<p>The <Link href="http://localhost:8080/playgrounds?id=awk">playgrounds</Link> use sample data from <Link href="https://github.com/TheUpshot/chipotle">The UpShot</Link>.</p>
+	<p>The <Link href="/playgrounds?id=awk">playgrounds</Link> use sample data from <Link href="https://github.com/TheUpshot/chipotle">The UpShot</Link>.</p>
 
 	<p class="lead fw-bold mt-4 mb-1">How to contribute</p>
 	<p>If you have feedback, ideas for new tutorials, or if one of your own bioinformatics tutorials could benefit from being interactive, please <a href="https://github.com/sandbox-bio/feedback/discussions" target="_blank">reach out</a>! Currently, only the C/C++ tools listed <a href="https://github.com/biowasm/biowasm#supported-tools" target="_blank">here</a> are supported.</p>
