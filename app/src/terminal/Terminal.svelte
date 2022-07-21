@@ -223,6 +223,21 @@ async function exec(cmd)
 		output = error;
 	}
 
+	// Analytics
+	try {
+		const isTutorial = $tutorial?.id && $tutorial.id !== "playground";
+		fetch(`${$config.api}/ping`, {
+			method: "POST",
+			mode: "no-cors",
+			body: JSON.stringify({
+				playground: isTutorial ? null : "terminal",
+				tutorial: isTutorial ? $tutorial.id : null,
+				step_from: isTutorial ? $tutorial.step : null,
+				step_to: isTutorial ? $tutorial.step : null,
+			})
+		});
+	} catch (error) {}
+
 	// Let parent component know we're done (used in Exercises to refresh status).
 	// If useful, we can also send a 2nd arg containing data to send back.
 	// We do this to keep Terminal.svelte independent from the `config.js` file
