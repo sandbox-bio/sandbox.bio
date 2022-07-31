@@ -8,30 +8,15 @@ import { status } from "./status";
 // -----------------------------------------------------------------------------
 
 const hostname = window.location.hostname == "localhost" ? "dev.sandbox.bio" : window.location.hostname;
-const urlsSupabase = {
-	"dev.sandbox.bio": {
-		url: "https://bqjvxpdzkembvixymfae.supabase.co",
-		publicKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTMyODIwNCwiZXhwIjoxOTQ0OTA0MjA0fQ.7DzKM4bOGK1t-pPkfSe-2ALxcW5xWwcsaZfbCMWDBbY"
-	},
-	"stg.sandbox.bio": {
-		url: "https://jpdymnmaakzeyqyfomcs.supabase.co",
-		publicKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTQ5NDc2OCwiZXhwIjoxOTQ1MDcwNzY4fQ.yDPUlm_KtaGQDW6CaCkbvVBpPFAokW5VBNmFcPPp0fg"
-	},
-	"sandbox.bio": {
-		url: "https://vjmttfnyctkivaeljytg.supabase.co",
-		publicKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTMyNzMyOSwiZXhwIjoxOTQ0OTAzMzI5fQ.V5Lo9CuFHJFyzmS9d3rMQMqAO_eSzNN50sm0CxHwD7M"
-	},
-	"prd.sandbox.bio": {
-		url: "https://vjmttfnyctkivaeljytg.supabase.co",
-		publicKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTMyNzMyOSwiZXhwIjoxOTQ0OTAzMzI5fQ.V5Lo9CuFHJFyzmS9d3rMQMqAO_eSzNN50sm0CxHwD7M"
-	}
-};
+const tableAppend = !["sandbox.bio", "prd.sandbox.bio"].includes(hostname) ? "_stg" : "";
+const SUPABASE_URL = "https://vjmttfnyctkivaeljytg.supabase.co";
+const SUPABASE_PUBLIC_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTMyNzMyOSwiZXhwIjoxOTQ0OTAzMzI5fQ.V5Lo9CuFHJFyzmS9d3rMQMqAO_eSzNN50sm0CxHwD7M";
 
 // -----------------------------------------------------------------------------
 // Variables that we'll export (_var will be exported as $var)
 // -----------------------------------------------------------------------------
 
-const _supabase = createClient(urlsSupabase[hostname].url, urlsSupabase[hostname].publicKey);
+const _supabase = createClient(SUPABASE_URL, SUPABASE_PUBLIC_KEY);
 const _user = _supabase.auth.user();
 
 const _config = {
@@ -95,7 +80,7 @@ export async function envInit()
 
 	// User is logged in ==> use env vars from DB
 	} else {
-		const data = (await _supabase.from("state").select()).data;  // always returns array, even if empty
+		const data = (await _supabase.from(`state${tableAppend}`).select()).data;  // always returns array, even if empty
 		dataEnv = data[0]?.env;
 		dataProgress = data[0]?.progress;
 	}
@@ -170,10 +155,10 @@ async function updateDB(update) {
 	console.log("updateDB", update);
 
 	// Try to update
-	const { data, error } = await _supabase.from("state").update(update).match({ user_id: get(user).id });
+	const { data, error } = await _supabase.from(`state${tableAppend}`).update(update).match({ user_id: get(user).id });
 	// If fails, do an insert
 	if(!data) {
 		update.user_id = get(user).id;
-		await _supabase.from("state").insert(update);
+		await _supabase.from(`state${tableAppend}`).insert(update);
 	}
 }

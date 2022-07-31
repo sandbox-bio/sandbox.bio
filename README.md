@@ -9,18 +9,22 @@
 
 |Environment|Domain|Access|Supabase DB|
 |-|-|-|-|
-|dev|[dev.sandbox.bio](https://dev.sandbox.bio)|[Only me](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps)|[dev](https://app.supabase.io/project/bqjvxpdzkembvixymfae/editor/table)|
-|stg|[stg.sandbox.bio](https://stg.sandbox.bio)|[Testers](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps)|[stg](https://app.supabase.io/project/rrwfplicenewptmeeteq/editor/table)|
+|dev|[dev.sandbox.bio](https://dev.sandbox.bio)|[Only me](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps)|[prd](https://app.supabase.io/project/vjmttfnyctkivaeljytg/editor/table)|
+|stg|[stg.sandbox.bio](https://stg.sandbox.bio)|[Testers](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps)|[prd](https://app.supabase.io/project/vjmttfnyctkivaeljytg/editor/table)|
 |prd|[[prd.]sandbox.bio](https://prd.sandbox.bio)|Public|[prd](https://app.supabase.io/project/vjmttfnyctkivaeljytg/editor/table)|
 
 
 ### Database
+
+* https://app.supabase.io/project/vjmttfnyctkivaeljytg/editor/table
 
 |Table|Description|Access|
 |-|-|-|
 |logs|Log all calls to sandbox.bio/*|RLS|
 |pings|Analytics for tutorial progress|RLS|
 |state|Save environment variables and tutorial progress|RLS|
+
+Append `_stg` to table names for dev/stg environments.
 
 
 ## How to
