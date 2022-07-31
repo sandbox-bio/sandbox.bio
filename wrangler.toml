@@ -10,11 +10,14 @@ entry-point = "."
 [env.dev]
 name = "sandboxbio-dev"
 routes = ["dev.sandbox.bio/*"]
+vars = { ENVIRONMENT = "dev" }
 
 [env.stg]
 name = "sandboxbio-stg"
 routes = ["stg.sandbox.bio/*"]
+vars = { ENVIRONMENT = "stg" }
 
 [env.prd]
 name = "sandboxbio"
 routes = ["sandbox.bio/*", "prd.sandbox.bio/*"]
+vars = { ENVIRONMENT = "prd" }

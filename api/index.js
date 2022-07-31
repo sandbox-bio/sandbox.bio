@@ -1,7 +1,7 @@
 // API logic
 
 import { Router } from "itty-router";
-import { supabase, hash } from "./utils";
+import { supabase, hash, t } from "./utils";
 
 // API Router
 export const routerAPI = Router({ base: "/api/v1" });
@@ -14,7 +14,7 @@ export const routerAPI = Router({ base: "/api/v1" });
 routerAPI.post("/ping", async request => {
 	const data = await request.json();
 
-	await supabase.from("pings").insert([{
+	await supabase.from(t("pings")).insert([{
 		ip: await hash(request.headers.get("CF-Connecting-IP")),
 		tutorial: data.tutorial,
 		step_from: data.from,

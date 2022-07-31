@@ -10,6 +10,13 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_API_KEY);
 // Utilities
 // -----------------------------------------------------------------------------
 
+// Get table name based on environment. Only use this for public.* tables
+export function t(tableName) {
+	if(ENVIRONMENT !== "prd")
+		return `${tableName}_stg`;
+	return tableName;
+}
+
 // MD5 hash (source: https://stackoverflow.com/a/64795218)
 export async function hash(message) {
 	const msgUint8 = new TextEncoder().encode(message) // encode as (utf-8) Uint8Array

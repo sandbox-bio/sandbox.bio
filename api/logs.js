@@ -1,6 +1,6 @@
 // Manage logging
 
-import { supabase } from "./utils";
+import { supabase, t } from "./utils";
 
 // =============================================================================
 // Config
@@ -24,7 +24,7 @@ export async function logEvent(event, response) {
 		return;
 
 	// Store path and status
-	await supabase.from("logs").insert([{
+	await supabase.from(t("logs")).insert([{
 		pathname,
 		search,
 		status: (await response).status
