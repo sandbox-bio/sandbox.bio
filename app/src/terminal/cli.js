@@ -48,21 +48,23 @@ async function init(config={})
 		printInterleaved: false
 	});
 	_fs = _aioli.tools[1].module.FS;
+	await initTutorialFiles(config);
+}
 
+// Initialize tutorial files at a given folder of interest (config = { files, pwd })
+async function initTutorialFiles({ files, pwd }) {
 	// Pre-load files onto the main folder (this happens *before* we load the filesystem state
 	// so at this point, /shared/data is empty!)
-	if(config.files?.length > 0)
-	{
-		console.log("Preloading tutorial files...");
+	if(files?.length > 0) {
+		console.log(`Preloading tutorial files at ${pwd}...`);
 
 		// Setup folders
-		const pathDest = `${DIR_TUTORIALS}/${config.pwd || ""}`;
+		const pathDest = `${DIR_TUTORIALS}/${pwd || ""}`;
 		await exec(`mkdir ${DIR_TUTORIALS} ${pathDest}`);
 		await exec(`cd ${pathDest}`);
 
 		// Loop through files (e.g. "data/terminal-basics/orders.tsv")
-		for(let file of config.files)
-		{
+		for(let file of files) {
 			// Get filename without path (e.g. "orders.tsv")
 			const filename = file.split("/").pop();
 
@@ -677,6 +679,7 @@ async function fsTraverse(path) {
 
 export const CLI = readable({
 	init,
+	initTutorialFiles,
 	exec,
 	coreutils,
 	utils,
