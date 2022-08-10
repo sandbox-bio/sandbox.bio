@@ -11,7 +11,6 @@ import { CLI } from "terminal/cli";
 import { config, env, MAX_FILE_SIZE_TO_CACHE } from "./stores/config";
 import { status } from "./stores/status";
 import { tutorial } from "./stores/tutorial";
-import { tutorials } from "./stores/tutorials";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";
@@ -132,13 +131,18 @@ onMount(async () => {
 	try {
 		await $CLI.init({ tools, files, pwd });
 
-		// Mount other tutorials' files. That way, we have access to all files from all tutorials and from the playground
-		const cwd = await $CLI.exec("pwd");
-		for(let t of $tutorials)
-			if($tutorial.id && t.id != $tutorial.id && t.files && t.pwd)
-				await $CLI.initTutorialFiles({ files: t.files, pwd: t.pwd });
-		// Make sure to go back to the folder we were at (otherwise, we'll be stuck at the last tutorial's `pwd` folder)
-		await $CLI.exec(`cd ${cwd}`);
+		// // Mount other tutorials' files. That way, we have access to all tutorial files from the playground
+		// // WONTDO: This takes too much time
+		// if($tutorial.id === "playground") {
+		// 	const cwd = await $CLI.exec("pwd");
+		// 	const promises = [];
+		// 	for(let t of $tutorials)
+		// 		if($tutorial.id && t.id != $tutorial.id && t.files && t.pwd)
+		// 			promises.push($CLI.initTutorialFiles({ files: t.files, pwd: t.pwd }));
+		// 	await Promise.all(promises);
+		// 	// Make sure to go back to the folder we were at (otherwise, we'll be stuck at the last tutorial's `pwd` folder)
+		// 	await $CLI.exec(`cd ${cwd}`);
+		// }
 
 		// Custom command to run once terminal is ready
 		if(init)

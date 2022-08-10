@@ -679,7 +679,6 @@ async function fsTraverse(path) {
 
 export const CLI = readable({
 	init,
-	initTutorialFiles,
 	exec,
 	coreutils,
 	utils,
