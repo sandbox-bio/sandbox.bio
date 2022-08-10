@@ -130,20 +130,6 @@ onMount(async () => {
 	// Initialize Aioli
 	try {
 		await $CLI.init({ tools, files, pwd });
-
-		// // Mount other tutorials' files. That way, we have access to all tutorial files from the playground
-		// // WONTDO: This takes too much time
-		// if($tutorial.id === "playground") {
-		// 	const cwd = await $CLI.exec("pwd");
-		// 	const promises = [];
-		// 	for(let t of $tutorials)
-		// 		if($tutorial.id && t.id != $tutorial.id && t.files && t.pwd)
-		// 			promises.push($CLI.initTutorialFiles({ files: t.files, pwd: t.pwd }));
-		// 	await Promise.all(promises);
-		// 	// Make sure to go back to the folder we were at (otherwise, we'll be stuck at the last tutorial's `pwd` folder)
-		// 	await $CLI.exec(`cd ${cwd}`);
-		// }
-
 		// Custom command to run once terminal is ready
 		if(init)
 			await $CLI.exec(init);

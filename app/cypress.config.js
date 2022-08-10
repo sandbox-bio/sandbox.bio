@@ -2,7 +2,7 @@ const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
   fixturesFolder: false,
-  defaultCommandTimeout: 100000,
+  defaultCommandTimeout: 40000,
   video: false,
   screenshotOnRunFailure: false,
   port: 11111,
