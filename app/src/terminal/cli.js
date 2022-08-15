@@ -60,7 +60,7 @@ async function initTutorialFiles({ files, pwd }) {
 
 		// Setup folders
 		const pathDest = `${DIR_TUTORIALS}/${pwd || ""}`;
-		await exec(`mkdir ${DIR_TUTORIALS} ${pathDest}`);
+		await exec(`mkdir -p ${DIR_TUTORIALS} ${pathDest}`);
 		await exec(`cd ${pathDest}`);
 
 		// Loop through files (e.g. "data/terminal-basics/orders.tsv")
@@ -364,13 +364,33 @@ const coreutils = {
 		}
 		return "";
 	},
-	mkdir: args => Promise.all(args._.map(async arg => {
-		try {
-			await _aioli.mkdir(arg);
-		} catch (error) {
-			return `${arg}: Cannot create folder`;
-		}
-	})) && "",
+	mkdir: async args => {
+		// Support `mkdir -p <folder1> <folder2> ...`
+		const hasFlagP = args.p != null;
+		// Treat -p as boolean flag, not specific flag for just one folder
+		if(hasFlagP)
+			args._.unshift(args.p);
+		// Create all folders specified
+		return await Promise.all(args._.map(async arg => {
+			try {
+				if(!hasFlagP)
+					await _aioli.mkdir(arg);
+				else {
+					const folders = arg.split("/");
+					let prefix = "";
+					while(folders.length > 0) {
+						const newFolder = folders.shift();
+						try {
+							await _aioli.mkdir(`${prefix}${newFolder}`);
+						} catch (error) {}
+						prefix += `${newFolder}/`;
+					}
+				}
+			} catch (error) {
+				return `${arg}: Cannot create folder`;
+			}
+		})) && "";
+	},
 	rmdir: args => Promise.all(args._.map(async arg => await _fs.rmdir(arg))) && "",
 	mktemp: args => {
 		const path = `/shared/tmp/tmp${parseInt(Math.random() * 1_000_000)}`;
