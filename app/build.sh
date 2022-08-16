@@ -17,5 +17,5 @@ do
 	[[ ! -e $tutorial/data ]] && continue;
 	dest=public/data/$(basename $tutorial)
 	mkdir -p $dest
-	cp $tutorial/data/* $dest
+	cp -r $tutorial/data/* $dest
 done

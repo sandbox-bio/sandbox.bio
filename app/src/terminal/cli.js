@@ -66,13 +66,18 @@ async function initTutorialFiles({ files, pwd }) {
 		// Loop through files (e.g. "data/terminal-basics/orders.tsv")
 		for(let file of files) {
 			// Get filename without path (e.g. "orders.tsv")
-			const filename = file.split("/").pop();
+			const filenameParts = file.split("/").slice(2);
+			const filename = filenameParts.join("/");
+			// Remove file itself so we're left with the folder (only support 1 for now)
+			filenameParts.pop();
+			if(filenameParts.length > 0)
+				await exec(`mkdir -p ${pathDest}/${filenameParts.join("/")}`);
 
 			// Mount URL (don't need to check whether it exists first since this is empty)
 			const url = `${window.location.origin}/${file}`;
 			const [path] = await _aioli.mount([ url ]);  // e.g. ["/shared/data/localhost:5000-data-terminal-basics-orders.tsv"]
 			// Rename Aioli-mounted URLs that are automatically given long names
-			await exec(`mv ${path} ${filename}`);				
+			await exec(`mv ${path} ${filename}`);
 		}
 	}
 }
