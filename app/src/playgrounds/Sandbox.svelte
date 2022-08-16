@@ -231,10 +231,7 @@ function setFlag(option, value) {
 					<pre class="text-danger">{error}</pre>
 				{/if}
 			</div>
-		</div>
 
-		<!-- Flags -->
-		<div class="col-md-6">
 			<div class="row ide mb-4 mt-4">
 				<div class="d-flex flex-row mb-2">
 					<div class="pe-1 pt-2">
@@ -272,24 +269,25 @@ function setFlag(option, value) {
 					code={$data.flags}
 					on:update={d => $sandbox.data[$tool.name].flags = d.detail} />
 			</div>
-		</div>
-	</div>
 
-	<!-- Input / Output -->
-	<div class="row">
-		<div class="col-md-6 ide">
-			<h5>Input</h5>
-			<IDE
-				lang={langIO}
-				code={$data.input}
-				on:update={d => updateVar("input", d.detail)} />
+			<div class="ide">
+				<h5>Input</h5>
+				<IDE
+					lang={langIO}
+					code={$data.input}
+					on:update={d => updateVar("input", d.detail)} />
+			</div>	
 		</div>
-		<div class="col-md-6 ide">
-			<h5>Output</h5>
-			<IDE
-				lang={langIO}
-				code={output}
-				on:update={d => output = d.detail} editable={false} />
+
+		<!-- Flags -->
+		<div class="col-md-6">
+			<div class="ide mt-4">
+				<h5>Output</h5>
+				<IDE
+					lang={langIO}
+					code={output}
+					on:update={d => output = d.detail} editable={false} />
+			</div>
 		</div>
 	</div>
 {/if}
