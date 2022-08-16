@@ -125,14 +125,18 @@ describe("Test coreutils", () => {
 
 	it("mkdir / rmdir", async () => {
 		await $CLI.exec("mkdir a b c");
-
 		observed = await $CLI.exec("ls");
 		expect(observed).to.contain("a");
 		expect(observed).to.contain("b");
 		expect(observed).to.contain("c");
 
-		await $CLI.exec("rmdir a c");
+		await $CLI.exec("mkdir -p d/e/f g/h/i");
+		observed = await $CLI.exec("ls -R d");
+		expect(observed).to.contain("d:\ne\n\nd/e:\nf\n\nd/e/f:");
+		observed = await $CLI.exec("ls -R g");
+		expect(observed).to.contain("g:\nh\n\ng/h:\ni\n\ng/h/i:");
 
+		await $CLI.exec("rmdir a c");
 		observed = await $CLI.exec("ls");
 		expect(observed).to.contain("b");
 	});
