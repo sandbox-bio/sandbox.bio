@@ -6,6 +6,7 @@ module.exports = defineConfig({
   video: false,
   screenshotOnRunFailure: false,
   port: 11111,
+  fileServerFolder: "public/",
   e2e: {
     setupNodeEvents(on, config) {},
     specPattern: 'tests/**/*.cy.{js,jsx,ts,tsx}',

@@ -14,17 +14,17 @@ describe("Test tutorial contents (1 representative command)", () => {
 			tools: ["bedtools/2.29.2", "bowtie2/bowtie2-align-s/2.4.2", "bcftools/1.10", "minimap2/2.22", "jq/1.6", "gawk/5.1.0", ...TOOLS],
 			files: [
 				// bedtools
-				"public/data/bedtools-intro/exons.bed",
-				"public/data/bedtools-intro/cpg.bed",
-				"public/data/bedtools-intro/gwas.bed",
-				"public/data/bedtools-intro/hesc.chromHmm.bed",
+				"data/bedtools-intro/exons.bed",
+				"data/bedtools-intro/cpg.bed",
+				"data/bedtools-intro/gwas.bed",
+				"data/bedtools-intro/hesc.chromHmm.bed",
 				// bowtie2
-				"public/data/bowtie2-intro/reads_1.fq",
-				"public/data/bowtie2-intro/reads_2.fq",
+				"data/bowtie2-intro/reads_1.fq",
+				"data/bowtie2-intro/reads_2.fq",
 				// samtools
-				"public/data/samtools-intro/sample.sam",
+				"data/samtools-intro/sample.sam",
 				// gawk
-				"public/data/awk-intro/orders.tsv",
+				"data/awk-intro/orders.tsv",
 			]
 		});
 	});
