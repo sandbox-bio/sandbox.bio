@@ -15,7 +15,7 @@ export const config = {
 	subtitle: `by <a href="https://robert.bio" target="_blank">Robert Aboukhalil</a>`,
 	description: "Get up to speed with the terminal. Start here if you're new to bioinformatics.",
 	tags: ["terminal"],
-	tools: ["jq"],
+	tools: ["echo", "ls", "head", "tail", "grep", "wc", "cat"],
 	difficulty: ["beginner"],
 	divider: "Terminal",
 	steps: [

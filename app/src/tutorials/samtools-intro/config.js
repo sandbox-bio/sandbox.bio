@@ -17,7 +17,7 @@ export const config = {
 	subtitle: `by <a href="http://quinlanlab.org/" target="_blank">Aaron Quinlan</a>`,
 	description: "Explore, process and manipulate <code>.sam</code> and <code>.bam</code> files with samtools.",
 	tags: ["samtools", "IGV"],
-	tools: ["samtools"],
+	tools: ["samtools", "ls", "head"],
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "BAM parsing with samtools", component: Intro },

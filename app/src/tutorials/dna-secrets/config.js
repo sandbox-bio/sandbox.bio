@@ -16,7 +16,7 @@ export const config = {
 	subtitle: `by <a href="https://robert.bio" target="_blank">Robert Aboukhalil</a>`,
 	description: "Use variant calling to decode a secret message stored in sequencing data.",
 	tags: ["bowtie2", "bcftools"],
-	tools: ["samtools", "bcftools", "bowtie2"],
+	tools: ["samtools", "bcftools", "bowtie2", "echo", "ls", "head"],
 	difficulty: ["intermediate"],
 	steps: [
 		{ name: "Your mission: Variant Calling", component: Intro },

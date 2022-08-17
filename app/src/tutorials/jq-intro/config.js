@@ -17,7 +17,7 @@ export const config = {
 	subtitle: `by <a href="https://adamgordonbell.com/" target="_blank">Adam Gordon Bell</a>`,
 	description: "Filter and wrangle JSON files on the command-line using <code>jq</code>.",
 	tags: ["jq", "terminal"],
-	tools: ["jq"],
+	tools: ["jq", "echo"],
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "JSON wrangling with jq", component: Intro },

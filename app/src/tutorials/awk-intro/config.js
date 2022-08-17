@@ -20,7 +20,7 @@ export const config = {
 	subtitle: `by <a href="https://robert.bio" target="_blank">Robert Aboukhalil</a>`,
 	description: "Filter, extract and transform data files using <code>awk</code>.",
 	tags: ["awk", "terminal"],
-	tools: ["awk"],
+	tools: ["awk", "head"],
 	difficulty: ["intermediate"],
 	steps: [
 		{ name: "Data exploration with awk", component: Intro },

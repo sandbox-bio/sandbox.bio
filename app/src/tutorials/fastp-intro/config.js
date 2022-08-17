@@ -18,7 +18,7 @@ export const config = {
 	subtitle: `by <a href="https://robert.bio" target="_blank">Robert Aboukhalil</a>`,
 	description: "Evaluate the quality of a sequencing run by running <code>fastp</code> on your FASTQ files.",
 	tags: ["fastp", "QC", "sequencing"],
-	tools: ["fastp", "jq"],
+	tools: ["fastp", "jq", "ls", "head"],
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "DNA sequencing QC", component: Intro },
