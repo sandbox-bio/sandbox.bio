@@ -15,7 +15,7 @@ export const config = {
 	subtitle: `by <a href="https://langmead-lab.org/" target="_blank">Ben Langmead</a>`,
 	description: "Align reads to a reference genome.",
 	tags: ["bowtie2", "bcftools"],
-	tools: ["bowtie2", "samtools", "bcftools"],
+	tools: ["bowtie2", "samtools", "bcftools", "ls", "echo", "head"],
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "Sequence alignment with bowtie2", component: Intro },

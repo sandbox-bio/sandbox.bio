@@ -123,7 +123,9 @@ onMount(async () => {
 
 	// Put main tools at the beginning and the rest at the end of the list of tools.
 	// That way, we eager load the important stuff but lazy load the rest.
-	const toolsEagerLoad = TOOLS_DEFAULT.filter(tool => tools.includes(tool.tool)).map(tool => { tool.loading = "eager"; return tool; });
+	const toolsEagerLoad = TOOLS_DEFAULT
+		.filter(tool => tools.includes(tool.tool) || tools.includes(tool.program))
+		.map(tool => { tool.loading = "eager"; return tool; });
 	const toolsLazyLoad = TOOLS_DEFAULT.filter(tool => !tools.includes(tool.tool));
 	tools = [...toolsEagerLoad, ...toolsLazyLoad];
 

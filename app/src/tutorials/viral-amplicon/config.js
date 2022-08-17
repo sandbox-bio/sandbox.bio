@@ -16,7 +16,7 @@ export const config = {
 	subtitle: `by <a href="https://niema.net/" target="_blank">Niema Moshiri</a>`,
 	description: "Analyze viral amplicon sequence data using a real SARS-CoV-2 dataset.",
 	tags: ["ivar", "minimap", "samtools"],
-	tools: ["ivar", "ls", "echo"],
+	tools: ["ivar", "minimap2", "samtools", "ls", "echo", "head", "cat"],
 	difficulty: ["intermediate"],
 	steps: [
 		{ name: "Viral Amplicon Sequencing", component: Intro },

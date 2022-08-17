@@ -29,7 +29,7 @@ export const config = {
 	subtitle: `by <a href="http://quinlanlab.org/" target="_blank">Aaron Quinlan</a>`,
 	description: "Explore and manipulate <code>.bed</code> files.",
 	tags: ["bedtools", "IGV"],
-	tools: ["bedtools"],
+	tools: ["bedtools", "ls", "head", "tail", "sort"],
 	difficulty: ["beginner"],
 	divider: "Bioinformatics",
 
