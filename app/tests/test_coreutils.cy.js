@@ -4,8 +4,9 @@ import { get } from "svelte/store";
 import { CLI } from "../src/terminal/cli"; const $CLI = get(CLI);
 import { TOOLS } from "./utils";
 
-const FILE_SAM = "/samtools/examples/toy.sam";
-const FILE_FA = "/samtools/examples/toy.fa";
+const FOLDER_SAMTOOLS = "/samtools";
+const FILE_SAM = `${FOLDER_SAMTOOLS}/examples/toy.sam`;
+const FILE_FA = `${FOLDER_SAMTOOLS}/examples/toy.fa`;
 const FILE_FA_CONTENTS = `>ref\nAGCATGTTAGATAAGATAGCTGTGCTAGTAGGCAGTCAGCGCCAT\n>ref2\naggttttataaaacaattaagtctacagagcaactacgcg\n`;
 let observed;
 let expected;
@@ -163,7 +164,7 @@ describe("Test coreutils", () => {
 		// There should be a new file once we move it
 		const fileBlam = FILE_SAM.replace("toy.sam", "toy.blam");
 		await $CLI.exec(`mv ${FILE_SAM} ${fileBlam}`);
-		observed = await $CLI.exec(`ls /samtools/examples/`);
+		observed = await $CLI.exec(`ls ${FOLDER_SAMTOOLS}/examples/`);
 		expect(observed).to.contain("toy.blam");
 		expect(observed).to.not.contain("toy.sam");
 

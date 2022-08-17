@@ -6,7 +6,6 @@ import { TOOLS } from "./utils";
 
 const $CLI = get(CLI);
 const FILE_SAM = "/samtools/examples/toy.sam";
-const SAMTOOLS_USAGE = "\nUsage: samtools view [options] <in.bam>|<in.sam>|<in.cram> [region ...]\n";
 const SAMTOOLS_HELP = "\nProgram: samtools (Tools for alignments in the SAM format)\nVersion: 1.10 (using htslib 1.10)\n\nUsage:   samtools <command> [options]\n\nCommands:\n  -- Indexing\n     dict           create a sequence dictionary file\n     faidx          index/extract FASTA\n     fqidx          index/extract FASTQ\n     index          index alignment\n\n  -- Editing\n     calmd          recalculate MD/NM tags and \'=\' bases\n     fixmate        fix mate information\n     reheader       replace BAM header\n     targetcut      cut fosmid regions (for fosmid pool only)\n     addreplacerg   adds or replaces RG tags\n     markdup        mark duplicates\n\n  -- File operations\n     collate        shuffle and group alignments by name\n     cat            concatenate BAMs\n     merge          merge sorted alignments\n     mpileup        multi-way pileup\n     sort           sort alignment file\n     split          splits a file by read group\n     quickcheck     quickly check if SAM/BAM/CRAM file appears intact\n     fastq          converts a BAM to a FASTQ\n     fasta          converts a BAM to a FASTA\n\n  -- Statistics\n     bedcov         read depth per BED region\n     coverage       alignment depth and percent coverage\n     depth          compute the depth\n     flagstat       simple stats\n     idxstats       BAM index stats\n     phase          phase heterozygotes\n     stats          generate stats (former bamcheck)\n\n  -- Viewing\n     flags          explain BAM flags\n     tview          text alignment viewer\n     view           SAM<->BAM<->CRAM conversion\n     depad          convert padded BAM to unpadded BAM\n\n";
 
 let observed;
@@ -18,23 +17,23 @@ describe("Test redirections", () => {
 	});
 
 	it("Single pipe", async () => {
-		observed = await $CLI.exec(`samtools view | head -n 2`);
-		expect(observed).to.equal(SAMTOOLS_USAGE);
+		observed = await $CLI.exec(`samtools 2>&1 | head -n 7`);
+		expect(observed).to.equal(SAMTOOLS_HELP.split("\n").slice(0, 7).join("\n") + "\n");
 	});
 
 	it("Single pipe + file redirection", async () => {
-		observed = await $CLI.exec(`samtools view | head -n 2 > tmp`);
+		observed = await $CLI.exec(`samtools 2>&1 | head -n 2 > tmp`);
 		observed = await $CLI.exec(`cat tmp`);
-		expect(observed).to.equal(SAMTOOLS_USAGE);
+		expect(observed).to.equal(SAMTOOLS_HELP.split("\n").slice(0, 2).join("\n") + "\n");
 	});
 
 	it("Multiple pipes", async () => {
-		observed = await $CLI.exec(`samtools view | head -n 7 | wc -l | cut -f1 -d' '`);
+		observed = await $CLI.exec(`samtools 2>&1 | head -n 7 | wc -l | cut -f1 -d' '`);
 		expect(observed).to.equal("7\n");
 	});
 
 	it("Multiple pipes + file redirection + output is not a string", async () => {
-		observed = await $CLI.exec(`samtools view | head -n 7 | wc -l | cut -f1 -d' ' > tmp`);
+		observed = await $CLI.exec(`samtools 2>&1 | head -n 7 | wc -l | cut -f1 -d' ' > tmp`);
 		observed = await $CLI.exec(`cat tmp`);
 		expect(observed).to.equal("7\n");
 	});
@@ -68,7 +67,7 @@ describe("Test redirections", () => {
 		observed = await $CLI.exec(`echo "test" | cat`);
 		expect(observed).to.equal("test\n");
 
-		observed = await $CLI.exec(`samtools view /samtools/examples/toy.sam | cat - | wc -l | cut -f1 -d' '`);
+		observed = await $CLI.exec(`samtools view ${FILE_SAM} | cat - | wc -l | cut -f1 -d' '`);
 		expect(observed).to.equal("12\n");
 	});
 
