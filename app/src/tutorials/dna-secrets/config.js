@@ -33,5 +33,5 @@ export const config = {
 		"data/dna-secrets/reads.fq",
 		"data/dna-secrets/morereads.fq"
 	],
-	init: `REF=/bowtie2/example/index/lambda_virus; REF_FASTA=/bowtie2/example/reference/lambda_virus.fa; echo "CGGCGAACAGGCCTAGATTAGGCCCTTCTTCCCGGCGGTG" > secret`
+	init: `REF=/shared/bowtie2/example/index/lambda_virus; REF_FASTA=/shared/bowtie2/example/reference/lambda_virus.fa; echo "CGGCGAACAGGCCTAGATTAGGCCCTTCTTCCCGGCGGTG" > secret`
 };

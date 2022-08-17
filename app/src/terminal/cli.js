@@ -47,8 +47,12 @@ async function init(config={})
 		// debug: window.location.hostname == "localhost",
 		printInterleaved: false
 	});
-	_fs = _aioli.tools[1].module.FS;
+	_fs = _aioli.fs;
+
+	// Set up FS files needed by tutorial
 	await initTutorialFiles(config);
+	// Set up FS folder needed by `mktemp` command
+	await exec(`mkdir /shared/tmp`);
 }
 
 // Initialize tutorial files at a given folder of interest (config = { files, pwd })
@@ -75,8 +79,8 @@ async function initTutorialFiles({ files, pwd }) {
 
 			// Mount URL (don't need to check whether it exists first since this is empty)
 			const url = `${window.location.origin}/${file}`;
-			const [path] = await _aioli.mount([ url ]);  // e.g. ["/shared/data/localhost:5000-data-terminal-basics-orders.tsv"]
-			// Rename Aioli-mounted URLs that are automatically given long names
+			const [path] = await _aioli.mount({ name: file.split("/").at(-1), url });
+			// Move file from /shared/data to the tutorial folder
 			await exec(`mv ${path} ${filename}`);
 		}
 	}

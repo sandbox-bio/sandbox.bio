@@ -14,7 +14,7 @@ import { tutorial } from "./stores/tutorial";
 
 // Constants
 const ANSI_CLEAR = "\x1bc";
-const COREUTILS = ["basename", "cat", "comm", "cut", "date", "echo", "fold", "head", "join", "ls", "md5sum", "paste", "seq", "shuf", "sort", "tail", "tr", "uniq", "wc"];
+const COREUTILS = ["basename", "cat", "comm", "cut", "date", "echo", "fold", "head", "join", "ls", "md5sum", "paste", "seq", "shuf", "sort", "tail", "tee", "tr", "uniq", "wc"];
 const HTSLIB_TOOLS = ["tabix", "htsfile", "bgzip"];
 const TOOLS_DEFAULT = [
 	{ loading: "lazy", tool: "samtools", version: "1.10" },

@@ -1,0 +1,191 @@
+diff --git a/.gitignore b/.gitignore
+index eceb648..290cd0d 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -15,3 +15,5 @@ _trash/
+ # Biowasm copy for local development
+ app/public/biowasm/*
+ !app/public/biowasm/README.md
++
++app/src/tutorials/playground-swcarpentry/data/
+diff --git a/app/package-lock.json b/app/package-lock.json
+index 5396034..13fbf45 100644
+--- a/app/package-lock.json
++++ b/app/package-lock.json
+@@ -8,7 +8,7 @@
+       "name": "sandbox.bio",
+       "version": "1.0.0",
+       "dependencies": {
+-        "@biowasm/aioli": "^2.4.0",
++        "@biowasm/aioli": "^3.0.0-rc2",
+         "@codemirror/commands": "^6.0.1",
+         "@codemirror/lang-json": "^6.0.0",
+         "@codemirror/state": "^6.0.1",
+@@ -148,9 +148,9 @@
+       }
+     },
+     "node_modules/@biowasm/aioli": {
+-      "version": "2.4.0",
+-      "resolved": "https://registry.npmjs.org/@biowasm/aioli/-/aioli-2.4.0.tgz",
+-      "integrity": "sha512-V/7bCiHhBp3KZWwPOl1M6wGTjPpJGE4AhO9lmuRnnIa6r8+ULi49n+lajWQhbLgCJXn6qsE5TibwjCwTh3mIrQ==",
++      "version": "3.0.0-rc2",
++      "resolved": "https://registry.npmjs.org/@biowasm/aioli/-/aioli-3.0.0-rc2.tgz",
++      "integrity": "sha512-4w1xhIZbuGUNaTPMTvsBf9XI/S+fuM9/4nPr9e4YhH382QRmsQ1q70XtYaDGQGRcFLFDnYDrFXDOj0lE2Qb1Nw==",
+       "dependencies": {
+         "comlink": "^4.3.1",
+         "wasm-feature-detect": "^1.2.11"
+@@ -3630,9 +3630,9 @@
+       }
+     },
+     "@biowasm/aioli": {
+-      "version": "2.4.0",
+-      "resolved": "https://registry.npmjs.org/@biowasm/aioli/-/aioli-2.4.0.tgz",
+-      "integrity": "sha512-V/7bCiHhBp3KZWwPOl1M6wGTjPpJGE4AhO9lmuRnnIa6r8+ULi49n+lajWQhbLgCJXn6qsE5TibwjCwTh3mIrQ==",
++      "version": "3.0.0-rc2",
++      "resolved": "https://registry.npmjs.org/@biowasm/aioli/-/aioli-3.0.0-rc2.tgz",
++      "integrity": "sha512-4w1xhIZbuGUNaTPMTvsBf9XI/S+fuM9/4nPr9e4YhH382QRmsQ1q70XtYaDGQGRcFLFDnYDrFXDOj0lE2Qb1Nw==",
+       "requires": {
+         "comlink": "^4.3.1",
+         "wasm-feature-detect": "^1.2.11"
+diff --git a/app/package.json b/app/package.json
+index f67e763..41cfdcb 100644
+--- a/app/package.json
++++ b/app/package.json
+@@ -25,7 +25,7 @@
+     "svelte-preprocess-markdown": "^2.7.3"
+   },
+   "dependencies": {
+-    "@biowasm/aioli": "^2.4.0",
++    "@biowasm/aioli": "^3.0.0-rc2",
+     "@codemirror/commands": "^6.0.1",
+     "@codemirror/lang-json": "^6.0.0",
+     "@codemirror/state": "^6.0.1",
+diff --git a/app/src/stores/tutorials.js b/app/src/stores/tutorials.js
+index 902bb3d..f2df062 100644
+--- a/app/src/stores/tutorials.js
++++ b/app/src/stores/tutorials.js
+@@ -9,12 +9,16 @@ import { config as fastpIntro } from "tutorials/fastp-intro/config.js";
+ import { config as dnaSecrets } from "tutorials/dna-secrets/config.js";
+ import { config as viralAmplicon } from "tutorials/viral-amplicon/config.js";
+ import { config as playground } from "tutorials/playground/config.js";
++import { config as playgroundJHUBootcamp } from "tutorials/playground-jhu-qb-bootcamp/config.js";
++import { config as playgroundSWCarpentry } from "tutorials/playground-swcarpentry/config.js";
+ import { config as rosalind } from "tutorials/rosalind/config.js";
+ 
+ // All tutorials
+ export const tutorials = readable([
+ 	// Playground
+ 	playground,
++	playgroundJHUBootcamp,
++	playgroundSWCarpentry,
+ 	rosalind,
+ 	// Terminal Tutorials
+ 	terminalIntro,
+diff --git a/app/src/terminal/cli.js b/app/src/terminal/cli.js
+index 9e1bddd..53695b7 100644
+--- a/app/src/terminal/cli.js
++++ b/app/src/terminal/cli.js
+@@ -44,11 +44,15 @@ async function init(config={})
+ 	// Initialize
+ 	_aioli = await new Aioli(config.tools, {
+ 		env: ["localhost", "dev.sandbox.bio"].includes(window.location.hostname) ? "stg" : "prd",
+-		// debug: window.location.hostname == "localhost",
++		debug: window.location.hostname == "localhost",
+ 		printInterleaved: false
+ 	});
+-	_fs = _aioli.tools[1].module.FS;
++	_fs = _aioli.fs;
++
++	// Set up FS files needed by tutorial
+ 	await initTutorialFiles(config);
++	// Set up FS folder needed by `mktemp` command
++	await exec(`mkdir /shared/tmp`);
+ }
+ 
+ // Initialize tutorial files at a given folder of interest (config = { files, pwd })
+@@ -243,16 +247,19 @@ async function exec(cmd, callback=console.warn)
+ 			{
+ 				// Handle pipes
+ 				if(redirect.type == "pipe") {
+-					// Save `output` to a temp file
+-					const pathTmpFile = await coreutils.mktemp();
+-					await utils.writeFile(pathTmpFile, output);
+ 					// Run commands with appending arg called temp file, unless
+ 					// user specified we should use stdin via the argument "-".
+ 					const argStdinIndex = redirect.command.args.findIndex(arg => arg.value == "-");
+-					if(argStdinIndex != -1)
++					if(argStdinIndex === -1) {
++						console.log("Set stdin =", output)
++						_aioli.stdin = output;
++					} else {
++						// Save `output` to a temp file
++						const pathTmpFile = await coreutils.mktemp();
++						await utils.writeFile(pathTmpFile, output);
++						// Replace "-" with mktemp path
+ 						redirect.command.args[argStdinIndex].value = pathTmpFile;
+-					else
+-						redirect.command.args.push({ type: "literal", value: pathTmpFile });
++					}
+ 					return exec(redirect.command, callback);
+ 
+ 				// Handle redirection to a file
+diff --git a/app/src/tutorials/playground/config.js b/app/src/tutorials/playground/config.js
+index 6cf35f3..f8ff759 100644
+--- a/app/src/tutorials/playground/config.js
++++ b/app/src/tutorials/playground/config.js
+@@ -2,6 +2,6 @@ export const config = {
+ 	id: "playground",
+ 	listed: false,
+ 	tools: ["jq"],
+-	intro: `\u001b[0;37m# This playground is for open-ended exploration.\n# For guided tutorials, see https://sandbox.bio/tutorials\n#\n# Example:\n#   samtools view -o test.bam /samtools/examples/toy.sam\n#   samtools index test.bam\n#   ls test.bam.bai\n#   samtools idxstats test.bam  # idxstats uses the .bai file \u001b[0m\n`,
++	intro: `\u001b[0;37m# This playground is for open-ended exploration.\n# For guided tutorials, see https://sandbox.bio/tutorials\n#\n# Example:\n#   samtools view -o test.bam /shared/samtools/examples/toy.sam\n#   samtools index test.bam\n#   ls test.bam.bai\n#   samtools idxstats test.bam  # idxstats uses the .bai file \u001b[0m\n`,
+ 	steps: []
+ };
+diff --git a/app/tests/test_coreutils.cy.js b/app/tests/test_coreutils.cy.js
+index a0cc55a..09b0168 100644
+--- a/app/tests/test_coreutils.cy.js
++++ b/app/tests/test_coreutils.cy.js
+@@ -4,7 +4,7 @@ import { get } from "svelte/store";
+ import { CLI } from "../src/terminal/cli"; const $CLI = get(CLI);
+ import { TOOLS } from "./utils";
+ 
+-const FOLDER_SAMTOOLS = "/samtools";
++const FOLDER_SAMTOOLS = "/shared/samtools";
+ const FILE_SAM = `${FOLDER_SAMTOOLS}/examples/toy.sam`;
+ const FILE_FA = `${FOLDER_SAMTOOLS}/examples/toy.fa`;
+ const FILE_FA_CONTENTS = `>ref\nAGCATGTTAGATAAGATAGCTGTGCTAGTAGGCAGTCAGCGCCAT\n>ref2\naggttttataaaacaattaagtctacagagcaactacgcg\n`;
+diff --git a/app/tests/test_redirections.cy.js b/app/tests/test_redirections.cy.js
+index bb910c4..fd74ea6 100644
+--- a/app/tests/test_redirections.cy.js
++++ b/app/tests/test_redirections.cy.js
+@@ -5,7 +5,7 @@ import { CLI } from "../src/terminal/cli";
+ import { TOOLS } from "./utils";
+ 
+ const $CLI = get(CLI);
+-const FILE_SAM = "/samtools/examples/toy.sam";
++const FILE_SAM = "/shared/samtools/examples/toy.sam";
+ const SAMTOOLS_HELP = "\nProgram: samtools (Tools for alignments in the SAM format)\nVersion: 1.10 (using htslib 1.10)\n\nUsage:   samtools <command> [options]\n\nCommands:\n  -- Indexing\n     dict           create a sequence dictionary file\n     faidx          index/extract FASTA\n     fqidx          index/extract FASTQ\n     index          index alignment\n\n  -- Editing\n     calmd          recalculate MD/NM tags and \'=\' bases\n     fixmate        fix mate information\n     reheader       replace BAM header\n     targetcut      cut fosmid regions (for fosmid pool only)\n     addreplacerg   adds or replaces RG tags\n     markdup        mark duplicates\n\n  -- File operations\n     collate        shuffle and group alignments by name\n     cat            concatenate BAMs\n     merge          merge sorted alignments\n     mpileup        multi-way pileup\n     sort           sort alignment file\n     split          splits a file by read group\n     quickcheck     quickly check if SAM/BAM/CRAM file appears intact\n     fastq          converts a BAM to a FASTQ\n     fasta          converts a BAM to a FASTA\n\n  -- Statistics\n     bedcov         read depth per BED region\n     coverage       alignment depth and percent coverage\n     depth          compute the depth\n     flagstat       simple stats\n     idxstats       BAM index stats\n     phase          phase heterozygotes\n     stats          generate stats (former bamcheck)\n\n  -- Viewing\n     flags          explain BAM flags\n     tview          text alignment viewer\n     view           SAM<->BAM<->CRAM conversion\n     depad          convert padded BAM to unpadded BAM\n\n";
+ 
+ let observed;
+diff --git a/app/tests/test_tutorials.cy.js b/app/tests/test_tutorials.cy.js
+index 0bdeeb1..4139b72 100644
+--- a/app/tests/test_tutorials.cy.js
++++ b/app/tests/test_tutorials.cy.js
+@@ -36,7 +36,7 @@ describe("Test tutorial contents (1 representative command)", () => {
+ 
+ 	it("bowtie2", async () => {
+ 		let stderr = "";
+-		observed = await $CLI.exec("REF=/bowtie2/example/index/lambda_virus; bowtie2 -x $REF -1 reads_1.fq -2 reads_2.fq -S eg2.sam", d => stderr = d);
++		observed = await $CLI.exec("REF=/shared/bowtie2/example/index/lambda_virus; bowtie2 -x $REF -1 reads_1.fq -2 reads_2.fq -S eg2.sam", d => stderr = d);
+ 		expect(observed).to.equal("");
+ 		expect(stderr).to.equal("pthread_sigmask() is not supported: this is a no-op.\n25 reads; of these:\n  25 (100.00%) were paired; of these:\n    0 (0.00%) aligned concordantly 0 times\n    25 (100.00%) aligned concordantly exactly 1 time\n    0 (0.00%) aligned concordantly >1 times\n    ----\n    0 pairs aligned concordantly 0 times; of these:\n      0 (0.00%) aligned discordantly 1 time\n    ----\n    0 pairs aligned 0 times concordantly or discordantly; of these:\n      0 mates make up the pairs; of these:\n        0 (0.00%) aligned 0 times\n        0 (0.00%) aligned exactly 1 time\n        0 (0.00%) aligned >1 times\n100.00% overall alignment rate\n");
+ 	});
+@@ -44,7 +44,7 @@ describe("Test tutorial contents (1 representative command)", () => {
+ 	// Must run after bowtie2
+ 	it("bcftools", async () => {
+ 		let stderr = "";
+-		observed = await $CLI.exec("REF_FASTA=/bowtie2/example/reference/lambda_virus.fa; samtools view eg2.sam -o eg2.bam; samtools sort eg2.sam -o eg2.sorted.bam; bcftools mpileup -f $REF_FASTA eg2.sorted.bam", d => stderr = d);
++		observed = await $CLI.exec("REF_FASTA=/shared/bowtie2/example/reference/lambda_virus.fa; samtools view eg2.sam -o eg2.bam; samtools sort eg2.sam -o eg2.sorted.bam; bcftools mpileup -f $REF_FASTA eg2.sorted.bam", d => stderr = d);
+ 		expect(observed).to.contain(`##fileformat=VCFv4.2\n##FILTER=<ID=PASS,Description="All filters passed">`);
+ 		expect(stderr).to.equal(`[mpileup] 1 samples in 1 input files\n[mpileup] maximum number of reads per input file set to -d 250\n`);
+ 	});
