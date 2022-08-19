@@ -42,7 +42,10 @@ onMount(async () => {
 	$sandbox = $sandbox;  // force update the $data.flags derived store
 
 	// Initialize Aioli
-	CLI = await new Aioli($tool.aioliConfig, {
+	CLI = await new Aioli([
+		{ tool: "base", version: "1.0.0" },	
+		$tool.aioliConfig
+	], {
 		env: ["localhost", "dev.sandbox.bio"].includes(window.location.hostname) ? "stg" : "prd",
 		printInterleaved: false
 	});
