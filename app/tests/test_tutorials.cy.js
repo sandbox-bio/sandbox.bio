@@ -36,7 +36,7 @@ describe("Test tutorial contents (1 representative command)", () => {
 
 	it("bowtie2", async () => {
 		let stderr = "";
-		observed = await $CLI.exec("REF=/bowtie2/example/index/lambda_virus; bowtie2 -x $REF -1 reads_1.fq -2 reads_2.fq -S eg2.sam", d => stderr = d);
+		observed = await $CLI.exec("REF=/shared/bowtie2/example/index/lambda_virus; bowtie2 -x $REF -1 reads_1.fq -2 reads_2.fq -S eg2.sam", d => stderr = d);
 		expect(observed).to.equal("");
 		expect(stderr).to.equal("pthread_sigmask() is not supported: this is a no-op.\n25 reads; of these:\n  25 (100.00%) were paired; of these:\n    0 (0.00%) aligned concordantly 0 times\n    25 (100.00%) aligned concordantly exactly 1 time\n    0 (0.00%) aligned concordantly >1 times\n    ----\n    0 pairs aligned concordantly 0 times; of these:\n      0 (0.00%) aligned discordantly 1 time\n    ----\n    0 pairs aligned 0 times concordantly or discordantly; of these:\n      0 mates make up the pairs; of these:\n        0 (0.00%) aligned 0 times\n        0 (0.00%) aligned exactly 1 time\n        0 (0.00%) aligned >1 times\n100.00% overall alignment rate\n");
 	});
@@ -44,7 +44,7 @@ describe("Test tutorial contents (1 representative command)", () => {
 	// Must run after bowtie2
 	it("bcftools", async () => {
 		let stderr = "";
-		observed = await $CLI.exec("REF_FASTA=/bowtie2/example/reference/lambda_virus.fa; samtools view eg2.sam -o eg2.bam; samtools sort eg2.sam -o eg2.sorted.bam; bcftools mpileup -f $REF_FASTA eg2.sorted.bam", d => stderr = d);
+		observed = await $CLI.exec("REF_FASTA=/shared/bowtie2/example/reference/lambda_virus.fa; samtools view eg2.sam -o eg2.bam; samtools sort eg2.sam -o eg2.sorted.bam; bcftools mpileup -f $REF_FASTA eg2.sorted.bam", d => stderr = d);
 		expect(observed).to.contain(`##fileformat=VCFv4.2\n##FILTER=<ID=PASS,Description="All filters passed">`);
 		expect(stderr).to.equal(`[mpileup] 1 samples in 1 input files\n[mpileup] maximum number of reads per input file set to -d 250\n`);
 	});

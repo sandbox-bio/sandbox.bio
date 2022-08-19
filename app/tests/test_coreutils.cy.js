@@ -4,7 +4,7 @@ import { get } from "svelte/store";
 import { CLI } from "../src/terminal/cli"; const $CLI = get(CLI);
 import { TOOLS } from "./utils";
 
-const FOLDER_SAMTOOLS = "/samtools";
+const FOLDER_SAMTOOLS = "/shared/samtools";
 const FILE_SAM = `${FOLDER_SAMTOOLS}/examples/toy.sam`;
 const FILE_FA = `${FOLDER_SAMTOOLS}/examples/toy.fa`;
 const FILE_FA_CONTENTS = `>ref\nAGCATGTTAGATAAGATAGCTGTGCTAGTAGGCAGTCAGCGCCAT\n>ref2\naggttttataaaacaattaagtctacagagcaactacgcg\n`;
