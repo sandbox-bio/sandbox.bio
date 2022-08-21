@@ -179,11 +179,8 @@ async function mountLocalFile(event) {
 
 // Clear command-line history
 async function clearHistory() {
-	const historyController = $xtermAddons?.echo?.history;
-	if(historyController) {
-		historyController.entries = [];
-		historyController.cursor = 0;
-	}
+	$xterm.writeln("history -c");
+	exec("history -c");
 }
 
 
