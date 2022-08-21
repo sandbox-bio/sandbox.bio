@@ -333,14 +333,42 @@ const coreutils = {
 	hostname: args => "sandbox",
 	uname: args => "sandbox.bio",
 	whoami: args => $env?.USER || "guest",
-	history: args => {
-		const history = get(xtermAddons)?.echo?.history?.entries || [];
-		return history.map((h, i) => `${i + 1}\t${h}`).join("\n");
-	},
 	unset: args => {
 		args._.map(v => delete $env[v]);
 		env.set($env);
 		return "";
+	},
+
+	// -------------------------------------------------------------------------
+	// Command line history
+	// -------------------------------------------------------------------------
+
+	history: args => {
+		const historyController = get(xtermAddons)?.echo?.history;
+
+		// Clear history (history -c)
+		if(args.c) {
+			if(historyController) {
+				historyController.entries = [];
+				historyController.cursor = 0;
+			}
+			return "History cleared.";
+		}
+
+		// Delete one line from history (history -d 123)
+		if(args.d) {
+			const index = parseInt(args.d) - 1;
+			console.log("index", index)
+			if(index < 0 || index >= historyController.entries.length)
+				return "Invalid history line number.";
+			historyController.entries.splice(index, 1);
+			historyController.cursor--;
+			return "";
+		}
+
+		// Show history
+		const history = historyController?.entries || [];
+		return history.map((h, i) => `${i + 1}\t${h}`).join("\n");
 	},
 
 	// -------------------------------------------------------------------------
