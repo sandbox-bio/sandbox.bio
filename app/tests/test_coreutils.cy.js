@@ -1,6 +1,7 @@
 // Test coreutils
 
 import { get } from "svelte/store";
+import { xtermAddons } from "../src/terminal/xterm";
 import { CLI } from "../src/terminal/cli"; const $CLI = get(CLI);
 import { TOOLS } from "./utils";
 
@@ -198,5 +199,25 @@ describe("Test coreutils", () => {
 
 		await $CLI.exec("touch somefile");
 		observed = await $CLI.exec("ls somefile");  // test fails if ls throws an error
+	});
+
+	it("history", async () => {
+		// Set history programmatically since it's controlled by the xterm.js UI
+		const historyController = get(xtermAddons)?.echo?.history;
+		historyController.entries = ["ls", "pwd", "hostname", "env", "history"];
+		historyController.cursor = historyController.entries.length;
+
+		observed = await $CLI.exec("history");
+		expect(observed).to.equal("1\tls\n2\tpwd\n3\thostname\n4\tenv\n5\thistory\n");
+
+		// Delete line 4 ("env")
+		await $CLI.exec("history -d 4");
+		observed = await $CLI.exec("history");
+		expect(observed).to.equal("1\tls\n2\tpwd\n3\thostname\n4\thistory\n");
+
+		// Clear history
+		await $CLI.exec("history -c");
+		observed = await $CLI.exec("history");
+		expect(observed).to.equal("\n");
 	});
 });
