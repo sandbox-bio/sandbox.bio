@@ -127,7 +127,7 @@ onMount(async () => {
 	const toolsEagerLoad = TOOLS_DEFAULT
 		.filter(tool => tools.includes(tool.tool) || tools.includes(tool.program))
 		.map(tool => { tool.loading = "eager"; return tool; });
-	const toolsLazyLoad = TOOLS_DEFAULT.filter(tool => !tools.includes(tool.tool));
+	const toolsLazyLoad = TOOLS_DEFAULT.filter(tool => !tools.includes(tool.tool) && !tools.includes(tool.program));
 	tools = [...toolsEagerLoad, ...toolsLazyLoad];
 
 	// Initialize Aioli

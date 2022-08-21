@@ -376,7 +376,7 @@ const coreutils = {
 	// -------------------------------------------------------------------------
 	mv: args => _fs.rename(args._[0], args._[1]) && "",
 	rm: args => Promise.all(args._.map(async arg => await _fs.unlink(arg))) && "",
-	pwd: args => _fs.cwd(),
+	pwd: args => _aioli.pwd(),
 	touch: async args => {
 		return Promise.all(args._.map(async path => {
 			try {
