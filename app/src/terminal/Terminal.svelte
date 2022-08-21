@@ -58,7 +58,7 @@ const AUTOCOMPLETE = {
 	// Host info
 	hostname: [], uname: [], whoami: [],
 	// Env variables
-	env: [], unset: [],
+	env: [], unset: [], history: [],
 	// Aliases
 	ll: [],
 	// Simulated coreutils

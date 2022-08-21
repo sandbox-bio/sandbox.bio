@@ -333,6 +333,10 @@ const coreutils = {
 	hostname: args => "sandbox",
 	uname: args => "sandbox.bio",
 	whoami: args => $env?.USER || "guest",
+	history: args => {
+		const history = get(xtermAddons)?.echo?.history?.entries || [];
+		return history.map((h, i) => `${i + 1}\t${h}`).join("\n");
+	},
 	unset: args => {
 		args._.map(v => delete $env[v]);
 		env.set($env);
