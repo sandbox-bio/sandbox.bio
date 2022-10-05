@@ -8,7 +8,7 @@ import Link from "components/Link.svelte";
 
 let criteria = [
 {
-	name: "File <code>splice-sites.bed</code> contains a list of all regions of 500kb in the genome",
+	name: "File <code>splice-sites.bed</code> contains a list of splice sites",
 	checks: [{
 		type: "file",
 		path: "splice-sites.bed",
