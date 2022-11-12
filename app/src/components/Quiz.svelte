@@ -1,20 +1,26 @@
 <script>
-import Alert from "components/Alert.svelte";
+import { onMount } from "svelte";
+import localforage from "localforage";
 import { Button, Input } from "sveltestrap";
+import Alert from "components/Alert.svelte";
+import { tutorial } from "stores/tutorial";
+import { getLocalForageKey } from "stores/config";
 
-// TODO: need to maintain state?
-
+export let id;
 export let choices = [];
 
+// State
 let checked = {};
 let radio;
 let error;
 let success;
 
+// State updates
+$: stateId = getLocalForageKey("quiz") + `${$tutorial.id}-${$tutorial.step}-${id}`;
 $: multiple = choices.filter(c => c.valid).length > 1;
-$: console.log(checked)
-$: console.log(radio)
+$: if(id && (radio || checked)) updateState();
 
+// Validate user response
 function validate() {
 	for(let i = 0; i < choices.length; i++) {
 		const choice = choices[i].valid;
@@ -27,6 +33,22 @@ function validate() {
 
 	success = true;
 }
+
+// Update state
+async function updateState() {
+	await localforage.setItem(stateId, multiple ? checked : radio);
+}
+
+// Set state of quiz
+onMount(async () => {
+	const state = await localforage.getItem(stateId);
+	if(!state) return;
+	if(multiple)
+		checked = state;
+	else
+		radio = state;
+	validate();
+})
 </script>
 
 <Alert color={success ? "success" : "primary"}>
