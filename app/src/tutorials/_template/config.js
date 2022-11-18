@@ -1,6 +1,6 @@
 // Steps
 import Intro from "./steps/Intro.md";
-// import Step1 from "./steps/Step1.md";
+import Quiz from "./steps/Quiz.md";
 // import Step2 from "./steps/Step2.md";
 // import Step3 from "./steps/Step3.md";
 // import Step4 from "./steps/Step4.md";
@@ -21,6 +21,7 @@ export const config = {
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "Multiple sequence alignment", component: Intro },
+		{ name: "Quiz", component: Quiz },
 		// { name: "Filter data", component: Step1, subtitle: "Select Elements", header: true },
 		// { name: "Filter data", component: Step2, subtitle: "Select Arrays" },
 		// { name: "Filter data", component: Step3, subtitle: "Putting Elements in an Array" },
