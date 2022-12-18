@@ -10,6 +10,7 @@ import { config as dnaSecrets } from "tutorials/dna-secrets/config.js";
 import { config as viralAmplicon } from "tutorials/viral-amplicon/config.js";
 import { config as playground } from "tutorials/playground/config.js";
 import { config as rosalind } from "tutorials/rosalind/config.js";
+import { config as testIFB1 } from "tutorials/test-ifb-1/config.js";
 
 // All tutorials
 export const tutorials = readable([
@@ -27,6 +28,8 @@ export const tutorials = readable([
 	fastpIntro,
 	dnaSecrets,
 	viralAmplicon,
+	// Tests
+	testIFB1,
 ]);
 
 // Playgrounds
