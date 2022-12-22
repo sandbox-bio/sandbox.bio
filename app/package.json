@@ -10,10 +10,12 @@
     "test-local": "cypress open"
   },
   "devDependencies": {
+    "@cypress/webpack-preprocessor": "^5.16.0",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "cypress": "^10.2.0",
+    "raw-loader": "^4.0.2",
     "rollup": "^2.75.7",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-includepaths": "^0.2.4",
