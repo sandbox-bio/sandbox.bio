@@ -59,7 +59,7 @@ const AUTOCOMPLETE = {
 	// Open/download files
 	open: [], download: [],
 	// Host info
-	hostname: [], uname: [], whoami: [],
+	hostname: [], uname: [], whoami: [], man: [],
 	// Env variables
 	env: [], unset: [], history: [],
 	// Aliases
