@@ -19,16 +19,19 @@ describe("Test globbing", () => {
 		await $CLI.exec(`echo abc > folder3/file1-inside-folder3; echo abc > folder3/file2-inside-folder3`);
 	});
 
+	// Whereas `ls` will show only the files/folders at the current level, `ls *` shows files inside each folder too
 	it("ls *", async () => {
 		observed = await $CLI.exec(`ls *`);
-		expected = await $CLI.exec(`ls`);
+		expected = `test1.txt  test2.txt  test3.bed\n\nfolder1/:\nfile1-inside-folder1  file2-inside-folder1\n\nfolder2/:\nfile1-inside-folder2  file2-inside-folder2\n\nfolder3/:\nfile1-inside-folder3  file2-inside-folder3\n`;
 		expect(observed).to.equal(expected);
+		expect(observed).to.not.equal(await $CLI.exec(`ls`));
 	});
 
 	it("ls folder/*", async () => {
 		observed = await $CLI.exec(`ls folder1/*`);
-		expected = await $CLI.exec(`ls folder1/`);
+		expected = `folder1/file1-inside-folder1  folder1/file2-inside-folder1\n`;
 		expect(observed).to.equal(expected);
+		expect(observed).to.not.equal(await $CLI.exec(`ls folder1/`));
 	});
 
 	it("ls f*", async () => {

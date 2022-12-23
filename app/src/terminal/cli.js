@@ -604,9 +604,11 @@ const utils = {
 				arg.value = arg.value.slice(0, -1);
 			const pathBase = arg.value.substring(0, arg.value.lastIndexOf("/") + 1) || "";
 			let pathPattern = arg.value.replace(pathBase, "");
-			if(pathPattern == "*")
-				pathPattern = "";
 			const files = await utils.ls([ pathBase || "." ], true);
+
+			// Expand wildcard to list of file names
+			if(pathPattern === "*")
+				return files.map(f => `${pathBase}${f.name}`);
 
 			// Convert bash regex to JS regex; "*" in bash == ".*" in js; "?" in bash == "." in js
 			const pattern = pathPattern
@@ -619,7 +621,7 @@ const utils = {
 			const re = new RegExp("^" + pattern + "$|" + "^" + pattern + "/$");
 
 			// If find no matches, return original glob value
-			const filesMatching = files.filter(f => f.name.match(re)).map(f => `${pathBase}${f.name}`)
+			const filesMatching = files.filter(f => f.name.match(re)).map(f => `${pathBase}${f.name}`);
 			if(filesMatching.length > 0)
 				return filesMatching;
 			if(pathPattern == "")
