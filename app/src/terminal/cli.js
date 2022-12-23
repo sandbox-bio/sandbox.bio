@@ -619,13 +619,13 @@ const utils = {
 				.replaceAll("###__QUESTION__###", ".");
 			// If user specifies ls *txt, match both hello.txt and my_txt/
 			const re = new RegExp("^" + pattern + "$|" + "^" + pattern + "/$");
-
-			// If find no matches, return original glob value
 			const filesMatching = files.filter(f => f.name.match(re)).map(f => `${pathBase}${f.name}`);
 			if(filesMatching.length > 0)
 				return filesMatching;
 			if(pathPattern == "")
 				return [pathBase || "."];
+
+			// If find no matches, return original glob value
 			return arg.value;
 		}
 		else
