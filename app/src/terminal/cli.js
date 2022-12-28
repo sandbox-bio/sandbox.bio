@@ -23,6 +23,7 @@ import man_comm from "../man/comm.txt";
 import man_cut from "../man/cut.txt";
 import man_date from "../man/date.txt";
 import man_echo from "../man/echo.txt";
+import man_find from "../man/find.txt";
 import man_fold from "../man/fold.txt";
 import man_gawk from "../man/gawk.txt";
 import man_grep from "../man/grep.txt";
@@ -546,6 +547,7 @@ const coreutils = {
 			case "cut": return man_cut;
 			case "date": return man_date;
 			case "echo": return man_echo;
+			case "find": return man_find;
 			case "fold": return man_fold;
 			case "gawk": return man_gawk;
 			case "grep": return man_grep;

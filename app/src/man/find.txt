@@ -1,0 +1,98 @@
+find(1)                      General Commands Manual                     find(1)
+
+
+
+
+NAME
+       find - search for files in a directory hierarchy
+
+
+SYNOPSIS
+       find [-H] [-L] [-P] [-D debugopts] [-Olevel] [starting-point...]
+       [expression]
+
+
+DESCRIPTION
+       This manual page documents the GNU version of find.  GNU find searches
+       the directory tree rooted at each given starting-point by evaluating the
+       given expression from left to right, according to the rules of precedence
+       (see section OPERATORS), until the outcome is known (the left hand side
+       is false for and operations, true for or), at which point find moves on
+       to the next file name.  If no starting-point is specified, `.' is
+       assumed.
+
+       If you are using find in an environment where security is important (for
+       example if you are using it to search directories that are writable by
+       other users), you should read the `Security Considerations' chapter of
+       the findutils documentation, which is called Finding Files and comes with
+       findutils.  That document also includes a lot more detail and discussion
+       than this manual page, so you may find it a more useful source of
+       information.
+
+
+OPTIONS
+       The -H, -L and -P options control the treatment of symbolic links.
+       Command-line arguments following these are taken to be names of files or
+       directories to be examined, up to the first argument that begins with
+       `-', or the argument `(' or `!'.  That argument and any following
+       arguments are taken to be the expression describing what is to be
+       searched for.  If no paths are given, the current directory is used.  If
+       no expression is given, the expression -print is used (but you should
+       probably consider using -print0 instead, anyway).
+
+       This manual page talks about `options' within the expression list.  These
+       options control the behaviour of find but are specified immediately after
+       the last path name.  The five `real' options -H, -L, -P, -D and -O must
+       appear before the first path name, if at all.  A double dash -- could
+       theoretically be used to signal that any remaining arguments are not
+       options, but this does not really work due to the way find determines the
+       end of the following path arguments: it does that by reading until an
+       expression argument comes (which also starts with a `-').  Now, if a path
+       argument would start with a `-', then find would treat it as expression
+       argument instead.  Thus, to ensure that all start points are taken as
+       such, and especially to prevent that wildcard patterns expanded by the
+       calling shell are not mistakenly treated as expression arguments, it is
+       generally safer to prefix wildcards or dubious path names with either
+       `./' or to use absolute path names starting with '/'.  Alternatively, it
+       is generally safe though non-portable to use the GNU option -files0-from
+       to pass arbitrary starting points to find.
+
+
+       -P     Never follow symbolic links.  This is the default behaviour.  When
+              find examines or prints information about files, and the file is a
+              symbolic link, the information used shall be taken from the
+              properties of the symbolic link itself.
+
+
+       -L     Follow symbolic links.  When find examines or prints information
+              about files, the information used shall be taken from the
+              properties of the file to which the link points, not from the link
+              itself (unless it is a broken symbolic link or find is unable to
+              examine the file to which the link points).  Use of this option
+              implies -noleaf.  If you later use the -P option, -noleaf will
+              still be in effect.  If -L is in effect and find discovers a
+              symbolic link to a subdirectory during its search, the
+              subdirectory pointed to by the symbolic link will be searched.
+
+              When the -L option is in effect, the -type predicate will always
+              match against the type of the file that a symbolic link points to
+              rather than the link itself (unless the symbolic link is broken).
+              Actions that can cause symbolic links to become broken while find
+              is executing (for example -delete) can give rise to confusing
+              behaviour.  Using -L causes the -lname and -ilname predicates
+              always to return false.
+
+
+       -H     Do not follow symbolic links, except while processing the command
+              line arguments.  When find examines or prints information about
+              files, the information used shall be taken from the properties of
+              the symbolic link itself.  The only exception to this behaviour is
+              when a file specified on the command line is a symbolic link, and
+              the link can be resolved.  For that situation, the information
+              used is taken from whatever the link points to (that is, the link
+              is followed).  The information about the link itself is used as a
+              fallback if the file pointed to by the symbolic link cannot be
+              examined.  If -H is in effect and one of the paths specified on
+              the command line is a symbolic link to a directory, the contents
+
+findutils 4.9.0 - Generated Fri Aug 12 16:32:45 CDT 2022

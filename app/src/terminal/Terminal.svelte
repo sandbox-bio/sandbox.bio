@@ -32,6 +32,7 @@ const TOOLS_DEFAULT = [
 	{ loading: "lazy", tool: "grep", version: "3.7", reinit: true },
 	{ loading: "lazy", tool: "sed", version: "4.8", reinit: true },
 	{ loading: "lazy", tool: "tree", version: "2.0.4" },
+	{ loading: "lazy", tool: "findutils", program: "find", version: "4.9.0" },
 	{ loading: "lazy", tool: "lsd2", version: "2.3" },
 	{ loading: "lazy", tool: "tn93", version: "1.0.9" },
 	...HTSLIB_TOOLS.map(program => ({ program, tool: "htslib", loading: "lazy", version: "1.10", reinit: true })),
