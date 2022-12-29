@@ -468,11 +468,19 @@ const coreutils = {
 		// For each folder path to create (a/b/c), create all its subpaths in the right order (a, a/b, a/b/c)
 		for(const path of args._) {
 			const subpaths = !hasFlagP ? [path] : fsGeneratePaths(path);
-			try {
-				for(const subpath of subpaths)
+			for(const subpath of subpaths.filter(s => s !== "")) {
+				try {
+					// Don't try creating folder if it already exists
+					try {
+						if(await _fs.stat(subpath))
+							continue;
+					} catch (error) {}
+					// Create folder
 					await _aioli.mkdir(subpath);
-			} catch (error) {
-				return `${path}: Cannot create folder`;
+				} catch (error) {
+					console.error(`Cannot create ${subpath}`, error);
+					return `${subpath}: Cannot create folder\n`;
+				}
 			}
 		}
 		return "";
