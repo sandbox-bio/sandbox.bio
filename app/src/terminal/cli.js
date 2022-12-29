@@ -401,7 +401,34 @@ const coreutils = {
 	// File system management
 	// -------------------------------------------------------------------------
 	mv: args => _fs.rename(args._[0], args._[1]) && "",
-	rm: args => Promise.all(args._.map(async arg => await _fs.unlink(arg))) && "",
+	// Support rm -rf <file> <folder>
+	rm: async args => {
+		// Treat -r as boolean flag, not specific flag for just one file/folder
+		const hasFlagR = args.r != null, hasFlagF = args.f != null;
+		if(hasFlagR && args.r !== true) args._.unshift(args.r); // rm -rf abc ==> r=true, f=abc
+		if(hasFlagF && args.f !== true) args._.unshift(args.f); // rm -fr abc ==> f=true, r=abc
+
+		// Recursively delete files
+		for(const path of args._) {
+			try {
+				const filesAndFolders = !hasFlagR ? [path] : await fsTraverse((path + "/").replaceAll("//", "/"));
+				const files = filesAndFolders.filter(f => !f.endsWith("/"));
+				const folders = filesAndFolders.filter(f => f.endsWith("/"));
+				// Delete files first
+				for(let file of files)
+					await _fs.unlink(file)
+				// Then delete folders
+				for(let folder of folders.reverse())
+					await _fs.rmdir(folder);
+				// Finally, delete the remaining folder itself
+				if(hasFlagR)
+					await _fs.rmdir(path);
+			} catch (error) {
+				return `${path}: Cannot delete files`;
+			}
+		}
+		return "";
+	},
 	pwd: args => _aioli.pwd(),
 	touch: async args => {
 		return Promise.all(args._.map(async path => {

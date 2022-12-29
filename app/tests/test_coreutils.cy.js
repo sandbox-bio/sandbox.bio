@@ -220,4 +220,29 @@ describe("Test coreutils", () => {
 		observed = await $CLI.exec("history");
 		expect(observed).to.equal("\n");
 	});
+
+	it("rm -rf", async () => {
+		// Setup (use files that start with a/z to make sure traverse algorithm doesn't make assumptions about order of the names of files/folders)
+		await $CLI.exec("mkdir -p abc/d/e/f");
+		await $CLI.exec("touch abc/a1");
+		await $CLI.exec("touch abc/z1");
+		await $CLI.exec("touch abc/d/a2");
+		await $CLI.exec("touch abc/d/z2");
+		await $CLI.exec("touch abc/d/e/a3");
+		await $CLI.exec("touch abc/d/e/z3");
+		await $CLI.exec("touch abc/d/e/f/a4");
+		await $CLI.exec("touch abc/d/e/f/z4");
+
+		// Make sure the files were created
+		observed = await $CLI.exec("ls abc");
+		expect(observed).to.not.equal("abc: No such file or directory");
+
+		// Delete everything
+		await $CLI.exec("rm -rf abc");
+		try {
+			observed = await $CLI.exec("ls abc");
+		} catch (error) {
+			expect(error).to.equal("abc: No such file or directory");
+		}
+	});
 });
