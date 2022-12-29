@@ -17,6 +17,7 @@ const ANSI_CLEAR = "\x1bc";
 const COREUTILS = ["basename", "cat", "comm", "cut", "date", "echo", "fold", "head", "join", "ls", "md5sum", "paste", "seq", "shuf", "sort", "tail", "tee", "tr", "uniq", "wc"];
 const HTSLIB_TOOLS = ["tabix", "htsfile", "bgzip"];
 const TOOLS_DEFAULT = [
+	// Bioinformatics
 	{ loading: "lazy", tool: "samtools", version: "1.10" },
 	{ loading: "lazy", tool: "bcftools", program: "bcftools", version: "1.10" },
 	{ loading: "lazy", tool: "bedtools", version: "2.29.2" },
@@ -27,15 +28,17 @@ const TOOLS_DEFAULT = [
 	{ loading: "lazy", tool: "ivar", version: "1.3.1" },
 	{ loading: "lazy", tool: "fasttree", version: "2.1.11" },
 	{ loading: "lazy", tool: "fastp", version: "0.20.1" },
+	{ loading: "lazy", tool: "tree", version: "2.0.4" },
+	{ loading: "lazy", tool: "lsd2", version: "2.3" },
+	{ loading: "lazy", tool: "tn93", version: "1.0.9" },
+	...HTSLIB_TOOLS.map(program => ({ program, tool: "htslib", loading: "lazy", version: "1.10", reinit: true })),
+
+	// General terminal tools
 	{ loading: "lazy", tool: "jq", version: "1.6" },
 	{ loading: "lazy", tool: "gawk", version: "5.1.0", reinit: true },
 	{ loading: "lazy", tool: "grep", version: "3.7", reinit: true },
 	{ loading: "lazy", tool: "sed", version: "4.8", reinit: true },
-	{ loading: "lazy", tool: "tree", version: "2.0.4" },
-	{ loading: "lazy", tool: "findutils", program: "find", version: "4.9.0" },
-	{ loading: "lazy", tool: "lsd2", version: "2.3" },
-	{ loading: "lazy", tool: "tn93", version: "1.0.9" },
-	...HTSLIB_TOOLS.map(program => ({ program, tool: "htslib", loading: "lazy", version: "1.10", reinit: true })),
+	{ loading: "lazy", tool: "findutils", program: "find", version: "4.9.0", reinit: true },
 	...COREUTILS.map(program => ({ program, tool: "coreutils", loading: "lazy", version: "8.32", reinit: true }))
 ];
 
