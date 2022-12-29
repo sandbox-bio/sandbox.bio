@@ -431,32 +431,24 @@ const coreutils = {
 		}
 		return "";
 	},
+	// Support `mkdir -p <folder1> <folder2> ...`
 	mkdir: async args => {
-		// Support `mkdir -p <folder1> <folder2> ...`
-		const hasFlagP = args.p != null;
 		// Treat -p as boolean flag, not specific flag for just one folder
+		const hasFlagP = args.p != null;
 		if(hasFlagP)
 			args._.unshift(args.p);
-		// Create all folders specified
-		return await Promise.all(args._.map(async arg => {
+
+		// For each folder path to create (a/b/c), create all its subpaths in the right order (a, a/b, a/b/c)
+		for(const path of args._) {
+			const subpaths = !hasFlagP ? [path] : fsGeneratePaths(path);
 			try {
-				if(!hasFlagP)
-					await _aioli.mkdir(arg);
-				else {
-					const folders = arg.split("/");
-					let prefix = "";
-					while(folders.length > 0) {
-						const newFolder = folders.shift();
-						try {
-							await _aioli.mkdir(`${prefix}${newFolder}`);
-						} catch (error) {}
-						prefix += `${newFolder}/`;
-					}
-				}
+				for(const subpath of subpaths)
+					await _aioli.mkdir(subpath);
 			} catch (error) {
-				return `${arg}: Cannot create folder`;
+				return `${path}: Cannot create folder`;
 			}
-		})) && "";
+		}
+		return "";
 	},
 	rmdir: args => Promise.all(args._.map(async arg => await _fs.rmdir(arg))) && "",
 	mktemp: args => {
@@ -796,6 +788,20 @@ async function fsTraverse(path) {
 	return paths;
 }
 
+// Generate list of all subfolder paths
+function fsGeneratePaths(path) {
+	const folders = path.split("/");
+
+	let prefix = "";
+	const result = [];
+	while(folders.length > 0) {
+		const folderName = folders.shift();
+		result.push(`${prefix}${folderName}`);
+		prefix += `${folderName}/`;
+	}
+
+	return result;
+}
 
 // =============================================================================
 // Export CLI as a readable store
