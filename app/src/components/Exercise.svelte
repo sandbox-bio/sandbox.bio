@@ -85,11 +85,11 @@ setTimeout(check, 500);
 </ul>
 
 {#if hints.length > 0}
-	<FormGroup class="mt-2">
+	<FormGroup class="mt-3" style="margin-bottom:0 !important"> <!-- FormGroup seems to add mb-3 automatically? -->
 		<Label for="exampleRange">Showing {nbHints} out of {hints.length} hints</Label>
 		<Input type="range" min={0} max={hints.length} step={1} bind:value={nbHints} />
 	</FormGroup>
-	<ListGroup>
+	<ListGroup class="mt-0">
 		{#each hints.slice(0, nbHints) as hint}
 			<ListGroupItem class="small">{@html hint}</ListGroupItem>
 		{/each}
