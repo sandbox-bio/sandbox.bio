@@ -3,7 +3,7 @@ import Execute from "components/Execute.svelte";
 import Exercise from "components/Exercise.svelte";
 
 const criteria = [{
-	name: "File <code>exons.bed</code> no longer causes <code>bedtools</code> error <code>unable to determine types</code>",
+	name: "File <code>exons.bed</code> no longer causes <code>bedtools merge</code> to output an error",
 	checks: [{
 		type: "file",
 		path: "exons.bed",
@@ -11,6 +11,13 @@ const criteria = [{
 		commandExpected: `sed 's/ /\t/g' exons.bed`
 	}]
 }];
+
+const hints = [
+	`As suggested by the <code>bedtools</code> error message, try running <code>cat -t exons.bed</code>. Also try <code>head exons.bed</code>. Do any lines stand out as different from the others?`,
+	`In the output of <code>cat -t exons.bed</code>, note that the first line looks different than the rest: it uses space as the delimiter instead of tabs.`,
+	`You can use a <code>sed</code> command to replace spaces with tabs (<code>\\t</code>).`,
+	`Don't forget to specify that you want the <code>sed</code> replace logic to be global!`
+];
 </script>
 
 You just received a file from your collaborator: `exons.bed`, which contains a list of exonic regions. As part of your analysis, you would like to merge all overlapping regions into contiguous intervals.
@@ -19,6 +26,6 @@ This is a perfect job for `bedtools merge`, **but** you keep getting an error wh
 
 <Execute command={"bedtools merge -i exons.bed"} />
 
-Your goal for this puzzle is to fix what is wrong with exons.bed such that you are able to run the command above without error.
+Your goal: fix what is wrong with <code>exons.bed</code> so that you can run the `bedtools` command above without error.
 
-<Exercise {criteria} />
+<Exercise {criteria} {hints} />

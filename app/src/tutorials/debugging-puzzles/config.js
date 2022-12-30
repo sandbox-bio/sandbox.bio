@@ -20,7 +20,7 @@ export const config = {
 	tools: [],
 	difficulty: ["difficult"],
 	steps: [
-		{ name: "Multiple sequence alignment", component: Intro },
+		{ name: "Bioinformatics Debugging Puzzles", component: Intro },
 		{ name: "Puzzles", component: PuzzleBedSpaces, subtitle: "Invalid .bed file format", header: true },
 		// { name: "Filter data", component: Step1, subtitle: "Select Elements", header: true },
 		// { name: "Filter data", component: Step2, subtitle: "Select Arrays" },
