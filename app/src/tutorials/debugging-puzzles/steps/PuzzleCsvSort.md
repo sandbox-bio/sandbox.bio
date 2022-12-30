@@ -8,11 +8,13 @@ const criteria = [{
 		type: "file",
 		path: "chromosomes.sorted.csv",
 		action: "contents",
-		commandExpected: `sort -V -k1,1 chromosomes.csv`
+		commandExpected: `sort -V chromosomes.csv`
 	}]
 }];
 
 const hints = [
+	"When googling for command line utilities like <code>sort</code>, prefix queries with <code>unix</code> or <code>linux</code> so it's clear which context you're interested in.",
+	"Try googling <code>unix sort alphanumerical</code>."
 ];
 </script>
 
@@ -20,12 +22,12 @@ The file `chromosomes.csv` is a CSV file (comma-separated values) that contains 
 
 <Execute command={"cat chromosomes.csv"} />
 
-We can use the `sort` command to sort this file by the first column, where `-n` signifies to sort numerically, and `-k1,1` means to only sort on the first column
+We can use the `sort` command to sort this file, where `-n` signifies to sort numerically *(usually you'll want to specify which columns to sort on using `-k`, but for this exercise, it's ok to sort on all columns)*:
 
-<Execute command={"sort -n -k1,1 chromosomes.csv"} />
+<Execute command={"sort -n chromosomes.csv"} />
 
 While the file is more sorted than before, it doesn't look quite right: `chr10` appears right after `chr1` but before `chr2`.
 
-**Your goal**: Find the flag that allows you to sort the first column alphanumerically, i.e. `chr1`, `chr2`, `chr3`, ..., `chr10`. One done, save the results to the file `chromosomes.sorted.csv`
+**Your goal**: Find the flag that allows you to sort the file alphanumerically, i.e. `chr1`, `chr2`, `chr3`, ..., `chr10`. One done, save the results to the file `chromosomes.sorted.csv`.
 
 <Exercise {criteria} {hints} />
