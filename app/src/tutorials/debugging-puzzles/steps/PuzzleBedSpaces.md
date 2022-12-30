@@ -13,8 +13,8 @@ const criteria = [{
 }];
 
 const hints = [
-	`As suggested by the <code>bedtools</code> error message, try running <code>cat -t exons.bed</code>. Also try <code>head exons.bed</code>. Do any lines stand out as different from the others?`,
-	`In the output of <code>cat -t exons.bed</code>, note that the first line looks different than the rest: it uses space as the delimiter instead of tabs.`,
+	`As suggested by the error message, run <code>cat -t exons.bed</code>. Also try <code>head exons.bed</code>. Do any lines stand out from the others?`,
+	`In the output of <code>cat -t exons.bed</code>, the first line uses spaces as the column delimiter instead of tabs.`,
 	`You can use a <code>sed</code> command to replace spaces with tabs (<code>\\t</code>).`,
 	`Don't forget to specify that you want the <code>sed</code> replace logic to be global!`
 ];

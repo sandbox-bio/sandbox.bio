@@ -1,11 +1,13 @@
 <script>
 import { status } from "./stores/status";
 import { CLI } from "terminal/cli";
-import { Icon, Spinner } from "sveltestrap";
+import { FormGroup, Icon, Input, Label, ListGroup, ListGroupItem, Spinner } from "sveltestrap";
 
 export let criteria = [];        // List of criteria that must be true for the exercise to be complete
+export let hints = [];           // Hints to show user
 let statuses = [];               // Status of each criteria (true/false)
 let busy = false;                // Whether the user manually asked to check their work
+let nbHints = 0;
 
 // Check status every time a command finishes running
 $: if($status.terminal == "execDone"){
@@ -81,6 +83,18 @@ setTimeout(check, 500);
 		</li>
 	{/each}
 </ul>
+
+{#if hints.length > 0}
+	<FormGroup class="mt-2">
+		<Label for="exampleRange">Showing {nbHints} out of {hints.length} hints</Label>
+		<Input type="range" min={0} max={hints.length} step={1} bind:value={nbHints} />
+	</FormGroup>
+	<ListGroup>
+		{#each hints.slice(0, nbHints) as hint}
+			<ListGroupItem class="small">{@html hint}</ListGroupItem>
+		{/each}
+	</ListGroup>
+{/if}
 
 <button class="btn btn-sm btn-primary mt-3" class:btn-outline-primary={isDone} on:click={() => check(true)} disabled={isDone}>
 	Check my work
