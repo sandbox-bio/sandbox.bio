@@ -26,6 +26,6 @@ This is a perfect job for `bedtools merge`, **but** you keep getting an error wh
 
 <Execute command={"bedtools merge -i exons.bed"} />
 
-Your goal: fix what is wrong with <code>exons.bed</code> so that you can run the `bedtools` command above without error.
+**Your goal**: fix what is wrong with <code>exons.bed</code> so that you can run the `bedtools` command above without error.
 
 <Exercise {criteria} {hints} />

@@ -1,14 +1,8 @@
 // Steps
 import Intro from "./steps/Intro.md";
+import PuzzleCsvSort from "./steps/PuzzleCsvSort.md";
 import PuzzleBedSpaces from "./steps/PuzzleBedSpaces.md";
-// import Step2 from "./steps/Step2.md";
-// import Step3 from "./steps/Step3.md";
-// import Step4 from "./steps/Step4.md";
-// import Step5 from "./steps/Step5.md";
-// import Step6 from "./steps/Step6.md";
-// import Step7 from "./steps/Step7.md";
-// import Step8 from "./steps/Step8.md";
-// import Conclusion from "./steps/Conclusion.md";
+import PuzzleSamQuery from "./steps/PuzzleSamQuery.md";
 
 export const config = {
 	id: "debugging-puzzles",
@@ -21,18 +15,13 @@ export const config = {
 	difficulty: ["difficult"],
 	steps: [
 		{ name: "Bioinformatics Debugging Puzzles", component: Intro },
-		{ name: "Puzzles", component: PuzzleBedSpaces, subtitle: "Invalid .bed file format", header: true },
-		// { name: "Filter data", component: Step1, subtitle: "Select Elements", header: true },
-		// { name: "Filter data", component: Step2, subtitle: "Select Arrays" },
-		// { name: "Filter data", component: Step3, subtitle: "Putting Elements in an Array" },
-		// { name: "Filter data", component: Step4, subtitle: "Select Multiple Fields" },
-		// { name: "Filter data", component: Step5, subtitle: "Putting Elements Into an Object" },
-		// { name: "Summarize data", component: Step6, subtitle: "Sorting and Counting", header: true },
-		// { name: "Summarize data", component: Step7, subtitle: "Pipes and Filters" },
-		// { name: "Summarize data", component: Step8, subtitle: "Maps and Selects" },
+		{ name: "Puzzles", component: PuzzleCsvSort, subtitle: "The CSV file that could not be sorted", header: true },
+		{ name: "Puzzles", component: PuzzleBedSpaces, subtitle: "The BED file that could not be merged" },
+		{ name: "Puzzles", component: PuzzleSamQuery, subtitle: "The SAM file that could not be queried" },
 		// { name: "The end", component: Conclusion, subtitle: "In Review", header: true }
 	],
 	files: [
-		"data/debugging-puzzles/exons.bed",
+		"data/debugging-puzzles/exons.bed", // similar to the ones from bedtools-intro but with space instead of tabs
+		"data/debugging-puzzles/chromosomes.csv",
 	],
 };
