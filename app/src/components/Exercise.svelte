@@ -4,7 +4,7 @@ import { CLI } from "terminal/cli";
 import { Icon, Spinner } from "sveltestrap";
 
 export let criteria = [];        // List of criteria that must be true for the exercise to be complete
-let statuses = [];                 // Status of each criteria (true/false)
+let statuses = [];               // Status of each criteria (true/false)
 let busy = false;                // Whether the user manually asked to check their work
 
 // Check status every time a command finishes running
@@ -12,6 +12,8 @@ $: if($status.terminal == "execDone"){
 	console.log("Checking solutions...")
 	check();
 };
+
+$: isDone = statuses.filter(d => d).length == statuses.length && statuses.length != 0;
 
 // Validate user's input
 async function check(manual=false)
@@ -65,7 +67,7 @@ setTimeout(check, 500);
 </script>
 <div class="d-flex justify-content-between mt-4 mb-2">
 	<div>
-		<strong>Solution Criteria:</strong>
+		<strong>Exercise Criteria:</strong>
 	</div>
 	<div>
 		{statuses.filter(d => d).length} / {statuses.length}
@@ -80,7 +82,7 @@ setTimeout(check, 500);
 	{/each}
 </ul>
 
-<button class="btn btn-sm btn-primary mt-3" on:click={() => check(true)} disabled={statuses.filter(d => d).length == statuses.length && statuses.length != 0}>
+<button class="btn btn-sm btn-primary mt-3" class:btn-outline-primary={isDone} on:click={() => check(true)} disabled={isDone}>
 	Check my work
 	{#if busy}
 		<Spinner size="sm" color="light" class="ms-2" />
