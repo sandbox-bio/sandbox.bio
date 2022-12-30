@@ -159,6 +159,7 @@ async function exec(cmd, callback=console.warn)
 		if(cmd.includes("awk") && awkVarMatch) {
 			for(let match of awkVarMatch)
 				cmd = cmd.replace(match[0], match[0].replace("=", ESCAPED_EQUAL_SIGN));
+			console.log("Rewrote awk command as:", cmd);
 		}
 
 		try {
@@ -175,9 +176,20 @@ async function exec(cmd, callback=console.warn)
 	// -------------------------------------------------------------------------
 	if(Array.isArray(cmd))
 	{
+		// FIXME: This is a hack to support `samtools view -b abc.bam > def.bam`, which otherwise breaks because binary output isn't supported in biowasm
+		const firstCommand = cmd[0]?.command?.value;
+		const firstRedirects = cmd[0]?.redirects;
+		if(firstCommand === "samtools" && firstRedirects?.length === 1 && firstRedirects[0]?.type === "redirectFd" && firstRedirects[0]?.fd === 1 && firstRedirects[0]?.op === ">") {
+			// Append -o "filename", while also supporting variables
+			cmd[0].args.push({ type: "literal", value: "-o" });
+			cmd[0].args.push({ type: "literal", value: await utils.getValue(firstRedirects[0].filename) });
+			cmd[0].redirects = [];
+			console.log("Rewrote samtools command as:", cmd);
+		}
+
+		// Parse commands
 		let output = "";
-		for(let command of cmd)
-		{
+		for(let command of cmd) {
 			// If it's meant to be asynchronous, don't await around; call callback on its own time
 			if(command.control == "&")
 			{

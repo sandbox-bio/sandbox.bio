@@ -23,5 +23,6 @@ export const config = {
 	files: [
 		"data/debugging-puzzles/exons.bed", // similar to the ones from bedtools-intro but with space instead of tabs
 		"data/debugging-puzzles/chromosomes.csv",
+		"data/debugging-puzzles/alignments.bam",
 	],
 };
