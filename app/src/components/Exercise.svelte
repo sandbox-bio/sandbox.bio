@@ -1,7 +1,7 @@
 <script>
 import { status } from "./stores/status";
 import { CLI } from "terminal/cli";
-import { FormGroup, Icon, Input, Label, ListGroup, ListGroupItem, Spinner } from "sveltestrap";
+import { Button, FormGroup, Icon, ListGroup, ListGroupItem, Spinner } from "sveltestrap";
 
 export let criteria = [];        // List of criteria that must be true for the exercise to be complete
 export let hints = [];           // Hints to show user
@@ -18,8 +18,7 @@ $: if($status.terminal == "execDone"){
 $: isDone = statuses.filter(d => d).length == statuses.length && statuses.length != 0;
 
 // Validate user's input
-async function check(manual=false)
-{
+async function check(manual=false) {
 	// If user clicked the button, we want them to know we received their click
 	if(manual) {
 		busy = true;
@@ -27,13 +26,11 @@ async function check(manual=false)
 	}
 
 	// Validate criteria
-	for(let i in criteria)
-	{
+	for(let i in criteria) {
 		const criterion = criteria[i];
 		try {
 			for(let check of (criterion.checks || []))
-				if(check.type == "file")
-				{
+				if(check.type == "file") {
 					// Does file exist?
 					if(check.action == "exists") {
 						let stderr = null;
@@ -84,21 +81,31 @@ setTimeout(check, 500);
 	{/each}
 </ul>
 
-{#if hints.length > 0}
-	<FormGroup class="mt-3" style="margin-bottom:0 !important"> <!-- FormGroup seems to add mb-3 automatically? -->
-		<Label for="exampleRange">Showing {nbHints} out of {hints.length} hints</Label>
-		<Input type="range" min={0} max={hints.length} step={1} bind:value={nbHints} />
-	</FormGroup>
-	<ListGroup class="mt-0">
-		{#each hints.slice(0, nbHints) as hint}
-			<ListGroupItem class="small">{@html hint}</ListGroupItem>
-		{/each}
-	</ListGroup>
-{/if}
-
 <button class="mt-2 btn btn-sm btn-primary" on:click={() => check(true)} disabled={isDone}>
 	Check my work
 	{#if busy}
 		<Spinner size="sm" color="light" class="ms-2" />
 	{/if}
 </button>
+
+{#if hints.length > 0}
+	<FormGroup class="mt-3" style="margin-bottom:10px !important"> <!-- FormGroup seems to add mb-3 automatically? -->
+		<strong>Hints:</strong><br />
+		<span class="small text-muted">Showing {nbHints}/{hints.length} hints</span>
+		<Button size="sm" color="outline-primary" on:click={() => nbHints++} disabled={nbHints === hints.length}>Show more</Button>
+		<Button size="sm" color="outline-primary" on:click={() => nbHints--} disabled={nbHints === 0}>Show fewer</Button>
+	</FormGroup>
+	<ListGroup class="mt-0">
+		{#each hints as hint, i}
+			<ListGroupItem class="small">
+				{#if i < nbHints}
+					{@html hint}
+				{:else}
+					<span class="text-muted">
+						[Hint hidden]
+					</span>
+				{/if}
+			</ListGroupItem>
+		{/each}
+	</ListGroup>
+{/if}
