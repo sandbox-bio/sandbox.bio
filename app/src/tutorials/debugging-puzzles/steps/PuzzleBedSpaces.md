@@ -3,10 +3,10 @@ import Execute from "components/Execute.svelte";
 import Exercise from "components/Exercise.svelte";
 
 const criteria = [{
-	name: "File <code>exons.merged.bed</code> no longer causes <code>bedtools merge</code> to output an error",
+	name: "File <code>exons.fixed.bed</code> no longer causes <code>bedtools merge</code> to output an error",
 	checks: [{
 		type: "file",
-		path: "exons.merged.bed",
+		path: "exons.fixed.bed",
 		action: "contents",
 		commandExpected: `sed 's/ /\t/g' exons.bed`
 	}]
@@ -26,8 +26,8 @@ This is a perfect job for `bedtools merge`, **but** you keep getting an error wh
 
 <Execute command={"bedtools merge -i exons.bed"} />
 
-**Your Goal**: Create a file `exons.merged.bed` from the regions in `exons.bed` so that the following query does not give an error:
+**Your Goal**: Create a file `exons.fixed.bed` from the regions in `exons.bed` so that the following query does not give an error:
 
-<Execute command={"bedtools merge -i exons.merged.bed"} />
+<Execute command={"bedtools merge -i exons.fixed.bed"} />
 
 <Exercise {criteria} {hints} />
