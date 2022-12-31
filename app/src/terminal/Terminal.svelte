@@ -111,8 +111,9 @@ async function initTerminal() {
 async function saveFS() {
 	try {
 		await $CLI.fsSave($tutorial);
+		console.log("Saved FS state");
 	} catch (error) {}
-	setTimeout(saveFS, 3000);
+	setTimeout(saveFS, 1000);
 }
 
 // On mount
