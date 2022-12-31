@@ -179,7 +179,8 @@ async function exec(cmd, callback=console.warn)
 		// FIXME: This is a hack to support `samtools view -b abc.bam > def.bam`, which otherwise breaks because binary output isn't supported in biowasm
 		const firstCommand = cmd[0]?.command?.value;
 		const firstRedirects = cmd[0]?.redirects;
-		if(firstCommand === "samtools" && firstRedirects?.length === 1 && firstRedirects[0]?.type === "redirectFd" && firstRedirects[0]?.fd === 1 && firstRedirects[0]?.op === ">") {
+		const firstArgs = cmd[0]?.args;
+		if(firstCommand === "samtools" && firstRedirects?.length === 1 && firstRedirects[0]?.type === "redirectFd" && firstRedirects[0]?.fd === 1 && firstRedirects[0]?.op === ">" && firstArgs?.[0]?.value.includes("view", "sort", "cat", "collate")) {
 			// Append -o "filename", while also supporting variables
 			cmd[0].args.push({ type: "literal", value: "-o" });
 			cmd[0].args.push({ type: "literal", value: await utils.getValue(firstRedirects[0].filename) });
