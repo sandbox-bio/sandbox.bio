@@ -89,14 +89,14 @@ setTimeout(check, 500);
 		<Label for="exampleRange">Showing {nbHints} out of {hints.length} hints</Label>
 		<Input type="range" min={0} max={hints.length} step={1} bind:value={nbHints} />
 	</FormGroup>
-	<ListGroup class="mt-0 mb-2">
+	<ListGroup class="mt-0">
 		{#each hints.slice(0, nbHints) as hint}
 			<ListGroupItem class="small">{@html hint}</ListGroupItem>
 		{/each}
 	</ListGroup>
 {/if}
 
-<button class="btn btn-sm btn-primary" on:click={() => check(true)} disabled={isDone}>
+<button class="mt-2 btn btn-sm btn-primary" on:click={() => check(true)} disabled={isDone}>
 	Check my work
 	{#if busy}
 		<Spinner size="sm" color="light" class="ms-2" />
