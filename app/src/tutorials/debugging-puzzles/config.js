@@ -16,8 +16,8 @@ export const config = {
 	steps: [
 		{ name: "Bioinformatics Debugging Puzzles", component: Intro },
 		{ name: "Puzzles", component: PuzzleTxtSort, subtitle: "The TXT file that could not be sorted", header: true },
-		{ name: "Puzzles", component: PuzzleBedSpaces, subtitle: "The BED file that could not be merged" },
 		{ name: "Puzzles", component: PuzzleSamQuery, subtitle: "The SAM file that could not be queried" },
+		{ name: "Puzzles", component: PuzzleBedSpaces, subtitle: "The BED file that could not be merged" },
 		// { name: "The end", component: Conclusion, subtitle: "In Review", header: true }
 	],
 	files: [

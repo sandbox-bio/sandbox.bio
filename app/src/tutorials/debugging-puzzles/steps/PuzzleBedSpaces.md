@@ -3,7 +3,7 @@ import Execute from "components/Execute.svelte";
 import Exercise from "components/Exercise.svelte";
 
 const criteria = [{
-	name: "File <code>exons.fixed.bed</code> no longer causes <code>bedtools merge</code> to output an error",
+	name: "File <code>exons.fixed.bed</code> no longer causes a <code>bedtools merge</code> error",
 	checks: [{
 		type: "file",
 		path: "exons.fixed.bed",
@@ -15,7 +15,7 @@ const criteria = [{
 const hints = [
 	`As suggested by the error message, run <code>cat -t exons.bed</code>. Also try <code>head exons.bed</code>. Do any lines stand out from the others?`,
 	`In the output of <code>cat -t exons.bed</code>, the first line uses spaces as the column delimiter instead of tabs.`,
-	`You can use a <code>sed</code> command to replace spaces with tabs (<code>\\t</code>).`,
+	`You can use a <code>sed</code> command to replace spaces with tabs (<code>\\t</code>). `,
 	`Don't forget to specify that you want the <code>sed</code> replace logic to be global!`
 ];
 </script>
@@ -26,7 +26,7 @@ This is a perfect job for `bedtools merge`, **but** you keep getting an error wh
 
 <Execute command={"bedtools merge -i exons.bed"} />
 
-**Your Goal**: Create a file `exons.fixed.bed` from the regions in `exons.bed` so that the following query does not give an error:
+**Your Goal**: Create a file `exons.fixed.bed` from the regions in `exons.bed` so that the following query does not give an error. Use the search and replace command `sed` for making changes to the file.
 
 <Execute command={"bedtools merge -i exons.fixed.bed"} />
 

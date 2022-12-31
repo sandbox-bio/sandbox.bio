@@ -14,7 +14,7 @@ const criteria = [{
 }];
 
 const hints = [
-	"The first step is to create a <code>.bai</code> index for <code>alignments.bam</code>",
+	"The first step is to create an index for <code>alignments.bam</code>. Check out <code>samtools --help</code> for the command you need to create an index.",
 	"Indexing using <code>samtools index alignments.bam</code> fails because the alignments are not sorted, so we first need to sort the file!",
 	"Look into using <code>samtools sort</code> to sort <code>alignments.bam</code> before indexing the resulting file."
 ];

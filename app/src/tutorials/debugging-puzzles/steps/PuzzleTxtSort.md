@@ -37,7 +37,9 @@ While the file is more sorted than before, it doesn't look quite right: `chr10` 
 **Your goal**: Find the `sort` flag that allows you to sort the file using a **natural sort**, i.e. `chr1`, `chr2`, `chr3`, ..., `chr10`. Save the sorted file as `chromosomes.sorted.txt`.
 
 <Alert>
-	**Natural sort** is useful in genomics for sorting chromosome names, but it's also used to sort software versions. For example, with versions `v2` and `v11`, natural sort ensures that `v2` is treated as smaller than `v11`, whereas the default in `sort` (lexicographic sort) unintuitively treats `v2` as larger than `v11`. This is because a lexicographic sort does the sorting one character at a time, and does not treat the `2` and `11` as being a group of characters that represent a number. So since `1` comes before `2`, even version `v1000` is considered smaller than `v2` if you don't use natural sort.
+	**Natural sort** is useful in genomics for sorting chromosome names, but it's also used to sort software versions. For example, with versions `v2` and `v11`, natural sort ensures that `v2` is treated as smaller than `v11`, whereas the default in `sort` (lexicographic sort) unintuitively treats `v2` as larger than `v11`.
+
+	This is because a lexicographic sort does the sorting one character at a time, and does not treat the `2` and `11` as being a group of characters that represent a number. So since `1` comes before `2`, even version `v1000` is considered smaller than `v2` if you don't use natural sort.
 </Alert>
 
 <Exercise {criteria} {hints} />
