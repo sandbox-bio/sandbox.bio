@@ -9,8 +9,8 @@ export const config = {
 	pwd: "debugging-puzzles",
 	name: "Bioinformatics Debugging Puzzles",
 	subtitle: `by <a href="https://robert.bio" target="_blank">Robert Aboukhalil</a>`,
-	description: "TODO",
-	tags: ["TODO"],
+	description: "Debug file format issues that are commonly seen in genomics.",
+	tags: ["debugging", "samtools", "bedtools"],
 	tools: [],
 	difficulty: ["difficult"],
 	steps: [
