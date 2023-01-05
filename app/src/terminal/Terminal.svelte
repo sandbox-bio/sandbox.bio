@@ -177,8 +177,9 @@ async function mountLocalFile(event) {
 	}
 
 	// Note that files that already exist will be overwritten!
-	const paths = await $CLI.utils.mount(event.target.files);
+	const paths = await $CLI.utils.mount(files);
 	const pathsTxt = paths.map((path, i) => {
+		if(!files[i]) return;
 		const extra = files[i].size <= MAX_FILE_SIZE_TO_CACHE ? "" : "   (large file; won't persist on page refresh)";
 		return `#   ${path}${extra}`;
 	}).join("\n");
