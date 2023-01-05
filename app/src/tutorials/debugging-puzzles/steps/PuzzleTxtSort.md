@@ -24,10 +24,6 @@ The file `chromosomes.txt` is a text file that contains an **unsorted** list of 
 
 <Execute command={"cat chromosomes.txt"} />
 
-<Alert>
-	**Remember**: Click on the command boxes to run the command shown.
-</Alert>
-
 We can use the `sort` command to sort this file, where `-n` sorts numerically:
 
 <Execute command={"sort -n chromosomes.txt"} />
