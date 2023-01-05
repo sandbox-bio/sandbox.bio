@@ -8,6 +8,7 @@ import { config as awkIntro } from "tutorials/awk-intro/config.js";
 import { config as fastpIntro } from "tutorials/fastp-intro/config.js";
 import { config as dnaSecrets } from "tutorials/dna-secrets/config.js";
 import { config as viralAmplicon } from "tutorials/viral-amplicon/config.js";
+import { config as debuggingPuzzles } from "tutorials/debugging-puzzles/config.js";
 import { config as playground } from "tutorials/playground/config.js";
 import { config as rosalind } from "tutorials/rosalind/config.js";
 import { config as testIFB1 } from "tutorials/test-ifb-1/config.js";
@@ -28,6 +29,7 @@ export const tutorials = readable([
 	fastpIntro,
 	dnaSecrets,
 	viralAmplicon,
+	debuggingPuzzles,
 	// Tests
 	testIFB1,
 ]);
