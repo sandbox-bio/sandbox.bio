@@ -26,6 +26,8 @@ const criteria = [
 ];
 
 const hints = [
+	"The terminal interprets <code>grep > sequences.fa</code> to mean: run <code>grep</code> and output the result to <code>sequences.fa</code>, hence the file gets overwritten.",
+	"Is there a way you can enclose the <code>></code> symbol so it's clear to the terminal that it is an argument to the <code>grep</code> command?"
 ];
 </script>
 
@@ -39,7 +41,7 @@ Naturally, you reach for good old `grep` and find lines that contain `>`. Easy p
 
 <Execute command={"grep > sequences.fa"} />
 
-That's odd, you were expecting to see just the lines containing `>`, not the `grep` command usage output.
+That's odd, you were expecting to see lines containing `>`, not the `grep` command usage output.
 
 Oups, we lost the data in `sequences.fa`:
 
@@ -49,6 +51,6 @@ The file is empty, but don't worry, we can regenerate the data easily (not alway
 
 <Execute command={`${curl} > sequences.fa`} />
 
-**Your Goal**: Find the correct `grep` command that outputs all lines containing `>`. Save the output to the file `sequences.txt`
+**Your Goal**: Find the correct `grep` command that outputs lines containing `>`. Save the output as `sequences.txt`
 
 <Exercise {criteria} {hints} />
