@@ -180,7 +180,7 @@ async function exec(cmd, callback=console.warn)
 		const firstCommand = cmd[0]?.command?.value;
 		const firstRedirects = cmd[0]?.redirects;
 		const firstArgs = cmd[0]?.args;
-		if(firstCommand === "samtools" && firstRedirects?.length === 1 && firstRedirects[0]?.type === "redirectFd" && firstRedirects[0]?.fd === 1 && firstRedirects[0]?.op === ">" && firstArgs?.[0]?.value.includes("view", "sort", "cat", "collate")) {
+		if(firstCommand === "samtools" && firstRedirects?.length === 1 && firstRedirects[0]?.type === "redirectFd" && firstRedirects[0]?.fd === 1 && firstRedirects[0]?.op === ">" && ["view", "sort", "cat", "collate"].includes(firstArgs?.[0]?.value)) {
 			// Append -o "filename", while also supporting variables
 			cmd[0].args.push({ type: "literal", value: "-o" });
 			cmd[0].args.push({ type: "literal", value: await utils.getValue(firstRedirects[0].filename) });
