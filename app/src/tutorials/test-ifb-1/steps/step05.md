@@ -8,13 +8,10 @@ import Execute from "components/Execute.svelte";
 The `man` command is used to get the manual for any command of the Bash shell.
 
 It takes a command name as an argument and opens the manual on the terminal. 
-Use the <kbd>up</kbd> and <kbd>down</kbd> keys to move up and down into the manual and press the <kbd>q</kbd> key to exit.
 
 Lets try and type:
 
-```bash
-man ls
-```
+<Execute command="man ls" />
 
 This manual contains several sections (e.g. NAME, SYNOPSIS, DESCRIPTION). 
 As indicated in the NAME section this command is used to list a directory content. 
