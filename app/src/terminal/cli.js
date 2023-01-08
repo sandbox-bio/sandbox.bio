@@ -286,16 +286,7 @@ async function exec(cmd, callback=console.warn)
 			{
 				// Handle pipes
 				if(redirect.type == "pipe") {
-					// Save `output` to a temp file
-					const pathTmpFile = await coreutils.mktemp();
-					await utils.writeFile(pathTmpFile, output);
-					// Run commands with appending arg called temp file, unless
-					// user specified we should use stdin via the argument "-".
-					const argStdinIndex = redirect.command.args.findIndex(arg => arg.value == "-");
-					if(argStdinIndex != -1)
-						redirect.command.args[argStdinIndex].value = pathTmpFile;
-					else
-						redirect.command.args.push({ type: "literal", value: pathTmpFile });
+					_aioli.stdin = output;
 					return exec(redirect.command, callback);
 
 				// Handle redirection to a file

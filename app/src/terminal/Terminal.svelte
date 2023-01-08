@@ -44,7 +44,12 @@ const TOOLS_DEFAULT = [
 
 // Generate default autocomplete
 const AUTOCOMPLETE_DEFAULT = {};
-TOOLS_DEFAULT.forEach(d => {
+TOOLS_DEFAULT.forEach((d, i) => {
+	// Want reinit to be true even for programs that don't need it so we can properly support pipes.
+	// But we'll keep the first one as reinit=false so that Aioli doesn't break (needs one stable command).
+	if(i > 0)
+		d.reinit = true;
+	// Special cases
 	if(d.tool === "bowtie2")
 		AUTOCOMPLETE_DEFAULT[d.tool] = [];
 	else
