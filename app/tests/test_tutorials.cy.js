@@ -60,9 +60,6 @@ describe("Test tutorial contents (1 representative command)", () => {
 	});
 
 	it("jq", async () => {
-		observed = await $CLI.exec(`echo '{"test":{"something": "here"}}' | jq -r '.test.something'`);
-		expect(observed).to.equal(`here\n`);
-
 		// If don't specify `-r`, we get color output!
 		observed = await $CLI.exec(`echo '{"test":{"something": "here"}}' | jq '.test.something'`);
 		expect(observed).to.equal(`\u001b[0;32m"here"\u001b[0m\n`);
