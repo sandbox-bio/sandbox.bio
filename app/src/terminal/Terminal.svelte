@@ -413,7 +413,7 @@ function getSharedSubstring(array){
 </div>
 
 <!-- Hidden input file for mounting local files -->
-<input type="file" on:change={mountLocalFile} bind:this={fileInput} style="display:none" multiple />
+<input type="file" on:change={mountLocalFile} bind:this={fileInput} style="display:none" multiple webkitdirectory />
 
 <!-- Keyboard Shortcuts Modal -->
 <Modal body header="Keyboard Shortcuts" isOpen={modalKbdOpen} toggle={modalKbdToggle}>
