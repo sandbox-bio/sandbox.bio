@@ -29,8 +29,6 @@ Get a file listing:
 Here's a long command:
 
 <Execute command="bedtools merge \\ -i exons.bed -o count,collapse \\ -d 90 -c 1,4" />
-
-Or keep this command <Execute command="ls -lah" inline /> inline with the text using the \`inline\` property.
 `;
 
 // Set state of quiz
