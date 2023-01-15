@@ -4,7 +4,7 @@
 echo "<!-- Build: $(TZ=America/Los_Angeles date); $(git rev-parse HEAD) -->" >> public/index.html
 
 # Create mock routes (only used for local testing; there's a router server-side to handle this)
-PAGES=("tutorials" "playground" "playgrounds" "rosalind")
+PAGES=("tutorials" "playground" "playgrounds" "rosalind" "studio")
 for page in ${PAGES[@]}; do
 	mkdir -p "public/$page"
 	cp public/index.html public/$page/index.html
