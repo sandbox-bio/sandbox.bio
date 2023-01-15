@@ -39,6 +39,7 @@
     "columnify": "^1.6.0",
     "localforage": "^1.10.0",
     "lodash": "^4.17.21",
+    "marked": "^4.2.12",
     "minimist": "^1.2.6",
     "pretty-bytes": "^6.0.0",
     "shell-parse": "grncdr/js-shell-parse#f5f65af",
