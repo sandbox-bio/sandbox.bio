@@ -8,7 +8,7 @@ genome viewers such as IGV so that the viewers can quickly display alignments in
 
 <Execute command={"samtools index sample.sorted.bam"} />
 
-This will create an additional "index" file. List (`ls`) the contents of the current directory and look for the new index file: <Execute command={"ls"} inline={true} />
+This will create an additional "index" file. List (`ls`) the contents of the current directory and look for the new index file: <Execute command={"ls"} inline />
 
 Now, let's exploit the index to extract alignments from chromosome 20. To do
 this, we use the samtools `view` command, which we will give proper treatment

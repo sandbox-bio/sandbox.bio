@@ -17,7 +17,7 @@ let igvOptions = {
 
 We preloaded data from <Link href="https://science.sciencemag.org/content/337/6099/1190">Maurano et al.</Link> into your sandbox. Let's take a look at what files we now have:
 
-Type <Execute command={"ls"} inline={true} /> in the command line.
+Type <Execute command={"ls"} inline /> in the command line.
 
 Your directory contains 7 `BED` files and 1 genome file. Three of these files (those starting with `f` for "fetal tissue") reflect Dnase I hypersensitivity sites measured in different fetal tissue samples.
 
