@@ -1,6 +1,7 @@
 <script>
 import * as marked from "marked";
 import autosize from "svelte-autosize";
+import autosize2 from "autosize";
 import localforage from "localforage";
 import { getLocalForageKey } from "stores/config";
 import { onMount } from "svelte";
@@ -37,6 +38,11 @@ onMount(async () => {
 	const state = await localforage.getItem(stateId);
 	if(!state) return;
 	tutorial = state;
+
+	// Resize textarea manually
+	setTimeout(() => {
+		autosize2.update(document.querySelector("textarea"));
+	}, 100);
 });
 
 function download() {
