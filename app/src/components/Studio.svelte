@@ -1,13 +1,21 @@
 <script>
 import * as marked from "marked";
-import autosize from 'svelte-autosize';
+import autosize from "svelte-autosize";
+import localforage from "localforage";
+import { getLocalForageKey } from "stores/config";
+import { onMount } from "svelte";
 
 // -----------------------------------------------------------------------------
 // State
 // -----------------------------------------------------------------------------
 
+// Keep copy in localforage just in case
+const stateId = getLocalForageKey("studio");
+const updateState = txt => localforage.setItem(stateId, txt);
+$: updateState(tutorial);
+
 // Initial values
-let tutorial = "Tutorial Markdown goes here.";
+let tutorial = "Markdown from a **tutorial** step goes here.";
 let example = `<Alert>This is a **note** about this tutorial</Alert>
 
 Here is a link: [Link Text](https://google.com)
@@ -23,6 +31,12 @@ Here's a long command:
 Or keep this command <Execute command="ls -lah" inline /> inline with the text using the \`inline\` property.
 `;
 
+// Set state of quiz
+onMount(async () => {
+	const state = await localforage.getItem(stateId);
+	if(!state) return;
+	tutorial = state;
+});
 
 // -----------------------------------------------------------------------------
 // Marked.js settings
@@ -64,6 +78,7 @@ const tagAlert = {
 };
 
 // Parse <Execute> tags
+// FIXME: inline doesn't work unless it's on the same line (removing ^ doesn't quite work as intended)
 const tagExecute = {
 	name: "execute",
 	level: "block",
@@ -122,7 +137,7 @@ marked.use({ renderer, extensions: [ tagAlert, tagExecute ] });
 
 <hr />
 
-<div class="row mt-4">
+<div class="row mt-4 opacity-75">
 	<div class="col-6">
 		<h4>Examples:</h4>
 		<textarea use:autosize class="form-control border border-secondary" bind:value={example}></textarea>
