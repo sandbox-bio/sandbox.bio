@@ -23,7 +23,7 @@ function createIGV() {
 </script>
 
 <svelte:head>
-	<script src="https://cdn.jsdelivr.net/npm/igv@2.9.3/dist/igv.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/igv@2.13.10/dist/igv.min.js"></script>
 </svelte:head>
 
 <Modal body header="IGV.js" size="xl" on:open={createIGV} toggle={() => isOpen = !isOpen} {isOpen}>
