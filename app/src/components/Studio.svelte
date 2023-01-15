@@ -4,6 +4,7 @@ import autosize from "svelte-autosize";
 import localforage from "localforage";
 import { getLocalForageKey } from "stores/config";
 import { onMount } from "svelte";
+import { Icon } from "sveltestrap";
 
 // -----------------------------------------------------------------------------
 // State
@@ -37,6 +38,21 @@ onMount(async () => {
 	if(!state) return;
 	tutorial = state;
 });
+
+function download() {
+	const file = new File([tutorial], "Step.md", { type: "text/plain" });
+	const link = document.createElement("a");
+	const url = URL.createObjectURL(file);
+
+	console.log("URL", url)
+	link.href = url;
+	link.download = file.name;
+	document.body.appendChild(link);
+	link.click();
+
+	document.body.removeChild(link);
+	window.URL.revokeObjectURL(url);
+}
 
 // -----------------------------------------------------------------------------
 // Marked.js settings
@@ -124,7 +140,12 @@ marked.use({ renderer, extensions: [ tagAlert, tagExecute ] });
 <!-- Tutorial -->
 <div class="row">
 	<div class="col-6">
-		<h4>Markdown</h4>
+		<h4>
+			Markdown
+			<span on:click={download} class="small hover-hand">
+				<Icon name="download" />
+			</span>
+		</h4>
 		<textarea use:autosize class="form-control border border-primary" bind:value={tutorial}></textarea>
 	</div>
 	<div class="col-6">
@@ -149,3 +170,9 @@ marked.use({ renderer, extensions: [ tagAlert, tagExecute ] });
 		</div>
 	</div>
 </div>
+
+<style>
+.hover-hand:hover {
+	cursor: pointer;
+}
+</style>
