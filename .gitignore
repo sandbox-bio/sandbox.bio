@@ -4,6 +4,7 @@ app/public/data/
 app/public/tutorials/
 app/public/playground/
 app/public/playgrounds/
+app/public/studio/
 app/public/rosalind/
 # Cloudflare Worker Sites
 dist/

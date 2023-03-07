@@ -11,7 +11,7 @@ import { config as viralAmplicon } from "tutorials/viral-amplicon/config.js";
 import { config as debuggingPuzzles } from "tutorials/debugging-puzzles/config.js";
 import { config as playground } from "tutorials/playground/config.js";
 import { config as rosalind } from "tutorials/rosalind/config.js";
-import { config as testIFB1 } from "tutorials/test-ifb-1/config.js";
+import { config as IFB1 } from "tutorials/ifb-1/config.js";
 
 // All tutorials
 export const tutorials = readable([
@@ -31,7 +31,7 @@ export const tutorials = readable([
 	viralAmplicon,
 	debuggingPuzzles,
 	// Tests
-	testIFB1,
+	IFB1,
 ]);
 
 // Playgrounds
