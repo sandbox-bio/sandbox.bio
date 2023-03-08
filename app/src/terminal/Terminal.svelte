@@ -90,7 +90,8 @@ export let pwd = "";                       // Path relative to /shared/data wher
 
 let aioliReady = false;                    // Equals true once Aioli is initialized
 let divTerminal;                           // HTML element where terminal will be drawn
-let fileInput;                             // Hidden HTML file input element for mounting local file
+let fileInputSingle;                       // Hidden HTML file input element for mounting local file
+let fileInputFolder;                       // Hidden HTML file input element for mounting local folder
 let nbInit = 0;                            // Number of times we've reinitialized the terminal (i.e. when user logs in/out)
 let modalKbdOpen = false;                  // Set to true when the shortcuts modal is open
 let modalKbdToggle = () => modalKbdOpen = !modalKbdOpen;
@@ -401,7 +402,8 @@ function getSharedSubstring(array){
 			<i class="bi bi-three-dots-vertical"></i>
 		</button>
 		<ul class="dropdown-menu">
-			<li><button class="dropdown-item" on:click={() => fileInput.click()}>Mount local files</button></li>
+			<li><button class="dropdown-item" on:click={() => fileInputSingle.click()}>Mount local files</button></li>
+			<li><button class="dropdown-item" on:click={() => fileInputFolder.click()}>Mount local folder</button></li>
 			<li><button class="dropdown-item" on:click={exportTerminal}>Export as HTML</button></li>
 			<li><button class="dropdown-item" on:click={clearHistory}>Clear command history</button></li>
 			<li><button class="dropdown-item" on:click={modalKbdToggle}>Keyboard Shortcuts</button></li>
@@ -413,7 +415,8 @@ function getSharedSubstring(array){
 </div>
 
 <!-- Hidden input file for mounting local files -->
-<input type="file" on:change={mountLocalFile} bind:this={fileInput} style="display:none" multiple webkitdirectory />
+<input type="file" on:change={mountLocalFile} bind:this={fileInputSingle} style="display:none" multiple />
+<input type="file" on:change={mountLocalFile} bind:this={fileInputFolder} style="display:none" multiple webkitdirectory />
 
 <!-- Keyboard Shortcuts Modal -->
 <Modal body header="Keyboard Shortcuts" isOpen={modalKbdOpen} toggle={modalKbdToggle}>
