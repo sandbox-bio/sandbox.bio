@@ -13,7 +13,7 @@ export const config = {
 	listed: false,
 	name: "Basics of the Unix command line interface",
 	subtitle: `by <a href="https://www.france-bioinformatique.fr/en/home/" target="_blank">French Institute of Bioinformatics</a>`,
-	description: "Unix, Shell, Terminal & command",
+	description: "IFB Scenario 1",
 	tags: ["unix", "shell", "terminal"],
 	tools: ["ls", "date"],
 	difficulty: ["beginner"],

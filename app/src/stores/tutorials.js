@@ -12,6 +12,7 @@ import { config as debuggingPuzzles } from "tutorials/debugging-puzzles/config.j
 import { config as playground } from "tutorials/playground/config.js";
 import { config as rosalind } from "tutorials/rosalind/config.js";
 import { config as IFB1 } from "tutorials/ifb-1/config.js";
+import { config as IFB2 } from "tutorials/ifb-2/config.js";
 
 // All tutorials
 export const tutorials = readable([
@@ -30,8 +31,9 @@ export const tutorials = readable([
 	dnaSecrets,
 	viralAmplicon,
 	debuggingPuzzles,
-	// Tests
+	// IFB Tutorials (unlisted)
 	IFB1,
+	IFB2,
 ]);
 
 // Playgrounds
