@@ -12,7 +12,7 @@ let criteria = [
 		type: "file",
 		path: "aligned.sam",
 		action: "contents",
-		commandExpected: "bowtie2 -x $REF -U reads.fq | samtools view",
+		commandExpected: "bowtie2 -x $REF -U reads.fq > /shared/tmp/__dnasecret.sam; samtools view /shared/tmp/__dnasecret.sam",
 		commandObserved: "samtools view aligned.sam"
 	}]
 },
