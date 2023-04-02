@@ -22,8 +22,9 @@ jobs:
       - name: Launch dev server
         uses: cypress-io/github-action@v5
         with:
-          start: cd app && npm start
+          start: npm start
           wait-on: 'http://localhost:1111'
+          project: ./app
 
       - name: Run tests
         run: cd app && npm run test
