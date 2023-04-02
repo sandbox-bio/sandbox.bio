@@ -5,7 +5,7 @@
   "scripts": {
     "build": "./build.sh && rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
+    "start": "sirv public --no-clear --port 1111",
     "test": "cypress run",
     "test-local": "cypress open"
   },
@@ -14,7 +14,7 @@
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
-    "cypress": "^12.7.0",
+    "cypress": "^12.9.0",
     "raw-loader": "^4.0.2",
     "rollup": "^2.75.7",
     "rollup-plugin-css-only": "^3.1.0",
