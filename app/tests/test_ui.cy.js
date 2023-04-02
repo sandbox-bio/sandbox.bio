@@ -1,4 +1,4 @@
-// Test that the exercise functionality works as expected
+// Test that the exercise functionality works as expected.
 
 describe("Test UI", () => {
 	before(() => {
