@@ -19,5 +19,8 @@ jobs:
       - name: Build
         run: cd app && npm install && npm run build
 
+      - name: Launch dev server
+        run: cd app && npm run dev &
+
       - name: Run tests
-        run: (cd app && npm run dev) & (cd app && npm run test)
+        run: cd app && npm run test --spec tests/test_ui.cy.js

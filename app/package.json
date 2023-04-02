@@ -5,7 +5,7 @@
   "scripts": {
     "build": "./build.sh && rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear --port 1111",
+    "start": "sirv public --no-clear --port 1111 --host",
     "test": "cypress run",
     "test-local": "cypress open"
   },
