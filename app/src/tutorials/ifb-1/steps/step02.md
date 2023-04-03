@@ -2,21 +2,15 @@
 import Quiz from "components/Quiz.svelte";
 </script>
 
-We have already mentioned that the Shell lived in a dedicated interface: **the terminal**.
+The Shell is a software that handles Unix instructions. It is now commonly used by the bioinformatics community as it allows performing highly complex tasks by accessing either locally or distantly shared resources (e.g. files, databases, remote computing clusters...). These tasks can be coded in such a way that the multiple steps of a bioinformatics analysis can be saved into scripts. Those may then be shared with collaborators, traced and automated.
 
-The terminal generally appears as a simple windowed application. Look at the terminal on the right panel. 
-It is a black frame displaying a **prompt** that usually ends by a `$` sign. 
-Just after this prompt you will have to type commands.
-
-Several shells can be used to interact within the terminal (e.g. `bash`, `ksh`, `csh`, `zsh`, ...). 
-The most popular shell is Bash which is the default shell on most Linux systems. 
-In this course, we will use the Bash shell.
+To access the Shell's powerful features, you need to learn a new way of thinking and a new language.
 
 <Quiz id="q1" choices={[
-	{ valid: true, value: "Shell"},
-	{ valid: false, value: "Terminal"},
+	{ valid: true, value: "Yes"},
+	{ valid: false, value: "No"},
 ]}>
 	<span slot="prompt">
-		Is Bash a shell or a terminal?
+		Are you ready to learn Shell? (select "Yes" to continue)
 	</span>
 </Quiz>

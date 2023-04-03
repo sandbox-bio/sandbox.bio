@@ -1,26 +1,22 @@
 <script>
 import Quiz from "components/Quiz.svelte";
-import Execute from "components/Execute.svelte";
 </script>
 
-Using a Bash shell, you will be able to write and execute Unix commands. 
-A Unix command is made of distinct parts: a **command name** and, if needed, **options** and **arguments**.
+We have already mentioned that the Shell lived in a dedicated interface: **the terminal**.
 
-The space character is mandatory to separate all these elements (command name, options and arguments). 
-You may now understand why a space in a file or a directory name is a very bad idea within an Unix environment.
+The terminal generally appears as a simple windowed application. Look at the terminal on the right panel. 
+It is a black frame displaying a **prompt** that usually ends by a `$` sign. 
+Just after this prompt you will have to type commands.
 
-Be very careful while writing your Unix commands: lowercases and uppercases are not the same! 
-Unix commands are usually in lowercase.
-
-Now, type the following command in your terminal and then press <kbd>Enter</kbd> key:
-
-<Execute command="date" />
+Several shells can be used to interact within the terminal (e.g. `bash`, `ksh`, `csh`, `zsh`, ...). 
+The most popular shell is Bash which is the default shell on most Linux systems. 
+In this course, we will use the Bash shell.
 
 <Quiz id="q1" choices={[
-	{ valid: true, value: "yes"},
-	{ valid: false, value: "no"},
+	{ valid: true, value: "Shell"},
+	{ valid: false, value: "Terminal"},
 ]}>
 	<span slot="prompt">
-		Does the terminal display the current date?
+		Is Bash a shell or a terminal?
 	</span>
 </Quiz>

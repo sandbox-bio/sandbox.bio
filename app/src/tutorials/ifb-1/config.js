@@ -6,6 +6,7 @@ import Step3 from "./steps/step03.md";
 import Step4 from "./steps/step04.md";
 import Step5 from "./steps/step05.md";
 import Step6 from "./steps/step06.md";
+import Step7 from "./steps/step07.md";
 
 export const config = {
 	id: "ifb-1",
@@ -21,10 +22,11 @@ export const config = {
 		{ name: "Basics of the Unix command line interface", component: Step0 },
 		{ name: "Unix & Command lines", component: Step1 },
 		{ name: "The Shell", component: Step2 },
-		{ name: "Unix command", component: Step3 },
-		{ name: "A simple basic command: ls", component: Step4 },
-		{ name: "Getting help", component: Step5 },
-		{ name: "The end", component: Step6 },
+		{ name: "The terminal", component: Step3 },
+		{ name: "Unix command", component: Step4 },
+		{ name: "A simple basic command: ls", component: Step5 },
+		{ name: "Getting help", component: Step6 },
+		{ name: "Congratulations", component: Step7 },
 	],
 	files: [
 		"data/ifb-1/Data/O.tauri_annotation.gff",

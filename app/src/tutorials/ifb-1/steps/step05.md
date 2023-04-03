@@ -1,57 +1,45 @@
 <script>
+import Alert from "components/Alert.svelte";
 import Quiz from "components/Quiz.svelte";
-import Link from "components/Link.svelte";
 import Execute from "components/Execute.svelte";
 </script>
 
-### The man command
-The `man` command is used to get the manual for any command of the Bash shell.
+The Bash shell provides you with a working space including files and directories.
 
-It takes a command name as an argument and opens the manual on the terminal. 
+A very useful command is `ls`, that **l**i**s**ts the content of a directory.
+In your Unix terminal on the right, type `ls` and then press <kbd>Enter</kbd>.
 
-Lets try and type:
+The Bash shell should display `Data` that is a directory named `Data`.
 
-<Execute command="man ls" />
+Now, type the following command in your terminal (and press <kbd>Enter</kbd>) :
 
-This manual contains several sections (e.g. NAME, SYNOPSIS, DESCRIPTION). 
-As indicated in the NAME section this command is used to list a directory content. 
+<Execute command="ls Data" />
 
-```
-NAME
-       ls - list directory contents
-```
+The Bash shell should display the 8 files included in the `Data` directory.
 
-The SYNOPSIS section contains the general way of using the command:
+Remarks:
 
-```
-SYNOPSIS
-       ls [OPTION]... [FILE]...
-```
+* Pay attention to the space character between `ls` and `Data`
+* Don't forget to press <kbd>Enter</kbd> to run commands
+* `ls` is the command **name**
+* `Data` is a directory name and an **argument** of the `ls` command
 
-The square brackets indicate that both OPTION and FILE are optional for the `ls` command. 
-Indeed when no options are provided, the `ls` command will simply display the names of files and directories in the current directory without providing the user with additional information (size, owner, creation date...). 
+## Options
 
-And the DESCRIPTION section explains all the possible options of the command.
+Options modify the way in which a command works.
+In Bash, shell options start with a simple or double dash (`-` or `--`).
 
-<Quiz id="q1" choices={[
-	{ valid: false, value: "list directory contents"},
-	{ valid: true, value: "use a long listing format"},
-	{ valid: false, value: "print literal entry names"},
-]}>
-	<span slot="prompt">
-		What is the meaning of the option `-l` of the `ls` command?
-	</span>
-</Quiz>
+For example, we can display the size of the files using the `--size` option of the `ls` command. 
+Lets try and type: 
 
+<Execute command="ls --size Data" />
 
-### The help option
-An other way of getting help is to use the `--help` option after a command name (or, sometimes, `-h` or `-help` or `help`) .
-Example, type the following command:
+Now, the 8 files are displayed with their respective sizes (in blocks). 
 
-<Execute command="ls --help" />
+You can use a short form for this option by replacing `--size` (long form) by `-s` (short form).
 
-### Ask Internet
+Usually we also use the `-h` option to display sizes in more **h**uman readable formats (_e.g._ 1K, 234M, 2G). 
 
-You will also usefull ressources on the Internet:
-- <Link href="https://explainshell.com">Explain shell command</Link>
-- <Link href="https://stackoverflow.com">A shell forum</Link>
+You can use several options in the same command.
+
+You can merge short form options using a single dash as prefix.
