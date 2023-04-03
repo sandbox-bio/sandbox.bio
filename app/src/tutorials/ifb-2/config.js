@@ -45,7 +45,5 @@ export const config = {
 			mkdir -p $PREFIX/blast $PREFIX/fasta $PREFIX/diamond;
 			touch $PREFIX/fasta/nr.fsa $PREFIX/blast/nr.01.psd $PREFIX/blast/nr.01.ppi $PREFIX/blast/nr.01.psd $PREFIX/blast/nr.01.phd $PREFIX/blast/nr.02.psd $PREFIX/blast/nr.02.ppi $PREFIX/blast/nr.02.psd $PREFIX/blast/nr.02.phd $PREFIX/diamond/nr.dmnd $PREFIX/diamond/viral.protein_refseq_98.dmnd;
 	`,
-	files: [
-		"data/ifb-2/absolute_and_relative_paths.png",
-	],
+	files: [],
 };
