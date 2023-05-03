@@ -61,7 +61,7 @@ export const config = {
 		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step11, subtitle: "Homozygous deletion"},
 		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step12, subtitle: "Mis-alignment"},
 		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step13, subtitle: "Translocation"},
-		{ name: "The End", component: Conclusion, subtitle: "XXXXXXX", header: true},
+		{ name: "The End", component: Conclusion, header: true},
 	],
 	files: [],
 	igvConfig: {

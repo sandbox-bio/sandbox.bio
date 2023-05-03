@@ -4,7 +4,7 @@ import Alert from "components/Alert.svelte";
 import IGVUpdateBtn from "components/IGVUpdateBtn.svelte";
 </script>
 
-We will be using publicly available Illumina sequence data from the HCC1143 cell line. For speed, only a small portion of chr21 will be loaded (19M:20M).
+We will be using publicly available Illumina sequence data from the HCC1143 cell line. For speed, only a small portion of `chr21` will be loaded (19M:20M).
 
 <IGVUpdateBtn
 	locus="21:19000000-20000000"
@@ -17,7 +17,7 @@ We will be using publicly available Illumina sequence data from the HCC1143 cell
 </IGVUpdateBtn>
 
 <Alert color="primary">
-	In IGV Desktop, you can load files by choosing `File` > `Load from File`.
+	In IGV Desktop, you can load files by choosing `File` > `Load from file`.
 </Alert>
 
 <Alert>

@@ -1,1 +1,1 @@
-Congratulations, you have completed the IGV tutorial!
+Congratulations, you completed the IGV tutorial!

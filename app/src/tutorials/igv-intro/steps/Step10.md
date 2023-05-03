@@ -7,7 +7,7 @@ Navigate to region `chr21:19,800,320-19,818,162`:
 
 <IGVUpdateBtn locus="chr21:19,800,320-19,818,162" />
 
-Load the track with information about repeats across the genome (in IGV Desktop, this would be under `File` > `Load from server`)
+Load the track with information about repeats across the genome (in IGV Desktop, this would be under `File` > `Load from server`):
 
 <IGVUpdateBtn loadTrack={{
 	"name": "Repeat Masker (rmsk)",
