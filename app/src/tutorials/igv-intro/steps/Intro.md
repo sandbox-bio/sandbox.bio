@@ -1,8 +1,6 @@
 <script>
 import Link from "components/Link.svelte";
 import Alert from "components/Alert.svelte";
-import Execute from "components/Execute.svelte";
-import IGVBtnLocus from "components/IGVBtnLocus.svelte";
 </script>
 
 <Alert>
@@ -19,5 +17,3 @@ After this lab, you will be able to:
 * Validate SNP/SNV calls and structural re-arrangements by eye
 
 There are a few thought-provoking **Questions** or **Notes** pertaining to sections of the lab. These are optional, and may take more time, but are meant to help you better understand the visualizations you are seeing.
-
-<IGVBtnLocus locus="chr4" />

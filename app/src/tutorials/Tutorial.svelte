@@ -130,7 +130,7 @@ $tutorial.step = step;
 				expectedOutput={rosalind.sample_output}
 				/>
 		{:else if $tutorial.igv === true}
-			<IGV config={$tutorial.igvConfig} />
+			<IGV options={$tutorial.igvConfig} />
 		{:else}
 			<div id="terminal-wrapper" class="border rounded-3 p-2">
 				<Terminal on:status={event => $status.terminal = event.detail} files={$tutorial.files} init={$tutorial.init} tools={$tutorial.tools} intro={$tutorial.intro} pwd={$tutorial.pwd} />

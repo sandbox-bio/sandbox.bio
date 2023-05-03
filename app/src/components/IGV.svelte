@@ -1,6 +1,5 @@
 <script>
 import { onMount } from "svelte";
-import { Spinner } from "sveltestrap";
 import { status } from "./stores/status";
 
 export let options = {};
@@ -10,14 +9,16 @@ let browser = {};
 
 onMount(async() => {
 	// Explicitly specify the reference URLs so that igv.js doesn't try downloading RefSeq genes
-	options.reference = {
-		id: "hg19",
-		name: "Human (hg19)",
-		fastaURL: "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg19/hg19.fasta",
-		indexURL: "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg19/hg19.fasta.fai",
-		cytobandURL: "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg19/cytoBand.txt",
-		tracks: []
-	};
+	if(!options.genome) {
+		options.reference = {
+			id: "hg19",
+			name: "Human (hg19)",
+			fastaURL: "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg19/hg19.fasta",
+			indexURL: "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg19/hg19.fasta.fai",
+			cytobandURL: "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg19/cytoBand.txt",
+			tracks: []
+		};
+	}
 
 	// Create IGV browser
 	browser = await igv.createBrowser(igvDiv, options);
@@ -41,8 +42,6 @@ $: if($status.igv) {
 }
 </script>
 
-{#if loading}
-	<Spinner size="sm" color="primary" type="border" /> Loading...
-{/if}
-
-<div bind:this={igvDiv} />
+<div style="opacity: { loading ? 0.6 : 1 }">
+	<div bind:this={igvDiv} />
+</div>
