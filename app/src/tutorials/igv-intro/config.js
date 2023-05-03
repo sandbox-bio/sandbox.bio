@@ -38,6 +38,7 @@ const TRACK_REPEATS = {
 
 export const config = {
 	id: "igv-intro",
+	listed: false,
 	pwd: "igv-intro",
 	name: "Visualize variants with IGV",
 	subtitle: `by <a href="https://rnabio.org" target="_blank">The Griffith Lab</a>`,
