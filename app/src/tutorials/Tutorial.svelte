@@ -69,10 +69,6 @@ function nextStep(step)
 $tutorial.step = step;
 </script>
 
-<svelte:head>
-	<script src="https://cdn.jsdelivr.net/npm/igv@2.13.10/dist/igv.min.js"></script>
-</svelte:head>
-
 <div class="container-fluid pb-3 px-0">
 	<div class="d-grid gap-2" style="grid-template-columns: {nbSteps > 0 ? "1fr 2fr" : ""}; height:85vh; max-height:85vh">
 		{#if $tutorial.steps.length > 0}
