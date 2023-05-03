@@ -9,10 +9,10 @@ We will be using publicly available Illumina sequence data from the HCC1143 cell
 <IGVUpdateBtn
 	locus="21:19000000-20000000"
 	loadTrack={{
-			url: "https://rnabio.org/assets/module_2/HCC1143.normal.21.19M-20M.bam",
-			indexURL: "https://rnabio.org/assets/module_2/HCC1143.normal.21.19M-20M.bam.bai",
+		url: "https://rnabio.org/assets/module_2/HCC1143.normal.21.19M-20M.bam",
+		indexURL: "https://rnabio.org/assets/module_2/HCC1143.normal.21.19M-20M.bam.bai",
 	}}>
-	Load track
+	Load HCC1143 data into IGV
 </IGVUpdateBtn>
 
 <Alert color="primary">

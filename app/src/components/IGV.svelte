@@ -31,7 +31,7 @@ $: if($status.igv) {
 	const locusCurrent = browser.referenceFrameList.map((locus) => locus.getLocusString()).join(" ");
 
 	// Locus change
-	if(locusCurrent !== $status.igv.locus) {
+	if($status.igv.locus && locusCurrent !== $status.igv.locus) {
 		browser.search($status.igv.locus);
 	}
 
