@@ -24,7 +24,6 @@ let rosalind = [
 
 export const config = {
 	id: "rosalind",
-	terminal: false,
 	ide: true,
 	listed: false,
 	name: "Rosalind Exercises",

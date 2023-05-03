@@ -119,11 +119,6 @@ $tutorial.step = step;
 				</div>
 			</div>
 		{/if}
-		{#if $tutorial.terminal !== false}
-			<div id="terminal-wrapper" class="border rounded-3 p-2">
-				<Terminal on:status={event => $status.terminal = event.detail} files={$tutorial.files} init={$tutorial.init} tools={$tutorial.tools} intro={$tutorial.intro} pwd={$tutorial.pwd} />
-			</div>
-		{/if}
 		{#if $tutorial.ide === true}
 			<IDE
 				fn={rosalind.fn}
@@ -133,6 +128,12 @@ $tutorial.step = step;
 				expectedInput={rosalind.sample_data}
 				expectedOutput={rosalind.sample_output}
 				/>
+		{:else if $tutorial.igv === true}
+			IGV
+		{:else}
+			<div id="terminal-wrapper" class="border rounded-3 p-2">
+				<Terminal on:status={event => $status.terminal = event.detail} files={$tutorial.files} init={$tutorial.init} tools={$tutorial.tools} intro={$tutorial.intro} pwd={$tutorial.pwd} />
+			</div>
 		{/if}
 	</div>
 </div>
