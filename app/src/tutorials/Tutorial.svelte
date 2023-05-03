@@ -5,6 +5,7 @@ import { status } from "./stores/status";
 import { tutorials } from "./stores/tutorials";
 import { tutorial } from "./stores/tutorial";
 import Terminal from "./terminal/Terminal.svelte";
+import IGV from "./components/IGV.svelte";
 import IDE from "./components/ExerciseRosalind.svelte";
 
 export let id;
@@ -129,7 +130,7 @@ $tutorial.step = step;
 				expectedOutput={rosalind.sample_output}
 				/>
 		{:else if $tutorial.igv === true}
-			IGV
+			<IGV config={$tutorial.igvConfig} />
 		{:else}
 			<div id="terminal-wrapper" class="border rounded-3 p-2">
 				<Terminal on:status={event => $status.terminal = event.detail} files={$tutorial.files} init={$tutorial.init} tools={$tutorial.tools} intro={$tutorial.intro} pwd={$tutorial.pwd} />
