@@ -1,6 +1,6 @@
 <script>
 import Execute from "components/Execute.svelte";
-import IGV from "components/IGV.svelte";
+import IGVModal from "components/IGVModal.svelte";
 
 let isOpen = false;
 let igvOptions = {
@@ -24,6 +24,6 @@ For each read, can you identify where in the genome the read landed? With what m
 
 Finally, let's visualize the alignments: <button class="btn btn-sm btn-primary" on:click={() => isOpen = !isOpen}>Launch IGV</button>
 
-<IGV options={igvOptions} bind:isOpen={isOpen} />
+<IGVModal options={igvOptions} bind:isOpen={isOpen} />
 
 Using IGV, can you visually identify reads where the DNA sequence differs from that of the reference?

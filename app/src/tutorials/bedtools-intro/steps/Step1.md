@@ -1,6 +1,6 @@
 <script>
 import Execute from "components/Execute.svelte";
-import IGV from "components/IGV.svelte";
+import IGVModal from "components/IGVModal.svelte";
 import Link from "components/Link.svelte";
 
 let isOpen = false;
@@ -23,7 +23,7 @@ Your directory contains 7 `BED` files and 1 genome file. Three of these files (t
 
 In order to have a rough sense of the remaining `.bed` files, let's load them into IGV: <button class="btn btn-sm btn-primary" on:click={() => isOpen = !isOpen}>Launch IGV</button>
 
-<IGV options={igvOptions} bind:isOpen={isOpen}>
+<IGVModal options={igvOptions} bind:isOpen={isOpen}>
 	<span slot="after">
 		Note that: 
 
@@ -32,4 +32,4 @@ In order to have a rough sense of the remaining `.bed` files, let's load them in
 		* `gwas.bed` represents human disease-associated SNPs that were identified in genome-wide association studies (GWAS)
 		* `hesc.chromHmm.bed` represents the predicted function (by chromHMM) of each interval in the genome of a human embryonic stem cell based upon ChIP-seq experiments from ENCODE
 	</span>	
-</IGV>
+</IGVModal>

@@ -1,39 +1,19 @@
 <script>
-import { Spinner, Modal } from "sveltestrap";
+import { onMount } from "svelte";
+import { Spinner } from "sveltestrap";
 
-// State
-export let options = {};    // IGV.js options
-export let isOpen = false;  // Whether modal is showing or not
-let igvPromise;             // Resolves when igv.js is done loading
+export let options = {};
+let loading = true;
+let igvDiv;
 
-function createIGV() {
-	var igvDiv = document.getElementById("igv-div");
-
-	// Explicitly specify the reference URLs so that igv.js doesn't try downloading RefSeq genes
-	options.reference = {
-		id: "hg19",
-		name: "Human (hg19)",
-		fastaURL: "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg19/hg19.fasta",
-		indexURL: "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg19/hg19.fasta.fai",
-		cytobandURL: "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg19/cytoBand.txt",
-		tracks: []
-	};
-	igvPromise = igv.createBrowser(igvDiv, options);
-}
+onMount(async() => {
+	await igv.createBrowser(igvDiv, options);
+	loading = false;
+});
 </script>
 
-<svelte:head>
-	<script src="https://cdn.jsdelivr.net/npm/igv@2.13.10/dist/igv.min.js"></script>
-</svelte:head>
+{#if loading}
+	<Spinner size="sm" color="primary" type="border" /> Loading...
+{/if}
 
-<Modal body header="IGV.js" size="xl" on:open={createIGV} toggle={() => isOpen = !isOpen} {isOpen}>
-	{#await igvPromise}
-		<Spinner size="sm" color="primary" type="border" /> Loading...
-	{/await}
-
-	<slot name="before"></slot>
-
-	<div id="igv-div"></div>
-	<br />
-	<slot name="after"></slot>
-</Modal>
+<div bind:this={igvDiv} />

@@ -69,6 +69,10 @@ function nextStep(step)
 $tutorial.step = step;
 </script>
 
+<svelte:head>
+	<script src="https://cdn.jsdelivr.net/npm/igv@2.13.10/dist/igv.min.js"></script>
+</svelte:head>
+
 <div class="container-fluid pb-3 px-0">
 	<div class="d-grid gap-2" style="grid-template-columns: {nbSteps > 0 ? "1fr 2fr" : ""}; height:85vh; max-height:85vh">
 		{#if $tutorial.steps.length > 0}
@@ -109,7 +113,7 @@ $tutorial.step = step;
 								<button class="btn btn-sm" on:click={() => step++} class:btn-primary={step != $tutorial.steps.length - 1} class:btn-secondary={step == $tutorial.steps.length - 1} disabled={step == $tutorial.steps.length - 1}><span class="mobile-hide">Next&nbsp;</span>&rarr;</button>
 							</div>
 							<div>
-								<a href="https://github.com/sandbox-bio/feedback/discussions/categories/questions" target="_blank">
+								<a href="https://github.com/sandbox-bio/feedback/discussions/categories/questions" target="_blank" rel="noreferrer">
 									<span class="badge rounded-pill bg-secondary">Help</span>
 								</a>
 								<span on:click={tocToggle} class="badge rounded-pill bg-info">{step + 1} / {$tutorial.steps.length}</span>
