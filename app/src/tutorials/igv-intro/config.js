@@ -16,8 +16,8 @@ import Step13 from "./steps/Step13.md";
 import Conclusion from "./steps/Conclusion.md";
 
 const TRACK_HCC1143 = {
-	url: "https://rnabio.org/assets/module_2/HCC1143.normal.21.19M-20M.bam",
-	indexURL: "https://rnabio.org/assets/module_2/HCC1143.normal.21.19M-20M.bam.bai",
+	url: "https://assets.sandbox.bio/tutorials/igv-intro/HCC1143.normal.21.19M-20M.bam",
+	indexURL: "https://assets.sandbox.bio/tutorials/igv-intro/HCC1143.normal.21.19M-20M.bam.bai",
 	height: 500,
 	name: "HCC1143",
 	viewAsPairs: true
@@ -41,7 +41,7 @@ export const config = {
 	listed: false,
 	pwd: "igv-intro",
 	name: "Visualize variants with IGV",
-	subtitle: `by <a href="https://rnabio.org" target="_blank">The Griffith Lab</a>`,
+	subtitle: `by Malachi Griffith, Sorana Morrissy, Jim Robinson, Ben Ainscough, Jason Walker, and Obi Griffith`,
 	description: "Distinguish variants from artifacts.",
 	tags: ["igv"],
 	tools: [],
