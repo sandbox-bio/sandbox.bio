@@ -38,7 +38,6 @@ const TRACK_REPEATS = {
 
 export const config = {
 	id: "igv-intro",
-	listed: false,
 	pwd: "igv-intro",
 	name: "Visualize variants with IGV",
 	subtitle: `by Malachi Griffith, Sorana Morrissy, Jim Robinson, Ben Ainscough, Jason Walker, and Obi Griffith`,
