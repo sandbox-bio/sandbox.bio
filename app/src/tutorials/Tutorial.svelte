@@ -110,7 +110,7 @@ $tutorial.step = step;
 								<button class="btn btn-sm" on:click={() => step++} class:btn-primary={step != $tutorial.steps.length - 1} class:btn-secondary={step == $tutorial.steps.length - 1} disabled={step == $tutorial.steps.length - 1}><span class="mobile-hide">Next&nbsp;</span>&rarr;</button>
 							</div>
 							<div>
-								<a href="https://github.com/sandbox-bio/feedback/discussions/categories/questions" target="_blank" rel="noreferrer">
+								<a href="https://github.com/sandbox-bio/sandbox.bio/discussions" target="_blank" rel="noreferrer">
 									<span class="badge rounded-pill bg-secondary">Help</span>
 								</a>
 								<span on:click={tocToggle} class="badge rounded-pill bg-info">{step + 1} / {$tutorial.steps.length}</span>
