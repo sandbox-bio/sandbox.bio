@@ -2,56 +2,126 @@
 
 [![Deploy sandbox.bio](https://github.com/sandbox-bio/sandbox.bio/actions/workflows/deploy.yml/badge.svg)](https://github.com/sandbox-bio/sandbox.bio/actions/workflows/deploy.yml) [![Deploy stg.sandbox.bio](https://github.com/sandbox-bio/sandbox.bio/actions/workflows/deploy-stg.yml/badge.svg)](https://github.com/sandbox-bio/sandbox.bio/actions/workflows/deploy-stg.yml) [![Deploy dev.sandbox.bio](https://github.com/sandbox-bio/sandbox.bio/actions/workflows/deploy-dev.yml/badge.svg)](https://github.com/sandbox-bio/sandbox.bio/actions/workflows/deploy-dev.yml) [![Tests](https://github.com/robertaboukhalil/sandbox.bio/actions/workflows/tests.yml/badge.svg)](https://github.com/robertaboukhalil/sandbox.bio/actions/workflows/tests.yml)
 
+Interactive bioinformatics command-line tutorials.
 
-## Infrastructure
+## Development
 
-### Domains
+### Branches
 
-|Environment|Domain|Access|Supabase DB|
-|-|-|-|-|
-|dev|[dev.sandbox.bio](https://dev.sandbox.bio)|[Only me](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps)|[prd](https://app.supabase.io/project/vjmttfnyctkivaeljytg/editor/table)|
-|stg|[stg.sandbox.bio](https://stg.sandbox.bio)|[Testers](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps)|[prd](https://app.supabase.io/project/vjmttfnyctkivaeljytg/editor/table)|
-|prd|[[prd.]sandbox.bio](https://prd.sandbox.bio)|Public|[prd](https://app.supabase.io/project/vjmttfnyctkivaeljytg/editor/table)|
+* `dev`: Development branch, pushing there runs tests if changes to app/* were made + auto deploys to dev.sandbox.bio
+* `main`: Production branch; merge dev into main to deploy to stg.sandbox.bio
 
+### Local dev
 
-### Database
+```bash
+npm run dev
+```
 
-* https://app.supabase.io/project/vjmttfnyctkivaeljytg/editor/table
+### Tests
 
-|Table|Description|Access|
-|-|-|-|
-|logs|Log all calls to sandbox.bio/*|RLS|
-|pings|Analytics for tutorial progress|RLS|
-|state|Save environment variables and tutorial progress|RLS|
-
-Append `_stg` to table names for dev/stg environments.
-
-
-## How to
-
-### Create a new table
-
-- [ ] Create table in dev
-- [ ] In pgAdmin, right click on the table --> Scripts --> CREATE --> paste it in the UI for the new environment
-- [ ] Enable Row-Level Security
-
+* `npm run test` will launch all the tests in headless way
+* `cypress open` opens Cypress so you can see the tests inside Chrome
+* `npm run test -- --spec "tests/test_tutorials.js"` runs a single file
 
 ### Deploy
 
 ```bash
-# Build Svelte App + Deploy Cloudflare Worker
 npm run deploy-dev
 ```
 
-### Setup Secrets
+### Debugging
 
-```bash
-wrangler secret put SUPABASE_URL --env prd      # Supabase endpoint
-wrangler secret put SUPABASE_API_KEY --env prd  # SECRET key available Supabase: Settings --> API
+#### Local biowasm builds
 
-wrangler secret put SUPABASE_URL --env stg      # Supabase endpoint
-wrangler secret put SUPABASE_API_KEY --env stg  # SECRET key available Supabase: Settings --> API
-
-wrangler secret put SUPABASE_URL --env dev      # Supabase endpoint
-wrangler secret put SUPABASE_API_KEY --env dev  # SECRET key available Supabase: Settings --> API
+```javascript
+// Terminal.svelte
+const TOOLS_DEFAULT = [{
+	tool: "samtools",
+	version: "1.10",
+	urlPrefix: "http://localhost:12346/biowasm/tools/samtools/build/"
+}];
 ```
+
+#### Local aioli builds
+
+```javascript
+// cli.js
+_aioli = await new Aioli(config.tools, {
+	env: window.location.hostname == "localhost" ? "stg" : "prd",
+	debug: window.location.hostname == "localhost",
+	urlAioli: "http://localhost:12346/aioli/dist/aioli.worker.js"
+});
+```
+
+### Example Quiz
+
+```html
+<script>
+import Quiz from "components/Quiz.svelte";
+import Choice from "components/QuizChoice.svelte";
+</script>
+
+<!-- The "id" is used to maintain state on page refresh. It just has to be unique within a step in a tutorial -->
+<Quiz id="q1" choices={[
+	{ valid: true, value: "Shell"},
+	{ valid: false, value: "Terminal"},
+]}>
+	<span slot="prompt">
+		Is Bash a shell or a terminal?
+	</span>
+</Quiz>
+
+<Quiz id="q2" choices={[
+	{ valid: true, value: "ls -s -h Data"},
+	{ valid: true, value: "ls -sh Data"},
+	{ valid: false, value: "ls -size -h Data"},
+	{ valid: true, value: "ls --size -h Data"},
+	{ valid: false, value: "ls --sizeh Data"},
+	{ valid: false, value: "ls --size-h Data"},
+	{ valid: true, value: "ls -h -s Data"},
+	{ valid: true, value: "ls -hs Data"},
+	{ valid: false, value: "ls -hsize Data"},
+]}>
+	<span slot="prompt">
+		Among the following commands, which ones are correct?
+	</span>
+</Quiz>
+
+<Quiz id="q3" choices={[
+	{ valid: true, value: "yes"},
+	{ valid: false, value: "no"},
+]}>
+	<span slot="prompt">
+		Now, type the following command in your terminal and then press <kbd>Enter</kbd> key: `date`
+
+		Does the terminal display the current date?
+	</span>
+</Quiz>
+```
+
+---
+
+## Infrastructure
+
+### Subdomains
+
+|Environment|Domain|Access|
+|-|-|-|
+|dev|[dev.sandbox.bio](https://dev.sandbox.bio)|[Only me](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps)|
+|stg|[stg.sandbox.bio](https://stg.sandbox.bio)|[Testers](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps)|
+|prd|[[prd.]sandbox.bio](https://prd.sandbox.bio)|Public|
+
+|Environment variable|Description|
+|-|-|
+|`SUPABASE_URL`|Supabase URL|
+|`SUPABASE_API_KEY`|Supabase database admin key|
+
+### Database
+
+|Table|Description|Access|
+|-|-|-|
+|logs|Log all calls to `sandbox.bio/*`|RLS|
+|pings|Analytics for tutorial progress|RLS|
+|state|Save environment variables and tutorial progress|RLS|
+
+Append `_stg` to table names for dev/stg environments.
