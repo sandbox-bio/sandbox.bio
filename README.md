@@ -8,8 +8,8 @@ Interactive bioinformatics command-line tutorials.
 
 ### Branches
 
-* `dev`: Development branch, pushing there runs tests if changes to app/* were made + auto deploys to dev.sandbox.bio
-* `main`: Production branch; merge dev into main to deploy to stg.sandbox.bio
+- `dev`: Development branch, pushing there runs tests if changes to app/\* were made + auto deploys to dev.sandbox.bio
+- `main`: Production branch; merge dev into main to deploy to stg.sandbox.bio
 
 ### Local dev
 
@@ -19,9 +19,9 @@ npm run dev
 
 ### Tests
 
-* `npm run test` will launch all the tests in headless way
-* `cypress open` opens Cypress so you can see the tests inside Chrome
-* `npm run test -- --spec "tests/test_tutorials.js"` runs a single file
+- `npm run test` will launch all the tests in headless way
+- `cypress open` opens Cypress so you can see the tests inside Chrome
+- `npm run test -- --spec "tests/test_tutorials.js"` runs a single file
 
 ### Deploy
 
@@ -35,11 +35,13 @@ npm run deploy-dev
 
 ```javascript
 // Terminal.svelte
-const TOOLS_DEFAULT = [{
-	tool: "samtools",
-	version: "1.10",
-	urlPrefix: "http://localhost:12346/biowasm/tools/samtools/build/"
-}];
+const TOOLS_DEFAULT = [
+	{
+		tool: "samtools",
+		version: "1.10",
+		urlPrefix: "http://localhost:12346/biowasm/tools/samtools/build/"
+	}
+];
 ```
 
 #### Local aioli builds
@@ -105,23 +107,23 @@ import Choice from "components/QuizChoice.svelte";
 
 ### Subdomains
 
-|Environment|Domain|Access|
-|-|-|-|
-|dev|[dev.sandbox.bio](https://dev.sandbox.bio)|[Only me](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps)|
-|stg|[stg.sandbox.bio](https://stg.sandbox.bio)|[Testers](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps)|
-|prd|[[prd.]sandbox.bio](https://prd.sandbox.bio)|Public|
+| Environment | Domain                                       | Access                                                                                    |
+| ----------- | -------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| dev         | [dev.sandbox.bio](https://dev.sandbox.bio)   | [Only me](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps) |
+| stg         | [stg.sandbox.bio](https://stg.sandbox.bio)   | [Testers](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps) |
+| prd         | [[prd.]sandbox.bio](https://prd.sandbox.bio) | Public                                                                                    |
 
-|Environment variable|Description|
-|-|-|
-|`SUPABASE_URL`|Supabase URL|
-|`SUPABASE_API_KEY`|Supabase database admin key|
+| Environment variable | Description                 |
+| -------------------- | --------------------------- |
+| `SUPABASE_URL`       | Supabase URL                |
+| `SUPABASE_API_KEY`   | Supabase database admin key |
 
 ### Database
 
-|Table|Description|Access|
-|-|-|-|
-|logs|Log all calls to `sandbox.bio/*`|RLS|
-|pings|Analytics for tutorial progress|RLS|
-|state|Save environment variables and tutorial progress|RLS|
+| Table | Description                                      | Access |
+| ----- | ------------------------------------------------ | ------ |
+| logs  | Log all calls to `sandbox.bio/*`                 | RLS    |
+| pings | Analytics for tutorial progress                  | RLS    |
+| state | Save environment variables and tutorial progress | RLS    |
 
 Append `_stg` to table names for dev/stg environments.
