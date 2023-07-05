@@ -6,6 +6,7 @@ import AnsiUp from "ansi_up";
 import "xterm/css/xterm.css";
 
 // Imports
+// FIXME:
 import { xterm, xtermAddons } from "$components/terminal/xterm";
 import { CLI } from "$components/terminal/cli";
 import { config, env, MAX_FILE_SIZE_TO_CACHE } from "$stores/config";

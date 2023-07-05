@@ -17,31 +17,31 @@ import Aioli from "@biowasm/aioli";
 import { xtermAddons } from "./xterm";
 import { env, getLocalForageKey, MAX_FILE_SIZE_TO_CACHE } from "$stores/config";
 // Man pages (use import.meta.glob when switch to SvelteKit)
-import man_basename from "../man/basename.txt";
-import man_cat from "../man/cat.txt";
-import man_comm from "../man/comm.txt";
-import man_cut from "../man/cut.txt";
-import man_date from "../man/date.txt";
-import man_echo from "../man/echo.txt";
-import man_find from "../man/find.txt";
-import man_fold from "../man/fold.txt";
-import man_gawk from "../man/gawk.txt";
-import man_grep from "../man/grep.txt";
-import man_head from "../man/head.txt";
-import man_join from "../man/join.txt";
-import man_jq from "../man/jq.txt";
-import man_ls from "../man/ls.txt";
-import man_md5sum from "../man/md5sum.txt";
-import man_paste from "../man/paste.txt";
-import man_sed from "../man/sed.txt";
-import man_seq from "../man/seq.txt";
-import man_shuf from "../man/shuf.txt";
-import man_sort from "../man/sort.txt";
-import man_tail from "../man/tail.txt";
-import man_tee from "../man/tee.txt";
-import man_tr from "../man/tr.txt";
-import man_uniq from "../man/uniq.txt";
-import man_wc from "../man/wc.txt";
+// import man_basename from "../man/basename.txt";
+// import man_cat from "../man/cat.txt";
+// import man_comm from "../man/comm.txt";
+// import man_cut from "../man/cut.txt";
+// import man_date from "../man/date.txt";
+// import man_echo from "../man/echo.txt";
+// import man_find from "../man/find.txt";
+// import man_fold from "../man/fold.txt";
+// import man_gawk from "../man/gawk.txt";
+// import man_grep from "../man/grep.txt";
+// import man_head from "../man/head.txt";
+// import man_join from "../man/join.txt";
+// import man_jq from "../man/jq.txt";
+// import man_ls from "../man/ls.txt";
+// import man_md5sum from "../man/md5sum.txt";
+// import man_paste from "../man/paste.txt";
+// import man_sed from "../man/sed.txt";
+// import man_seq from "../man/seq.txt";
+// import man_shuf from "../man/shuf.txt";
+// import man_sort from "../man/sort.txt";
+// import man_tail from "../man/tail.txt";
+// import man_tee from "../man/tee.txt";
+// import man_tr from "../man/tr.txt";
+// import man_uniq from "../man/uniq.txt";
+// import man_wc from "../man/wc.txt";
 
 // State
 let _aioli = {}; // Aioli object
@@ -546,68 +546,68 @@ const coreutils = {
 		}
 
 		return contents;
-	},
+	}
 
 	// -------------------------------------------------------------------------
 	// Man pages
 	// -------------------------------------------------------------------------
-	man: async (args) => {
-		const tool = args._[0];
-		switch (tool) {
-			case "basename":
-				return man_basename;
-			case "cat":
-				return man_cat;
-			case "comm":
-				return man_comm;
-			case "cut":
-				return man_cut;
-			case "date":
-				return man_date;
-			case "echo":
-				return man_echo;
-			case "find":
-				return man_find;
-			case "fold":
-				return man_fold;
-			case "gawk":
-				return man_gawk;
-			case "grep":
-				return man_grep;
-			case "head":
-				return man_head;
-			case "join":
-				return man_join;
-			case "jq":
-				return man_jq;
-			case "ls":
-				return man_ls;
-			case "md5sum":
-				return man_md5sum;
-			case "paste":
-				return man_paste;
-			case "sed":
-				return man_sed;
-			case "seq":
-				return man_seq;
-			case "shuf":
-				return man_shuf;
-			case "sort":
-				return man_sort;
-			case "tail":
-				return man_tail;
-			case "tee":
-				return man_tee;
-			case "tr":
-				return man_tr;
-			case "uniq":
-				return man_uniq;
-			case "wc":
-				return man_wc;
-			default:
-				return `No manual entry for ${tool}`;
-		}
-	}
+	// man: async (args) => {
+	// 	const tool = args._[0];
+	// 	switch (tool) {
+	// 		case "basename":
+	// 			return man_basename;
+	// 		case "cat":
+	// 			return man_cat;
+	// 		case "comm":
+	// 			return man_comm;
+	// 		case "cut":
+	// 			return man_cut;
+	// 		case "date":
+	// 			return man_date;
+	// 		case "echo":
+	// 			return man_echo;
+	// 		case "find":
+	// 			return man_find;
+	// 		case "fold":
+	// 			return man_fold;
+	// 		case "gawk":
+	// 			return man_gawk;
+	// 		case "grep":
+	// 			return man_grep;
+	// 		case "head":
+	// 			return man_head;
+	// 		case "join":
+	// 			return man_join;
+	// 		case "jq":
+	// 			return man_jq;
+	// 		case "ls":
+	// 			return man_ls;
+	// 		case "md5sum":
+	// 			return man_md5sum;
+	// 		case "paste":
+	// 			return man_paste;
+	// 		case "sed":
+	// 			return man_sed;
+	// 		case "seq":
+	// 			return man_seq;
+	// 		case "shuf":
+	// 			return man_shuf;
+	// 		case "sort":
+	// 			return man_sort;
+	// 		case "tail":
+	// 			return man_tail;
+	// 		case "tee":
+	// 			return man_tee;
+	// 		case "tr":
+	// 			return man_tr;
+	// 		case "uniq":
+	// 			return man_uniq;
+	// 		case "wc":
+	// 			return man_wc;
+	// 		default:
+	// 			return `No manual entry for ${tool}`;
+	// 	}
+	// }
 };
 
 // =============================================================================

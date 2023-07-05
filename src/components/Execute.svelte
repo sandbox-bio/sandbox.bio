@@ -1,5 +1,6 @@
 <script>
 import { Card } from "sveltestrap";
+// FIXME:
 import { xtermAddons } from "$components/terminal/xterm";
 
 export let command;
@@ -8,6 +9,7 @@ export let inline = false;
 // Run command in the CLI!
 function exec() {
 	if (!command) return;
+	// alert("FIXME:")
 	$xtermAddons.echo.handleData(command.replace(/ \\ /g, " "));
 	$xtermAddons.echo.handleData("\r");
 }
