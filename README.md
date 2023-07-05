@@ -59,8 +59,8 @@ _aioli = await new Aioli(config.tools, {
 
 ```html
 <script>
-import Quiz from "components/Quiz.svelte";
-import Choice from "components/QuizChoice.svelte";
+import Quiz from "$components/Quiz.svelte";
+import Choice from "$components/QuizChoice.svelte";
 </script>
 
 <!-- The "id" is used to maintain state on page refresh. It just has to be unique within a step in a tutorial -->
