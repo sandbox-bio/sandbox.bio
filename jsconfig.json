@@ -6,7 +6,8 @@
 			"$lib": ["./src/lib"],
 			"$lib/*": ["./src/lib/*"],
 			"$routes/*": ["./src/routes/*"],
-			"$stores/*": ["./src/stores/*"]
+			"$stores/*": ["./src/stores/*"],
+			"$content/*": ["./src/content/*"],
 		}
 	}
 }
