@@ -21,7 +21,7 @@ export const config = {
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "Multiple sequence alignment", component: Intro },
-		{ name: "Quiz", component: Quiz },
+		{ name: "Quiz", component: Quiz }
 		// { name: "Filter data", component: Step1, subtitle: "Select Elements", header: true },
 		// { name: "Filter data", component: Step2, subtitle: "Select Arrays" },
 		// { name: "Filter data", component: Step3, subtitle: "Putting Elements in an Array" },
@@ -32,7 +32,5 @@ export const config = {
 		// { name: "Summarize data", component: Step8, subtitle: "Maps and Selects" },
 		// { name: "The end", component: Conclusion, subtitle: "In Review", header: true }
 	],
-	files: [
-		"data/msa-intro/seq.fa",
-	],
+	files: ["data/msa-intro/seq.fa"]
 };

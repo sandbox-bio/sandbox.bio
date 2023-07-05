@@ -2,7 +2,7 @@
 import { createEventDispatcher } from "svelte";
 import { Alert } from "sveltestrap";
 
-export let type = "login";  // Supported: login, signup
+export let type = "login"; // Supported: login, signup
 export let error = false;
 export let success = false;
 export let busy = false;
@@ -15,18 +15,29 @@ const dispatch = createEventDispatcher();
 // Log in or sign up
 function run() {
 	dispatch(type, {
-		email, password
+		email,
+		password
 	});
 }
 </script>
 
 <div class="form-floating mb-1">
-	<input type="email" class="form-control rounded-4" id="email-{type}" placeholder="name@example.com" bind:value={email} disabled={busy}>
+	<input type="email" class="form-control rounded-4" id="email-{type}" placeholder="name@example.com" bind:value={email} disabled={busy} />
 	<label for="email-{type}">Email address</label>
 </div>
 
 <div class="form-floating mb-3">
-	<input type="password" class="form-control rounded-4" id="password-{type}" placeholder="Password" bind:value={password} on:keypress={e => { if (e.key === "Enter")run(); }} disabled={busy}>
+	<input
+		type="password"
+		class="form-control rounded-4"
+		id="password-{type}"
+		placeholder="Password"
+		bind:value={password}
+		on:keypress={(e) => {
+			if (e.key === "Enter") run();
+		}}
+		disabled={busy}
+	/>
 	<label for="password-{type}">Password</label>
 </div>
 

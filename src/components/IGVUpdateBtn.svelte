@@ -7,7 +7,7 @@ export let loadTrack = null;
 </script>
 
 <div class="text-center">
-	<Button class="mb-3" color="primary" size="sm" on:click={() => $status.igv = { locus, loadTrack }}>
+	<Button class="mb-3" color="primary" size="sm" on:click={() => ($status.igv = { locus, loadTrack })}>
 		<slot>
 			Go to {locus}
 		</slot>

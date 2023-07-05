@@ -10,8 +10,9 @@ Navigate to region `chr21:19,089,694-19,095,362`
 <Alert color="primary">
 	**Notes**
 
-	* There are many reads with mismatches to the reference.
-	* Read pairs are in RL pattern (instead of LR pattern).
-	* Region is flanked by reads with poor mapping quality (white instead of grey).
-	* There are reads with pairs on other chromosomes (coloured reads).
+    * There are many reads with mismatches to the reference.
+    * Read pairs are in RL pattern (instead of LR pattern).
+    * Region is flanked by reads with poor mapping quality (white instead of grey).
+    * There are reads with pairs on other chromosomes (coloured reads).
+
 </Alert>

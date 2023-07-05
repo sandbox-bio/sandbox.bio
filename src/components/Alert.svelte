@@ -5,5 +5,5 @@ export let color = "info";
 </script>
 
 <Alert {color} fade={false}>
-	<slot></slot>
+	<slot />
 </Alert>

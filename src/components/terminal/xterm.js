@@ -7,45 +7,39 @@ import { SerializeAddon } from "xterm-addon-serialize";
 import { FitAddon } from "xterm-addon-fit";
 import LocalEchoController from "$thirdparty/local-echo/index";
 
-
 // =============================================================================
 // Initialize xterm
 // =============================================================================
 
-export function initTerminal() {
-	
-}
+export function initTerminal() {}
 
 // Xterm.js
 const term = new Terminal({
 	convertEol: true,
-	cursorBlink: true,
+	cursorBlink: true
 	// bellStyle: "sound" // only works if do: $xterm.writeln("\x07");
 });
 
 // Xterm.js add-ons
 const addons = {
-	echo: new LocalEchoController(null, {                  // Echo controller
+	echo: new LocalEchoController(null, {
+		// Echo controller
 		historySize: 1000
 	}),
-	serialize: new SerializeAddon(),                       // Can be used to save state
-	links: new WebLinksAddon(),                            // Supports links in the terminal
-	fit: new FitAddon()                                    // Makes terminal fit HTML element
+	serialize: new SerializeAddon(), // Can be used to save state
+	links: new WebLinksAddon(), // Supports links in the terminal
+	fit: new FitAddon() // Makes terminal fit HTML element
 };
 
 // Attach addons
-for(let addonName in addons)
-	term.loadAddon(addons[addonName]);
+for (let addonName in addons) term.loadAddon(addons[addonName]);
 
 // Disable local-echo's handling of tabs for autocompletion. See handleAutocomplete() for more info.
 addons.echo.handleData_ = addons.echo.handleData;
 addons.echo.handleData = (data) => {
-	if(data == "\t")
-		return;
+	if (data == "\t") return;
 	return addons.echo.handleData_(data);
-}
-
-
+};
 
 // =============================================================================
 // Export as readable stores

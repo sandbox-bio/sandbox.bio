@@ -12,5 +12,5 @@ But because the price column is actually a string, we can't simply sum the numbe
 
 A few notes:
 
-* The `sub` function **modifies** the variable `$NF` (temporarily) and returns the number of substitutions, i.e. it does **not** return the modified string, as you might expect.
-* We have to escape the `$` character since it's otherwise considered a valid regular expression.
+- The `sub` function **modifies** the variable `$NF` (temporarily) and returns the number of substitutions, i.e. it does **not** return the modified string, as you might expect.
+- We have to escape the `$` character since it's otherwise considered a valid regular expression.

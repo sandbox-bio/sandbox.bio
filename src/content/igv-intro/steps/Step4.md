@@ -7,13 +7,13 @@ import IGVUpdateBtn from "$components/IGVUpdateBtn.svelte";
 We will be using publicly available Illumina sequence data from the HCC1143 cell line. For speed, only a small portion of `chr21` will be loaded (19M:20M).
 
 <IGVUpdateBtn
-	locus="21:19000000-20000000"
-	loadTrack={{
+locus="21:19000000-20000000"
+loadTrack={{
 		url: "https://assets.sandbox.bio/tutorials/igv-intro/HCC1143.normal.21.19M-20M.bam",
 		indexURL: "https://assets.sandbox.bio/tutorials/igv-intro/HCC1143.normal.21.19M-20M.bam.bai",
 		name: "HCC1143"
 	}}>
-	Load HCC1143 data into IGV
+Load HCC1143 data into IGV
 </IGVUpdateBtn>
 
 <Alert color="primary">

@@ -19,13 +19,13 @@ export const config = {
 		{ name: "Puzzles", component: PuzzleFastaFilter, subtitle: "The FASTA file that could not be filtered", header: true },
 		{ name: "Puzzles", component: PuzzleTxtSort, subtitle: "The TXT file that could not be sorted" },
 		{ name: "Puzzles", component: PuzzleSamQuery, subtitle: "The SAM file that could not be queried" },
-		{ name: "Puzzles", component: PuzzleBedSpaces, subtitle: "The BED file that could not be merged" },
+		{ name: "Puzzles", component: PuzzleBedSpaces, subtitle: "The BED file that could not be merged" }
 		// { name: "The end", component: Conclusion, subtitle: "In Review", header: true }
 	],
 	files: [
 		"data/debugging-puzzles/exons.bed", // similar to the ones from bedtools-intro but with space instead of tabs
 		"data/debugging-puzzles/chromosomes.txt",
 		"data/debugging-puzzles/alignments.bam",
-		"data/debugging-puzzles/sequences.fa",
-	],
+		"data/debugging-puzzles/sequences.fa"
+	]
 };

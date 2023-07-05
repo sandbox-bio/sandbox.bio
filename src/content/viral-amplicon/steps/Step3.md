@@ -19,7 +19,7 @@ Let's break this seemingly complex command into its individual components to mak
   - In other words, instead of strictly trimming only reads that start within a primer, reads that fall outside of a primer but are close enough (5 positions) will be included in Primer Trimming
 - `-e` tells `ivar` to include reads that don't have primers
   - By default, `ivar trim` excludes reads that don't have primers
-  - In other words, `-e` tells `ivar` to trim *all* reads
+  - In other words, `-e` tells `ivar` to trim _all_ reads
 - `-i untrimmed.sorted.bam` tells `ivar` that our input file is `untrimmed.sorted.bam`
 - `-b $PRIMER_BED` tells `ivar` that our primer BED file is `$PRIMER_BED`
   - A <Link href="https://en.wikipedia.org/wiki/BED_(file_format)">BED file</Link> contains a list of genomic regions

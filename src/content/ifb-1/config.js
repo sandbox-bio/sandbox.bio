@@ -26,7 +26,7 @@ export const config = {
 		{ name: "Unix command", component: Step4 },
 		{ name: "A simple basic command: ls", component: Step5 },
 		{ name: "Getting help", component: Step6 },
-		{ name: "Congratulations", component: Step7 },
+		{ name: "Congratulations", component: Step7 }
 	],
 	files: [
 		"data/ifb-1/Data/O.tauri_annotation.gff",
@@ -36,6 +36,6 @@ export const config = {
 		"data/ifb-1/Data/SRR3099587_chr18.fastq",
 		"data/ifb-1/Data/SRR3105697_chr18.fastq",
 		"data/ifb-1/Data/SRR3105698_chr18.fastq",
-		"data/ifb-1/Data/SRR3105699_chr18.fastq",
-	],
+		"data/ifb-1/Data/SRR3105699_chr18.fastq"
+	]
 };

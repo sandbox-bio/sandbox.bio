@@ -46,7 +46,7 @@
 		"shell-parse": "grncdr/js-shell-parse#f5f65af",
 		"shell-quote": "^1.7.3",
 		"showdown": "^2.1.0",
-	    "svelte-autosize": "^1.0.1",
+		"svelte-autosize": "^1.0.1",
 		"svelte-watch-resize": "^1.0.3",
 		"xterm": "^4.18.0",
 		"xterm-addon-fit": "^0.5.0",

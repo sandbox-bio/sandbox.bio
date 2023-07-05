@@ -36,7 +36,5 @@ export const config = {
 		{ name: "Arrays", subtitle: "Exercise", component: Exercise3 },
 		{ name: "The end", component: Conclusion, header: true }
 	],
-	files: [
-		"data/awk-intro/orders.tsv"
-	]
-}
+	files: ["data/awk-intro/orders.tsv"]
+};

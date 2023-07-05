@@ -27,13 +27,13 @@ const TRACK_GC = {
 	name: "GC Track"
 };
 const TRACK_REPEATS = {
-	"name": "Repeat Masker (rmsk)",
-	"type": "annotation",
-	"format": "rmsk",
-	"displayMode": "EXPANDED",
-	"url": "https://s3.amazonaws.com/igv.org.genomes/hg19/rmsk.txt.gz",
-	"indexURL": "https://s3.amazonaws.com/igv.org.genomes/hg19/rmsk.txt.gz.tbi",
-	"visibilityWindow": 1000000
+	name: "Repeat Masker (rmsk)",
+	type: "annotation",
+	format: "rmsk",
+	displayMode: "EXPANDED",
+	url: "https://s3.amazonaws.com/igv.org.genomes/hg19/rmsk.txt.gz",
+	indexURL: "https://s3.amazonaws.com/igv.org.genomes/hg19/rmsk.txt.gz.tbi",
+	visibilityWindow: 1000000
 };
 
 export const config = {
@@ -54,14 +54,14 @@ export const config = {
 		{ name: "Get familiar with the interface", component: Step4, subtitle: "Loading Read Alignments" },
 		{ name: "Get familiar with the interface", component: Step5, subtitle: "Visualizing read alignments" },
 		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step6, subtitle: "Two neighbouring SNPs", header: true },
-		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step7, subtitle: "Homopolymer region with indel"},
-		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step8, subtitle: "Coverage by GC"},
-		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step9, subtitle: "Heterozygous SNPs on different alleles"},
-		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step10, subtitle: "Low mapping quality"},
-		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step11, subtitle: "Homozygous deletion"},
-		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step12, subtitle: "Mis-alignment"},
-		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step13, subtitle: "Translocation"},
-		{ name: "The End", component: Conclusion, header: true},
+		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step7, subtitle: "Homopolymer region with indel" },
+		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step8, subtitle: "Coverage by GC" },
+		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step9, subtitle: "Heterozygous SNPs on different alleles" },
+		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step10, subtitle: "Low mapping quality" },
+		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step11, subtitle: "Homozygous deletion" },
+		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step12, subtitle: "Mis-alignment" },
+		{ name: "Inspecting SNPs, SNVs, and SVs", component: Step13, subtitle: "Translocation" },
+		{ name: "The End", component: Conclusion, header: true }
 	],
 	files: [],
 	igvConfig: {
@@ -69,7 +69,7 @@ export const config = {
 			locus: "all",
 			genome: "hg19",
 			tracks: [],
-			showCenterGuide: true,
+			showCenterGuide: true
 		},
 		3: { locus: "BRCA1" },
 		2: { locus: "chr1:10,000-11,000" },
@@ -81,6 +81,6 @@ export const config = {
 		10: { locus: "chr21:19,666,881-19,666,921", tracks: [TRACK_HCC1143] },
 		11: { locus: "chr21:19,800,320-19,818,162", tracks: [TRACK_HCC1143, TRACK_REPEATS] },
 		12: { locus: "chr21:19,324,469-19,331,468", tracks: [TRACK_HCC1143, TRACK_REPEATS] },
-		13: { locus: "chr21:19,102,154-19,103,108", tracks: [TRACK_HCC1143] },
-	},
+		13: { locus: "chr21:19,102,154-19,103,108", tracks: [TRACK_HCC1143] }
+	}
 };

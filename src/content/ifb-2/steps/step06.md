@@ -15,7 +15,7 @@ mkdir my_dir
 tree
 ```
 
-Still from your HOME directory, create another directory nammed `my_dir2` into the directory `/shared/projects/facts/`. 
+Still from your HOME directory, create another directory nammed `my_dir2` into the directory `/shared/projects/facts/`.
 Use the command `tree` to display the file and directory organisation from the directory `/shared/project/facts`. Reminder: be lazy and use the <kbd>Tab</kbd> key to speed up your writing of the path.
 
 ```bash
@@ -37,7 +37,7 @@ Example: go to the `~/test` directory and duplicate the file named `first_file.t
 ```bash
 cd ~/test
 cp first_file.txt third_file.txt
-ls 
+ls
 ```
 
 With the option `-r` (**r**ecursive), the `cp` command copies all files of the source directory to the destination directory.
@@ -51,13 +51,12 @@ tree /shared/projects/facts
 ```
 
 <Quiz id="qndir" choices={[
-	{ valid: false, value: "0"},
-	{ valid: true, value: "1"},
-	{ valid: false, value: "2"},
-	{ valid: false, value: "3"},
+{ valid: false, value: "0"},
+{ valid: true, value: "1"},
+{ valid: false, value: "2"},
+{ valid: false, value: "3"},
 ]}>
-	<span slot="prompt">
-		Create a new repository named `new_dir` into the directory `/shared/projects/facts`. In this directory `new_dir`, copy the file `~/test/first_file.txt` and rename it `1st_file.txt`. How many files are listed with the command `tree /shared/projects/facts/new_dir` ?
-	</span>
+<span slot="prompt">
+Create a new repository named `new_dir` into the directory `/shared/projects/facts`. In this directory `new_dir`, copy the file `~/test/first_file.txt` and rename it `1st_file.txt`. How many files are listed with the command `tree /shared/projects/facts/new_dir` ?
+</span>
 </Quiz>
-

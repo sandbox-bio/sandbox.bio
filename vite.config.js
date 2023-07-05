@@ -9,7 +9,7 @@ export default defineConfig({
 			$components: path.resolve(__dirname, "./src/components"),
 			$stores: path.resolve(__dirname, "./src/stores"),
 			$content: path.resolve(__dirname, "./src/content"),
-			$thirdparty: path.resolve(__dirname, "./src/thirdparty"),
+			$thirdparty: path.resolve(__dirname, "./src/thirdparty")
 		}
 	},
 	test: {

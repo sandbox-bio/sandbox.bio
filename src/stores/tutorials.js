@@ -35,7 +35,7 @@ export const tutorials = readable([
 	debuggingPuzzles,
 	// IFB Tutorials (unlisted)
 	IFB1,
-	IFB2,
+	IFB2
 ]);
 
 // Playgrounds

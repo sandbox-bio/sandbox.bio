@@ -1,5 +1,5 @@
 import adapter from "@sveltejs/adapter-auto";
-import { markdown } from 'svelte-preprocess-markdown';
+import { markdown } from "svelte-preprocess-markdown";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -9,10 +9,8 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter()
 	},
-	extensions: ['.svelte', '.md'],
-	preprocess: [
-	  markdown(),
-	],  
+	extensions: [".svelte", ".md"],
+	preprocess: [markdown()]
 };
 
 export default config;

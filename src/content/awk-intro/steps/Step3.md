@@ -10,6 +10,6 @@ To do so, we'll use `awk`'s `BEGIN` and `END` statements, which let you run some
 
 Let's break this down:
 
-* **Begin block**: We initialize the variable `sum` to 0
-* **Body block**: For each line in the file, if the customer ordered a `Chicken Bowl`, we increment `sum` by the number of bowls ordered
-* **End block**: Once we processed all lines, print the total `sum`
+- **Begin block**: We initialize the variable `sum` to 0
+- **Body block**: For each line in the file, if the customer ordered a `Chicken Bowl`, we increment `sum` by the number of bowls ordered
+- **End block**: Once we processed all lines, print the total `sum`

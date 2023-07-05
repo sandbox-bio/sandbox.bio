@@ -46,7 +46,7 @@ export const config = {
 		{ name: "bedtools merge", component: Step8, subtitle: "Merge regions", header: true },
 		{ name: "bedtools merge", component: Step9, subtitle: "Merge and count intervals" },
 		{ name: "bedtools merge", component: Step10, subtitle: "Merge nearby features" },
-		{ name: "bedtools complement", component: Step11, subtitle: "Find uncovered regions", header: true},
+		{ name: "bedtools complement", component: Step11, subtitle: "Find uncovered regions", header: true },
 		{ name: "bedtools genomecov", component: Step12, subtitle: "Measure genome-wide coverage", header: true },
 		{ name: "bedtools jaccard", component: Step13, subtitle: "Measure dataset similarity", header: true },
 		{ name: "Exercises", component: Exercise1, subtitle: "Find non-exons", header: true },
@@ -66,6 +66,6 @@ export const config = {
 		"data/bedtools-intro/fSkin-DS19745.bed",
 		"data/bedtools-intro/gwas.bed",
 		"data/bedtools-intro/hesc.chromHmm.bed",
-		"data/bedtools-intro/genome.txt",
+		"data/bedtools-intro/genome.txt"
 	]
-}
+};

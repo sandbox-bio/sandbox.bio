@@ -7,18 +7,16 @@ export let inline = false;
 
 // Run command in the CLI!
 function exec() {
-	if(!command)
-		return;
-	$xtermAddons.echo.handleData(command.replace(/ \\ /g, " "))
+	if (!command) return;
+	$xtermAddons.echo.handleData(command.replace(/ \\ /g, " "));
 	$xtermAddons.echo.handleData("\r");
-};
+}
 </script>
 
 {#if inline}
 	<kbd on:click={exec}>
 		{@html command.replace(/ \\ /g, " \\ <br />&nbsp;&nbsp;&nbsp;")}
 	</kbd>
-
 {:else}
 	<div class="cursor-pointer mb-3 font-monospace">
 		<Card on:click={exec} body inverse color="dark">
@@ -28,11 +26,12 @@ function exec() {
 {/if}
 
 <style>
-kbd, div {
+kbd,
+div {
 	cursor: pointer;
 }
 
 div {
-	font-size: .875em;  /* Same size as <kbd> */
+	font-size: 0.875em; /* Same size as <kbd> */
 }
 </style>

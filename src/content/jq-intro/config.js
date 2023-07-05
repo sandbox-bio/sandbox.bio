@@ -31,9 +31,5 @@ export const config = {
 		{ name: "Summarize data", component: Step8, subtitle: "Maps and Selects" },
 		{ name: "The end", component: Conclusion, subtitle: "In Review", header: true }
 	],
-	files: [
-		"data/jq-intro/repo.json",
-		"data/jq-intro/issues.json",
-		"data/jq-intro/issue.json"
-	],
+	files: ["data/jq-intro/repo.json", "data/jq-intro/issues.json", "data/jq-intro/issue.json"]
 };

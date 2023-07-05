@@ -11,9 +11,9 @@ This lab will introduce you to the <Link href="https://software.broadinstitute.o
 
 After this lab, you will be able to:
 
-* Visualize a variety of genomic data
-* Quickly navigate around the genome
-* Visualize read alignments
-* Validate SNP/SNV calls and structural re-arrangements by eye
+- Visualize a variety of genomic data
+- Quickly navigate around the genome
+- Visualize read alignments
+- Validate SNP/SNV calls and structural re-arrangements by eye
 
 There are a few thought-provoking <span class="text-info">**Questions**</span> or <span class="text-primary">**Notes**</span> pertaining to sections of the lab. These are optional, and may take more time, but are meant to help you better understand the visualizations you are seeing.

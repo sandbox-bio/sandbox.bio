@@ -14,7 +14,7 @@ let igvOptions = {
 The samtools `view` command is the most versatile tool in the samtools package.
 It's main function, not surprisingly, is to allow you to convert the binary
 (i.e., easy for the computer to read and process) alignments in the BAM file
-view to text-based SAM alignments that are easy for *humans* to read and process.
+view to text-based SAM alignments that are easy for _humans_ to read and process.
 
 Let us start by inspecting the first five alignments in our BAM in detail:
 

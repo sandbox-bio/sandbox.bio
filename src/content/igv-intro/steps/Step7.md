@@ -27,8 +27,9 @@ Sort alignments by base, and notice the alternating insertions and deletions in 
 <Alert color="primary">
 	**Notes**
 
-	* The alternate allele is either a deletion or an insertion of one or two Ts.
-	* The remaining bases are mismatched, because the alignment is now out of sync.
-	* The dpSNP entry at this location (<Link href="https://www.ncbi.nlm.nih.gov/snp/?term=rs74604068">rs74604068</Link>) is an `A->T`, and in all likelihood an artifact.
-	* i.e. the common variants from dbSNP include some cases that are actually common misalignments caused by repeats.
+    * The alternate allele is either a deletion or an insertion of one or two Ts.
+    * The remaining bases are mismatched, because the alignment is now out of sync.
+    * The dpSNP entry at this location (<Link href="https://www.ncbi.nlm.nih.gov/snp/?term=rs74604068">rs74604068</Link>) is an `A->T`, and in all likelihood an artifact.
+    * i.e. the common variants from dbSNP include some cases that are actually common misalignments caused by repeats.
+
 </Alert>

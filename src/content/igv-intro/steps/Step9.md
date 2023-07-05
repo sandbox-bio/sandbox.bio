@@ -14,5 +14,6 @@ There are two SNPs in this region, `A/T` on the left and `AG` on the right.
 <Alert color="primary">
 	**Note**
 
-	There is no linkage between alleles for these two SNPs because reads covering both only contain one or the other
+    There is no linkage between alleles for these two SNPs because reads covering both only contain one or the other
+
 </Alert>

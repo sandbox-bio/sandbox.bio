@@ -19,4 +19,3 @@ We now have a sorted BAM file called `eg2.sorted.bam`. Sorted BAM is a useful fo
 <Alert>
 	To learn more about `samtools`, check out our <Link href="/tutorials?id=samtools-intro">samtools tutorial</Link>.
 </Alert>
-

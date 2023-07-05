@@ -6,7 +6,7 @@ Merging results in a new set of intervals representing the merged set of interva
 
 <Execute command={"bedtools merge -i exons.bed | \\ head -n 20"} />
 
-A more sophisticated approach would be to not only merge overlapping intervals, but also report the **number** of intervals that were integrated into the new, merged interval. One does this with the `-c` and `-o` options. The `-c` option allows one to specify a column or columns in the input that you wish to summarize. The `-o` option defines the operation(s) that you wish to apply to each column listed for the `-c` option.  For example, to count the number of overlapping intervals that led to each of the new "merged" intervals, one will "count" the first column (though the second, third, fourth, etc. would work just fine as well).
+A more sophisticated approach would be to not only merge overlapping intervals, but also report the **number** of intervals that were integrated into the new, merged interval. One does this with the `-c` and `-o` options. The `-c` option allows one to specify a column or columns in the input that you wish to summarize. The `-o` option defines the operation(s) that you wish to apply to each column listed for the `-c` option. For example, to count the number of overlapping intervals that led to each of the new "merged" intervals, one will "count" the first column (though the second, third, fourth, etc. would work just fine as well).
 
 <Execute command={"bedtools merge -i exons.bed -c 1 -o count | \\ head -n 20"} />
 

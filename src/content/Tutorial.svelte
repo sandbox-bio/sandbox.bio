@@ -12,8 +12,8 @@ export let id;
 export let step = 0;
 
 // State
-$tutorial = $tutorials.find(t => t.id == id);
-const tocToggle = () => tocOpen = !tocOpen;
+$tutorial = $tutorials.find((t) => t.id == id);
+const tocToggle = () => (tocOpen = !tocOpen);
 let tocOpen = false;
 let stepInfo = {};
 let rosalind = {};
@@ -21,18 +21,17 @@ let rosalind = {};
 // Reactive statements
 $: nextStep(step);
 $: nbSteps = $tutorial.steps.length;
-$: if($tutorial.ide === true) {
+$: if ($tutorial.ide === true) {
 	rosalind = $tutorial.steps[step].rosalind;
 	rosalind.fn = `solution_${rosalind.id.toLowerCase()}`;
 }
 
-function nextStep(step)
-{
+function nextStep(step) {
 	stepInfo = $tutorial.steps[step];
 
 	// Update URL
 	const url = new URL(window.location);
-	if(+url.searchParams.get("step") != +step) {
+	if (+url.searchParams.get("step") != +step) {
 		url.searchParams.set("step", step);
 
 		// Handle analytics before updating the URL
@@ -54,24 +53,22 @@ function nextStep(step)
 
 	// Update progress in one shot (each time change $progress, makes call to DB)
 	let progressNew = $progress || {};
-	if(!($tutorial.id in progressNew))
-		progressNew[$tutorial.id] = { step: 0 };
+	if (!($tutorial.id in progressNew)) progressNew[$tutorial.id] = { step: 0 };
 	// But only if the current step is greater!
-	if(step > progressNew[$tutorial.id].step) {
+	if (step > progressNew[$tutorial.id].step) {
 		progressNew[$tutorial.id].step = step;
 		$progress = progressNew;
 	}
 
 	// Scroll to the top when navigate pages
-	if(document.getElementById("tutorial-sidebar"))
-		document.getElementById("tutorial-sidebar").scrollTop = 0;
+	if (document.getElementById("tutorial-sidebar")) document.getElementById("tutorial-sidebar").scrollTop = 0;
 }
 
 $tutorial.step = step;
 </script>
 
 <div class="container-fluid pb-3 px-0">
-	<div class="d-grid gap-2" style="grid-template-columns: {nbSteps > 0 ? "1fr 2fr" : ""}; height:85vh; max-height:85vh">
+	<div class="d-grid gap-2" style="grid-template-columns: {nbSteps > 0 ? '1fr 2fr' : ''}; height:85vh; max-height:85vh">
 		{#if $tutorial.steps.length > 0}
 			<div class="bg-light border rounded-3 p-2 d-flex align-items-end flex-column">
 				<div id="tutorial-sidebar" class="w-100 p-2 mb-auto" style="max-height:77vh; overflow-y:scroll; overflow-x:hidden">
@@ -88,7 +85,12 @@ $tutorial.step = step;
 									</span>
 								{/each}
 								{#each $tutorial.difficulty as tag}
-									<span class="badge" class:bg-success={tag == "beginner"} class:bg-danger={tag == "difficult"} style={tag == "intermediate" ? "background-color:#fd7e14" : ""}>{tag}</span>
+									<span
+										class="badge"
+										class:bg-success={tag == "beginner"}
+										class:bg-danger={tag == "difficult"}
+										style={tag == "intermediate" ? "background-color:#fd7e14" : ""}>{tag}</span
+									>
 								{/each}
 							</h6>
 						</div>
@@ -106,8 +108,21 @@ $tutorial.step = step;
 					<div class="row">
 						<div class="d-flex justify-content-between">
 							<div>
-								<button type="button" class="btn btn-sm" on:click={() => step--} class:btn-primary={step != 0} class:btn-secondary={step == 0} disabled={step == 0}>&larr;<span class="mobile-hide">&nbsp;Previous</span></button>
-								<button class="btn btn-sm" on:click={() => step++} class:btn-primary={step != $tutorial.steps.length - 1} class:btn-secondary={step == $tutorial.steps.length - 1} disabled={step == $tutorial.steps.length - 1}><span class="mobile-hide">Next&nbsp;</span>&rarr;</button>
+								<button
+									type="button"
+									class="btn btn-sm"
+									on:click={() => step--}
+									class:btn-primary={step != 0}
+									class:btn-secondary={step == 0}
+									disabled={step == 0}>&larr;<span class="mobile-hide">&nbsp;Previous</span></button
+								>
+								<button
+									class="btn btn-sm"
+									on:click={() => step++}
+									class:btn-primary={step != $tutorial.steps.length - 1}
+									class:btn-secondary={step == $tutorial.steps.length - 1}
+									disabled={step == $tutorial.steps.length - 1}><span class="mobile-hide">Next&nbsp;</span>&rarr;</button
+								>
 							</div>
 							<div>
 								<a href="https://github.com/sandbox-bio/sandbox.bio/discussions" target="_blank" rel="noreferrer">
@@ -128,13 +143,20 @@ $tutorial.step = step;
 				input={rosalind.sample_data}
 				expectedInput={rosalind.sample_data}
 				expectedOutput={rosalind.sample_output}
-				/>
+			/>
 		{:else if $tutorial.igv === true}
 			{@const config = { ...$tutorial.igvConfig.default, ...$tutorial.igvConfig[step] }}
 			<IGV options={config} />
 		{:else}
 			<div id="terminal-wrapper" class="border rounded-3 p-2">
-				<Terminal on:status={event => $status.terminal = event.detail} files={$tutorial.files} init={$tutorial.init} tools={$tutorial.tools} intro={$tutorial.intro} pwd={$tutorial.pwd} />
+				<Terminal
+					on:status={(event) => ($status.terminal = event.detail)}
+					files={$tutorial.files}
+					init={$tutorial.init}
+					tools={$tutorial.tools}
+					intro={$tutorial.intro}
+					pwd={$tutorial.pwd}
+				/>
 			</div>
 		{/if}
 	</div>
@@ -147,7 +169,7 @@ $tutorial.step = step;
 		{#if s.header}
 			<DropdownItem header><br />{s.name}</DropdownItem>
 		{/if}
-		<DropdownItem on:click={() => step = i}>
+		<DropdownItem on:click={() => (step = i)}>
 			{#if i == step}
 				&rarr; <strong>{@html s.subtitle || s.name}</strong>
 			{:else}

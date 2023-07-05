@@ -14,7 +14,7 @@ It moves the **source** to the **destination**.
 It works for files or directories.  
 It is also used to rename files or directories.
 
-Try this `mv` command to rename the file from `second_file.txt` to `2nd_file.txt` and to move it towards your HOME directory: 
+Try this `mv` command to rename the file from `second_file.txt` to `2nd_file.txt` and to move it towards your HOME directory:
 
 ```bash
 cd
@@ -45,10 +45,10 @@ rm -r <path_to_a_directory_to_delete>
 Be very careful with this `rm` command. There is no way to recover your deleted files in Unix!
 
 <Quiz id="step07_q1" choices={[
-    { valid: false, value: "`mv` applies to files or directories while `rm` applies to directories only"},
-	{ valid: true, value: "`mv` requires 2 paths while `rm` requires only one path"},
+{ valid: false, value: "`mv` applies to files or directories while `rm` applies to directories only"},
+{ valid: true, value: "`mv` requires 2 paths while `rm` requires only one path"},
 ]}>
-	<span slot="prompt">
-		The `mv` command differs from the `rm` command by (select the right proposal):
-	</span>
+<span slot="prompt">
+The `mv` command differs from the `rm` command by (select the right proposal):
+</span>
 </Quiz>

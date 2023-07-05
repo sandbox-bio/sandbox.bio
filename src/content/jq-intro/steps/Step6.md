@@ -30,5 +30,6 @@ If I can combine these built-ins with the selectors I've built up so far, I'll h
 <Alert>
 	**What I Learned: Array-Index**:
 
-	`jq` has many built-in functions. There are probably too many to remember but the built-ins tend to mirror JavaScript functions, so give those a try before heading to the <Link href="https://stedolan.github.io/jq/manual/#Builtinoperatorsandfunctions">jq manual</Link>, and you might get lucky.
+    `jq` has many built-in functions. There are probably too many to remember but the built-ins tend to mirror JavaScript functions, so give those a try before heading to the <Link href="https://stedolan.github.io/jq/manual/#Builtinoperatorsandfunctions">jq manual</Link>, and you might get lucky.
+
 </Alert>

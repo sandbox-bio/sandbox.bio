@@ -27,13 +27,14 @@ Now I have a valid JSON document.
 <Alert>
 	**What I Learned: Array Constructors**:
 
-	If your `jq` query returns more than one element, they will be returned newline delimited.
+    If your `jq` query returns more than one element, they will be returned newline delimited.
 
-	<Execute command={`echo '[{"a":"b"},{"a":"c"}]' | jq '.[].a'`} />
+    <Execute command={`echo '[{"a":"b"},{"a":"c"}]' | jq '.[].a'`} />
 
-	To turn these values into a JSON array, what you do is similar to creating an array in JavaScript: You wrap the values in an array constructor (`[...]`).
+    To turn these values into a JSON array, what you do is similar to creating an array in JavaScript: You wrap the values in an array constructor (`[...]`).
 
-	It ends up looking something like this:
+    It ends up looking something like this:
 
-	<Execute command={`echo '[{"a":"b"},{"a":"c"}]' | jq '[ .[].a ]'`} />
+    <Execute command={`echo '[{"a":"b"},{"a":"c"}]' | jq '[ .[].a ]'`} />
+
 </Alert>

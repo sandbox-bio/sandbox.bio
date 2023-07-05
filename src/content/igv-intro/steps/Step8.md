@@ -17,7 +17,7 @@ Next, we'll load a track that contains information about GC content across the g
 	url: "https://data.broadinstitute.org/igvdata/annotations/hg19/hg19.gc5base.tdf",
 	name: "GC Track"
 }}>
-	Load GC content track
+Load GC content track
 </IGVUpdateBtn>
 
 Note the concordance of coverage with GC content.
@@ -25,5 +25,6 @@ Note the concordance of coverage with GC content.
 <Alert color="info">
 	**Question**
 
-	Why are there blue and red reads throughout the alignments?
+    Why are there blue and red reads throughout the alignments?
+
 </Alert>

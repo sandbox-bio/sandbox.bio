@@ -4,7 +4,7 @@ import Image from "$components/Image.svelte";
 import Alert from "$components/Alert.svelte";
 </script>
 
-So far the examples presented have used the traditional algorithm in bedtools for finding intersections.  It turns out, however, that bedtools is much faster when using presorted data.
+So far the examples presented have used the traditional algorithm in bedtools for finding intersections. It turns out, however, that bedtools is much faster when using presorted data.
 
 For example, compare the difference in speed between the two approaches when finding intersections between `exons.bed` and `hesc.chromHmm.bed`:
 

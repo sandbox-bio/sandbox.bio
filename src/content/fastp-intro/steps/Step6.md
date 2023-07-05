@@ -10,7 +10,7 @@ In the previous step, notice this line in the output of `fastp`:
 reads failed due to too short: 0
 ```
 
-This means that *after* filtering, there were no reads that were deemed too short by `fastp`. By default, the threshold for a read being too short is set to 15bp, but this can be adjusted.
+This means that _after_ filtering, there were no reads that were deemed too short by `fastp`. By default, the threshold for a read being too short is set to 15bp, but this can be adjusted.
 
 For example, to only keep reads that are longer than 50bp, let's use the `--length_required` parameter:
 

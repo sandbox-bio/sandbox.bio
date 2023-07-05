@@ -14,14 +14,14 @@ export const config = {
 	id: "course-bash",
 	pwd: "course-bash",
 	name: "Bash Wizardy",
-	listed: false,  // don't show in tutorial listings
+	listed: false, // don't show in tutorial listings
 	course: true,
 	description: "A course for something something",
 	tags: ["course", "bash", "terminal"],
 	tools: [],
 	difficulty: ["beginner"],
 	steps: [
-		{ name: "Bash Wizardry", component: Intro },
+		{ name: "Bash Wizardry", component: Intro }
 		// { name: "Filter data", component: Step1, subtitle: "Select Elements", header: true },
 		// { name: "Filter data", component: Step2, subtitle: "Select Arrays" },
 		// { name: "Filter data", component: Step3, subtitle: "Putting Elements in an Array" },
@@ -37,5 +37,5 @@ export const config = {
 		// "data/jq-intro/repo.json",
 		// "data/jq-intro/issues.json",
 		// "data/jq-intro/issue.json"
-	],
+	]
 };

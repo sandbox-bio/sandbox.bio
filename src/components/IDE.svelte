@@ -1,6 +1,6 @@
 <script>
 import { createEventDispatcher } from "svelte";
-import { EditorView, basicSetup } from "codemirror"
+import { EditorView, basicSetup } from "codemirror";
 import { insertTab, indentLess } from "@codemirror/commands";
 import { EditorState } from "@codemirror/state";
 import { keymap } from "@codemirror/view";
@@ -8,7 +8,7 @@ import { json } from "@codemirror/lang-json";
 import { StreamLanguage } from "@codemirror/language";
 import { awk } from "$thirdparty/codemirror/awk";
 
-export let lang;  // json, awk, null=no syntax highlighting
+export let lang; // json, awk, null=no syntax highlighting
 export let code;
 export let editable = true;
 
@@ -18,10 +18,10 @@ let divIDE;
 let editor;
 
 // (Re)initialize editor if the language changes (but not the code)
-$: if(divIDE) initEditor(lang);
+$: if (divIDE) initEditor(lang);
 
 // If code changes, update the editor
-$: if(editor && code !== editor.state.doc.toString()) {
+$: if (editor && code !== editor.state.doc.toString()) {
 	editor.dispatch({
 		changes: {
 			from: 0,
@@ -45,7 +45,7 @@ function initEditor(lang) {
 			// Run code when do Cmd + Enter
 			{
 				key: "Mod-Enter",
-				run: view => {
+				run: (view) => {
 					dispatch("run", view.state.doc.toString());
 					return true;
 				},
@@ -57,17 +57,14 @@ function initEditor(lang) {
 		// Support read-only editors if needed
 		EditorView.editable.of(editable),
 		// When the code is updated, ping parent component to update its state
-		EditorView.updateListener.of(view => {
-			if (view.docChanged)
-				dispatch("update", view.state.doc.toString());
-		}),
+		EditorView.updateListener.of((view) => {
+			if (view.docChanged) dispatch("update", view.state.doc.toString());
+		})
 	];
 
 	// Add syntax highlighting
-	if(lang === "awk")
-		extensions.push(StreamLanguage.define(awk));
-	else if(lang === "json")
-		extensions.push(json());
+	if (lang === "awk") extensions.push(StreamLanguage.define(awk));
+	else if (lang === "json") extensions.push(json());
 
 	// Create or update editor
 	const state = EditorState.create({
@@ -75,11 +72,9 @@ function initEditor(lang) {
 		extensions,
 		readOnly: true
 	});
-	if(!editor)
-		editor = new EditorView({ state, parent: divIDE });
+	if (!editor) editor = new EditorView({ state, parent: divIDE });
 	// Or update existing editor
-	else
-		editor.setState(state);
+	else editor.setState(state);
 }
 </script>
 

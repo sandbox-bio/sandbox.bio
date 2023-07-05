@@ -17,15 +17,15 @@ let success;
 
 // State updates
 $: stateId = getLocalForageKey("quiz") + `${$tutorial.id}-${$tutorial.step}-${id}`;
-$: multiple = choices.filter(c => c.valid).length > 1;
-$: if(id && (radio || checked)) updateState();
+$: multiple = choices.filter((c) => c.valid).length > 1;
+$: if (id && (radio || checked)) updateState();
 
 // Validate user response
 function validate() {
-	for(let i = 0; i < choices.length; i++) {
+	for (let i = 0; i < choices.length; i++) {
 		const choice = choices[i].valid;
 		const user = multiple ? checked[i] : radio === choices[i].value;
-		if(!choice && user || choice && !user) {
+		if ((!choice && user) || (choice && !user)) {
 			error = "That doesn't look right";
 			return;
 		}
@@ -42,20 +42,16 @@ async function updateState() {
 // Set state of quiz
 onMount(async () => {
 	const state = await localforage.getItem(stateId);
-	if(!state) return;
-	if(multiple)
-		checked = state;
-	else
-		radio = state;
+	if (!state) return;
+	if (multiple) checked = state;
+	else radio = state;
 	validate();
-})
+});
 </script>
 
 <Alert color={success ? "success" : "primary"}>
 	<h6>
-		<slot name="prompt">
-			Prompt
-		</slot>
+		<slot name="prompt">Prompt</slot>
 	</h6>
 
 	{#each choices as choice, i}
@@ -66,14 +62,10 @@ onMount(async () => {
 		{/if}
 	{/each}
 
-	<Button size="sm" color="info" class="mt-3" on:click={validate} disabled={success}>
-		Submit
-	</Button>
+	<Button size="sm" color="info" class="mt-3" on:click={validate} disabled={success}>Submit</Button>
 
 	{#if success}
-		<p class="mt-2 text-success small">
-			That is correct!
-		</p>	
+		<p class="mt-2 text-success small">That is correct!</p>
 	{:else if error}
 		<p class="mt-2 text-danger small">
 			{error}

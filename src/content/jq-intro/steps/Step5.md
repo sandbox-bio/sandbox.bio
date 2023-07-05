@@ -35,11 +35,12 @@ Returning to my GitHub API problem, to wrap the number and the title up into an 
 <Alert>
 	**What I Learned: Object Constructors**:
 
-	To put the elements you've selected back into a JSON document, you can wrap them in an object constructor <code>&#123; ... &#125;</code>.
+    To put the elements you've selected back into a JSON document, you can wrap them in an object constructor <code>&#123; ... &#125;</code>.
 
-	If you were building up a JSON object out of several selectors, it would end up looking something like this:
+    If you were building up a JSON object out of several selectors, it would end up looking something like this:
 
-	<code>jq '&#123; "key1": &lt;&lt;jq filter&gt;&gt;, "key2": &lt;&lt;jq filter&gt;&gt; &#125;'</code><br /><br />
+    <code>jq '&#123; "key1": &lt;&lt;jq filter&gt;&gt;, "key2": &lt;&lt;jq filter&gt;&gt; &#125;'</code><br /><br />
 
-	Which is the same syntax for an object in a JSON document, except with jq you can use filters as values.
+    Which is the same syntax for an object in a JSON document, except with jq you can use filters as values.
+
 </Alert>

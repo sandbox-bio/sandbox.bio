@@ -24,12 +24,14 @@ Color alignments by `read strand`: click the track gear icon on the right and ch
 <Alert color="primary">
 	**Notes**
 
-	* Reads have high base quality scores except one (where the alt allele is the last base of the read). Note that `igv.js` dims the color of a base if it has low quality.
-	* Reads have good mapping qualities, show no strand bias, and the allele frequency is consistent with a heterozygous mutation.
+    * Reads have high base quality scores except one (where the alt allele is the last base of the read). Note that `igv.js` dims the color of a base if it has low quality.
+    * Reads have good mapping qualities, show no strand bias, and the allele frequency is consistent with a heterozygous mutation.
+
 </Alert>
 
 <Alert color="info">
 	**Question**
 
-	How does `Color by read strand` help?
+    How does `Color by read strand` help?
+
 </Alert>

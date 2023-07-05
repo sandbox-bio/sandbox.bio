@@ -25,11 +25,12 @@ In order to have a rough sense of the remaining `.bed` files, let's load them in
 
 <IGVModal options={igvOptions} bind:isOpen={isOpen}>
 	<span slot="after">
-		Note that: 
+		Note that:
 
-		* `cpg.bed` represents CpG islands in the human genome
-		* `exons.bed` represents RefSeq exons from human genes
-		* `gwas.bed` represents human disease-associated SNPs that were identified in genome-wide association studies (GWAS)
-		* `hesc.chromHmm.bed` represents the predicted function (by chromHMM) of each interval in the genome of a human embryonic stem cell based upon ChIP-seq experiments from ENCODE
-	</span>	
+    	* `cpg.bed` represents CpG islands in the human genome
+    	* `exons.bed` represents RefSeq exons from human genes
+    	* `gwas.bed` represents human disease-associated SNPs that were identified in genome-wide association studies (GWAS)
+    	* `hesc.chromHmm.bed` represents the predicted function (by chromHMM) of each interval in the genome of a human embryonic stem cell based upon ChIP-seq experiments from ENCODE
+    </span>
+
 </IGVModal>

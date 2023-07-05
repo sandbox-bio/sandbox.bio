@@ -14,7 +14,7 @@ import Listings from "$components/Listings.svelte";
 			</div>
 		</div>
 		<div class="align-center col-lg-5 p-0 offset-lg-1 overflow-hidden shadow-lg">
-			<img class="rounded-lg-3" src="/screenshot-cli.png" alt="Screenshot of terminal and exercises" width="800">
+			<img class="rounded-lg-3" src="/screenshot-cli.png" alt="Screenshot of terminal and exercises" width="800" />
 		</div>
 	</div>
 </div>

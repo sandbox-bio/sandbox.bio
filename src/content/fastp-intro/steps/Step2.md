@@ -9,7 +9,7 @@ To generate a simple QC report, we call `fastp` and specify the location of our 
 
 The structure of the output is as follows:
 
-1. First, there are stats about how many reads and bases are in your dataset before and after filtering is applied. Note that the R1 dataset *decreases* from 25,000 reads to 24,455—i.e. `fastp` removed 545 reads that it deemed low quality).
+1. First, there are stats about how many reads and bases are in your dataset before and after filtering is applied. Note that the R1 dataset _decreases_ from 25,000 reads to 24,455—i.e. `fastp` removed 545 reads that it deemed low quality).
 
 2. Next, you'll see stats about how many reads and bases were removed and for what reason. For example, 942 reads were trimmed because adapter sequences were detected in those reads.
 

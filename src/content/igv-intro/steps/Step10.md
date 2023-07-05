@@ -18,11 +18,12 @@ Load the track with information about repeats across the genome (in IGV Desktop,
 	"indexURL": "https://s3.amazonaws.com/igv.org.genomes/hg19/rmsk.txt.gz.tbi",
 	"visibilityWindow": 1000000
 }}>
-	Load Repeat Masker track
+Load Repeat Masker track
 </IGVUpdateBtn>
 
 <Alert color="primary">
 	**Note**
 
-	Mapping quality plunges in all reads (white instead of grey). Once we load repeat elements, we see that there are two LINE elements that cause this.
+    Mapping quality plunges in all reads (white instead of grey). Once we load repeat elements, we see that there are two LINE elements that cause this.
+
 </Alert>

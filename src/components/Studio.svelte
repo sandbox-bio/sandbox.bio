@@ -13,7 +13,7 @@ import { Icon } from "sveltestrap";
 
 // Keep copy in localforage just in case
 const stateId = getLocalForageKey("studio");
-const updateState = txt => localforage.setItem(stateId, txt);
+const updateState = (txt) => localforage.setItem(stateId, txt);
 $: updateState(tutorial);
 
 // Initial values
@@ -34,7 +34,7 @@ Here's a long command:
 // Set state of quiz
 onMount(async () => {
 	const state = await localforage.getItem(stateId);
-	if(!state) return;
+	if (!state) return;
 	tutorial = state;
 
 	// Resize textarea manually
@@ -48,7 +48,7 @@ function download() {
 	const link = document.createElement("a");
 	const url = URL.createObjectURL(file);
 
-	console.log("URL", url)
+	console.log("URL", url);
 	link.href = url;
 	link.download = file.name;
 	document.body.appendChild(link);
@@ -65,7 +65,7 @@ function download() {
 // Open URLs in new tab
 const renderer = {
 	link(href, title, text) {
-		return `<a href="${href}" target="_blank">${text}</a>`
+		return `<a href="${href}" target="_blank">${text}</a>`;
 	}
 };
 
@@ -73,7 +73,9 @@ const renderer = {
 const tagAlert = {
 	name: "alert",
 	level: "block",
-	start(src) { return src.match(/^<Alert>/)?.index; },
+	start(src) {
+		return src.match(/^<Alert>/)?.index;
+	},
 	tokenizer(src) {
 		const rule = /^<Alert>[\n]*(.*)[\n]*<\/Alert>/;
 		const match = rule.exec(src);
@@ -102,7 +104,9 @@ const tagAlert = {
 const tagExecute = {
 	name: "execute",
 	level: "block",
-	start(src) { return src.match(/^<Execute/)?.index; },
+	start(src) {
+		return src.match(/^<Execute/)?.index;
+	},
 	tokenizer(src) {
 		// return false;
 		const rule = /^<Execute command="(.+?)" (inline )?\/>/;
@@ -122,7 +126,7 @@ const tagExecute = {
 	renderer(token) {
 		// Here we don't parseInline b/c everything inside that component should be raw text
 		const command = token.text.replace(/ \\ /g, " \\ <br />&nbsp;&nbsp;&nbsp;");
-		if(token.isInline) {
+		if (token.isInline) {
 			return `
 				<kbd>${command}</kbd>
 			`;
@@ -138,7 +142,7 @@ const tagExecute = {
 	}
 };
 
-marked.use({ renderer, extensions: [ tagAlert, tagExecute ] });
+marked.use({ renderer, extensions: [tagAlert, tagExecute] });
 </script>
 
 <!-- Tutorial -->
@@ -150,7 +154,7 @@ marked.use({ renderer, extensions: [ tagAlert, tagExecute ] });
 				<Icon name="download" />
 			</span>
 		</h4>
-		<textarea use:autosize class="form-control border border-primary" bind:value={tutorial}></textarea>
+		<textarea use:autosize class="form-control border border-primary" bind:value={tutorial} />
 	</div>
 	<div class="col-6">
 		<h4>Preview</h4>
@@ -165,7 +169,7 @@ marked.use({ renderer, extensions: [ tagAlert, tagExecute ] });
 <div class="row mt-4 opacity-75">
 	<div class="col-6">
 		<h4>Examples:</h4>
-		<textarea use:autosize class="form-control border border-secondary" bind:value={example}></textarea>
+		<textarea use:autosize class="form-control border border-secondary" bind:value={example} />
 	</div>
 	<div class="col-6">
 		<h4>Preview</h4>

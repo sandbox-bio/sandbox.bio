@@ -6,23 +6,22 @@ import { getLocalForageKey } from "$stores/config";
 import data_text from "$components/playgrounds/orders.txt";
 import data_json from "$components/playgrounds/orders.json.txt";
 
-
 // =============================================================================
 // Constants
 // =============================================================================
 
 // Tools to load in playground
 export const TOOLS = [
-	{ name: "jq", aioliConfig: { tool: "jq", version: "1.6", reinit: true }},
-	{ name: "awk", aioliConfig: { tool: "gawk", version: "5.1.0", reinit: true }},
-	{ name: "grep", aioliConfig: { tool: "grep", version: "3.7", reinit: true }},
-	{ name: "sed", aioliConfig: { tool: "sed", version: "4.8", reinit: true }}
+	{ name: "jq", aioliConfig: { tool: "jq", version: "1.6", reinit: true } },
+	{ name: "awk", aioliConfig: { tool: "gawk", version: "5.1.0", reinit: true } },
+	{ name: "grep", aioliConfig: { tool: "grep", version: "3.7", reinit: true } },
+	{ name: "sed", aioliConfig: { tool: "sed", version: "4.8", reinit: true } }
 ];
 
 // Supported flags
-export const FLAG_SETTING = "setting";    // Can only use flag once (dropdown)
-export const FLAG_BOOLEAN = "boolean";    // Can only use flag once; toggle between true/false (checkbox)
-export const FLAG_PARAM   = "parameter";  // Can use flag multiple times (button to add new parameter)
+export const FLAG_SETTING = "setting"; // Can only use flag once (dropdown)
+export const FLAG_BOOLEAN = "boolean"; // Can only use flag once; toggle between true/false (checkbox)
+export const FLAG_PARAM = "parameter"; // Can use flag multiple times (button to add new parameter)
 export const FLAGS = {
 	awk: [
 		{
@@ -32,9 +31,9 @@ export const FLAGS = {
 			values: [
 				{ name: "Tab", value: `"\\t"` },
 				{ name: "Comma", value: `","` },
-				{ name: "Space", value: `" "` },
+				{ name: "Space", value: `" "` }
 			]
-		},
+		}
 		// {
 		// 	name: "Add Variable",
 		// 	flag: "-v",
@@ -46,56 +45,56 @@ export const FLAGS = {
 		{
 			name: "Invert match",
 			flag: "-v",
-			type: FLAG_BOOLEAN,
+			type: FLAG_BOOLEAN
 		},
 		{
 			name: "Regex",
 			flag: "-E",
-			type: FLAG_BOOLEAN,
+			type: FLAG_BOOLEAN
 		},
 		{
 			name: "Ignore case",
 			flag: "-i",
-			type: FLAG_BOOLEAN,
+			type: FLAG_BOOLEAN
 		},
 		{
 			name: "Count",
 			flag: "-c",
-			type: FLAG_BOOLEAN,
+			type: FLAG_BOOLEAN
 		},
 		{
 			name: "Line numbers",
 			flag: "-n",
-			type: FLAG_BOOLEAN,
+			type: FLAG_BOOLEAN
 		}
 	],
 	sed: [
 		{
 			name: "Regex",
 			flag: "-E",
-			type: FLAG_BOOLEAN,
-		},
+			type: FLAG_BOOLEAN
+		}
 	],
 	jq: [
 		{
 			name: "Compact",
 			flag: "-c",
-			type: FLAG_BOOLEAN,
+			type: FLAG_BOOLEAN
 		},
 		{
 			name: "Sort keys",
 			flag: "-S",
-			type: FLAG_BOOLEAN,
+			type: FLAG_BOOLEAN
 		},
 		{
 			name: "Slurp (read input into array)",
 			flag: "-s",
-			type: FLAG_BOOLEAN,
+			type: FLAG_BOOLEAN
 		},
 		{
 			name: "Raw input",
 			flag: "-R",
-			type: FLAG_BOOLEAN,
+			type: FLAG_BOOLEAN
 		}
 	]
 };
@@ -163,7 +162,7 @@ export const EXAMPLES = {
 	# Try changing the variable to "Tacos"
 	if($3 ~ food)
 		print
-}`,
+}`
 		},
 		{
 			name: "Dictionaries and loops",
@@ -183,7 +182,7 @@ NR > 1 {
 	# Print burrito counts, split by filling
 	for(item in counts)
 		print(item, counts[item])
-}`,
+}`
 		},
 		{
 			name: "Cumulative sums on groups of rows",
@@ -297,7 +296,7 @@ function sanitizeStr(str) {
 			input: data_text,
 			flags: `-A 1 -B 1 --group-separator "=====" -n`,
 			command: `Canned Soda`
-		},
+		}
 	],
 	sed: [
 		{
@@ -481,25 +480,24 @@ split("\\n")[1:-1] |
 	})
 `
 		}
-	],
-}
+	]
+};
 
 // Store defaults
 const DEFAULT = {
 	data: {},
 	settings: {
-		interactive: true,
+		interactive: true
 	}
 };
 
-TOOLS.forEach(t => {
+TOOLS.forEach((t) => {
 	DEFAULT.data[t.name] = {
 		flags: EXAMPLES[t.name]?.[0]?.flags,
 		command: EXAMPLES[t.name]?.[0]?.command,
 		input: EXAMPLES[t.name]?.[0]?.input
 	};
 });
-
 
 // =============================================================================
 // Stores
@@ -508,7 +506,7 @@ TOOLS.forEach(t => {
 // Create sandbox store
 const { set, subscribe } = writable(DEFAULT);
 export const sandbox = {
-	set: value => {
+	set: (value) => {
 		// This makes sure we always have defaults if a key was not previously defined in localforage
 		// const data = Object.assign({}, DEFAULT, value);
 		const data = merge({}, DEFAULT, value);
@@ -520,16 +518,13 @@ export const sandbox = {
 		return set(data);
 	},
 	init: async () => {
-		set(await localforage.getItem(getLocalForageKey("sandbox")) || DEFAULT);
+		set((await localforage.getItem(getLocalForageKey("sandbox"))) || DEFAULT);
 	},
-	subscribe,
+	subscribe
 };
 
 //
 export const tool = writable(null);
 
 // Create derived store for data
-export const data = derived(
-	sandbox,
-	$sandbox => $sandbox?.data[get(tool)?.name]
-);
+export const data = derived(sandbox, ($sandbox) => $sandbox?.data[get(tool)?.name]);

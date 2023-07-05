@@ -52,8 +52,8 @@ In this problem set, you're given DNA sequencing data that, when analyzed by map
 	<label for="floatingInput2">Decoded Message</label>
 </div>
 
-For example, try: 
+For example, try:
 
-* <Execute command='echo "ATGAGACTCTGGACTTCGTCGGGAAATAAGGTATGTATAA" > secret' />
-* <Execute command='echo "CTGGCTCCCTTCGAAAAGGATCATAGTTAAGT" > secret' />
-* <Execute command='echo "CTGAATTCCGGTCGCTCGGCTGTCACTGGTTG" > secret' />
+- <Execute command='echo "ATGAGACTCTGGACTTCGTCGGGAAATAAGGTATGTATAA" > secret' />
+- <Execute command='echo "CTGGCTCCCTTCGAAAAGGATCATAGTTAAGT" > secret' />
+- <Execute command='echo "CTGAATTCCGGTCGCTCGGCTGTCACTGGTTG" > secret' />

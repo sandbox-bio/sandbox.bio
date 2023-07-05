@@ -14,19 +14,20 @@ To get a specific element in the array, give `jq` an index:
 <Alert>
 	**Side Note: Array Indexing in `jq`**:
 
-	Array indexing has some helpful convenience syntax.
+    Array indexing has some helpful convenience syntax.
 
-	You can select ranges:
+    You can select ranges:
 
-	<Execute command={`echo "[1,2,3,4,5]" | jq '.[2:4]'`} />
+    <Execute command={`echo "[1,2,3,4,5]" | jq '.[2:4]'`} />
 
-	You can select one sided ranges:
+    You can select one sided ranges:
 
-	<Execute command={`echo "[1,2,3,4,5]" | jq '.[2:]'`} />
+    <Execute command={`echo "[1,2,3,4,5]" | jq '.[2:]'`} />
 
-	Also, you can use negatives to select from the end:
+    Also, you can use negatives to select from the end:
 
-	<Execute command={`echo "[1,2,3,4,5]" | jq '.[-2:]'`} />
+    <Execute command={`echo "[1,2,3,4,5]" | jq '.[-2:]'`} />
+
 </Alert>
 
 You can use the array index with the object index:
@@ -40,21 +41,23 @@ And you can use `[]` to get all the elements in the array. For example, here is 
 <Alert>
 	**What I Learned: Array-Index**:
 
-	`jq` lets you select the whole array `[]`, a specific element `[3]`, or ranges `[2:5]` and combine these with the object index if needed.
+    `jq` lets you select the whole array `[]`, a specific element `[3]`, or ranges `[2:5]` and combine these with the object index if needed.
 
-	It ends up looking something like this:
+    It ends up looking something like this:
 
-	<code>jq '.key[].subkey[2]'</code>
+    <code>jq '.key[].subkey[2]'</code>
+
 </Alert>
 
 <Alert>
 	**Side Note: Removing Quotes From JQ Output**:
 
-	The -r option in `jq` gives you raw strings if you need that.
+    The -r option in `jq` gives you raw strings if you need that.
 
-	<Execute command={`echo '["1","2","3"]' | jq -r '.[]'`} />
+    <Execute command={`echo '["1","2","3"]' | jq -r '.[]'`} />
 
-	The `-j` option (for join) can combine together your output.
+    The `-j` option (for join) can combine together your output.
 
-	<Execute command={`echo '["1","2","3"]' | jq -j '.[]'`} />
+    <Execute command={`echo '["1","2","3"]' | jq -j '.[]'`} />
+
 </Alert>

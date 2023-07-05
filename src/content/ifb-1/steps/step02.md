@@ -7,10 +7,10 @@ The Shell is a software that handles Unix instructions. It is now commonly used 
 To access the Shell's powerful features, you need to learn a new way of thinking and a new language.
 
 <Quiz id="q1" choices={[
-	{ valid: true, value: "Yes"},
-	{ valid: false, value: "No"},
+{ valid: true, value: "Yes"},
+{ valid: false, value: "No"},
 ]}>
-	<span slot="prompt">
-		Are you ready to learn Shell? (select "Yes" to continue)
-	</span>
+<span slot="prompt">
+Are you ready to learn Shell? (select "Yes" to continue)
+</span>
 </Quiz>

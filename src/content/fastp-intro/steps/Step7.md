@@ -25,7 +25,7 @@ total reads: 24459
 total bases: 3657586
 ```
 
-whereas `--cut_front --cut_right` shows *fewer* bases, as expected:
+whereas `--cut_front --cut_right` shows _fewer_ bases, as expected:
 
 ```
 Read2 aftering filtering:
