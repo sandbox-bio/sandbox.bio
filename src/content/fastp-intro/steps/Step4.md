@@ -18,4 +18,4 @@ Or to extract the number of reads that were filtered out because they had too ma
 
 <Execute command="jq '.filtering_result.too_many_N_reads' fastp.json" />
 
-<Alert>Check out <Link href="/tutorials?id=jq-intro">our `jq` tutorial</Link> for an in-depth introduction to parsing JSON files.</Alert>
+<Alert>Check out <Link href="/tutorials/jq-intro">our `jq` tutorial</Link> for an in-depth introduction to parsing JSON files.</Alert>

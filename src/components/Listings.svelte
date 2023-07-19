@@ -48,7 +48,7 @@ export let skip = []; // Specific tutorial IDs to not show
 							<Icon id={`icon-${info.id}`} class="float-end text-success" name="check-circle-fill" />
 							<Tooltip target={`icon-${info.id}`}>Done!</Tooltip>
 						{:else if $progress[info.id].step && $progress[info.id].step > 0}
-							<a href={`/tutorials?id=${info.id}&step=${$progress[info.id].step}`}>
+							<a href={`/tutorials/${info.id}/${$progress[info.id].step}`}>
 								<Icon id={`icon-${info.id}`} class="float-end text-primary" name="circle-half" />
 							</a>
 							<Tooltip target={`icon-${info.id}`}>
@@ -68,14 +68,14 @@ export let skip = []; // Specific tutorial IDs to not show
 						<!-- "Tutorials" listings -->
 					{:else if info.id in $progress}
 						{#if $progress[info.id].step == info.steps.length - 1}
-							<a href={`/tutorials?id=${info.id}`} class="btn btn-outline-success text-center mt-auto stretched-link">Launch</a>
+							<a href={`/tutorials/${info.id}`} class="btn btn-outline-success text-center mt-auto stretched-link">Launch</a>
 						{:else}
-							<a href={`/tutorials?id=${info.id}&step=${$progress[info.id].step}`} class="btn btn-primary text-center mt-auto stretched-link"
+							<a href={`/tutorials/${info.id}/${$progress[info.id].step}`} class="btn btn-primary text-center mt-auto stretched-link"
 								>Resume</a
 							>
 						{/if}
 					{:else}
-						<a href={`/tutorials?id=${info.id}`} class="btn btn-outline-primary text-center mt-auto stretched-link">Launch</a>
+						<a href={`/tutorials/${info.id}`} class="btn btn-outline-primary text-center mt-auto stretched-link">Launch</a>
 					{/if}
 				</div>
 			</div>

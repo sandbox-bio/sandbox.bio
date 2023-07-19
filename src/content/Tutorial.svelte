@@ -1,6 +1,6 @@
 <script>
-import { DropdownItem, Offcanvas } from "sveltestrap";
-import { config, progress } from "$stores/config";
+import { Button, DropdownItem, Offcanvas } from "sveltestrap";
+import { progress } from "$stores/config";
 import { status } from "$stores/status";
 import { tutorials } from "$stores/tutorials";
 import { tutorial } from "$stores/tutorial";
@@ -19,6 +19,7 @@ let stepInfo = {};
 let rosalind = {};
 
 // Reactive statements
+$: $tutorial.step = step;
 $: nextStep(step);
 $: nbSteps = $tutorial.steps.length;
 $: if ($tutorial.ide === true) {
@@ -29,27 +30,18 @@ $: if ($tutorial.ide === true) {
 function nextStep(step) {
 	stepInfo = $tutorial.steps[step];
 
-	// Update URL
-	const url = new URL(window.location);
-	if (+url.searchParams.get("step") != +step) {
-		url.searchParams.set("step", step);
-
-		// Handle analytics before updating the URL
-		try {
-			fetch(`${$config.api}/ping`, {
-				method: "POST",
-				mode: "no-cors",
-				body: JSON.stringify({
-					tutorial: $tutorial.id,
-					from: +new URL(window.location).searchParams.get("step"),
-					to: +new URL(url).searchParams.get("step")
-				})
-			});
-		} catch (error) {}
-
-		window.history.pushState({}, "", url);
-		$tutorial.step = step;
-	}
+	// Handle analytics before updating the URL
+	try {
+		fetch(`/ping`, {
+			method: "POST",
+			mode: "no-cors",
+			body: JSON.stringify({
+				tutorial: $tutorial.id,
+				from: +new URL(window.location).searchParams.get("step"),
+				to: +new URL(url).searchParams.get("step")
+			})
+		});
+	} catch (error) {}
 
 	// Update progress in one shot (each time change $progress, makes call to DB)
 	let progressNew = $progress || {};
@@ -59,12 +51,7 @@ function nextStep(step) {
 		progressNew[$tutorial.id].step = step;
 		$progress = progressNew;
 	}
-
-	// Scroll to the top when navigate pages
-	if (document.getElementById("tutorial-sidebar")) document.getElementById("tutorial-sidebar").scrollTop = 0;
 }
-
-$tutorial.step = step;
 </script>
 
 <div class="container-fluid pb-3 px-0">
@@ -108,21 +95,12 @@ $tutorial.step = step;
 					<div class="row">
 						<div class="d-flex justify-content-between">
 							<div>
-								<button
-									type="button"
-									class="btn btn-sm"
-									on:click={() => step--}
-									class:btn-primary={step != 0}
-									class:btn-secondary={step == 0}
-									disabled={step == 0}>&larr;<span class="mobile-hide">&nbsp;Previous</span></button
-								>
-								<button
-									class="btn btn-sm"
-									on:click={() => step++}
-									class:btn-primary={step != $tutorial.steps.length - 1}
-									class:btn-secondary={step == $tutorial.steps.length - 1}
-									disabled={step == $tutorial.steps.length - 1}><span class="mobile-hide">Next&nbsp;</span>&rarr;</button
-								>
+								<Button href="/tutorials/{$tutorial.id}/{step - 1}" disabled={step === 0} size="sm" color={step === 0 ? "secondary" : "primary"}>
+									&larr;<span class="mobile-hide">&nbsp;Previous</span>
+								</Button>
+								<Button href="/tutorials/{$tutorial.id}/{step + 1}" disabled={step === $tutorial.steps.length - 1} size="sm" color={step == $tutorial.steps.length - 1 ? "secondary" : "primary"}>
+									<span class="mobile-hide">Next&nbsp;</span>&rarr;
+								</Button>
 							</div>
 							<div>
 								<a href="https://github.com/sandbox-bio/sandbox.bio/discussions" target="_blank" rel="noreferrer">

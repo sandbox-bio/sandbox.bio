@@ -40,7 +40,7 @@ let criteria = [
 Now that we have reads aligned to the reference genome, let's call variants using `bcftools`. Output the variants to the file `variants.bcf`.
 
 <Alert>
-	**Hint**: Check out the <Link href="/tutorials?id=bowtie2-intro&step=6">bcftools section</Link> of the bowtie2 tutorial for an example of how to run `bcftools`.
+	**Hint**: Check out the <Link href="/tutorials/bowtie2-intro/6">bcftools section</Link> of the bowtie2 tutorial for an example of how to run `bcftools`.
 </Alert>
 
 <Exercise {criteria} />

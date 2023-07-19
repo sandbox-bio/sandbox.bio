@@ -21,8 +21,6 @@ const _supabase = createClient(SUPABASE_URL, SUPABASE_PUBLIC_KEY);
 const _user = _supabase.auth.user();
 
 const _config = {
-	// API
-	api: `https://${hostname}/api/v1`,
 	// Default environment information
 	hostname: "sandbox",
 	// Default environment variables. These are auto-regenerated in Terminal.svelte:input() even if the user deletes them
