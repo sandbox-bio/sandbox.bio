@@ -1,6 +1,6 @@
 import { merge } from "lodash";
 import localforage from "localforage";
-import { get, writable, derived } from "svelte/store";
+import { writable } from "svelte/store";
 import { getLocalForageKey } from "$stores/config";
 
 import data_text from "$components/playgrounds/orders.txt";
@@ -522,9 +522,3 @@ export const sandbox = {
 	},
 	subscribe
 };
-
-//
-export const tool = writable(null);
-
-// Create derived store for data
-export const data = derived(sandbox, ($sandbox) => $sandbox?.data[get(tool)?.name]);

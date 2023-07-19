@@ -98,7 +98,12 @@ function nextStep(step) {
 								<Button href="/tutorials/{$tutorial.id}/{step - 1}" disabled={step === 0} size="sm" color={step === 0 ? "secondary" : "primary"}>
 									&larr;<span class="mobile-hide">&nbsp;Previous</span>
 								</Button>
-								<Button href="/tutorials/{$tutorial.id}/{step + 1}" disabled={step === $tutorial.steps.length - 1} size="sm" color={step == $tutorial.steps.length - 1 ? "secondary" : "primary"}>
+								<Button
+									href="/tutorials/{$tutorial.id}/{step + 1}"
+									disabled={step === $tutorial.steps.length - 1}
+									size="sm"
+									color={step == $tutorial.steps.length - 1 ? "secondary" : "primary"}
+								>
 									<span class="mobile-hide">Next&nbsp;</span>&rarr;
 								</Button>
 							</div>

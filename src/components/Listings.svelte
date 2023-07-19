@@ -70,9 +70,7 @@ export let skip = []; // Specific tutorial IDs to not show
 						{#if $progress[info.id].step == info.steps.length - 1}
 							<a href={`/tutorials/${info.id}`} class="btn btn-outline-success text-center mt-auto stretched-link">Launch</a>
 						{:else}
-							<a href={`/tutorials/${info.id}/${$progress[info.id].step}`} class="btn btn-primary text-center mt-auto stretched-link"
-								>Resume</a
-							>
+							<a href={`/tutorials/${info.id}/${$progress[info.id].step}`} class="btn btn-primary text-center mt-auto stretched-link">Resume</a>
 						{/if}
 					{:else}
 						<a href={`/tutorials/${info.id}`} class="btn btn-outline-primary text-center mt-auto stretched-link">Launch</a>

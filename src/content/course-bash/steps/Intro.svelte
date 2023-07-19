@@ -30,8 +30,8 @@ $: if ($status.app) {
 	Loading...
 {:else if prereqStatus === PREREQ_STATUS_DONE}
 	<p>
-		You already completed the prerequisite <strong><a target="_blank" href="/tutorials/{PREREQ_ID}">Terminal Basics</a></strong> tutorial, so you're
-		ready to get started with this course!
+		You already completed the prerequisite <strong><a target="_blank" href="/tutorials/{PREREQ_ID}">Terminal Basics</a></strong> tutorial, so you're ready
+		to get started with this course!
 	</p>
 {:else}
 	<p>
