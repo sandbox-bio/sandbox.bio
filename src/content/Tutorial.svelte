@@ -145,14 +145,19 @@ function nextStep(step) {
 	</div>
 </div>
 
-<!-- TODO: this throws "Uncaught TypeError: $context is undefined" when click a lesson, but still seems to work -->
+<!-- TODO: this throws "Uncaught TypeError: Cannot read properties of undefined (reading 'autoClose')"
+	when clicking a lesson, but it still works -->
 <Offcanvas header="Lessons" placement="end" isOpen={tocOpen} toggle={tocToggle}>
-	<DropdownItem header>Introduction</DropdownItem>
+	<DropdownItem header class="text-muted">Introduction</DropdownItem>
+
 	{#each $tutorial.steps as s, i}
 		{#if s.header}
-			<DropdownItem header><br />{s.name}</DropdownItem>
+			<DropdownItem header class="mt-4 text-muted">
+				{s.name}
+			</DropdownItem>
 		{/if}
-		<DropdownItem on:click={() => (step = i)}>
+
+		<DropdownItem href="/tutorials/{$tutorial.id}/{i}" class="my-2">
 			{#if i == step}
 				&rarr; <strong>{@html s.subtitle || s.name}</strong>
 			{:else}

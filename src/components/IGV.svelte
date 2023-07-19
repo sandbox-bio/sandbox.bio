@@ -21,6 +21,7 @@ onMount(async () => {
 	}
 
 	// Create IGV browser
+	const igv = (await import("igv")).default;
 	browser = await igv.createBrowser(igvDiv, options);
 	loading = false;
 });

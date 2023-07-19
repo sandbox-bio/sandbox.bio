@@ -63,13 +63,13 @@ export const playgrounds = readable([
 		name: "Grep",
 		description: "Search and filter utility",
 		url: "/playgrounds/grep",
-		tags: ["grep"]
+		tags: ["grep", "regex"]
 	},
 	{
 		name: "Sed",
 		description: "Search and replace utility",
 		url: "/playgrounds/sed",
-		tags: ["sed"]
+		tags: ["sed", "regex"]
 	}
 ]);
 

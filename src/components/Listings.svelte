@@ -5,9 +5,9 @@ import { progress } from "$stores/config";
 export let items = [];
 export let title = "Tutorials";
 export let max = Infinity; // max number of tutorials to list
-export let colMd = 6; // == 12 / how many boxes we can fit on medium screens
-export let colLg = 4; // == 12 / how many boxes we can fit on large screens
-export let colXxl = 3; // == 12 / how many boxes we can fit on xxl screens
+export let colMd = 6; // == 12 / how many boxes we can fit on M screens
+export let colLg = 4; // == 12 / how many boxes we can fit on L screens
+export let colXxl = 4; // == 12 / how many boxes we can fit on XXL screens
 export let skip = []; // Specific tutorial IDs to not show
 </script>
 
