@@ -447,8 +447,8 @@ const coreutils = {
 	},
 	cd: async args => {
 		let dir = args._[0];
-		// Support cd ~ and cd -
-		if(dir == "~")
+		// Support cd ~, cd without argument and cd -
+		if(dir == "~" || dir === undefined)
 			dir = $env.HOME;
 		else if(dir == "-" && _wd)
 			dir = _wd;
