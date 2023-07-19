@@ -40,12 +40,13 @@ export const tutorials = readable([
 
 // Playgrounds
 export const playgrounds = readable([
-	{
-		name: "Command Line",
-		description: "Command line for open-ended exploration",
-		url: "/playground",
-		tags: ["command line", "terminal", "bash"]
-	},
+	// TODO: bring back CLI playground
+	// {
+	// 	name: "Command Line",
+	// 	description: "Command line for open-ended exploration",
+	// 	url: "/playgrounds/cli",
+	// 	tags: ["command line", "terminal", "bash"]
+	// },
 	{
 		name: "Awk",
 		description: "Filter and wrangle tabular data",

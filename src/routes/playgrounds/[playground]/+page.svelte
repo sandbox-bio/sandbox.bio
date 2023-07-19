@@ -1,9 +1,10 @@
 <script>
 import { onMount } from "svelte";
+import { Button } from "sveltestrap";
 import Aioli from "@biowasm/aioli";
 import { page } from "$app/stores";
-import Sandbox from "$components/playgrounds/Sandbox.svelte";
 import { sandbox, TOOLS } from "$stores/sandbox";
+import Sandbox from "$components/playgrounds/Sandbox.svelte";
 
 // State
 let CLI;
@@ -19,15 +20,25 @@ onMount(async () => {
 
 	// Initialize all CLI tools
 	const config = TOOLS.map((d) => d.aioli);
-	CLI = await new Aioli(config, { printInterleaved: false });
+	console.log("config", config)
+	CLI = await new Aioli([
+		{ tool: "base", version: "1.0.0" }, // need at least 1 tool with reinit=false,
+		...config
+	], { printInterleaved: false });
 	ready = true;
 });
 </script>
 
-Playgrounds
-
 {#if tool}
-	<Sandbox {tool} {CLI} />
+	<Sandbox {tool} {CLI} {ready}>
+		<div slot="playgrounds">
+			{#each TOOLS as toolLink}
+				<Button href="/playgrounds/{toolLink.name}" size="sm" class="ms-2" color="outline-primary">
+					{toolLink.name}
+				</Button>
+			{/each}
+		</div>
+	</Sandbox>
 {:else}
 	<p>Playground for tool <code>{playground}</code> does not exist.</p>
 

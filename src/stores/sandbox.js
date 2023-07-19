@@ -2,7 +2,6 @@ import { merge } from "lodash";
 import localforage from "localforage";
 import { writable } from "svelte/store";
 import { getLocalForageKey } from "$stores/config";
-
 import data_text from "$components/playgrounds/orders.tsv?raw";
 import data_json from "$components/playgrounds/orders.json?raw";
 
@@ -12,7 +11,6 @@ import data_json from "$components/playgrounds/orders.json?raw";
 
 // Tools to load in playground
 export const TOOLS = [
-	{ name: "base", aioli: { tool: "base", version: "1.0.0" } }, // need at least 1 tool with reinit=false
 	{ name: "jq", aioli: { tool: "jq", version: "1.6", reinit: true } },
 	{ name: "awk", aioli: { tool: "gawk", version: "5.1.0", reinit: true } },
 	{ name: "grep", aioli: { tool: "grep", version: "3.7", reinit: true } },
@@ -488,10 +486,8 @@ split("\\n")[1:-1] |
 
 // Store defaults
 const DEFAULT = {
-	data: {},
-	settings: {
-		interactive: true
-	}
+	interactive: true,
+	data: {}
 };
 
 TOOLS.forEach((t) => {
@@ -503,7 +499,7 @@ TOOLS.forEach((t) => {
 });
 
 // =============================================================================
-// Stores
+// Store that maintains playground state in localforage
 // =============================================================================
 
 // Create sandbox store

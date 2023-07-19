@@ -6,9 +6,9 @@ import { sandbox, EXAMPLES, FLAGS, FLAG_SETTING, FLAG_BOOLEAN, FLAG_PARAM } from
 
 export let tool = {}; // tool info, defined in stores/sandbox.js
 export let CLI = {}; // initialized Aioli object
+export let ready = false; // whether Aioli is ready to go
 
 // State
-let data = {};
 let busy = false; // whether CLI is busy
 let busy_ui = false; // whether UI is busy (CLI.busy is whether Aioli is busy)
 let output;
@@ -17,10 +17,12 @@ let error;
 // Reactive logic
 $: langCmd = { awk: "awk", jq: "json" }[tool.name];
 $: langIO = tool.name === "jq" ? "json" : null;
-$: data = $sandbox?.data[tool.name];
-$: if (data.input && data.command !== null && tool.name && $sandbox.settings.interactive) run(data.flags);
+$: userInput = $sandbox.data[tool.name];
+$: flags = parseFlags(userInput.flags);
 
-// If update flags from input box, need to update checkboxes!
+// Re-run if any user input changes. Need the "if ready" to run command when Aioli
+// is loaded, otherwise it won't run anything on first load.
+$: if (ready && $sandbox.interactive && userInput) run();
 
 // =============================================================================
 // Main logic
@@ -28,9 +30,10 @@ $: if (data.input && data.command !== null && tool.name && $sandbox.settings.int
 
 // Run command with given input and show resulting output/error
 async function run() {
+	// Don't run a command if we're already running another one
 	if (busy) return;
 
-	// If the CLI is still busy after some time, show a spinner, otherwise don't (avoids flickering)
+	// If the CLI is still busy after some time, show a spinner, otherwise don't (avoids flicker)
 	busy = true;
 	setTimeout(() => {
 		if (busy) busy_ui = true;
@@ -40,15 +43,15 @@ async function run() {
 	let params = [];
 	if (tool.name === "jq") params.push("-M");
 	// Add user flags
-	params = params.concat(parseFlags(data.flags)).map((d) => d.replaceAll('"', ""));
+	params = params.concat(flags).map((d) => d.replaceAll('"', ""));
 	// Add user command
-	if (data.command.trim()) params.push(data.command.trim());
+	if (userInput.command.trim()) params.push(userInput.command.trim());
 	// Add file to operate on
 	params.push("sandbox");
 
 	// Run
 	try {
-		await CLI.fs.writeFile("sandbox", data.input);
+		await CLI.fs.writeFile("sandbox", userInput.input);
 		const { stdout, stderr } = await CLI.exec(tool.aioli.tool, params);
 		output = stdout;
 		error = stderr;
@@ -57,7 +60,7 @@ async function run() {
 		try {
 			const d = {
 				playground: tool.name,
-				example: EXAMPLES[tool.name].some((example) => example.input == data.input && example.flags == data.flags && example.command == data.command)
+				example: EXAMPLES[tool.name].some((example) => example.input == userInput.input && example.flags == userInput.flags && example.command == userInput.command)
 			};
 			fetch(`/ping`, {
 				method: "POST",
@@ -73,7 +76,9 @@ async function run() {
 	}
 }
 
-function updateVar(varName, value) {
+// Updating `userInput.command` doesn't save the changes to localforage, so we
+// need to explicitely save them.
+function updateUserInput(varName, value) {
 	$sandbox.data[tool.name][varName] = value;
 }
 
@@ -91,39 +96,37 @@ function parseFlags(flags) {
 }
 
 function getFlag(option) {
-	const flagsArr = parseFlags(data.flags);
-	const flagIndex = flagsArr.findIndex((d) => d === option.flag);
+	const flagIndex = flags.findIndex((d) => d === option.flag);
 
 	// Boolean flags: only true if the flag is present
 	if (option.type === FLAG_BOOLEAN) return flagIndex !== -1;
 
 	// Setting flags: return the value if the flag is present
-	if (option.type === FLAG_SETTING) return flagIndex !== -1 ? flagsArr[flagIndex + 1] : null;
+	if (option.type === FLAG_SETTING) return flagIndex !== -1 ? flags[flagIndex + 1] : null;
 
 	throw "Should only use getFlag with option types 'boolean' or 'setting'";
 }
 
 // Add or modify a flag (`value` only used by "setting" flag)
 function setFlag(option, value) {
-	let flagsArr = parseFlags(data.flags);
-	const flagIndex = flagsArr.findIndex((d) => d === option.flag);
+	const flagIndex = flags.findIndex((d) => d === option.flag);
 
 	// Boolean flags: toggle true/false
 	if (option.type === FLAG_BOOLEAN) {
-		if (flagIndex !== -1) delete flagsArr[flagIndex];
-		else flagsArr.push(option.flag);
+		if (flagIndex !== -1) delete flags[flagIndex];
+		else flags.push(option.flag);
 
 		// Setting flag: add or change existing value
 	} else if (option.type === FLAG_SETTING) {
-		if (flagIndex !== -1) flagsArr[flagIndex + 1] = value;
-		else flagsArr = flagsArr.concat([option.flag, value]);
+		if (flagIndex !== -1) flags[flagIndex + 1] = value;
+		else flags = flags.concat([option.flag, value]);
 
 		// Param flag: add a new param
 	} else if (option.type === FLAG_PARAM) {
-		flagsArr = flagsArr.concat([option.flag, option.value]);
+		flags = flags.concat([option.flag, option.value]);
 	}
 
-	updateVar("flags", flagsArr.join(" ").trim());
+	updateUserInput("flags", flags.join(" ").trim());
 }
 
 // =============================================================================
@@ -131,30 +134,39 @@ function setFlag(option, value) {
 // =============================================================================
 </script>
 
-<h4 class="mb-0">
-	{tool.name} sandbox
+<!-- Title and links to other playgrounds -->
+<div class="d-flex">
+	<div class="d-flex">
+		<h4 class="mb-0">
+			{tool.name} sandbox
 
-	<ButtonDropdown class="mx-1 my-1">
-		<DropdownToggle color="primary" caret>Examples</DropdownToggle>
-		<DropdownMenu>
-			{#each EXAMPLES[tool.name] as example}
-				{@const active = example.input == data.input && example.flags == data.flags && example.command == data.command}
-				<DropdownItem
-					class="py-2"
-					{active}
-					on:click={() => {
-						updateVar("input", example.input);
-						updateVar("flags", example.flags);
-						updateVar("command", example.command);
-					}}
-				>
-					{example.name}
-				</DropdownItem>
-			{/each}
-		</DropdownMenu>
-	</ButtonDropdown>
-</h4>
+			<ButtonDropdown size="sm">
+				<DropdownToggle color="primary" caret>{tool.name} examples</DropdownToggle>
+				<DropdownMenu>
+					{#each EXAMPLES[tool.name] as example}
+						{@const active = example.input == userInput.input && example.flags == userInput.flags && example.command == userInput.command}
+						<DropdownItem
+							class="py-2"
+							{active}
+							on:click={() => {
+								updateUserInput("input", example.input);
+								updateUserInput("flags", example.flags);
+								updateUserInput("command", example.command);
+							}}
+						>
+							{example.name}
+						</DropdownItem>
+					{/each}
+				</DropdownMenu>
+			</ButtonDropdown>
+		</h4>
+	</div>
+	<div class="d-flex ms-auto">
+		<slot name="playgrounds" />
+	</div>
+</div>
 
+<!-- Playground -->
 <div class="row">
 	<!-- Input -->
 	<div class="col-md-6">
@@ -165,17 +177,17 @@ function setFlag(option, value) {
 					<h5>Command</h5>
 				</div>
 				<Setting tooltip="Run after each keypress">
-					<Input type="checkbox" label="Interactive" bind:checked={$sandbox.settings.interactive} />
+					<Input type="checkbox" label="Interactive" bind:checked={$sandbox.interactive} />
 				</Setting>
 			</div>
 
 			<!-- Command box -->
 			<div class="d-flex w-100" style="border:0px solid red">
 				<div class="col-11" style="border:0px solid blue">
-					<IDE lang={langCmd} code={data.command} on:update={(d) => updateVar("command", d.detail)} on:run={run} />
+					<IDE lang={langCmd} code={userInput.command} on:update={(d) => updateUserInput("command", d.detail)} on:run={run} />
 				</div>
 				<div class="col-1" style="border:0px solid green">
-					{#if $sandbox.settings.interactive}
+					{#if $sandbox.interactive}
 						{#if busy_ui}
 							<Spinner class="ms-3" color="primary" />
 						{/if}
@@ -197,41 +209,43 @@ function setFlag(option, value) {
 				<div class="pe-1 pt-2">
 					<h5>Flags</h5>
 				</div>
-				{#each FLAGS[tool.name] as option}
-					<!-- Setting -->
-					{#if option.type === FLAG_SETTING}
-						<ButtonDropdown size="sm" class="mx-1 my-1">
-							<DropdownToggle color="primary" caret>{option.name}</DropdownToggle>
-							<DropdownMenu>
-								{#each option.values as value}
-									<DropdownItem on:click={() => setFlag(option, value.value)} class="small">
-										{value.name}: <code>{value.value}</code>
-									</DropdownItem>
-								{/each}
-							</DropdownMenu>
-						</ButtonDropdown>
+				{#key userInput.flags}
+					{#each FLAGS[tool.name] as option}
+						<!-- Setting -->
+						{#if option.type === FLAG_SETTING}
+							<ButtonDropdown size="sm" class="mx-1 my-1">
+								<DropdownToggle color="outline-primary" caret>{option.name}</DropdownToggle>
+								<DropdownMenu>
+									{#each option.values as value}
+										<DropdownItem on:click={() => setFlag(option, value.value)} class="small">
+											{value.name}: <code>{value.value}</code>
+										</DropdownItem>
+									{/each}
+								</DropdownMenu>
+							</ButtonDropdown>
 
-						<!-- Boolean Setting -->
-					{:else if option.type === FLAG_BOOLEAN}
-						<div class="mx-1 pt-2">
-							<Setting tooltip={option.description}>
-								<Input type="checkbox" label={option.name} checked={getFlag(option)} on:change={() => setFlag(option)} />
-							</Setting>
-						</div>
+							<!-- Boolean Setting -->
+						{:else if option.type === FLAG_BOOLEAN}
+							<div class="mx-1 pt-2">
+								<Setting tooltip={option.description}>
+									<Input type="checkbox" label={option.name} checked={getFlag(option)} on:change={() => setFlag(option)} />
+								</Setting>
+							</div>
 
-						<!-- Parameters -->
-					{:else if option.type === FLAG_PARAM}
-						<Button size="sm" class="mx-1 my-1" on:click={() => setFlag(option)}>+ {option.name}</Button>
-					{/if}
-				{/each}
+							<!-- Parameters -->
+						{:else if option.type === FLAG_PARAM}
+							<Button size="sm" class="mx-1 my-1" on:click={() => setFlag(option)}>+ {option.name}</Button>
+						{/if}
+					{/each}
+				{/key}
 			</div>
 
-			<IDE lang={null} code={data.flags} on:update={(d) => ($sandbox.data[tool.name].flags = d.detail)} />
+			<IDE lang={null} code={userInput.flags} on:update={(d) => ($sandbox.data[tool.name].flags = d.detail)} />
 		</div>
 
 		<div class="ide">
 			<h5>Input</h5>
-			<IDE lang={langIO} code={data.input} on:update={(d) => updateVar("input", d.detail)} />
+			<IDE lang={langIO} code={userInput.input} on:update={(d) => updateUserInput("input", d.detail)} />
 		</div>
 	</div>
 

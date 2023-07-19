@@ -1,5 +1,5 @@
 <script>
-import { tutorials } from "$stores/tutorials";
+import { tutorials, playgrounds, explore } from "$stores/tutorials";
 import Listings from "$components/Listings.svelte";
 </script>
 
@@ -21,9 +21,9 @@ import Listings from "$components/Listings.svelte";
 
 <Listings items={$tutorials} />
 
-<!-- <Listings items={$playgrounds} title="Playgrounds" />
+<Listings items={$playgrounds} title="Playgrounds" />
 
-<Listings items={$explore} title="Explore" /> -->
+<Listings items={$explore} title="Explore" />
 
 <style>
 .bg-light {
