@@ -3,8 +3,8 @@ import localforage from "localforage";
 import { writable } from "svelte/store";
 import { getLocalForageKey } from "$stores/config";
 
-import data_text from "$components/playgrounds/orders.txt";
-import data_json from "$components/playgrounds/orders.json.txt";
+import data_text from "$components/playgrounds/orders.tsv?raw";
+import data_json from "$components/playgrounds/orders.json?raw";
 
 // =============================================================================
 // Constants
