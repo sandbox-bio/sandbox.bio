@@ -49,25 +49,25 @@ export const playgrounds = readable([
 	{
 		name: "Awk",
 		description: "Filter and wrangle tabular data",
-		url: "/playgrounds?id=awk",
+		url: "/playgrounds/awk",
 		tags: ["awk"]
 	},
 	{
 		name: "Jq",
 		description: "Filter and wrangle JSON data",
-		url: "/playgrounds?id=jq",
+		url: "/playgrounds/jq",
 		tags: ["jq", "json"]
 	},
 	{
 		name: "Grep",
 		description: "Search and filter utility",
-		url: "/playgrounds?id=grep",
+		url: "/playgrounds/grep",
 		tags: ["grep"]
 	},
 	{
 		name: "Sed",
 		description: "Search and replace utility",
-		url: "/playgrounds?id=sed",
+		url: "/playgrounds/sed",
 		tags: ["sed"]
 	}
 ]);

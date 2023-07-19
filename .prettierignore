@@ -9,3 +9,4 @@ node_modules
 !.env.example
 package-lock.json
 .old
+src/components/playgrounds/orders.json

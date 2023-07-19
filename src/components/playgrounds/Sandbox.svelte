@@ -1,16 +1,14 @@
 <script>
-import { onMount } from "svelte";
-import Aioli from "@biowasm/aioli";
 import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Spinner } from "sveltestrap";
 import IDE from "$components/IDE.svelte";
 import Setting from "$components/playgrounds/Setting.svelte";
 import { sandbox, EXAMPLES, FLAGS, FLAG_SETTING, FLAG_BOOLEAN, FLAG_PARAM } from "$stores/sandbox";
 
+export let tool = {}; // tool info, defined in stores/sandbox.js
+export let CLI = {}; // initialized Aioli object
+
 // State
-export let tool = {};
 let data = {};
-let CLI = {};
-let ready = false; // whether CLI is done loading
 let busy = false; // whether CLI is busy
 let busy_ui = false; // whether UI is busy (CLI.busy is whether Aioli is busy)
 let output;
@@ -20,7 +18,7 @@ let error;
 $: langCmd = { awk: "awk", jq: "json" }[tool.name];
 $: langIO = tool.name === "jq" ? "json" : null;
 $: data = $sandbox?.data[tool.name];
-$: if (ready && data.input && data.command !== null && tool.name && $sandbox.settings.interactive) run(data.flags);
+$: if (data.input && data.command !== null && tool.name && $sandbox.settings.interactive) run(data.flags);
 
 // If update flags from input box, need to update checkboxes!
 
@@ -28,20 +26,9 @@ $: if (ready && data.input && data.command !== null && tool.name && $sandbox.set
 // Main logic
 // =============================================================================
 
-// Initialize sandbox on first load
-onMount(async () => {
-	// Initialize store with data from localforage
-	await sandbox.init();
-
-	// Initialize Aioli
-	CLI = await new Aioli([{ tool: "base", version: "1.0.0" }, tool.aioliConfig], { printInterleaved: false });
-	ready = true;
-	busy = false;
-});
-
 // Run command with given input and show resulting output/error
 async function run() {
-	if (!ready || busy) return;
+	if (busy) return;
 
 	// If the CLI is still busy after some time, show a spinner, otherwise don't (avoids flickering)
 	busy = true;
@@ -62,7 +49,7 @@ async function run() {
 	// Run
 	try {
 		await CLI.fs.writeFile("sandbox", data.input);
-		const { stdout, stderr } = await CLI.exec(tool.aioliConfig.tool, params);
+		const { stdout, stderr } = await CLI.exec(tool.aioli.tool, params);
 		output = stdout;
 		error = stderr;
 
@@ -189,7 +176,7 @@ function setFlag(option, value) {
 				</div>
 				<div class="col-1" style="border:0px solid green">
 					{#if $sandbox.settings.interactive}
-						{#if busy_ui || !ready}
+						{#if busy_ui}
 							<Spinner class="ms-3" color="primary" />
 						{/if}
 					{:else}

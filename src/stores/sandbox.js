@@ -12,10 +12,11 @@ import data_json from "$components/playgrounds/orders.json?raw";
 
 // Tools to load in playground
 export const TOOLS = [
-	{ name: "jq", aioliConfig: { tool: "jq", version: "1.6", reinit: true } },
-	{ name: "awk", aioliConfig: { tool: "gawk", version: "5.1.0", reinit: true } },
-	{ name: "grep", aioliConfig: { tool: "grep", version: "3.7", reinit: true } },
-	{ name: "sed", aioliConfig: { tool: "sed", version: "4.8", reinit: true } }
+	{ name: "base", aioli: { tool: "base", version: "1.0.0" } }, // need at least 1 tool with reinit=false
+	{ name: "jq", aioli: { tool: "jq", version: "1.6", reinit: true } },
+	{ name: "awk", aioli: { tool: "gawk", version: "5.1.0", reinit: true } },
+	{ name: "grep", aioli: { tool: "grep", version: "3.7", reinit: true } },
+	{ name: "sed", aioli: { tool: "sed", version: "4.8", reinit: true } }
 ];
 
 // Supported flags

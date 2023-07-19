@@ -6,11 +6,11 @@ let divSettingInteractive;
 </script>
 
 <div bind:this={divSettingInteractive} class="pt-1">
-    <slot />
+	<slot />
 </div>
 
 {#if tooltip}
-    <Tooltip target={divSettingInteractive}>
-        {tooltip}
-    </Tooltip>
+	<Tooltip target={divSettingInteractive}>
+		{tooltip}
+	</Tooltip>
 {/if}

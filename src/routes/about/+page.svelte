@@ -14,7 +14,7 @@
 	using Emscripten's <a href="https://emscripten.org/docs/api_reference/Filesystem-API.html" target="_blank" rel="noreferrer">virtual file system</a>.
 </p>
 
-<p>The <a href="/playgrounds?id=awk">playgrounds</a> use sample data from <a href="https://github.com/TheUpshot/chipotle">The UpShot</a>.</p>
+<p>The <a href="/playgrounds/awk">playgrounds</a> use sample data from <a href="https://github.com/TheUpshot/chipotle">The UpShot</a>.</p>
 
 <p class="lead fw-bold mt-4 mb-1">How to contribute</p>
 <p>

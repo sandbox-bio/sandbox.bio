@@ -44,7 +44,7 @@ let aboutIsOpen = false; // Whether "About" modal is showing or not
 	</p>
 
 	<p>
-		The <Link href="/playgrounds?id=awk">playgrounds</Link> use sample data from <Link href="https://github.com/TheUpshot/chipotle">The UpShot</Link>.
+		The <Link href="/playgrounds/awk">playgrounds</Link> use sample data from <Link href="https://github.com/TheUpshot/chipotle">The UpShot</Link>.
 	</p>
 
 	<p class="lead fw-bold mt-4 mb-1">How to contribute</p>
