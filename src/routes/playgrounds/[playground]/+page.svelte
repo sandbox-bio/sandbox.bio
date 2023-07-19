@@ -20,11 +20,14 @@ onMount(async () => {
 
 	// Initialize all CLI tools
 	const config = TOOLS.map((d) => d.aioli);
-	console.log("config", config)
-	CLI = await new Aioli([
-		{ tool: "base", version: "1.0.0" }, // need at least 1 tool with reinit=false,
-		...config
-	], { printInterleaved: false });
+	console.log("config", config);
+	CLI = await new Aioli(
+		[
+			{ tool: "base", version: "1.0.0" }, // need at least 1 tool with reinit=false,
+			...config
+		],
+		{ printInterleaved: false }
+	);
 	ready = true;
 });
 </script>
@@ -33,7 +36,12 @@ onMount(async () => {
 	<Sandbox {tool} {CLI} {ready}>
 		<div slot="playgrounds">
 			{#each TOOLS as toolLink}
-				<Button href="/playgrounds/{toolLink.name}" size="sm" class="ms-2" color="outline-primary">
+				<Button
+					href="/playgrounds/{toolLink.name}"
+					size="sm"
+					class="ms-2"
+					color={toolLink.name === tool.name ? "outline-secondary" : "outline-primary"}
+				>
 					{toolLink.name}
 				</Button>
 			{/each}

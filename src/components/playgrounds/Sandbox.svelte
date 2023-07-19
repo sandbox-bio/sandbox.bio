@@ -1,5 +1,5 @@
 <script>
-import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Spinner } from "sveltestrap";
+import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Form, FormGroup, Input, Spinner } from "sveltestrap";
 import IDE from "$components/IDE.svelte";
 import Setting from "$components/playgrounds/Setting.svelte";
 import { sandbox, EXAMPLES, FLAGS, FLAG_SETTING, FLAG_BOOLEAN, FLAG_PARAM } from "$stores/sandbox";
@@ -19,6 +19,9 @@ $: langCmd = { awk: "awk", jq: "json" }[tool.name];
 $: langIO = tool.name === "jq" ? "json" : null;
 $: userInput = $sandbox.data[tool.name];
 $: flags = parseFlags(userInput.flags);
+$: hasExample = EXAMPLES[tool.name].findIndex(
+	(example) => example.input === userInput.input && example.flags === userInput.flags && example.command === userInput.command
+);
 
 // Re-run if any user input changes. Need the "if ready" to run command when Aioli
 // is loaded, otherwise it won't run anything on first load.
@@ -60,7 +63,7 @@ async function run() {
 		try {
 			const d = {
 				playground: tool.name,
-				example: EXAMPLES[tool.name].some((example) => example.input == userInput.input && example.flags == userInput.flags && example.command == userInput.command)
+				example: hasExample > -1
 			};
 			fetch(`/ping`, {
 				method: "POST",
@@ -137,32 +140,35 @@ function setFlag(option, value) {
 <!-- Title and links to other playgrounds -->
 <div class="d-flex">
 	<div class="d-flex">
-		<h4 class="mb-0">
-			{tool.name} sandbox
-
-			<ButtonDropdown size="sm">
-				<DropdownToggle color="primary" caret>{tool.name} examples</DropdownToggle>
-				<DropdownMenu>
-					{#each EXAMPLES[tool.name] as example}
-						{@const active = example.input == userInput.input && example.flags == userInput.flags && example.command == userInput.command}
-						<DropdownItem
-							class="py-2"
-							{active}
-							on:click={() => {
-								updateUserInput("input", example.input);
-								updateUserInput("flags", example.flags);
-								updateUserInput("command", example.command);
-							}}
-						>
-							{example.name}
-						</DropdownItem>
-					{/each}
-				</DropdownMenu>
-			</ButtonDropdown>
-		</h4>
+		<h4 class="mb-0">{tool.name} sandbox</h4>
 	</div>
 	<div class="d-flex ms-auto">
 		<slot name="playgrounds" />
+	</div>
+</div>
+
+<!-- Examples -->
+<div class="row g-2 mt-1">
+	<div class="col-auto">
+		<label for="examples" class="col-form-label text-muted">Examples:</label>
+	</div>
+	<div class="col-auto">
+		<Input
+			id="examples"
+			type="select"
+			size="sm"
+			value={hasExample}
+			on:change={(d) => {
+				const example = EXAMPLES[tool.name][+d.target.value];
+				updateUserInput("input", example.input);
+				updateUserInput("flags", example.flags);
+				updateUserInput("command", example.command);
+			}}
+		>
+			{#each EXAMPLES[tool.name] as example, i}
+				<option value={i}>{example.name}</option>
+			{/each}
+		</Input>
 	</div>
 </div>
 
@@ -182,11 +188,11 @@ function setFlag(option, value) {
 			</div>
 
 			<!-- Command box -->
-			<div class="d-flex w-100" style="border:0px solid red">
-				<div class="col-11" style="border:0px solid blue">
+			<div class="d-flex w-100">
+				<div class="col-11">
 					<IDE lang={langCmd} code={userInput.command} on:update={(d) => updateUserInput("command", d.detail)} on:run={run} />
 				</div>
-				<div class="col-1" style="border:0px solid green">
+				<div class="col-1">
 					{#if $sandbox.interactive}
 						{#if busy_ui}
 							<Spinner class="ms-3" color="primary" />
@@ -226,7 +232,7 @@ function setFlag(option, value) {
 
 							<!-- Boolean Setting -->
 						{:else if option.type === FLAG_BOOLEAN}
-							<div class="mx-1 pt-2">
+							<div class="mx-2 pt-1">
 								<Setting tooltip={option.description}>
 									<Input type="checkbox" label={option.name} checked={getFlag(option)} on:change={() => setFlag(option)} />
 								</Setting>
