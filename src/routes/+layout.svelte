@@ -14,7 +14,7 @@ let user = {};
 // import Listings from "$components/Listings.svelte";
 // import Footer from "$components/Footer.svelte";
 // import { supabase, user, progress, envInit } from "$stores/config";
-import {  envInit } from "$stores/config";
+import { envInit } from "$stores/config";
 import { onMount } from "svelte";
 // import { tutorials } from "$stores/tutorials";
 
@@ -82,7 +82,7 @@ import { onMount } from "svelte";
 
 onMount(async () => {
 	await envInit();
-})
+});
 
 let isNavbarOpen;
 </script>

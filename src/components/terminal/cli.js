@@ -436,7 +436,7 @@ const coreutils = {
 	cd: async (args) => {
 		let dir = args._[0];
 		// Support cd ~ and cd -
-		if (dir == "~") dir = $env.HOME;
+		if (dir == "~" || dir === undefined) dir = $env.HOME;
 		else if (dir == "-" && _wd) dir = _wd;
 		// Change directory
 		const dirOld = await coreutils.pwd();
