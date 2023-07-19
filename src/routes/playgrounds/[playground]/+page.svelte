@@ -32,6 +32,10 @@ onMount(async () => {
 });
 </script>
 
+<svelte:head>
+	<title>{tool.name} playground - sandbox.bio</title>
+</svelte:head>
+
 {#if tool}
 	<Sandbox {tool} {CLI} {ready}>
 		<div slot="playgrounds">

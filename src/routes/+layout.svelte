@@ -87,6 +87,10 @@ onMount(async () => {
 let isNavbarOpen;
 </script>
 
+<svelte:head>
+	<title>sandbox.bio</title>
+</svelte:head>
+
 <!-- Bootstrap CSS and icons -->
 <Styles />
 
