@@ -83,11 +83,13 @@ export const FLAGS = {
 		},
 		{
 			name: "Sort keys",
+			description: "Sort keys in the output",
 			flag: "-S",
 			type: FLAG_BOOLEAN
 		},
 		{
-			name: "Slurp (read input into array)",
+			name: "Slurp",
+			description: "Read input into array",
 			flag: "-s",
 			type: FLAG_BOOLEAN
 		},

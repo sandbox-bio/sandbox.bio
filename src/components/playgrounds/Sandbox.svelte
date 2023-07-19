@@ -1,8 +1,9 @@
 <script>
 import { onMount } from "svelte";
 import Aioli from "@biowasm/aioli";
-import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Spinner, Tooltip } from "sveltestrap";
+import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Spinner } from "sveltestrap";
 import IDE from "$components/IDE.svelte";
+import Setting from "$components/playgrounds/Setting.svelte";
 import { sandbox, EXAMPLES, FLAGS, FLAG_SETTING, FLAG_BOOLEAN, FLAG_PARAM } from "$stores/sandbox";
 
 // State
@@ -12,7 +13,6 @@ let CLI = {};
 let ready = false; // whether CLI is done loading
 let busy = false; // whether CLI is busy
 let busy_ui = false; // whether UI is busy (CLI.busy is whether Aioli is busy)
-let divSettingEnter;
 let output;
 let error;
 
@@ -169,17 +169,17 @@ function setFlag(option, value) {
 </h4>
 
 <div class="row">
-	<!-- Command -->
+	<!-- Input -->
 	<div class="col-md-6">
+		<!-- Command -->
 		<div class="row ide mb-4 mt-4">
 			<div class="d-flex flex-row mb-2">
 				<div class="pe-3 pt-1 pb-1">
 					<h5>Command</h5>
 				</div>
-				<div bind:this={divSettingEnter} class="pt-1">
+				<Setting tooltip="Run after each keypress">
 					<Input type="checkbox" label="Interactive" bind:checked={$sandbox.settings.interactive} />
-				</div>
-				<Tooltip target={divSettingEnter}>Run after each keypress</Tooltip>
+				</Setting>
 			</div>
 
 			<!-- Command box -->
@@ -204,6 +204,7 @@ function setFlag(option, value) {
 			{/if}
 		</div>
 
+		<!-- Flags -->
 		<div class="row ide mb-4 mt-4">
 			<div class="d-flex flex-row mb-2">
 				<div class="pe-1 pt-2">
@@ -226,7 +227,9 @@ function setFlag(option, value) {
 						<!-- Boolean Setting -->
 					{:else if option.type === FLAG_BOOLEAN}
 						<div class="mx-1 pt-2">
-							<Input type="checkbox" label={option.name} checked={getFlag(option)} on:change={() => setFlag(option)} />
+							<Setting tooltip={option.description}>
+								<Input type="checkbox" label={option.name} checked={getFlag(option)} on:change={() => setFlag(option)} />
+							</Setting>
 						</div>
 
 						<!-- Parameters -->
@@ -245,7 +248,7 @@ function setFlag(option, value) {
 		</div>
 	</div>
 
-	<!-- Flags -->
+	<!-- Result -->
 	<div class="col-md-6">
 		<div class="ide mt-4">
 			<h5>Output</h5>
