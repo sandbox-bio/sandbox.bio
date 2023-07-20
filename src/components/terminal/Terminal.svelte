@@ -286,7 +286,7 @@ async function exec(cmd) {
 	// Analytics
 	try {
 		const isTutorial = $tutorial?.id && $tutorial.id !== "playground";
-		fetch(`/ping`, {
+		fetch(`/api/v1/ping`, {
 			method: "POST",
 			mode: "no-cors",
 			body: JSON.stringify({

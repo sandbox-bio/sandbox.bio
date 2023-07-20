@@ -65,7 +65,7 @@ async function run() {
 				playground: tool.name,
 				example: hasExample > -1
 			};
-			fetch(`/ping`, {
+			fetch(`/api/v1/ping`, {
 				method: "POST",
 				mode: "no-cors",
 				body: JSON.stringify(d)

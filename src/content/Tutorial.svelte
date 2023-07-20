@@ -1,5 +1,6 @@
 <script>
 import { Button, DropdownItem, Offcanvas } from "sveltestrap";
+import { page, navigating } from "$app/stores";
 import { progress } from "$stores/config";
 import { status } from "$stores/status";
 import { tutorials } from "$stores/tutorials";
@@ -27,21 +28,25 @@ $: if ($tutorial.ide === true) {
 	rosalind.fn = `solution_${rosalind.id.toLowerCase()}`;
 }
 
-function nextStep(step) {
-	stepInfo = $tutorial.steps[step];
-
-	// Handle analytics before updating the URL
+// Handle analytics
+async function logStep(from, to) {
 	try {
-		fetch(`/ping`, {
+		fetch(`/api/v1/ping`, {
 			method: "POST",
 			mode: "no-cors",
 			body: JSON.stringify({
+				from,
+				to,
 				tutorial: $tutorial.id,
-				from: +new URL(window.location).searchParams.get("step"),
-				to: +new URL(url).searchParams.get("step")
 			})
 		});
-	} catch (error) {}
+	} catch (error) {
+		console.error(error);
+	}
+}
+
+function nextStep(step) {
+	stepInfo = $tutorial.steps[step];
 
 	// Update progress in one shot (each time change $progress, makes call to DB)
 	let progressNew = $progress || {};
@@ -95,14 +100,20 @@ function nextStep(step) {
 					<div class="row">
 						<div class="d-flex justify-content-between">
 							<div>
-								<Button href="/tutorials/{$tutorial.id}/{step - 1}" disabled={step === 0} size="sm" color={step === 0 ? "secondary" : "primary"}>
+								<Button
+									href={step === 0 ? "#" : `/tutorials/${$tutorial.id}/${step - 1}`}
+									color={step === 0 ? "secondary" : "primary"}
+									size="sm"
+									on:click={() => logStep(step, step-1)}
+								>
 									&larr;<span class="mobile-hide">&nbsp;Previous</span>
 								</Button>
+
 								<Button
-									href="/tutorials/{$tutorial.id}/{step + 1}"
-									disabled={step === $tutorial.steps.length - 1}
+									href={step === $tutorial.steps.length - 1 ? "#" : `/tutorials/${$tutorial.id}/${step + 1}`}
+									color={step === $tutorial.steps.length - 1 ? "secondary" : "primary"}
 									size="sm"
-									color={step == $tutorial.steps.length - 1 ? "secondary" : "primary"}
+									on:click={() => logStep(step, step+1)}
 								>
 									<span class="mobile-hide">Next&nbsp;</span>&rarr;
 								</Button>
