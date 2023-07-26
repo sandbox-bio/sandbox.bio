@@ -195,12 +195,17 @@ function setFlag(option, value) {
 			<!-- Command box -->
 			<div class="d-flex w-100">
 				<div class="col-11">
-					<IDE lang={langCmd} code={userInput.command} on:update={(d) => {
-						updateUserInput("command", d.detail)
-						if(getExampleIndex(userInput) === -1) {
-							EXAMPLES[tool.name][-1] = userInput;
-						}
-					}} on:run={run} />
+					<IDE
+						lang={langCmd}
+						code={userInput.command}
+						on:update={(d) => {
+							updateUserInput("command", d.detail);
+							if (getExampleIndex(userInput) === -1) {
+								EXAMPLES[tool.name][-1] = userInput;
+							}
+						}}
+						on:run={run}
+					/>
 				</div>
 				<div class="col-1">
 					{#if $sandbox.interactive}

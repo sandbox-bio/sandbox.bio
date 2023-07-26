@@ -1,4 +1,5 @@
 <script>
+import { onMount } from "svelte";
 import { Button, DropdownItem, Offcanvas } from "sveltestrap";
 import { progress } from "$stores/config";
 import { status } from "$stores/status";
@@ -36,7 +37,7 @@ async function logStep(from, to) {
 			body: JSON.stringify({
 				from,
 				to,
-				tutorial: $tutorial.id,
+				tutorial: $tutorial.id
 			})
 		});
 	} catch (error) {
@@ -56,6 +57,11 @@ function nextStep(step) {
 		$progress = progressNew;
 	}
 }
+
+// When first visit a tutorial
+onMount(() => {
+	logStep(null, step);
+});
 </script>
 
 <div class="container-fluid pb-3 px-0">
@@ -103,7 +109,7 @@ function nextStep(step) {
 									href={step === 0 ? "#" : `/tutorials/${$tutorial.id}/${step - 1}`}
 									color={step === 0 ? "secondary" : "primary"}
 									size="sm"
-									on:click={() => logStep(step, step-1)}
+									on:click={() => logStep(step, step - 1)}
 								>
 									&larr;<span class="mobile-hide">&nbsp;Previous</span>
 								</Button>
@@ -112,7 +118,7 @@ function nextStep(step) {
 									href={step === $tutorial.steps.length - 1 ? "#" : `/tutorials/${$tutorial.id}/${step + 1}`}
 									color={step === $tutorial.steps.length - 1 ? "secondary" : "primary"}
 									size="sm"
-									on:click={() => logStep(step, step+1)}
+									on:click={() => logStep(step, step + 1)}
 								>
 									<span class="mobile-hide">Next&nbsp;</span>&rarr;
 								</Button>
