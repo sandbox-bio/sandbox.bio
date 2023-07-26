@@ -14,6 +14,7 @@ import { config as playground } from "tutorials/playground/config.js";
 import { config as rosalind } from "tutorials/rosalind/config.js";
 import { config as IFB1 } from "tutorials/ifb-1/config.js";
 import { config as IFB2 } from "tutorials/ifb-2/config.js";
+// AUTO-IMPORT-HERE
 
 // All tutorials
 export const tutorials = readable([
@@ -36,6 +37,7 @@ export const tutorials = readable([
 	// IFB Tutorials (unlisted)
 	IFB1,
 	IFB2,
+	// Add tutorials here
 ]);
 
 // Playgrounds
