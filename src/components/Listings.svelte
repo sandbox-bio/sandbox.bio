@@ -1,6 +1,6 @@
 <script>
 import { Icon, Tooltip } from "sveltestrap";
-import { progress } from "$stores/config";
+import { progress, user } from "$stores/config";
 
 export let items = [];
 export let title = "Tutorials";
@@ -43,7 +43,7 @@ export let skip = []; // Specific tutorial IDs to not show
 				<!-- Tutorial Info -->
 				<h4>
 					{info.name}
-					{#if info.id in $progress}
+					{#if $user && info.id in $progress}
 						{#if $progress[info.id].step == info.steps.length - 1}
 							<Icon id={`icon-${info.id}`} class="float-end text-success" name="check-circle-fill" />
 							<Tooltip target={`icon-${info.id}`}>Done!</Tooltip>
@@ -66,7 +66,7 @@ export let skip = []; // Specific tutorial IDs to not show
 						<a href={info.url} class="btn btn-outline-primary text-center mt-auto stretched-link">Launch</a>
 
 						<!-- "Tutorials" listings -->
-					{:else if info.id in $progress}
+					{:else if $user && info.id in $progress}
 						{#if $progress[info.id].step == info.steps.length - 1}
 							<a href={`/tutorials/${info.id}`} class="btn btn-outline-success text-center mt-auto stretched-link">Launch</a>
 						{:else}

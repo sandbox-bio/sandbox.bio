@@ -78,7 +78,7 @@ export const explore = readable([
 	{
 		name: "Bioinformatics Algorithms",
 		description: "Try your hand at solving Rosalind exercises using Python.",
-		url: "/rosalind",
+		url: "/tutorials/rosalind",
 		tags: ["rosalind", "python", "exercises"]
 	},
 	{

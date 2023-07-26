@@ -3,7 +3,7 @@ import Link from "$components/Link.svelte";
 import Alert from "$components/Alert.svelte";
 </script>
 
-<Link href="http://rosalind.info"><img class="mb-3" src="/images/rosalind.png" alt="Rosalind.info logo"></Link>
+<Link href="http://rosalind.info"><img class="mb-3" src="/screenshot-rosalind.png" alt="Rosalind.info logo"></Link>
 
 In this playground, you can write Python code to solve <Link href="http://rosalind.info">Rosalind.info</Link> exercises.
 

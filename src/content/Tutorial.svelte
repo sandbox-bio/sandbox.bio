@@ -23,6 +23,8 @@ let rosalind = {};
 $: $tutorial.step = step;
 $: nextStep(step);
 $: nbSteps = $tutorial.steps.length;
+$: isFirstStep = step === 0;
+$: isLastStep = step === $tutorial.steps.length - 1;
 $: if ($tutorial.ide === true) {
 	rosalind = $tutorial.steps[step].rosalind;
 	rosalind.fn = `solution_${rosalind.id.toLowerCase()}`;
@@ -106,8 +108,8 @@ onMount(() => {
 						<div class="d-flex justify-content-between">
 							<div>
 								<Button
-									href={step === 0 ? "#" : `/tutorials/${$tutorial.id}/${step - 1}`}
-									color={step === 0 ? "secondary" : "primary"}
+									href={isFirstStep ? "#" : `/tutorials/${$tutorial.id}` + (step === 1 ? "" : `/${step - 1}`)}
+									color={isFirstStep ? "secondary" : "primary"}
 									size="sm"
 									on:click={() => logStep(step, step - 1)}
 								>
@@ -115,8 +117,8 @@ onMount(() => {
 								</Button>
 
 								<Button
-									href={step === $tutorial.steps.length - 1 ? "#" : `/tutorials/${$tutorial.id}/${step + 1}`}
-									color={step === $tutorial.steps.length - 1 ? "secondary" : "primary"}
+									href={isLastStep ? "#" : `/tutorials/${$tutorial.id}/${step + 1}`}
+									color={isLastStep ? "secondary" : "primary"}
 									size="sm"
 									on:click={() => logStep(step, step + 1)}
 								>

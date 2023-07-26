@@ -4,23 +4,9 @@ import { page } from "$app/stores";
 
 $: path = $page.url.pathname;
 
-let user = {};
-
-// import Home from "./routes/Home.svelte";
-// import Tutorial from "./tutorials/Tutorial.svelte";
-// import Sandbox from "$components/playgrounds/Sandbox.svelte";
-// import Studio from "$components/Studio.svelte";
 // import Login from "$components/Login.svelte";
-// import Listings from "$components/Listings.svelte";
-// import Footer from "$components/Footer.svelte";
-// import { supabase, user, progress, envInit } from "$stores/config";
 import { envInit } from "$stores/config";
 import { onMount } from "svelte";
-// import { tutorials } from "$stores/tutorials";
-
-// // Config
-// const path = window.location.pathname;
-// const params = new URL(window.location).searchParams;
 
 // // State
 // let toastOpen = false;
