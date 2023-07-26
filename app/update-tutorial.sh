@@ -4,6 +4,12 @@
 # Make sure to run from the "app/" folder.
 # Usage: ./update-tutorial.sh /source/path/ destination-tutorial-name
 
+# Example:
+# ./update-tutorial.sh "/Users/robert/Documents/dev/sandboxbioscenarios/linux_basics_session01" "ifb-linux-basics-1" "false"
+# ./update-tutorial.sh "/Users/robert/Documents/dev/sandboxbioscenarios/linux_basics_session02" "ifb-linux-basics-2" "false"
+# ./update-tutorial.sh "/Users/robert/Documents/dev/sandboxbioscenarios/linux_basics_session03" "ifb-linux-basics-3" "false"
+# ./update-tutorial.sh "/Users/robert/Documents/dev/sandboxbioscenarios/linux_basics_session04" "ifb-linux-basics-4" "false"
+
 # Update an existing tutorial from a given file path (e.g. clone repo in that path)
 TUTORIAL_SOURCE_DIR=${1?Missing source tutorial path}
 TUTORIAL_DEST_ID=${2?Missing destination tutorial name}
@@ -29,8 +35,8 @@ if [[ $(grep -c "$importStatement" src/stores/tutorials.js) -lt 1 ]]; then
 
     # Add to list of tutorials
     sed -i.bak "s|\t// Add tutorials here|\t$importName,\n\t// Add tutorials here|" src/stores/tutorials.js
+    rm src/stores/tutorials.js.bak
 fi
 ./build.sh
 
-rm src/stores/tutorials.js.bak
 rm $TUTORIAL_DEST_DIR/config.js.bak
