@@ -19,11 +19,17 @@ import Listings from "$components/Listings.svelte";
 	</div>
 </div>
 
-<Listings items={$tutorials} />
+<div class="row mt-5">
+	<Listings items={$tutorials} />
+</div>
 
-<Listings items={$playgrounds} title="Playgrounds" />
+<div class="row mt-5">
+	<Listings items={$playgrounds} title="Playgrounds" />
+</div>
 
-<Listings items={$explore} title="Explore" />
+<div class="row mt-5">
+	<Listings items={$explore} title="Explore" />
+</div>
 
 <style>
 .bg-light {

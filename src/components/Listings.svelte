@@ -12,9 +12,7 @@ export let skip = []; // Specific tutorial IDs to not show
 </script>
 
 {#if title}
-	<div class="row mt-5">
-		<h3 class="pb-2">{title}</h3>
-	</div>
+	<h3>{title}</h3>
 {/if}
 
 <div class="row align-items-md-stretch">
