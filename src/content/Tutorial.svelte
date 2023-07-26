@@ -1,6 +1,5 @@
 <script>
 import { Button, DropdownItem, Offcanvas } from "sveltestrap";
-import { page, navigating } from "$app/stores";
 import { progress } from "$stores/config";
 import { status } from "$stores/status";
 import { tutorials } from "$stores/tutorials";

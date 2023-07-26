@@ -27,7 +27,7 @@ onMount(async () => {
 });
 
 // Allow tutorials to interactively change IGV status
-$: if ($status.igv) {
+$: if (browser.referenceFrameList && $status.igv) {
 	// Note that `browser.currentLoci` can give fractional coordinates
 	const locusCurrent = browser.referenceFrameList.map((locus) => locus.getLocusString()).join(" ");
 

@@ -1,5 +1,5 @@
 <script>
-import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Form, FormGroup, Input, Spinner } from "sveltestrap";
+import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Spinner } from "sveltestrap";
 import IDE from "$components/IDE.svelte";
 import Setting from "$components/playgrounds/Setting.svelte";
 import { sandbox, EXAMPLES, FLAGS, FLAG_SETTING, FLAG_BOOLEAN, FLAG_PARAM } from "$stores/sandbox";
@@ -19,10 +19,7 @@ $: langCmd = { awk: "awk", jq: "json" }[tool.name];
 $: langIO = tool.name === "jq" ? "json" : null;
 $: userInput = $sandbox.data[tool.name];
 $: flags = parseFlags(userInput.flags);
-$: hasExample = EXAMPLES[tool.name].findIndex(
-	(example) => example.input === userInput.input && example.flags === userInput.flags && example.command === userInput.command
-);
-
+$: hasExample = getExampleIndex(userInput);
 // Re-run if any user input changes. Need the "if ready" to run command when Aioli
 // is loaded, otherwise it won't run anything on first load.
 $: if (ready && $sandbox.interactive && userInput) run();
@@ -83,6 +80,13 @@ async function run() {
 // need to explicitely save them.
 function updateUserInput(varName, value) {
 	$sandbox.data[tool.name][varName] = value;
+}
+
+// Return the index of the user input that matches the examples; -1 if doesn't match
+function getExampleIndex(userInput) {
+	return EXAMPLES[tool.name].findIndex(
+		(example) => example.input === userInput.input && example.flags === userInput.flags && example.command === userInput.command
+	);
 }
 
 // =============================================================================
@@ -168,6 +172,7 @@ function setFlag(option, value) {
 			{#each EXAMPLES[tool.name] as example, i}
 				<option value={i}>{example.name}</option>
 			{/each}
+			<option value={-1}>Custom Query</option>
 		</Input>
 	</div>
 </div>
@@ -190,7 +195,12 @@ function setFlag(option, value) {
 			<!-- Command box -->
 			<div class="d-flex w-100">
 				<div class="col-11">
-					<IDE lang={langCmd} code={userInput.command} on:update={(d) => updateUserInput("command", d.detail)} on:run={run} />
+					<IDE lang={langCmd} code={userInput.command} on:update={(d) => {
+						updateUserInput("command", d.detail)
+						if(getExampleIndex(userInput) === -1) {
+							EXAMPLES[tool.name][-1] = userInput;
+						}
+					}} on:run={run} />
 				</div>
 				<div class="col-1">
 					{#if $sandbox.interactive}
