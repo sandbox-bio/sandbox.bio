@@ -9,6 +9,7 @@ export let colMd = 6; // == 12 / how many boxes we can fit on M screens
 export let colLg = 4; // == 12 / how many boxes we can fit on L screens
 export let colXxl = 4; // == 12 / how many boxes we can fit on XXL screens
 export let skip = []; // Specific tutorial IDs to not show
+export let showUnlisted = false;
 </script>
 
 {#if title}
@@ -16,7 +17,7 @@ export let skip = []; // Specific tutorial IDs to not show
 {/if}
 
 <div class="row align-items-md-stretch">
-	{#each items.slice(0, max).filter((t) => !skip.includes(t.id) && t.listed !== false && (t.steps?.length > 0 || t.url)) as info, i}
+	{#each items.slice(0, max).filter((t) => !skip.includes(t.id) && (showUnlisted || t.listed !== false) && (t.steps?.length > 0 || t.url)) as info, i}
 		{#if info.divider}
 			<h5 class:mt-4={i > 0}>{info.divider}</h5>
 		{/if}
