@@ -31,3 +31,6 @@ if [[ $(grep -c "$importStatement" src/stores/tutorials.js) -lt 1 ]]; then
     sed -i.bak "s|\t// Add tutorials here|\t$importName,\n\t// Add tutorials here|" src/stores/tutorials.js
 fi
 ./build.sh
+
+rm src/stores/tutorials.js.bak
+rm $TUTORIAL_DEST_DIR/config.js.bak

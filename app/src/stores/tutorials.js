@@ -1,4 +1,8 @@
 import { readable } from "svelte/store";
+import { config as ifblinuxbasics4 } from "tutorials/ifb-linux-basics-4/config.js";
+import { config as ifblinuxbasics3 } from "tutorials/ifb-linux-basics-3/config.js";
+import { config as ifblinuxbasics2 } from "tutorials/ifb-linux-basics-2/config.js";
+import { config as ifblinuxbasics1 } from "tutorials/ifb-linux-basics-1/config.js";
 import { config as terminalIntro } from "tutorials/terminal-basics/config.js";
 import { config as igvIntro } from "tutorials/igv-intro/config.js";
 import { config as bedtoolsIntro } from "tutorials/bedtools-intro/config.js";
@@ -12,8 +16,6 @@ import { config as viralAmplicon } from "tutorials/viral-amplicon/config.js";
 import { config as debuggingPuzzles } from "tutorials/debugging-puzzles/config.js";
 import { config as playground } from "tutorials/playground/config.js";
 import { config as rosalind } from "tutorials/rosalind/config.js";
-import { config as IFB1 } from "tutorials/ifb-1/config.js";
-import { config as IFB2 } from "tutorials/ifb-2/config.js";
 // AUTO-IMPORT-HERE
 
 // All tutorials
@@ -25,6 +27,7 @@ export const tutorials = readable([
 	terminalIntro,
 	jqIntro,
 	awkIntro,
+
 	// Bioinformatics
 	bedtoolsIntro,
 	bowtie2Intro,
@@ -34,9 +37,12 @@ export const tutorials = readable([
 	dnaSecrets,
 	viralAmplicon,
 	debuggingPuzzles,
-	// IFB Tutorials (unlisted)
-	IFB1,
-	IFB2,
+
+	// Community tutorials
+	ifblinuxbasics1,
+	ifblinuxbasics2,
+	ifblinuxbasics3,
+	ifblinuxbasics4,
 	// Add tutorials here
 ]);
 
