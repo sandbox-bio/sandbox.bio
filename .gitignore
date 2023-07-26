@@ -6,6 +6,7 @@ app/public/playground/
 app/public/playgrounds/
 app/public/studio/
 app/public/rosalind/
+app/public/community/
 # Cloudflare Worker Sites
 dist/
 worker/script.js
@@ -16,3 +17,6 @@ _trash/
 # Biowasm copy for local development
 app/public/biowasm/*
 !app/public/biowasm/README.md
+# sandbox.bio v2
+.env
+static/data/
