@@ -140,6 +140,11 @@ onMount(async () => {
 			</ul>
 		</li>
 		<li class="nav-item">
+			<a href="/community" class="nav-link" class:active={path == "/community"} id="navCommunity" role="button">
+				Community
+			</a>
+		</li>
+		<li class="nav-item">
 			{#if $user == null}
 				<button class="btn btn-link text-decoration-none" on:click={() => loginModalOpen = !loginModalOpen}>Log in</button>
 			{:else}
