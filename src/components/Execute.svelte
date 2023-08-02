@@ -1,39 +1,28 @@
 <script>
-import { Card } from "sveltestrap";
-// FIXME:
-import { xtermAddons } from "$components/terminal/xterm";
+import { Button, Card } from "sveltestrap";
+import { cli } from "$stores/cli";
 
 export let command;
 export let inline = false;
 
-// Run command in the CLI!
-function exec() {
-	if (!command) return;
-	// alert("FIXME:")
-	$xtermAddons.echo.handleData(command.replace(/ \\ /g, " "));
-	$xtermAddons.echo.handleData("\r");
-}
+$: commandPretty = command.replace(/ \\ /g, " \\ <br />&nbsp;&nbsp;&nbsp;");
 </script>
 
 {#if inline}
-	<kbd on:click={exec}>
-		{@html command.replace(/ \\ /g, " \\ <br />&nbsp;&nbsp;&nbsp;")}
-	</kbd>
+	<Button size="sm" class="font-monospace bg-dark" on:click={() => $cli.exec(command)}>
+		{@html commandPretty}
+	</Button>
 {:else}
-	<div class="cursor-pointer mb-3 font-monospace">
-		<Card on:click={exec} body inverse color="dark">
-			{@html command.replace(/ \\ /g, " \\ <br />&nbsp;&nbsp;&nbsp;")}
+	<div class="mb-3 font-monospace">
+		<Card on:click={() => $cli.exec(command)} body inverse color="dark">
+			{@html commandPretty}
 		</Card>
 	</div>
 {/if}
 
 <style>
-kbd,
 div {
 	cursor: pointer;
-}
-
-div {
 	font-size: 0.875em; /* Same size as <kbd> */
 }
 </style>

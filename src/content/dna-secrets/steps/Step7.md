@@ -8,7 +8,6 @@
 */
 
 import { onMount } from "svelte";
-import { CLI } from "$components/terminal/cli";
 import Link from "$components/Link.svelte";
 import Execute from "$components/Execute.svelte";
 import Exercise from "$components/Exercise.svelte";
@@ -51,7 +50,7 @@ let criteria = [
 
 onMount(async () => {
 	setInterval(async () => {
-		dnaEncoded = await $CLI.exec("cat secret");
+		
 	}, 500);
 });
 </script>

@@ -1,6 +1,5 @@
 <script>
 import { onMount } from "svelte";
-import { CLI } from "$components/terminal/cli";
 import Link from "$components/Link.svelte";
 import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
@@ -32,7 +31,7 @@ function binaryToString(input) {
 
 onMount(async () => {
 	setInterval(async () => {
-		dnaEncoded = await $CLI.exec("cat secret");
+		
 	}, 500);
 });
 </script>

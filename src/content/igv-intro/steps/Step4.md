@@ -1,7 +1,7 @@
 <script>
 import Link from "$components/Link.svelte";
 import Alert from "$components/Alert.svelte";
-import IGVUpdateBtn from "$components/IGVUpdateBtn.svelte";
+import IGVUpdateBtn from "$components/igv/IGVUpdateBtn.svelte";
 </script>
 
 We will be using publicly available Illumina sequence data from the HCC1143 cell line. For speed, only a small portion of `chr21` will be loaded (19M:20M).

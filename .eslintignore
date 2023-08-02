@@ -8,3 +8,5 @@ node_modules
 .env.*
 !.env.example
 package-lock.json
+static/
+thirdparty/

@@ -1,6 +1,6 @@
 <script>
 import Execute from "$components/Execute.svelte";
-import IGVModal from "$components/IGVModal.svelte";
+import IGVModal from "$components/igv/IGVModal.svelte";
 
 let isOpen = false;
 let igvOptions = {

@@ -2,7 +2,7 @@
 import { Icon } from "sveltestrap";
 import Link from "$components/Link.svelte";
 import Alert from "$components/Alert.svelte";
-import IGVUpdateBtn from "$components/IGVUpdateBtn.svelte";
+import IGVUpdateBtn from "$components/igv/IGVUpdateBtn.svelte";
 </script>
 
 Navigate to a narrow window on chr21: `21:19,480,041-19,480,386`

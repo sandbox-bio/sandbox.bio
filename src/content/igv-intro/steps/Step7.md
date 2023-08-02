@@ -1,7 +1,7 @@
 <script>
 import Alert from "$components/Alert.svelte";
 import Link from "$components/Link.svelte";
-import IGVUpdateBtn from "$components/IGVUpdateBtn.svelte";
+import IGVUpdateBtn from "$components/igv/IGVUpdateBtn.svelte";
 </script>
 
 #### Example 1

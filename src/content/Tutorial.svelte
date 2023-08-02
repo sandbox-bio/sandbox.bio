@@ -5,8 +5,8 @@ import { progress } from "$stores/config";
 import { status } from "$stores/status";
 import { tutorials } from "$stores/tutorials";
 import { tutorial } from "$stores/tutorial";
-import Terminal from "$components/terminal/Terminal.svelte";
-import IGV from "$components/IGV.svelte";
+import Terminal from "$components/Terminal.svelte";
+import IGV from "$components/igv/IGV.svelte";
 import IDE from "$components/ExerciseRosalind.svelte";
 
 export let id;

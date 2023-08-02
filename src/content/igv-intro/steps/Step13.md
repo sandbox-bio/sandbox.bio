@@ -1,6 +1,6 @@
 <script>
 import Alert from "$components/Alert.svelte";
-import IGVUpdateBtn from "$components/IGVUpdateBtn.svelte";
+import IGVUpdateBtn from "$components/igv/IGVUpdateBtn.svelte";
 </script>
 
 Navigate to region `chr21:19,089,694-19,095,362`

@@ -1,6 +1,6 @@
 <script>
 import Alert from "$components/Alert.svelte";
-import IGVUpdateBtn from "$components/IGVUpdateBtn.svelte";
+import IGVUpdateBtn from "$components/igv/IGVUpdateBtn.svelte";
 </script>
 
 In this section we will be looking in detail at 8 positions in the genome, and determining whether they represent real events or artifacts.
