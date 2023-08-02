@@ -2,6 +2,9 @@
 import { onMount } from "svelte";
 import { Table, Modal, DropdownMenu, Dropdown, DropdownToggle, DropdownItem, Icon } from "sveltestrap";
 import AnsiUp from "ansi_up";
+import { watchResize } from "svelte-watch-resize";
+import { FitAddon } from "xterm-addon-fit";
+import { WebLinksAddon } from "xterm-addon-web-links";
 import { SerializeAddon } from "xterm-addon-serialize";
 import { V86Starter } from "$thirdparty/v86/libv86";
 import { cli } from "$stores/cli";
@@ -34,7 +37,6 @@ onMount(() => {
 	$cli.emulator = new V86Starter({
 		wasm_path: "/v86/v86.wasm",
 		memory_size: 512 * 1024 * 1024,
-		vga_memory_size: 8 * 1024 * 1024,
 		screen_container: divScreenContainer,
 		serial_container_xtermjs: divXtermTerminal,
 		initial_state: { url: "/v86/debian-state-base.bin.zst" },
@@ -47,10 +49,28 @@ onMount(() => {
 
 		// Initialize variables and addons
 		$cli.xterm = $cli.emulator.serial_adapter.term;
-		$cli.addons.serialize = new SerializeAddon();
-		$cli.xterm.loadAddon($cli.addons.serialize);
+		$cli.addons = {
+			serialize: new SerializeAddon(), // Used to export terminal to HTML
+			fit: new FitAddon(), // Fit the terminal onto the screen
+			links: new WebLinksAddon() // Turns text links into hyperlinks
+		};
+
+		// Initialize addons
+		for (const addonName in $cli.addons) {
+			$cli.xterm.loadAddon($cli.addons[addonName]);
+		}
+
+		// Make sure terminal takes up the entire div height-wise
+		$cli.addons.fit.fit();
 	});
 });
+
+// When window resizes, update terminal size
+function handleResize() {
+	if($cli.addons.fit) {
+		$cli.addons.fit.fit();
+	}
+}
 
 // =============================================================================
 // Sidebar operations
@@ -74,10 +94,10 @@ async function mountLocalFile(event) {
 	}
 
 	// Mount files (synchronously; couldn't get AsyncFileBuffer working)
-	for(const file of files) {
+	for (const file of files) {
 		var loader = new $cli.emulator.v86util.SyncFileBuffer(file);
-		loader.onload = function() {
-			loader.get_buffer(async function(buffer) {
+		loader.onload = function () {
+			loader.get_buffer(async function (buffer) {
 				await $cli.emulator.create_file(`/root/${file.name}`, new Uint8Array(buffer));
 			});
 		};
@@ -90,7 +110,7 @@ async function mountLocalFile(event) {
 </script>
 
 <!-- Terminal -->
-<div bind:this={divXtermTerminal}>
+<div id="terminal" bind:this={divXtermTerminal} use:watchResize={handleResize}>
 	<div class="cli-options">
 		<Dropdown autoClose={true}>
 			<DropdownToggle color="dark" size="sm">
@@ -158,6 +178,14 @@ async function mountLocalFile(event) {
 </Modal>
 
 <style>
+/* Xterm */
+#terminal {
+	opacity: 1;
+	height: 85vh;
+	max-height: 85vh;
+	overflow: hidden;
+}
+
 /* Hamburger menu */
 .cli-options {
 	position: relative;
