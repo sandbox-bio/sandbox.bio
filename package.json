@@ -33,7 +33,6 @@
 		"@codemirror/state": "^6.0.1",
 		"@supabase/supabase-js": "^1.35.3",
 		"ansi_up": "^5.1.0",
-		"ansi-regex": "^6.0.1",
 		"bootstrap": "5.1.3",
 		"codemirror": "^6.0.0",
 		"columnify": "^1.6.0",
@@ -41,18 +40,11 @@
 		"localforage": "^1.10.0",
 		"lodash": "^4.17.21",
 		"marked": "^4.2.12",
-		"minimist": "^1.2.6",
 		"pretty-bytes": "^6.0.0",
-		"shell-parse": "grncdr/js-shell-parse#f5f65af",
 		"shell-quote": "^1.7.3",
 		"showdown": "^2.1.0",
 		"svelte-autosize": "^1.0.1",
-		"svelte-watch-resize": "^1.0.3",
 		"sveltestrap": "^5.10.0",
-		"xterm": "^4.18.0",
-		"xterm-addon-fit": "^0.5.0",
-		"xterm-addon-search": "^0.8.2",
-		"xterm-addon-serialize": "^0.6.2",
-		"xterm-addon-web-links": "^0.5.1"
+		"xterm": "^4.18.0"
 	}
 }
