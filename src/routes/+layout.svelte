@@ -67,7 +67,7 @@ import { onMount } from "svelte";
 // }
 
 onMount(async () => {
-	await envInit();
+	// await envInit();
 });
 
 let isNavbarOpen;
@@ -92,9 +92,9 @@ let isNavbarOpen;
 			<NavItem>
 				<NavLink href="/playgrounds" active={path.startsWith("/playgrounds")}>Playgrounds</NavLink>
 			</NavItem>
-			<NavItem>
+			<!-- <NavItem>
 				<NavLink href="/community" active={path.startsWith("/community")}>Community</NavLink>
-			</NavItem>
+			</NavItem> -->
 		</Nav>
 	</Collapse>
 </Navbar>

@@ -23,6 +23,7 @@ export let pwd = ""; // Path relative to /shared/data where user should start at
 let divScreenContainer;
 let divXtermTerminal;
 
+let ready = false;
 let fileInputSingle; // Hidden HTML file input element for mounting local file
 let fileInputFolder; // Hidden HTML file input element for mounting local folder
 let modalKbdOpen = false; // Set to true when the shortcuts modal is open
@@ -44,7 +45,7 @@ onMount(() => {
 		autostart: true
 	});
 
-	$cli.emulator.bus.register("emulator-started", () => {
+	$cli.emulator.bus.register("emulator-started", async () => {
 		console.log("Console ready.");
 
 		// Initialize variables and addons
@@ -62,12 +63,17 @@ onMount(() => {
 
 		// Make sure terminal takes up the entire div height-wise
 		$cli.addons.fit.fit();
+
+		// Mount tutorial files
+		for (const file of files) {
+			await $cli.mount(`/${file}`);
+		}
 	});
 });
 
 // When window resizes, update terminal size
 function handleResize() {
-	if($cli.addons.fit) {
+	if ($cli.addons.fit) {
 		$cli.addons.fit.fit();
 	}
 }
@@ -93,16 +99,14 @@ async function mountLocalFile(event) {
 		return;
 	}
 
-	// Mount files (synchronously; couldn't get AsyncFileBuffer working)
+	// Mount files and show them on screen
+	const paths = [];
 	for (const file of files) {
-		var loader = new $cli.emulator.v86util.SyncFileBuffer(file);
-		loader.onload = function () {
-			loader.get_buffer(async function (buffer) {
-				await $cli.emulator.create_file(`/root/${file.name}`, new Uint8Array(buffer));
-			});
-		};
-		loader.load();
+		paths.push(await $cli.mount(file));
 	}
+	const pathsTxt = paths.join("\n\r# ");
+	$cli.xterm.write(`\n\n\r\u001b[0;32m# Files mounted:\n\r# ${pathsTxt}\u001b[0m\n\n\r`);
+	$cli.exec("");
 
 	// Reset file selection (e.g. if select same file name again, should remount it because contents might be different)
 	event.target.value = "";

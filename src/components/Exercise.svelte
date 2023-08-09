@@ -1,6 +1,6 @@
 <script>
 import { status } from "$stores/status";
-import { CLI } from "$components/terminal/cli";
+import { cli } from "$stores/cli";
 import { Button, FormGroup, Icon, ListGroup, ListGroupItem, Spinner } from "sveltestrap";
 
 export let criteria = []; // List of criteria that must be true for the exercise to be complete
@@ -33,26 +33,25 @@ async function check(manual = false) {
 				if (check.type == "file") {
 					// Does file exist?
 					if (check.action == "exists") {
-						let stderr = null;
-						await $CLI.exec(`ls ${check.path}`, (d) => (stderr = d));
-						if (stderr) throw "File not found";
+						const result = await $cli.ls(`/root/${check.path}`);
+						if (!result) throw "File not found";
 						statuses[i] = true;
 					}
 
 					// Does file content match expectation? Define the right answer using a CLI invocation
 					else if (check.action == "contents") {
-						let stderr = null;
-						await $CLI.exec(`ls ${check.path}`, (d) => (stderr = d));
-						if (stderr) throw "File not found";
+						const result = await $cli.ls(`/root/${check.path}`);
+						if (!result) throw "File not found";
 
 						// Parse settings
 						const commandExpected = check.commandExpected;
 						const commandObserved = check.commandObserved || `cat ${check.path}`;
 
+						console.log("TODO: run", commandExpected);
 						// Calculate and compare expected vs. observed
-						const expected = await $CLI.exec(commandExpected);
-						const observed = await $CLI.exec(commandObserved);
-						statuses[i] = observed == expected;
+						// const expected = await $cli.exec(commandExpected);
+						// const observed = await $cli.exec(commandObserved);
+						// statuses[i] = observed == expected;
 					}
 				}
 		} catch (error) {
