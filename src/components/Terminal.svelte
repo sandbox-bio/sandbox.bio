@@ -20,10 +20,7 @@ export let files = []; // Files to preload on the filesystem
 export let tools; // Aioli tools to load
 export let pwd = ""; // Path relative to /shared/data where user should start at
 
-let divScreenContainer;
-let divXtermTerminal;
-
-let ready = false;
+let divXtermTerminal; // Xterm.js terminal
 let fileInputSingle; // Hidden HTML file input element for mounting local file
 let fileInputFolder; // Hidden HTML file input element for mounting local folder
 let modalKbdOpen = false; // Set to true when the shortcuts modal is open
@@ -38,11 +35,13 @@ onMount(() => {
 	$cli.emulator = new V86Starter({
 		wasm_path: "/v86/v86.wasm",
 		memory_size: 512 * 1024 * 1024,
-		screen_container: divScreenContainer,
-		serial_container_xtermjs: divXtermTerminal,
 		initial_state: { url: "/v86/debian-state-base.bin.zst" },
 		filesystem: { baseurl: "/v86/debian-9p-rootfs-flat/" },
-		autostart: true
+		autostart: true,
+		screen_dummy: true, // since we're using xterm.js, no need for "screen_container" div
+		serial_container_xtermjs: divXtermTerminal,
+		disable_mouse: true, // make sure we're still able to select text on the screen
+		disable_speaker: true
 	});
 
 	$cli.emulator.bus.register("emulator-started", async () => {
@@ -127,15 +126,6 @@ async function mountLocalFile(event) {
 				<DropdownItem on:click={modalKbdToggle}>Keyboard Shortcuts</DropdownItem>
 			</DropdownMenu>
 		</Dropdown>
-	</div>
-</div>
-
-<!-- Hidden v86 terminal -->
-<div style="display: none" bind:this={divScreenContainer}>
-	<div id="screen" />
-	<canvas id="vga" />
-	<div style="position: absolute; top: 0; z-index: 10">
-		<textarea class="phone_keyboard" />
 	</div>
 </div>
 
