@@ -61,7 +61,10 @@ onMount(() => {
 		}
 
 		// Make sure terminal takes up the entire div height-wise
-		$cli.addons.fit.fit();
+		handleResize();
+
+		// Initialize command line
+		$cli.xterm.write("root@localhost:~# ");
 
 		// Mount tutorial files
 		for (const file of files) {
@@ -74,6 +77,18 @@ onMount(() => {
 function handleResize() {
 	if ($cli.addons.fit) {
 		$cli.addons.fit.fit();
+
+		// FIXME: for now, keep at 80 cols, but increase rows to match page height. Anything that isn't = 80 will give
+		// behavior where a long command will not wrap to the next line but will overwrite the current line. It could
+		// be because v86 needs to be updated to also change number of columns, but that hasn't worked so far.
+		// 
+		// Tried the following and it didn't work:
+		//  - $cli.emulator.screen_adapter.set_size_text(dims.cols, dims.rows);
+		//  - $cli.emulator.v86.cpu.devices.vga.set_size_text(dims.cols, dims.rows)
+		//  - Comment out `SerialAdapterXtermJS.prototype.show` and do .open() after load addons
+		//  - Changing `this.max_cols` in v86 `vga.js`
+		const dims = $cli.addons.fit.proposeDimensions();
+		$cli.xterm.resize(80, dims.rows);
 	}
 }
 
