@@ -30,8 +30,11 @@ let modalKbdToggle = () => (modalKbdOpen = !modalKbdOpen);
 // Initialization
 // =============================================================================
 
-// On mount
-onMount(() => {
+onMount(initialize);
+
+function initialize() {
+	console.log("Initializing terminal...");
+
 	$cli.emulator = new V86Starter({
 		wasm_path: "/v86/v86.wasm",
 		memory_size: 512 * 1024 * 1024,
@@ -44,11 +47,17 @@ onMount(() => {
 		disable_speaker: true
 	});
 
-	$cli.emulator.bus.register("emulator-started", async () => {
-		console.log("Console ready.");
-
-		// Initialize variables and addons
+	$cli.emulator.bus.register("emulator-loaded", async () => {
+		// Make sure everything loaded correctly. If not, try again.
+		// Otherwise, get issues where `term` variable is null and waiting for it to be set does not help.
 		$cli.xterm = $cli.emulator.serial_adapter.term;
+		if (!$cli.xterm) {
+			initialize();
+			return;
+		}
+		console.log("Terminal ready.");
+
+		// Initialize addons
 		$cli.addons = {
 			serialize: new SerializeAddon(), // Used to export terminal to HTML
 			fit: new FitAddon(), // Fit the terminal onto the screen
@@ -71,7 +80,7 @@ onMount(() => {
 			await $cli.mount(`/${file}`);
 		}
 	});
-});
+}
 
 // When window resizes, update terminal size
 function handleResize() {
@@ -81,7 +90,7 @@ function handleResize() {
 		// FIXME: for now, keep at 80 cols, but increase rows to match page height. Anything that isn't = 80 will give
 		// behavior where a long command will not wrap to the next line but will overwrite the current line. It could
 		// be because v86 needs to be updated to also change number of columns, but that hasn't worked so far.
-		// 
+		//
 		// Tried the following and it didn't work:
 		//  - $cli.emulator.screen_adapter.set_size_text(dims.cols, dims.rows);
 		//  - $cli.emulator.v86.cpu.devices.vga.set_size_text(dims.cols, dims.rows)
