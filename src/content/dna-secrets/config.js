@@ -28,6 +28,6 @@ export const config = {
 		{ name: "Data analysis", component: Step7, subtitle: "Decode the message" },
 		{ name: "The end", component: Conclusion, header: true }
 	],
-	files: ["data/dna-secrets/reads.fq", "data/dna-secrets/morereads.fq"],
+	files: ["reads.fq", "morereads.fq"],
 	init: `REF=/shared/bowtie2/example/index/lambda_virus; REF_FASTA=/shared/bowtie2/example/reference/lambda_virus.fa; echo "CGGCGAACAGGCCTAGATTAGGCCCTTCTTCCCGGCGGTG" > secret`
 };

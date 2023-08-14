@@ -27,5 +27,5 @@ export const config = {
 		{ name: "Pipelines", component: Step6, subtitle: "Environment variables" },
 		{ name: "The end", component: Conclusion, header: true }
 	],
-	files: ["data/terminal-basics/orders.tsv", "data/terminal-basics/ref.fa", "data/terminal-basics/ref.fa.bak"]
+	files: ["orders.tsv", "ref.fa", "ref.fa.bak"]
 };

@@ -1,4 +1,5 @@
 import { get, writable } from "svelte/store";
+import { DIR_TUTORIAL } from "$stores/config";
 
 function strToChars(str) {
 	const chars = str.split("");
@@ -36,7 +37,7 @@ export const cli = writable({
 	},
 
 	// Mount a File object or URL to the file system
-	mount: async (file, folder = "/root") => {
+	mount: async (file, folder = DIR_TUTORIAL) => {
 		if (!(file instanceof File)) {
 			const url = file;
 			const blob = await fetch(url).then((d) => d.blob());

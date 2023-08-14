@@ -13,7 +13,8 @@ const SUPABASE_URL = "https://vjmttfnyctkivaeljytg.supabase.co";
 const SUPABASE_PUBLIC_KEY =
 	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTMyNzMyOSwiZXhwIjoxOTQ0OTAzMzI5fQ.V5Lo9CuFHJFyzmS9d3rMQMqAO_eSzNN50sm0CxHwD7M";
 
-export const DIR_TUTORIAL = "~/tutorial";
+export const DIR_TUTORIAL = "/root/tutorial";
+export const DIR_TUTORIAL_SHORT = DIR_TUTORIAL.replace("~", "/root");
 
 // -----------------------------------------------------------------------------
 // Variables that we'll export (_var will be exported as $var)

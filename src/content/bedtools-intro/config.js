@@ -57,14 +57,5 @@ export const config = {
 	],
 
 	// Files needed at runtime
-	files: [
-		"data/bedtools-intro/cpg.bed",
-		"data/bedtools-intro/exons.bed",
-		"data/bedtools-intro/fHeart-DS15839.bed",
-		"data/bedtools-intro/fHeart-DS16621.bed",
-		"data/bedtools-intro/fSkin-DS19745.bed",
-		"data/bedtools-intro/gwas.bed",
-		"data/bedtools-intro/hesc.chromHmm.bed",
-		"data/bedtools-intro/genome.txt"
-	]
+	files: ["cpg.bed", "exons.bed", "fHeart-DS15839.bed", "fHeart-DS16621.bed", "fSkin-DS19745.bed", "gwas.bed", "hesc.chromHmm.bed", "genome.txt"]
 };

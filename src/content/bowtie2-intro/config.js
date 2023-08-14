@@ -26,6 +26,6 @@ export const config = {
 		{ name: "Downstream tools", component: Step6, subtitle: "Use bcftools to call variants" },
 		{ name: "The end", component: Conclusion, header: true }
 	],
-	files: ["data/bowtie2-intro/reads_1.fq", "data/bowtie2-intro/reads_2.fq", "data/bowtie2-intro/longreads.fq"],
+	files: ["reads_1.fq", "reads_2.fq", "longreads.fq"],
 	init: "REF=/shared/bowtie2/example/index/lambda_virus; REF_FASTA=/shared/bowtie2/example/reference/lambda_virus.fa"
 };

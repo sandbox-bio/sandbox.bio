@@ -31,5 +31,5 @@ export const config = {
 		{ name: "Exercise", subtitle: "Too much data, too little time", component: Exercise1, header: true },
 		{ name: "The end", component: Conclusion, header: true }
 	],
-	files: ["data/fastp-intro/HG004_R1.fastq.gz", "data/fastp-intro/HG004_R2.fastq.gz"]
+	files: ["HG004_R1.fastq.gz", "HG004_R2.fastq.gz"]
 };

@@ -28,12 +28,6 @@ export const config = {
 		{ name: "Data Analysis", component: Step7, subtitle: "Generate consensus sequence" },
 		{ name: "The end", component: Conclusion, subtitle: "Conclusion", header: true }
 	],
-	files: [
-		"data/viral-amplicon/primer.bed",
-		"data/viral-amplicon/reference.fasta",
-		"data/viral-amplicon/reference.gff3",
-		"data/viral-amplicon/reads_R1.fq",
-		"data/viral-amplicon/reads_R2.fq"
-	],
+	files: ["primer.bed", "reference.fasta", "reference.gff3", "reads_R1.fq", "reads_R2.fq"],
 	init: "REF_FASTA=reference.fasta; REF_GFF=reference.gff3; PRIMER_BED=primer.bed"
 };
