@@ -82,7 +82,10 @@ let isNavbarOpen;
 <Styles />
 
 <Navbar light container color="light" expand="md">
-	<NavbarBrand href="/">sandbox.bio</NavbarBrand>
+	<NavbarBrand href="/">
+		sandbox.bio
+		<span class="badge bg-primary rounded-pill beta ms-1 py-1">BETA</span>
+	</NavbarBrand>
 	<NavbarToggler on:click={() => (isNavbarOpen = !isNavbarOpen)} />
 	<Collapse isOpen={isNavbarOpen} navbar expand="md" on:update={(event) => (isNavbarOpen = event.detail.isOpen)}>
 		<Nav class="ms-auto" navbar>
@@ -142,3 +145,10 @@ let isNavbarOpen;
 		</Nav>
 	</div>
 </footer>
+
+<style>
+.beta {
+	font-size: 10px;
+	position: absolute;
+}
+</style>
