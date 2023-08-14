@@ -22,10 +22,17 @@ export const cli = writable({
 	// -------------------------------------------------------------------------
 
 	// Run a command on the command line
-	exec: (cmd) => {
-		const v86 = get(cli).emulator;
-		const chars = strToChars(`${cmd}\n`);
-		chars.forEach((c) => v86.bus.send("serial0-input", c));
+	exec: (cmd, background = false) => {
+		const command = `${cmd}\n`;
+		const emulator = get(cli).emulator;
+
+		// Execute a command without displaying it in the terminal
+		if (background) {
+			emulator.keyboard_send_text(command);
+		} else {
+			const chars = strToChars(command);
+			chars.forEach((c) => emulator.bus.send("serial0-input", c));
+		}
 	},
 
 	// Mount a File object or URL to the file system
