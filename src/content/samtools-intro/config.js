@@ -12,7 +12,6 @@ import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "samtools-intro",
-	pwd: "samtools-intro",
 	name: "BAM parsing with samtools",
 	subtitle: `by <a href="http://quinlanlab.org/" target="_blank">Aaron Quinlan</a>`,
 	description: "Explore, process and manipulate <code>.sam</code> and <code>.bam</code> files with samtools.",

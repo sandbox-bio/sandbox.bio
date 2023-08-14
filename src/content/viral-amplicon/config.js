@@ -11,7 +11,6 @@ import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "viral-amplicon",
-	pwd: "viral-amplicon",
 	name: "Viral Amplicon Sequencing",
 	subtitle: `by <a href="https://niema.net/" target="_blank">Niema Moshiri</a>`,
 	description: "Analyze viral amplicon sequence data using a real SARS-CoV-2 dataset.",

@@ -10,7 +10,6 @@ import Step7 from "./steps/step07.md";
 
 export const config = {
 	id: "ifb-1",
-	pwd: "ifb-1",
 	listed: false,
 	name: "Basics of the Unix command line interface",
 	subtitle: `by <a href="https://www.france-bioinformatique.fr/en/home/" target="_blank">French Institute of Bioinformatics</a>`,

@@ -8,6 +8,7 @@ import { WebLinksAddon } from "xterm-addon-web-links";
 import { SerializeAddon } from "xterm-addon-serialize";
 import { V86Starter } from "$thirdparty/v86/libv86";
 import { cli } from "$stores/cli";
+import { DIR_TUTORIAL } from "$stores/config";
 import "xterm/css/xterm.css";
 
 // =============================================================================
@@ -18,7 +19,6 @@ export let intro = ""; // Intro string to display on Terminal once ready (option
 export let init = ""; // Command to run to initialize the environment (optional)
 export let files = []; // Files to preload on the filesystem
 export let tools; // Aioli tools to load
-export let pwd = ""; // Path relative to /shared/data where user should start at
 
 let divXtermTerminal; // Xterm.js terminal
 let fileInputSingle; // Hidden HTML file input element for mounting local file
@@ -73,7 +73,7 @@ function initialize() {
 		handleResize();
 
 		// Initialize command line
-		$cli.xterm.write("root@localhost:~# ");
+		$cli.xterm.write(`root@localhost:${DIR_TUTORIAL}# `);
 
 		// Mount tutorial files
 		for (const file of files) {

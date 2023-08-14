@@ -24,7 +24,6 @@ import Exercise5 from "./exercises/Exercise5.md";
 export const config = {
 	// Metadata
 	id: "bedtools-intro",
-	pwd: "bedtools-intro",
 	name: "Genomic intervals with bedtools",
 	subtitle: `by <a href="http://quinlanlab.org/" target="_blank">Aaron Quinlan</a>`,
 	description: "Explore and manipulate <code>.bed</code> files.",

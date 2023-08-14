@@ -10,7 +10,6 @@ import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "bowtie2-intro",
-	pwd: "bowtie2-intro",
 	name: "Sequence alignment with bowtie2",
 	subtitle: `by <a href="https://langmead-lab.org/" target="_blank">Ben Langmead</a>`,
 	description: "Align reads to a reference genome.",

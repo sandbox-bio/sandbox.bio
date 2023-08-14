@@ -12,7 +12,6 @@ import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "jq-intro",
-	pwd: "jq-intro",
 	name: "JSON wrangling with jq",
 	subtitle: `by <a href="https://adamgordonbell.com/" target="_blank">Adam Gordon Bell</a>`,
 	description: "Filter and wrangle JSON files on the command-line using <code>jq</code>.",

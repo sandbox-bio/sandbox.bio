@@ -7,7 +7,6 @@ import PuzzleFastaFilter from "./steps/PuzzleFastaFilter.md";
 
 export const config = {
 	id: "debugging-puzzles",
-	pwd: "debugging-puzzles",
 	name: "Debugging Puzzles",
 	subtitle: `by <a href="https://robert.bio" target="_blank">Robert Aboukhalil</a>`,
 	description: "Debug file format issues that are commonly seen in genomics.",

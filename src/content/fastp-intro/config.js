@@ -13,7 +13,6 @@ import Exercise1 from "./exercises/Exercise1.md";
 
 export const config = {
 	id: "fastp-intro",
-	pwd: "fastp-intro",
 	name: "DNA sequencing QC",
 	subtitle: `by <a href="https://robert.bio" target="_blank">Robert Aboukhalil</a>`,
 	description: "Evaluate the quality of a sequencing run by running <code>fastp</code> on your FASTQ files.",

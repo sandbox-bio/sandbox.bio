@@ -156,7 +156,6 @@ onMount(() => {
 					init={$tutorial.init}
 					tools={$tutorial.tools}
 					intro={$tutorial.intro}
-					pwd={$tutorial.pwd}
 				/>
 			</div>
 		{/if}
