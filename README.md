@@ -115,7 +115,8 @@ import Choice from "$components/QuizChoice.svelte";
 
 | Environment variable | Description                 |
 | -------------------- | --------------------------- |
-| `SUPABASE_URL`       | Supabase URL                |
+| `PUBLIC_SUPABASE_URL`       | Supabase URL                |
+| `PUBLIC_SUPABASE_API_KEY`   | Supabase database public key |
 | `SUPABASE_API_KEY`   | Supabase database admin key |
 
 ### Database

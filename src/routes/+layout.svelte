@@ -5,7 +5,6 @@ import { page } from "$app/stores";
 $: path = $page.url.pathname;
 
 // import Login from "$components/Login.svelte";
-import { envInit } from "$stores/config";
 import { onMount } from "svelte";
 
 // // State

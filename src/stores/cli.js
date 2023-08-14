@@ -37,7 +37,7 @@ export const cli = writable({
 	},
 
 	// Mount a File object or URL to the file system
-	mount: async (file, folder = DIR_TUTORIAL) => {
+	mount: async (file) => {
 		if (!(file instanceof File)) {
 			const url = file;
 			const blob = await fetch(url).then((d) => d.blob());
@@ -47,25 +47,24 @@ export const cli = writable({
 
 		const buffer = await file.arrayBuffer();
 		const view = new Uint8Array(buffer);
-		const path = `${folder}/${file.name}`;
+		const path = `${DIR_TUTORIAL}/${file.name}`;
 		await get(cli).emulator.create_file(path, view);
 
 		return path;
 	},
-
-	// -------------------------------------------------------------------------
-	// Not yet used
-	// -------------------------------------------------------------------------
 
 	// List files in a folder
 	ls: (path) => {
 		return get(cli).emulator.fs9p.read_dir(path);
 	},
 
-	// Create a file, given a path and string
-	createFile: async (path, str) => {
-		var buffer = new Uint8Array(str.length);
-		buffer.set(strToChars(str));
+	// Create a file, given a path and contents (string or Uint8Array)
+	createFile: async (path, contents) => {
+		let buffer = contents;
+		if(!(contents instanceof Uint8Array)) {
+			buffer = new Uint8Array(str.length);
+			buffer.set(strToChars(str));
+		}
 
 		await get(cli).emulator.create_file(path, buffer);
 	}

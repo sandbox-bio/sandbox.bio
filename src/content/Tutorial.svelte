@@ -153,7 +153,6 @@ onMount(() => {
 				<Terminal
 					on:status={(event) => ($status.terminal = event.detail)}
 					files={$tutorial.files}
-					init={$tutorial.init}
 					tools={$tutorial.tools}
 					intro={$tutorial.intro}
 				/>

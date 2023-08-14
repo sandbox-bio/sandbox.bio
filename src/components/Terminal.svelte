@@ -56,7 +56,7 @@ function initialize() {
 			initialize();
 			return;
 		}
-		console.log("Terminal ready.");
+		console.log("Terminal ready.", $cli);
 
 		// Initialize addons
 		$cli.addons = {
