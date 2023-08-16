@@ -22,6 +22,7 @@ export let init = ""; // Command to run to initialize the environment (optional)
 export let tools; // Aioli tools to load
 
 let divXtermTerminal; // Xterm.js terminal
+let inputImportVM; // Hidden HTML file input for importing VM state
 let inputMountFiles; // Hidden HTML file input element for mounting local file
 let inputMountFolder; // Hidden HTML file input element for mounting local folder
 let modalKbdOpen = false; // Set to true when the shortcuts modal is open
@@ -112,6 +113,33 @@ function exportHTML() {
 	window.open(url);
 }
 
+// TODO: unused
+// Export the VM state
+async function exportVM() {
+	const arrayBuffer = await $cli.emulator.save_state();
+	const blob = new Blob([arrayBuffer], { type: "application/octet-stream" });
+	const url = URL.createObjectURL(blob);
+	window.open(url);
+}
+
+// TODO: unused
+// Import VM state (importing can sometimes take several seconds before it loads, not sure why)
+async function importVM(event) {
+	const file = event.target.files[0];
+	const arrayBuffer = await file.arrayBuffer();
+
+	// Stop emulator
+	const was_running = $cli.emulator.is_running();
+	if(was_running) {
+		await $cli.emulator.stop();
+	}
+	// Restore state
+	console.log(await $cli.emulator.restore_state(arrayBuffer))
+	// Start it again
+	if(was_running)
+		$cli.emulator.run();
+}
+
 // Mount local file to virtual file system
 async function mountLocalFile(event) {
 	const files = event.target.files;
@@ -146,12 +174,16 @@ async function mountLocalFile(event) {
 				<DropdownItem on:click={() => inputMountFolder.click()}>Mount local folder</DropdownItem>
 				<DropdownItem on:click={exportHTML}>Export as HTML</DropdownItem>
 				<DropdownItem on:click={modalKbdToggle}>Keyboard Shortcuts</DropdownItem>
+				<DropdownItem divider />
+				<DropdownItem on:click={exportVM}>Export VM state</DropdownItem>
+				<DropdownItem on:click={() => inputImportVM.click()}>Import VM state</DropdownItem>
 			</DropdownMenu>
 		</Dropdown>
 	</div>
 </div>
 
 <!-- Hidden input file for mounting local files -->
+<input type="file" on:change={importVM} bind:this={inputImportVM} style="display:none" />
 <input type="file" on:change={mountLocalFile} bind:this={inputMountFiles} style="display:none" multiple />
 <input type="file" on:change={mountLocalFile} bind:this={inputMountFolder} style="display:none" multiple webkitdirectory />
 
