@@ -113,11 +113,11 @@ import Choice from "$components/QuizChoice.svelte";
 | stg         | [stg.sandbox.bio](https://stg.sandbox.bio)   | [Testers](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps) |
 | prd         | [[prd.]sandbox.bio](https://prd.sandbox.bio) | Public                                                                                    |
 
-| Environment variable | Description                 |
-| -------------------- | --------------------------- |
-| `PUBLIC_SUPABASE_URL`       | Supabase URL                |
-| `PUBLIC_SUPABASE_API_KEY`   | Supabase database public key |
-| `SUPABASE_API_KEY`   | Supabase database admin key |
+| Environment variable      | Description                  |
+| ------------------------- | ---------------------------- |
+| `PUBLIC_SUPABASE_URL`     | Supabase URL                 |
+| `PUBLIC_SUPABASE_API_KEY` | Supabase database public key |
+| `SUPABASE_API_KEY`        | Supabase database admin key  |
 
 ### Database
 

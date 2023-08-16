@@ -150,12 +150,7 @@ onMount(() => {
 			<IGV options={config} />
 		{:else}
 			<div id="terminal-wrapper" class="border rounded-3 p-2">
-				<Terminal
-					on:status={(event) => ($status.terminal = event.detail)}
-					files={$tutorial.files}
-					tools={$tutorial.tools}
-					intro={$tutorial.intro}
-				/>
+				<Terminal on:status={(event) => ($status.terminal = event.detail)} files={$tutorial.files} tools={$tutorial.tools} intro={$tutorial.intro} />
 			</div>
 		{/if}
 	</div>

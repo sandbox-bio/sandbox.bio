@@ -75,7 +75,7 @@ function initialize() {
 
 		// Mount tutorial files
 		for (const file of files) {
-			await $cli.mount(`/data/${$tutorial.id}/${file}`);
+			await $cli.mountFile(`/data/${$tutorial.id}/${file}`);
 		}
 	});
 }
@@ -123,7 +123,7 @@ async function mountLocalFile(event) {
 	// Mount files and show them on screen
 	const paths = [];
 	for (const file of files) {
-		paths.push(await $cli.mount(file));
+		paths.push(await $cli.mountFile(file));
 	}
 	const pathsTxt = paths.join("\n\r# ");
 	$cli.xterm.write(`\n\n\r\u001b[0;32m# Files mounted:\n\r# ${pathsTxt}\u001b[0m\n\n\r`);

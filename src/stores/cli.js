@@ -36,8 +36,29 @@ export const cli = writable({
 		}
 	},
 
+	// List files in a folder recursively
+	ls: (path) => {
+		const emulator = get(cli).emulator;
+
+		// Loop through files in the current folder
+		let result = [];
+		const files = emulator.fs9p.read_dir(path);
+		for (const file of files) {
+			// If it's a folder, run ls on it recursively
+			const filePath = `${path}/${file}`;
+			const iNode = emulator.fs9p.SearchPath(filePath);
+			if (emulator.fs9p.IsDirectory(iNode.id)) {
+				result = result.concat(get(cli).ls(filePath));
+			} else {
+				result.push(filePath);
+			}
+		}
+
+		return result;
+	},
+
 	// Mount a File object or URL to the file system
-	mount: async (file) => {
+	mountFile: async (file) => {
 		if (!(file instanceof File)) {
 			const url = file;
 			const blob = await fetch(url).then((d) => d.blob());
@@ -53,9 +74,23 @@ export const cli = writable({
 		return path;
 	},
 
-	// List files in a folder
-	ls: (path) => {
-		return get(cli).emulator.fs9p.read_dir(path);
+	// Read file from path as Uint8Array
+	readFile: async (path) => {
+		// Does file exist?
+		const iNode = get(cli).emulator.fs9p.SearchPath(path);
+		if (iNode.id === -1) {
+			throw "File not found";
+		}
+
+		// If we know the file exists but it's empty, v86 incorrectly raises an exception
+		try {
+			return await get(cli).emulator.read_file(path);
+		} catch (e) {
+			if (e.message === "File not found") {
+				return new Uint8Array(0);
+			}
+			throw message;
+		}
 	},
 
 	// Create a file, given a path and contents (string or Uint8Array)
@@ -63,7 +98,7 @@ export const cli = writable({
 		const emulator = get(cli).emulator;
 
 		let buffer = contents;
-		if(!(contents instanceof Uint8Array)) {
+		if (!(contents instanceof Uint8Array)) {
 			buffer = new Uint8Array(contents.length);
 			buffer.set(strToChars(contents));
 		}
@@ -72,12 +107,12 @@ export const cli = writable({
 		// since we currently can't tell when a command is done running.
 		let currPath = "";
 		const pathElements = path.split("/").slice(0, -1);
-		for(const element of pathElements) {
+		for (const element of pathElements) {
 			currPath += `${element}/`;
 
 			// If folder doesn't exist, create it
 			const currINode = emulator.fs9p.SearchPath(currPath);
-			if(currINode.id === -1) {
+			if (currINode.id === -1) {
 				emulator.fs9p.CreateDirectory(element, currINode.parentid);
 			}
 		}
