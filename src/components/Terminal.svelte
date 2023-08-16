@@ -22,8 +22,8 @@ export let init = ""; // Command to run to initialize the environment (optional)
 export let tools; // Aioli tools to load
 
 let divXtermTerminal; // Xterm.js terminal
-let fileInputSingle; // Hidden HTML file input element for mounting local file
-let fileInputFolder; // Hidden HTML file input element for mounting local folder
+let inputMountFiles; // Hidden HTML file input element for mounting local file
+let inputMountFolder; // Hidden HTML file input element for mounting local folder
 let modalKbdOpen = false; // Set to true when the shortcuts modal is open
 let modalKbdToggle = () => (modalKbdOpen = !modalKbdOpen);
 
@@ -64,12 +64,9 @@ function initialize() {
 			fit: new FitAddon(), // Fit the terminal onto the screen
 			links: new WebLinksAddon() // Turns text links into hyperlinks
 		};
-
-		// Initialize addons
 		for (const addonName in $cli.addons) {
 			$cli.xterm.loadAddon($cli.addons[addonName]);
 		}
-
 		// Make sure terminal takes up the entire div height-wise
 		handleResize();
 
@@ -107,7 +104,7 @@ function handleResize() {
 // =============================================================================
 
 // Export ANSI to HTML and open in new tab
-function exportTerminal() {
+function exportHTML() {
 	const terminalRaw = $cli.addons.serialize.serialize();
 	const terminalHTML = "<pre>" + new AnsiUp().ansi_to_html(terminalRaw) + "</pre>";
 	const blob = new Blob([terminalHTML], { type: "text/html" });
@@ -145,9 +142,9 @@ async function mountLocalFile(event) {
 				<Icon name="three-dots-vertical" />
 			</DropdownToggle>
 			<DropdownMenu>
-				<DropdownItem on:click={() => fileInputSingle.click()}>Mount local files</DropdownItem>
-				<DropdownItem on:click={() => fileInputFolder.click()}>Mount local folder</DropdownItem>
-				<DropdownItem on:click={exportTerminal}>Export as HTML</DropdownItem>
+				<DropdownItem on:click={() => inputMountFiles.click()}>Mount local files</DropdownItem>
+				<DropdownItem on:click={() => inputMountFolder.click()}>Mount local folder</DropdownItem>
+				<DropdownItem on:click={exportHTML}>Export as HTML</DropdownItem>
 				<DropdownItem on:click={modalKbdToggle}>Keyboard Shortcuts</DropdownItem>
 			</DropdownMenu>
 		</Dropdown>
@@ -155,8 +152,8 @@ async function mountLocalFile(event) {
 </div>
 
 <!-- Hidden input file for mounting local files -->
-<input type="file" on:change={mountLocalFile} bind:this={fileInputSingle} style="display:none" multiple />
-<input type="file" on:change={mountLocalFile} bind:this={fileInputFolder} style="display:none" multiple webkitdirectory />
+<input type="file" on:change={mountLocalFile} bind:this={inputMountFiles} style="display:none" multiple />
+<input type="file" on:change={mountLocalFile} bind:this={inputMountFolder} style="display:none" multiple webkitdirectory />
 
 <!-- Keyboard Shortcuts Modal -->
 <Modal body header="Keyboard Shortcuts" isOpen={modalKbdOpen} toggle={modalKbdToggle}>

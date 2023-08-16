@@ -62,8 +62,8 @@ export const cli = writable({
 	createFile: async (path, contents) => {
 		let buffer = contents;
 		if(!(contents instanceof Uint8Array)) {
-			buffer = new Uint8Array(str.length);
-			buffer.set(strToChars(str));
+			buffer = new Uint8Array(contents.length);
+			buffer.set(strToChars(contents));
 		}
 
 		await get(cli).emulator.create_file(path, buffer);

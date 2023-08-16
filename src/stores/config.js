@@ -1,4 +1,4 @@
-import { readable, writable } from "svelte/store";
+import { get, readable, writable } from "svelte/store";
 import { createClient } from "@supabase/supabase-js";
 import { env } from "$env/dynamic/public";
 
