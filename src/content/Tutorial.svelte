@@ -161,7 +161,7 @@ onMount(() => {
 	</div>
 </div>
 
-<!-- TODO: this throws "Uncaught TypeError: Cannot read properties of undefined (reading 'autoClose')"
+<!-- Note: this throws "Uncaught TypeError: Cannot read properties of undefined (reading 'autoClose')"
 	when clicking a lesson, but it still works -->
 <Offcanvas header="Lessons" placement="end" isOpen={tocOpen} toggle={tocToggle}>
 	<DropdownItem header class="text-muted">Introduction</DropdownItem>

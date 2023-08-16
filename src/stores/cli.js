@@ -1,5 +1,5 @@
 import { get, writable } from "svelte/store";
-import { DIR_TUTORIAL } from "$stores/config";
+import { DIR_TUTORIAL } from "$src/config";
 
 function strToChars(str) {
 	const chars = str.split("");
@@ -60,12 +60,28 @@ export const cli = writable({
 
 	// Create a file, given a path and contents (string or Uint8Array)
 	createFile: async (path, contents) => {
+		const emulator = get(cli).emulator;
+
 		let buffer = contents;
 		if(!(contents instanceof Uint8Array)) {
 			buffer = new Uint8Array(contents.length);
 			buffer.set(strToChars(contents));
 		}
 
-		await get(cli).emulator.create_file(path, buffer);
+		// Create all sub-folders needed to store this file. Not using `cli.exec(mkdir, true)`
+		// since we currently can't tell when a command is done running.
+		let currPath = "";
+		const pathElements = path.split("/").slice(0, -1);
+		for(const element of pathElements) {
+			currPath += `${element}/`;
+
+			// If folder doesn't exist, create it
+			const currINode = emulator.fs9p.SearchPath(currPath);
+			if(currINode.id === -1) {
+				emulator.fs9p.CreateDirectory(element, currINode.parentid);
+			}
+		}
+
+		await emulator.create_file(path, buffer);
 	}
 });
