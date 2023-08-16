@@ -9,7 +9,8 @@ import { SerializeAddon } from "xterm-addon-serialize";
 import { V86Starter } from "$thirdparty/v86/libv86";
 import { cli } from "$stores/cli";
 import { tutorial } from "$stores/tutorial";
-import { DIR_TUTORIAL, DIR_TUTORIAL_SHORT } from "$src/config";
+import { LocalState } from "$src/utils";
+import { DIR_TUTORIAL, DIR_TUTORIAL_SHORT, MAX_FILE_SIZE_TO_CACHE } from "$src/config";
 import "xterm/css/xterm.css";
 
 // =============================================================================
@@ -96,6 +97,31 @@ function handleResize() {
 		//  - Changing `this.max_cols` in v86 `vga.js`
 		const dims = $cli.addons.fit.proposeDimensions();
 		$cli.xterm.resize(80, dims.rows);
+	}
+}
+
+// =============================================================================
+// File system sync
+// =============================================================================
+
+// Save FS state to localforage
+async function fsSave() {
+	const fs = [];
+	const paths = $cli.ls(DIR_TUTORIAL);
+	for (const path of paths) {
+		const contents = await $cli.readFile(path);
+		if (contents.length <= MAX_FILE_SIZE_TO_CACHE) {
+			fs.push({ path, contents });
+		}
+	}
+	await LocalState.setFS($tutorial.id, fs);
+}
+
+// Load FS state from localforage
+async function fsLoad() {
+	const files = await LocalState.getFS($tutorial.id);
+	for (const file of files) {
+		await $cli.createFile(file.path, file.contents);
 	}
 }
 
