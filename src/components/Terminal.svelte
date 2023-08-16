@@ -27,6 +27,7 @@ let inputMountFiles; // Hidden HTML file input element for mounting local file
 let inputMountFolder; // Hidden HTML file input element for mounting local folder
 let modalKbdOpen = false; // Set to true when the shortcuts modal is open
 let modalKbdToggle = () => (modalKbdOpen = !modalKbdOpen);
+let timerSyncFS; // JS timeout used to sync filesystem contents
 
 // =============================================================================
 // Initialization
@@ -36,6 +37,10 @@ onMount(initialize);
 
 function initialize() {
 	console.log("Initializing terminal...");
+
+	if(timerSyncFS) {
+		clearTimeout(timerSyncFS);
+	}
 
 	$cli.emulator = new V86Starter({
 		wasm_path: "/v86/v86.wasm",
@@ -74,10 +79,15 @@ function initialize() {
 		// Initialize command line
 		$cli.xterm.write(`root@localhost:${DIR_TUTORIAL_SHORT}# `);
 
+		// Mount previously synced FS
+		await fsLoad();
 		// Mount tutorial files
 		for (const file of files) {
 			await $cli.mountFile(`/data/${$tutorial.id}/${file}`);
 		}
+
+		// Start syncing FS
+		fsSync();
 	});
 }
 
@@ -103,6 +113,15 @@ function handleResize() {
 // =============================================================================
 // File system sync
 // =============================================================================
+
+async function fsSync() {
+	// If navigate away from tutorial, stop syncing
+	if(!$tutorial.id) return;
+	console.log("Saving FS state...");
+
+	await fsSave();
+	timerSyncFS = setTimeout(fsSync, 1000);
+}
 
 // Save FS state to localforage
 async function fsSave() {

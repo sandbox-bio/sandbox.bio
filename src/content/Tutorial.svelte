@@ -1,5 +1,5 @@
 <script>
-import { onMount } from "svelte";
+import { onDestroy, onMount } from "svelte";
 import { Button, DropdownItem, Offcanvas } from "sveltestrap";
 import { progress } from "$stores/config";
 import { status } from "$stores/status";
@@ -64,6 +64,11 @@ function nextStep(step) {
 onMount(() => {
 	logStep(null, step);
 });
+
+// When leave tutorial, reset state
+onDestroy(() => {
+	$tutorial = {};
+})
 </script>
 
 <div class="container-fluid pb-3 px-0">
