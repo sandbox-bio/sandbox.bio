@@ -10,7 +10,7 @@ import { V86Starter } from "$thirdparty/v86/libv86";
 import { cli } from "$stores/cli";
 import { tutorial } from "$stores/tutorial";
 import { LocalState, log } from "$src/utils";
-import { DIR_TUTORIAL, DIR_TUTORIAL_SHORT, LOGGING_DEBUG, MAX_FILE_SIZE_TO_CACHE } from "$src/config";
+import { BUS_SERIAL_OUTPUT, DIR_TUTORIAL, DIR_TUTORIAL_SHORT, LOGGING_DEBUG, MAX_FILE_SIZE_TO_CACHE } from "$src/config";
 import "xterm/css/xterm.css";
 
 // =============================================================================
@@ -57,9 +57,11 @@ function initialize() {
 	});
 
 	$cli.emulator.bus.register("emulator-loaded", async () => {
+		$cli.xterm = $cli.emulator.serial_adapter.term;
+		$cli.listeners = $cli.emulator.bus.listeners[BUS_SERIAL_OUTPUT];
+
 		// Make sure everything loaded correctly. If not, try again.
 		// Otherwise, get issues where `term` variable is null and waiting for it to be set does not help.
-		$cli.xterm = $cli.emulator.serial_adapter.term;
 		if (!$cli.xterm) {
 			initialize();
 			return;
@@ -100,17 +102,14 @@ function handleResize() {
 	if ($cli.addons.fit) {
 		$cli.addons.fit.fit();
 
-		// FIXME: for now, keep at 80 cols, but increase rows to match page height. Anything that isn't = 80 will give
-		// behavior where a long command will not wrap to the next line but will overwrite the current line. It could
-		// be because v86 needs to be updated to also change number of columns, but that hasn't worked so far.
-		//
-		// Tried the following and it didn't work:
-		//  - $cli.emulator.screen_adapter.set_size_text(dims.cols, dims.rows);
-		//  - $cli.emulator.v86.cpu.devices.vga.set_size_text(dims.cols, dims.rows)
-		//  - Comment out `SerialAdapterXtermJS.prototype.show` and do .open() after load addons
-		//  - Changing `this.max_cols` in v86 `vga.js`
+		// If we resize the terminal's number of rows/cols on xterm.js, we also need to update those
+		// values for the actual terminal itself. Otherwise, the following issues arise:
+		// - Long commands don't wrap to the next line and start overwriting the start of the command
+		// - Editing previously run long-commands shows odd spacing behavior
+		// - TUIs like `top` and `vim` don't load in full screen
 		const dims = $cli.addons.fit.proposeDimensions();
-		$cli.xterm.resize(80, dims.rows);
+		let command = `stty rows ${dims.rows} cols ${dims.cols}`;
+		$cli.exec(`${command}`, true);
 	}
 }
 

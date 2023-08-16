@@ -1,5 +1,5 @@
 import { get, writable } from "svelte/store";
-import { DIR_TUTORIAL } from "$src/config";
+import { BUS_SERIAL_OUTPUT, DIR_TUTORIAL } from "$src/config";
 
 function strToChars(str) {
 	const chars = str.split("");
@@ -12,6 +12,7 @@ export const cli = writable({
 	// State
 	// -------------------------------------------------------------------------
 	emulator: null,
+	listeners: [],
 	xterm: null,
 	addons: {
 		serialize: null,
@@ -27,12 +28,23 @@ export const cli = writable({
 		const command = `${cmd}\n`;
 		const emulator = get(cli).emulator;
 
-		// Execute a command without displaying it in the terminal
+		// Execute a command without displaying it in the terminal. We could use `emulator.keyboard_send_text(command);`
+		// and that would work for commands that affect the file system, but not commands that affect the current bash
+		// session, e.g. `stty`, env variables, etc.
 		if (background) {
-			emulator.keyboard_send_text(command);
-		} else {
-			const chars = strToChars(command);
-			chars.forEach((c) => emulator.bus.send("serial0-input", c));
+			emulator.bus.listeners[BUS_SERIAL_OUTPUT] = [];
+		}
+
+		// Send command
+		const chars = strToChars(command);
+		chars.forEach((c) => emulator.bus.send("serial0-input", c));
+
+		// Bring back listeners after a short delay
+		// FIXME: is there a way to make this more robust?
+		if(background) {
+			setTimeout(() => {
+				emulator.bus.listeners[BUS_SERIAL_OUTPUT] = get(cli).listeners;
+			}, 500)
 		}
 	},
 
