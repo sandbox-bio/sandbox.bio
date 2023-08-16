@@ -1,4 +1,5 @@
 import localforage from "localforage";
+import { LOGGING } from "$src/config";
 
 const KEY_FILESYSTEM = "fs";
 
@@ -14,4 +15,10 @@ export class LocalState {
 		const key = `guest:${KEY_FILESYSTEM}:${tutorial}`;
 		return localforage.setItem(key, value);
 	}
+}
+
+export function log(level, message) {
+    if(LOGGING >= level) {
+        console.log(message);
+    }
 }

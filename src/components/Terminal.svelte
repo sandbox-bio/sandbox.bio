@@ -1,6 +1,6 @@
 <script>
 import { onMount } from "svelte";
-import { Table, Modal, DropdownMenu, Dropdown, DropdownToggle, DropdownItem, Icon } from "sveltestrap";
+import { Table, Modal, DropdownMenu, Dropdown, DropdownToggle, DropdownItem, Icon, Spinner } from "sveltestrap";
 import AnsiUp from "ansi_up";
 import { watchResize } from "svelte-watch-resize";
 import { FitAddon } from "xterm-addon-fit";
@@ -9,8 +9,8 @@ import { SerializeAddon } from "xterm-addon-serialize";
 import { V86Starter } from "$thirdparty/v86/libv86";
 import { cli } from "$stores/cli";
 import { tutorial } from "$stores/tutorial";
-import { LocalState } from "$src/utils";
-import { DIR_TUTORIAL, DIR_TUTORIAL_SHORT, MAX_FILE_SIZE_TO_CACHE } from "$src/config";
+import { LocalState, log } from "$src/utils";
+import { DIR_TUTORIAL, DIR_TUTORIAL_SHORT, LOGGING_DEBUG, MAX_FILE_SIZE_TO_CACHE } from "$src/config";
 import "xterm/css/xterm.css";
 
 // =============================================================================
@@ -22,6 +22,7 @@ export let intro = ""; // Intro string to display on Terminal once ready (option
 export let init = ""; // Command to run to initialize the environment (optional)
 export let tools; // Aioli tools to load
 
+let loading = false;
 let divXtermTerminal; // Xterm.js terminal
 let inputMountFiles; // Hidden HTML file input element for mounting local file
 let inputMountFolder; // Hidden HTML file input element for mounting local folder
@@ -37,6 +38,7 @@ onMount(initialize);
 
 function initialize() {
 	console.log("Initializing terminal...");
+	loading = true;
 
 	if(timerSyncFS) {
 		clearTimeout(timerSyncFS);
@@ -88,6 +90,8 @@ function initialize() {
 
 		// Start syncing FS
 		fsSync();
+
+		loading = false;
 	});
 }
 
@@ -117,7 +121,7 @@ function handleResize() {
 async function fsSync() {
 	// If navigate away from tutorial, stop syncing
 	if(!$tutorial.id) return;
-	console.log("Saving FS state...");
+	log(LOGGING_DEBUG, "Saving FS state...");
 
 	await fsSave();
 	timerSyncFS = setTimeout(fsSync, 1000);
@@ -180,7 +184,10 @@ async function mountLocalFile(event) {
 </script>
 
 <!-- Terminal -->
-<div id="terminal" bind:this={divXtermTerminal} use:watchResize={handleResize}>
+<div id="terminal" bind:this={divXtermTerminal} use:watchResize={handleResize} class:opacity-25={loading}>
+	{#if loading}
+		<Spinner color="light" type="border" style="position:absolute" />
+	{/if}
 	<div class="cli-options">
 		<Dropdown autoClose={true}>
 			<DropdownToggle color="dark" size="sm">
