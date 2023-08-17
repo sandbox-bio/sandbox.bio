@@ -1,19 +1,13 @@
 <script>
-import { status } from "$stores/status";
-import { cli } from "$stores/cli";
 import { Button, FormGroup, Icon, ListGroup, ListGroupItem, Spinner } from "sveltestrap";
+import { cli } from "$stores/cli";
+import { DIR_TUTORIAL } from "$src/config";
 
 export let criteria = []; // List of criteria that must be true for the exercise to be complete
 export let hints = []; // Hints to show user
 let statuses = []; // Status of each criteria (true/false)
 let busy = false; // Whether the user manually asked to check their work
 let nbHints = 0;
-
-// Check status every time a command finishes running
-$: if ($status.terminal == "execDone") {
-	console.log("Checking solutions...");
-	check();
-}
 
 $: isDone = statuses.filter((d) => d).length == statuses.length && statuses.length != 0;
 
@@ -22,38 +16,34 @@ async function check(manual = false) {
 	// If user clicked the button, we want them to know we received their click
 	if (manual) {
 		busy = true;
-		setTimeout(() => (busy = false), 300);
+		setTimeout(() => (busy = false), 100);
 	}
 
 	// Validate criteria
 	for (let i in criteria) {
 		const criterion = criteria[i];
 		try {
-			for (let check of criterion.checks || [])
-				if (check.type == "file") {
-					// Does file exist?
-					if (check.action == "exists") {
-						const result = await $cli.ls(`/root/${check.path}`);
-						if (!result) throw "File not found";
-						statuses[i] = true;
-					}
-
-					// Does file content match expectation? Define the right answer using a CLI invocation
-					else if (check.action == "contents") {
-						const result = await $cli.ls(`/root/${check.path}`);
-						if (!result) throw "File not found";
-
-						// Parse settings
-						const commandExpected = check.commandExpected;
-						const commandObserved = check.commandObserved || `cat ${check.path}`;
-
-						console.log("TODO: run", commandExpected);
-						// Calculate and compare expected vs. observed
-						// const expected = await $cli.exec(commandExpected);
-						// const observed = await $cli.exec(commandObserved);
-						// statuses[i] = observed == expected;
-					}
+			// Does file exist?
+			for (let check of criterion.checks || []) {
+				if (check.action == "exists") {
+					const ls = $cli.ls(`${DIR_TUTORIAL}/${check.path}`);
+					if (!ls) throw "File not found";
+					statuses[i] = true;
 				}
+
+				// Does file content match expectation? Define the right answer using a CLI invocation
+				else if (check.action == "contents") {
+					const ls = $cli.ls(`${DIR_TUTORIAL}/${check.path}`);
+					if (!ls) throw "File not found";
+
+					// Parse settings
+					const commandExpected = check.commandExpected;
+					const commandObserved = check.commandObserved || `cat ${check.path}`;
+
+
+
+				}
+			}
 		} catch (error) {
 			statuses[i] = false;
 		}

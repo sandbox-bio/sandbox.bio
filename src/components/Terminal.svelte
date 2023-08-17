@@ -10,7 +10,7 @@ import { V86Starter } from "$thirdparty/v86/libv86";
 import { cli } from "$stores/cli";
 import { tutorial } from "$stores/tutorial";
 import { LocalState, log } from "$src/utils";
-import { BUS_SERIAL_OUTPUT, DIR_TUTORIAL, DIR_TUTORIAL_SHORT, LOGGING_DEBUG, MAX_FILE_SIZE_TO_CACHE } from "$src/config";
+import { BUS_SERIAL_OUTPUT, DIR_TUTORIAL, DIR_TUTORIAL_SHORT, LOGGING_DEBUG, LOGGING_INFO, MAX_FILE_SIZE_TO_CACHE } from "$src/config";
 import "xterm/css/xterm.css";
 
 // =============================================================================
@@ -40,7 +40,7 @@ function initialize() {
 	console.log("Initializing terminal...");
 	loading = true;
 
-	if(timerSyncFS) {
+	if (timerSyncFS) {
 		clearTimeout(timerSyncFS);
 	}
 
@@ -78,7 +78,7 @@ function initialize() {
 			$cli.xterm.loadAddon($cli.addons[addonName]);
 		}
 		// Make sure terminal takes up the entire div height-wise
-		handleResize();
+		handleResize(true);
 
 		// Initialize command line
 		$cli.xterm.write(`root@localhost:${DIR_TUTORIAL_SHORT}# `);
@@ -98,7 +98,7 @@ function initialize() {
 }
 
 // When window resizes, update terminal size
-function handleResize() {
+function handleResize(hidden = false) {
 	if ($cli.addons.fit) {
 		$cli.addons.fit.fit();
 
@@ -108,8 +108,8 @@ function handleResize() {
 		// - Editing previously run long-commands shows odd spacing behavior
 		// - TUIs like `top` and `vim` don't load in full screen
 		const dims = $cli.addons.fit.proposeDimensions();
-		let command = `stty rows ${dims.rows} cols ${dims.cols}`;
-		$cli.exec(`${command}`, true);
+		log(LOGGING_INFO, "Resize terminal", dims);
+		$cli.exec(`stty rows ${dims.rows} cols ${dims.cols}`, hidden, true);
 	}
 }
 
@@ -119,7 +119,7 @@ function handleResize() {
 
 async function fsSync() {
 	// If navigate away from tutorial, stop syncing
-	if(!$tutorial.id) return;
+	if (!$tutorial.id) return;
 	log(LOGGING_DEBUG, "Saving FS state...");
 
 	await fsSave();

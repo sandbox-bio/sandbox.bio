@@ -19,7 +19,7 @@ let criteria = [
 		type: "file",
 		path: "large_orders.tsv",
 		action: "contents",
-		commandExpected: `awk -F "\t" '{ if($2 >= 5) print }' orders.tsv`
+		commandExpected: `awk -F "\\t" '{ if($2 >= 5) print }' orders.tsv`
 	}]
 }];
 </script>

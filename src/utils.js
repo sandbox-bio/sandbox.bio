@@ -17,8 +17,8 @@ export class LocalState {
 	}
 }
 
-export function log(level, message) {
-    if(LOGGING >= level) {
-        console.log(message);
-    }
+export function log(level, ...message) {
+	if (LOGGING >= level) {
+		console.log(...message);
+	}
 }

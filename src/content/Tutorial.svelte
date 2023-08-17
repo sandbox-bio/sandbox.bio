@@ -68,7 +68,7 @@ onMount(() => {
 // When leave tutorial, reset state
 onDestroy(() => {
 	$tutorial = {};
-})
+});
 </script>
 
 <div class="container-fluid pb-3 px-0">

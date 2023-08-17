@@ -24,31 +24,34 @@ export const cli = writable({
 	// -------------------------------------------------------------------------
 
 	// Run a command on the command line
-	exec: (cmd, background = false) => {
+	exec: (cmd, background = false, session = false) => {
 		const command = `${cmd}\n`;
 		const emulator = get(cli).emulator;
 
-		// Execute a command without displaying it in the terminal. We could use `emulator.keyboard_send_text(command);`
-		// and that would work for commands that affect the file system, but not commands that affect the current bash
-		// session, e.g. `stty`, env variables, etc.
-		if (background) {
-			emulator.bus.listeners[BUS_SERIAL_OUTPUT] = [];
+		if (background && !session) {
+			emulator.keyboard_send_text(command);
+		} else {
+			// Execute a command without displaying it in the terminal. We could use `emulator.keyboard_send_text(command);`
+			// and that would work for commands that affect the file system, but not commands that affect the current bash
+			// session, e.g. `stty`, env variables, etc.
+			if (session) {
+				emulator.bus.listeners[BUS_SERIAL_OUTPUT] = [];
+			}
+
+			// Send command
+			const chars = strToChars(command);
+			chars.forEach((c) => emulator.bus.send("serial0-input", c));
 		}
 
-		// Send command
-		const chars = strToChars(command);
-		chars.forEach((c) => emulator.bus.send("serial0-input", c));
-
 		// Bring back listeners after a short delay
-		// FIXME: is there a way to make this more robust?
-		if(background) {
+		if (background && session) {
 			setTimeout(() => {
 				emulator.bus.listeners[BUS_SERIAL_OUTPUT] = get(cli).listeners;
-			}, 500)
+			}, 500);
 		}
 	},
 
-	// List files in a folder recursively
+	// List files in a folder recursively (if path is to a file, returns [] if exists, undefined otherwise)
 	ls: (path) => {
 		const emulator = get(cli).emulator;
 
