@@ -88,7 +88,7 @@ function initialize() {
 		await fsLoad();
 		// Mount tutorial files
 		for (const file of files) {
-			await $cli.mountFile(`/data/${$tutorial.id}/${file}`);
+			await $cli.mountFile(file, `/data/${$tutorial.id}/${file}`);
 		}
 
 		// Start syncing FS
@@ -174,7 +174,7 @@ async function mountLocalFile(event) {
 	// Mount files and show them on screen
 	const paths = [];
 	for (const file of files) {
-		paths.push(await $cli.mountFile(file));
+		paths.push(await $cli.mountFile(file.name, file));
 	}
 	const pathsTxt = paths.join("\n\r# ");
 	$cli.xterm.write(`\n\n\r\u001b[0;32m# Files mounted:\n\r# ${pathsTxt}\u001b[0m\n\n\r`);

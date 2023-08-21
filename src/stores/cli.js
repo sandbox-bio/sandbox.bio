@@ -29,8 +29,10 @@ export const cli = writable({
 	// -------------------------------------------------------------------------
 
 	// Run a command on the command line
-	exec: (cmd, { mode = EXEC_MODE_TERMINAL, callback }) => {
+	exec: (cmd, { mode, callback } = { mode: EXEC_MODE_TERMINAL, callback: null }) => {
 		let command = `${cmd}\n`;
+		command = command.replace(/ \\ /g, ""); // for commands in tutorials split over multiple lines
+
 		const chars = strToChars(command);
 		const emulator = get(cli).emulator;
 
@@ -100,7 +102,7 @@ export const cli = writable({
 	},
 
 	// Mount a File object or URL to the file system
-	mountFile: async (file) => {
+	mountFile: async (path, file) => {
 		if (!(file instanceof File)) {
 			const url = file;
 			const blob = await fetch(url).then((d) => d.blob());
@@ -110,8 +112,7 @@ export const cli = writable({
 
 		const buffer = await file.arrayBuffer();
 		const view = new Uint8Array(buffer);
-		const path = `${DIR_TUTORIAL}/${file.name}`;
-		await get(cli).emulator.create_file(path, view);
+		await get(cli).createFile(`${DIR_TUTORIAL}/${path}`, view);
 
 		return path;
 	},
