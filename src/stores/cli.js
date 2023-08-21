@@ -84,6 +84,7 @@ export const cli = writable({
 	ls: (path) => {
 		const emulator = get(cli).emulator;
 
+
 		// Loop through files in the current folder
 		let result = [];
 		const files = emulator.fs9p.read_dir(path);
