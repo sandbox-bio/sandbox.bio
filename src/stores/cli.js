@@ -1,5 +1,9 @@
 import { get, writable } from "svelte/store";
-import { BUS_SERIAL_OUTPUT, DIR_TUTORIAL } from "$src/config";
+import { BUS_SERIAL_INPUT, BUS_SERIAL_OUTPUT, DIR_TUTORIAL } from "$src/config";
+
+export const EXEC_MODE_TERMINAL = "terminal";
+export const EXEC_MODE_TERMINAL_HIDDEN = "terminal-hidden";
+export const EXEC_MODE_BUS = "bus";
 
 function strToChars(str) {
 	const chars = str.split("");
@@ -23,28 +27,30 @@ export const cli = writable({
 	// Utilities
 	// -------------------------------------------------------------------------
 
-	// Run a command on the command line
-	exec: (cmd, background = false, session = false) => {
+	// Run a command on the command line (mode=foreground, foreground-hidden, background)
+	exec: (cmd, { mode = EXEC_MODE_TERMINAL }) => {
 		const command = `${cmd}\n`;
+		const chars = strToChars(command);
 		const emulator = get(cli).emulator;
 
-		if (background && !session) {
+		if (mode === EXEC_MODE_TERMINAL) {
+			// Command executed in user's terminal
+			chars.forEach((c) => emulator.bus.send(BUS_SERIAL_INPUT, c));
+		} else if (mode === EXEC_MODE_BUS) {
+			// Command executed on the background, skipping xterm, and not visible to the user
 			emulator.keyboard_send_text(command);
-		} else {
-			// Execute a command without displaying it in the terminal. We could use `emulator.keyboard_send_text(command);`
-			// and that would work for commands that affect the file system, but not commands that affect the current bash
-			// session, e.g. `stty`, env variables, etc.
-			if (session) {
-				emulator.bus.listeners[BUS_SERIAL_OUTPUT] = [];
-			}
+		} else if (mode === EXEC_MODE_TERMINAL_HIDDEN) {
+			// Command executed in xterm, but not visible to the user. This is useful when you want to
+			// run a command that affects the current bash session, but in the background: e.g. running
+			// `stty` and defining env variables.
+
+			// Temporarily remove listeners so the xterm UI doesn't show the command
+			emulator.bus.listeners[BUS_SERIAL_OUTPUT] = [];
 
 			// Send command
-			const chars = strToChars(command);
-			chars.forEach((c) => emulator.bus.send("serial0-input", c));
-		}
+			chars.forEach((c) => emulator.bus.send(BUS_SERIAL_INPUT, c));
 
-		// Bring back listeners after a short delay
-		if (background && session) {
+			// Bring back listeners after a short delay
 			setTimeout(() => {
 				emulator.bus.listeners[BUS_SERIAL_OUTPUT] = get(cli).listeners;
 			}, 500);

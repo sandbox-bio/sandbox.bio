@@ -7,7 +7,7 @@ import { FitAddon } from "xterm-addon-fit";
 import { WebLinksAddon } from "xterm-addon-web-links";
 import { SerializeAddon } from "xterm-addon-serialize";
 import { V86Starter } from "$thirdparty/v86/libv86";
-import { cli } from "$stores/cli";
+import { EXEC_MODE_TERMINAL, EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
 import { tutorial } from "$stores/tutorial";
 import { LocalState, log } from "$src/utils";
 import { BUS_SERIAL_OUTPUT, DIR_TUTORIAL, DIR_TUTORIAL_SHORT, LOGGING_DEBUG, LOGGING_INFO, MAX_FILE_SIZE_TO_CACHE } from "$src/config";
@@ -53,7 +53,9 @@ function initialize() {
 		screen_dummy: true, // since we're using xterm.js, no need for "screen_container" div
 		serial_container_xtermjs: divXtermTerminal,
 		disable_mouse: true, // make sure we're still able to select text on the screen
-		disable_speaker: true
+		disable_speaker: true,
+		uart1: true // we'll use serial port 1 to communicate with v86 from JavaScript
+	});
 	});
 
 	$cli.emulator.bus.register("emulator-loaded", async () => {
@@ -109,7 +111,9 @@ function handleResize(hidden = false) {
 		// - TUIs like `top` and `vim` don't load in full screen
 		const dims = $cli.addons.fit.proposeDimensions();
 		log(LOGGING_INFO, "Resize terminal", dims);
-		$cli.exec(`stty rows ${dims.rows} cols ${dims.cols}`, hidden, true);
+		$cli.exec(`stty rows ${dims.rows} cols ${dims.cols}`, {
+			mode: hidden ? EXEC_MODE_TERMINAL_HIDDEN : EXEC_MODE_TERMINAL
+		});
 	}
 }
 
