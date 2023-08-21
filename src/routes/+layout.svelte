@@ -74,7 +74,7 @@ let isNavbarOpen;
 
 <svelte:head>
 	<title>sandbox.bio</title>
-	<script src="/v86/xterm.js"></script>
+	<script src="https://assets.sandbox.bio/v86/xterm.js"></script>
 </svelte:head>
 
 <!-- Bootstrap CSS and icons -->

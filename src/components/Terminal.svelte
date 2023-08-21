@@ -45,10 +45,10 @@ function initialize() {
 	}
 
 	$cli.emulator = new V86Starter({
-		wasm_path: "/v86/v86.wasm",
+		wasm_path: "https://assets.sandbox.bio/v86/v86.wasm",
 		memory_size: 512 * 1024 * 1024,
-		initial_state: { url: "/v86/debian-state-base.bin.zst" },
-		filesystem: { baseurl: "/v86/debian-9p-rootfs-flat/" },
+		initial_state: { url: "https://assets.sandbox.bio/v86/debian-state-base.bin.zst" },
+		filesystem: { baseurl: "https://assets.sandbox.bio/v86/debian-9p-rootfs-flat/" },
 		autostart: true,
 		screen_dummy: true, // since we're using xterm.js, no need for "screen_container" div
 		serial_container_xtermjs: divXtermTerminal,

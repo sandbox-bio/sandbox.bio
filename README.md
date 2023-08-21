@@ -25,8 +25,16 @@ npm run dev
 
 ### Deploy
 
+TODO: Update this
+
 ```bash
-npm run deploy-dev
+# Generate static assets (see https://github.com/sandbox-bio/v86/blob/master/NOTES.md)
+git clone https://github.com/sandbox-bio/v86.git && cd v86
+make all
+make build/xterm.js
+
+# Upload static assets
+aws --endpoint-url https://$ID.r2.cloudflarestorage.com s3 cp --recursive static/v86 s3://sandbox-bio/v86/
 ```
 
 ### Debugging
