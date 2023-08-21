@@ -1,6 +1,6 @@
 <script>
 import { Button, FormGroup, Icon, ListGroup, ListGroupItem, Spinner } from "sveltestrap";
-import { cli } from "$stores/cli";
+import { EXEC_MODE_BUS, cli } from "$stores/cli";
 import { DIR_TUTORIAL } from "$src/config";
 
 export let criteria = []; // List of criteria that must be true for the exercise to be complete
@@ -40,13 +40,24 @@ async function check(manual = false) {
 					const commandExpected = check.commandExpected;
 					const commandObserved = check.commandObserved || `cat ${check.path}`;
 
-
-
+					// Diff expected vs. observed (diff outputs nothing if equal)
+					$cli.exec(`cd ${DIR_TUTORIAL} && diff -q <(${commandObserved}) <(${commandExpected}) | wc -l`, {
+						mode: EXEC_MODE_BUS,
+						callback: (s) => {
+							console.log("[Exercise check] Valid =", s == 0);
+							statuses[i] = s == 0;
+						}
+					});
 				}
 			}
 		} catch (error) {
 			statuses[i] = false;
 		}
+	}
+
+	// Check exercise status regularly
+	if (!statuses.every((d) => d === true)) {
+		setTimeout(check, 1000);
 	}
 }
 setTimeout(check, 500);

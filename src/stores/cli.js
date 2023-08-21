@@ -1,9 +1,10 @@
 import { get, writable } from "svelte/store";
-import { BUS_SERIAL_INPUT, BUS_SERIAL_OUTPUT, DIR_TUTORIAL } from "$src/config";
+import { BUS_SERIAL_APP_OUTPUT, BUS_SERIAL_INPUT, BUS_SERIAL_OUTPUT, DIR_TUTORIAL } from "$src/config";
 
 export const EXEC_MODE_TERMINAL = "terminal";
 export const EXEC_MODE_TERMINAL_HIDDEN = "terminal-hidden";
 export const EXEC_MODE_BUS = "bus";
+const SANDBOX_END_MARKER = "__sandbox__";
 
 function strToChars(str) {
 	const chars = str.split("");
@@ -27,23 +28,43 @@ export const cli = writable({
 	// Utilities
 	// -------------------------------------------------------------------------
 
-	// Run a command on the command line (mode=foreground, foreground-hidden, background)
-	exec: (cmd, { mode = EXEC_MODE_TERMINAL }) => {
-		const command = `${cmd}\n`;
+	// Run a command on the command line
+	exec: (cmd, { mode = EXEC_MODE_TERMINAL, callback }) => {
+		let command = `${cmd}\n`;
 		const chars = strToChars(command);
 		const emulator = get(cli).emulator;
 
-		if (mode === EXEC_MODE_TERMINAL) {
-			// Command executed in user's terminal
-			chars.forEach((c) => emulator.bus.send(BUS_SERIAL_INPUT, c));
-		} else if (mode === EXEC_MODE_BUS) {
-			// Command executed on the background, skipping xterm, and not visible to the user
-			emulator.keyboard_send_text(command);
-		} else if (mode === EXEC_MODE_TERMINAL_HIDDEN) {
-			// Command executed in xterm, but not visible to the user. This is useful when you want to
-			// run a command that affects the current bash session, but in the background: e.g. running
-			// `stty` and defining env variables.
+		// Before running the command, add an event listener if a callback is needed.
+		// To support a callback we'll need to add an end marker and listen to the
+		// UART1 port for that marker before we call the callback function.
+		if (callback) {
+			command = `(${cmd} && echo ${SANDBOX_END_MARKER}) > /dev/ttyS1\n`;
+			let output = "";
+			const listener = (char) => {
+				output += char;
+				const indexDoneMarker = output.indexOf(SANDBOX_END_MARKER);
+				if (indexDoneMarker > -1) {
+					callback(output.slice(0, indexDoneMarker));
+					emulator.remove_listener(BUS_SERIAL_APP_OUTPUT, listener);
+				}
+			};
+			emulator.add_listener(BUS_SERIAL_APP_OUTPUT, listener);
+		}
 
+		// Command executed in user's terminal
+		if (mode === EXEC_MODE_TERMINAL) {
+			chars.forEach((c) => emulator.bus.send(BUS_SERIAL_INPUT, c));
+		}
+
+		// Command executed on the background, skipping xterm, and not visible to the user
+		if (mode === EXEC_MODE_BUS) {
+			emulator.keyboard_send_text(command);
+		}
+
+		// Command executed in xterm, but not visible to the user. This is useful when you want to
+		// run a command that affects the current bash session, but in the background: e.g. running
+		// `stty` and defining env variables.
+		if (mode === EXEC_MODE_TERMINAL_HIDDEN) {
 			// Temporarily remove listeners so the xterm UI doesn't show the command
 			emulator.bus.listeners[BUS_SERIAL_OUTPUT] = [];
 

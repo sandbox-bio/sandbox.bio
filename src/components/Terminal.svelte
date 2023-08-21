@@ -56,7 +56,6 @@ function initialize() {
 		disable_speaker: true,
 		uart1: true // we'll use serial port 1 to communicate with v86 from JavaScript
 	});
-	});
 
 	$cli.emulator.bus.register("emulator-loaded", async () => {
 		$cli.xterm = $cli.emulator.serial_adapter.term;
