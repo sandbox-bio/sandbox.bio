@@ -10,7 +10,7 @@ import { V86Starter } from "$thirdparty/v86/libv86";
 import { EXEC_MODE_TERMINAL, EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
 import { tutorial } from "$stores/tutorial";
 import { LocalState, log } from "$src/utils";
-import { BUS_SERIAL_OUTPUT, DIR_TUTORIAL, DIR_TUTORIAL_SHORT, LOGGING_DEBUG, LOGGING_INFO, MAX_FILE_SIZE_TO_CACHE } from "$src/config";
+import { BUS_SERIAL_OUTPUT, DIR_TUTORIAL, DIR_TUTORIAL_SHORT, LOGGING_DEBUG, LOGGING_INFO, MAX_FILE_SIZE_TO_CACHE, URL_ASSETS } from "$src/config";
 import "xterm/css/xterm.css";
 
 // =============================================================================
@@ -45,10 +45,10 @@ function initialize() {
 	}
 
 	$cli.emulator = new V86Starter({
-		wasm_path: "https://assets.sandbox.bio/v86/v86.wasm",
+		wasm_path: `${URL_ASSETS}/v86/v86.wasm`,
 		memory_size: 512 * 1024 * 1024,
-		initial_state: { url: "https://assets.sandbox.bio/v86/debian-state-base.bin.zst" },
-		filesystem: { baseurl: "https://assets.sandbox.bio/v86/debian-9p-rootfs-flat/" },
+		initial_state: { url: `${URL_ASSETS}/v86/debian-state-base.bin.zst` },
+		filesystem: { baseurl:`${URL_ASSETS}/v86/debian-9p-rootfs-flat/` },
 		autostart: true,
 		screen_dummy: true, // since we're using xterm.js, no need for "screen_container" div
 		serial_container_xtermjs: divXtermTerminal,

@@ -25,7 +25,7 @@ npm run dev
 
 ### Deploy
 
-TODO: Update this
+Deploys are done when committing to a branch, using Cloudflare Pages.
 
 ```bash
 # Generate static assets (see https://github.com/sandbox-bio/v86/blob/master/NOTES.md)
@@ -34,34 +34,9 @@ make all
 make build/xterm.js
 
 # Upload static assets
-aws --endpoint-url https://$ID.r2.cloudflarestorage.com s3 cp --recursive static/v86 s3://sandbox-bio/v86/
+aws --endpoint-url https://$ID.r2.cloudflarestorage.com s3 sync static/v86 s3://sandbox-bio/v86/
 ```
 
-### Debugging
-
-#### Local biowasm builds
-
-```javascript
-// Terminal.svelte
-const TOOLS_DEFAULT = [
-	{
-		tool: "samtools",
-		version: "1.10",
-		urlPrefix: "http://localhost:12346/biowasm/tools/samtools/build/"
-	}
-];
-```
-
-#### Local aioli builds
-
-```javascript
-// cli.js
-_aioli = await new Aioli(config.tools, {
-	env: window.location.hostname == "localhost" ? "stg" : "prd",
-	debug: window.location.hostname == "localhost",
-	urlAioli: "http://localhost:12346/aioli/dist/aioli.worker.js"
-});
-```
 
 ### Example Quiz
 

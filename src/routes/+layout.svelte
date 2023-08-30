@@ -1,11 +1,12 @@
 <script>
-import { Styles, Navbar, Collapse, Nav, NavItem, NavLink, NavbarBrand, NavbarToggler, Container } from "sveltestrap";
+import { onMount } from "svelte";
 import { page } from "$app/stores";
+import { Styles, Navbar, Collapse, Nav, NavItem, NavLink, NavbarBrand, NavbarToggler, Container } from "sveltestrap";
+import { URL_ASSETS } from "$src/config";
 
 $: path = $page.url.pathname;
 
 // import Login from "$components/Login.svelte";
-import { onMount } from "svelte";
 
 // // State
 // let toastOpen = false;
@@ -74,7 +75,7 @@ let isNavbarOpen;
 
 <svelte:head>
 	<title>sandbox.bio</title>
-	<script src="https://assets.sandbox.bio/v86/xterm.js"></script>
+	<script src="{URL_ASSETS}/v86/xterm.js"></script>
 </svelte:head>
 
 <!-- Bootstrap CSS and icons -->

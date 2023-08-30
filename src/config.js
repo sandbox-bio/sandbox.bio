@@ -4,6 +4,8 @@
 export const LOGGING = 1;
 export const MAX_FILE_SIZE_TO_CACHE = 50 * 1024 * 1024; // 50MB
 export const DIR_TUTORIAL = "/root/tutorial";
+export const LOCAL_DEV = window.location.hostname === "localhost";
+export const URL_ASSETS = LOCAL_DEV ? "" : "https://assets.sandbox.bio";
 
 // =============================================================================
 // Constants
@@ -23,3 +25,4 @@ export const BUS_SERIAL_OUTPUT = "serial0-output-char";
 // Use a different serial port for communication between JavaScript and v86 (UART1)
 export const BUS_SERIAL_APP_INPUT = "serial1-input";
 export const BUS_SERIAL_APP_OUTPUT = "serial1-output-char";
+export const BUS_SERIAL_APP_FILE = "/dev/ttyS1";

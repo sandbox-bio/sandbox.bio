@@ -1,5 +1,5 @@
 import { get, writable } from "svelte/store";
-import { BUS_SERIAL_APP_OUTPUT, BUS_SERIAL_INPUT, BUS_SERIAL_OUTPUT, DIR_TUTORIAL } from "$src/config";
+import { BUS_SERIAL_APP_FILE, BUS_SERIAL_APP_OUTPUT, BUS_SERIAL_INPUT, BUS_SERIAL_OUTPUT, DIR_TUTORIAL } from "$src/config";
 
 export const EXEC_MODE_TERMINAL = "terminal";
 export const EXEC_MODE_TERMINAL_HIDDEN = "terminal-hidden";
@@ -40,7 +40,7 @@ export const cli = writable({
 		// To support a callback we'll need to add an end marker and listen to the
 		// UART1 port for that marker before we call the callback function.
 		if (callback) {
-			command = `(${cmd} && echo ${SANDBOX_END_MARKER}) > /dev/ttyS1\n`;
+			command = `(${cmd} && echo ${SANDBOX_END_MARKER}) > ${BUS_SERIAL_APP_FILE}\n`;
 			let output = "";
 			const listener = (char) => {
 				output += char;
