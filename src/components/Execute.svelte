@@ -5,16 +5,18 @@ import { cli } from "$stores/cli";
 export let command;
 export let inline = false;
 
-$: commandPretty = command.replace(/ \\ /g, " \\ <br />&nbsp;&nbsp;&nbsp;");
+$: commandToRun = command.replace(/\\n/g, `
+`);
+$: commandPretty = command.replace(/ \\ /g, " \\ <br />&nbsp;&nbsp;&nbsp;").replace(/\\n/g, "<br>");
 </script>
 
 {#if inline}
-	<Button size="sm" class="font-monospace bg-dark" on:click={() => $cli.exec(command)}>
+	<Button size="sm" class="font-monospace bg-dark" on:click={() => $cli.exec(commandToRun)}>
 		{@html commandPretty}
 	</Button>
 {:else}
 	<div class="mb-3 font-monospace">
-		<Card on:click={() => $cli.exec(command)} body inverse color="dark">
+		<Card on:click={() => $cli.exec(commandToRun)} body inverse color="dark">
 			{@html commandPretty}
 		</Card>
 	</div>
