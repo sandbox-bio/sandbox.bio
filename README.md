@@ -37,7 +37,6 @@ make build/xterm.js
 aws --endpoint-url https://$ID.r2.cloudflarestorage.com s3 sync static/v86 s3://sandbox-bio/v86/
 ```
 
-
 ### Example Quiz
 
 ```html

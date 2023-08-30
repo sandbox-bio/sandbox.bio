@@ -48,7 +48,7 @@ function initialize() {
 		wasm_path: `${URL_ASSETS}/v86/v86.wasm`,
 		memory_size: 512 * 1024 * 1024,
 		initial_state: { url: `${URL_ASSETS}/v86/debian-state-base.bin.zst` },
-		filesystem: { baseurl:`${URL_ASSETS}/v86/debian-9p-rootfs-flat/` },
+		filesystem: { baseurl: `${URL_ASSETS}/v86/debian-9p-rootfs-flat/` },
 		autostart: true,
 		screen_dummy: true, // since we're using xterm.js, no need for "screen_container" div
 		serial_container_xtermjs: divXtermTerminal,
@@ -154,7 +154,7 @@ async function fsLoad() {
 // Mount tutorial files
 async function mountTutorialFiles() {
 	for (const file of files) {
-		await $cli.mountFile(file, `/data/${$tutorial.id}/${file}`)
+		await $cli.mountFile(file, `/data/${$tutorial.id}/${file}`);
 	}
 }
 
