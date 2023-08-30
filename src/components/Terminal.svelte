@@ -84,13 +84,10 @@ function initialize() {
 		// Initialize command line
 		$cli.xterm.write(`root@localhost:${DIR_TUTORIAL_SHORT}# `);
 
-		// Mount previously synced FS
-		await fsLoad();
 		// Mount tutorial files
-		for (const file of files) {
-			await $cli.mountFile(file, `/data/${$tutorial.id}/${file}`);
-		}
-
+		await mountTutorialFiles();
+		// Mount previously synced FS (user's FS takes precedence over tutorial files)
+		await fsLoad();
 		// Start syncing FS
 		fsSync();
 
@@ -154,6 +151,13 @@ async function fsLoad() {
 // Sidebar operations
 // =============================================================================
 
+// Mount tutorial files
+async function mountTutorialFiles() {
+	for (const file of files) {
+		await $cli.mountFile(file, `/data/${$tutorial.id}/${file}`)
+	}
+}
+
 // Export ANSI to HTML and open in new tab
 function exportHTML() {
 	const terminalRaw = $cli.addons.serialize.serialize();
@@ -196,6 +200,7 @@ async function mountLocalFile(event) {
 				<Icon name="three-dots-vertical" />
 			</DropdownToggle>
 			<DropdownMenu>
+				<DropdownItem on:click={mountTutorialFiles}>Reset tutorial files</DropdownItem>
 				<DropdownItem on:click={() => inputMountFiles.click()}>Mount local files</DropdownItem>
 				<DropdownItem on:click={() => inputMountFolder.click()}>Mount local folder</DropdownItem>
 				<DropdownItem on:click={exportHTML}>Export as HTML</DropdownItem>
