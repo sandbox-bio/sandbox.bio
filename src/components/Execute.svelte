@@ -5,8 +5,11 @@ import { cli } from "$stores/cli";
 export let command;
 export let inline = false;
 
-$: commandToRun = command.replace(/\\n/g, `
-`);
+$: commandToRun = command.replace(
+	/\\n/g,
+	`
+`
+);
 $: commandPretty = command.replace(/ \\ /g, " \\ <br />&nbsp;&nbsp;&nbsp;").replace(/\\n/g, "<br>");
 </script>
 

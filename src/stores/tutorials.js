@@ -14,6 +14,7 @@ import { config as playground } from "$content/playground/config.js";
 import { config as rosalind } from "$content/rosalind/config.js";
 import { config as IFB1 } from "$content/ifb-1/config.js";
 import { config as IFB2 } from "$content/ifb-2/config.js";
+import { config as carpentriesShellNovice } from "$content/carpentries-shell-novice/config";
 
 // All tutorials
 export const tutorials = readable([
@@ -35,7 +36,9 @@ export const tutorials = readable([
 	debuggingPuzzles,
 	// IFB Tutorials (unlisted)
 	IFB1,
-	IFB2
+	IFB2,
+	// Carpentries Tutorials
+	carpentriesShellNovice
 ]);
 
 // Playgrounds
