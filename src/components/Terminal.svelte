@@ -81,9 +81,6 @@ function initialize() {
 		// Make sure terminal takes up the entire div height-wise
 		handleResize(true);
 
-		// Initialize command line
-		$cli.xterm.write(`root@localhost:${DIR_TUTORIAL_SHORT}# `);
-
 		// Mount tutorial files
 		await mountTutorialFiles();
 		// Mount previously synced FS (user's FS takes precedence over tutorial files)
@@ -107,7 +104,7 @@ function handleResize(hidden = false) {
 		// - TUIs like `top` and `vim` don't load in full screen
 		const dims = $cli.addons.fit.proposeDimensions();
 		log(LOGGING_INFO, "Resize terminal", dims);
-		$cli.exec(`stty rows ${dims.rows} cols ${dims.cols}`, {
+		$cli.exec(`stty rows ${dims.rows} cols ${dims.cols}; clear`, {
 			mode: hidden ? EXEC_MODE_TERMINAL_HIDDEN : EXEC_MODE_TERMINAL
 		});
 	}
