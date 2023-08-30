@@ -29,35 +29,7 @@ the ease with which it lets us combine existing programs in new ways.
 We'll start with the directory `exercise-data/alkanes`
 that contains six files describing some simple organic molecules.
 
-<Execute command="cd exercise-data/alkanes" />
-
-The `.pdb` extension indicates that these files are in Protein Data Bank format,
-a simple text format that specifies the type and position of each atom in the molecule.
-
-<Execute command="ls" />
-
-Let's run an example command:
-
-<Execute command="wc cubane.pdb" />
-
-`wc` is the 'word count' command:
-it counts the number of lines, words, and characters in files (returning the values
-in that order from left to right).
-
-If we run the command `wc *.pdb`, the `*` in `*.pdb` matches zero or more characters,
-so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory:
-
-<Execute command="wc *.pdb" />
-
-Note that `wc *.pdb` also shows the total number of all lines in the last line of the output.
-
-If we run `wc -l` instead of just `wc`,
-the output shows only the number of lines per file:
-
-<Execute command="wc -l *.pdb" />
-
-The `-m` and `-w` options can also be used with the `wc` command to show
-only the number of characters or the number of words, respectively.
+<Execute command="cd ~/tutorial/exercise-data/alkanes" />
 
 [...]
 
