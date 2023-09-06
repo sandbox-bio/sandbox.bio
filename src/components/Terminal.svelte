@@ -92,7 +92,7 @@ function initialize() {
 		if (init) $cli.exec(init, { mode: EXEC_MODE_TERMINAL_HIDDEN });
 
 		// Even if no commands were run so far, make sure we display the PS1 prompt
-		$cli.exec("clear")
+		$cli.exec("clear");
 
 		loading = false;
 	});

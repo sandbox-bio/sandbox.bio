@@ -21,12 +21,15 @@ $: multiple = choices.filter((c) => c.valid).length > 1;
 $: if (id && (radio || checked)) updateState();
 
 // Validate user response
-function validate() {
+function validate(onload = false) {
 	for (let i = 0; i < choices.length; i++) {
 		const choice = choices[i].valid;
 		const user = multiple ? checked[i] : radio === choices[i].value;
 		if ((!choice && user) || (choice && !user)) {
-			error = "That doesn't look right";
+			// When first load Quiz, don't display errors unless the user clicks the button
+			if (!onload) {
+				error = "That doesn't look right";
+			}
 			return;
 		}
 	}
@@ -45,7 +48,7 @@ onMount(async () => {
 	if (!state) return;
 	if (multiple) checked = state;
 	else radio = state;
-	validate();
+	validate(true);
 });
 </script>
 
