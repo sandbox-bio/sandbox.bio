@@ -1,1 +1,1 @@
-[intro step]
+[intro]

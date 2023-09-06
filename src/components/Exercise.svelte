@@ -81,7 +81,7 @@ setTimeout(check, 500);
 	{/each}
 </ul>
 
-<button class="mt-2 btn btn-sm btn-primary" on:click={() => check(true)} disabled={isDone}>
+<button class="mt-2 mb-4 btn btn-sm btn-primary" on:click={() => check(true)} disabled={isDone}>
 	Check my work
 	{#if busy}
 		<Spinner size="sm" color="light" class="ms-2" />
