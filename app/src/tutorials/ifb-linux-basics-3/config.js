@@ -20,7 +20,7 @@ export const config = {
 	description: "IFB Scenario 3",
 	tags: ["unix", "shell", "terminal"],
 	tools: ["ls", "date"],
-	difficulty: ["belt green", "belt blue"],
+	difficulty: ["beginner"],
 	steps: [
 		{ name: "Introduction", component: Step0 },
 		{ name: "Manipulating data", component: Step1 },
