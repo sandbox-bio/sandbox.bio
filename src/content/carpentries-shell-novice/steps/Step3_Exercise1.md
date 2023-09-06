@@ -9,13 +9,7 @@ const criteria = [
 		type: "file",
 		path: "raw/sucrose.dat",
 		action: "exists"
-	}
-    // , {
-	// 	type: "file",
-	// 	path: "analyzed/sucrose.dat",
-	// 	action: "notexists"
-	// }
-    ]
+	}]
 },
 {
 	name: "File <code>maltose.dat</code> was moved to the <code>raw/</code> folder",
@@ -23,13 +17,7 @@ const criteria = [
 		type: "file",
 		path: "raw/maltose.dat",
 		action: "exists"
-	}
-    // , {
-	// 	type: "file",
-	// 	path: "analyzed/maltose.dat",
-	// 	action: "notexists"
-	// }
-    ]
+	}]
 }];
 </script>
 
