@@ -1,5 +1,6 @@
 <script>
 import { onMount } from "svelte";
+import debounce from "debounce";
 import { Table, Modal, DropdownMenu, Dropdown, DropdownToggle, DropdownItem, Icon, Spinner } from "sveltestrap";
 import AnsiUp from "ansi_up";
 import { watchResize } from "svelte-watch-resize";
@@ -78,8 +79,6 @@ function initialize() {
 		for (const addonName in $cli.addons) {
 			$cli.xterm.loadAddon($cli.addons[addonName]);
 		}
-		// Make sure terminal takes up the entire div height-wise
-		handleResize(true);
 
 		// Mount tutorial files
 		await mountTutorialFiles();
@@ -91,29 +90,35 @@ function initialize() {
 		// Run initialization commands
 		if (init) $cli.exec(init, { mode: EXEC_MODE_TERMINAL_HIDDEN });
 
-		// Even if no commands were run so far, make sure we display the PS1 prompt
-		$cli.exec("clear");
+		// Focus cursor on command line
+		$cli.xterm.focus();
 
 		loading = false;
 	});
 }
 
 // When window resizes, update terminal size
-function handleResize(hidden = false) {
-	if ($cli.addons.fit) {
-		$cli.addons.fit.fit();
+let currDims = { cols: null, rows: null };
+function handleResize() {
+	if (!$cli.addons.fit) return;
 
-		// If we resize the terminal's number of rows/cols on xterm.js, we also need to update those
-		// values for the actual terminal itself. Otherwise, the following issues arise:
-		// - Long commands don't wrap to the next line and start overwriting the start of the command
-		// - Editing previously run long-commands shows odd spacing behavior
-		// - TUIs like `top` and `vim` don't load in full screen
-		const dims = $cli.addons.fit.proposeDimensions();
-		log(LOGGING_INFO, "Resize terminal", dims);
-		$cli.exec(`stty rows ${dims.rows} cols ${dims.cols}; clear`, {
-			mode: hidden ? EXEC_MODE_TERMINAL_HIDDEN : EXEC_MODE_TERMINAL
-		});
-	}
+	$cli.addons.fit.fit();
+
+	// If we resize the terminal's number of rows/cols on xterm.js, we also need to update those
+	// values for the actual terminal itself. Otherwise, the following issues arise:
+	// - Long commands don't wrap to the next line and start overwriting the start of the command
+	// - Editing previously run long-commands shows odd spacing behavior
+	// - TUIs like `top` and `vim` don't load in full screen
+	const dims = $cli.addons.fit.proposeDimensions();
+	if (currDims.cols === dims.cols && currDims.rows === dims.rows) return;
+	currDims = dims;
+
+	// Limitation: this doesn't work if you're inside vim/less/etc, or halfway through a command
+	// before resizing, but that should be less likely.
+	log(LOGGING_INFO, "Resize terminal", dims);
+	$cli.exec(`stty rows ${dims.rows} cols ${dims.cols}; clear`, {
+		mode: EXEC_MODE_TERMINAL_HIDDEN
+	});
 }
 
 // =============================================================================
@@ -193,7 +198,7 @@ async function mountLocalFile(event) {
 </script>
 
 <!-- Terminal -->
-<div id="terminal" bind:this={divXtermTerminal} use:watchResize={handleResize} class:opacity-25={loading}>
+<div id="terminal" bind:this={divXtermTerminal} use:watchResize={debounce(() => handleResize(), 400)} class:opacity-25={loading}>
 	{#if loading}
 		<Spinner color="light" type="border" style="position:absolute" />
 	{/if}
