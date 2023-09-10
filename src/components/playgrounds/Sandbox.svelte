@@ -144,7 +144,7 @@ function setFlag(option, value) {
 <!-- Title and links to other playgrounds -->
 <div class="d-flex">
 	<div class="d-flex">
-		<h4 class="mb-0">{tool.name} sandbox</h4>
+		<h4 class="mb-0">{tool.name} playground</h4>
 	</div>
 	<div class="d-flex ms-auto">
 		<slot name="playgrounds" />

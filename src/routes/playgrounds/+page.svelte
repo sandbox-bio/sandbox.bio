@@ -3,4 +3,4 @@ import Listings from "$components/Listings.svelte";
 import { playgrounds } from "$stores/tutorials";
 </script>
 
-<Listings items={$playgrounds} title="Playgrounds" />
+<Listings colLg={6} colXxl={3} items={$playgrounds} title="Playgrounds" />
