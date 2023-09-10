@@ -8,7 +8,7 @@ import { FitAddon } from "xterm-addon-fit";
 import { WebLinksAddon } from "xterm-addon-web-links";
 import { SerializeAddon } from "xterm-addon-serialize";
 import { V86Starter } from "$thirdparty/v86/libv86";
-import { EXEC_MODE_TERMINAL, EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
+import { EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
 import { tutorial } from "$stores/tutorial";
 import { LocalState, log } from "$src/utils";
 import { BUS_SERIAL_OUTPUT, DIR_TUTORIAL, LOGGING_DEBUG, LOGGING_INFO, MAX_FILE_SIZE_TO_CACHE, URL_ASSETS } from "$src/config";
@@ -19,8 +19,8 @@ import "xterm/css/xterm.css";
 // =============================================================================
 
 export let files = []; // Files to preload on the filesystem
-export let intro = ""; // Intro string to display on Terminal once ready (optional)
-export let init = ""; // Command to run to initialize the environment (optional) // FIXME:
+export let intro = ""; // Intro string to display on Terminal once ready (optional) // FIXME:
+export let init = ""; // Command to run to initialize the environment (optional)
 export let tools = []; // For these tools, pre-download .bin files (optional) // FIXME:
 
 let loading = false;

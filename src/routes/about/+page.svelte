@@ -1,5 +1,14 @@
+<script>
+import Alert from "$src/components/Alert.svelte";
+</script>
+
 <div class="col-8">
 	<p class="lead">sandbox.bio features interactive tutorials for bioinformatics tools in a secure sandbox.</p>
+
+	<Alert color="warning">
+		This is an early preview of sandbox.bio v2, whose goal is to support more bioinformatics tools and tutorials than currently possible.
+		<strong>This is currently in active development, so certain functionality may change or break temporarily.</strong>
+	</Alert>
 
 	<p class="lead fw-bold mt-4 mb-1">Tutorials</p>
 	<p>
@@ -9,7 +18,9 @@
 
 	<p>
 		This sandbox is powered by the <a href="https://github.com/copy/v86" target="_blank">v86 project</a>. Its main limitation is that tools that
-		cannot be compiled to a 32-bit i686 architecture are not supported.
+		cannot be compiled to a 32-bit i686 architecture are not supported. See the
+		<a href="https://github.com/sandbox-bio/v86/blob/master/tools/docker/debian/Dockerfile" target="_blank">sandbox.bio Dockerfile</a> for the latest list
+		of supported tools.
 	</p>
 
 	<p class="lead fw-bold mt-4 mb-1">Playgrounds</p>

@@ -84,11 +84,14 @@ let isNavbarOpen;
 <Navbar light container color="light" expand="md">
 	<NavbarBrand href="/">
 		sandbox.bio
-		<span class="badge bg-danger rounded-pill beta ms-1 py-1">BETA</span>
+		<a href="/about">
+			<span class="badge bg-danger rounded-pill beta ms-1 py-1">BETA</span>
+		</a>
 	</NavbarBrand>
 	<NavbarToggler on:click={() => (isNavbarOpen = !isNavbarOpen)} />
 	<Collapse isOpen={isNavbarOpen} navbar expand="md" on:update={(event) => (isNavbarOpen = event.detail.isOpen)}>
-		<Nav class="ms-auto" navbar>
+		<!-- FIXME: Remove "d-none" for release -->
+		<Nav class="ms-auto d-none" navbar>
 			<NavItem>
 				<NavLink href="/tutorials" active={path.startsWith("/tutorials")}>Tutorials</NavLink>
 			</NavItem>
@@ -131,7 +134,7 @@ let isNavbarOpen;
 </Modal> -->
 
 <!-- Page Content -->
-<Container xl class="mt-4">
+<Container class="mt-4">
 	<slot />
 </Container>
 
