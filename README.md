@@ -34,7 +34,8 @@ make all
 make build/xterm.js
 
 # Upload static assets
-aws --endpoint-url https://$ID.r2.cloudflarestorage.com s3 sync static/v86 s3://sandbox-bio/v86/
+export CLOUDFLARE_ACCOUNT_ID=ID_GOES_HERE
+./bin/deploy-v86.sh
 ```
 
 ### Example Quiz
