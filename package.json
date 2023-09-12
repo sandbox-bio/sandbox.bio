@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
-		"build": "./build.sh && vite build",
+		"build": "./bin/build.sh && vite build",
 		"preview": "vite preview",
 		"test": "playwright test",
 		"test:unit": "vitest",
