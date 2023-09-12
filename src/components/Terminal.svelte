@@ -90,6 +90,10 @@ function initialize() {
 		// Run initialization commands
 		if (init) $cli.exec(init, { mode: EXEC_MODE_TERMINAL_HIDDEN });
 
+		// Make sure terminal is ready (otherwise the terminal sometimes doesn't show anything/isn't the right size)
+		$cli.exec("clear");
+		handleResize();
+
 		// Focus cursor on command line
 		$cli.xterm.focus();
 
