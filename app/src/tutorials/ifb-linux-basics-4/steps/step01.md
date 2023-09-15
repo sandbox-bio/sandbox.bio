@@ -3,7 +3,7 @@ import Quiz from "components/Quiz.svelte";
 import Execute from "components/Execute.svelte";
 </script>
 
-## the standard output strem
+## the standard output stream
 
 By default, as you've seen so far, the result of a Unix command is printed on the screen.
 

@@ -3,7 +3,7 @@ import Quiz from "components/Quiz.svelte";
 import Execute from "components/Execute.svelte";
 </script>
 
-As we've seen so far, the **sort** command performs, **by default, alphanumeric sorting** on a text stream. As you can see below, alphanumeric sorting is not well suited for stricly numeric values.
+As we've seen so far, the **sort** command performs, **by default, alphanumeric sorting** on a text stream. As you can see below, alphanumeric sorting is not well suited for strictly numeric values.
 
 <Execute command="echo -e '1\n100\n2\n3\n200\n20\n10' | sort" />
 
