@@ -25,7 +25,7 @@ Let's break this seemingly complex command into its individual components to mak
     - BAM is a binary (i.e., non-human-readable) and (potentially) compressed file format that stores the same information as the SAM format
   - Rather than having `samtools` read an input file (by specifying a positional argument at the end of the command), we're having it read the input data from standard input
 
-After running the above command, we will have sucessfully mapped our reads (`reads_R1.fq` and `reads_R2.fq`) to the reference genome (`$REF`), sorted the results, and written the sorted results to the file `untrimmed.sorted.bam`.
+After running the above command, we will have successfully mapped our reads (`reads_R1.fq` and `reads_R2.fq`) to the reference genome (`$REF`), sorted the results, and written the sorted results to the file `untrimmed.sorted.bam`.
 
 To see the first few lines of the BAM output file in the human-readable SAM format, run the following:
 

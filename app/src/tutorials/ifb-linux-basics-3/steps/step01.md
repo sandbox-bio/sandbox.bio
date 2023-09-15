@@ -65,7 +65,7 @@ column is separated by a `\t` character. This character looks like
 a large space, although it's different. We can display 
 any string using the `echo` command. 
 
-Print the two following intructions (one with spaces and one with tabulations). You will
+Print the two following instructions (one with spaces and one with tabulations). You will
 see that they are different.
 
 

@@ -22,7 +22,7 @@ Let's break this seemingly complex command into its individual components to mak
   - Lastly, we're specifying the sorted BAM file from which we want to compute a pile-up file: `trimmed.sorted.bam`
 - Then, we're using the redirect character `>` to redirect the output of `samtools` (via standard output) to a file: `pileup.txt`
 
-After running the above command, we will have sucessfully computed a pile-up file and written the results to the file `pileup.txt`.
+After running the above command, we will have successfully computed a pile-up file and written the results to the file `pileup.txt`.
 
 To see the first few lines of the pile-up output file, run the following:
 
