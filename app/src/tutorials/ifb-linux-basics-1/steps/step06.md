@@ -52,6 +52,6 @@ Example, type the following command:
 
 ## Ask Internet
 
-You will also usefull resources on the Internet:
+You will also useful resources on the Internet:
 - <Link href="https://explainshell.com">Explain shell command</Link>
 - <Link href="https://stackoverflow.com">A shell forum</Link>
