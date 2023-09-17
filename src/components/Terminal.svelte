@@ -275,8 +275,8 @@ async function mountLocalFile(event) {
 
 /* Hamburger menu */
 .cli-options {
-	position: relative;
-	float: right;
+	position: absolute;
+	right: 0;
 	z-index: 100;
 }
 
