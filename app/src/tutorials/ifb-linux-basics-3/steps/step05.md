@@ -2,7 +2,6 @@
 import Quiz from "components/Quiz.svelte";
 import Execute from "components/Execute.svelte";
 </script>
-# Counting words or lines in a file
 
 ## a bed file
 

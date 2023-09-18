@@ -1,7 +1,7 @@
 <script>
 import Quiz from "components/Quiz.svelte";
 </script>
-# Digging through a large file
+
 ## Browse a file interactively
 
 Very often the files you want to read are too large for your screen.

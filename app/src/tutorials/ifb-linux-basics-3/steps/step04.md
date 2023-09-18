@@ -1,13 +1,13 @@
-<script> import Quiz from "components/Quiz.svelte"; 
-  import Execute from "components/Execute.svelte";
+<script>
+import Quiz from "components/Quiz.svelte"; 
+import Execute from "components/Execute.svelte";
 </script>
-# The end of a file
+
 ## *tail*
 
 The `tail` command can be used to check the end of a file:
 
-<Execute command=tail SAOUHSC.bed />
-```
+<Execute command="tail SAOUHSC.bed" />
 
 _-n_ is used the same way as with `head` to modulate the number of lines shown.
 

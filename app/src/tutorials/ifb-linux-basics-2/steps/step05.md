@@ -36,10 +36,9 @@ cd
 <Quiz id="q1" choices={[ { valid: false, value: "/shared/data/nr"}, 
 						 { valid: false, value: "test"}, 
 						 { valid: false, value: "your HOME directory"}, 
-						 { valid: false, value: "/shared/data"}, 
-						 { valid: true, value: "nr"},
-						 { valid: false, value: "/root/test"},
-						 { valid: false, value: "/shared/data/"}, ]}> 
+						 { valid: true, value: "/shared/data"}, 
+						 { valid: false, value: "nr"},
+						 { valid: false, value: "/root/test"}, ]}> 
 	<span slot="prompt">
 		...and select the right current working directory:
 	</span>

@@ -1,7 +1,7 @@
 <script>
 import Quiz from "components/Quiz.svelte";
 </script>
-# Extracting columns
+
 ## *cut*
 
 The `cut` command cuts out sections from each line of a file and writes the result to standard output. 

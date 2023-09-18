@@ -1,7 +1,7 @@
 <script>
 import Quiz from "components/Quiz.svelte";
 </script>
-# Searching patterns
+
 ## How to select part of a file
 
 ### *grep*

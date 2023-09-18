@@ -1,2 +1,1 @@
-You've completed the **Manipulating data** scenario. Congratulation!
-
+You've completed the **Manipulating data** scenario. Congratulations!

@@ -17,10 +17,9 @@ ls
 
 <Quiz id="step04_q1" choices={[
 	{ valid: false, value: "/shared/data/"},
-	{ valid: false, value: "/shared/data/homo_sapiens"},
+	{ valid: true, value: "/shared/data/homo_sapiens"},
 	{ valid: false, value: "../data/nr"},
 	{ valid: false, value: "/shared/data/nr/homo_sapiens"},
-	{ valid: true, value: "/shared/data/homo_sapiens"},
 ]}>
 	<span slot="prompt">
 		Could you guess the absolute path of your current working directory?

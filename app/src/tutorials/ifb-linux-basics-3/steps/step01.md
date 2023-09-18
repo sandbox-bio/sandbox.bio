@@ -5,8 +5,6 @@
 	import Execute from "components/Execute.svelte";
 </script>
 
-# Manipulating data
-
 In the previous chapters, you learnt how to move around in the Unix filesystem and access files. 
 This chapter will show you how to explore the data in contained in these files. 
 The commands we’ll be using are fairly simple, but are solid building blocks of more sophisticated treatment pipelines.
