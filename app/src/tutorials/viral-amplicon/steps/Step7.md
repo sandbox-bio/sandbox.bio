@@ -20,7 +20,7 @@ Let's break this seemingly complex command into its individual components to mak
   - `-n N` tells `ivar` that we want to use `N` as the letter to represent ambiguous nucleotides
     - In other words, positions that are ambiguous (see `-m 10` and `-t 0.5` above) will contain `N` (rather than `A`, `C`, `G`, or `T`)
 
-After running the above command, we will have sucessfully called a consensus genome sequence and written the resulting sequence to the file `consensus.fa`.
+After running the above command, we will have successfully called a consensus genome sequence and written the resulting sequence to the file `consensus.fa`.
 
 To see the contents of the consensus genome sequence output file, run the following:
 

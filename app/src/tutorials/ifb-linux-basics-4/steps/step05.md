@@ -3,7 +3,7 @@ import Quiz from "components/Quiz.svelte";
 import Execute from "components/Execute.svelte";
 </script>
 
-We have previously **cut** the fourth column from the SAOUHSC.bed file and **sorted** the subsequent stream. We could have written the two intructions on the same line using the ";" operator:
+We have previously **cut** the fourth column from the SAOUHSC.bed file and **sorted** the subsequent stream. We could have written the two instructions on the same line using the ";" operator:
 
 <Execute command="cut -f 4 SAOUHSC.bed > SAOUHSC_c4.bed; sort -u SAOUHSC_c4.bed > SAOUHSC_c4_uniq.bed" />
 
@@ -17,7 +17,7 @@ So we may rewrite the previous set of instructions into the following which indi
 
 <Execute command="cut -f 4 SAOUHSC.bed | sort -u > SAOUHSC_c4_uniq.bed" />
 
-In the same way we can also send the result of the **sort** command to the **wc** to get the expected result onto the screen whithout any need to create two intermediate files.
+In the same way we can also send the result of the **sort** command to the **wc** to get the expected result onto the screen without any need to create two intermediate files.
 
 <Execute command="cut -f 4 SAOUHSC.bed | sort -u | wc -l" />
 

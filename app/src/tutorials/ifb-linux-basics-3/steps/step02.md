@@ -24,7 +24,7 @@ Once inside the `less` program, you can use the following keys to navigate throu
 
 You can also search through the file you opened with `less` by typing <kbd>/</kbd> followed by the characters you want to search and then pressing <kbd>Enter</kbd>. 
 The screen will jump to the first occurrence of the searched item which will be highlighted.
-Pressing <kbd>N</kbd> will bring you to the **n**ext occurence while pressing <kbd>P</kbd> will bring you to the **p**revious occurence.
+Pressing <kbd>N</kbd> will bring you to the **n**ext occurrence while pressing <kbd>P</kbd> will bring you to the **p**revious occurrence.
 To search backwards, you need to use <kbd>?</kbd> instead of <kbd>/</kbd> and then proceed similarly.
 
 Use <kbd>Q</kbd> to quit the `less` command.

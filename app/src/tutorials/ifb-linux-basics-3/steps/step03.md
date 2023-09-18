@@ -29,6 +29,6 @@ will show you the first 15 lines.
 	{ valid: false, value: "10456"},
 ]}>
 	<span slot="prompt">
-		Print the first line of the SAOUHSC.bed file. What is the fisrt value of the third column ? Choose the right answer: 
+		Print the first line of the SAOUHSC.bed file. What is the first value of the third column ? Choose the right answer: 
 	</span>
 </Quiz>
