@@ -10,7 +10,7 @@ The root of the tree structure is also represented by the first `/` in the path.
 
 There are 2 ways to describe paths: **absolute** and **relative**.
 
-<img src="/data/ifb-2/absolute_and_relative_paths.png" style="max-width:60%" alt="Absolute and relative paths">
+<img src="/data/ifb-linux-basics-2/absolute_and_relative_paths.png" style="max-width:60%" alt="Absolute and relative paths">
 
 ## Absolute path
 

@@ -56,16 +56,16 @@ ls /tmp
 
 <Quiz id="q1" choices={[ { valid: false, value: "/"},
 { valid: false, value: "/shared"},
-{ valid: true, value: "/shared/bank"}, ]}>
+{ valid: true, value: "/shared/data/bank"}, ]}>
 <span slot="prompt">
-If your current working directory is `/shared/bank/homo_sapiens`, to which absolute path refers the path `..` ?
+If your current working directory is `/shared/data/bank/homo_sapiens`, to which absolute path refers the path `..` ?
 </span>
 </Quiz>
 
-<Quiz id="q2" choices={[ { valid: false, value: "absolute"},
-{ valid: true, value: "relative"}, ]}>
+<Quiz id="q2" choices={[ { valid: true, value: "absolute"},
+{ valid: false, value: "relative"}, ]}>
 <span slot="prompt">
-Wich type of path is `shared/bank`?
+Which type of path is `/shared/data`?
 </span>
 </Quiz>
 
@@ -73,6 +73,6 @@ Wich type of path is `shared/bank`?
 { valid: false, value: "../../hg19/fasta"},
 { valid: true, value: "../homo_sapiens/hg19/fasta"}, ]}>
 <span slot="prompt">
-If your current working directory is `/shared/bank/bos_taurus` what is the relative path to `/shared/bank/homo_sapiens/hg19/fasta`?
+If your current working directory is `/shared/data/bos_taurus` what is the relative path to `/shared/data/homo_sapiens/hg19/fasta`?
 </span>
 </Quiz>

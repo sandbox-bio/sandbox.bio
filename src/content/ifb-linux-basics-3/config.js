@@ -8,26 +8,29 @@ import Step5 from "./steps/step05.md";
 import Step6 from "./steps/step06.md";
 import Step7 from "./steps/step07.md";
 import Step8 from "./steps/step08.md";
+import Step9 from "./steps/step09.md";
 
 export const config = {
-	id: "ifb-2",
+	id: "ifb-linux-basics-3",
+	pwd: "ifb-linux-basics-3",
 	listed: false,
 	name: "Manipulating files and directories",
 	subtitle: `by <a href="https://www.france-bioinformatique.fr/en/home/" target="_blank">French Institute of Bioinformatics</a>`,
-	description: "IFB Scenario 2",
+	description: "IFB Scenario 3",
 	tags: ["unix", "shell", "terminal"],
 	tools: ["ls", "date"],
 	difficulty: ["beginner"],
 	steps: [
-		{ name: "Manipulating files and directories", component: Step0 },
-		{ name: "Tree, path & files", component: Step1 },
-		{ name: "Absolute paths", component: Step2 },
-		{ name: "Relative paths", component: Step3 },
-		{ name: "Change directory", component: Step4 },
-		{ name: "The HOME directory", component: Step5 },
-		{ name: "Create or copy", component: Step6 },
-		{ name: "Move or remove", component: Step7 },
-		{ name: "Congratulations", component: Step8 }
+		{ name: "Introduction", component: Step0 },
+		{ name: "Manipulating data", component: Step1 },
+		{ name: "Digging through a large file", component: Step2 },
+		{ name: "The begining of a file", component: Step3 },
+		{ name: "The end of a file", component: Step4 },
+		{ name: "Counting words and lines in a file", component: Step5 },
+		{ name: "Searching patterns", component: Step6 },
+		{ name: "Extracting colums", component: Step7 },
+		{ name: "Some useful commands and tips", component: Step8 },
+		{ name: "Congratulations", component: Step9 }
 	],
 	// For now, don't use `cd` in init, need to debug why it breaks the initialization script
 	init: `
@@ -48,5 +51,11 @@ export const config = {
 			echo "first test" > $HOME/test/first_file.txt;
 			echo "second test" > $HOME/test/second_file.txt;
 	`,
-	files: []
+	files: [
+		"data/ifb-linux-basics-3/MACS2.csv",
+		"data/ifb-linux-basics-3/NC_009089.bed",
+		"data/ifb-linux-basics-3/NC_009089.fasta",
+		"data/ifb-linux-basics-3/SAOUHSC.fasta",
+		"data/ifb-linux-basics-3/SAOUHSC.bed"
+	]
 };

@@ -15,7 +15,7 @@ These directories were created to store genome files of different species.
 From the previous command we deduce the path from the root `/` to the `homo_sapiens` directory. This path is:
 
 ```bash
-/shared/bank/homo_sapiens
+/shared/data/homo_sapiens
 ```
 
 As stated previously, this path that starts with an `/` is an absolute path. Starting from the root `/`, we go through the `shared` then `bank` directories to reach the target `homo_sapiens` directory.
@@ -23,7 +23,7 @@ As stated previously, this path that starts with an `/` is an absolute path. Sta
 Paths are used in many Unix commands, such as the `ls` (that stands for **l**i**s**t) command:
 
 ```bash
-ls /shared/bank/homo_sapiens
+ls /shared/data/homo_sapiens
 ```
 
 This `ls` command lists the content of the specified directory (also named **argument** of the ls command).
@@ -35,7 +35,7 @@ This `ls` command lists the content of the specified directory (also named **arg
 { valid: true, value: "hg38"},
 ]}>
 <span slot="prompt">
-What does the command `ls /shared/bank/homo_sapiens` return?
+What does the command `ls /shared/data/homo_sapiens` return?
 </span>
 </Quiz>
 

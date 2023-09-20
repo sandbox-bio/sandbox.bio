@@ -91,7 +91,7 @@ function initialize() {
 		if (init) $cli.exec(init, { mode: EXEC_MODE_TERMINAL_HIDDEN });
 
 		// Make sure terminal is ready (otherwise on page load, sometimes need to press Enter to start)
-		$cli.xterm.write("root@localhost:~/tutorial# ")
+		$cli.xterm.write("root@localhost:~/tutorial# ");
 		// Set initial terminal size, otherwise sometimes doesn't call that function at load time
 		handleResize();
 		// Focus cursor on command line
