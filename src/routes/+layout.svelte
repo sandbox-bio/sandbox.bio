@@ -1,10 +1,32 @@
 <script>
 import { onMount } from "svelte";
 import { page } from "$app/stores";
-import { Styles, Navbar, Collapse, Nav, NavItem, NavLink, NavbarBrand, NavbarToggler, Container } from "sveltestrap";
+import {
+	Styles,
+	Navbar,
+	Collapse,
+	Nav,
+	NavItem,
+	NavLink,
+	NavbarBrand,
+	NavbarToggler,
+	Container,
+	Dropdown,
+	DropdownToggle,
+	DropdownMenu,
+	DropdownItem
+} from "sveltestrap";
 import { URL_ASSETS } from "$src/config";
 
 $: path = $page.url.pathname;
+
+const playgrounds = [
+	{ name: "Terminal", url: "/playgrounds/cli", description: "Open ended" },
+	{ name: "Jq", url: "/playgrounds/jq", description: "Wrangle JSON data" },
+	{ name: "Awk", url: "/playgrounds/awk", description: "Wrangle tabular data" },
+	{ name: "Grep", url: "/playgrounds/grep", description: "Search and filter" },
+	{ name: "Sed", url: "/playgrounds/sed", description: "Search and replace" }
+];
 
 // import Login from "$components/Login.svelte";
 
@@ -90,17 +112,26 @@ let isNavbarOpen;
 	</NavbarBrand>
 	<NavbarToggler on:click={() => (isNavbarOpen = !isNavbarOpen)} />
 	<Collapse isOpen={isNavbarOpen} navbar expand="md" on:update={(event) => (isNavbarOpen = event.detail.isOpen)}>
-		<!-- FIXME: Remove "d-none" for release -->
-		<Nav class="ms-auto d-none" navbar>
+		<Nav class="ms-auto" navbar>
 			<NavItem>
 				<NavLink href="/tutorials" active={path.startsWith("/tutorials")}>Tutorials</NavLink>
 			</NavItem>
+			<Dropdown nav inNavbar>
+				<DropdownToggle nav caret active={path.startsWith("/playgrounds")}>Playgrounds</DropdownToggle>
+				<DropdownMenu end>
+					{#each playgrounds as playground}
+						<DropdownItem href={playground.url}>
+							<div class="d-flex">
+								<span class="">{playground.name}</span>
+								<span class="ps-2 text-muted opacity-75 small" style="padding-top:2px;">{playground.description}</span>
+							</div>
+						</DropdownItem>
+					{/each}
+				</DropdownMenu>
+			</Dropdown>
 			<NavItem>
-				<NavLink href="/playgrounds" active={path.startsWith("/playgrounds")}>Playgrounds</NavLink>
-			</NavItem>
-			<!-- <NavItem>
 				<NavLink href="/community" active={path.startsWith("/community")}>Community</NavLink>
-			</NavItem> -->
+			</NavItem>
 		</Nav>
 	</Collapse>
 </Navbar>
