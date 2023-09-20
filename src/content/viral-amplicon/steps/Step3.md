@@ -28,7 +28,7 @@ Let's break this seemingly complex command into its individual components to mak
   - `ivar` will automatically add the `.bam` file extension to the prefix we specify
   - In other words, this will result in an output file named `trimmed.unsorted.bam`
 
-After running the above command, we will have sucessfully trimmed our mapped reads and written the trimmed (no longer sorted) results to the file `trimmed.unsorted.bam`.
+After running the above command, we will have successfully trimmed our mapped reads and written the trimmed (no longer sorted) results to the file `trimmed.unsorted.bam`.
 
 To see the first few lines of the (unsorted) trimmed BAM output file in the human-readable SAM format, run the following:
 

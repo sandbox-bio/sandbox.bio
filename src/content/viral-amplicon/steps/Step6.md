@@ -20,7 +20,7 @@ Let's break this seemingly complex command into its individual components to mak
   - `-m 10` tells `ivar` that we want to only output variants that have a **m**inimum depth of 10
     - In other words, variants in which there are at least 10 reads that cover that position of the reference genome
 
-After running the above command, we will have sucessfully called variants and written the results to the file `variants.tsv`.
+After running the above command, we will have successfully called variants and written the results to the file `variants.tsv`.
 
 To see the first few lines of the variants output file, run the following:
 

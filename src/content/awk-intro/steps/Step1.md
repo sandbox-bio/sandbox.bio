@@ -21,10 +21,10 @@ Let's now extract columns 2 and 3 to obtain the items ordered and the quantity f
 
 <Execute command={`awk '{ print $2, $3 }' orders.tsv | head`} />
 
-Note, however, that when you compare the output of the command above to <Execute command="head orders.tsv" inline />, it seems the `item_name` column is truncated! This is because by default, `awk` treats tabs and spaces both as column delimiters, so we have to explicitely tell it we have tab-separated data:
+Note, however, that when you compare the output of the command above to <Execute command="head orders.tsv" inline />, it seems the `item_name` column is truncated! This is because by default, `awk` treats tabs and spaces both as column delimiters, so we have to explicitly tell it we have tab-separated data:
 
 <Execute command={`awk -F "\\t" '{ print $2, $3 }' orders.tsv | head`} />
 
 <Alert>
-	Remember to explicitely tell `awk` what your delimiters are!
+	Remember to explicitly tell `awk` what your delimiters are!
 </Alert>

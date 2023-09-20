@@ -301,13 +301,13 @@ function sanitizeStr(str) {
 	],
 	sed: [
 		{
-			name: "Replace first occurence on each line",
+			name: "Replace first occurrence on each line",
 			input: data_text,
 			flags: ``,
 			command: `s/a/*/`
 		},
 		{
-			name: "Replace all occurences",
+			name: "Replace all occurrences",
 			input: data_text,
 			flags: ``,
 			command: `s/a/*/g`

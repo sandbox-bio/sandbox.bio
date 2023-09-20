@@ -77,7 +77,7 @@ async function run() {
 }
 
 // Updating `userInput.command` doesn't save the changes to localforage, so we
-// need to explicitely save them.
+// need to explicitly save them.
 function updateUserInput(varName, value) {
 	$sandbox.data[tool.name][varName] = value;
 }

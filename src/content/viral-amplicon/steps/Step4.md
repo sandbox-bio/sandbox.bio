@@ -13,7 +13,7 @@ This command is very similar to one that we saw previously:
   - BAM is a binary (i.e., non-human-readable) and (potentially) compressed file format that stores the same information as the SAM format
 - Lastly, we're specifying the (unsorted) BAM file we want to sort: `trimmed.unsorted.bam`
 
-After running the above command, we will have sucessfully sorted our (unsorted) trimmed mapped reads and written the sorted results to the file `trimmed.sorted.bam`.
+After running the above command, we will have successfully sorted our (unsorted) trimmed mapped reads and written the sorted results to the file `trimmed.sorted.bam`.
 
 To see the first few lines of the sorted trimmed BAM output file in the human-readable SAM format, run the following:
 
