@@ -42,7 +42,8 @@ export const cli = writable({
 		if (callback) {
 			command = `(${cmd} && echo ${SANDBOX_END_MARKER}) > ${BUS_SERIAL_APP_FILE}\n`;
 			let output = "";
-			const listener = (char) => {
+			const listener = (byte) => {
+				const char = String.fromCharCode(byte);
 				output += char;
 				const indexDoneMarker = output.indexOf(SANDBOX_END_MARKER);
 				if (indexDoneMarker > -1) {
