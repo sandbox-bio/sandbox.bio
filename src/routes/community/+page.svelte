@@ -3,6 +3,10 @@ import Listings from "$components/Listings.svelte";
 import { tutorials } from "$stores/tutorials";
 </script>
 
+<svelte:head>
+	<title>Community - sandbox.bio</title>
+</svelte:head>
+
 <h3 class="my-3">Community Tutorials</h3>
 
 <h5 class="bg-primary bg-opacity-75 p-2">

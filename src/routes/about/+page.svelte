@@ -2,6 +2,10 @@
 import Alert from "$src/components/Alert.svelte";
 </script>
 
+<svelte:head>
+	<title>About - sandbox.bio</title>
+</svelte:head>
+
 <div class="col-8">
 	<p class="lead">sandbox.bio features interactive tutorials for bioinformatics tools in a secure sandbox.</p>
 

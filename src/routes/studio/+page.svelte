@@ -145,6 +145,10 @@ const tagExecute = {
 marked.use({ renderer, extensions: [tagAlert, tagExecute] });
 </script>
 
+<svelte:head>
+	<title>Studio - sandbox.bio</title>
+</svelte:head>
+
 <!-- Tutorial -->
 <div class="row">
 	<div class="col-6">

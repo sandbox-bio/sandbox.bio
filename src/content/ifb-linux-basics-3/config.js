@@ -51,11 +51,5 @@ export const config = {
 			echo "first test" > $HOME/test/first_file.txt;
 			echo "second test" > $HOME/test/second_file.txt;
 	`,
-	files: [
-		"MACS2.csv",
-		"NC_009089.bed",
-		"NC_009089.fasta",
-		"SAOUHSC.fasta",
-		"SAOUHSC.bed"
-	]
+	files: ["MACS2.csv", "NC_009089.bed", "NC_009089.fasta", "SAOUHSC.fasta", "SAOUHSC.bed"]
 };
