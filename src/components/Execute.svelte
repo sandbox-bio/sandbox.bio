@@ -9,7 +9,9 @@ $: commandToRun = command.replace(
 	/\\n/g,
 	`
 `
-);
+).replace(/ \\ /g, " ");
+$: console.log("command", command)
+$: console.log("commandToRun", commandToRun)
 $: commandPretty = command.replace(/ \\ /g, " \\ <br />&nbsp;&nbsp;&nbsp;").replace(/\\n/g, "<br>");
 </script>
 

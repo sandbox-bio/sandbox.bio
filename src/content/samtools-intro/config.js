@@ -30,5 +30,5 @@ export const config = {
 		{ name: "Explore BAM files", component: Step8, subtitle: "Capture the flag" },
 		{ name: "The end", component: Conclusion, header: true }
 	],
-	files: ["data/samtools-intro/sample.sam"]
+	files: ["sample.sam"]
 };

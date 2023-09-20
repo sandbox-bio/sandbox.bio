@@ -19,7 +19,7 @@ let criteria = [
 		type: "file",
 		path: "burritos_guac.tsv",
 		action: "contents",
-		commandExpected: `awk -F "\t" '$3 ~ /Burrito/{ if($4 ~ /Guacamole/) with[$3] += $2; else without[$3] += $2; } END { for(k in with) print(k, with[k] / (with[k] + without[k])) }' orders.tsv`
+		commandExpected: `awk -F "\\t" '$3 ~ /Burrito/{ if($4 ~ /Guacamole/) with[$3] += $2; else without[$3] += $2; } END { for(k in with) print(k, with[k] / (with[k] + without[k])) }' orders.tsv`
 	}]
 }];
 </script>

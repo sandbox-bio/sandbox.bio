@@ -21,9 +21,3 @@ To delete a variable, use `unset`:
 Use `env` to view all available variables:
 
 <Execute command="env" />
-
-Note that there's a variable called `USER` that is set to `guest`. This is a special variable that sandbox.bio uses in the terminal prompt. Modify this variable to customize your environment:
-
-<Execute command="USER=yourNameGoesHere" />
-
-Now your prompt should update to reflect your name instead of `guest`.

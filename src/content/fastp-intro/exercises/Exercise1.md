@@ -12,7 +12,7 @@ let criteria = [
 		type: "file",
 		path: "fastp.json",
 		action: "contents",
-		commandExpected: "fastp --in1 HG004_R1.fastq.gz --in2 HG004_R2.fastq.gz --reads_to_process 10000 --html /shared/tmp/__fastp.html --json /shared/tmp/__fastp.json; jq '.summary' /shared/tmp/__fastp.json",
+		commandExpected: "fastp --in1 HG004_R1.fastq.gz --in2 HG004_R2.fastq.gz --reads_to_process 10000 --html /tmp/__fastp.html --json /tmp/__fastp.json; jq '.summary' /tmp/__fastp.json",
 		commandObserved: "jq '.summary' fastp.json"
 	}]
 }];

@@ -19,7 +19,7 @@ let criteria = [
 		type: "file",
 		path: "largest_order.tsv",
 		action: "contents",
-		commandExpected: `awk -F "\t" '{ if($3 == "Bottled Water" && $2 > largest) largest=$2 } END { print largest }' orders.tsv`
+		commandExpected: `awk -F "\\t" '{ if($3 == "Bottled Water" && $2 > largest) largest=$2 } END { print largest }' orders.tsv`
 	}]
 }];
 </script>

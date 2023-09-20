@@ -52,10 +52,10 @@ export const config = {
 			echo "second test" > $HOME/test/second_file.txt;
 	`,
 	files: [
-		"data/ifb-linux-basics-3/MACS2.csv",
-		"data/ifb-linux-basics-3/NC_009089.bed",
-		"data/ifb-linux-basics-3/NC_009089.fasta",
-		"data/ifb-linux-basics-3/SAOUHSC.fasta",
-		"data/ifb-linux-basics-3/SAOUHSC.bed"
+		"MACS2.csv",
+		"NC_009089.bed",
+		"NC_009089.fasta",
+		"SAOUHSC.fasta",
+		"SAOUHSC.bed"
 	]
 };

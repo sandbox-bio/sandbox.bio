@@ -29,5 +29,7 @@ export const config = {
 		{ name: "The end", component: Conclusion, subtitle: "Conclusion", header: true }
 	],
 	files: ["primer.bed", "reference.fasta", "reference.gff3", "reads_R1.fq", "reads_R2.fq"],
-	init: "REF_FASTA=reference.fasta; REF_GFF=reference.gff3; PRIMER_BED=primer.bed"
+	init: `REF_FASTA=reference.fasta
+REF_GFF=reference.gff3
+PRIMER_BED=primer.bed`
 };

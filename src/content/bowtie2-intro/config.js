@@ -27,5 +27,6 @@ export const config = {
 		{ name: "The end", component: Conclusion, header: true }
 	],
 	files: ["reads_1.fq", "reads_2.fq", "longreads.fq"],
-	init: "REF=/shared/bowtie2/example/index/lambda_virus; REF_FASTA=/shared/bowtie2/example/reference/lambda_virus.fa"
+	init: `REF=/shared/bowtie2/example/index/lambda_virus
+REF_FASTA=/shared/bowtie2/example/reference/lambda_virus.fa`
 };

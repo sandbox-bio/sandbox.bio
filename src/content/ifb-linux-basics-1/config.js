@@ -29,13 +29,13 @@ export const config = {
 		{ name: "Congratulations", component: Step7 }
 	],
 	files: [
-		"data/ifb-linux-basics-1/Data/O.tauri_annotation.gff",
-		"data/ifb-linux-basics-1/Data/O.tauri_genome.fna",
-		"data/ifb-linux-basics-1/Data/SRR3099585_chr18.fastq",
-		"data/ifb-linux-basics-1/Data/SRR3099586_chr18.fastq",
-		"data/ifb-linux-basics-1/Data/SRR3099587_chr18.fastq",
-		"data/ifb-linux-basics-1/Data/SRR3105697_chr18.fastq",
-		"data/ifb-linux-basics-1/Data/SRR3105698_chr18.fastq",
-		"data/ifb-linux-basics-1/Data/SRR3105699_chr18.fastq"
+		"Data/O.tauri_annotation.gff",
+		"Data/O.tauri_genome.fna",
+		"Data/SRR3099585_chr18.fastq",
+		"Data/SRR3099586_chr18.fastq",
+		"Data/SRR3099587_chr18.fastq",
+		"Data/SRR3105697_chr18.fastq",
+		"Data/SRR3105698_chr18.fastq",
+		"Data/SRR3105699_chr18.fastq"
 	]
 };
