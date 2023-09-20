@@ -139,7 +139,7 @@ let isNavbarOpen;
 </Container>
 
 <!-- Footer -->
-{#if !path.startsWith("/tutorials/")}
+{#if !path.startsWith("/tutorials/") && path !== "/"}
 	<footer class="container pt-3 mt-5 mb-4 text-muted border-top">
 		<div class="col-3">
 			<h5>sandbox.bio</h5>
