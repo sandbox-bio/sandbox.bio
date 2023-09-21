@@ -16,9 +16,5 @@ export default defineConfig({
 	},
 	test: {
 		include: ["src/**/*.{test,spec}.{js,ts}"]
-	},
-	ssr: {
-		// Avoids PopperJS error: "cannot use import statement outside a module" error
-		noExternal: ["@popperjs/core"]
 	}
 });

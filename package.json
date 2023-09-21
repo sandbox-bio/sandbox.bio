@@ -43,7 +43,7 @@
 		"showdown": "^2.1.0",
 		"svelte-autosize": "^1.0.1",
 		"svelte-watch-resize": "^1.0.3",
-		"sveltestrap": "^5.11.1",
+		"sveltestrap": "^5.11.2",
 		"xterm": "^5.3.0",
 		"xterm-addon-fit": "^0.8.0",
 		"xterm-addon-serialize": "^0.11.0",
