@@ -7,11 +7,11 @@ import { watchResize } from "svelte-watch-resize";
 import { FitAddon } from "xterm-addon-fit";
 import { WebLinksAddon } from "xterm-addon-web-links";
 import { SerializeAddon } from "xterm-addon-serialize";
-import { V86Starter } from "$thirdparty/v86/libv86";
+import { V86 } from "$thirdparty/v86/libv86";
 import { EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
 import { tutorial } from "$stores/tutorial";
 import { LocalState, log } from "$src/utils";
-import { BUS_SERIAL_OUTPUT, DIR_TUTORIAL, LOGGING_DEBUG, LOGGING_INFO, MAX_FILE_SIZE_TO_CACHE, URL_ASSETS } from "$src/config";
+import { BUS_SERIAL_APP_OUTPUT, BUS_SERIAL_OUTPUT, DIR_TUTORIAL, LOGGING_DEBUG, LOGGING_INFO, MAX_FILE_SIZE_TO_CACHE, URL_ASSETS } from "$src/config";
 import "xterm/css/xterm.css";
 
 // =============================================================================
@@ -45,9 +45,10 @@ function initialize() {
 		clearTimeout(timerSyncFS);
 	}
 
-	$cli.emulator = new V86Starter({
+	// Create emulator
+	$cli.emulator = new V86({
 		wasm_path: `${URL_ASSETS}/v86/v86.wasm`,
-		memory_size: 512 * 1024 * 1024,
+		memory_size: 1024 * 1024 * 1024,
 		initial_state: { url: `${URL_ASSETS}/v86/debian-state-base.bin.zst` },
 		filesystem: { baseurl: `${URL_ASSETS}/v86/debian-9p-rootfs-flat/` },
 		autostart: true,
@@ -56,6 +57,47 @@ function initialize() {
 		disable_mouse: true, // make sure we're still able to select text on the screen
 		disable_speaker: true,
 		uart1: true // we'll use serial port 1 to communicate with v86 from JavaScript
+	});
+
+	// Listen on the special ttyS1 port for communication from within the emulator
+	let output = "";
+	$cli.emulator.add_listener(BUS_SERIAL_APP_OUTPUT, async (byte) => {
+		const char = String.fromCharCode(byte);
+		if (char !== "\n") {
+			output += char;
+		} else {
+			try {
+				const command = JSON.parse(output);
+				const params = command.params;
+				console.log("Command:", command);
+
+				// Open file contents in a new tab
+				if (command.type === "open") {
+					const contents = await $cli.emulator.read_file(params.path);
+					const blob = new Blob([contents], { type: params.path.endsWith(".html") ? "text/html" : "text/plain" });
+					const url = URL.createObjectURL(blob);
+					window.open(url);
+
+					// Launch file download
+				} else if (command.type === "download") {
+					const contents = await $cli.emulator.read_file(params.path);
+					const blob = new Blob([contents], { type: "application/octet-stream" });
+					const url = URL.createObjectURL(blob);
+
+					// Create link element to customize the filename, otherwise it's a UUID.
+					const fileLink = document.createElement("a");
+					fileLink.href = url;
+					fileLink.download = params.path.split("/").pop();
+					fileLink.click();
+
+				}
+			} catch (e) {
+				console.log("Received:", output);
+				console.error(e);
+			}
+
+			output = "";
+		}
 	});
 
 	$cli.emulator.bus.register("emulator-loaded", async () => {
