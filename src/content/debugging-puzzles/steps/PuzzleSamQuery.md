@@ -9,7 +9,7 @@ const criteria = [{
 		path: "alignments.fixed.bam",
 		action: "contents",
 		commandObserved: `samtools view alignments.fixed.bam ref2:10-11`,
-		commandExpected: `samtools sort alignments.bam -o /shared/tmp/__debuggingpuzzles.bam; samtools index /shared/tmp/__debuggingpuzzles.bam; samtools view /shared/tmp/__debuggingpuzzles.bam ref2:10-11`
+		commandExpected: `samtools sort alignments.bam -o /tmp/__debuggingpuzzles.bam; samtools index /tmp/__debuggingpuzzles.bam; samtools view /tmp/__debuggingpuzzles.bam ref2:10-11`
 	}]
 }];
 

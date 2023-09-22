@@ -22,3 +22,8 @@ export function log(level, ...message) {
 		console.log(...message);
 	}
 }
+
+export function strToChars(str) {
+	const chars = str.split("");
+	return chars.map((d) => d.charCodeAt(0));
+}

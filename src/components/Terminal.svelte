@@ -10,8 +10,16 @@ import { SerializeAddon } from "xterm-addon-serialize";
 import { V86 } from "$thirdparty/v86/libv86";
 import { EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
 import { tutorial } from "$stores/tutorial";
-import { LocalState, log } from "$src/utils";
-import { BUS_SERIAL_APP_OUTPUT, BUS_SERIAL_OUTPUT, DIR_TUTORIAL, LOGGING_DEBUG, LOGGING_INFO, MAX_FILE_SIZE_TO_CACHE, URL_ASSETS } from "$src/config";
+import { LocalState, log, strToChars } from "$src/utils";
+import {
+	BUS_SERIAL_COMMAND_READ,
+	BUS_SERIAL_OUTPUT,
+	DIR_TUTORIAL,
+	LOGGING_DEBUG,
+	LOGGING_INFO,
+	MAX_FILE_SIZE_TO_CACHE,
+	URL_ASSETS
+} from "$src/config";
 import "xterm/css/xterm.css";
 
 // =============================================================================
@@ -56,12 +64,13 @@ function initialize() {
 		serial_container_xtermjs: divXtermTerminal,
 		disable_mouse: true, // make sure we're still able to select text on the screen
 		disable_speaker: true,
-		uart1: true // we'll use serial port 1 to communicate with v86 from JavaScript
+		uart1: true, // use serial port 1 to send messages from v86 to JavaScript
+		uart2: true // use serial port 2 to communicate results from JavaScript to v86
 	});
 
 	// Listen on the special ttyS1 port for communication from within the emulator
 	let output = "";
-	$cli.emulator.add_listener(BUS_SERIAL_APP_OUTPUT, async (byte) => {
+	$cli.emulator.add_listener(BUS_SERIAL_COMMAND_READ, async (byte) => {
 		const char = String.fromCharCode(byte);
 		if (char !== "\n") {
 			output += char;
@@ -90,6 +99,14 @@ function initialize() {
 					fileLink.download = params.path.split("/").pop();
 					fileLink.click();
 
+					// Make fetch call and return result
+					// Storing result in file; when try to store result in /dev/ttyS2, it adds a bunch of "\n" and skips the first few bytes
+				} else if (command.type === "fetch") {
+					const contents = await fetch(params.url).then((d) => d.text());
+					const chars = strToChars(contents);
+					const buffer = new Uint8Array(contents.length);
+					buffer.set(chars);
+					await $cli.emulator.create_file(params.output, buffer);
 				}
 			} catch (e) {
 				console.log("Received:", output);
@@ -100,6 +117,7 @@ function initialize() {
 		}
 	});
 
+	// Prepare terminal environment
 	$cli.emulator.bus.register("emulator-loaded", async () => {
 		$cli.xterm = $cli.emulator.serial_adapter.term;
 		$cli.listeners = $cli.emulator.bus.listeners[BUS_SERIAL_OUTPUT];

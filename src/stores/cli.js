@@ -1,15 +1,11 @@
 import { get, writable } from "svelte/store";
-import { BUS_SERIAL_APP_FILE, BUS_SERIAL_APP_OUTPUT, BUS_SERIAL_INPUT, BUS_SERIAL_OUTPUT, DIR_TUTORIAL } from "$src/config";
+import { BUS_SERIAL_INPUT, BUS_SERIAL_OUTPUT, BUS_SERIAL_RESULT_READ, DIR_TUTORIAL, FILE_SERIAL_RESULT } from "$src/config";
+import { strToChars } from "$src/utils";
 
 export const EXEC_MODE_TERMINAL = "terminal";
 export const EXEC_MODE_TERMINAL_HIDDEN = "terminal-hidden";
 export const EXEC_MODE_BUS = "bus";
 const SANDBOX_END_MARKER = "__sandbox__";
-
-function strToChars(str) {
-	const chars = str.split("");
-	return chars.map((d) => d.charCodeAt(0));
-}
 
 // Current tutorial
 export const cli = writable({
@@ -40,7 +36,7 @@ export const cli = writable({
 		// To support a callback we'll need to add an end marker and listen to the
 		// UART1 port for that marker before we call the callback function.
 		if (callback) {
-			command = `(${cmd} && echo ${SANDBOX_END_MARKER}) > ${BUS_SERIAL_APP_FILE}\n`;
+			command = `(${cmd} && echo ${SANDBOX_END_MARKER}) > ${FILE_SERIAL_RESULT}\n`;
 			let output = "";
 			const listener = (byte) => {
 				const char = String.fromCharCode(byte);
@@ -48,10 +44,10 @@ export const cli = writable({
 				const indexDoneMarker = output.indexOf(SANDBOX_END_MARKER);
 				if (indexDoneMarker > -1) {
 					callback(output.slice(0, indexDoneMarker));
-					emulator.remove_listener(BUS_SERIAL_APP_OUTPUT, listener);
+					emulator.remove_listener(BUS_SERIAL_RESULT_READ, listener);
 				}
 			};
-			emulator.add_listener(BUS_SERIAL_APP_OUTPUT, listener);
+			emulator.add_listener(BUS_SERIAL_RESULT_READ, listener);
 		}
 
 		// Command executed in user's terminal

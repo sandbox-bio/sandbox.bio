@@ -22,7 +22,9 @@ export const DIR_TUTORIAL_SHORT = DIR_TUTORIAL.replace("/root", "~");
 // v86 Emulator
 export const BUS_SERIAL_INPUT = "serial0-input";
 export const BUS_SERIAL_OUTPUT = "serial0-output-byte";
-// Use a different serial port for communication between JavaScript and v86 (UART1)
-export const BUS_SERIAL_APP_INPUT = "serial1-input";
-export const BUS_SERIAL_APP_OUTPUT = "serial1-output-byte";
-export const BUS_SERIAL_APP_FILE = "/dev/ttyS1";
+// Use different serial ports for communication between JavaScript and v86 (UART1, UART2)
+export const FILE_SERIAL_COMMAND = "/dev/ttyS1";
+export const FILE_SERIAL_RESULT = "/dev/ttyS2";
+export const BUS_SERIAL_COMMAND_READ = "serial1-output-byte";
+export const BUS_SERIAL_RESULT_READ = "serial2-output-byte";
+export const BUS_SERIAL_RESULT_WRITE = "serial2-input";

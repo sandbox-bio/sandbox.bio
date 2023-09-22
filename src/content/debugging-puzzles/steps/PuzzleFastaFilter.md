@@ -20,7 +20,7 @@ const criteria = [
 			type: "file",
 			path: "sequences.txt",
 			action: "contents",
-			commandExpected: `${curl} | grep ">"`
+			commandExpected: `cat /root/tutorial/sequences.fa | grep ">"`
 		}]
 	}
 ];
