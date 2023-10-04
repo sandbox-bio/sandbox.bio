@@ -85,13 +85,15 @@ export const cli = writable({
 		let result = [];
 		const files = emulator.fs9p.read_dir(path);
 		for (const file of files) {
-			// If it's a folder, run ls on it recursively
 			const filePath = `${path}/${file}`;
+			console.log("file", filePath);
 			const iNode = emulator.fs9p.SearchPath(filePath);
+			const isDir = emulator.fs9p.IsDirectory(iNode.id);
+			result.push({ path: filePath, isDir });
+
+			// If it's a folder, run ls on it recursively
 			if (emulator.fs9p.IsDirectory(iNode.id)) {
 				result = result.concat(get(cli).ls(filePath));
-			} else {
-				result.push(filePath);
 			}
 		}
 
@@ -143,20 +145,32 @@ export const cli = writable({
 			buffer.set(strToChars(contents));
 		}
 
+		const folder = path.split("/").slice(0, -1).join("/");
+		await get(cli).createFolder(folder);
+		await emulator.create_file(path, buffer);
+	},
+
+	createFolder: async (path) => {
+		const emulator = get(cli).emulator;
+
 		// Create all sub-folders needed to store this file. Not using `cli.exec(mkdir, true)`
 		// since we currently can't tell when a command is done running.
 		let currPath = "";
-		const pathElements = path.split("/").slice(0, -1);
+		const pathElements = path.split("/");
 		for (const element of pathElements) {
 			currPath += `${element}/`;
 
 			// If folder doesn't exist, create it
-			const currINode = emulator.fs9p.SearchPath(currPath);
-			if (currINode.id === -1) {
-				emulator.fs9p.CreateDirectory(element, currINode.parentid);
+			const iNode = emulator.fs9p.SearchPath(currPath);
+			if (iNode.id === -1) {
+				emulator.fs9p.CreateDirectory(element, iNode.parentid);
 			}
 		}
+	},
 
-		await emulator.create_file(path, buffer);
+	// Clear file system cache
+	clearCache: async () => {
+		get(cli).exec("sync; echo 3 >/proc/sys/vm/drop_caches", { mode: EXEC_MODE_BUS });
+		await new Promise((resolve) => setTimeout(resolve, 200));
 	}
 });

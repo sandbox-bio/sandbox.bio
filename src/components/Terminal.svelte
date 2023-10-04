@@ -8,7 +8,7 @@ import { FitAddon } from "xterm-addon-fit";
 import { WebLinksAddon } from "xterm-addon-web-links";
 import { SerializeAddon } from "xterm-addon-serialize";
 import { V86 } from "$thirdparty/v86/libv86";
-import { EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
+import { EXEC_MODE_BUS, EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
 import { tutorial } from "$stores/tutorial";
 import { LocalState, log, strToChars } from "$src/utils";
 import {
@@ -190,32 +190,43 @@ function handleResize() {
 // =============================================================================
 
 async function fsSync() {
-	// If navigate away from tutorial, stop syncing
-	if (!$tutorial.id) return;
-	log(LOGGING_DEBUG, "Saving FS state...");
-
 	await fsSave();
-	timerSyncFS = setTimeout(fsSync, 1000);
+	timerSyncFS = setTimeout(fsSync, 2000);
 }
 
 // Save FS state to localforage
 async function fsSave() {
-	const fs = [];
-	const paths = $cli.ls(DIR_TUTORIAL);
-	for (const path of paths) {
-		const contents = await $cli.readFile(path);
-		if (contents.length <= MAX_FILE_SIZE_TO_CACHE) {
-			fs.push({ path, contents });
+	// Clear the cache before we save the file system state (otherwise, some files get stored as empty files)
+	await $cli.clearCache();
+
+	// Export FS state
+	const tutorialId = $tutorial.id;
+	const files = $cli.ls(DIR_TUTORIAL);
+
+	for (const file of files) {
+		// If file, get contents
+		if (!file.isDir) {
+			const contents = await $cli.readFile(file.path);
+			if (contents.length <= MAX_FILE_SIZE_TO_CACHE) {
+				file.contents = contents;
+			}
 		}
 	}
-	await LocalState.setFS($tutorial.id, fs);
+
+	// If tutorial changes fetching file contents and save, exit because we could have files from both tutorials
+	if (tutorialId !== $tutorial.id) return;
+	await LocalState.setFS($tutorial.id, files);
 }
 
 // Load FS state from localforage
 async function fsLoad() {
 	const files = await LocalState.getFS($tutorial.id);
 	for (const file of files) {
-		await $cli.createFile(file.path, file.contents);
+		if (file.isDir) {
+			await $cli.createFolder(file.path);
+		} else {
+			await $cli.createFile(file.path, file.contents);
+		}
 	}
 }
 
@@ -225,6 +236,9 @@ async function fsLoad() {
 
 // Mount tutorial files
 async function mountTutorialFiles() {
+	// Clear cache before we mount files, otherwise they don't change!
+	await $cli.clearCache();
+
 	for (const file of files) {
 		await $cli.mountFile(file, `/data/${$tutorial.id}/${file}`);
 	}

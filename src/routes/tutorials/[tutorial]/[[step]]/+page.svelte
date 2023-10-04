@@ -8,7 +8,11 @@ $: step = +$page.params.step || 0;
 </script>
 
 <svelte:head>
-	<title>{$tutorial.name} - sandbox.bio</title>
+	{#if $tutorial.name}
+		<title>{$tutorial.name} - sandbox.bio</title>
+	{:else}
+		<title>sandbox.bio</title>
+	{/if}
 </svelte:head>
 
 {#if id}
