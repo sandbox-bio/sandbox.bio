@@ -41,6 +41,7 @@ async function check(manual = false) {
 					const commandObserved = check.commandObserved || `cat ${check.path}`;
 
 					// Diff expected vs. observed (diff outputs nothing if equal)
+					await $cli.clearCache();
 					$cli.exec(`cd ${DIR_TUTORIAL} && diff -q <(${commandObserved}) <(${commandExpected}) | wc -l`, {
 						mode: EXEC_MODE_BUS,
 						callback: (s) => {

@@ -86,7 +86,6 @@ export const cli = writable({
 		const files = emulator.fs9p.read_dir(path);
 		for (const file of files) {
 			const filePath = `${path}/${file}`;
-			console.log("file", filePath);
 			const iNode = emulator.fs9p.SearchPath(filePath);
 			const isDir = emulator.fs9p.IsDirectory(iNode.id);
 			result.push({ path: filePath, isDir });

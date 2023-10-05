@@ -48,7 +48,6 @@ function download() {
 	const link = document.createElement("a");
 	const url = URL.createObjectURL(file);
 
-	console.log("URL", url);
 	link.href = url;
 	link.download = file.name;
 	document.body.appendChild(link);
