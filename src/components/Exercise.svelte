@@ -7,6 +7,7 @@ export let criteria = []; // List of criteria that must be true for the exercise
 export let hints = []; // Hints to show user
 let statuses = []; // Status of each criteria (true/false)
 let busy = false; // Whether the user manually asked to check their work
+let working = false; // Whether we're currently checking exercise status (don't do it more than once at a time)
 let nbHints = 0;
 
 $: isDone = statuses.filter((d) => d).length == statuses.length && statuses.length != 0;
@@ -20,40 +21,48 @@ async function check(manual = false) {
 	}
 
 	// Validate criteria
-	for (let i in criteria) {
-		const criterion = criteria[i];
+	if (!working) {
+		working = true;
 		try {
-			// Does file exist?
-			for (let check of criterion.checks || []) {
-				if (check.action == "exists") {
-					const ls = $cli.ls(`${DIR_TUTORIAL}/${check.path}`);
-					if (!ls) throw "File not found";
-					statuses[i] = true;
-				}
-
-				// Does file content match expectation? Define the right answer using a CLI invocation
-				else if (check.action == "contents") {
-					const ls = $cli.ls(`${DIR_TUTORIAL}/${check.path}`);
-					if (!ls) throw "File not found";
-
-					// Parse settings
-					const commandExpected = check.commandExpected;
-					const commandObserved = check.commandObserved || `cat ${check.path}`;
-
-					// Diff expected vs. observed (diff outputs nothing if equal)
-					await $cli.clearCache();
-					$cli.exec(`cd ${DIR_TUTORIAL} && diff -q <(${commandObserved}) <(${commandExpected}) | wc -l`, {
-						mode: EXEC_MODE_BUS,
-						callback: (s) => {
-							console.log("[Exercise check] Valid =", s == 0);
-							statuses[i] = s == 0;
+			for (let i in criteria) {
+				const criterion = criteria[i];
+				try {
+					// Does file exist?
+					for (let check of criterion.checks || []) {
+						if (check.action == "exists") {
+							const ls = $cli.ls(`${DIR_TUTORIAL}/${check.path}`);
+							if (!ls) throw "File not found";
+							statuses[i] = true;
 						}
-					});
+
+						// Does file content match expectation? Define the right answer using a CLI invocation
+						else if (check.action == "contents") {
+							const ls = $cli.ls(`${DIR_TUTORIAL}/${check.path}`);
+							if (!ls) throw "File not found";
+
+							// Parse settings
+							const commandExpected = check.commandExpected;
+							const commandObserved = check.commandObserved || `cat ${check.path}`;
+
+							// Diff expected vs. observed (diff outputs nothing if equal)
+							await $cli.clearCache();
+							$cli.exec(`cd ${DIR_TUTORIAL} && diff -q <(${commandObserved}) <(${commandExpected}) | wc -l`, {
+								mode: EXEC_MODE_BUS,
+								callback: (s) => {
+									console.log("[Exercise check] Valid =", s == 0, s);
+									statuses[i] = s == 0;
+								}
+							});
+						}
+					}
+				} catch (error) {
+					statuses[i] = false;
 				}
 			}
 		} catch (error) {
-			statuses[i] = false;
+			console.error(error);
 		}
+		working = false;
 	}
 
 	// Check exercise status regularly

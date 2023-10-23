@@ -8,7 +8,7 @@ const criteria = [{
 		type: "file",
 		path: "exons.fixed.bed",
 		action: "contents",
-		commandExpected: `sed 's/ /\t/g' exons.bed`
+		commandExpected: `sed 's/ /\\t/g' exons.bed`
 	}]
 }];
 
