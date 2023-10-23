@@ -159,6 +159,7 @@ onDestroy(() => {
 			<div id="terminal-wrapper" class="border rounded-3 p-2">
 				<Terminal
 					on:status={(event) => ($status.terminal = event.detail)}
+					assets={$tutorial.assets}
 					files={$tutorial.files}
 					tools={$tutorial.tools}
 					intro={$tutorial.intro}

@@ -8,25 +8,18 @@ import { FitAddon } from "xterm-addon-fit";
 import { WebLinksAddon } from "xterm-addon-web-links";
 import { SerializeAddon } from "xterm-addon-serialize";
 import { V86 } from "$thirdparty/v86/libv86";
-import { EXEC_MODE_BUS, EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
+import { EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
 import { tutorial } from "$stores/tutorial";
 import { LocalState, log, strToChars } from "$src/utils";
-import {
-	BUS_SERIAL_COMMAND_READ,
-	BUS_SERIAL_OUTPUT,
-	DIR_TUTORIAL,
-	LOGGING_DEBUG,
-	LOGGING_INFO,
-	MAX_FILE_SIZE_TO_CACHE,
-	URL_ASSETS
-} from "$src/config";
+import { BUS_SERIAL_COMMAND_READ, BUS_SERIAL_OUTPUT, DIR_TUTORIAL, LOGGING_INFO, MAX_FILE_SIZE_TO_CACHE, URL_ASSETS } from "$src/config";
 import "xterm/css/xterm.css";
 
 // =============================================================================
 // State
 // =============================================================================
 
-export let files = []; // Files to preload on the filesystem
+export let files = []; // Files to preload on the FS from /data/<tutorial>
+export let assets = []; // Files to preload on the FS from assets.sandbox.bio/tutorials/<tutorial>
 export let intro = ""; // Intro string to display on Terminal once ready (optional) // FIXME:
 export let init = ""; // Command to run to initialize the environment (optional)
 export let tools = []; // For these tools, pre-download .bin files (optional) // FIXME:
@@ -239,8 +232,15 @@ async function mountTutorialFiles() {
 	// Clear cache before we mount files, otherwise they don't change!
 	await $cli.clearCache();
 
-	for (const file of files) {
-		await $cli.mountFile(file, `/data/${$tutorial.id}/${file}`);
+	// Mount files stored in this repo
+	for (const fileName of files) {
+		const url = `/data/${$tutorial.id}/${fileName}`;
+		await $cli.mountFile(fileName, url);
+	}
+	// Mount files stored in assets.sandbox.bio because of their size
+	for(const fileName of assets) {
+		const url = `https://assets.sandbox.bio/tutorials/${$tutorial.id}/${fileName}`;
+		await $cli.mountFile(fileName, url);
 	}
 }
 
