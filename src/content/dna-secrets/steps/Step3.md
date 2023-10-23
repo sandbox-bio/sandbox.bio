@@ -22,7 +22,7 @@ let criteria = [
 		type: "file",
 		path: "variants.bcf",
 		action: "contents",
-		commandExpected: "bcftools mpileup -f $REF_FASTA aligned.bam | bcftools call -m -v -Ob - -o /shared/tmp/__dnasecret.bcf; bcftools view --no-header /shared/tmp/__dnasecret.bcf",
+		commandExpected: "bcftools mpileup -f $REF_FASTA aligned.bam | bcftools call -m -v -Ob - -o /tmp/__dnasecret.bcf; bcftools view --no-header /tmp/__dnasecret.bcf",
 		commandObserved: "bcftools view --no-header variants.bcf"
 	}]
 },

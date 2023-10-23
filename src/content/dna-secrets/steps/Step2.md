@@ -12,7 +12,7 @@ let criteria = [
 		type: "file",
 		path: "aligned.sam",
 		action: "contents",
-		commandExpected: "bowtie2 -x $REF -U reads.fq > /shared/tmp/__dnasecret.sam; samtools view /shared/tmp/__dnasecret.sam",
+		commandExpected: "bowtie2 -x $REF -U reads.fq > /tmp/__dnasecret.sam; samtools view /tmp/__dnasecret.sam",
 		commandObserved: "samtools view aligned.sam"
 	}]
 },
@@ -22,7 +22,7 @@ let criteria = [
 		type: "file",
 		path: "aligned.bam",
 		action: "contents",
-		commandExpected: "samtools sort -o /shared/tmp/__dnasecret.bam aligned.sam; samtools view /shared/tmp/__dnasecret.bam",
+		commandExpected: "samtools sort -o /tmp/__dnasecret.bam aligned.sam; samtools view /tmp/__dnasecret.bam",
 		commandObserved: "samtools view aligned.bam",
 	}]
 }];

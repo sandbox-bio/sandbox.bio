@@ -29,5 +29,16 @@ export const config = {
 		{ name: "The end", component: Conclusion, header: true }
 	],
 	files: ["reads.fq", "morereads.fq"],
-	init: `REF=/shared/bowtie2/example/index/lambda_virus; REF_FASTA=/shared/bowtie2/example/reference/lambda_virus.fa; echo "CGGCGAACAGGCCTAGATTAGGCCCTTCTTCCCGGCGGTG" > secret`
+	assets: [
+		"reference/lambda_virus.fa",
+		"index/lambda_virus.1.bt2",
+		"index/lambda_virus.2.bt2",
+		"index/lambda_virus.3.bt2",
+		"index/lambda_virus.4.bt2",
+		"index/lambda_virus.rev.1.bt2",
+		"index/lambda_virus.rev.2.bt2"
+	],
+	init: `export REF=./index/lambda_virus;
+export REF_FASTA=./reference/lambda_virus.fa;
+echo "CGGCGAACAGGCCTAGATTAGGCCCTTCTTCCCGGCGGTG" > secret;`
 };

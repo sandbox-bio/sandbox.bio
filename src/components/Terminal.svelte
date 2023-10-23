@@ -238,7 +238,7 @@ async function mountTutorialFiles() {
 		await $cli.mountFile(fileName, url);
 	}
 	// Mount files stored in assets.sandbox.bio because of their size
-	for(const fileName of assets) {
+	for (const fileName of assets) {
 		const url = `https://assets.sandbox.bio/tutorials/${$tutorial.id}/${fileName}`;
 		await $cli.mountFile(fileName, url);
 	}
