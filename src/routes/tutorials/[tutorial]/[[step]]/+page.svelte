@@ -15,6 +15,4 @@ $: step = +$page.params.step || 0;
 	{/if}
 </svelte:head>
 
-{#if id}
-	<Tutorial {id} {step} />
-{/if}
+<Tutorial {id} {step} />

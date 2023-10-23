@@ -5,6 +5,7 @@ import { progress } from "$stores/config";
 import { status } from "$stores/status";
 import { tutorials } from "$stores/tutorials";
 import { tutorial } from "$stores/tutorial";
+import Alert from "$src/components/Alert.svelte";
 import Terminal from "$components/Terminal.svelte";
 import IGV from "$components/igv/IGV.svelte";
 import IDE from "$components/ExerciseRosalind.svelte";
@@ -13,7 +14,7 @@ export let id;
 export let step = 0;
 
 // State
-$tutorial = $tutorials.find((t) => t.id == id);
+$tutorial = $tutorials.find((t) => t.id == id) || { steps: [] };
 const tocToggle = () => (tocOpen = !tocOpen);
 let tocOpen = false;
 let stepInfo = {};
@@ -48,6 +49,7 @@ async function logStep(from, to) {
 }
 
 function nextStep(step) {
+	if (!$tutorial.id) return;
 	stepInfo = $tutorial.steps[step];
 
 	// Update progress in one shot (each time change $progress, makes call to DB)
@@ -153,7 +155,7 @@ onDestroy(() => {
 		{:else if $tutorial.igv === true}
 			{@const config = { ...$tutorial.igvConfig.default, ...$tutorial.igvConfig[step] }}
 			<IGV options={config} />
-		{:else}
+		{:else if $tutorial.id != null}
 			<div id="terminal-wrapper" class="border rounded-3 p-2">
 				<Terminal
 					on:status={(event) => ($status.terminal = event.detail)}
@@ -162,6 +164,19 @@ onDestroy(() => {
 					intro={$tutorial.intro}
 					init={$tutorial.init}
 				/>
+			</div>
+		{:else}
+			<div>
+				<Alert color="warning">
+					<p>
+						<strong>This tutorial does not exist.</strong>
+					</p>
+					<p>
+						Please <a href="https://github.com/sandbox-bio/sandbox.bio/discussions/new?category=general">reach out to us</a> and let us know how you got
+						here so we can fix the broken link. Please include the original page that brought you here, thank you!
+					</p>
+				</Alert>
+				<Button color="primary" href="/tutorials">Browse tutorials &rarr;</Button>
 			</div>
 		{/if}
 	</div>
