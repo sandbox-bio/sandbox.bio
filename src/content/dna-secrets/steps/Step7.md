@@ -13,9 +13,11 @@ import { onMount } from "svelte";
 import Link from "$components/Link.svelte";
 import Execute from "$components/Execute.svelte";
 import Exercise from "$components/Exercise.svelte";
+import { tutorial } from "$stores/tutorial";
 import { cli } from "$stores/cli";
 
 // State
+let currentTutorial;
 let dnaEncoded = "-";
 let dnaDecoded = "";
 $: dnaDecoded = binaryToString(dnaEncoded.replaceAll("\n", "").split("").map(b => {
@@ -51,9 +53,13 @@ let criteria = [
 	}]
 }];
 
-onMount(getSecret);
+onMount(() => {
+	currentTutorial = $tutorial.id;
+	getSecret();
+});
 
 async function getSecret() {
+	if (currentTutorial !== $tutorial.id) return;
 	try {
 		const buffer = await $cli.readFile("/root/tutorial/secret");
 		dnaEncoded = new TextDecoder().decode(buffer);
