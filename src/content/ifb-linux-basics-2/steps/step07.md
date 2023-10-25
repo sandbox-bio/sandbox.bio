@@ -17,7 +17,7 @@ It is also used to rename files or directories.
 Try this `mv` command to rename the file from `second_file.txt` to `2nd_file.txt` and to move it towards your HOME directory:
 
 ```bash
-cd
+cd ~/tutorial
 tree
 mv test/second_file.txt 2nd_file.txt
 tree
@@ -30,7 +30,7 @@ The `rm` (**r**e**m**ove) command deletes files or directories.
 Use `rm` to delete the file named `second_file.txt` from the directory `~/test`. Also use `tree` to check the organisation of files and directory from the working directory:
 
 ```bash
-cd
+cd ~/tutorial
 tree
 rm test/first_file.txt
 tree

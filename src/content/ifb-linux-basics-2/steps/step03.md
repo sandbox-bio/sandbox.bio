@@ -4,7 +4,7 @@ import Quiz from "$components/Quiz.svelte";
 
 Run the `pwd` command in the right panel.
 
-The output is the absolute path `/root` and means that you are currently located in `/root`.
+The output is the absolute path `/root/tutorial` and means that you are currently located in `/root/tutorial`.
 
 Remark: In a Unix system, the administrator (the boss) is called root. And you are presently in its personal directory that is also called `root`!
 
@@ -30,7 +30,7 @@ ls test
 
 The `..` operator is handy to write a path relative to a directory.
 It means _one level up in the directory tree_.
-For instance from the `/root` directory where you are, you may list the content of the `/` directory using:
+For instance from the `/root/tutorial` directory where you are, you may list the content of the `/root` directory using:
 
 ```bash
 ls ..
@@ -39,7 +39,7 @@ ls ..
 The same result would be obtained here using an absolute path:
 
 ```bash
-ls /
+ls /root/
 ```
 
 In an other example, if you are located in the `/root` directory, you could list the content of `/tmp` with a relative path:
@@ -55,17 +55,17 @@ ls /tmp
 ```
 
 <Quiz id="q1" choices={[ { valid: false, value: "/"},
-{ valid: false, value: "/shared"},
-{ valid: true, value: "/shared/data/bank"}, ]}>
+{ valid: false, value: "/root"},
+{ valid: true, value: "/root/tutorial"}, ]}>
 <span slot="prompt">
-If your current working directory is `/shared/data/bank/homo_sapiens`, to which absolute path refers the path `..` ?
+If your current working directory is `/root/tutorial/homo_sapiens`, to which absolute path refers the path `..` ?
 </span>
 </Quiz>
 
 <Quiz id="q2" choices={[ { valid: true, value: "absolute"},
 { valid: false, value: "relative"}, ]}>
 <span slot="prompt">
-Which type of path is `/shared/data`?
+Which type of path is `/root/tutorial`?
 </span>
 </Quiz>
 
@@ -73,6 +73,6 @@ Which type of path is `/shared/data`?
 { valid: false, value: "../../hg19/fasta"},
 { valid: true, value: "../homo_sapiens/hg19/fasta"}, ]}>
 <span slot="prompt">
-If your current working directory is `/shared/data/bos_taurus` what is the relative path to `/shared/data/homo_sapiens/hg19/fasta`?
+If your current working directory is `/root/tutorial/bos_taurus` what is the relative path to `/root/tutorial/homo_sapiens/hg19/fasta`?
 </span>
 </Quiz>

@@ -65,7 +65,7 @@ onMount(async () => {
 		{/if}
 	{/each}
 
-	<Button size="sm" color="info" class="mt-3" on:click={validate} disabled={success}>Submit</Button>
+	<Button size="sm" color="info" class="mt-3" on:click={() => validate(false)} disabled={success}>Submit</Button>
 
 	{#if success}
 		<p class="mt-2 text-success small">That is correct!</p>

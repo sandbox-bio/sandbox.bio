@@ -17,7 +17,7 @@ In the example below we successively go to the `/tmp` then `/root/test` director
 ```bash
 cd /tmp
 pwd
-cd ~/test
+cd ~/tutorial/test
 pwd
 ```
 
@@ -27,17 +27,17 @@ Ask your administrator!
 To answer the next question, please type the 3 following commands:
 
 ```bash
-cd /shared/data/nr
-cd ~/test
+cd /root/tutorial/nr
+cd ~/tutorial/test
 cd
 ```
 
-<Quiz id="q1" choices={[ { valid: false, value: "/shared/data/nr"},
+<Quiz id="q1" choices={[ { valid: false, value: "/root/tutorial/nr"},
 { valid: false, value: "test"},
 { valid: false, value: "your HOME directory"},
-{ valid: true, value: "/shared/data"},
+{ valid: true, value: "/root"},
 { valid: false, value: "nr"},
-{ valid: false, value: "/root/test"}, ]}>
+{ valid: false, value: "/root/tutorial/test"}, ]}>
 <span slot="prompt">
 ...and select the right current working directory:
 </span>
