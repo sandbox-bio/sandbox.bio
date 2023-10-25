@@ -15,7 +15,7 @@ export class LocalState {
 	}
 
 	static async setFS(tutorial, value) {
-		if (!tutorial) throw "Warning: Stop saving FS state (moved away from terminal).";
+		if (!tutorial) throw "Stopped saving FS state because moved away from terminal.";
 		log(LOGGING_DEBUG, "Saving FS state...");
 
 		const key = LocalState.getKeyFS(tutorial);

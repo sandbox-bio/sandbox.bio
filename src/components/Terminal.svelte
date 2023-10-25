@@ -183,8 +183,12 @@ function handleResize() {
 // =============================================================================
 
 async function fsSync() {
-	await fsSave();
-	timerSyncFS = setTimeout(fsSync, 2000);
+	try {
+		await fsSave();
+		timerSyncFS = setTimeout(fsSync, 2000);
+	} catch (error) {
+		console.warn(error);
+	}
 }
 
 // Save FS state to localforage

@@ -1,7 +1,9 @@
 <script>
+import { onMount } from "svelte";
 import { Button, FormGroup, Icon, ListGroup, ListGroupItem, Spinner } from "sveltestrap";
 import { EXEC_MODE_BUS, cli } from "$stores/cli";
 import { DIR_TUTORIAL } from "$src/config";
+import { tutorial } from "$src/stores/tutorial";
 
 export let criteria = []; // List of criteria that must be true for the exercise to be complete
 export let hints = []; // Hints to show user
@@ -9,8 +11,15 @@ let statuses = []; // Status of each criteria (true/false)
 let busy = false; // Whether the user manually asked to check their work
 let working = false; // Whether we're currently checking exercise status (don't do it more than once at a time)
 let nbHints = 0;
+let currentTutorial;
+let currentStep;
 
 $: isDone = statuses.filter((d) => d).length == statuses.length && statuses.length != 0;
+
+onMount(() => {
+	currentTutorial = $tutorial.id;
+	currentStep = $tutorial.step;
+})
 
 // Validate user's input
 async function check(manual = false) {
@@ -62,12 +71,17 @@ async function check(manual = false) {
 		} catch (error) {
 			console.error(error);
 		}
-		working = false;
-	}
 
-	// Check exercise status regularly
-	if (!statuses.every((d) => d === true)) {
-		setTimeout(check, 1000);
+		// Check exercise status regularly
+		if (!statuses.every((d) => d === true)) {
+			if(currentTutorial === $tutorial.id && currentStep === $tutorial.step) {
+				setTimeout(check, 1000);
+			} else {
+				console.warn(`Stopped checking exercises for "${currentTutorial}/${currentStep}" because moved away.`)
+			}
+		}
+
+		working = false;
 	}
 }
 setTimeout(check, 500);
