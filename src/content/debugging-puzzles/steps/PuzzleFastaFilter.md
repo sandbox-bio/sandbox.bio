@@ -11,7 +11,16 @@ const criteria = [
 			type: "file",
 			path: "sequences.fa",
 			action: "contents",
-			commandExpected: curl
+			commandExpected: "echo -n 1951",
+			commandObserved: `stat --printf="%s" sequences.fa`,
+		}]
+	},
+		{
+		name: "File <code>sequences.txt</code> exists",
+		checks: [{
+			type: "file",
+			path: "sequences.txt",
+			action: "exists"
 		}]
 	},
 	{

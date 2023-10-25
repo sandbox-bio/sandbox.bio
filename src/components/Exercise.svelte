@@ -19,6 +19,7 @@ $: isDone = statuses.filter((d) => d).length == statuses.length && statuses.leng
 onMount(() => {
 	currentTutorial = $tutorial.id;
 	currentStep = $tutorial.step;
+	setTimeout(check, 500);
 })
 
 // Validate user's input
@@ -84,7 +85,6 @@ async function check(manual = false) {
 		working = false;
 	}
 }
-setTimeout(check, 500);
 </script>
 
 <div class="d-flex justify-content-between mt-4 mb-2">
