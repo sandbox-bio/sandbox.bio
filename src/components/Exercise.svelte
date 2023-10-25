@@ -20,7 +20,7 @@ onMount(() => {
 	currentTutorial = $tutorial.id;
 	currentStep = $tutorial.step;
 	setTimeout(check, 500);
-})
+});
 
 // Validate user's input
 async function check(manual = false) {
@@ -75,10 +75,10 @@ async function check(manual = false) {
 
 		// Check exercise status regularly
 		if (!statuses.every((d) => d === true)) {
-			if(currentTutorial === $tutorial.id && currentStep === $tutorial.step) {
+			if (currentTutorial === $tutorial.id && currentStep === $tutorial.step) {
 				setTimeout(check, 1000);
 			} else {
-				console.warn(`Stopped checking exercises for "${currentTutorial}/${currentStep}" because moved away.`)
+				console.warn(`Stopped checking exercises for "${currentTutorial}/${currentStep}" because moved away.`);
 			}
 		}
 

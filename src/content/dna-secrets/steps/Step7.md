@@ -4,13 +4,16 @@
 
 	bowtie2 -x $REF -U morereads.fq -S aligned2.sam; samtools sort -o aligned2.bam aligned2.sam;  bcftools mpileup -f $REF_FASTA aligned2.bam | bcftools call -m -v -Ob -o variants2.bcf -; bcftools index variants2.bcf
 
-	bcftools merge variants.bcf variants2.bcf > combined.vcf; bcftools query -f "%ALT" combined.vcf > secret
+	bcftools merge variants.bcf variants2.bcf > combined.vcf
+	
+	bcftools query -f "%ALT" combined.vcf > secret
 */
 
 import { onMount } from "svelte";
 import Link from "$components/Link.svelte";
 import Execute from "$components/Execute.svelte";
 import Exercise from "$components/Exercise.svelte";
+import { cli } from "$stores/cli";
 
 // State
 let dnaEncoded = "-";
@@ -48,11 +51,17 @@ let criteria = [
 	}]
 }];
 
-onMount(async () => {
-	setInterval(async () => {
-		
-	}, 500);
-});
+onMount(getSecret);
+
+async function getSecret() {
+	try {
+		const buffer = await $cli.readFile("/root/tutorial/secret");
+		dnaEncoded = new TextDecoder().decode(buffer);
+	} catch (error) {
+		console.error(error);
+	}
+	setTimeout(getSecret, 500);
+}
 </script>
 
 Finally, it's time to decode the secret message!

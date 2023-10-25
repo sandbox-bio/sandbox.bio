@@ -1,6 +1,7 @@
 <script>
 /*
-	bowtie2 -x $REF -U reads.fq -S aligned.sam; samtools sort -o aligned.bam aligned.sam;  bcftools mpileup -f $REF_FASTA aligned.bam | bcftools call -m -v -Ob -o variants.bcf -; bcftools index variants.bcf
+	bowtie2 -x $REF -U reads.fq -S aligned.sam; samtools sort -o aligned.bam aligned.sam;
+	bcftools mpileup -f $REF_FASTA aligned.bam | bcftools call -m -v -Ob -o variants.bcf -; bcftools index variants.bcf
 */
 
 import Link from "$components/Link.svelte";
@@ -22,8 +23,8 @@ let criteria = [
 		type: "file",
 		path: "variants.bcf",
 		action: "contents",
-		commandExpected: "bcftools mpileup -f $REF_FASTA aligned.bam | bcftools call -m -v -Ob - -o /tmp/__dnasecret.bcf; bcftools view --no-header /tmp/__dnasecret.bcf",
-		commandObserved: "bcftools view --no-header variants.bcf"
+		commandExpected: `echo -e "60"`,
+		commandObserved: "bcftools view variants.bcf | wc -l"
 	}]
 },
 {

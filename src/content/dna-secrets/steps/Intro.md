@@ -3,6 +3,7 @@ import { onMount } from "svelte";
 import Link from "$components/Link.svelte";
 import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
+import { cli } from "$stores/cli";
 
 // State
 let dnaEncoded = "-";
@@ -29,11 +30,17 @@ function binaryToString(input) {
 	return result;
 }
 
-onMount(async () => {
-	setInterval(async () => {
-		
-	}, 500);
-});
+onMount(getSecret);
+
+async function getSecret() {
+	try {
+		const buffer = await $cli.readFile("/root/tutorial/secret");
+		dnaEncoded = new TextDecoder().decode(buffer);
+	} catch (error) {
+		console.error(error);
+	}
+	setTimeout(getSecret, 500);
+}
 </script>
 
 <Alert>
