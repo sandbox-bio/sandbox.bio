@@ -7,10 +7,10 @@ In the previous chapters, you learnt how to move around in the Unix filesystem a
 This chapter will show you how to explore the data in contained in these files.
 The commands we’ll be using are fairly simple, but are solid building blocks of more sophisticated treatment pipelines.
 
-First, go to the `data` directory with the `cd` command:
+First, go to the `~/tutorial` directory with the `cd` command:
 
 ```bash
-cd data
+cd ~/tutorial
 ```
 
 Check that you are in the expected directory with `pwd`:
@@ -19,7 +19,7 @@ Check that you are in the expected directory with `pwd`:
 pwd
 ```
 
-The result should be `/root/data`. This directory should contain 5 files when calling `ls`.
+The result should be `/root/tutorial`. This directory should contain 5 files when calling `ls`.
 
 ## Displaying file contents
 
@@ -31,7 +31,7 @@ A first command to display the contents of a file is `cat`:
 cat NC_009089.fasta
 ```
 
-This command will print the whole contents of the _NC_009089.fasta_ file to the screen.
+This command will print the whole contents of the _NC\_009089.fasta_ file to the screen.
 
 Print the contents of the _SAOUHSC.fasta_ file.
 
