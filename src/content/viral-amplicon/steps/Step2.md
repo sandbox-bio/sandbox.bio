@@ -15,7 +15,7 @@ Let's make some sense of this `minimap2` command:
 - Next, we're specifying the reference genome: `$REF_FASTA`
 - Lastly, we're specifying the read files we want to map: `reads_R1.fq` and `reads_R2.fq`
 
-After running the above command, we will have successfully mapped our reads (`reads_R1.fq` and `reads_R2.fq`) to the reference genome (`$REF`) and written the results to the file `reads.mapped.bam`.
+After running the above command, we will have successfully mapped our reads (`reads_R1.fq` and `reads_R2.fq`) to the reference genome (`$REF`) and written the results to the file `reads.mapped.sam`.
 
 To see the first few lines of the SAM output file in the human-readable SAM format, run the following:
 
