@@ -31,6 +31,7 @@ const TOOLS_DEFAULT = [
 	{ loading: "lazy", tool: "tree", version: "2.0.4" },
 	{ loading: "lazy", tool: "lsd2", version: "2.3" },
 	{ loading: "lazy", tool: "tn93", version: "1.0.9" },
+	{ loading: "lazy", tool: "ViralConsensus", program: "viral_consensus", version: "0.0.3" },
 	...HTSLIB_TOOLS.map(program => ({ program, tool: "htslib", loading: "lazy", version: "1.10", reinit: true })),
 
 	// General terminal tools
