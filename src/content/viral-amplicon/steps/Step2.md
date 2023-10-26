@@ -3,7 +3,7 @@ import Link from "$components/Link.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
-First, we'll use `minimap2` to align the sequencing paired-end reads in `reads_R1.fq` and `reads_R2.fq` to the reference genome located at `$REF`. While `minimap2` aligns the reads, we will <Link href="https://en.wikipedia.org/wiki/Pipeline_(Unix)#Pipelines_in_command_line_interfaces">pipe</Link> the resulting SAM stream to `samtools` to sort. Run the following:
+First, we'll use `minimap2` to align the sequencing paired-end reads in `reads_R1.fq` and `reads_R2.fq` to the reference genome located at `$REF`. Run the following:
 
 <Execute command="minimap2 -a -o reads.mapped.sam -x sr \ $REF_FASTA reads_R1.fq reads_R2.fq" />
 
