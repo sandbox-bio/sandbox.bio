@@ -1,6 +1,7 @@
 <script>
 import { onDestroy, onMount } from "svelte";
 import { Button, DropdownItem, Offcanvas } from "sveltestrap";
+import { afterNavigate } from "$app/navigation";
 import { progress } from "$stores/config";
 import { status } from "$stores/status";
 import { tutorials } from "$stores/tutorials";
@@ -30,6 +31,11 @@ $: if ($tutorial.ide === true) {
 	rosalind = $tutorial.steps[step].rosalind;
 	rosalind.fn = `solution_${rosalind.id.toLowerCase()}`;
 }
+
+// Make sure to reset scroll position when navigating between steps
+afterNavigate(() => {
+	document.getElementById("tutorial-sidebar")?.scrollTo(0, 0);
+});
 
 // Handle analytics
 async function logStep(from, to) {

@@ -31,7 +31,7 @@ A first command to display the contents of a file is `cat`:
 cat NC_009089.fasta
 ```
 
-This command will print the whole contents of the _NC\_009089.fasta_ file to the screen.
+This command will print the whole contents of the _NC_009089.fasta_ file to the screen.
 
 Print the contents of the _SAOUHSC.fasta_ file.
 

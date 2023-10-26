@@ -83,6 +83,6 @@ export const config = {
 		"homo_sapiens/hg38/star-2.7.5a/chrName.txt",
 		"homo_sapiens/hg38/star-2.7.5a/genomeParameters.txt",
 		"test/first_file.txt",
-		"test/second_file.txt",
+		"test/second_file.txt"
 	]
 };

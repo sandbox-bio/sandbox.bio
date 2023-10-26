@@ -8,6 +8,7 @@ First, we'll use `minimap2` to align the sequencing paired-end reads in `reads_R
 <Execute command="minimap2 -a -o reads.mapped.sam -x sr \ $REF_FASTA reads_R1.fq reads_R2.fq" />
 
 Let's make some sense of this `minimap2` command:
+
 - `-a` tells `minimap2` that we want it to output the results in the SAM format
 - `-o reads.mapped.sam` tells `minimap2` that we want to write the output SAM results to the file `reads.mapped.sam` (rather than printing them to standard output)
 - `-x sr` tells `minimap2` that we want to use its **s**hort-**r**ead mapping preset
