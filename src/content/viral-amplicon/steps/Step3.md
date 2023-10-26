@@ -40,7 +40,7 @@ We will have also output the nucleotide counts (`position_counts.tsv`) and inser
 
 To see the contents of the position counts TSV file, run the following:
 
-<Execute command="cat position_counts.tsv" />
+<Execute command="head -5 position_counts.tsv" />
 
 To see the contents of the insertion counts JSON file, run the following:
 
