@@ -22,8 +22,6 @@ import {
 import Login from "$components/Login.svelte";
 import { URL_ASSETS } from "$src/config";
 
-$: path = $page.url.pathname;
-
 const playgrounds = [
 	{ name: "Terminal", url: "/playgrounds/cli", description: "Open ended" },
 	{ name: "Jq", url: "/playgrounds/jq", description: "Wrangle JSON data" },
@@ -32,7 +30,11 @@ const playgrounds = [
 	{ name: "Sed", url: "/playgrounds/sed", description: "Search and replace" }
 ];
 
+// -----------------------------------------------------------------------------
 // State
+// -----------------------------------------------------------------------------
+
+let isNavbarOpen;
 let loginModalOpen = false;
 let loginError = false;
 let loginSuccess = false;
@@ -41,6 +43,9 @@ let signupError = false;
 let signupSuccess = false;
 // let toastOpen = false;
 // let toastToggle = () => (toastOpen = !toastOpen);
+
+$: path = $page.url.pathname;
+
 
 // // -----------------------------------------------------------------------------
 // // Warn about losing progress if don't login
@@ -93,8 +98,6 @@ async function login(credentials) {
 onMount(async () => {
 	// await envInit();
 });
-
-let isNavbarOpen;
 </script>
 
 <svelte:head>
