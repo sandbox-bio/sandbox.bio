@@ -1,5 +1,9 @@
 import localforage from "localforage";
+import { createClient } from "@supabase/supabase-js";
 import { LOGGING, LOGGING_DEBUG } from "$src/config";
+import { env } from "$env/dynamic/public";
+
+export const supabaseAnon = createClient(env.PUBLIC_SUPABASE_URL, env.PUBLIC_SUPABASE_API_KEY);
 
 export class LocalState {
 	static getKeyFS(tutorial) {

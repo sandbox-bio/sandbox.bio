@@ -17,10 +17,13 @@ import {
 	DropdownItem,
 	Modal,
 	TabContent,
-	TabPane
+	TabPane,
+	Tooltip
 } from "sveltestrap";
 import Login from "$components/Login.svelte";
+import LoginWithGoogle from "$src/components/LoginWithGoogle.svelte";
 import { URL_ASSETS } from "$src/config";
+import { supabaseAnon } from "$src/utils";
 
 const playgrounds = [
 	{ name: "Terminal", url: "/playgrounds/cli", description: "Open ended" },
@@ -34,18 +37,13 @@ const playgrounds = [
 // State
 // -----------------------------------------------------------------------------
 
+let user = {};
 let isNavbarOpen;
 let loginModalOpen = false;
-let loginError = false;
-let loginSuccess = false;
-let loginBusy = false;
-let signupError = false;
-let signupSuccess = false;
 // let toastOpen = false;
 // let toastToggle = () => (toastOpen = !toastOpen);
 
 $: path = $page.url.pathname;
-
 
 // // -----------------------------------------------------------------------------
 // // Warn about losing progress if don't login
@@ -58,45 +56,35 @@ $: path = $page.url.pathname;
 // }
 // setTimeout(remindLogin, 30_000);
 
-// // -----------------------------------------------------------------------------
-// // User auth
-// // -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// User auth
+// -----------------------------------------------------------------------------
 
-async function signup(credentials) {
-	// 	loginBusy = true;
-	// 	const data = await $supabase.auth.signUp(credentials);
-	// 	signupError = data.error?.message;
-	// 	if(data.error)
-	// 		loginBusy = false;
-	// 	else
-	// 		signupSuccess = "Account successfully created. Check your email for the verification link.";
+async function loginWithGoogle() {
+	const { error } = await supabaseAnon.auth.signInWithOAuth({
+		provider: "google",
+		options: { redirectTo: $page.url.href }
+	});
+	if (error) alert(error);
 }
 
-async function login(credentials) {
-	// 	loginBusy = true;
-	// 	const data = await $supabase.auth.signIn(credentials);
-	// 	loginError = data.error?.message;
-	// 	if(data.error) {
-	// 		loginBusy = false;
-	// 	} else {
-	// 		loginError = false;
-	// 		loginModalOpen = false;
-	// 		$user = data.user;
-	// 		window.location.reload();
-	// 	}
+async function logout() {
+	const data = await supabaseAnon.auth.signOut();
+	if (data.error) console.error(data.error);
 }
 
-// async function logout() {
-// 	const data = await $supabase.auth.signOut();
-// 	console.error(data.error);
-// 	if(data.error == null)
-// 		$user = null;
-
-// 	window.location.reload();
-// }
-
+// The first load of the app, get user state + watch for future changes
 onMount(async () => {
-	// await envInit();
+	supabaseAnon.auth.onAuthStateChange(async (event, session) => {
+		console.log("[Supabase Auth] Event:", event, session);
+
+		if (event === "SIGNED_OUT") {
+			user = {};
+		} else {
+			const { data } = await supabaseAnon.auth.getUser();
+			user = data?.user || {};
+		}
+	});
 });
 </script>
 
@@ -108,6 +96,7 @@ onMount(async () => {
 <!-- Bootstrap CSS and icons -->
 <Styles />
 
+<!-- Navigation bar -->
 <Navbar light container color="light" expand="md">
 	<NavbarBrand href="/">
 		sandbox.bio
@@ -138,7 +127,16 @@ onMount(async () => {
 				<NavLink href="/community" active={path.startsWith("/community")}>Community</NavLink>
 			</NavItem>
 			<NavItem>
-				<NavLink on:click={() => (loginModalOpen = true)}>Log in</NavLink>
+				{#if user?.email}
+					<NavLink id="logout" on:click={logout}>Logout</NavLink>
+					<Tooltip target="logout">
+						<small>
+							{user.email}
+						</small>
+					</Tooltip>
+				{:else}
+					<NavLink on:click={() => (loginModalOpen = true)}>Log in</NavLink>
+				{/if}
 			</NavItem>
 		</Nav>
 	</Collapse>
@@ -157,17 +155,24 @@ onMount(async () => {
 <!-- Login/Signup modal -->
 <Modal body header="" toggle={() => (loginModalOpen = !loginModalOpen)} isOpen={loginModalOpen}>
 	<TabContent>
+		<!-- Login -->
 		<TabPane tabId="login" active>
 			<span class="h6" slot="tab">Log in</span>
-			<p class="mt-2 mb-2"><small>Log in to save your progress:</small></p>
 
-			<Login type="login" error={loginError} success={loginSuccess} on:login={(event) => login(event.detail)} busy={loginBusy} />
+			<!-- Login with Google -->
+			<p class="mt-2 mb-2 small text-muted">Log in to save your progress:</p>
+			<LoginWithGoogle direction="in" on:click={loginWithGoogle} />
+
+			<!-- Or email/password -->
+			<h6 class="mt-5">Or log in with your e-mail and password:</h6>
+			<Login />
 		</TabPane>
+
+		<!-- Signup -->
 		<TabPane tabId="signup">
 			<span class="h6" slot="tab">Sign up</span>
-			<p class="mt-2 mb-2"><small>Create an account to save your progress:</small></p>
-
-			<Login type="signup" error={signupError} success={signupSuccess} on:signup={(event) => signup(event.detail)} busy={loginBusy} />
+			<p class="mt-2 mb-2 small text-muted">Create an account to save your progress:</p>
+			<LoginWithGoogle direction="up" on:click={loginWithGoogle} />
 		</TabPane>
 	</TabContent>
 </Modal>

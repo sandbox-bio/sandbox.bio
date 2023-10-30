@@ -1,23 +1,24 @@
 <script>
-import { createEventDispatcher } from "svelte";
 import { Alert, Button, FormGroup, Input } from "sveltestrap";
-
-export let type = "login"; // Supported: login, signup
-export let error = false;
-export let success = false;
-export let busy = false;
+import { supabaseAnon } from "$src/utils";
 
 // Form state
 let email = "";
 let password = "";
-const dispatch = createEventDispatcher();
+let error;
+let busy;
 
 // Log in or sign up
-function run() {
-	dispatch(type, {
-		email,
-		password
-	});
+async function login() {
+	busy = true;
+	const { error: err } = await supabaseAnon.auth.signInWithPassword({ email, password });
+	error = err?.message;
+
+	if (err) {
+		busy = false;
+	} else {
+		error = false;
+	}
 }
 </script>
 
@@ -30,7 +31,7 @@ function run() {
 		type="password"
 		bind:value={password}
 		on:keypress={(e) => {
-			if (e.key === "Enter") run();
+			if (e.key === "Enter") login();
 		}}
 		disabled={busy}
 	/>
@@ -42,16 +43,4 @@ function run() {
 	</Alert>
 {/if}
 
-{#if success}
-	<Alert color="success">
-		{success}
-	</Alert>
-{/if}
-
-<Button color="primary" class="w-100" on:click={run} disabled={busy}>
-	{#if type == "login"}
-		Log in
-	{:else}
-		Create account
-	{/if}
-</Button>
+<Button color="primary" class="w-100" on:click={login} disabled={busy}>Log in</Button>
