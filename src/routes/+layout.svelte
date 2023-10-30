@@ -14,8 +14,12 @@ import {
 	Dropdown,
 	DropdownToggle,
 	DropdownMenu,
-	DropdownItem
+	DropdownItem,
+	Modal,
+	TabContent,
+	TabPane
 } from "sveltestrap";
+import Login from "$components/Login.svelte";
 import { URL_ASSETS } from "$src/config";
 
 $: path = $page.url.pathname;
@@ -28,17 +32,15 @@ const playgrounds = [
 	{ name: "Sed", url: "/playgrounds/sed", description: "Search and replace" }
 ];
 
-// import Login from "$components/Login.svelte";
-
-// // State
+// State
+let loginModalOpen = false;
+let loginError = false;
+let loginSuccess = false;
+let loginBusy = false;
+let signupError = false;
+let signupSuccess = false;
 // let toastOpen = false;
-// let toastToggle = () => toastOpen = !toastOpen;
-// let loginModalOpen = false;
-// let loginError = false;
-// let loginSuccess = false;
-// let loginBusy = false;
-// let signupError = false;
-// let signupSuccess = false;
+// let toastToggle = () => (toastOpen = !toastOpen);
 
 // // -----------------------------------------------------------------------------
 // // Warn about losing progress if don't login
@@ -55,29 +57,29 @@ const playgrounds = [
 // // User auth
 // // -----------------------------------------------------------------------------
 
-// async function signup(credentials) {
-// 	loginBusy = true;
-// 	const data = await $supabase.auth.signUp(credentials);
-// 	signupError = data.error?.message;
-// 	if(data.error)
-// 		loginBusy = false;
-// 	else
-// 		signupSuccess = "Account successfully created. Check your email for the verification link.";
-// }
+async function signup(credentials) {
+	// 	loginBusy = true;
+	// 	const data = await $supabase.auth.signUp(credentials);
+	// 	signupError = data.error?.message;
+	// 	if(data.error)
+	// 		loginBusy = false;
+	// 	else
+	// 		signupSuccess = "Account successfully created. Check your email for the verification link.";
+}
 
-// async function login(credentials) {
-// 	loginBusy = true;
-// 	const data = await $supabase.auth.signIn(credentials);
-// 	loginError = data.error?.message;
-// 	if(data.error) {
-// 		loginBusy = false;
-// 	} else {
-// 		loginError = false;
-// 		loginModalOpen = false;
-// 		$user = data.user;
-// 		window.location.reload();
-// 	}
-// }
+async function login(credentials) {
+	// 	loginBusy = true;
+	// 	const data = await $supabase.auth.signIn(credentials);
+	// 	loginError = data.error?.message;
+	// 	if(data.error) {
+	// 		loginBusy = false;
+	// 	} else {
+	// 		loginError = false;
+	// 		loginModalOpen = false;
+	// 		$user = data.user;
+	// 		window.location.reload();
+	// 	}
+}
 
 // async function logout() {
 // 	const data = await $supabase.auth.signOut();
@@ -132,6 +134,9 @@ let isNavbarOpen;
 			<NavItem>
 				<NavLink href="/community" active={path.startsWith("/community")}>Community</NavLink>
 			</NavItem>
+			<NavItem>
+				<NavLink on:click={() => (loginModalOpen = true)}>Log in</NavLink>
+			</NavItem>
 		</Nav>
 	</Collapse>
 </Navbar>
@@ -147,22 +152,22 @@ let isNavbarOpen;
 </div> -->
 
 <!-- Login/Signup modal -->
-<!-- <Modal body header="" toggle={() => loginModalOpen = !loginModalOpen} isOpen={loginModalOpen}>
+<Modal body header="" toggle={() => (loginModalOpen = !loginModalOpen)} isOpen={loginModalOpen}>
 	<TabContent>
 		<TabPane tabId="login" active>
-			<span slot="tab"><h5>Log in</h5></span>
+			<span class="h6" slot="tab">Log in</span>
 			<p class="mt-2 mb-2"><small>Log in to save your progress:</small></p>
 
-			<Login type="login" error={loginError} success={loginSuccess} on:login={event => login(event.detail)} busy={loginBusy} />
+			<Login type="login" error={loginError} success={loginSuccess} on:login={(event) => login(event.detail)} busy={loginBusy} />
 		</TabPane>
-		<TabPane tabId="signup" >
-			<span slot="tab"><h5>Sign up</h5></span>
+		<TabPane tabId="signup">
+			<span class="h6" slot="tab">Sign up</span>
 			<p class="mt-2 mb-2"><small>Create an account to save your progress:</small></p>
 
-			<Login type="signup" error={signupError} success={signupSuccess} on:signup={event => signup(event.detail)} busy={loginBusy} />
+			<Login type="signup" error={signupError} success={signupSuccess} on:signup={(event) => signup(event.detail)} busy={loginBusy} />
 		</TabPane>
 	</TabContent>
-</Modal> -->
+</Modal>
 
 <!-- Page Content -->
 <Container class="mt-4">

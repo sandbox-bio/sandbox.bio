@@ -7,16 +7,16 @@ import { env } from "$env/dynamic/public";
 // Variables that we'll export (_var will be exported as $var)
 // -----------------------------------------------------------------------------
 
-const _supabase = createClient(env.PUBLIC_SUPABASE_URL, env.PUBLIC_SUPABASE_API_KEY);
-const _user = _supabase.auth.user();
+// const _supabase = createClient(env.PUBLIC_SUPABASE_URL, env.PUBLIC_SUPABASE_API_KEY);
+// const _user = _supabase.auth.user();
 
 // -----------------------------------------------------------------------------
 // Exports
 // -----------------------------------------------------------------------------
 
 // User state
-export const supabase = readable(_supabase);
-export const user = writable(_user);
+export const supabase = readable({});
+export const user = writable({});
 export const progress = writable({});
 
 // // -----------------------------------------------------------------------------

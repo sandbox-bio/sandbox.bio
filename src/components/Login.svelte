@@ -1,6 +1,6 @@
 <script>
 import { createEventDispatcher } from "svelte";
-import { Alert } from "sveltestrap";
+import { Alert, Button, FormGroup, Input } from "sveltestrap";
 
 export let type = "login"; // Supported: login, signup
 export let error = false;
@@ -21,25 +21,20 @@ function run() {
 }
 </script>
 
-<div class="form-floating mb-1">
-	<input type="email" class="form-control rounded-4" id="email-{type}" placeholder="name@example.com" bind:value={email} disabled={busy} />
-	<label for="email-{type}">Email address</label>
-</div>
+<FormGroup floating label="Email address">
+	<Input type="email" bind:value={email} disabled={busy} />
+</FormGroup>
 
-<div class="form-floating mb-3">
-	<input
+<FormGroup floating label="Password">
+	<Input
 		type="password"
-		class="form-control rounded-4"
-		id="password-{type}"
-		placeholder="Password"
 		bind:value={password}
 		on:keypress={(e) => {
 			if (e.key === "Enter") run();
 		}}
 		disabled={busy}
 	/>
-	<label for="password-{type}">Password</label>
-</div>
+</FormGroup>
 
 {#if error}
 	<Alert color="danger">
@@ -53,10 +48,10 @@ function run() {
 	</Alert>
 {/if}
 
-<button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" on:click={run} disabled={busy}>
+<Button color="primary" class="w-100" on:click={run} disabled={busy}>
 	{#if type == "login"}
 		Log in
 	{:else}
 		Create account
 	{/if}
-</button>
+</Button>
