@@ -164,9 +164,11 @@ function setFlag(option, value) {
 			value={hasExample}
 			on:change={(d) => {
 				const example = EXAMPLES[tool.name][+d.target.value];
-				updateUserInput("input", example.input);
-				updateUserInput("flags", example.flags);
-				updateUserInput("command", example.command);
+				$sandbox.data[tool.name] = {
+					input: example.input,
+					flags: example.flags,
+					command: example.command
+				};
 			}}
 		>
 			{#each EXAMPLES[tool.name] as example, i}

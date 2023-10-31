@@ -2,18 +2,15 @@
 import * as marked from "marked";
 import autosize from "svelte-autosize";
 import autosize2 from "autosize";
-import localforage from "localforage";
-import { getLocalForageKey } from "$stores/config";
 import { onMount } from "svelte";
-import { Icon } from "sveltestrap";
+import { Button, Icon } from "sveltestrap";
+import { LocalState, STATE_STUDIO } from "$src/utils";
 
 // -----------------------------------------------------------------------------
 // State
 // -----------------------------------------------------------------------------
 
-// Keep copy in localforage just in case
-const stateId = getLocalForageKey("studio");
-const updateState = (txt) => localforage.setItem(stateId, txt);
+const updateState = (txt) => LocalState.set(STATE_STUDIO, txt);
 $: updateState(tutorial);
 
 // Initial values
@@ -31,9 +28,9 @@ Here's a long command:
 <Execute command="bedtools merge \\ -i exons.bed -o count,collapse \\ -d 90 -c 1,4" />
 `;
 
-// Set state of quiz
+// Set state
 onMount(async () => {
-	const state = await localforage.getItem(stateId);
+	const state = await LocalState.get(STATE_STUDIO);
 	if (!state) return;
 	tutorial = state;
 
@@ -43,6 +40,7 @@ onMount(async () => {
 	}, 100);
 });
 
+// Download Markdown file
 function download() {
 	const file = new File([tutorial], "Step.md", { type: "text/plain" });
 	const link = document.createElement("a");
@@ -153,9 +151,9 @@ marked.use({ renderer, extensions: [tagAlert, tagExecute] });
 	<div class="col-6">
 		<h4>
 			Markdown
-			<span on:click={download} class="small hover-hand">
-				<Icon name="download" />
-			</span>
+			<Button color="primary" size="sm" on:click={download}>
+				<Icon name="download" /> Download
+			</Button>
 		</h4>
 		<textarea use:autosize class="form-control border border-primary" bind:value={tutorial} />
 	</div>

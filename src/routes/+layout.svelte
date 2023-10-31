@@ -82,7 +82,6 @@ async function logout() {
 
 onMount(async () => {
 	setTimeout(remindLogin, 30_000);
-
 });
 </script>
 

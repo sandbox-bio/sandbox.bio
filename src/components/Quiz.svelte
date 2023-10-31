@@ -1,10 +1,9 @@
 <script>
 import { onMount } from "svelte";
-import localforage from "localforage";
 import { Button, Input } from "sveltestrap";
 import Alert from "$components/Alert.svelte";
 import { tutorial } from "$stores/tutorial";
-import { getLocalForageKey } from "$stores/config";
+import { LocalState } from "$src/utils";
 
 export let id;
 export let choices = [];
@@ -16,7 +15,6 @@ let error;
 let success;
 
 // State updates
-$: stateId = getLocalForageKey("quiz") + `${$tutorial.id}-${$tutorial.step}-${id}`;
 $: multiple = choices.filter((c) => c.valid).length > 1;
 $: if (id && (radio || checked)) updateState();
 
@@ -39,12 +37,12 @@ function validate(onload = false) {
 
 // Update state
 async function updateState() {
-	await localforage.setItem(stateId, multiple ? checked : radio);
+	await LocalState.setQuiz($tutorial, id, multiple ? checked : radio);
 }
 
 // Set state of quiz
 onMount(async () => {
-	const state = await localforage.getItem(stateId);
+	const state = await LocalState.getQuiz($tutorial, id);
 	if (!state) return;
 	if (multiple) checked = state;
 	else radio = state;

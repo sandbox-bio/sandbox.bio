@@ -7,19 +7,41 @@ import { user } from "$stores/user";
 
 export const supabaseAnon = createClient(env.PUBLIC_SUPABASE_URL, env.PUBLIC_SUPABASE_API_KEY);
 
-const STATE_FS = "fs";
+// =============================================================================
+// Local state management
+// =============================================================================
+
+export const STATE_FS = "fs";
+export const STATE_PLAYGROUND = "sandbox";
+export const STATE_STUDIO = "studio";
+export const STATE_QUIZ = "quiz";
 
 export class LocalState {
-	static async getKey(state, tutorial) {
+	static async getKey(state, description = "") {
 		const prefix = get(user)?.email || "guest";
-		return `${prefix}:${state}:${tutorial}`;
+		return `${prefix}:${state}:${description}`;
 	}
 
+	// -------------------------------------------------------------------------
+	// General state (sandbox, studio)
+	// -------------------------------------------------------------------------
+	static async get(state) {
+		const key = await this.getKey(state);
+		return await localforage.getItem(key);
+	}
+
+	static async set(state, value) {
+		const key = await this.getKey(state);
+		return await localforage.setItem(key, value);
+	}
+
+	// -------------------------------------------------------------------------
 	// File system
+	// -------------------------------------------------------------------------
 	static async getFS(tutorial) {
 		if (!tutorial) return [];
 
-		const key = await LocalState.getKey(STATE_FS, tutorial);
+		const key = await this.getKey(STATE_FS, tutorial);
 		return (await localforage.getItem(key)) || [];
 	}
 
@@ -27,10 +49,31 @@ export class LocalState {
 		if (!tutorial) throw "Stopped saving FS state because moved away from terminal.";
 		log(LOGGING_DEBUG, "Saving FS state...");
 
-		const key = await LocalState.getKey(STATE_FS, tutorial);
+		const key = await this.getKey(STATE_FS, tutorial);
+		return await this.setItem(key, value);
+	}
+
+	// -------------------------------------------------------------------------
+	// Quiz
+	// -------------------------------------------------------------------------
+	static getQuizKey(tutorial, exerciseId) {
+		return `${tutorial.id}-${tutorial.step}-${exerciseId || "default"}`;
+	}
+
+	static async getQuiz(tutorial, exerciseId) {
+		const key = await this.getKey(STATE_QUIZ, this.getQuizKey(tutorial, exerciseId));
+		return (await localforage.getItem(key)) || null;
+	}
+
+	static async setQuiz(tutorial, exerciseId, value) {
+		const key = await this.getKey(STATE_QUIZ, this.getQuizKey(tutorial, exerciseId));
 		return await localforage.setItem(key, value);
 	}
 }
+
+// =============================================================================
+// Utility functions
+// =============================================================================
 
 // Get table name based on environment. Only use this for public.* tables
 export function t(tableName) {

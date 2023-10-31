@@ -1,7 +1,6 @@
 import { merge } from "lodash";
-import localforage from "localforage";
 import { writable } from "svelte/store";
-import { getLocalForageKey } from "$stores/config";
+import { LocalState, STATE_PLAYGROUND } from "$src/utils";
 import data_text from "$components/playgrounds/orders.tsv?raw";
 import data_json from "$components/playgrounds/orders.json?raw";
 
@@ -505,19 +504,20 @@ TOOLS.forEach((t) => {
 // Create sandbox store
 const { set, subscribe } = writable(DEFAULT);
 export const sandbox = {
-	set: (value) => {
+	set: async (value) => {
 		// This makes sure we always have defaults if a key was not previously defined in localforage
 		// const data = Object.assign({}, DEFAULT, value);
 		const data = merge({}, DEFAULT, value);
 
-		// Save in localforage
-		localforage.setItem(getLocalForageKey("sandbox"), data);
+		// Save state
+		await LocalState.set(STATE_PLAYGROUND, data);
 
 		// Save in memory
 		return set(data);
 	},
 	init: async () => {
-		set((await localforage.getItem(getLocalForageKey("sandbox"))) || DEFAULT);
+		const data = (await LocalState.get(STATE_PLAYGROUND)) || DEFAULT;
+		set(data);
 	},
 	subscribe
 };
