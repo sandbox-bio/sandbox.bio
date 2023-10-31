@@ -1,10 +1,12 @@
+import { browser } from "$app/environment";
+
 // =============================================================================
 // Settings
 // =============================================================================
 export const LOGGING = 1; // 0=none, 1=info, 2=debug
 export const MAX_FILE_SIZE_TO_CACHE = 50 * 1024 * 1024; // 50MB
 export const DIR_TUTORIAL = "/root/tutorial";
-export const LOCAL_DEV = window.location.hostname === "localhost";
+export const LOCAL_DEV = browser && window.location.hostname === "localhost";
 export const URL_ASSETS = LOCAL_DEV ? "" : "https://assets.sandbox.bio";
 
 // =============================================================================

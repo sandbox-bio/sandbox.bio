@@ -1,4 +1,5 @@
-import { supabase, hash, t } from "$routes/api/utils";
+import { supabase, hash } from "$routes/api/utils";
+import { t } from "$src/utils.js";
 
 export async function POST({ request }) {
 	const data = await request.json();

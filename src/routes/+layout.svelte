@@ -18,12 +18,17 @@ import {
 	Modal,
 	TabContent,
 	TabPane,
-	Tooltip
+	Tooltip,
+	Toast,
+	ToastHeader,
+	ToastBody
 } from "sveltestrap";
 import Login from "$components/Login.svelte";
 import LoginWithGoogle from "$src/components/LoginWithGoogle.svelte";
 import { URL_ASSETS } from "$src/config";
 import { supabaseAnon } from "$src/utils";
+import { user } from "$stores/user.js";
+import { progress } from "$stores/progress.js";
 
 const playgrounds = [
 	{ name: "Terminal", url: "/playgrounds/cli", description: "Open ended" },
@@ -37,24 +42,25 @@ const playgrounds = [
 // State
 // -----------------------------------------------------------------------------
 
-let user = {};
 let isNavbarOpen;
 let loginModalOpen = false;
-// let toastOpen = false;
-// let toastToggle = () => (toastOpen = !toastOpen);
+let toastOpen = false;
+let toastToggle = () => (toastOpen = !toastOpen);
 
+// Reactive state
+export let data;
+$: $user = data.user;
+$: $progress = data.progress;
 $: path = $page.url.pathname;
 
-// // -----------------------------------------------------------------------------
-// // Warn about losing progress if don't login
-// // -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// Warn about losing progress if don't login
+// -----------------------------------------------------------------------------
 
-// function remindLogin() {
-// 	if($user === null && path.startsWith("/tutorials"))
-// 		toastToggle();
-// 	setTimeout(remindLogin, 300_000);  // every 5 mins
-// }
-// setTimeout(remindLogin, 30_000);
+function remindLogin() {
+	if ($user.email == null && path.startsWith("/tutorials")) toastToggle();
+	setTimeout(remindLogin, 300_000); // every 5 mins
+}
 
 // -----------------------------------------------------------------------------
 // User auth
@@ -71,20 +77,12 @@ async function loginWithGoogle() {
 async function logout() {
 	const data = await supabaseAnon.auth.signOut();
 	if (data.error) console.error(data.error);
+	else $user = {};
 }
 
-// The first load of the app, get user state + watch for future changes
 onMount(async () => {
-	supabaseAnon.auth.onAuthStateChange(async (event, session) => {
-		console.log("[Supabase Auth] Event:", event, session);
+	setTimeout(remindLogin, 30_000);
 
-		if (event === "SIGNED_OUT") {
-			user = {};
-		} else {
-			const { data } = await supabaseAnon.auth.getUser();
-			user = data?.user || {};
-		}
-	});
 });
 </script>
 
@@ -127,11 +125,11 @@ onMount(async () => {
 				<NavLink href="/community" active={path.startsWith("/community")}>Community</NavLink>
 			</NavItem>
 			<NavItem>
-				{#if user?.email}
+				{#if $user?.email}
 					<NavLink id="logout" on:click={logout}>Logout</NavLink>
 					<Tooltip target="logout">
 						<small>
-							{user.email}
+							{$user.email}
 						</small>
 					</Tooltip>
 				{:else}
@@ -143,14 +141,12 @@ onMount(async () => {
 </Navbar>
 
 <!-- Toast Alert -->
-<!-- <div class="p-4 mb-4 me-3 position-fixed bottom-0 end-0" style="z-index: 15">
+<div class="p-4 mb-4 me-3 position-fixed bottom-0 end-0" style="z-index: 15">
 	<Toast autohide isOpen={toastOpen} header="" class="me-1">
 		<ToastHeader toggle={toastToggle}>Note</ToastHeader>
-		<ToastBody>
-			Remember to log in to save your progress!
-		</ToastBody>
+		<ToastBody>Remember to log in to save your progress!</ToastBody>
 	</Toast>
-</div> -->
+</div>
 
 <!-- Login/Signup modal -->
 <Modal body header="" toggle={() => (loginModalOpen = !loginModalOpen)} isOpen={loginModalOpen}>

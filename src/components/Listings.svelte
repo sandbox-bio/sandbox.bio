@@ -1,6 +1,7 @@
 <script>
 import { Icon, Tooltip } from "sveltestrap";
-import { progress, user } from "$stores/config";
+import { user } from "$stores/user";
+import { progress } from "$stores/progress";
 
 export let items = [];
 export let title = "Tutorials";

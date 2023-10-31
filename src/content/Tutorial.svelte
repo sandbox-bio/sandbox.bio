@@ -2,7 +2,7 @@
 import { onDestroy, onMount } from "svelte";
 import { Button, DropdownItem, Offcanvas } from "sveltestrap";
 import { afterNavigate } from "$app/navigation";
-import { progress } from "$stores/config";
+import { progress } from "$stores/progress";
 import { status } from "$stores/status";
 import { tutorials } from "$stores/tutorials";
 import { tutorial } from "$stores/tutorial";
