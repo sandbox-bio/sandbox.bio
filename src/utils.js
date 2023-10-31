@@ -15,6 +15,7 @@ export const STATE_FS = "fs";
 export const STATE_PLAYGROUND = "sandbox";
 export const STATE_STUDIO = "studio";
 export const STATE_QUIZ = "quiz";
+export const STATE_IDE = "ide";
 
 export class LocalState {
 	static async getKey(state, description = "") {
@@ -36,6 +37,19 @@ export class LocalState {
 	}
 
 	// -------------------------------------------------------------------------
+	// IDE
+	// -------------------------------------------------------------------------
+	static async getIDE(fn) {
+		const key = await this.getKey(STATE_IDE, fn);
+		return await localforage.getItem(key);
+	}
+
+	static async setIDE(fn, value) {
+		const key = await this.getKey(STATE_IDE, fn);
+		return await localforage.setItem(key, value);
+	}
+
+	// -------------------------------------------------------------------------
 	// File system
 	// -------------------------------------------------------------------------
 	static async getFS(tutorial) {
@@ -50,7 +64,7 @@ export class LocalState {
 		log(LOGGING_DEBUG, "Saving FS state...");
 
 		const key = await this.getKey(STATE_FS, tutorial);
-		return await this.setItem(key, value);
+		return await localforage.setItem(key, value);
 	}
 
 	// -------------------------------------------------------------------------

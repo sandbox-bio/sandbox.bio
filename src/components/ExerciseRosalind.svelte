@@ -1,7 +1,6 @@
 <script>
-import localforage from "localforage";
-import { getLocalForageKey } from "$stores/config";
 import { onMount } from "svelte";
+import { LocalState } from "$src/utils";
 
 export let expectedInput = ""; // Default input to show
 export let expectedOutput = ""; // Expected output given that input
@@ -44,7 +43,7 @@ async function updateEditor(newCode) {
 	updating = true;
 
 	// Check if there's something in localforage already?
-	const data = await localforage.getItem(getLocalForageKey("ide") + fn);
+	const data = await LocalState.getIDE(fn);
 	const codeIsDifferent = data !== null && data !== newCode;
 	if (data !== null) newCode = data;
 
@@ -65,7 +64,7 @@ async function saveIDE(once = false) {
 		console.log("Saving IDE state...");
 		try {
 			const state = editor.getValue();
-			if (state != CODE_LOADING) await localforage.setItem(getLocalForageKey("ide") + fn, state);
+			if (state != CODE_LOADING) await LocalState.setIDE(fn, state);
 		} catch (error) {}
 	}
 	if (once === false) setTimeout(saveIDE, 1500);
