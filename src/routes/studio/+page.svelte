@@ -179,9 +179,3 @@ marked.use({ renderer, extensions: [tagAlert, tagExecute] });
 		</div>
 	</div>
 </div>
-
-<style>
-.hover-hand:hover {
-	cursor: pointer;
-}
-</style>

@@ -59,7 +59,7 @@ $: path = $page.url.pathname;
 
 function remindLogin() {
 	if ($user.email == null && path.startsWith("/tutorials")) toastToggle();
-	setTimeout(remindLogin, 300_000); // every 5 mins
+	setTimeout(remindLogin, 300000); // every 5 mins
 }
 
 // -----------------------------------------------------------------------------
@@ -81,7 +81,7 @@ async function logout() {
 }
 
 onMount(() => {
-	setTimeout(remindLogin, 30_000);
+	setTimeout(remindLogin, 30000);
 });
 </script>
 

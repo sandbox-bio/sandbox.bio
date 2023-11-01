@@ -33,7 +33,7 @@ export const cli = writable({
 		const emulator = get(cli).emulator;
 
 		// Before running the command, add an event listener if a callback is needed.
-		// To support a callback we'll need to add an end marker and listen to the
+		// To support a callback we'll need to add an end marker and listen to the
 		// UART1 port for that marker before we call the callback function.
 		if (callback) {
 			command = `(${cmd} && echo ${SANDBOX_END_MARKER}) > ${FILE_SERIAL_RESULT}\n`;
@@ -130,7 +130,7 @@ export const cli = writable({
 			if (e.message === "File not found") {
 				return new Uint8Array(0);
 			}
-			throw message;
+			throw e.message;
 		}
 	},
 
