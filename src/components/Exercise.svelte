@@ -81,7 +81,7 @@ async function check(manual = false) {
 			// Manual check is one-time only
 			if (!manual) {
 				if (currentTutorial === $tutorial.id && currentStep === $tutorial.step) {
-					setTimeout(check, 5000);
+					setTimeout(check, 1000);
 				} else {
 					console.warn(`Stopped checking exercises for "${currentTutorial}/${currentStep}" because moved away.`);
 				}
