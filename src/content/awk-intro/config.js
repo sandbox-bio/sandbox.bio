@@ -17,7 +17,7 @@ export const config = {
 	id: "awk-intro",
 	name: "Data exploration with awk",
 	subtitle: `by <a href="https://robert.bio" target="_blank">Robert Aboukhalil</a>`,
-	description: "Filter, extract and transform data files using <code>awk</code>.",
+	description: "Filter, extract and transform tabular data (TSV files) using <code>awk</code>.",
 	tags: ["awk", "terminal"],
 	tools: ["awk", "head"],
 	difficulty: ["intermediate"],

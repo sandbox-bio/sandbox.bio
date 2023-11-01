@@ -40,7 +40,7 @@ export const config = {
 	id: "igv-intro",
 	name: "Visualize variants with IGV",
 	subtitle: `by Malachi Griffith, Sorana Morrissy, Jim Robinson, Ben Ainscough, Jason Walker, and Obi Griffith`,
-	description: "Distinguish variants from artifacts.",
+	description: "Distinguish real variants from artifacts using the IGV genome browser.",
 	tags: ["igv"],
 	tools: [],
 	difficulty: ["beginner"],
