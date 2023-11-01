@@ -66,11 +66,10 @@ function remindLogin() {
 // -----------------------------------------------------------------------------
 
 async function loginWithGoogle() {
-	// Remove hash to avoid getting redirected back to `##access_token=...` (instead of `#access_token=...`)
-	const redirectTo = $page.url.href.replace(/#.*$/, "");
+	const redirectTo = $page.url.pathname;
 	const result = await supabaseAnon.auth.signInWithOAuth({
 		provider: "google",
-		options: { redirectTo }
+		options: { redirectTo: `${$page.url.origin}/redirect?url=${redirectTo}` }
 	});
 	if (result.error) alert(result.error);
 }
