@@ -1,6 +1,7 @@
 <script>
 import { onMount } from "svelte";
 import { LocalState } from "$src/utils";
+import { tutorial } from "$stores/tutorial";
 
 export let expectedInput = ""; // Default input to show
 export let expectedOutput = ""; // Expected output given that input
@@ -60,6 +61,11 @@ async function updateEditor(newCode) {
 
 // Save IDE state every few seconds
 async function saveIDE(once = false) {
+	if ($tutorial.id !== "rosalind") {
+		console.warn("Stopped saving IDE state because moved away from Rosalind tutorial.");
+		return;
+	}
+
 	if (ready && !updating) {
 		console.log("Saving IDE state...");
 		try {

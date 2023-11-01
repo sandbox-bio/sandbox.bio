@@ -1,5 +1,5 @@
 <script>
-import { Icon, Tooltip } from "sveltestrap";
+import { Badge, Button, Icon } from "sveltestrap";
 import { user } from "$stores/user";
 import { progress } from "$stores/progress";
 
@@ -10,6 +10,12 @@ export let colLg = 4; // == 12 / how many boxes we can fit on L screens
 export let colXxl = 4; // == 12 / how many boxes we can fit on XXL screens
 export let skip = []; // Specific tutorial IDs to not show
 export let showUnlisted = false;
+
+const tagColors = {
+	beginner: "primary",
+	difficult: "danger",
+	intermediate: "warning"
+};
 </script>
 
 {#if title}
@@ -18,61 +24,59 @@ export let showUnlisted = false;
 
 <div class="row align-items-md-stretch">
 	{#each items.filter((t) => !skip.includes(t.id) && (showUnlisted || t.listed !== false) && (t.steps?.length > 0 || t.url)) as info, i}
+		{@const haveProgressInfo = $user && info.id in $progress}
+		{@const isDone = haveProgressInfo && $progress[info.id].step == info.steps.length - 1}
+		{@const isInProgress = haveProgressInfo && $progress[info.id].step && $progress[info.id].step > 0}
+
 		{#if info.divider}
 			<h5 class:mt-4={i > 0}>{info.divider}</h5>
 		{/if}
 
-		<div class="col-md-{colMd} col-lg-{colLg} col-xxl-{colXxl} mt-2">
-			<div class="listing-card h-100 p-3 border rounded-3 position-relative d-flex flex-column">
+		<div id="tutorial-{info.id}" class="col-md-{colMd} col-lg-{colLg} col-xxl-{colXxl} mt-2">
+			<div
+				class="listing-card h-100 p-3 border rounded-3 position-relative d-flex flex-column"
+				class:bg-success={isDone}
+				class:bg-opacity-25={isDone}
+			>
 				<!-- Tags -->
 				<div>
 					{#each info.difficulty || [] as tag}
-						<span
-							class="badge"
-							class:bg-success={tag == "beginner"}
-							class:bg-danger={tag == "difficult"}
-							style={tag == "intermediate" ? "background-color:#fd7e14" : ""}>{tag}</span
-						>
+						<Badge color="{tagColors[tag]} bg-opacity-75">{tag}</Badge>
 					{/each}
 					{#each info.tags || [] as tag}
-						<span class="badge bg-primary me-1 mb-2">{tag}</span>
+						<!-- Show tags as primary if not listing tutorials (if tutorials, too many colors) -->
+						{@const color = info.url ? "primary" : "secondary"}
+						<Badge color="{color} bg-opacity-75" class="me-1 mb-1">{tag}</Badge>
 					{/each}
+
+					<span class="float-end">
+						{#if isDone}
+							<Icon name="check-circle-fill" class="text-success h4" />
+						{:else if isInProgress}
+							<Icon name="hourglass-split" class="text-primary h4" />
+						{/if}
+					</span>
 				</div>
 
 				<!-- Tutorial Info -->
-				<h4>
-					{info.name}
-					{#if $user && info.id in $progress}
-						{#if $progress[info.id].step == info.steps.length - 1}
-							<Icon id={`icon-${info.id}`} class="float-end text-success" name="check-circle-fill" />
-							<Tooltip target={`icon-${info.id}`}>Done!</Tooltip>
-						{:else if $progress[info.id].step && $progress[info.id].step > 0}
-							<a href={`/tutorials/${info.id}/${$progress[info.id].step}`}>
-								<Icon id={`icon-${info.id}`} class="float-end text-primary" name="circle-half" />
-							</a>
-							<Tooltip target={`icon-${info.id}`}>
-								You're at step {$progress[info.id].step + 1} / {info.steps.length}
-							</Tooltip>
-						{/if}
-					{/if}
-				</h4>
+				<h4>{info.name}</h4>
 				<p>{@html info.description}</p>
 
 				<!-- Launch link -->
 				<div>
 					<!-- "Explore" listings -->
 					{#if info.url}
-						<a href={info.url} class="btn btn-outline-primary text-center mt-auto stretched-link">Launch</a>
+						<Button color="primary" class="stretched-link" href={info.url}>Launch</Button>
 
 						<!-- "Tutorials" listings -->
-					{:else if $user && info.id in $progress}
-						{#if $progress[info.id].step == info.steps.length - 1}
-							<a href={`/tutorials/${info.id}`} class="btn btn-outline-success text-center mt-auto stretched-link">Launch</a>
+					{:else if haveProgressInfo}
+						{#if isDone}
+							<Button color="success" class="stretched-link" href="/tutorials/{info.id}" outline>Launch</Button>
 						{:else}
-							<a href={`/tutorials/${info.id}/${$progress[info.id].step}`} class="btn btn-primary text-center mt-auto stretched-link">Resume</a>
+							<Button color="primary" class="stretched-link" href="/tutorials/{info.id}/{$progress[info.id].step}">Resume</Button>
 						{/if}
 					{:else}
-						<a href={`/tutorials/${info.id}`} class="btn btn-outline-primary text-center mt-auto stretched-link">Launch</a>
+						<Button color="primary" class="stretched-link" href="/tutorials/{info.id}">Launch</Button>
 					{/if}
 				</div>
 			</div>

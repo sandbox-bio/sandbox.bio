@@ -80,7 +80,7 @@ async function logout() {
 	else $user = {};
 }
 
-onMount(async () => {
+onMount(() => {
 	setTimeout(remindLogin, 30_000);
 });
 </script>
