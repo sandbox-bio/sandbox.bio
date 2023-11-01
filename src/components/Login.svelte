@@ -18,6 +18,7 @@ async function login() {
 		busy = false;
 	} else {
 		error = false;
+		window.location.reload();
 	}
 }
 </script>

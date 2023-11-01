@@ -48,8 +48,7 @@ let toastOpen = false;
 let toastToggle = () => (toastOpen = !toastOpen);
 
 // Reactive state
-export let data;
-$: $user = data.user;
+export let data = {};
 $: $progress = data.progress;
 $: path = $page.url.pathname;
 
@@ -67,11 +66,13 @@ function remindLogin() {
 // -----------------------------------------------------------------------------
 
 async function loginWithGoogle() {
-	const { error } = await supabaseAnon.auth.signInWithOAuth({
+	// Remove hash to avoid getting redirected back to `##access_token=...` (instead of `#access_token=...`)
+	const redirectTo = $page.url.href.replace(/#.*$/, "");
+	const result = await supabaseAnon.auth.signInWithOAuth({
 		provider: "google",
-		options: { redirectTo: $page.url.href }
+		options: { redirectTo }
 	});
-	if (error) alert(error);
+	if (result.error) alert(result.error);
 }
 
 async function logout() {
