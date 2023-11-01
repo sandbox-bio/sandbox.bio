@@ -19,6 +19,9 @@ $: isDone = statuses.filter((d) => d).length == statuses.length && statuses.leng
 onMount(() => {
 	currentTutorial = $tutorial.id;
 	currentStep = $tutorial.step;
+	// Need to initialize `statuses` because `isDone` will be checked before all statuses are done
+	// because we can't make `$cli.exec` a synchronous call.
+	statuses = new Array(criteria.length).fill(false);
 	setTimeout(check, 500);
 });
 
@@ -74,12 +77,17 @@ async function check(manual = false) {
 		}
 
 		// Check exercise status regularly
-		if (!statuses.every((d) => d === true)) {
-			if (currentTutorial === $tutorial.id && currentStep === $tutorial.step) {
-				setTimeout(check, 1000);
-			} else {
-				console.warn(`Stopped checking exercises for "${currentTutorial}/${currentStep}" because moved away.`);
+		if (!isDone) {
+			// Manual check is one-time only
+			if (!manual) {
+				if (currentTutorial === $tutorial.id && currentStep === $tutorial.step) {
+					setTimeout(check, 5000);
+				} else {
+					console.warn(`Stopped checking exercises for "${currentTutorial}/${currentStep}" because moved away.`);
+				}
 			}
+		} else {
+			console.warn(`Stopped checking exercises for "${currentTutorial}/${currentStep}" because got it correct.`);
 		}
 
 		working = false;
