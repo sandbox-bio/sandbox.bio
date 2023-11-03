@@ -117,20 +117,27 @@ export const cli = writable({
 
 	// Read file from path as Uint8Array
 	readFile: async (path) => {
+		const emulator = get(cli).emulator;
+		if (!emulator) {
+			console.error("FS not ready yet");
+			return;
+		}
+
 		// Does file exist?
-		const iNode = get(cli).emulator.fs9p.SearchPath(path);
+		const iNode = emulator.fs9p.SearchPath(path);
 		if (iNode.id === -1) {
-			throw "File not found";
+			console.error("File not found");
+			return;
 		}
 
 		// If we know the file exists but it's empty, v86 incorrectly raises an exception
 		try {
-			return await get(cli).emulator.read_file(path);
+			return await emulator.read_file(path);
 		} catch (e) {
 			if (e.message === "File not found") {
 				return new Uint8Array(0);
 			}
-			throw e.message;
+			console.error(e.message);
 		}
 	},
 

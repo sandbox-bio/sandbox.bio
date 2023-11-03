@@ -24,14 +24,14 @@ import {
 	ToastBody
 } from "sveltestrap";
 import Login from "$components/Login.svelte";
-import LoginWithGoogle from "$src/components/LoginWithGoogle.svelte";
+import LoginWithGoogle from "$components/LoginWithGoogle.svelte";
 import { URL_ASSETS } from "$src/config";
 import { supabaseAnon } from "$src/utils";
 import { user } from "$stores/user.js";
 import { progress } from "$stores/progress.js";
 
 const playgrounds = [
-	{ name: "Terminal", url: "/playgrounds/cli", description: "Open ended" },
+	{ name: "Terminal", url: "/tutorials/playground", description: "Open ended" },
 	{ name: "Jq", url: "/playgrounds/jq", description: "Wrangle JSON data" },
 	{ name: "Awk", url: "/playgrounds/awk", description: "Wrangle tabular data" },
 	{ name: "Grep", url: "/playgrounds/grep", description: "Search and filter" },

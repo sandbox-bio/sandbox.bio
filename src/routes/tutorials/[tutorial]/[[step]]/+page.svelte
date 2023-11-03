@@ -1,18 +1,23 @@
 <script>
 import { page } from "$app/stores";
-import { tutorial } from "$stores/tutorial";
 import Tutorial from "$content/Tutorial.svelte";
+import { tutorials } from "$src/stores/tutorials";
 
-$: id = $page.params.tutorial;
-$: step = +$page.params.step || 0;
+let tutorial;
+let step = 0;
+
+$: tutorial = $tutorials.find((t) => t.id == $page.params.tutorial);
+$: step = $page.params.step;
 </script>
 
 <svelte:head>
-	{#if $tutorial.name}
-		<title>{$tutorial.name} - sandbox.bio</title>
+	{#if tutorial}
+		<title>{tutorial.name} - sandbox.bio</title>
 	{:else}
 		<title>sandbox.bio</title>
 	{/if}
 </svelte:head>
 
-<Tutorial {id} {step} />
+{#if tutorial}
+	<Tutorial {tutorial} {step} />
+{/if}

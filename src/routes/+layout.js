@@ -1,5 +1,5 @@
-import { supabaseAnon, t } from "$src/utils.js";
 import { user } from "$stores/user";
+import { supabaseAnon, t } from "$src/utils";
 
 // Fetch data before page loads
 export const load = async () => {
@@ -21,5 +21,5 @@ export const load = async () => {
 	}
 	user.set(userInfo);
 
-	return { progress };
+	return { progress, tutorial: {} };
 };

@@ -1,5 +1,5 @@
 <script>
-import { onMount } from "svelte";
+import { onDestroy, onMount } from "svelte";
 import debounce from "debounce";
 import { Table, Modal, DropdownMenu, Dropdown, DropdownToggle, DropdownItem, Icon, Spinner } from "sveltestrap";
 import AnsiUp from "ansi_up";
@@ -9,22 +9,31 @@ import { WebLinksAddon } from "xterm-addon-web-links";
 import { SerializeAddon } from "xterm-addon-serialize";
 import { V86 } from "$thirdparty/v86/libv86";
 import { EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
-import { tutorial } from "$stores/tutorial";
 import { LocalState, log, strToChars } from "$src/utils";
-import { BUS_SERIAL_COMMAND_READ, BUS_SERIAL_OUTPUT, DIR_TUTORIAL, LOGGING_INFO, MAX_FILE_SIZE_TO_CACHE, URL_ASSETS } from "$src/config";
+import {
+	BUS_SERIAL_COMMAND_READ,
+	BUS_SERIAL_INPUT,
+	BUS_SERIAL_OUTPUT,
+	DIR_TUTORIAL,
+	LOGGING_INFO,
+	MAX_FILE_SIZE_TO_CACHE,
+	URL_ASSETS
+} from "$src/config";
 import "xterm/css/xterm.css";
 
 // =============================================================================
 // State
 // =============================================================================
 
+export let terminalId = "terminal";
 export let files = []; // Files to preload on the FS from /data/<tutorial>
 export let assets = []; // Files to preload on the FS from assets.sandbox.bio/tutorials/<tutorial>
 export let intro = ""; // Intro string to display on Terminal once ready (optional) // FIXME:
 export let init = ""; // Command to run to initialize the environment (optional)
 export let tools = []; // For these tools, pre-download .bin files (optional) // FIXME:
 
-let loading = false;
+let loading = false; // Loading the terminal
+let mounted = false; // Component is mounted and ready to go
 let divXtermTerminal; // Xterm.js terminal
 let inputMountFiles; // Hidden HTML file input element for mounting local file
 let inputMountFolder; // Hidden HTML file input element for mounting local folder
@@ -36,15 +45,18 @@ let timerSyncFS; // JS timeout used to sync filesystem contents
 // Initialization
 // =============================================================================
 
-onMount(initialize);
+// Needs to be mounted or get errors on first mount
+$: if (mounted) initialize(terminalId);
+onMount(() => (mounted = true));
+onDestroy(() => clearTimeout(timerSyncFS));
 
-function initialize() {
-	console.log("Initializing terminal...");
+function initialize(id) {
+	console.log("Initializing terminal...", id);
 	loading = true;
 
-	if (timerSyncFS) {
-		clearTimeout(timerSyncFS);
-	}
+	// Cleanup
+	if (timerSyncFS) clearTimeout(timerSyncFS);
+	if ($cli.emulator) $cli.emulator.destroy();
 
 	// Create emulator
 	$cli.emulator = new V86({
@@ -141,12 +153,17 @@ function initialize() {
 		fsSync();
 
 		// Run initialization commands
-		if (init) $cli.exec(init, { mode: EXEC_MODE_TERMINAL_HIDDEN });
+		$cli.exec(init);
+		// Show intro
+		if (intro) {
+			$cli.xterm.write(intro);
+		} else {
+			// Or do Ctrl + L (key code 12) to show the root@localhost prompt but without extra spaces above it
+			$cli.emulator.bus.send(BUS_SERIAL_INPUT, 12);
+		}
 
-		// Make sure terminal is ready (otherwise on page load, sometimes need to press Enter to start)
-		$cli.xterm.write("root@localhost:~/tutorial# ");
 		// Set initial terminal size, otherwise sometimes doesn't call that function at load time
-		handleResize();
+		handleResize(true);
 		// Focus cursor on command line
 		$cli.xterm.focus();
 
@@ -156,7 +173,7 @@ function initialize() {
 
 // When window resizes, update terminal size
 let currDims = { cols: null, rows: null };
-function handleResize() {
+function handleResize(loadTime = false) {
 	if (!$cli.addons.fit) return;
 
 	$cli.addons.fit.fit();
@@ -173,8 +190,8 @@ function handleResize() {
 	// Limitation: this doesn't work if you're inside vim/less/etc, or halfway through a command
 	// before resizing, but that should be less likely.
 	log(LOGGING_INFO, "Resize terminal", dims);
-	$cli.exec(`stty rows ${dims.rows} cols ${dims.cols}; clear`, {
-		mode: EXEC_MODE_TERMINAL_HIDDEN
+	$cli.exec(`stty rows ${dims.rows} cols ${dims.cols}`, {
+		mode: loadTime ? EXEC_MODE_TERMINAL_HIDDEN : null
 	});
 }
 
@@ -197,7 +214,6 @@ async function fsSave() {
 	await $cli.clearCache();
 
 	// Export FS state
-	const tutorialId = $tutorial.id;
 	const files = $cli.ls(DIR_TUTORIAL);
 
 	for (const file of files) {
@@ -210,14 +226,12 @@ async function fsSave() {
 		}
 	}
 
-	// If tutorial changes fetching file contents and save, exit because we could have files from both tutorials
-	if (tutorialId !== $tutorial.id) return;
-	await LocalState.setFS($tutorial.id, files);
+	await LocalState.setFS(terminalId, files);
 }
 
 // Load FS state from localforage
 async function fsLoad() {
-	const files = await LocalState.getFS($tutorial.id);
+	const files = await LocalState.getFS(terminalId);
 	for (const file of files) {
 		if (file.isDir) {
 			await $cli.createFolder(file.path);
@@ -238,12 +252,12 @@ async function mountTutorialFiles() {
 
 	// Mount files stored in this repo
 	for (const fileName of files) {
-		const url = `/data/${$tutorial.id}/${fileName}`;
+		const url = `/data/${terminalId}/${fileName}`;
 		await $cli.mountFile(fileName, url);
 	}
 	// Mount files stored in assets.sandbox.bio because of their size
 	for (const fileName of assets || []) {
-		const url = `https://assets.sandbox.bio/tutorials/${$tutorial.id}/${fileName}`;
+		const url = `https://assets.sandbox.bio/tutorials/${terminalId}/${fileName}`;
 		await $cli.mountFile(fileName, url);
 	}
 }
@@ -280,7 +294,7 @@ async function mountLocalFile(event) {
 </script>
 
 <!-- Terminal -->
-<div id="terminal" bind:this={divXtermTerminal} use:watchResize={debounce(() => handleResize(), 400)} class:opacity-25={loading}>
+<div id="terminal" bind:this={divXtermTerminal} use:watchResize={debounce(() => handleResize(), 400)}>
 	{#if loading}
 		<Spinner color="light" type="border" style="position:absolute" />
 	{/if}
@@ -290,7 +304,9 @@ async function mountLocalFile(event) {
 				<Icon name="three-dots-vertical" />
 			</DropdownToggle>
 			<DropdownMenu>
-				<DropdownItem on:click={mountTutorialFiles}>Reset tutorial files</DropdownItem>
+				{#if terminalId !== "playground"}
+					<DropdownItem on:click={mountTutorialFiles}>Reset tutorial files</DropdownItem>
+				{/if}
 				<DropdownItem on:click={() => inputMountFiles.click()}>Mount local files</DropdownItem>
 				<DropdownItem on:click={() => inputMountFolder.click()}>Mount local folder</DropdownItem>
 				<DropdownItem on:click={exportHTML}>Export as HTML</DropdownItem>

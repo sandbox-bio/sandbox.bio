@@ -1,5 +1,5 @@
 <script>
-import Alert from "$src/components/Alert.svelte";
+import Alert from "$components/Alert.svelte";
 </script>
 
 <svelte:head>

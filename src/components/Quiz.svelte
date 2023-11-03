@@ -1,8 +1,8 @@
 <script>
 import { onMount } from "svelte";
+import { page } from "$app/stores";
 import { Button, Input } from "sveltestrap";
 import Alert from "$components/Alert.svelte";
-import { tutorial } from "$stores/tutorial";
 import { LocalState } from "$src/utils";
 
 export let id;
@@ -37,12 +37,12 @@ function validate(onload = false) {
 
 // Update state
 async function updateState() {
-	await LocalState.setQuiz($tutorial, id, multiple ? checked : radio);
+	await LocalState.setQuiz($page.params.tutorial, $page.params.step, id, multiple ? checked : radio);
 }
 
 // Set state of quiz
 onMount(async () => {
-	const state = await LocalState.getQuiz($tutorial, id);
+	const state = await LocalState.getQuiz($page.params.tutorial, $page.params.step, id);
 	if (!state) return;
 	if (multiple) checked = state;
 	else radio = state;

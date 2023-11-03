@@ -1,15 +1,14 @@
 <script>
-import { onMount } from "svelte";
+import { onDestroy, onMount } from "svelte";
 import Link from "$components/Link.svelte";
 import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
-import { tutorial } from "$stores/tutorial";
 import { cli } from "$stores/cli";
 
 // State
-let currentTutorial;
 let dnaEncoded = "-";
 let dnaDecoded = "";
+let timers = [];
 $: dnaDecoded = binaryToString(dnaEncoded.replaceAll("\n", "").split("").map(b => {
 	// https://science.sciencemag.org/content/337/6102/1628
 	if(b == "A" || b == "C") return "0";
@@ -32,20 +31,19 @@ function binaryToString(input) {
 	return result;
 }
 
-onMount(() => {
-	currentTutorial = $tutorial.id;
-	getSecret();
+onMount(getSecret);
+onDestroy(() => {
+	timers.forEach((timer) => clearTimeout(timer));
 });
 
 async function getSecret() {
-	if (currentTutorial !== $tutorial.id) return;
 	try {
 		const buffer = await $cli.readFile("/root/tutorial/secret");
 		dnaEncoded = new TextDecoder().decode(buffer);
 	} catch (error) {
 		console.error(error);
 	}
-	setTimeout(getSecret, 500);
+	timers.push(setTimeout(getSecret, 500));
 }
 </script>
 

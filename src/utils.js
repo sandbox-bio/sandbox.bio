@@ -70,17 +70,17 @@ export class LocalState {
 	// -------------------------------------------------------------------------
 	// Quiz
 	// -------------------------------------------------------------------------
-	static getQuizKey(tutorial, exerciseId) {
-		return `${tutorial.id}-${tutorial.step}-${exerciseId || "default"}`;
+	static getQuizKey(tutorial, step, exerciseId) {
+		return `${tutorial}-${step}-${exerciseId || "default"}`;
 	}
 
-	static async getQuiz(tutorial, exerciseId) {
-		const key = await this.getKey(STATE_QUIZ, this.getQuizKey(tutorial, exerciseId));
+	static async getQuiz(tutorial, step, exerciseId) {
+		const key = await this.getKey(STATE_QUIZ, this.getQuizKey(tutorial, step, exerciseId));
 		return (await localforage.getItem(key)) || null;
 	}
 
-	static async setQuiz(tutorial, exerciseId, value) {
-		const key = await this.getKey(STATE_QUIZ, this.getQuizKey(tutorial, exerciseId));
+	static async setQuiz(tutorial, step, exerciseId, value) {
+		const key = await this.getKey(STATE_QUIZ, this.getQuizKey(tutorial, step, exerciseId));
 		return await localforage.setItem(key, value);
 	}
 }

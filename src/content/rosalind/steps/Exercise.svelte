@@ -1,11 +1,12 @@
 <script>
 import { Converter } from "showdown";
+import { page } from "$app/stores";
 import Alert from "$components/Alert.svelte";
-import { tutorial } from "$stores/tutorial";
+import { tutorials } from "$stores/tutorials";
 
 const converter = new Converter();
 
-$: exercise = $tutorial.steps[$tutorial.step].rosalind;
+$: exercise = $tutorials.find((t) => t.id === $page.params.tutorial).steps[+$page.params.step].rosalind;
 </script>
 
 <Alert>

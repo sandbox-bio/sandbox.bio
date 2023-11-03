@@ -48,7 +48,7 @@ export const playgrounds = readable([
 	{
 		name: "Command Line",
 		description: "Command line for open-ended exploration",
-		url: "/playgrounds/cli",
+		url: "/tutorials/playground",
 		tags: ["command line", "terminal", "bash"]
 	},
 	{

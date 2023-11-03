@@ -1,7 +1,6 @@
 <script>
-import { onMount } from "svelte";
+import { onDestroy, onMount } from "svelte";
 import { LocalState } from "$src/utils";
-import { tutorial } from "$stores/tutorial";
 
 export let expectedInput = ""; // Default input to show
 export let expectedOutput = ""; // Expected output given that input
@@ -19,6 +18,7 @@ let output = ""; // stdout, stderr
 let result = ""; // return value of answer() function
 let success = null; // whether to show green or red border around output box (or nothing if null)
 let updating = false; // if editor is being updated and we shouldn't save state
+let timers = []; // Track setTimeout timers so we can stop them when done
 const CODE_LOADING = "Loading...";
 
 // -----------------------------------------------------------------------------
@@ -35,6 +35,11 @@ $: {
 
 // When code prop changes, what to do with existing code?
 $: if (code && ready) updateEditor(code);
+
+// When move away, stop all exercise timers
+onDestroy(() => {
+	timers.forEach((timer) => clearTimeout(timer));
+});
 
 // -----------------------------------------------------------------------------
 // Cache IDE state
@@ -61,11 +66,6 @@ async function updateEditor(newCode) {
 
 // Save IDE state every few seconds
 async function saveIDE(once = false) {
-	if ($tutorial.id !== "rosalind") {
-		console.warn("Stopped saving IDE state because moved away from Rosalind tutorial.");
-		return;
-	}
-
 	if (ready && !updating) {
 		console.log("Saving IDE state...");
 		try {
@@ -73,7 +73,7 @@ async function saveIDE(once = false) {
 			if (state != CODE_LOADING) await LocalState.setIDE(fn, state);
 		} catch (error) {}
 	}
-	if (once === false) setTimeout(saveIDE, 1500);
+	if (once === false) timers.push(setTimeout(saveIDE, 1500));
 }
 saveIDE();
 

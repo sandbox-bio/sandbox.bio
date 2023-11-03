@@ -1,28 +1,30 @@
 <script>
-import { onMount } from "svelte";
+import { onDestroy, onMount } from "svelte";
 import { Button, FormGroup, Icon, ListGroup, ListGroupItem, Spinner } from "sveltestrap";
 import { EXEC_MODE_BUS, cli } from "$stores/cli";
 import { DIR_TUTORIAL } from "$src/config";
-import { tutorial } from "$src/stores/tutorial";
 
 export let criteria = []; // List of criteria that must be true for the exercise to be complete
 export let hints = []; // Hints to show user
+
 let statuses = []; // Status of each criteria (true/false)
 let busy = false; // Whether the user manually asked to check their work
 let working = false; // Whether we're currently checking exercise status (don't do it more than once at a time)
-let nbHints = 0;
-let currentTutorial;
-let currentStep;
+let nbHints = 0; // How many hints we're displaying
+let timers = []; // Track setTimeout timers so we can stop them when done
 
 $: isDone = statuses.filter((d) => d).length == statuses.length && statuses.length != 0;
 
 onMount(() => {
-	currentTutorial = $tutorial.id;
-	currentStep = $tutorial.step;
 	// Need to initialize `statuses` because `isDone` will be checked before all statuses are done
 	// because we can't make `$cli.exec` a synchronous call.
 	statuses = new Array(criteria.length).fill(false);
-	setTimeout(check, 500);
+	timers.push(setTimeout(check, 500));
+});
+
+// When move away, stop all exercise timers
+onDestroy(() => {
+	timers.forEach((timer) => clearTimeout(timer));
 });
 
 // Validate user's input
@@ -30,7 +32,7 @@ async function check(manual = false) {
 	// If user clicked the button, we want them to know we received their click
 	if (manual) {
 		busy = true;
-		setTimeout(() => (busy = false), 100);
+		timers.push(setTimeout(() => (busy = false), 100));
 	}
 
 	// Validate criteria
@@ -79,15 +81,9 @@ async function check(manual = false) {
 		// Check exercise status regularly
 		if (!isDone) {
 			// Manual check is one-time only
-			if (!manual) {
-				if (currentTutorial === $tutorial.id && currentStep === $tutorial.step) {
-					setTimeout(check, 1000);
-				} else {
-					console.warn(`Stopped checking exercises for "${currentTutorial}/${currentStep}" because moved away.`);
-				}
-			}
+			if (!manual) timers.push(setTimeout(check, 1000));
 		} else {
-			console.warn(`Stopped checking exercises for "${currentTutorial}/${currentStep}" because got it correct.`);
+			console.warn(`Stopped checking exercises because exercise is complete.`);
 		}
 
 		working = false;
