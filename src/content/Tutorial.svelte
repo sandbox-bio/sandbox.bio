@@ -7,7 +7,6 @@ import { status } from "$stores/status";
 import Alert from "$components/Alert.svelte";
 import Terminal from "$components/Terminal.svelte";
 import IGV from "$components/igv/IGV.svelte";
-import IDE from "$components/ExerciseRosalind.svelte";
 
 export let tutorial;
 export let step = 0;
@@ -16,16 +15,11 @@ export let step = 0;
 const tocToggle = () => (tocOpen = !tocOpen);
 let tocOpen = false;
 let stepInfo = {};
-let rosalind = {};
 
 // Reactive statements
 $: goToStep(step);
 $: isFirstStep = step === 0;
 $: isLastStep = step === tutorial.steps.length - 1;
-$: if (tutorial.ide === true) {
-	rosalind = tutorial.steps[step].rosalind;
-	rosalind.fn = `solution_${rosalind.id.toLowerCase()}`;
-}
 
 // Make sure to reset scroll position when navigating between steps
 afterNavigate(() => {
@@ -134,16 +128,7 @@ onMount(() => {
 				</div>
 			</div>
 		{/if}
-		{#if tutorial.ide === true}
-			<IDE
-				fn={rosalind.fn}
-				fnParams={rosalind.params}
-				code={`def ${rosalind.fn}(${rosalind.params.join(", ")}):\n    # Your solution goes here\n    return "answer"\n`}
-				input={rosalind.sample_data}
-				expectedInput={rosalind.sample_data}
-				expectedOutput={rosalind.sample_output}
-			/>
-		{:else if tutorial.igv === true}
+		{#if tutorial.igv === true}
 			{@const config = { ...tutorial.igvConfig.default, ...tutorial.igvConfig[step] }}
 			<IGV options={config} />
 		{:else if tutorial.id != null}

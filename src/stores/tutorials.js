@@ -11,7 +11,6 @@ import { config as dnaSecrets } from "$content/dna-secrets/config.js";
 import { config as viralAmplicon } from "$content/viral-amplicon/config.js";
 import { config as debuggingPuzzles } from "$content/debugging-puzzles/config.js";
 import { config as playground } from "$content/playground/config.js";
-import { config as rosalind } from "$content/rosalind/config.js";
 import { config as ifblinuxbasics1 } from "$content/ifb-linux-basics-1/config.js";
 import { config as ifblinuxbasics2 } from "$content/ifb-linux-basics-2/config.js";
 import { config as ifblinuxbasics3 } from "$content/ifb-linux-basics-3/config.js";
@@ -21,7 +20,6 @@ import { config as carpentriesShellNovice } from "$content/carpentries-shell-nov
 export const tutorials = readable([
 	// Playground
 	playground,
-	rosalind,
 	// Terminal Tutorials
 	terminalIntro,
 	jqIntro,
@@ -79,12 +77,6 @@ export const playgrounds = readable([
 
 // Linkouts
 export const explore = readable([
-	{
-		name: "Bioinformatics Algorithms",
-		description: "Try your hand at solving Rosalind exercises using Python.",
-		url: "/tutorials/rosalind",
-		tags: ["rosalind", "python", "exercises"]
-	},
 	{
 		name: "Align DNA sequences",
 		description: "Explore the Smith-Waterman and Needleman-Wunsch sequence alignment algorithms.",

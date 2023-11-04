@@ -7,7 +7,7 @@ let tutorial;
 let step = 0;
 
 $: tutorial = $tutorials.find((t) => t.id == $page.params.tutorial);
-$: step = $page.params.step;
+$: step = +$page.params.step || 0;
 </script>
 
 <svelte:head>

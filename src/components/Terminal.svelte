@@ -210,6 +210,8 @@ async function fsSync() {
 
 // Save FS state to localforage
 async function fsSave() {
+	const id = terminalId;
+
 	// Clear the cache before we save the file system state (otherwise, some files get stored as empty files)
 	await $cli.clearCache();
 
@@ -226,7 +228,8 @@ async function fsSave() {
 		}
 	}
 
-	await LocalState.setFS(terminalId, files);
+	// Only sync FS if did not switch tutorials in the middle of syncing the FS
+	if (terminalId === id) await LocalState.setFS(terminalId, files);
 }
 
 // Load FS state from localforage

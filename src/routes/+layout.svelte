@@ -190,6 +190,8 @@ onMount(() => {
 	</footer>
 {/if}
 
+<p class="mb-5" />
+
 <style>
 .beta {
 	font-size: 10px;
