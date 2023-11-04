@@ -11,7 +11,7 @@ export const config = {
 	subtitle: `by <a href="https://robert.bio" target="_blank">Robert Aboukhalil</a>`,
 	description: "Debug file format issues that are commonly seen in genomics.",
 	tags: ["samtools", "bedtools", "grep"],
-	tools: ["head", "grep", "cat", "sort", "samtools", "bedtools", "sed"],
+	tools: ["head", "grep", "cat", "sort", "samtools", "bedtools", "sed", "vim"],
 	difficulty: ["difficult"],
 	steps: [
 		{ name: "Bioinformatics Debugging Puzzles", component: Intro },

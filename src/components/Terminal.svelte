@@ -7,7 +7,7 @@ import { FitAddon } from "xterm-addon-fit";
 import { WebLinksAddon } from "xterm-addon-web-links";
 import { SerializeAddon } from "xterm-addon-serialize";
 import { V86 } from "$thirdparty/v86/libv86";
-import { EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
+import { EXEC_MODE_BUS, EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
 import { LocalState, log, strToChars } from "$src/utils";
 import {
 	BUS_SERIAL_COMMAND_READ,
@@ -40,6 +40,11 @@ let modalKbdOpen = false; // Set to true when the shortcuts modal is open
 let modalKbdToggle = () => (modalKbdOpen = !modalKbdOpen);
 let timerSyncFS; // JS timeout used to sync filesystem contents
 let timerWaitForPrompt; // Wait for root@localhost prompt to be visible
+
+// Special preloading commands for common tools
+const preloadTools = {
+	vim: `vim "+q!" test`
+};
 
 // =============================================================================
 // Initialization
@@ -163,6 +168,11 @@ function initialize(id) {
 		await fsLoad();
 		// Start syncing FS
 		fsSync();
+		// Start preloading tools in the background
+		for (const tool of tools || []) {
+			const cmd = preloadTools[tool] || tool;
+			$cli.exec(cmd, { mode: EXEC_MODE_BUS });
+		}
 
 		// Run initialization commands
 		$cli.exec(init);
