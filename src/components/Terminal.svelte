@@ -1,6 +1,5 @@
 <script>
 import { onDestroy, onMount } from "svelte";
-import debounce from "debounce";
 import { Table, Modal, DropdownMenu, Dropdown, DropdownToggle, DropdownItem, Icon, Spinner } from "sveltestrap";
 import AnsiUp from "ansi_up";
 import { watchResize } from "svelte-watch-resize";
@@ -32,7 +31,7 @@ export let intro = ""; // Intro string to display on Terminal once ready (option
 export let init = ""; // Command to run to initialize the environment (optional)
 export let tools = []; // For these tools, pre-download .bin files (optional) // FIXME:
 
-let loading = false; // Loading the terminal
+let loading = true; // Loading the terminal
 let mounted = false; // Component is mounted and ready to go
 let divXtermTerminal; // Xterm.js terminal
 let inputMountFiles; // Hidden HTML file input element for mounting local file
@@ -46,7 +45,7 @@ let timerSyncFS; // JS timeout used to sync filesystem contents
 // =============================================================================
 
 // Needs to be mounted or get errors on first mount
-$: if (mounted) initialize(terminalId);
+$: if (mounted && terminalId) initialize(terminalId);
 onMount(() => (mounted = true));
 onDestroy(() => clearTimeout(timerSyncFS));
 
@@ -130,7 +129,9 @@ function initialize(id) {
 		// Make sure everything loaded correctly. If not, try again.
 		// Otherwise, get issues where `term` variable is null and waiting for it to be set does not help.
 		if (!$cli.xterm) {
-			initialize();
+			loading = false;
+			console.warn("Could not load terminal; serial_adapter not defined.");
+			initialize(terminalId);
 			return;
 		}
 		console.log("Terminal ready.", $cli);
@@ -173,7 +174,8 @@ function initialize(id) {
 
 // When window resizes, update terminal size
 let currDims = { cols: null, rows: null };
-function handleResize(loadTime = false) {
+function handleResize(firstTime = false) {
+	if (loading) return;
 	if (!$cli.addons.fit) return;
 
 	$cli.addons.fit.fit();
@@ -184,14 +186,15 @@ function handleResize(loadTime = false) {
 	// - Editing previously run long-commands shows odd spacing behavior
 	// - TUIs like `top` and `vim` don't load in full screen
 	const dims = $cli.addons.fit.proposeDimensions();
-	if (currDims.cols === dims.cols && currDims.rows === dims.rows) return;
+	if (!dims?.cols || !dims?.rows || (currDims.cols === dims.cols && currDims.rows === dims.rows)) return;
 	currDims = dims;
 
 	// Limitation: this doesn't work if you're inside vim/less/etc, or halfway through a command
 	// before resizing, but that should be less likely.
-	log(LOGGING_INFO, "Resize terminal", dims);
+	if (firstTime) log(LOGGING_INFO, "Set terminal size", dims);
+	else log(LOGGING_INFO, "Resize terminal", dims);
 	$cli.exec(`stty rows ${dims.rows} cols ${dims.cols}`, {
-		mode: loadTime ? EXEC_MODE_TERMINAL_HIDDEN : null
+		mode: firstTime ? EXEC_MODE_TERMINAL_HIDDEN : null
 	});
 }
 
@@ -297,7 +300,7 @@ async function mountLocalFile(event) {
 </script>
 
 <!-- Terminal -->
-<div id="terminal" bind:this={divXtermTerminal} use:watchResize={debounce(() => handleResize(), 400)}>
+<div id="terminal" bind:this={divXtermTerminal} use:watchResize={handleResize}>
 	{#if loading}
 		<Spinner color="light" type="border" style="position:absolute" />
 	{/if}

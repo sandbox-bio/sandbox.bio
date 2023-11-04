@@ -34,7 +34,6 @@
 		"@supabase/supabase-js": "^2.38.4",
 		"ansi_up": "^5.1.0",
 		"codemirror": "^6.0.0",
-		"debounce": "^1.2.1",
 		"igv": "^2.15.8",
 		"localforage": "^1.10.0",
 		"lodash": "^4.17.21",
