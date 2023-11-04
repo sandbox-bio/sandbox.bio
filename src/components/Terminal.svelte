@@ -39,6 +39,7 @@ let inputMountFolder; // Hidden HTML file input element for mounting local folde
 let modalKbdOpen = false; // Set to true when the shortcuts modal is open
 let modalKbdToggle = () => (modalKbdOpen = !modalKbdOpen);
 let timerSyncFS; // JS timeout used to sync filesystem contents
+let timerWaitForPrompt; // Wait for root@localhost prompt to be visible
 
 // =============================================================================
 // Initialization
@@ -47,14 +48,19 @@ let timerSyncFS; // JS timeout used to sync filesystem contents
 // Needs to be mounted or get errors on first mount
 $: if (mounted && terminalId) initialize(terminalId);
 onMount(() => (mounted = true));
-onDestroy(() => clearTimeout(timerSyncFS));
+onDestroy(cleanupTimers);
+
+function cleanupTimers() {
+	clearTimeout(timerSyncFS);
+	clearInterval(timerWaitForPrompt);
+}
 
 function initialize(id) {
 	console.log("Initializing terminal...", id);
 	loading = true;
 
 	// Cleanup
-	if (timerSyncFS) clearTimeout(timerSyncFS);
+	cleanupTimers();
 	if ($cli.emulator) $cli.emulator.destroy();
 
 	// Create emulator
@@ -121,6 +127,11 @@ function initialize(id) {
 		}
 	});
 
+	// Listen for outputs
+	let initial_screen = "";
+	const listenerWaitForPrompt = async (byte) => (initial_screen += String.fromCharCode(byte));
+	$cli.emulator.add_listener(BUS_SERIAL_OUTPUT, listenerWaitForPrompt);
+
 	// Prepare terminal environment
 	$cli.emulator.bus.register("emulator-loaded", async () => {
 		$cli.xterm = $cli.emulator.serial_adapter.term;
@@ -156,26 +167,31 @@ function initialize(id) {
 		// Run initialization commands
 		$cli.exec(init);
 		// Show intro
-		if (intro) {
-			$cli.xterm.write(intro);
-		} else {
-			// Or do Ctrl + L (key code 12) to show the root@localhost prompt but without extra spaces above it
-			$cli.emulator.bus.send(BUS_SERIAL_INPUT, 12);
-		}
-
+		if (intro) $cli.xterm.write(intro);
 		// Set initial terminal size, otherwise sometimes doesn't call that function at load time
 		handleResize(true);
 		// Focus cursor on command line
 		$cli.xterm.focus();
 
-		loading = false;
+		// Make sure root@localhost prompt shows up on screen
+		timerWaitForPrompt = setInterval(() => {
+			if (!initial_screen.includes("root@localhost")) {
+				$cli.exec("");
+				// Press Ctrl + L (key code 12) to show the but without extra lines above it
+				if (!intro) $cli.emulator.bus.send(BUS_SERIAL_INPUT, 12);
+			} else {
+				loading = false;
+				$cli.emulator.remove_listener(BUS_SERIAL_OUTPUT, listenerWaitForPrompt);
+				clearInterval(timerWaitForPrompt);
+			}
+		}, 200);
 	});
 }
 
 // When window resizes, update terminal size
 let currDims = { cols: null, rows: null };
 function handleResize(firstTime = false) {
-	if (loading) return;
+	if (loading && !firstTime) return;
 	if (!$cli.addons.fit) return;
 
 	$cli.addons.fit.fit();
