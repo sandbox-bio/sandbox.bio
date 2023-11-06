@@ -8,6 +8,8 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+# playwright
+test-results/
 # generated programmatically
 static/data
 static/v86/
