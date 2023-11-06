@@ -1,9 +1,9 @@
-/** @type {import('@playwright/test').PlaywrightTestConfig} */
 const config = {
 	webServer: {
-		command: "npm run build && npm run preview",
+		command: "npm run preview",
 		port: 4173
 	},
+	preserveOutput: "never",
 	testDir: "tests",
 	testMatch: /(.+\.)?(test|spec)\.[jt]s/
 };
