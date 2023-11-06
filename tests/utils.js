@@ -5,18 +5,16 @@ export async function goToTerminal(page) {
 }
 
 export async function expectXterm(page, command, expect, callback) {
-	// Type command one character at a time. Note that `fill` and
-	// `pressSequentially` don't work for entering input in xterm.js
-	for (const char of command) {
-		await page.getByRole("textbox").press(char);
-	}
-	await page.getByRole("textbox").press("Enter");
+    // Type command one character at a time. Note that `fill` and
+    // `pressSequentially` don't work for entering input in xterm.js
+	await page.keyboard.type(command);
+	await page.keyboard.press('Enter');
 
 	// Validate
 	await page.waitForSelector(`:has-text("${expect}")`);
 	if (callback) {
 		await callback({
-			xterm: await page.getByRole("textbox")
+			keyboard: page.keyboard,
 		});
 	}
 }
