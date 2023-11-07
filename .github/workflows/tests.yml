@@ -8,6 +8,7 @@ env:
   PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
   PUBLIC_SUPABASE_API_KEY: ${{ secrets.PUBLIC_SUPABASE_API_KEY }}
   SUPABASE_API_KEY: ${{ secrets.SUPABASE_API_KEY }}
+  PUBLIC_TESTS: ${{ vars.PUBLIC_TESTS }}
 
 jobs:
   deploy:
