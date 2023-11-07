@@ -8,8 +8,6 @@
 import { test } from "@playwright/test";
 import { expectXterm, goToTerminal } from "./utils";
 
-test.describe.configure({ mode: "parallel" });
-
 let page;
 const tools = [
 	// sandbox.bio v1: Installed with apt
@@ -65,6 +63,14 @@ test("Basic commands: pwd, hostname", async () => {
 	await expectXterm(page, "hostname", "localhost");
 });
 
+// Check that installed tools work
+for (const tool of tools) {
+	const command = tool.command || `${tool.name} --version`;
+	test(`Tool: ${command}`, async () => {
+		await expectXterm(page, command, tool.expected);
+	});
+}
+
 // Check that interactive commands work
 test("Interactive commands: man", async () => {
 	await expectXterm(page, "man grep", "GREP(1)", ({ keyboard }) => keyboard.type("q"));
@@ -76,17 +82,9 @@ test("Interactive commands: nano", async () => {
 	await expectXterm(page, "nano /root/.bashrc", "GNU nano 7.2", ({ keyboard }) => keyboard.press("Control+X"));
 });
 test("Interactive commands: vim", async () => {
-	await expectXterm(page, "vim", "VIM - Vi IMproved", async ({ keyboard }) => {
+	await expectXterm(page, "vim /root/.bashrc", "PS1 and umask are already set", async ({ keyboard }) => {
 		await keyboard.press(":");
-		await keyboard.type("q");
+		await keyboard.type("q!");
 		await keyboard.press("Enter");
 	});
 });
-
-// Check that installed tools work
-for (const tool of tools) {
-	const command = tool.command || `${tool.name} --version`;
-	test(`Tool: ${command}`, async () => {
-		await expectXterm(page, command, tool.expected);
-	});
-}
