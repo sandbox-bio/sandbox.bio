@@ -8,7 +8,7 @@ env:
   PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
   PUBLIC_SUPABASE_API_KEY: ${{ secrets.PUBLIC_SUPABASE_API_KEY }}
   SUPABASE_API_KEY: ${{ secrets.SUPABASE_API_KEY }}
-    
+
 jobs:
   deploy:
     runs-on: ubuntu-latest

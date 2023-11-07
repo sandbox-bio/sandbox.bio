@@ -26,9 +26,9 @@ const tools = [
 	{ name: "bgzip", expected: "bgzip (htslib) 1.18" },
 	{ name: "tabix", expected: "tabix (htslib) 1.18" },
 	{ name: "fastp", expected: "fastp 0.20.1" },
-	// { name: "lsd2", command: "lsd2 -V", expected: "lsd2 v.2.4.1" },
-	// { name: "tn93", expected: "v1.0.11" },
-	// { name: "bowtie2", expected: "bowtie2-align-s version 2.5.1" },
+	{ name: "lsd2", command: "lsd2 -V", expected: "lsd2 v.2.4.1" },
+	{ name: "tn93", expected: "v1.0.11" },
+	{ name: "bowtie2", expected: "bowtie2-align-s version 2.5.1" },
 	{ name: "minimap2", expected: "2.26-r1175" },
 
 	// sandbox.bio v2: Installed with apt
@@ -55,23 +55,25 @@ const tools = [
 test.beforeAll(async ({ browser }) => {
 	page = await browser.newPage();
 	await goToTerminal(page);
-  });
-  
-// Check that basic terminal commands work
-test("Basic commands", async () => {
-	await goToTerminal(page);
+});
 
+// Check that basic terminal commands work
+test("Basic commands: pwd, hostname", async () => {
 	await expectXterm(page, "pwd", "/root/tutorial");
 	await expectXterm(page, "hostname", "localhost");
 });
 
 // Check that interactive commands work
-test("Interactive commands (man, less, vim, nano)", async () => {
-	await goToTerminal(page);
-
+test("Interactive commands: man", async () => {
 	await expectXterm(page, "man grep", "GREP(1)", ({ keyboard }) => keyboard.type("q"));
+});
+test("Interactive commands: less", async () => {
 	await expectXterm(page, "less /root/.bashrc", "executed by bash(1) for non-login shells", ({ keyboard }) => keyboard.type("q"));
+});
+test("Interactive commands: nano", async () => {
 	await expectXterm(page, "nano /root/.bashrc", "GNU nano 7.2", ({ keyboard }) => keyboard.press("Control+X"));
+});
+test("Interactive commands: vim", async () => {
 	await expectXterm(page, "vim", "VIM - Vi IMproved", async ({ keyboard }) => {
 		await keyboard.press(":");
 		await keyboard.type("q");
@@ -82,7 +84,7 @@ test("Interactive commands (man, less, vim, nano)", async () => {
 // Check that installed tools work
 for (const tool of tools) {
 	const command = tool.command || `${tool.name} --version`;
-	test(`sandbox.bio command: ${command}`, async () => {
+	test(`Tool: ${command}`, async () => {
 		await expectXterm(page, command, tool.expected);
 	});
 }
