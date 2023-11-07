@@ -8,6 +8,8 @@
 import { test } from "@playwright/test";
 import { expectXterm, goToTerminal } from "./utils";
 
+test.describe.configure({ mode: "parallel" });
+
 let page;
 const tools = [
 	// sandbox.bio v1: Installed with apt
