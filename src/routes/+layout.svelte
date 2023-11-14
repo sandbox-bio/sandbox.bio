@@ -25,7 +25,6 @@ import {
 } from "sveltestrap";
 import Login from "$components/Login.svelte";
 import LoginWithGoogle from "$components/LoginWithGoogle.svelte";
-import { URL_ASSETS } from "$src/config";
 import { supabaseAnon } from "$src/utils";
 import { user } from "$stores/user.js";
 import { progress } from "$stores/progress.js";
@@ -87,7 +86,7 @@ onMount(() => {
 
 <svelte:head>
 	<title>sandbox.bio</title>
-	<script src="{URL_ASSETS}/v86/xterm.js"></script>
+	<script src="/v86/xterm.js"></script>
 </svelte:head>
 
 <!-- Bootstrap CSS and icons -->

@@ -12,4 +12,5 @@ vite.config.ts.timestamp-*
 test-results/
 # generated programmatically
 static/data
-static/v86/
+static/v86/debian-state-base.bin.zst
+static/v86/debian-9p-rootfs-flat/

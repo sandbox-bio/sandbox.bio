@@ -70,7 +70,7 @@ function initialize(id) {
 
 	// Create emulator
 	$cli.emulator = new V86({
-		wasm_path: `${URL_ASSETS}/v86/v86.wasm`,
+		wasm_path: `/v86/v86.wasm`,
 		memory_size: 1024 * 1024 * 1024,
 		initial_state: { url: `${URL_ASSETS}/v86/debian-state-base.bin.zst` },
 		filesystem: { baseurl: `${URL_ASSETS}/v86/debian-9p-rootfs-flat/` },
