@@ -15,8 +15,10 @@ Go to the folder `exercise-data/writing/`:
 ]}>
 <span slot="prompt">
 Which command would result in the following output:
+
 ```
 and the presence of absence:
 ```
+
 </span>
 </Quiz>

@@ -46,10 +46,10 @@ export CLOUDFLARE_ACCOUNT_ID=ID_GOES_HERE
 
 ### Subdomains
 
-| Environment | Domain                                       | Access                                                                                    |
-| ----------- | -------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| stg         | [stg.sandbox.bio](https://stg.sandbox.bio)   | [Testers](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps) |
-| prd         | [sandbox.bio](https://sandbox.bio) | Public                                                                                    |
+| Environment | Domain                                     | Access                                                                                    |
+| ----------- | ------------------------------------------ | ----------------------------------------------------------------------------------------- |
+| stg         | [stg.sandbox.bio](https://stg.sandbox.bio) | [Testers](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps) |
+| prd         | [sandbox.bio](https://sandbox.bio)         | Public                                                                                    |
 
 | Environment variable      | Description                  |
 | ------------------------- | ---------------------------- |
@@ -59,10 +59,10 @@ export CLOUDFLARE_ACCOUNT_ID=ID_GOES_HERE
 
 ### Database
 
-| Table | Description                                      | Access |
-| ----- | ------------------------------------------------ | ------ |
-| logs  | Log all calls to `sandbox.bio/*`                 | RLS    |
-| pings | Analytics for tutorial progress                  | RLS    |
-| state | Save tutorial progress                           | RLS    |
+| Table | Description                      | Access |
+| ----- | -------------------------------- | ------ |
+| logs  | Log all calls to `sandbox.bio/*` | RLS    |
+| pings | Analytics for tutorial progress  | RLS    |
+| state | Save tutorial progress           | RLS    |
 
 Append `_stg` to table names for dev/stg environments.

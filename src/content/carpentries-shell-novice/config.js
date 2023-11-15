@@ -8,18 +8,18 @@ import Episode7_Exercise4 from "./steps/Episode7_Exercise4.md";
 export const config = {
 	id: "carpentries-shell-novice",
 	listed: false,
-	name: "The Unix Shell",
-	subtitle: `by <a href="https://swcarpentry.github.io/shell-novice/index.html" target="_blank">The Software Carpentry</a>`,
-	description: "Example Carpentries tutorial",
-	tags: ["unix", "shell", "terminal"],
+	name: "Terminal Exercises",
+	subtitle: "Exercises from the Carpentries' Unix Shell lesson",
+	description: "Exercises from the Carpentries' Unix Shell lesson",
+	tags: ["terminal", "exercises", "carpentries"],
 	difficulty: ["beginner"],
 	init: "mkdir -p ~/tutorial/raw",
 	steps: [
-		{ name: "The Unix Shell", component: Intro },
+		{ name: "Terminal Exercises", component: Intro },
 		{ name: "Finding Things", component: Episode7_Exercise1, subtitle: "Using grep", header: true },
 		{ name: "Finding Things", component: Episode7_Exercise2, subtitle: "Tracking a species" },
 		{ name: "Finding Things", component: Episode7_Exercise3, subtitle: "Little women" },
-		{ name: "Finding Things", component: Episode7_Exercise4, subtitle: "Matching and subtracting" },
+		{ name: "Finding Things", component: Episode7_Exercise4, subtitle: "Matching and subtracting" }
 	],
 	files: [
 		"analyzed/fructose.dat",
