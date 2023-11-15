@@ -17,8 +17,8 @@ const tools = [
 	{ name: "fasttree", command: "fasttree 2>&1 | head", expected: "FastTree version 2.1.11" },
 	{ name: "kalign", expected: "kalign 3.3.5" },
 	{ name: "bedtools", expected: "bedtools v2.30.0" },
-	{ name: "samtools", expected: "samtools 1.16.1" },
-	{ name: "bcftools", expected: "bcftools 1.16" },
+	{ name: "samtools", expected: "samtools 1.18" },
+	{ name: "bcftools", expected: "bcftools 1.18" },
 	{ name: "ivar", command: "ivar version", expected: "iVar version 1.3.1" },
 
 	// sandbox.bio v1: Built from source
