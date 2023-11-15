@@ -177,17 +177,15 @@ onMount(() => {
 </Container>
 
 <!-- Footer -->
-{#if !path.startsWith("/tutorials/") && path !== "/"}
-	<footer class="container pt-3 mt-5 mb-4 text-muted border-top">
-		<div class="col-3">
-			<h5>sandbox.bio</h5>
-			<Nav vertical>
-				<NavLink href="https://github.com/sandbox-bio/sandbox.bio/discussions" target="_blank" class="ps-0 py-1">Feedback</NavLink>
-				<NavLink href="/about" class="ps-0 py-1">About</NavLink>
-			</Nav>
-		</div>
-	</footer>
-{/if}
+<footer class="container pt-3 mt-5 mb-4 text-muted border-top">
+	<div class="col-3">
+		<h5>sandbox.bio</h5>
+		<Nav vertical>
+			<NavLink href="https://github.com/sandbox-bio/sandbox.bio/discussions" target="_blank" class="ps-0 py-1">Feedback</NavLink>
+			<NavLink href="/about" class="ps-0 py-1">About</NavLink>
+		</Nav>
+	</div>
+</footer>
 
 <p class="mb-5" />
 

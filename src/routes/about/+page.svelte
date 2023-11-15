@@ -16,21 +16,23 @@ import Alert from "$components/Alert.svelte";
 
 	<p class="lead fw-bold mt-4 mb-1">Tutorials</p>
 	<p>
-		Command-line tutorials are powered by <strong>a Linux OS that runs in your browser</strong>! (specifically, Debian 11). The sandbox comes
-		preloaded with commonly used bioinformatics tools, so you can hit the ground running, with no setup required.
+		Command-line tutorials feature a <strong>Linux operating system running in your browser!</strong> The sandbox runs Debian 12 (Bookworm), and comes preloaded with commonly used bioinformatics tools, so you can hit the ground running, with no setup required. To use sandbox.bio, you need a computer with >1GB of RAM and a connection to the internet.
 	</p>
 
 	<p>
-		This sandbox is powered by the <a href="https://github.com/copy/v86" target="_blank">v86 project</a>. Its main limitation is that tools that
-		cannot be compiled to a 32-bit i686 architecture are not supported. See the
+		The Debian environment is powered by the <a href="https://github.com/copy/v86" target="_blank">v86 project</a>. For a tool to be available in this environment, it must be compiled to a 32-bit i686 architecture, and only use supported SIMD instructions (SSE, SSE2, SSE3). Currently, JVM-based tools are not supported because they require large downloads, and are not performant in this environment. See the
 		<a href="https://github.com/sandbox-bio/v86/blob/master/tools/docker/debian/Dockerfile" target="_blank">sandbox.bio Dockerfile</a> for the latest list
-		of supported tools.
+		of available tools. Please reach out if you're interested in adding more tools to the sandbox.
+	</p>
+
+	<p>
+		The file system available in the sandbox is a virtual file system, and is not connected to your computer's files. Each tutorial gets its own <code>~/tutorial</code> folder, whose contents is saved to your browser's storage every few seconds, so refreshing the page restores the previous state of the file system. This browser storage is temporary, so do not store important files in this environment.
 	</p>
 
 	<p class="lead fw-bold mt-4 mb-1">Playgrounds</p>
 
 	<p>
-		Playgrounds on sandbox.bio are powered by a lighter approach, using the <a href="https://biowasm.com" target="_blank">biowasm project</a>.
+		Playgrounds on sandbox.bio are powered by <a href="https://biowasm.com" target="_blank">biowasm</a>.
 		Individual command-line tools were compiled to WebAssembly so they can run in the browser. The playgrounds use sample data from
 		<a href="https://github.com/TheUpshot/chipotle">The UpShot</a>.
 	</p>
