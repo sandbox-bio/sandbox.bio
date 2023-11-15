@@ -11,7 +11,7 @@ $: step = +$page.params.step || 0;
 </script>
 
 <svelte:head>
-	{#if tutorial}
+	{#if tutorial.name}
 		<title>{tutorial.name} - sandbox.bio</title>
 	{:else}
 		<title>sandbox.bio</title>

@@ -34,9 +34,9 @@ const criteria = [
 }];
 </script>
 
-Go to the folder `exercise-data/animal-counts/`:
+Go to the folder `exercise-data/`:
 
-<Execute command="cd ~/tutorial/exercise-data/animal-counts/" />
+<Execute command="cd ~/tutorial/exercise-data/" />
 
 Leah has several hundred data files saved in one directory, each of which is formatted like this:
 

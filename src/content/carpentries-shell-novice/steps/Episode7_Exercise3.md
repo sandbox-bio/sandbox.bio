@@ -31,7 +31,7 @@ Go to the folder `exercise-data/writing/`:
 
 You and your friend, having just finished reading Little Women by Louisa May Alcott, are in an argument. Of the four sisters in the book, Jo, Meg, Beth, and Amy, your friend thinks that Jo was the most mentioned. You, however, are certain it was Amy. Luckily, you have a file `LittleWomen.txt` containing the full text of the novel (`exercise-data/writing/LittleWomen.txt`). Using a `for` loop, how would you tabulate the number of times each of the four sisters is mentioned?
 
-The output format should match the following:
+The file `stats.txt` should match the following format:
 
 ```
 Jo:
