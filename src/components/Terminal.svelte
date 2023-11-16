@@ -13,6 +13,7 @@ import {
 	BUS_SERIAL_COMMAND_READ,
 	BUS_SERIAL_INPUT,
 	BUS_SERIAL_OUTPUT,
+	DEBIAN_STATE_ID,
 	DIR_TUTORIAL,
 	LOGGING_INFO,
 	MAX_FILE_SIZE_TO_CACHE,
@@ -72,7 +73,7 @@ function initialize(id) {
 	$cli.emulator = new V86({
 		wasm_path: `/v86/v86.wasm`,
 		memory_size: 1024 * 1024 * 1024,
-		initial_state: { url: `${URL_ASSETS}/v86/debian-state-base.bin.zst` },
+		initial_state: { url: `${URL_ASSETS}/v86/debian-state-${DEBIAN_STATE_ID}.bin.zst` },
 		filesystem: { baseurl: `${URL_ASSETS}/v86/debian-9p-rootfs-flat/` },
 		autostart: true,
 		screen_dummy: true, // since we're using xterm.js, no need for "screen_container" div
