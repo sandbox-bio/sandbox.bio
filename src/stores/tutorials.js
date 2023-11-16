@@ -22,6 +22,7 @@ export const tutorials = readable([
 	playground,
 	// Terminal Tutorials
 	terminalIntro,
+	carpentriesShellNovice,
 	jqIntro,
 	awkIntro,
 	// Bioinformatics
@@ -36,9 +37,7 @@ export const tutorials = readable([
 	// Community tutorials
 	ifblinuxbasics1,
 	ifblinuxbasics2,
-	ifblinuxbasics3,
-	// Carpentries Tutorials
-	carpentriesShellNovice
+	ifblinuxbasics3
 ]);
 
 // Playgrounds

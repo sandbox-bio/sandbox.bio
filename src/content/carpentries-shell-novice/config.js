@@ -12,6 +12,7 @@ export const config = {
 	subtitle: "Exercises from the Carpentries' Unix Shell lesson",
 	description: "Exercises from the Carpentries' Unix Shell lesson",
 	tags: ["terminal", "exercises", "carpentries"],
+	tools: ["grep", "cut", "wc", "vim", "find"],
 	difficulty: ["beginner"],
 	init: "mkdir -p ~/tutorial/raw",
 	steps: [
