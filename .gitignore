@@ -1,23 +1,16 @@
-# App
-app/public/build/
-app/public/data/
-app/public/tutorials/
-app/public/playground/
-app/public/playgrounds/
-app/public/studio/
-app/public/rosalind/
-app/public/community/
-.bak
-# Cloudflare Worker Sites
-dist/
-worker/script.js
-# General
-node_modules/
 .DS_Store
-_trash/
-# Biowasm copy for local development
-app/public/biowasm/*
-!app/public/biowasm/README.md
-# sandbox.bio v2
+node_modules
+/build
+/.svelte-kit
+/package
 .env
-static/data/
+.env.*
+!.env.example
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+# playwright
+test-results/
+# generated programmatically
+static/data
+static/v86/debian-state-*.bin.zst
+static/v86/debian-9p-rootfs-flat/

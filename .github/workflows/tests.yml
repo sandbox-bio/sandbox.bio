@@ -1,12 +1,14 @@
-# Run app tests whenever push to dev branch
-
 name: Tests
 
 on:
   push:
-    branches: [ dev ]
-    paths:
-      - 'app/**'
+    branches: [v2]
+
+env:
+  PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
+  PUBLIC_SUPABASE_API_KEY: ${{ secrets.PUBLIC_SUPABASE_API_KEY }}
+  SUPABASE_API_KEY: ${{ secrets.SUPABASE_API_KEY }}
+  PUBLIC_TESTS: ${{ vars.PUBLIC_TESTS }}
 
 jobs:
   deploy:
@@ -16,11 +18,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Build
-        run: cd app && npm install && npm run build
-
-      - name: Launch dev server
-        run: cd app && npm run dev &
+      - name: Set up playwright
+        run: npm install && npm run build && npx playwright install chromium
 
       - name: Run tests
-        run: cd app && npm run test --spec tests/test_ui.cy.js
+        run: npm run test
