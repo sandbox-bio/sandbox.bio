@@ -25,7 +25,6 @@ export const tutorials = readable([
 	carpentriesShellNovice,
 	jqIntro,
 	awkIntro,
-
 	// Bioinformatics
 	bedtoolsIntro,
 	bowtie2Intro,
