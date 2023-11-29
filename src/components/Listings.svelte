@@ -1,5 +1,5 @@
 <script>
-import { Badge, Button, Icon } from "sveltestrap";
+import { Badge, Button, Icon, Tooltip } from "sveltestrap";
 import { user } from "$stores/user";
 import { progress } from "$stores/progress";
 
@@ -16,6 +16,9 @@ const tagColors = {
 	difficult: "danger",
 	intermediate: "warning"
 };
+
+// Reference to div elements to bind Tooltip target (if use string IDs, doesn't work with SPA)
+const elements = {};
 </script>
 
 {#if title}
@@ -25,14 +28,28 @@ const tagColors = {
 <div class="row align-items-md-stretch">
 	{#each items.filter((t) => !skip.includes(t.id) && (showUnlisted || t.listed !== false) && (t.steps?.length > 0 || t.url)) as info, i}
 		{@const haveProgressInfo = $user && info.id in $progress}
-		{@const isDone = haveProgressInfo && $progress[info.id].step == info.steps.length - 1}
-		{@const isInProgress = haveProgressInfo && $progress[info.id].step && $progress[info.id].step > 0}
+		{@const currStep = (haveProgressInfo && $progress[info.id].step) || -1}
+		{@const isDone = currStep == info.steps?.length - 1}
+		{@const isInProgress = currStep > 0}
+		{@const elementId = `tutorial-${info.id}`}
 
 		{#if info.divider}
 			<h5 class:mt-4={i > 0}>{info.divider}</h5>
 		{/if}
 
-		<div id="tutorial-{info.id}" class="col-md-{colMd} col-lg-{colLg} col-xxl-{colXxl} mt-2">
+		<!-- Show progress tooltip, only for tutorials -->
+		<Tooltip target={elements[elementId]}>
+			{#if isDone}
+				You completed this tutorial!
+			{:else if isInProgress}
+				You completed {currStep} / {info.steps.length} steps. Click to continue.
+			{:else}
+				Click to start this tutorial!
+			{/if}
+		</Tooltip>
+
+		<!-- Tutorial card -->
+		<div bind:this={elements[elementId]} id={elementId} class="col-md-{colMd} col-lg-{colLg} col-xxl-{colXxl} mt-2">
 			<div
 				class="listing-card h-100 p-3 border rounded-3 position-relative d-flex flex-column"
 				class:bg-success={isDone}
