@@ -94,7 +94,7 @@ onMount(() => {
 
 <!-- Navigation bar -->
 <Navbar light container color="light" expand="md">
-	<NavbarBrand href="/">sandbox.bio</NavbarBrand>
+	<NavbarBrand href="/">&#129516; sandbox.bio</NavbarBrand>
 	<NavbarToggler on:click={() => (isNavbarOpen = !isNavbarOpen)} />
 	<Collapse isOpen={isNavbarOpen} navbar expand="md" on:update={(event) => (isNavbarOpen = event.detail.isOpen)}>
 		<Nav class="ms-auto" navbar>
