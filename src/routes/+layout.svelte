@@ -94,12 +94,7 @@ onMount(() => {
 
 <!-- Navigation bar -->
 <Navbar light container color="light" expand="md">
-	<NavbarBrand href="/">
-		sandbox.bio
-		<a href="/about">
-			<span class="badge bg-danger rounded-pill beta ms-1 py-1">BETA</span>
-		</a>
-	</NavbarBrand>
+	<NavbarBrand href="/">sandbox.bio</NavbarBrand>
 	<NavbarToggler on:click={() => (isNavbarOpen = !isNavbarOpen)} />
 	<Collapse isOpen={isNavbarOpen} navbar expand="md" on:update={(event) => (isNavbarOpen = event.detail.isOpen)}>
 		<Nav class="ms-auto" navbar>
@@ -188,10 +183,3 @@ onMount(() => {
 </footer>
 
 <p class="mb-5" />
-
-<style>
-.beta {
-	font-size: 10px;
-	position: absolute;
-}
-</style>

@@ -1,17 +1,12 @@
 <script>
 import { tutorials, playgrounds, explore } from "$stores/tutorials";
-import Alert from "$components/Alert.svelte";
 import Listings from "$components/Listings.svelte";
 import { Button, Icon } from "sveltestrap";
 </script>
 
 <svelte:head>
-	<title>sandbox.bio beta</title>
+	<title>sandbox.bio</title>
 </svelte:head>
-
-<Alert color="warning">
-	This is an early preview of sandbox.bio v2 and <strong>is in active development; some functionality may change or break temporarily.</strong>
-</Alert>
 
 <div class="container-fluid pt-3">
 	<div class="row pb-0 pe-lg-0 bg-light align-items-center rounded-3 border shadow-lg">

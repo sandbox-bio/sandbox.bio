@@ -1,18 +1,9 @@
-<script>
-import Alert from "$components/Alert.svelte";
-</script>
-
 <svelte:head>
 	<title>About - sandbox.bio</title>
 </svelte:head>
 
 <div class="col-8">
 	<p class="lead">sandbox.bio features interactive tutorials for bioinformatics tools in a secure sandbox.</p>
-
-	<Alert color="warning">
-		This is an early preview of sandbox.bio v2, whose goal is to support more bioinformatics tools and tutorials than currently possible.
-		<strong>This is currently in active development, so certain functionality may change or break temporarily.</strong>
-	</Alert>
 
 	<p class="lead fw-bold mt-4 mb-1">Tutorials</p>
 	<p>
