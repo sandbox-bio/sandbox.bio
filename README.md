@@ -4,7 +4,9 @@
 
 Interactive bioinformatics command-line tutorials.
 
-## Development
+---
+
+## Local development
 
 ### Branches
 
@@ -12,9 +14,23 @@ Interactive bioinformatics command-line tutorials.
 - `stg`: Staging branch, merge into this branch to deploy to stg.sandbox.bio
 - `prd`: Production branch, merge into this branch to deploy to sandbox.bio
 
-### Local dev
+### Environment setup
+
+Define environment variables in `.env`:
 
 ```bash
+# Supabase database URL
+PUBLIC_SUPABASE_URL=...
+# Supabase database public key
+PUBLIC_SUPABASE_API_KEY=...
+# Supabase database admin key
+SUPABASE_API_KEY=...
+```
+
+Launch the web server:
+
+```bash
+npm install
 npm run dev
 ```
 
@@ -44,19 +60,6 @@ export CLOUDFLARE_ACCOUNT_ID=ID_GOES_HERE
 
 ## Infrastructure
 
-### Subdomains
-
-| Environment | Domain                                     | Access                                                                                    |
-| ----------- | ------------------------------------------ | ----------------------------------------------------------------------------------------- |
-| stg         | [stg.sandbox.bio](https://stg.sandbox.bio) | [Testers](https://dash.teams.cloudflare.com/77294754f453e7c64b6100ddcde89b84/access/apps) |
-| prd         | [sandbox.bio](https://sandbox.bio)         | Public                                                                                    |
-
-| Environment variable      | Description                  |
-| ------------------------- | ---------------------------- |
-| `PUBLIC_SUPABASE_URL`     | Supabase URL                 |
-| `PUBLIC_SUPABASE_API_KEY` | Supabase database public key |
-| `SUPABASE_API_KEY`        | Supabase database admin key  |
-
 ### Database
 
 | Table | Description                      | Access |
@@ -66,3 +69,10 @@ export CLOUDFLARE_ACCOUNT_ID=ID_GOES_HERE
 | state | Save tutorial progress           | RLS    |
 
 Append `_stg` to table names for dev/stg environments.
+
+### Grafana
+
+[Dashboard](https://sandboxbio.grafana.net)
+
+- Import `grafana.json` into new Grafana instance: Depending on the setup, you might need to find/replace the postgres connection `uid` and replace it with the `uid` of the connection created.
+- Export `grafana.json` to repo: Remove top-level `id`, `uid`, and `version` fields to avoid the import error `The dashboard has been changed by someone else`.
