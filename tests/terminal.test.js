@@ -28,7 +28,7 @@ const tools = [
 	{ name: "fastp", expected: "fastp 0.20.1" },
 	{ name: "lsd2", command: "lsd2 -V", expected: "lsd2 v.2.4.1" },
 	{ name: "tn93", expected: "v1.0.11" },
-	{ name: "bowtie2", expected: "bowtie2-align-s version 2.5.1" },
+	{ name: "bowtie2-align-s", expected: "Bowtie 2 version 2.5.1" },
 	{ name: "minimap2", expected: "2.26-r1175" },
 
 	// sandbox.bio v2: Installed with apt
