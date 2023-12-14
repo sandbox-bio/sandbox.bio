@@ -14,7 +14,7 @@ export const config = {
 	id: "ifb-linux-basics-3",
 	pwd: "ifb-linux-basics-3",
 	listed: false,
-	name: "Manipulating files and directories",
+	name: "Manipulating data",
 	subtitle: `by <a href="https://www.france-bioinformatique.fr/en/home/" target="_blank">French Institute of Bioinformatics</a>`,
 	description: "IFB Scenario 3",
 	tags: ["unix", "shell", "terminal"],
