@@ -2,7 +2,7 @@ name: Tests
 
 on:
   push:
-    branches: [dev]
+    branches: [main]
 
 env:
   PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
