@@ -171,8 +171,8 @@ onMount(() => {
 	<slot />
 </Container>
 
-<!-- Footer -->
-{#if !$page.url.pathname.startsWith("/tutorials")}
+<!-- Footer (don't show on tutorials to avoid scrolling issues inside terminal) -->
+{#if !$page.url.pathname.startsWith("/tutorials/")}
 	<footer class="container pt-3 mt-5 mb-4 text-muted border-top">
 		<div class="col-3">
 			<h5>sandbox.bio</h5>

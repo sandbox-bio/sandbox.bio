@@ -27,7 +27,7 @@ const elements = {};
 
 <div class="row align-items-md-stretch">
 	{#each items.filter((t) => !skip.includes(t.id) && (showUnlisted || t.listed !== false) && (t.steps?.length > 0 || t.url)) as info, i}
-		{@const haveProgressInfo = $user && info.id in $progress}
+		{@const haveProgressInfo = $user?.email && info.id in $progress}
 		{@const currStep = (haveProgressInfo && $progress[info.id].step) || -1}
 		{@const isDone = currStep == info.steps?.length - 1}
 		{@const isInProgress = currStep > 0}
@@ -88,7 +88,7 @@ const elements = {};
 						<!-- "Tutorials" listings -->
 					{:else if haveProgressInfo}
 						{#if isDone}
-							<Button color="success" class="stretched-link" href="/tutorials/{info.id}" outline>Launch</Button>
+							<Button outline color="success" class="stretched-link" href="/tutorials/{info.id}">Launch</Button>
 						{:else}
 							<Button color="primary" class="stretched-link" href="/tutorials/{info.id}/{$progress[info.id].step}">Resume</Button>
 						{/if}
