@@ -41,6 +41,8 @@ npm run dev
 
 ### Deploy
 
+Generate Debian assets:
+
 ```bash
 # Generate static assets (see https://github.com/sandbox-bio/v86/blob/master/NOTES.md)
 git clone https://github.com/sandbox-bio/v86.git && cd v86
@@ -50,10 +52,29 @@ make build/xterm.js
 # Generate .bin files
 cd tools/docker/debian/
 ./generate.sh
+```
 
+Deploy:
+
+```bash
 # Upload .bin files
 export CLOUDFLARE_ACCOUNT_ID=ID_GOES_HERE
-./bin/deploy-v86.sh
+
+# Deploy dev
+./bin/deploy-v86.sh dev
+git push origin dev
+
+# Deploy dev -> stg
+./bin/deploy-v86.sh stg
+git push origin --delete stg
+git checkout -b stg --track origin/dev
+git push origin stg
+
+# Deploy stg -> prd
+./bin/deploy-v86.sh prd
+git push origin --delete prd
+git checkout -b prd --track origin/stg
+git push origin prd
 ```
 
 ---

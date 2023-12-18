@@ -6,6 +6,7 @@ import { watchResize } from "svelte-watch-resize";
 import { FitAddon } from "xterm-addon-fit";
 import { WebLinksAddon } from "xterm-addon-web-links";
 import { SerializeAddon } from "xterm-addon-serialize";
+import { env } from "$env/dynamic/public";
 import { V86 } from "$thirdparty/v86/libv86";
 import { EXEC_MODE_BUS, EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
 import { LocalState, log, strToChars } from "$src/utils";
@@ -46,6 +47,30 @@ let timerWaitForPrompt; // Wait for root@localhost prompt to be visible
 const preloadTools = {
 	vim: `vim "+q!" test`
 };
+const environments = {
+	localhost: {
+		url: "",
+		v86: ""
+	},
+	"stg.sandbox.bio": {
+		url: URL_ASSETS,
+		v86: "stg/"
+	},
+	"sandbox.bio": {
+		url: URL_ASSETS,
+		v86: "prd"
+	}
+};
+
+function getEnvironmentInfo() {
+	// If running tests on GitHub, run them on prd assets, despite being on localhost
+	if (env.PUBLIC_TESTS === "true") return environments["sandbox.bio"];
+
+	// Otherwise, use hostname
+	const envInfo = environments[window.location.hostname];
+	if (!envInfo) throw "Unrecognized deploy environment";
+	return envInfo;
+}
 
 // =============================================================================
 // Initialization
@@ -70,11 +95,12 @@ function initialize(id) {
 	if ($cli.emulator) $cli.emulator.destroy();
 
 	// Create emulator
+	const envInfo = getEnvironmentInfo();
 	$cli.emulator = new V86({
 		wasm_path: `/v86/v86.wasm`,
 		memory_size: 1024 * 1024 * 1024,
-		initial_state: { url: `${URL_ASSETS}/v86/debian-state-${DEBIAN_STATE_ID}.bin.zst` },
-		filesystem: { baseurl: `${URL_ASSETS}/v86/debian-9p-rootfs-flat/` },
+		initial_state: { url: `${envInfo.url}/v86/${envInfo.v86}debian-state-${DEBIAN_STATE_ID}.bin.zst` },
+		filesystem: { baseurl: `${envInfo.url}/v86/${envInfo.v86}debian-9p-rootfs-flat/` },
 		autostart: true,
 		screen_dummy: true, // since we're using xterm.js, no need for "screen_container" div
 		serial_container_xtermjs: divXtermTerminal,
