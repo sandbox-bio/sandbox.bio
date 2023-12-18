@@ -82,6 +82,10 @@ async function logout() {
 onMount(() => {
 	setTimeout(remindLogin, 30000);
 });
+
+import {env} from "$env/static/public"
+$: console.log("ENV", env)
+
 </script>
 
 <svelte:head>
