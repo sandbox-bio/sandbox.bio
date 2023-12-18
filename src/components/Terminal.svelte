@@ -58,11 +58,14 @@ const environments = {
 	},
 	"sandbox.bio": {
 		url: URL_ASSETS,
-		v86: "prd"
+		v86: "prd/"
 	}
 };
 
 function getEnvironmentInfo() {
+	// Uncomment for debugging assets on other environments
+	// return environments["stg.sandbox.bio"];
+
 	// If running tests on GitHub, run them on prd assets, despite being on localhost
 	if (env.PUBLIC_TESTS === "true") return environments["sandbox.bio"];
 
