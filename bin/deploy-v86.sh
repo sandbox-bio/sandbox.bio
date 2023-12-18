@@ -2,13 +2,13 @@
 # FIXME: this script was only tested on MacOS (md5 and sed might have different flags)
 set -u
 
-ENV=${1?Usage: ./deploy.sh [dev|stg|prd]}
+ENV=${1?Usage: ./deploy.sh [stg|prd]}
 DIR_SOURCE=static/v86
 DIR_DESTINATION=s3://sandbox-bio/v86/$ENV
 FILE_DEBIAN_STATE=debian-state-base.bin.zst
 URL_ENDPOINT=https://${CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com
 
-[[ "$ENV" != "dev" ]] && [[ "$ENV" != "stg" ]] && [[ "$ENV" != "prd" ]] && echo "Unexpected environment '$ENV': expected dev, stg, or prd" && exit
+[[ "$ENV" != "stg" ]] && [[ "$ENV" != "prd" ]] && echo "Unexpected environment '$ENV': expected dev, stg, or prd" && exit
 
 # Add checksum to file name as a cache buster
 CHECKSUM=$(md5 -q $DIR_SOURCE/$FILE_DEBIAN_STATE)

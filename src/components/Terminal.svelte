@@ -56,6 +56,10 @@ const environments = {
 		url: URL_ASSETS,
 		v86: "stg/"
 	},
+	"beta.sandbox.bio": {
+		url: URL_ASSETS,
+		v86: "prd/"
+	},
 	"sandbox.bio": {
 		url: URL_ASSETS,
 		v86: "prd/"

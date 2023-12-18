@@ -60,21 +60,21 @@ Deploy:
 # Upload .bin files
 export CLOUDFLARE_ACCOUNT_ID=ID_GOES_HERE
 
-# Deploy dev
-./bin/deploy-v86.sh dev
-git push origin dev
+# Deploy main to stg
+SOURCE=main
+DEST=stg
 
-# Deploy dev -> stg
-./bin/deploy-v86.sh stg
-git push origin --delete stg
-git checkout -b stg --track origin/dev
-git push origin stg
+# Deploy stg to prd
+SOURCE=stg
+DEST=prd
 
-# Deploy stg -> prd
-./bin/deploy-v86.sh prd
-git push origin --delete prd
-git checkout -b prd --track origin/stg
-git push origin prd
+# Deploy
+./bin/deploy-v86.sh $DEST
+git branch -d $DEST
+git push origin --delete $DEST
+git checkout -b $DEST --track origin/$SOURCE
+git push origin $DEST
+git checkout main
 ```
 
 ---
