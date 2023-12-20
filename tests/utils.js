@@ -4,6 +4,12 @@ export async function goToTerminal(page) {
 	await page.waitForSelector(`:has-text("root@localhost")`);
 }
 
+export async function goToTutorial(page, tutorial, step) {
+	// Open terminal and wait till it's ready
+	await page.goto(`/tutorials/${tutorial}/${step}`);
+	await page.waitForSelector(`:has-text("root@localhost")`);
+}
+
 export async function expectXterm(page, command, expect, callback) {
 	// Type command one character at a time. Note that `fill` and
 	// `pressSequentially` don't work for entering input in xterm.js

@@ -70,11 +70,11 @@ DEST=prd
 
 # Deploy
 ./bin/deploy-v86.sh $DEST
-git branch -d $DEST
 git push origin --delete $DEST
 git checkout -b $DEST --track origin/$SOURCE
 git push origin $DEST
 git checkout main
+git branch -d $DEST
 ```
 
 ---
