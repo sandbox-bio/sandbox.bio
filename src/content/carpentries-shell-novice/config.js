@@ -1,5 +1,8 @@
 // Steps
 import Intro from "./steps/Intro.md";
+import Episode6_Exercise1 from "./steps/Episode6_Exercise1.md";
+import Episode6_Exercise2 from "./steps/Episode6_Exercise2.md";
+import Episode6_Exercise3 from "./steps/Episode6_Exercise3.md";
 import Episode7_Exercise1 from "./steps/Episode7_Exercise1.md";
 import Episode7_Exercise2 from "./steps/Episode7_Exercise2.md";
 import Episode7_Exercise3 from "./steps/Episode7_Exercise3.md";
@@ -12,11 +15,14 @@ export const config = {
 	subtitle: "Exercises from the Carpentries' Unix Shell lesson",
 	description: "Exercises from the Carpentries' Unix Shell lesson",
 	tags: ["terminal", "exercises", "carpentries"],
-	tools: ["grep", "cut", "wc", "vim", "find"],
+	tools: ["cut", "sort", "uniq", "grep", "cut", "wc", "vim", "find"],
 	difficulty: ["beginner"],
 	init: "mkdir -p ~/tutorial/raw",
 	steps: [
 		{ name: "Terminal Exercises", component: Intro },
+		{ name: "Shell Scripts", component: Episode6_Exercise1, subtitle: "List unique species", header: true },
+		{ name: "Shell Scripts", component: Episode6_Exercise2, subtitle: "Variables in shell scripts" },
+		{ name: "Shell Scripts", component: Episode6_Exercise3, subtitle: "Longest file with a given extension" },
 		{ name: "Finding Things", component: Episode7_Exercise1, subtitle: "Using grep", header: true },
 		{ name: "Finding Things", component: Episode7_Exercise2, subtitle: "Tracking a species" },
 		{ name: "Finding Things", component: Episode7_Exercise3, subtitle: "Little women" },
