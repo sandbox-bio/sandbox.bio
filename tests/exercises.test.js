@@ -28,6 +28,6 @@ test("Exercise validation", async ({ browser }) => {
 	// Solve 2/2 of the criteria
 	await page.keyboard.type("bedtools complement -i exons.bed -g genome.txt > notexons.bed");
 	await page.keyboard.press("Enter");
-	await expect(page.locator(".bi-circle")).toHaveCount(0);
 	await expect(page.locator(".bi-check-circle-fill")).toHaveCount(2);
+	await expect(page.locator(".bi-circle")).toHaveCount(0);
 });

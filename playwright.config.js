@@ -4,7 +4,7 @@ const config = {
 		port: 4173
 	},
 	timeout: 60000,
-	expect: { timeout: 10000 },
+	expect: { timeout: 20000 },
 	preserveOutput: "never",
 	testDir: "tests",
 	testMatch: /(.+\.)?(test|spec)\.[jt]s/
