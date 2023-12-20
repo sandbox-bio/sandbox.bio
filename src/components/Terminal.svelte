@@ -21,6 +21,7 @@ import {
 	URL_ASSETS
 } from "$src/config";
 import "xterm/css/xterm.css";
+const DEBUG = false;
 
 // =============================================================================
 // State
@@ -43,10 +44,7 @@ let modalKbdToggle = () => (modalKbdOpen = !modalKbdOpen);
 let timerSyncFS; // JS timeout used to sync filesystem contents
 let timerWaitForPrompt; // Wait for root@localhost prompt to be visible
 
-// Special preloading commands for common tools
-const preloadTools = {
-	vim: `vim "+q!" test`
-};
+// Environments where sandbox.bio is deployed
 const environments = {
 	localhost: {
 		url: "",
@@ -109,7 +107,8 @@ function initialize(id) {
 		initial_state: { url: `${envInfo.url}/v86/${envInfo.v86}debian-state-${DEBIAN_STATE_ID}.bin.zst` },
 		filesystem: { baseurl: `${envInfo.url}/v86/${envInfo.v86}debian-9p-rootfs-flat/` },
 		autostart: true,
-		screen_dummy: true, // since we're using xterm.js, no need for "screen_container" div
+		screen_dummy: DEBUG, // since we're using xterm.js, no need for "screen_container" div
+		screen_container: DEBUG ? document.getElementById("screen_container") : null,
 		serial_container_xtermjs: divXtermTerminal,
 		disable_mouse: true, // make sure we're still able to select text on the screen
 		disable_speaker: true,
@@ -204,8 +203,8 @@ function initialize(id) {
 		fsSync();
 		// Start preloading tools in the background
 		for (const tool of tools || []) {
-			const cmd = preloadTools[tool] || tool;
-			$cli.exec(cmd, { mode: EXEC_MODE_BUS });
+			// Make sure the tools don't hang because they're not given input params
+			$cli.exec(`timeout 1 ${tool}`, { mode: EXEC_MODE_BUS });
 		}
 
 		// Run initialization commands
@@ -358,6 +357,17 @@ async function mountLocalFile(event) {
 	event.target.value = "";
 }
 </script>
+
+<!-- Debug ttyS1 -->
+{#if DEBUG}
+	<div id="screen_container">
+		<div id="screen" />
+		<canvas id="vga" />
+		<div style="position: absolute; top: 0; z-index: 10">
+			<textarea class="phone_keyboard" />
+		</div>
+	</div>
+{/if}
 
 <!-- Terminal -->
 <div id="terminal" bind:this={divXtermTerminal} use:watchResize={handleResize}>
