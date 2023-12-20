@@ -37,11 +37,7 @@
 
 	<p class="lead fw-bold mt-4 mb-1">How to contribute</p>
 	<p>
-		If you have feedback, ideas for new tutorials, or if one of your own bioinformatics tutorials could benefit from being interactive, please <a
-			href="https://github.com/sandbox-bio/sandbox.bio/discussions"
-			target="_blank"
-			rel="noreferrer">reach out</a
-		>!
+		If you have feedback, please reach out on <a href="https://github.com/sandbox-bio/sandbox.bio/discussions/categories/general">GitHub Discussions</a>. If you're interested in contributing tutorials, please refer to our <a href="https://github.com/sandbox-bio/sandbox.bio/blob/main/CONTRIBUTING.md">Contributing documentation</a>.
 	</p>
 
 	<p class="lead fw-bold mt-4 mb-1">Author</p>
