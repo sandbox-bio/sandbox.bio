@@ -182,6 +182,6 @@ onMount(() => {
 			</Nav>
 		</div>
 	</footer>
-{/if}
 
-<p class="mb-5" />
+	<p class="mb-5" />
+{/if}
