@@ -37,7 +37,10 @@
 
 	<p class="lead fw-bold mt-4 mb-1">How to contribute</p>
 	<p>
-		If you have feedback, please reach out on <a href="https://github.com/sandbox-bio/sandbox.bio/discussions/categories/general">GitHub Discussions</a>. If you're interested in contributing tutorials, please refer to our <a href="https://github.com/sandbox-bio/sandbox.bio/blob/main/CONTRIBUTING.md">Contributing documentation</a>.
+		If you have feedback, please reach out on <a href="https://github.com/sandbox-bio/sandbox.bio/discussions/categories/general">
+			GitHub Discussions
+		</a>. If you're interested in contributing tutorials, please refer to our
+		<a href="https://github.com/sandbox-bio/sandbox.bio/blob/main/CONTRIBUTING.md">Contributing documentation</a>.
 	</p>
 
 	<p class="lead fw-bold mt-4 mb-1">Author</p>

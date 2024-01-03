@@ -43,15 +43,16 @@ See [this exercise](https://raw.githubusercontent.com/sandbox-bio/sandbox.bio/b3
 Multiple-choice quizzes can be implemented as follows. If there is only one valid answer, the quiz will display radio boxes, otherwise it will show checkboxes.
 
 ```js
-<Quiz id="step3-quiz2" choices={[
-    { valid: false, value: `Montreal`},
-    { valid: true, value: `Ottawa`},
-    { valid: false, value: `Toronto`},
-    { valid: false, value: `Vancouver`},
-]}>
-    <span slot="prompt">
-        What is the capital of Canada?
-    </span>
+<Quiz
+	id="step3-quiz2"
+	choices={[
+		{ valid: false, value: `Montreal` },
+		{ valid: true, value: `Ottawa` },
+		{ valid: false, value: `Toronto` },
+		{ valid: false, value: `Vancouver` }
+	]}
+>
+	<span slot="prompt">What is the capital of Canada?</span>
 </Quiz>
 ```
 
