@@ -2,8 +2,8 @@
 import { onMount } from "svelte";
 import { page } from "$app/stores";
 import { goto } from "$app/navigation";
-import { tutorials } from "$stores/tutorials";
-import Listings from "$components/Listings.svelte";
+import { categories } from "$stores/tutorials";
+import TutorialList from "$src/components/TutorialList.svelte";
 
 onMount(() => {
 	// Redirect URLs from sandbox.bio v1 (/tutorials?id=tutorialName&step=123 --> /tutorials/tutorialName/123)
@@ -22,4 +22,6 @@ onMount(() => {
 	<title>Tutorials - sandbox.bio</title>
 </svelte:head>
 
-<Listings items={$tutorials} />
+<h3 class="mb-3">Tutorials</h3>
+
+<TutorialList categories={$categories} />

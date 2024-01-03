@@ -40,6 +40,26 @@ export const tutorials = readable([
 	ifblinuxbasics3
 ]);
 
+// Tutorial listings
+export const categories = readable([
+	{
+		name: "Data exploration on the command-line",
+		tutorials: [terminalIntro, jqIntro, awkIntro]
+	},
+	{
+		name: "Bioinformatics file formats",
+		tutorials: [bedtoolsIntro, samtoolsIntro]
+	},
+	{
+		name: "Analysis",
+		tutorials: [bowtie2Intro, dnaSecrets, viralAmplicon, debuggingPuzzles]
+	},
+	{
+		name: "Quality Control",
+		tutorials: [fastpIntro, igvIntro]
+	}
+]);
+
 // Playgrounds
 export const playgrounds = readable([
 	{

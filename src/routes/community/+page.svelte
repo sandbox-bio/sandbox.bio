@@ -1,6 +1,8 @@
 <script>
-import Listings from "$components/Listings.svelte";
-import { tutorials } from "$stores/tutorials";
+import TutorialList from "$src/components/TutorialList.svelte";
+import { config as ifblinuxbasics1 } from "$content/ifb-linux-basics-1/config.js";
+import { config as ifblinuxbasics2 } from "$content/ifb-linux-basics-2/config.js";
+import { config as ifblinuxbasics3 } from "$content/ifb-linux-basics-3/config.js";
 </script>
 
 <svelte:head>
@@ -19,9 +21,16 @@ import { tutorials } from "$stores/tutorials";
 	<img src="/logo-ifb.svg" alt="Logo of the IFB" width="250" />
 </a>
 
-<Listings title={null} items={$tutorials.filter((t) => t.id.startsWith("ifb-"))} showUnlisted={true} />
+<TutorialList
+	categories={[
+		{
+			name: "",
+			tutorials: [ifblinuxbasics1, ifblinuxbasics2, ifblinuxbasics3]
+		}
+	]}
+/>
 
-<p class="text-muted small mt-3">
+<p class="text-muted small">
 	IFB tutorials are licensed under a
 	<a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" target="_blank" rel="noreferrer"> CC-BY-SA </a>
 	license.

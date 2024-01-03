@@ -1,7 +1,8 @@
 <script>
-import { tutorials, playgrounds, explore } from "$stores/tutorials";
-import Listings from "$components/Listings.svelte";
 import { Button, Icon } from "sveltestrap";
+import { categories, explore, playgrounds } from "$stores/tutorials";
+import Listings from "$components/Listings.svelte";
+import TutorialList from "$src/components/TutorialList.svelte";
 </script>
 
 <svelte:head>
@@ -22,17 +23,14 @@ import { Button, Icon } from "sveltestrap";
 	</div>
 </div>
 
-<div class="row mt-5">
-	<Listings items={$tutorials} />
-</div>
+<h4 class="mt-5">Tutorials</h4>
+<TutorialList categories={$categories} />
 
-<div class="row mt-5">
-	<Listings items={$playgrounds} title="Playgrounds" />
-</div>
+<h4 class="mt-5">Playgrounds</h4>
+<Listings items={$playgrounds} />
 
-<div class="row mt-5">
-	<Listings items={$explore} title="Explore" />
-</div>
+<h4 class="mt-5">Explore</h4>
+<Listings items={$explore} />
 
 <style>
 .bg-light {

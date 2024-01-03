@@ -7,4 +7,6 @@ import { playgrounds } from "$stores/tutorials";
 	<title>Playgrounds - sandbox.bio</title>
 </svelte:head>
 
-<Listings items={$playgrounds} title="Playgrounds" />
+<h3>Playgrounds</h3>
+
+<Listings items={$playgrounds} />
