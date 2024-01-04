@@ -16,7 +16,6 @@ export const config = {
 	tags: ["terminal"],
 	tools: ["echo", "ls", "head", "tail", "grep", "wc", "cat"],
 	difficulty: ["beginner"],
-	divider: "Terminal",
 	steps: [
 		{ name: "Terminal Basics", component: Intro },
 		{ name: "The Basics", component: Step1, subtitle: "Navigate the terminal", header: true },

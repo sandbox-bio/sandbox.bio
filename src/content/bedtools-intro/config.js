@@ -30,7 +30,6 @@ export const config = {
 	tags: ["bedtools", "igv"],
 	tools: ["bedtools", "ls", "head", "tail", "sort"],
 	difficulty: ["beginner"],
-	divider: "Bioinformatics",
 
 	// Lessons. Make sure to update `tests/test_exercises.js` if the order of these steps is modified
 	steps: [
