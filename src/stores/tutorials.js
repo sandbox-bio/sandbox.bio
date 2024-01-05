@@ -43,20 +43,20 @@ export const tutorials = readable([
 // Tutorial listings
 export const categories = readable([
 	{
-		name: "Data exploration on the command-line",
+		name: "Data exploration",
 		tutorials: [terminalIntro, jqIntro, awkIntro]
 	},
 	{
-		name: "Bioinformatics file formats",
+		name: "File formats",
 		tutorials: [bedtoolsIntro, samtoolsIntro]
-	},
-	{
-		name: "Analysis",
-		tutorials: [bowtie2Intro, dnaSecrets, viralAmplicon, debuggingPuzzles]
 	},
 	{
 		name: "Quality Control",
 		tutorials: [fastpIntro, igvIntro]
+	},
+	{
+		name: "Analysis",
+		tutorials: [bowtie2Intro, dnaSecrets, viralAmplicon, debuggingPuzzles]
 	}
 ]);
 
