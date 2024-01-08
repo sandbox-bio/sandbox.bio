@@ -18,8 +18,9 @@ export let categories = [];
 	<Row cols={{ lg: 3, md: 2, sm: 1, xs: 1 }}>
 		{#each category.tutorials as tutorial}
 			{@const haveProgressInfo = $user?.email && tutorial.id in $progress}
-			{@const currStep = (haveProgressInfo && $progress[tutorial.id].step) || -1}
-			{@const isDone = currStep == tutorial.steps?.length - 1}
+			{@const numSteps = tutorial.steps?.length || 0}
+			{@const currStep = (haveProgressInfo && Math.min($progress[tutorial.id].step, numSteps)) || -1}
+			{@const isDone = currStep == numSteps - 1}
 			{@const isInProgress = currStep > 0}
 			{@const elementId = `tutorial-${tutorial.id}-${Date.now()}`}
 			<!-- Otherwise when navigate from other pages, tooltip doesn't show up -->
@@ -29,7 +30,7 @@ export let categories = [];
 					{#if isDone}
 						You completed this tutorial!
 					{:else if isInProgress}
-						You completed {currStep} / {tutorial.steps.length} steps. Click to continue.
+						You completed {currStep} / {numSteps} steps. Click to continue.
 					{:else}
 						Click to start this tutorial!
 					{/if}
