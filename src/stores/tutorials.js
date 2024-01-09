@@ -1,4 +1,4 @@
-import { readable } from "svelte/store";
+import { get, readable } from "svelte/store";
 import { config as terminalIntro } from "$content/terminal-basics/config.js";
 import { config as igvIntro } from "$content/igv-intro/config.js";
 import { config as bedtoolsIntro } from "$content/bedtools-intro/config.js";
@@ -51,11 +51,11 @@ export const categories = readable([
 		tutorials: [bedtoolsIntro, samtoolsIntro]
 	},
 	{
-		name: "Quality Control",
+		name: "Quality control",
 		tutorials: [fastpIntro, igvIntro]
 	},
 	{
-		name: "Analysis",
+		name: "Data analysis",
 		tutorials: [bowtie2Intro, dnaSecrets, viralAmplicon, debuggingPuzzles]
 	}
 ]);

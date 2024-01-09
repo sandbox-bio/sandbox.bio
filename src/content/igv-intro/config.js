@@ -45,6 +45,7 @@ export const config = {
 	tools: [],
 	difficulty: ["beginner"],
 	igv: true,
+	new: true,
 	steps: [
 		{ name: "Visualize variants with IGV", component: Intro },
 		{ name: "Get familiar with the interface", component: Step1, subtitle: "Navigation", header: true },

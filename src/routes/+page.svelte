@@ -23,13 +23,15 @@ import TutorialList from "$src/components/TutorialList.svelte";
 	</div>
 </div>
 
-<h4 class="mt-5">Tutorials</h4>
+<h3 class="mt-5">Tutorials</h3>
 <TutorialList categories={$categories} />
+<hr class="mt-5" />
 
-<h4 class="mt-5">Playgrounds</h4>
+<h3 class="mt-5">Playgrounds</h3>
 <Listings items={$playgrounds} />
+<hr class="mt-5" />
 
-<h4 class="mt-5">Explore</h4>
+<h3 class="mt-5">Explore</h3>
 <Listings items={$explore} />
 
 <style>

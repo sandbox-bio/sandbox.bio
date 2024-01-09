@@ -21,9 +21,9 @@ $: goToStep(step);
 $: isFirstStep = step === 0;
 $: isLastStep = step === tutorial.steps.length - 1;
 // If invalid step (e.g. a tutorial was shortened, update $progress accordingly)
-$: if (step < 0 || step > tutorial.steps.length) {
+$: if (step < 0 || step >= tutorial.steps.length) {
 	if (step < 0) $progress[tutorial.id].step = 0;
-	else $progress[tutorial.id].step = tutorial.steps.length;
+	else $progress[tutorial.id].step = tutorial.steps.length - 1;
 	window.location = `/tutorials/${tutorial.id}`;
 }
 

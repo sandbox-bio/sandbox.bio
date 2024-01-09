@@ -13,6 +13,7 @@ export const config = {
 	tags: ["samtools", "bedtools", "grep"],
 	tools: ["head", "grep", "cat", "sort", "samtools", "bedtools", "sed", "vim"],
 	difficulty: ["difficult"],
+	new: true,
 	steps: [
 		{ name: "Bioinformatics Debugging Puzzles", component: Intro },
 		{ name: "Puzzles", component: PuzzleFastaFilter, subtitle: "The FASTA file that could not be filtered", header: true },

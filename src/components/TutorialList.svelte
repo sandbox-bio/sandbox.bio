@@ -5,7 +5,7 @@ import { progress } from "$stores/progress";
 
 const TAG_COLORS = {
 	beginner: "primary",
-	difficult: "danger",
+	difficult: "warning",
 	intermediate: "warning"
 };
 
@@ -48,6 +48,9 @@ export let categories = [];
 							{@const color = tutorial.url ? "primary" : "secondary"}
 							<Badge color="{color} bg-opacity-75" class="me-1 mb-1">{tag}</Badge>
 						{/each}
+						{#if tutorial.new}
+							<Badge color="danger bg-opacity-100">new</Badge>
+						{/if}
 
 						<!-- Icon to represent tutorial done or not? -->
 						<span class="float-end">
