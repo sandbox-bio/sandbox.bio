@@ -11,11 +11,12 @@ import { V86 } from "$thirdparty/v86/libv86";
 import { EXEC_MODE_BUS, EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
 import { LocalState, log, strToChars } from "$src/utils";
 import {
-	BUS_SERIAL_COMMAND_READ,
-	BUS_SERIAL_INPUT,
-	BUS_SERIAL_OUTPUT,
+	BUS_OUTPUT_CUSTOM_COMMAND,
+	BUS_INPUT,
+	BUS_OUTPUT,
 	DEBIAN_STATE_ID,
 	DIR_TUTORIAL,
+	FILE_EXERCISE_CHECK,
 	LOGGING_INFO,
 	MAX_FILE_SIZE_TO_CACHE,
 	URL_ASSETS
@@ -112,13 +113,13 @@ function initialize(id) {
 		serial_container_xtermjs: divXtermTerminal,
 		disable_mouse: true, // make sure we're still able to select text on the screen
 		disable_speaker: true,
-		uart1: true, // use serial port 1 to send messages from v86 to JavaScript
-		uart2: true // use serial port 2 to communicate results from JavaScript to v86
+		uart1: true, // see config.js for how we're using serial ports to communicate between JS and v86
+		uart2: true
 	});
 
 	// Listen on the special ttyS1 port for communication from within the emulator
 	let output = "";
-	$cli.emulator.add_listener(BUS_SERIAL_COMMAND_READ, async (byte) => {
+	$cli.emulator.add_listener(BUS_OUTPUT_CUSTOM_COMMAND, async (byte) => {
 		const char = String.fromCharCode(byte);
 		if (char !== "\n") {
 			output += char;
@@ -149,12 +150,11 @@ function initialize(id) {
 
 					// Make fetch call and return result
 					// Storing result in file; when try to store result in /dev/ttyS2, it adds a bunch of "\n" and skips the first few bytes
-				} else if (command.type === "fetch") {
-					const contents = await fetch(params.url).then((d) => d.text());
-					const chars = strToChars(contents);
-					const buffer = new Uint8Array(contents.length);
-					buffer.set(chars);
-					await $cli.emulator.create_file(params.output, buffer);
+				} else if (command.type === "fetch" && params.url && params.output && params.sentinel) {
+					// Download file and save to FS
+					const buffer = await fetch(params.url).then((d) => d.arrayBuffer());
+					await $cli.emulator.create_file(params.output, new Uint8Array(buffer));
+					await $cli.emulator.create_file(params.sentinel, new Uint8Array([]));
 				}
 			} catch (e) {
 				console.log("Received:", output);
@@ -168,12 +168,12 @@ function initialize(id) {
 	// Listen for outputs
 	let initial_screen = "";
 	const listenerWaitForPrompt = async (byte) => (initial_screen += String.fromCharCode(byte));
-	$cli.emulator.add_listener(BUS_SERIAL_OUTPUT, listenerWaitForPrompt);
+	$cli.emulator.add_listener(BUS_OUTPUT, listenerWaitForPrompt);
 
 	// Prepare terminal environment
 	$cli.emulator.bus.register("emulator-loaded", async () => {
 		$cli.xterm = $cli.emulator.serial_adapter.term;
-		$cli.listeners = $cli.emulator.bus.listeners[BUS_SERIAL_OUTPUT];
+		$cli.listeners = $cli.emulator.bus.listeners[BUS_OUTPUT];
 
 		// Make sure everything loaded correctly. If not, try again.
 		// Otherwise, get issues where `term` variable is null and waiting for it to be set does not help.
@@ -221,10 +221,10 @@ function initialize(id) {
 			if (!initial_screen.includes("root@localhost")) {
 				$cli.exec("");
 				// Press Ctrl + L (key code 12) to show the but without extra lines above it
-				if (!intro) $cli.emulator.bus.send(BUS_SERIAL_INPUT, 12);
+				if (!intro) $cli.emulator.bus.send(BUS_INPUT, 12);
 			} else {
 				loading = false;
-				$cli.emulator.remove_listener(BUS_SERIAL_OUTPUT, listenerWaitForPrompt);
+				$cli.emulator.remove_listener(BUS_OUTPUT, listenerWaitForPrompt);
 				clearInterval(timerWaitForPrompt);
 			}
 		}, 200);

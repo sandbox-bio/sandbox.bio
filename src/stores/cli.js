@@ -1,5 +1,5 @@
 import { get, writable } from "svelte/store";
-import { BUS_SERIAL_INPUT, BUS_SERIAL_OUTPUT, BUS_SERIAL_RESULT_READ, DIR_TUTORIAL, FILE_SERIAL_RESULT } from "$src/config";
+import { BUS_INPUT, BUS_OUTPUT, BUS_OUTPUT_EXERCISE_CHECK, DIR_TUTORIAL, FILE_EXERCISE_CHECK } from "$src/config";
 import { strToChars } from "$src/utils";
 
 export const EXEC_MODE_TERMINAL = "terminal";
@@ -24,8 +24,8 @@ export const cli = writable({
 	// Utilities
 	// -------------------------------------------------------------------------
 
-	// Run a command on the command line
-	exec: (cmd, { mode, callback } = { mode: EXEC_MODE_TERMINAL, callback: null }) => {
+	// Run a command on the command line. Callback only used by exercise checking since not sharing serial ports.
+	exec: (cmd, { mode, callbackExercise } = { mode: EXEC_MODE_TERMINAL, callbackExercise: null }) => {
 		let command = `${cmd}\n`;
 		command = command.replace(/ \\ /g, ""); // for commands in tutorials split over multiple lines
 
@@ -35,24 +35,24 @@ export const cli = writable({
 		// Before running the command, add an event listener if a callback is needed.
 		// To support a callback we'll need to add an end marker and listen to the
 		// UART1 port for that marker before we call the callback function.
-		if (callback) {
-			command = `(${cmd} && echo ${SANDBOX_END_MARKER}) > ${FILE_SERIAL_RESULT}\n`;
+		if (callbackExercise) {
+			command = `(${cmd} && echo ${SANDBOX_END_MARKER}) > ${FILE_EXERCISE_CHECK}\n`;
 			let output = "";
 			const listener = (byte) => {
 				const char = String.fromCharCode(byte);
 				output += char;
 				const indexDoneMarker = output.indexOf(SANDBOX_END_MARKER);
 				if (indexDoneMarker > -1) {
-					callback(output.slice(0, indexDoneMarker));
-					emulator.remove_listener(BUS_SERIAL_RESULT_READ, listener);
+					callbackExercise(output.slice(0, indexDoneMarker));
+					emulator.remove_listener(BUS_OUTPUT_EXERCISE_CHECK, listener);
 				}
 			};
-			emulator.add_listener(BUS_SERIAL_RESULT_READ, listener);
+			emulator.add_listener(BUS_OUTPUT_EXERCISE_CHECK, listener);
 		}
 
 		// Command executed in user's terminal
 		if (mode === EXEC_MODE_TERMINAL) {
-			chars.forEach((c) => emulator.bus.send(BUS_SERIAL_INPUT, c));
+			chars.forEach((c) => emulator.bus.send(BUS_INPUT, c));
 		}
 
 		// Command executed on the background, skipping xterm, and not visible to the user
@@ -65,14 +65,14 @@ export const cli = writable({
 		// `stty` and defining env variables.
 		if (mode === EXEC_MODE_TERMINAL_HIDDEN) {
 			// Temporarily remove listeners so the xterm UI doesn't show the command
-			emulator.bus.listeners[BUS_SERIAL_OUTPUT] = [];
+			emulator.bus.listeners[BUS_OUTPUT] = [];
 
 			// Send command
-			chars.forEach((c) => emulator.bus.send(BUS_SERIAL_INPUT, c));
+			chars.forEach((c) => emulator.bus.send(BUS_INPUT, c));
 
 			// Bring back listeners after a short delay
 			setTimeout(() => {
-				emulator.bus.listeners[BUS_SERIAL_OUTPUT] = get(cli).listeners;
+				emulator.bus.listeners[BUS_OUTPUT] = get(cli).listeners;
 			}, 500);
 		}
 	},

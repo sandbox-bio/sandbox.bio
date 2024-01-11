@@ -63,7 +63,7 @@ async function check(manual = false) {
 							await $cli.clearCache();
 							$cli.exec(`cd ${DIR_TUTORIAL} && diff -q <(${commandObserved}) <(${commandExpected}) | wc -l`, {
 								mode: EXEC_MODE_BUS,
-								callback: (s) => {
+								callbackExercise: (s) => {
 									console.log("[Exercise check] Valid =", s == 0, s);
 									statuses[i] = s == 0;
 								}
