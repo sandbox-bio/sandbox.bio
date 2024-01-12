@@ -9,20 +9,20 @@ import { SerializeAddon } from "xterm-addon-serialize";
 import { env } from "$env/dynamic/public";
 import { V86 } from "$thirdparty/v86/libv86";
 import { EXEC_MODE_BUS, EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
-import { LocalState, log, strToChars } from "$src/utils";
+import { LocalState, log } from "$src/utils";
 import {
 	BUS_OUTPUT_CUSTOM_COMMAND,
 	BUS_INPUT,
 	BUS_OUTPUT,
 	DEBIAN_STATE_ID,
 	DIR_TUTORIAL,
-	FILE_EXERCISE_CHECK,
 	LOGGING_INFO,
 	MAX_FILE_SIZE_TO_CACHE,
 	URL_ASSETS
 } from "$src/config";
 import "xterm/css/xterm.css";
 const DEBUG = false;
+const SYNC_FS = true;
 
 // =============================================================================
 // State
@@ -262,6 +262,7 @@ function handleResize(firstTime = false) {
 // =============================================================================
 
 async function fsSync() {
+	if (!SYNC_FS) return;
 	try {
 		await fsSave();
 		timerSyncFS = setTimeout(fsSync, 2000);
