@@ -10,7 +10,6 @@ import Episode7_Exercise4 from "./steps/Episode7_Exercise4.md";
 
 export const config = {
 	id: "carpentries-shell-novice",
-	listed: false,
 	name: "Terminal Exercises",
 	subtitle: "Exercises from the Carpentries' Unix Shell lesson",
 	description: "Exercises from the Carpentries' Unix Shell lesson",
