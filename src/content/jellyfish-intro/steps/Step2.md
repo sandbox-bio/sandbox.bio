@@ -18,8 +18,8 @@ const criteria = [
 		type: "file",
 		path: "chikungunya.jf",
 		action: "contents",
-        commandObserved: `jellyfish query chikungunya.jf ACAGTGGAC`,
-		commandExpected: `echo "ACAGTGG 1"`
+        commandObserved: `jellyfish query chikungunya.jf CATACTCTC`,
+		commandExpected: `echo "CATACTCTC 1"`
 	}]
 }];
 </script>
