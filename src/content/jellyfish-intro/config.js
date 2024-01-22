@@ -11,7 +11,7 @@ export const config = {
 	subtitle: `by <a href="https://robert.bio" target="_blank">Robert Aboukhalil</a>`,
 	description: "Learn the basics of k-mer counting using Jellyfish",
 	tags: ["kmer", "counting", "jellyfish"],
-	tools: ["jellyfish"],
+	tools: ["ls", "jellyfish", "seqtk", "wgsim"],
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "K-mer counting with Jellyfish", component: Intro },
