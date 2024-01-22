@@ -68,8 +68,9 @@ DEST=stg
 SOURCE=stg
 DEST=prd
 
-# Deploy
+# Deploy assets and new debian image first (to avoid users caching a 404 for a non-existent image)
 ./bin/deploy-v86.sh $DEST
+# Deploy code changes
 git push origin --delete $DEST
 git checkout -b $DEST --track origin/$SOURCE
 git push origin $DEST
