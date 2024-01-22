@@ -13,7 +13,7 @@ We can count k-mers from the sequencing reads only if they are found in the Deng
 
 <Execute command={`jellyfish count -m 9 -s 15000 -C -o map_to_dengue.jf --if dengue.fa r1.fastq`} />
 
-Note that we're using `-C`, which means Jellyfish will only count **canonical k-mers**. For example, the 4-mers `ACCT` and `AGGT` are reverse complements of each other. Their counts will be grouped under the so-called k-mer `ACCT`, which is the canonical one since it comes first in alphabetically. We did not use `-C` earlier when counting k-mers on genomes; this is because for sequencing reads, 
+Note that we're using `-C`, which means Jellyfish will only count **canonical k-mers**. For example, the 4-mers `ACCT` and `AGGT` are reverse complements of each other. Their counts will be grouped under the so-called k-mer `ACCT`, which is the canonical one since it comes first in alphabetically. Note that we did not use `-C` earlier when counting k-mers on genomes. The difference is: when sequencing DNA, we can't differentiate which of the 2 strands the read comes from.
 
 Repeat the same command, but for Chikungunya:
 

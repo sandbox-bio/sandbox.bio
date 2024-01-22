@@ -13,16 +13,16 @@ Let's start by counting k-mers in the Dengue genome using `k = 7` (we'll try oth
 
 where:
 
-* `-m 7`: count 7-mers
-* `-s 11000`: our estimate of the number of k-mers in this genome. The Dengue genome is 10.6kbp so we choose 11k. This is just an approximation, Jellyfish will automatically resize its hash data structure to fit if needed
-* `-o dengue.jf`: store results in `dengue.jf` (this is a binary file that we can query with Jellyfish)
+- `-m 7`: count 7-mers
+- `-s 11000`: our estimate of the number of k-mers in this genome. The Dengue genome is 10.6kbp so we choose 11k. This is just an approximation, Jellyfish will automatically resize its hash data structure to fit if needed
+- `-o dengue.jf`: store results in `dengue.jf` (this is a binary file that we can query with Jellyfish)
 
 <Alert>
    You can use `seqtk` to calculate how many bases are in a FASTA file:
 
-   <Execute command={`seqtk comp dengue.fa`} />
+<Execute command={`seqtk comp dengue.fa`} />
 
-   Use <Execute inline command="seqtk comp" /> to view what the columns in the output above represent.
+Use <Execute inline command="seqtk comp" /> to view what the columns in the output above represent.
 </Alert>
 
 Using the output of Jellyfish, let's look at the distribution of 7-mers:
@@ -31,7 +31,7 @@ Using the output of Jellyfish, let's look at the distribution of 7-mers:
 
 This means that 4,264 k-mers are unique: they are only seen once in the Dengue genome. On the other hand, 1,538 k-mers are seen twice in the genome and 571 are seen three times.
 
-If we wanted k-mers that don't map to as many places in the genome, we can increase the value of `k`. 
+If we wanted k-mers that don't map to as many places in the genome, we can increase the value of `k`.
 
 For example, let's count 9-mers:
 

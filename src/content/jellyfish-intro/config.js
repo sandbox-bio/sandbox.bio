@@ -16,9 +16,9 @@ export const config = {
 	steps: [
 		{ name: "K-mer counting with Jellyfish", component: Intro },
 		{ name: "Count k-mers in genomes", component: Step1 },
-		{ name: "Exercise", component: Step2 },
+		{ name: "Exercise: K-mer counting", component: Step2 },
 		{ name: "Query k-mers", component: Step3 },
-		{ name: "Count k-mers in sequencing reads", component: Step4 },
+		{ name: "Count k-mers in sequencing reads", component: Step4 }
 	],
 	files: ["dengue.fa", "chikungunya.fa"]
 };
