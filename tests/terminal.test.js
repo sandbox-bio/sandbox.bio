@@ -34,7 +34,7 @@ const tools = [
 	// sandbox.bio v2: Installed with apt
 	{ name: "jellyfish", expected: "jellyfish 2.3.0" },
 	{ name: "seqkit", command: "seqkit version", expected: "seqkit v2.3.0" },
-	{ name: "freebayes", expected: "version:  v1.3.6" },
+	{ name: "freebayes", expected: "version:  v1.3.7" },
 	{ name: "kraken2", expected: "Kraken version 2.1.2" },
 	{ name: "lumpy", command: "lumpy 2>&1 | head", expected: "v 0.2.13" },
 	{ name: "nucmer", expected: "NUCmer (NUCleotide MUMmer) version 3.1" },
