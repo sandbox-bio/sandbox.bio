@@ -19,5 +19,5 @@ rm src/config.js.bak
 
 # Deploy if not dev
 [[ "$ENV" == "dev" ]] && exit
-aws --endpoint-url "$URL_ENDPOINT" s3 sync --only-show-errors ${DIR_SOURCE} ${DIR_DESTINATION} --exclude "*" --include $FILE_DEBIAN_STATE_CHECKSUM
-aws --endpoint-url "$URL_ENDPOINT" s3 sync --only-show-errors --size-only --delete ${DIR_SOURCE}/debian-9p-rootfs-flat ${DIR_DESTINATION}/debian-9p-rootfs-flat/
+AWS_MAX_ATTEMPTS=3 aws --endpoint-url "$URL_ENDPOINT" s3 sync --only-show-errors ${DIR_SOURCE} ${DIR_DESTINATION} --exclude "*" --include $FILE_DEBIAN_STATE_CHECKSUM
+AWS_MAX_ATTEMPTS=3 aws --endpoint-url "$URL_ENDPOINT" s3 sync --only-show-errors --size-only --delete ${DIR_SOURCE}/debian-9p-rootfs-flat ${DIR_DESTINATION}/debian-9p-rootfs-flat/
