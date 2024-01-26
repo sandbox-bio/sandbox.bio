@@ -58,6 +58,6 @@ And you can use `[]` to get all the elements in the array. For example, here is 
 
     The `-j` option (for join) can combine together your output.
 
-    <Execute command={`echo '["1","2","3"]' | jq -j '.[]'`} />
+    <Execute command={`echo '["1","2","3","\n"]' | jq -j '.[]'`} />
 
 </Alert>
