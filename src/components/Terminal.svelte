@@ -36,6 +36,7 @@ export let init = ""; // Command to run to initialize the environment (optional)
 export let tools = []; // For these tools, pre-download .bin files (optional) // FIXME:
 
 let loading = true; // Loading the terminal
+let loadingStatus = "";
 let mounted = false; // Component is mounted and ready to go
 let divXtermTerminal; // Xterm.js terminal
 let inputMountFiles; // Hidden HTML file input element for mounting local file
@@ -95,6 +96,7 @@ function cleanupTimers() {
 function initialize(id) {
 	console.log("Initializing terminal...", id);
 	loading = true;
+	loadingStatus = "Loading environment...";
 
 	// Cleanup
 	cleanupTimers();
@@ -195,6 +197,7 @@ function initialize(id) {
 			$cli.xterm.loadAddon($cli.addons[addonName]);
 		}
 
+		loadingStatus = "Preparing files...";
 		// Mount tutorial files
 		await mountTutorialFiles();
 		// Mount previously synced FS (user's FS takes precedence over tutorial files)
@@ -223,9 +226,9 @@ function initialize(id) {
 				// Press Ctrl + L (key code 12) to show the but without extra lines above it
 				if (!intro) $cli.emulator.bus.send(BUS_INPUT, 12);
 			} else {
-				loading = false;
 				$cli.emulator.remove_listener(BUS_OUTPUT, listenerWaitForPrompt);
 				clearInterval(timerWaitForPrompt);
+				loading = false;
 			}
 		}, 200);
 	});
@@ -371,10 +374,14 @@ async function mountLocalFile(event) {
 {/if}
 
 <!-- Terminal -->
-<div id="terminal" bind:this={divXtermTerminal} use:watchResize={handleResize}>
-	{#if loading}
-		<Spinner color="light" type="border" style="position:absolute" />
-	{/if}
+{#if loading}
+	<div style="position:absolute">
+		<Spinner color="light" type="border" size="sm" />
+		<span class="text-light font-monospace small">{loadingStatus}</span>
+	</div>
+{/if}
+
+<div id="terminal" bind:this={divXtermTerminal} use:watchResize={handleResize} class:opacity-0={loading}>
 	<div class="cli-options">
 		<Dropdown autoClose={true}>
 			<DropdownToggle color="dark" size="sm">
@@ -438,7 +445,6 @@ async function mountLocalFile(event) {
 <style>
 /* Xterm */
 #terminal {
-	opacity: 1;
 	height: 85vh;
 	max-height: 85vh;
 	overflow: hidden;
