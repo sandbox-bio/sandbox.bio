@@ -31,9 +31,9 @@ const SYNC_FS = true;
 export let terminalId = "terminal";
 export let files = []; // Files to preload on the FS from /data/<tutorial>
 export let assets = []; // Files to preload on the FS from assets.sandbox.bio/tutorials/<tutorial>
-export let intro = ""; // Intro string to display on Terminal once ready (optional) // FIXME:
 export let init = ""; // Command to run to initialize the environment (optional)
-export let tools = []; // For these tools, pre-download .bin files (optional) // FIXME:
+export let tools = []; // For these tools, pre-download .bin files (optional)
+export let intro = ""; // Intro string to display on Terminal once ready (optional; not currently used in any tutorial)
 
 let loading = true; // Loading the terminal
 let loadingStatus = "";
@@ -212,8 +212,6 @@ function initialize(id) {
 
 		// Run initialization commands
 		$cli.exec(init);
-		// Show intro
-		if (intro) $cli.xterm.write(intro);
 		// Set initial terminal size, otherwise sometimes doesn't call that function at load time
 		handleResize(true);
 		// Focus cursor on command line
@@ -223,8 +221,9 @@ function initialize(id) {
 		timerWaitForPrompt = setInterval(() => {
 			if (!initial_screen.includes("root@localhost")) {
 				$cli.exec("");
-				// Press Ctrl + L (key code 12) to show the but without extra lines above it
-				if (!intro) $cli.emulator.bus.send(BUS_INPUT, 12);
+				// Press Ctrl + L (key code 12) to show the prompt but without extra lines above it
+				$cli.emulator.bus.send(BUS_INPUT, 12);
+				if (intro) $cli.exec(intro);
 			} else {
 				$cli.emulator.remove_listener(BUS_OUTPUT, listenerWaitForPrompt);
 				clearInterval(timerWaitForPrompt);
