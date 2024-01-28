@@ -36,7 +36,7 @@ export let tools = []; // For these tools, pre-download .bin files (optional)
 export let intro = ""; // Intro string to display on Terminal once ready (optional; not currently used in any tutorial)
 
 let loading = true; // Loading the terminal
-let loadingStatus = "";
+let loadingStatus = []; // Loading progress to show (each element = 1 line)
 let mounted = false; // Component is mounted and ready to go
 let divXtermTerminal; // Xterm.js terminal
 let inputMountFiles; // Hidden HTML file input element for mounting local file
@@ -93,10 +93,15 @@ function cleanupTimers() {
 	clearInterval(timerWaitForPrompt);
 }
 
+function addLoadingStatus(msg) {
+	loadingStatus = [...loadingStatus, msg];
+}
+
 function initialize(id) {
 	console.log("Initializing terminal...", id);
 	loading = true;
-	loadingStatus = "Loading environment...";
+	console.time("initialize")
+	addLoadingStatus("Setting up your terminal...");
 
 	// Cleanup
 	cleanupTimers();
@@ -185,7 +190,6 @@ function initialize(id) {
 			initialize(terminalId);
 			return;
 		}
-		console.log("Terminal ready.", $cli);
 
 		// Initialize addons
 		$cli.addons = {
@@ -196,21 +200,20 @@ function initialize(id) {
 		for (const addonName in $cli.addons) {
 			$cli.xterm.loadAddon($cli.addons[addonName]);
 		}
+		console.log("Terminal ready.", $cli);
 
-		loadingStatus = "Preparing files...";
-		// Mount tutorial files
+		// Mount tutorial files and previously synced FS (user's FS overrides default tutorial files)
+		addLoadingStatus("Loading tutorial files...");
 		await mountTutorialFiles();
-		// Mount previously synced FS (user's FS takes precedence over tutorial files)
 		await fsLoad();
-		// Start syncing FS
-		fsSync();
-		// Start preloading tools in the background
+		// Start preloading tools in the background (we're done fetching data from the server so won't compete with other fetch requests)
 		for (const tool of tools || []) {
 			// Make sure the tools don't hang because they're not given input params
 			$cli.exec(`timeout 1 ${tool}`, { mode: EXEC_MODE_BUS });
 		}
 
 		// Run initialization commands
+		addLoadingStatus("Initializing environment...");
 		$cli.exec(init);
 		// Set initial terminal size, otherwise sometimes doesn't call that function at load time
 		handleResize(true);
@@ -218,6 +221,7 @@ function initialize(id) {
 		$cli.xterm.focus();
 
 		// Make sure root@localhost prompt shows up on screen
+		addLoadingStatus("Putting the finishing touches...");
 		timerWaitForPrompt = setInterval(() => {
 			if (!initial_screen.includes("root@localhost")) {
 				$cli.exec("");
@@ -228,6 +232,10 @@ function initialize(id) {
 				$cli.emulator.remove_listener(BUS_OUTPUT, listenerWaitForPrompt);
 				clearInterval(timerWaitForPrompt);
 				loading = false;
+				console.timeEnd("initialize")
+
+				// Start syncing FS
+				fsSync();
 			}
 		}, 200);
 	});
@@ -375,11 +383,20 @@ async function mountLocalFile(event) {
 <!-- Terminal -->
 {#if loading}
 	<div style="position:absolute">
-		<Spinner color="light" type="border" size="sm" />
-		<span class="text-light font-monospace small">{loadingStatus}</span>
+		<div class="text-light font-monospace small">
+			<Spinner color="light" type="border" size="sm" />
+			{#each loadingStatus as status, i}
+				<span class:ps-4={i > 0}>
+					{status}
+				</span>
+				{#if i < loadingStatus.length - 1}
+					<span class="text-success fw-bold">ok</span>
+				{/if}
+				<br />
+			{/each}
+		</div>
 	</div>
 {/if}
-
 <div id="terminal" bind:this={divXtermTerminal} use:watchResize={handleResize} class:opacity-0={loading}>
 	<div class="cli-options">
 		<Dropdown autoClose={true}>
