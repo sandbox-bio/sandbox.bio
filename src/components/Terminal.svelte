@@ -100,7 +100,7 @@ function addLoadingStatus(msg) {
 function initialize(id) {
 	console.log("Initializing terminal...", id);
 	loading = true;
-	console.time("initialize")
+	console.time("initialize");
 	addLoadingStatus("Setting up your terminal...");
 
 	// Cleanup
@@ -211,9 +211,9 @@ function initialize(id) {
 		// data from the server so won't compete with other fetch requests.  We use "&" to download
 		// files in parallel as much as possible. The alternative would be to download .bin
 		// files directly but we'd have to generate a list of .bin from `debian-base-fs.json`,
-		// which is prone to changes. 
+		// which is prone to changes.
 		$cli.exec(`sync & echo & ls & ll & pwd`, { mode: EXEC_MODE_BUS });
-		$cli.exec(tools.map(t => `timeout 2 ${t}`).join(" & "), { mode: EXEC_MODE_BUS });
+		$cli.exec(tools.map((t) => `timeout 2 ${t}`).join(" & "), { mode: EXEC_MODE_BUS });
 
 		// Run initialization commands
 		addLoadingStatus("Initializing environment...");
@@ -235,7 +235,7 @@ function initialize(id) {
 				$cli.emulator.remove_listener(BUS_OUTPUT, listenerWaitForPrompt);
 				clearInterval(timerWaitForPrompt);
 				loading = false;
-				console.timeEnd("initialize")
+				console.timeEnd("initialize");
 
 				// Start syncing FS
 				fsSync();

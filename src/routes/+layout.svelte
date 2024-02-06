@@ -87,6 +87,16 @@ onMount(() => {
 <svelte:head>
 	<title>sandbox.bio</title>
 	<script src="/v86/xterm.js"></script>
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DJ11EZ3RZ4"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag("js", new Date());
+	gtag("config", "G-DJ11EZ3RZ4");
+	</script>
 </svelte:head>
 
 <!-- Bootstrap CSS and icons -->
