@@ -206,11 +206,14 @@ function initialize(id) {
 		addLoadingStatus("Loading tutorial files...");
 		await mountTutorialFiles();
 		await fsLoad();
-		// Start preloading tools in the background (we're done fetching data from the server so won't compete with other fetch requests)
-		for (const tool of tools || []) {
-			// Make sure the tools don't hang because they're not given input params
-			$cli.exec(`timeout 1 ${tool}`, { mode: EXEC_MODE_BUS });
-		}
+
+		// Preload tools so by the time the user needs them, they are cached. We're done fetching
+		// data from the server so won't compete with other fetch requests.  We use "&" to download
+		// files in parallel as much as possible. The alternative would be to download .bin
+		// files directly but we'd have to generate a list of .bin from `debian-base-fs.json`,
+		// which is prone to changes. 
+		$cli.exec(`sync & echo & ls & ll & pwd`, { mode: EXEC_MODE_BUS });
+		$cli.exec(tools.map(t => `timeout 2 ${t}`).join(" & "), { mode: EXEC_MODE_BUS });
 
 		// Run initialization commands
 		addLoadingStatus("Initializing environment...");
