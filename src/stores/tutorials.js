@@ -15,6 +15,7 @@ import { config as ifblinuxbasics1 } from "$content/ifb-linux-basics-1/config.js
 import { config as ifblinuxbasics2 } from "$content/ifb-linux-basics-2/config.js";
 import { config as ifblinuxbasics3 } from "$content/ifb-linux-basics-3/config.js";
 import { config as carpentriesShellNovice } from "$content/carpentries-shell-novice/config";
+import { config as blastIntro } from "$content/blast-intro/config";
 import { config as jellyfishIntro } from "$content/jellyfish-intro/config";
 
 // All tutorials
@@ -36,6 +37,7 @@ export const tutorials = readable([
 	viralAmplicon,
 	debuggingPuzzles,
 	jellyfishIntro,
+	blastIntro,
 	// Community tutorials
 	ifblinuxbasics1,
 	ifblinuxbasics2,
@@ -58,7 +60,7 @@ export const categories = readable([
 	},
 	{
 		name: "Data analysis",
-		tutorials: [bowtie2Intro, dnaSecrets, viralAmplicon, debuggingPuzzles]
+		tutorials: [bowtie2Intro, blastIntro, dnaSecrets, viralAmplicon, debuggingPuzzles]
 	}
 ]);
 
