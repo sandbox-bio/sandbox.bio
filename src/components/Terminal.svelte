@@ -223,6 +223,9 @@ function initialize(id) {
 		// Focus cursor on command line
 		$cli.xterm.focus();
 
+		// Sync date and time (otherwise continues from date/time from last boot)
+		$cli.exec(`date -s "${new Date().toString()}"`, { mode: EXEC_MODE_BUS });
+
 		// Make sure root@localhost prompt shows up on screen
 		addLoadingStatus("Putting the finishing touches...");
 		timerWaitForPrompt = setInterval(() => {
