@@ -17,4 +17,4 @@ For example, compare the difference in speed between the two approaches when fin
 	remember is that each dataset must be sorted by chromosome and then by start position: `sort -k1,1 -k2,2n`.
 </Alert>
 
-<Image alt="Performance gains due to using sorted data increase as the number of BAM alignments increases" src="https://bedtools.readthedocs.io/en/latest/_images/speed-comparo.png" />
+<Image alt="Performance gains due to using sorted data increase as the number of BAM alignments increases" src="/data/bedtools-intro/speed-comparison.png" />
