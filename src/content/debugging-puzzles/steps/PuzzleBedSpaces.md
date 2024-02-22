@@ -15,8 +15,8 @@ const criteria = [{
 const hints = [
 	`As suggested by the error message, run <code>cat -t exons.bed</code>. Also try <code>head exons.bed</code>. Do any lines stand out from the others?`,
 	`In the output of <code>cat -t exons.bed</code>, the first line uses spaces as the column delimiter instead of tabs.`,
-	`You can use a <code>sed</code> command to replace spaces with tabs (<code>\\t</code>). `,
-	`Don't forget to specify that you want the <code>sed</code> replace logic to be global!`
+	`You can use a <code>sed</code> command to replace spaces with tabs (<code>\\t</code>). You can also use <code>vim</code> to modify the file manually.`,
+	`With <code>sed</code>, don't forget to specify that you want the replacement logic to be global. With <code>vim</code>, make sure you convert each space in the first row to a tab.`
 ];
 </script>
 
