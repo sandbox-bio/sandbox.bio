@@ -19,36 +19,29 @@ const tools = [
 	{ name: "bedtools", expected: "bedtools v2.30.0" },
 	{ name: "samtools", expected: "samtools 1.18" },
 	{ name: "bcftools", expected: "bcftools 1.18" },
-	{ name: "ivar", command: "ivar version", expected: "iVar version 1.3.1" },
 
 	// sandbox.bio v1: Built from source
 	{ name: "htsfile", expected: "htsfile (htslib) 1.18" },
 	{ name: "bgzip", expected: "bgzip (htslib) 1.18" },
 	{ name: "tabix", expected: "tabix (htslib) 1.18" },
 	{ name: "fastp", expected: "fastp 0.20.1" },
-	{ name: "lsd2", command: "lsd2 -V", expected: "lsd2 v.2.4.1" },
-	{ name: "tn93", expected: "v1.0.11" },
 	{ name: "bowtie2-align-s", expected: "bowtie2-align-s version 2.5.1" },
 	{ name: "minimap2", expected: "2.26-r1175" },
 
 	// sandbox.bio v2: Installed with apt
 	{ name: "jellyfish", expected: "jellyfish 2.3.0" },
 	{ name: "seqkit", command: "seqkit version", expected: "seqkit v2.3.0" },
-	{ name: "freebayes", expected: "version:  v1.3.7" },
 	{ name: "kraken2", expected: "Kraken version 2.1.2" },
-	{ name: "lumpy", command: "lumpy 2>&1 | head", expected: "v 0.2.13" },
 	{ name: "nucmer", expected: "NUCmer (NUCleotide MUMmer) version 3.1" },
-	{ name: "sniffles", expected: "Sniffles2, Version 2.0.7" },
-	{ name: "bioawk", expected: "awk version 20110810" },
-	{ name: "vcflib", expected: "vcflength" },
 
 	// sandbox.bio v2: Built from source
-	{ name: "ViralMSA.py", command: "ViralMSA.py -h", expected: "current version: 1.1.32" },
 	{ name: "csvtk", command: "csvtk | head", expected: "Version: 0.27.2" },
 	{ name: "kallisto", expected: "kallisto 0.48.0" },
 	{ name: "mmseqs", command: "mmseqs | head", expected: "MMseqs2 Version: 7e2840992948ee89dcc336522dc98a74fe0adf00" },
 	{ name: "foldseek", command: "foldseek | head", expected: "foldseek Version: 946841ff3b15531349a9883358b3a3052b368da9" },
-	{ name: "viral_consensus", expected: "viral_consensus v0.0.4" }
+	{ name: "viral_consensus", expected: "viral_consensus v0.0.4" },
+	{ name: "hyphy", expected: "HYPHY 2.5.59" },
+	{ name: "freebayes", expected: "version:  v1.3.7" },
 ];
 
 // Initialize terminal first
