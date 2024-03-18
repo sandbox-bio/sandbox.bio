@@ -416,7 +416,7 @@ async function mountLocalFile(event) {
 				<DropdownItem on:click={() => inputMountFiles.click()}>Mount local files</DropdownItem>
 				<DropdownItem on:click={() => inputMountFolder.click()}>Mount local folder</DropdownItem>
 				<DropdownItem on:click={exportHTML}>Export as HTML</DropdownItem>
-				<DropdownItem on:click={modalKbdToggle}>Keyboard Shortcuts</DropdownItem>
+				<DropdownItem on:click={modalKbdToggle}>Shortcuts</DropdownItem>
 			</DropdownMenu>
 		</Dropdown>
 	</div>
@@ -427,11 +427,12 @@ async function mountLocalFile(event) {
 <input type="file" on:change={mountLocalFile} bind:this={inputMountFolder} style="display:none" multiple webkitdirectory />
 
 <!-- Keyboard Shortcuts Modal -->
-<Modal body header="Keyboard Shortcuts" isOpen={modalKbdOpen} toggle={modalKbdToggle}>
+<Modal body header="Shortcuts" isOpen={modalKbdOpen} toggle={modalKbdToggle}>
+	<h4>Keyboard Shortcuts</h4>
 	<Table>
 		<thead>
 			<tr>
-				<th>Shortcut</th>
+				<th width="40%">Shortcut</th>
 				<th>Action</th>
 			</tr>
 		</thead>
@@ -459,6 +460,30 @@ async function mountLocalFile(event) {
 			<tr>
 				<td><code>Alt + Right</code></td>
 				<td>Go to following word</td>
+			</tr>
+		</tbody>
+	</Table>
+
+	<h4 class="mt-5">Special Commands</h4>
+	<Table>
+		<thead>
+			<tr>
+				<th width="40%">Command</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><code>download file.txt</code></td>
+				<td>Downloads <code>file.txt</code> to your computer</td>
+			</tr>
+			<tr>
+				<td><code>open file.html</code></td>
+				<td>Opens <code>file.html</code> in a new tab</td>
+			</tr>
+			<tr>
+				<td><code>curl -O https://.../file.txt</code></td>
+				<td>Downloads <code>file.txt</code> to the sandbox. Note that because of browser limitations, <code>curl</code> only supports URLs that are CORS-enabled.</td>
 			</tr>
 		</tbody>
 	</Table>
