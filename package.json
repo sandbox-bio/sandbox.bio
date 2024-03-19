@@ -14,7 +14,7 @@
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-cloudflare": "^2.3.2",
-		"@sveltejs/kit": "^1.27.2",
+		"@sveltejs/kit": "^1.30.4",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.26.0",
