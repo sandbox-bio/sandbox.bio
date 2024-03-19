@@ -115,7 +115,13 @@ onMount(() => {
 				<DropdownToggle nav caret active={path.startsWith("/playgrounds")}>Playgrounds</DropdownToggle>
 				<DropdownMenu end>
 					{#each playgrounds as playground}
-						<DropdownItem href={playground.url}>
+						<!--
+							FIXME: Use "data-sveltekit-reload" so the browser reloads the page, not Svelte.
+							This is to avoid cases where going to the Terminal playground, then to the other
+							tools' playground makes the CodeMirror instances not responsive to typing, except
+							for the backspace character.
+						-->
+						<DropdownItem href={playground.url} data-sveltekit-reload>
 							<div class="d-flex">
 								<span class="">{playground.name}</span>
 								<span class="ps-2 text-muted opacity-75 small" style="padding-top:2px;">{playground.description}</span>

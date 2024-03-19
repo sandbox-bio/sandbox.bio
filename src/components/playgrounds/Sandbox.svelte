@@ -160,7 +160,7 @@ function setFlag(option, value) {
 		<Input
 			id="examples"
 			type="select"
-			size="sm"
+			bsSize="sm"
 			value={hasExample}
 			on:change={(d) => {
 				const example = EXAMPLES[tool.name][+d.target.value];
