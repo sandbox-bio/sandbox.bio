@@ -1,5 +1,6 @@
 <script>
 import Quiz from "$components/Quiz.svelte";
+import Image from "$components/Image.svelte";
 </script>
 
 In a Unix operating system, files are arranged in a tree-like structure. In this structure, directories can be seen as branches and files (or empty directories) as leaves. Each file has a unique _path_ in the tree-like structure when starting from the _root_.
@@ -10,7 +11,7 @@ The root of the tree structure is also represented by the first `/` in the path.
 
 There are 2 ways to describe paths: **absolute** and **relative**.
 
-<img src="/data/ifb-linux-basics-2/absolute_and_relative_paths.png" style="max-width:60%" alt="Absolute and relative paths">
+<Image src="/data/ifb-linux-basics-2/absolute_and_relative_paths.png" alt="Absolute and relative paths" />
 
 ## Absolute path
 
