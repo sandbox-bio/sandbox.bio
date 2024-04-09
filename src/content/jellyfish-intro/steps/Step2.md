@@ -24,6 +24,10 @@ const criteria = [
 }];
 </script>
 
-Now it's your turn! Use Jellyfish to count all 9-mers in the Chikungunya genome. To estimate the value of the `-s` parameter, use the approach described previously.
+Now it's your turn!
+
+Use Jellyfish to count all **9-mers** in the **Chikungunya** genome (`chikungunya.fa`).
+
+To estimate the value of the `-s` parameter, use the approach described previously.
 
 <Exercise {criteria} />

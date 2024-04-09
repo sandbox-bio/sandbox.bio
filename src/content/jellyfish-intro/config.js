@@ -13,6 +13,7 @@ export const config = {
 	tags: ["kmer", "counting", "jellyfish"],
 	tools: ["ls", "jellyfish", "seqtk", "wgsim"],
 	difficulty: ["beginner"],
+	new: true,
 	steps: [
 		{ name: "K-mer counting with Jellyfish", component: Intro },
 		{ name: "Count k-mers in genomes", component: Step1 },

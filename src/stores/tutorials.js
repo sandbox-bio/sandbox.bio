@@ -60,7 +60,7 @@ export const categories = readable([
 	},
 	{
 		name: "Data analysis",
-		tutorials: [bowtie2Intro, blastIntro, dnaSecrets, viralAmplicon, debuggingPuzzles]
+		tutorials: [bowtie2Intro, blastIntro, jellyfishIntro, dnaSecrets, viralAmplicon, debuggingPuzzles]
 	}
 ]);
 

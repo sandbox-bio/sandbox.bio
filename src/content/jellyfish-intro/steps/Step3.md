@@ -7,17 +7,30 @@ Let's output the first few k-mers and their counts in FASTA format:
 
 <Execute command={`jellyfish dump dengue.jf | head`} />
 
+For example, this FASTA record:
+
+```
+  >2
+  AAGTTTTCA
+```
+
+means the k-mer `AAGTTTTCA` was seen twice.
+
+<hr />
+
 To query for a particular k-mer of interest, say `ACAGTGGAC`, you can use `jellyfish query`:
 
 <Execute command={`jellyfish query dengue.jf ACAGTGGAC`} />
 
 <Execute command={`jellyfish query chikungunya.jf ACAGTGGAC`} />
 
-The `ACAGTGGAC` k-mer is found in Denge but not Chikungunya.
+This tells us that the `ACAGTGGAC` k-mer is found in Denge but not Chikungunya.
 
-To get a list of k-mers found in Dengue but not Chikungunya, we can use `jellyfish count --if`:
+<hr />
 
-<Execute command={`jellyfish count -m 9 -s 15000 -o intersect.jf --if chikungunya.fa dengue.fa`} />
+To get k-mers found in Dengue but not Chikungunya, we can use `jellyfish count --if`:
+
+<Execute command={`jellyfish count \\ -m 9 \\ -s 15000 \\ -o intersect.jf \\ --if chikungunya.fa \\ dengue.fa`} />
 
 The distribution of k-mers now looks different:
 
