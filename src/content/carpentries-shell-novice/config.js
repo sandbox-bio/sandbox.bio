@@ -1,5 +1,15 @@
 // Steps
 import Intro from "./steps/Intro.md";
+import Episode2_Exercise1 from "./steps/Episode2_Exercise1.md";
+import Episode2_Exercise2 from "./steps/Episode2_Exercise2.md";
+import Episode2_Exercise3 from "./steps/Episode2_Exercise3.md";
+import Episode3_Exercise1 from "./steps/Episode3_Exercise1.md";
+import Episode3_Exercise2 from "./steps/Episode3_Exercise2.md";
+import Episode3_Exercise3 from "./steps/Episode3_Exercise3.md";
+import Episode3_Exercise4 from "./steps/Episode3_Exercise4.md";
+import Episode4_Exercise1 from "./steps/Episode4_Exercise1.md";
+import Episode4_Exercise2 from "./steps/Episode4_Exercise2.md";
+import Episode4_Exercise3 from "./steps/Episode4_Exercise3.md";
 import Episode6_Exercise1 from "./steps/Episode6_Exercise1.md";
 import Episode6_Exercise2 from "./steps/Episode6_Exercise2.md";
 import Episode6_Exercise3 from "./steps/Episode6_Exercise3.md";
@@ -19,6 +29,16 @@ export const config = {
 	init: "mkdir -p ~/tutorial/raw",
 	steps: [
 		{ name: "Terminal Exercises", component: Intro },
+		{ name: "Navigating Files and Directories", component: Episode2_Exercise1, subtitle: "Absolute vs Relative Paths", header: true },
+		{ name: "Navigating Files and Directories", component: Episode2_Exercise2, subtitle: "Absolute vs Relative Paths" },
+		{ name: "Navigating Files and Directories", component: Episode2_Exercise3, subtitle: "ls Reading Comprehension" },
+		{ name: "Working With Files and Directories", component: Episode3_Exercise1, subtitle: "Moving Files to a new folder", header: true  },
+		{ name: "Working With Files and Directories", component: Episode3_Exercise2, subtitle: "Renaming Files" },
+		{ name: "Working With Files and Directories", component: Episode3_Exercise3, subtitle: "Moving and Copying" },
+		{ name: "Working With Files and Directories", component: Episode3_Exercise4, subtitle: "List filenames matching a pattern" },
+		{ name: "Pipes and Filters", component: Episode4_Exercise1, subtitle: "Appending Data", header: true },
+		{ name: "Pipes and Filters", component: Episode4_Exercise2, subtitle: "Piping Commands Together"},
+		{ name: "Pipes and Filters", component: Episode4_Exercise3, subtitle: "Pipe Construction"},
 		{ name: "Shell Scripts", component: Episode6_Exercise1, subtitle: "List unique species", header: true },
 		{ name: "Shell Scripts", component: Episode6_Exercise2, subtitle: "Variables in shell scripts" },
 		{ name: "Shell Scripts", component: Episode6_Exercise3, subtitle: "Longest file with a given extension" },
