@@ -20,7 +20,7 @@ While you are in the `alkanes` directory, you type the following command:
 bash script.sh '*.pdb' 1 1
 ```
 
-<Quiz id="q7.1" choices={[
+<Quiz id="q6.2" choices={[
 { valid: false, value: `All of the lines between the first and the last lines of each file ending in .pdb in the alkanes directory`},
 { valid: true, value: `The first and the last line of each file ending in .pdb in the alkanes directory`},
 { valid: false, value: `The first and the last line of each file in the alkanes directory`},
