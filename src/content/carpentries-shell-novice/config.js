@@ -28,10 +28,11 @@ export const config = {
 	id: "carpentries-shell-novice",
 	name: "Terminal Exercises",
 	subtitle: "Exercises from the Carpentries' Unix Shell lesson",
-	description: "Exercises from the Carpentries' Unix Shell lesson",
+	description: "Command-line exercises from the Carpentries' Unix Shell lesson.",
 	tags: ["terminal", "exercises", "carpentries"],
 	tools: ["cut", "sort", "uniq", "grep", "cut", "wc", "vim", "find"],
 	difficulty: ["beginner"],
+	new: true,
 	init: "mkdir -p ~/tutorial/raw ~/tutorial/loops",
 	steps: [
 		{ name: "Terminal Exercises", component: Intro },
@@ -47,7 +48,7 @@ export const config = {
 		// https://swcarpentry.github.io/shell-novice/02-filedir.html#relative-path-resolution
 		{ name: "Navigating Files and Directories", component: Episode2_Exercise2, subtitle: "Absolute vs relative paths" },
 		// https://swcarpentry.github.io/shell-novice/02-filedir.html#ls-reading-comprehension
-		{ name: "Navigating Files and Directories", component: Episode2_Exercise3, subtitle: "ls reading comprehension" },
+		{ name: "Navigating Files and Directories", component: Episode2_Exercise3, subtitle: "Ls reading comprehension" },
 
 		// ---------------------------------------------------------------------
 		// Episode 3
