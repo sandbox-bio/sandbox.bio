@@ -48,7 +48,7 @@ export const tutorials = readable([
 export const categories = readable([
 	{
 		name: "Data exploration",
-		tutorials: [terminalIntro, jqIntro, awkIntro]
+		tutorials: [terminalIntro, carpentriesShellNovice, jqIntro, awkIntro]
 	},
 	{
 		name: "File formats",
