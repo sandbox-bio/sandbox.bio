@@ -56,7 +56,7 @@ export const config = {
 		// https://swcarpentry.github.io/shell-novice/03-create.html#creating-files-a-different-way
 		// -
 		// https://swcarpentry.github.io/shell-novice/03-create.html#moving-files-to-a-new-folder
-		{ name: "Working With Files and Directories", component: Episode3_Exercise1, subtitle: "Moving Files to a new folder", header: true  },
+		{ name: "Working With Files and Directories", component: Episode3_Exercise1, subtitle: "Moving Files to a new folder", header: true },
 		// https://swcarpentry.github.io/shell-novice/03-create.html#renaming-files
 		{ name: "Working With Files and Directories", component: Episode3_Exercise2, subtitle: "Renaming Files" },
 		// https://swcarpentry.github.io/shell-novice/03-create.html#moving-and-copying
@@ -84,15 +84,15 @@ export const config = {
 		// https://swcarpentry.github.io/shell-novice/04-pipefilter.html#appending-data
 		{ name: "Pipes and Filters", component: Episode4_Exercise1, subtitle: "Appending data", header: true },
 		// https://swcarpentry.github.io/shell-novice/04-pipefilter.html#piping-commands-together
-		{ name: "Pipes and Filters", component: Episode4_Exercise2, subtitle: "Piping commands together"},
+		{ name: "Pipes and Filters", component: Episode4_Exercise2, subtitle: "Piping commands together" },
 		// https://swcarpentry.github.io/shell-novice/04-pipefilter.html#pipe-reading-comprehension
 		// -
 		// https://swcarpentry.github.io/shell-novice/04-pipefilter.html#pipe-construction
-		{ name: "Pipes and Filters", component: Episode4_Exercise3, subtitle: "Pipe construction"},
+		{ name: "Pipes and Filters", component: Episode4_Exercise3, subtitle: "Pipe construction" },
 		// https://swcarpentry.github.io/shell-novice/04-pipefilter.html#which-pipe
-		{ name: "Pipes and Filters", component: Episode4_Exercise4, subtitle: "Which pipe?"},
+		{ name: "Pipes and Filters", component: Episode4_Exercise4, subtitle: "Which pipe?" },
 		// https://swcarpentry.github.io/shell-novice/04-pipefilter.html#removing-unneeded-files
-		{ name: "Pipes and Filters", component: Episode4_Exercise5, subtitle: "Removing unneeded files"},
+		{ name: "Pipes and Filters", component: Episode4_Exercise5, subtitle: "Removing unneeded files" },
 
 		// ---------------------------------------------------------------------
 		// Episode 5
@@ -103,11 +103,11 @@ export const config = {
 		// -
 		// https://swcarpentry.github.io/shell-novice/05-loop.html#limiting-sets-of-files
 		// https://swcarpentry.github.io/shell-novice/05-loop.html#limiting-sets-of-files CONTINUED
-		{ name: "Loops", component: Episode5_Exercise2, subtitle: "Limiting sets of files"},
+		{ name: "Loops", component: Episode5_Exercise2, subtitle: "Limiting sets of files" },
 		// https://swcarpentry.github.io/shell-novice/05-loop.html#saving-to-a-file-in-a-loop---part-one
-		{ name: "Loops", component: Episode5_Exercise3, subtitle: "Saving to a file in a loop"},
+		{ name: "Loops", component: Episode5_Exercise3, subtitle: "Saving to a file in a loop" },
 		// https://swcarpentry.github.io/shell-novice/05-loop.html#saving-to-a-file-in-a-loop---part-two
-		{ name: "Loops", component: Episode5_Exercise4, subtitle: "Saving to a file in a loop - part 2"},
+		{ name: "Loops", component: Episode5_Exercise4, subtitle: "Saving to a file in a loop - part 2" },
 		// https://swcarpentry.github.io/shell-novice/05-loop.html#doing-a-dry-run
 		// -
 		// https://swcarpentry.github.io/shell-novice/05-loop.html#nested-loops

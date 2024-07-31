@@ -485,7 +485,9 @@ async function mountLocalFile(event) {
 			</tr>
 			<tr>
 				<td><code>curl -O https://.../file.txt</code></td>
-				<td>Downloads <code>file.txt</code> to the sandbox. Note that because of browser limitations, <code>curl</code> only supports URLs that are CORS-enabled.</td>
+				<td>
+					Downloads <code>file.txt</code> to the sandbox. Note that because of browser limitations, <code>curl</code> only supports URLs that are CORS-enabled.
+				</td>
 			</tr>
 		</tbody>
 	</Table>
