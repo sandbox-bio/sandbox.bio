@@ -22,6 +22,6 @@ The `uniq` command has a `-c` option which gives a count of the number of times 
 { valid: false, value: "cut -d, -f 2 animals.csv | sort | uniq -c | wc -l"},
 ]}>
 <span slot="prompt">
-    What command would you use to produce a table that shows the total count of each type of animal in the file?
+What command would you use to produce a table that shows the total count of each type of animal in the file?
 </span>
 </Quiz>

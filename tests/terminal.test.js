@@ -41,7 +41,7 @@ const tools = [
 	{ name: "foldseek", command: "foldseek | head", expected: "foldseek Version: 946841ff3b15531349a9883358b3a3052b368da9" },
 	{ name: "viral_consensus", expected: "viral_consensus v0.0.4" },
 	{ name: "hyphy", expected: "HYPHY 2.5.59" },
-	{ name: "freebayes", expected: "version:  v1.3.7" },
+	{ name: "freebayes", expected: "version:  v1.3.7" }
 ];
 
 // Initialize terminal first

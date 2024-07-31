@@ -10,7 +10,7 @@ const tagColors = {
 </script>
 
 <Row cols={{ lg: 3, md: 2, sm: 1, xs: 1 }}>
-	{#each items as info, i}
+	{#each items as info}
 		<Col class="my-2">
 			<Card class="h-100 listing-card p-3">
 				<!-- Tags -->

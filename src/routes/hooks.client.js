@@ -1,4 +1,4 @@
-export async function handleError({ error, event }) {
+export async function handleError({ error }) {
 	console.error("--------------------");
 	console.error(error);
 	console.error("--------------------");
