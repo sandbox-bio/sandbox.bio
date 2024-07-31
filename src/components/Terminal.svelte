@@ -364,7 +364,9 @@ async function mountLocalFile(event) {
 	// Mount files and show them on screen
 	const paths = [];
 	for (const file of files) {
-		paths.push(await $cli.mountFile(file.name, file));
+		// Try to preserve folder structure
+		const fileName = file?.webkitRelativePath || file.name;
+		paths.push(await $cli.mountFile(fileName, file));
 	}
 	const pathsTxt = paths.join("\n\r# ");
 	$cli.xterm.write(`\n\n\r\u001b[0;32m# Files mounted:\n\r# ${pathsTxt}\u001b[0m\n\n\r`);
