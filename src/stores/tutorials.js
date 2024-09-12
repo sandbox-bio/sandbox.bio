@@ -17,6 +17,7 @@ import { config as ifblinuxbasics3 } from "$content/ifb-linux-basics-3/config.js
 import { config as carpentriesShellNovice } from "$content/carpentries-shell-novice/config";
 import { config as blastIntro } from "$content/blast-intro/config";
 import { config as jellyfishIntro } from "$content/jellyfish-intro/config";
+import { config as seqkitIntro } from "$content/seqkit-intro/config";
 
 // All tutorials
 export const tutorials = readable([
@@ -38,6 +39,7 @@ export const tutorials = readable([
 	debuggingPuzzles,
 	jellyfishIntro,
 	blastIntro,
+	seqkitIntro,
 	// Community tutorials
 	ifblinuxbasics1,
 	ifblinuxbasics2,
@@ -52,7 +54,7 @@ export const categories = readable([
 	},
 	{
 		name: "File formats",
-		tutorials: [bedtoolsIntro, samtoolsIntro]
+		tutorials: [bedtoolsIntro, samtoolsIntro, seqkitIntro]
 	},
 	{
 		name: "Quality control",
