@@ -17,11 +17,11 @@ If your FASTA is formatted such that the sequence name contains an ID followed b
 
 <hr />
 
-If you are interested in only analyzing hairpins that are >300bp long, use the `--min-len` to filter out shorter sequences:
+If you are interested in only sequences of a certain size, e.g. >300bp, use the `--min-len` to filter out shorter sequences:
 
 <Execute command="seqkit seq --min-len 300 hairpins.fa  | seqkit stats" />
 
-You can also filter out long sequences with `--max-len`, and for FASTQ files, filter out reads with a certain average quality with `--min-qual` and `--max-qual`.
+You can also filter out long sequences with `--max-len`, and for FASTQ files, you can filter out reads with a certain average quality with `--min-qual` and `--max-qual`.
 
 <Alert color="primary">
     <Icon name="question-circle-fill" /> How would you convert the RNA sequences in `hairpins.fa` to DNA using SeqKit? Use the <Link href="https://bioinf.shenwei.me/seqkit/usage/#seq">manual</Link> as a reference.
