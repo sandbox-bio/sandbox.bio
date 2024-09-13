@@ -79,14 +79,14 @@ onMount(() => {
 					{#if step == 0 && tutorial.tags.length > 0}
 						<div class="row mb-2">
 							<h6>
-								{#each tutorial.tags as tag}
-									<span class="badge bg-primary ms-1" class:bg-info={tag == "course"}>
+								{#each tutorial.tags as tag, i}
+									<span class="badge bg-primary" class:ms-1={i > 0} class:bg-danger={tag == "draft"}>
 										{tag}
 									</span>
 								{/each}
 								{#each tutorial.difficulty as tag}
 									<span
-										class="badge"
+										class="badge ms-0"
 										class:bg-success={tag == "beginner"}
 										class:bg-danger={tag == "difficult"}
 										style={tag == "intermediate" ? "background-color:#fd7e14" : ""}>{tag}</span
