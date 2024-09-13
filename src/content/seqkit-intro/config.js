@@ -15,7 +15,7 @@ export const config = {
 	id: "seqkit-intro",
 	name: "Wrangle FASTA and FASTQ with SeqKit",
 	description: "Explore and wrangle <code>.fasta/.fastq</code> files with SeqKit",
-	tags: ["draft", "fasta", "fastq", "seqkit"],
+	tags: ["fasta", "fastq", "seqkit"],
 	tools: ["ls", "seqkit"],
 	difficulty: ["beginner"],
 	new: true,

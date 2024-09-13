@@ -54,7 +54,7 @@ export const categories = readable([
 	},
 	{
 		name: "File formats",
-		tutorials: [bedtoolsIntro, samtoolsIntro /* seqkitIntro */]
+		tutorials: [bedtoolsIntro, samtoolsIntro, seqkitIntro]
 	},
 	{
 		name: "Quality control",
