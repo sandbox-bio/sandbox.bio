@@ -9,7 +9,6 @@ import Exercise1 from "./steps/Exercise1.md";
 import Exercise2 from "./steps/Exercise2.md";
 import Exercise3 from "./steps/Exercise3.md";
 import Exercise4 from "./steps/Exercise4.md";
-import Exercise5 from "./steps/Exercise5.md";
 import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
@@ -27,11 +26,10 @@ export const config = {
 		{ name: "Getting Started", component: Step3, subtitle: "Extract and filter" },
 		{ name: "Getting Started", component: Step4, subtitle: "Search FASTA/FASTQ files" },
 		{ name: "Getting Started", component: Step5, subtitle: "Remove duplicate sequences" },
-		{ name: "Exercises", component: Exercise1, subtitle: "Bases per line", header: true },
+		{ name: "Exercises", component: Exercise1, subtitle: "Format sequences", header: true },
 		{ name: "Exercises", component: Exercise2, subtitle: "Only keep sequence IDs" },
-		{ name: "Exercises", component: Exercise3, subtitle: "Searching" },
-		{ name: "Exercises", component: Exercise4, subtitle: "Downsample paired-end reads" },
-		{ name: "Exercises", component: Exercise5, subtitle: "Replacing FASTA header" },
+		{ name: "Exercises", component: Exercise3, subtitle: "Search for sequences" },
+		{ name: "Exercises", component: Exercise4, subtitle: "Renaming sequence names" },
 		{ name: "The End", component: Conclusion, header: true }
 	],
 	// head -n10000 <(curl -s https://www.mirbase.org/download/hairpin.fa) > hairpins.fa
