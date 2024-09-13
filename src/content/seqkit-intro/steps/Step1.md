@@ -24,13 +24,13 @@ To avoid manually writing each file name, we can use a wildcard (`*`) to analyze
 <Alert>
     <Icon name="lightbulb-fill" /> Wildcards are a broadly useful feature on the command line.
 
-    For example, `ls *.fa` lists all files ending in the extension `.fa` whereas <code>ls *.&lbrace;a,b,c}</code> lists files ending in either extension `.a`, `.b`, or `.c`.
+    For example, `ls *.fa` lists all files ending in the extension `.fa` whereas <code>ls *.&lbrace;fa,fastq}</code> lists files ending in **either** `.fa` or `.fastq`.
 
 </Alert>
 
 <hr />
 
-SeqKit can also calculate additional stats such as GC content, and the fraction of FASTQ reads with a mapping quality of 30. To enable those stats, use the `--all` flag:
+SeqKit can also calculate additional stats such as GC content, and the fraction of FASTQ reads with a mapping quality of 30. To enable those stats, use the flag `--all`:
 
 <Execute command={`seqkit stats *.{fa,fastq} --all`} />
 
