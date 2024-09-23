@@ -13,7 +13,12 @@ export let categories = [];
 </script>
 
 {#each categories as category, i}
-	<h5 class:mt-4={i > 0}>{category.name}</h5>
+	<h5 class:mt-4={i > 0}>
+		{#if category.icon}
+			<Icon name={category.icon} class="text-primary" />
+		{/if}
+		{category.name}
+	</h5>
 
 	<Row cols={{ lg: 3, md: 2, sm: 1, xs: 1 }}>
 		{#each category.tutorials as tutorial}
@@ -78,6 +83,10 @@ export let categories = [];
 			</Col>
 		{/each}
 	</Row>
+
+	{#if category.separator}
+		<div class="mb-5 pt-5 border-bottom" />
+	{/if}
 {/each}
 
 <style>

@@ -49,19 +49,29 @@ export const tutorials = readable([
 // Tutorial listings
 export const categories = readable([
 	{
+		name: "Recently added",
+		icon: "star-fill",
+		tutorials: [seqkitIntro, carpentriesShellNovice, blastIntro],
+		separator: true
+	},
+	{
 		name: "Data exploration",
+		icon: "compass-fill",
 		tutorials: [terminalIntro, carpentriesShellNovice, jqIntro, awkIntro]
 	},
 	{
 		name: "File formats",
+		icon: "file-earmark-binary-fill",
 		tutorials: [bedtoolsIntro, samtoolsIntro, seqkitIntro]
 	},
 	{
 		name: "Quality control",
+		icon: "bookmark-check-fill",
 		tutorials: [fastpIntro, igvIntro]
 	},
 	{
 		name: "Data analysis",
+		icon: "cpu-fill",
 		tutorials: [bowtie2Intro, blastIntro, jellyfishIntro, dnaSecrets, viralAmplicon, debuggingPuzzles]
 	}
 ]);
