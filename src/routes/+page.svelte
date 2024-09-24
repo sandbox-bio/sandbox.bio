@@ -9,16 +9,16 @@ import TutorialList from "$src/components/TutorialList.svelte";
 	<title>sandbox.bio</title>
 </svelte:head>
 
-<div class="container-fluid pt-3">
+<div class="container-fluid">
 	<div class="row pb-0 pe-lg-0 bg-light align-items-center rounded-3 border shadow-lg">
 		<div class="col-lg-6 p-3 p-lg-4 pt-lg-3">
-			<h1 class="fw-bold" style="font-size:35px">Interactive bioinformatics tutorials</h1>
-			<p class="lead my-4">Learn bioinformatics from your browser.<br />Everything runs in a sandbox, so you can experiment all you want.</p>
+			<h1 class="fw-bold" style="font-size: 30px">Interactive bioinformatics tutorials</h1>
+			<p class="lead my-4">Learn bioinformatics from your browser. Everything runs in a sandbox, so you can experiment all you want.</p>
 			<Button size="lg" color="primary" href="/tutorials">Get started <Icon name="arrow-right" /></Button>
 			<Button size="lg" color="outline-primary" href="/about">Learn more</Button>
 		</div>
-		<div class="align-center col-lg-5 p-0 offset-lg-1 overflow-hidden shadow-lg">
-			<img class="rounded-lg-3" src="/screenshot-cli.png" alt="Screenshot of terminal and exercises" width="800" />
+		<div class="align-center col-lg-6 p-0 overflow-hidden shadow-lg d-none d-md-inline">
+			<img class="rounded-lg-3" src="/screenshot-cli.png" alt="Screenshot of terminal and exercises" width="700" />
 		</div>
 	</div>
 </div>
