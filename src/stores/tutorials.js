@@ -52,7 +52,7 @@ export const categories = readable([
 		name: "Recently added",
 		icon: "star-fill",
 		tutorials: [seqkitIntro, carpentriesShellNovice, blastIntro],
-		separator: true
+		mailinglist: true
 	},
 	{
 		name: "Data exploration",
