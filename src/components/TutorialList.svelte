@@ -1,7 +1,8 @@
 <script>
-import { Badge, Button, Card, Col, Icon, Row, Tooltip } from "sveltestrap";
+import { Badge, Button, Card, Col, Icon, Input, Row, Tooltip } from "sveltestrap";
 import { user } from "$stores/user";
 import { progress } from "$stores/progress";
+import MailingList from "./MailingList.svelte";
 
 const TAG_COLORS = {
 	beginner: "primary",
@@ -84,8 +85,8 @@ export let categories = [];
 		{/each}
 	</Row>
 
-	{#if category.separator}
-		<div class="mb-5 pt-5 border-bottom" />
+	{#if category.mailinglist}
+		<MailingList />
 	{/if}
 {/each}
 
