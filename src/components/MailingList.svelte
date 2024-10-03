@@ -3,10 +3,18 @@ import { Button, Icon, Input } from "sveltestrap";
 
 let email;
 let done = false;
+let error;
 
-function subscribe() {
-	console.log(email);
-	done = true;
+async function subscribe() {
+	error = null;
+	const response = await fetch("/api/v1/mailinglist", {
+		method: "POST",
+		body: JSON.stringify({ email })
+	}).then((d) => d.json());
+	error = response.error;
+	if (!error) {
+		done = true;
+	}
 }
 </script>
 
@@ -18,8 +26,9 @@ function subscribe() {
 		<Input
 			type="email"
 			bind:value={email}
+			disabled={done}
 			class="mt-1"
-			placeholder="Your email here"
+			placeholder="Your email"
 			on:keydown={(e) => {
 				if (e.key === "Enter") {
 					subscribe();
@@ -27,6 +36,10 @@ function subscribe() {
 			}}
 		/>
 		<Button color="primary" size="sm" class="mt-2" disabled={done} on:click={subscribe}>Subscribe</Button>
+		{#if error}
+			<p class="mt-2 mb-0 text-danger small">{error}</p>
+		{/if}
+
 		{#if done}
 			<p class="mt-2 mb-0 text-success small">You've been subscribed!</p>
 		{/if}
