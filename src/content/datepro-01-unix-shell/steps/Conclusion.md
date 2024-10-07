@@ -2,11 +2,8 @@
 import Link from "$components/Link.svelte";
 </script>
 
-This concludes the `bedtools` tutorial!
+This concludes the  **Unix Shell**  tutorial adapted from the same section of the [Data and Text Processing for Health and Life Sciences](https://labs.rd.ciencias.ulisboa.pt/book/) book.
 
-Here are additional resources to check out:
+In this tutorial, you learned the basics of how to use a Unix shell, create data and script files, execute them, and save the output.
 
-- <Link href="https://bedtools.readthedocs.io">Official `bedtools` Documentation</Link>
-- <Link href="https://bedtools.readthedocs.io/en/latest/content/installation.html">Installation Instructions</Link>
-- <Link href="https://groups.google.com/g/bedtools-discuss">Google Groups</Link>
-- <Link href="https://github.com/arq5x/bedtools2">Codebase</Link>
+The next tutorial in this series will use the compound caffeine as an example and navigate through different public repositories to find diseases related to it.

@@ -1,40 +1,28 @@
 // Steps
-import Step0 from "./steps/step00.md";
-import Step1 from "./steps/step01.md";
-import Step2 from "./steps/step02.md";
-import Step3 from "./steps/step03.md";
-import Step4 from "./steps/step04.md";
-import Step5 from "./steps/step05.md";
-import Step6 from "./steps/step06.md";
-import Step7 from "./steps/step07.md";
+import Intro from "./steps/Intro.md";
+import Step01 from "./steps/step01.md";
+import Step02 from "./steps/step02.md";
+import Step03 from "./steps/step03.md";
+import Conclusion from "./steps/Conclusion.md";
+import Exercise01 from "./exercises/Exercise01.md";
 
 export const config = {
-	id: "ifb-linux-basics-1",
-	pwd: "ifb-linux-basics-1",
-	name: "Basics of the Unix command line interface",
-	subtitle: `by <a href="https://www.france-bioinformatique.fr/en/home/" target="_blank">French Institute of Bioinformatics</a>`,
-	description: "IFB Scenario 1",
-	tags: ["unix", "shell", "terminal"],
-	tools: ["ls", "date"],
+	id: "datepro-01-unix-shell",
+	pwd: "datepro-01-unix-shell",
+	name: "Data and Text Processing: Unix Shell",
+	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Franciaco M. Couto</a>`,
+	description: "Unix Shell",
+	tags: ["unix", "shell", "terminal", "script", "file"],
+	tools: ["ls", "cat", "tac", "ps", "tr", "mv", "cd", "pwd", "nano", "chmod"],
 	difficulty: ["beginner"],
 	steps: [
-		{ name: "Basics of the Unix command line interface", component: Step0 },
-		{ name: "Unix & Command lines", component: Step1 },
-		{ name: "The Shell", component: Step2 },
-		{ name: "The terminal", component: Step3 },
-		{ name: "Unix command", component: Step4 },
-		{ name: "A simple basic command: ls", component: Step5 },
-		{ name: "Getting help", component: Step6 },
-		{ name: "Congratulations", component: Step7 }
+		{ name: "Introduction", component: Intro },
+		{ name: "Unix Shell", component: Step01 },
+		{ name: "Data and Script Files", component: Step02 },
+		{ name: "Save the Output", component: Step03 },
+		{ name: "Conclusion", component: Conclusion }
+		{ name: "Exercise", component: Exercise01 },
 	],
 	files: [
-		"Data/O.tauri_annotation.gff",
-		"Data/O.tauri_genome.fna",
-		"Data/SRR3099585_chr18.fastq",
-		"Data/SRR3099586_chr18.fastq",
-		"Data/SRR3099587_chr18.fastq",
-		"Data/SRR3105697_chr18.fastq",
-		"Data/SRR3105698_chr18.fastq",
-		"Data/SRR3105699_chr18.fastq"
-	]
+		]
 };
