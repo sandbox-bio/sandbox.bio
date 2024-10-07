@@ -80,7 +80,7 @@ be canceled, but instead it is executed without the second single quote and
 therefore a syntax error will be shown on our display.
 
 Other useful key combinations are the **Ctrl-l** that when pressed cleans the
-terminal display,  and the **Control+Insert** and **Shift+Insert** that when pressed
+terminal display,  and the **Ctrl-Insert** and **Shift-Insert** that when pressed
 copy and paste the selected text, respectively.
 
 #### Shell version

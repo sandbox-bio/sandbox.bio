@@ -85,8 +85,7 @@ If we give more arguments, they will be ignored:
 <Execute command="./reversemyfile.sh myfile.txt myotherfile.txt 'myother file.txt'" />
 
 The output will be exactly the same because our script does not use `$2` and
-`$3`, that in this case will represent myotherfile.txt and my other file.txt, re-
-spectively. We should note that when containing spaces, the argument must
+`$3`, that in this case will represent myotherfile.txt and my other file.txt, respectively. We should note that when containing spaces, the argument must
 be enclosed by single quotes.
 
 The next and final step will about how to save the output of the script.
