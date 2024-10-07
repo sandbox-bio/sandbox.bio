@@ -1,5 +1,4 @@
 <script>
-import Link from "$components/Link.svelte";
 import Alert from "$components/Alert.svelte";
 </script>
 
@@ -12,6 +11,6 @@ This is the **first tutorial** in a series that will demonstrate how shell scrip
 The objective of this tutorial is to learn how to create and use data and script files in a Unix shell.
 
 <Alert>
-This tutorial is part of a series of tutorials adapted as interactive versions of the hands-on steps described in the[Data and Text Processing for Health and Life Sciences](https://labs.rd.ciencias.ulisboa.pt/book/) book, which is licensed under the <Link href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</Link>. In general, the contents are the same, but access to data via `curl` is not possible, so the tutorials will use local files. 
+This tutorial is part of a series of tutorials adapted as interactive versions of the hands-on steps described in the [Data and Text Processing for Health and Life Sciences](https://labs.rd.ciencias.ulisboa.pt/book/) book, which is licensed under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). In general, the contents are the same, but access to data via `curl` is not possible, so the tutorials will use local files. 
 </Alert>
 
