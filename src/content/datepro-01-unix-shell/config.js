@@ -1,8 +1,8 @@
 // Steps
 import Intro from "./steps/Intro.md";
-import Step01 from "./steps/step01.md";
-import Step02 from "./steps/step02.md";
-import Step03 from "./steps/step03.md";
+import Step01 from "./steps/Step01.md";
+import Step02 from "./steps/Step02.md";
+import Step03 from "./steps/Step03.md";
 import Conclusion from "./steps/Conclusion.md";
 import Exercise01 from "./exercises/Exercise01.md";
 
