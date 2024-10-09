@@ -41,11 +41,11 @@ export const tutorials = readable([
 	jellyfishIntro,
 	blastIntro,
 	seqkitIntro,
-	datepro1,
 	// Community tutorials
 	ifblinuxbasics1,
 	ifblinuxbasics2,
-	ifblinuxbasics3
+	ifblinuxbasics3,
+	datepro1
 ]);
 
 // Tutorial listings

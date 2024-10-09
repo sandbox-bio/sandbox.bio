@@ -20,7 +20,7 @@ export const config = {
 		{ name: "Unix Shell", component: Step01 },
 		{ name: "Data and Script Files", component: Step02 },
 		{ name: "Save the Output", component: Step03 },
-		{ name: "Conclusion", component: Conclusion }
+		{ name: "Conclusion", component: Conclusion },
 		{ name: "Exercise", component: Exercise01 },
 	],
 	files: [
