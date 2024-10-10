@@ -42,7 +42,7 @@ reverse order.
 
 Now we can create a script file named `reversemyfile.sh` by using the text editor:
 
-<Execute command="reversemyfile.sh" />
+<Execute command="nano reversemyfile.sh" />
 
 And add the following line:
 
@@ -54,10 +54,11 @@ tac $1
 
 Exit from the editor with **Ctrl-X**, and then press **Y** and **Enter** to save the file.
 
-We cannot forget to save the file in our working directory. Check if the file and its contents are there:
+We cannot forget to save the file in our working directory. A simple way to ensure this is to check if the file and its contents are present.
+
 <Execute command="cat reversemyfile.sh" />
 
-Additionally, we could add the shebang `#!/bin/bash` as the first line
+We could also add the shebang `#!/bin/bash` as the first line
 of the script, which would specify that it should be executed using the Bash
 shell. However, for simplicity we will not use any shebang in our tutorials.
 
@@ -85,7 +86,7 @@ If we give more arguments, they will be ignored:
 <Execute command="./reversemyfile.sh myfile.txt myotherfile.txt 'myother file.txt'" />
 
 The output will be exactly the same because our script does not use `$2` and
-`$3`, that in this case will represent myotherfile.txt and my other file.txt, respectively. We should note that when containing spaces, the argument must
+`$3`, that in this case will represent `myotherfile.txt` and my `'other file.txt'`, respectively. We should note that when containing spaces, the argument must
 be enclosed by single quotes.
 
 The next and final step will about how to save the output of the script.
