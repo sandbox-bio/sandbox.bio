@@ -1,12 +1,13 @@
-<script>
-import Link from "$components/Link.svelte";
-</script>
+This concludes the  **Unix Shell**  tutorial adapted from the same section of the [Data and Text Processing for Health and Life Sciences](https://labs.rd.ciencias.ulisboa.pt/book/) book.
 
-This concludes the `bedtools` tutorial!
 
-Here are additional resources to check out:
+In this tutorial, you learned how to retrieve data from biomedical databases using cURL and web services.
 
-- <Link href="https://bedtools.readthedocs.io">Official `bedtools` Documentation</Link>
-- <Link href="https://bedtools.readthedocs.io/en/latest/content/installation.html">Installation Instructions</Link>
-- <Link href="https://groups.google.com/g/bedtools-discuss">Google Groups</Link>
-- <Link href="https://github.com/arq5x/bedtools2">Codebase</Link>
+In the next tutorial of this series, we will explore data extraction techniques to filter out irrelevant data from a CSV file, focusing on our specific information needs.
+
+
+
+
+
+
+
