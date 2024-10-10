@@ -18,6 +18,7 @@ import { config as carpentriesShellNovice } from "$content/carpentries-shell-nov
 import { config as blastIntro } from "$content/blast-intro/config";
 import { config as jellyfishIntro } from "$content/jellyfish-intro/config";
 import { config as seqkitIntro } from "$content/seqkit-intro/config";
+import { config as datepro1 } from "$content/datepro-01-unix-shell/config";
 
 // All tutorials
 export const tutorials = readable([
@@ -43,7 +44,8 @@ export const tutorials = readable([
 	// Community tutorials
 	ifblinuxbasics1,
 	ifblinuxbasics2,
-	ifblinuxbasics3
+	ifblinuxbasics3,
+	datepro1
 ]);
 
 // Tutorial listings
