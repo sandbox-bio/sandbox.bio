@@ -1,9 +1,9 @@
-# Requires in sandbox.bio playground: 
-## alias curl='data/localcurl.sh' 
-## chmod u+x data/localcurl.sh
-
 # This script simulates the behavior of curl for a specific URL pattern.
 # It accepts an optional -s argument to suppress stderr output.
+
+# Requires in sandbox.bio playground: 
+## mv /usr/local/bin/curl /usr/local/bin/curl.ori; chmod u+x data/localcurl.sh; cp data/localcurl.sh /usr/local/bin/curl;
+
 
 # Check if -s option is present
 if [[ $1 == "-s" ]]; then

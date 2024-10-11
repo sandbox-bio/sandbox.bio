@@ -32,5 +32,5 @@ export const config = {
         "chebi_30050_xrefs_UniProt.csv",
         "localcurl.sh",
 		],
-		init: `alias curl='data/localcurl.sh'; chmod u+x data/localcurl.sh`
+		init: `mv /usr/local/bin/curl /usr/local/bin/curl.ori; chmod u+x data/localcurl.sh; cp data/localcurl.sh /usr/local/bin/curl;`
 };

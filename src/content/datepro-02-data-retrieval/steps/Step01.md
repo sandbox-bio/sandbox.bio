@@ -64,13 +64,13 @@ Exit from the editor with **Ctrl-X**, and then press **Y** and **Enter** to save
 
 The command line tool `echo` displays the string received as argument. 
 
-Do not forget to save it in our working directory and add the right permissions
-with `chmod` as we did previously with our first script:
+Do not forget to save it in our working directory:
 
 <Execute command="cat getproteins.sh" />
 
-<Execute command="chmod u+x getproteins.sh" />
+and add the right permissions with `chmod` as we did previously with our first script:
 
+<Execute command="chmod u+x getproteins.sh" />
 
 Now to execute the script we will only need to type:
 
@@ -127,7 +127,7 @@ Commented lines are ignored by the computer during script execution, so this scr
 
 Now, we can execute the script giving the ChEBI identifier as argument:
 
-<Execute command="$ ./getproteins.sh 2773" />
+<Execute command="./getproteins.sh 2773" />
 
 The output on our terminal should be the link that returns the CSV file containing the proteins associated with caffeine.
 

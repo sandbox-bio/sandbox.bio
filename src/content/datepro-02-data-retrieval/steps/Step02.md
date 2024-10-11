@@ -40,23 +40,17 @@ caffeine identifier by `$1`.
 
 Now to execute the script we only need to provide a ChEBI identifier as input argument:
 
-<Execute command=". ./getproteins.sh 27732" />
+<Execute command="./getproteins.sh 27732" />
 
 The output on our terminal is the long list of proteins.
-
-<Alert> The extra dot is just to ensure the script uses the local version of curl¹. You don't need it when running the command in a local terminal.</Alert>
-
-
 
 Or, if we want the proteins related to carbon monoxide, we only need to
 replace the argument:
 
-<Execute command=". ./getproteins.sh 17245" />
+<Execute command="./getproteins.sh 17245" />
 
 And the output on our terminal should be an even longer list of proteins.
 
 The next step will show how to manage these long lists.
 
----
 
-¹ *This technique involves sourcing the script, which means running the script in the current shell environment, allowing aliases to function properly.*
