@@ -25,7 +25,7 @@ if [[ $url == https://www.ebi.ac.uk/chebi/* ]]; then
     # Extract the ChEBI ID from the URL using a regular expression
     chebiId=$(echo $url | grep -oP '(?<=chebiId=)[^&]*')
     # Print the contents of the corresponding CSV file
-    cat data/chebi_${chebiId}_xrefs_UniProt.csv
+    cat $HOME/tutorial/data/chebi_${chebiId}_xrefs_UniProt.csv
 else
     # If the URL does not match the expected pattern, print an error message
     echo "URL for an unknown location"
