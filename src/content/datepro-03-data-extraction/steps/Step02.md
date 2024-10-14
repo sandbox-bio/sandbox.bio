@@ -1,5 +1,6 @@
 <script>
 import Alert from "$components/Alert.svelte";
+import Execute from "$components/Execute.svelte";
 </script>
 
 To use multiple patterns, we must precede each pattern with the `-e` option:
@@ -22,10 +23,8 @@ We can now update our script file
 
 To contain the following lines:
 
-```bash
-curl -s "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-e=1&6578706f7274=1&chebiId=$1&dbName=UniProt" | \
-grep -e 'CC - MISCELLANEOUS' -e 'CC - DISRUPTION PHENOTYPE' -e 'CC - DISEASE'
-```
+<pre class="code border p-2" style="white-space: pre-wrap">curl -s "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-e=1&6578706f7274=1&chebiId=$1&dbName=UniProt" | \\
+grep -e 'CC - MISCELLANEOUS' -e 'CC - DISRUPTION PHENOTYPE' -e 'CC - DISEASE'</pre>
 
 <Alert>The `curl` command here at this platform will be replaced by a local version to access the data locally instead of online due to access restrictions. However, the same command will work just fine in your local terminal.</Alert>
 

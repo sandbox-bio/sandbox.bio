@@ -1,4 +1,5 @@
 <script>
+import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -34,9 +35,7 @@ case to the null device (/dev/null):
 We can also use the -s option of curl in order to suppress the progress
 information,:
 
-```bash
-curl -s "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-=1&6578706f7274=1&chebiId=$1&dbName=UniProt"
-```
+<pre class="code border p-2" style="white-space: pre-wrap">curl -s "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-=1&6578706f7274=1&chebiId=$1&dbName=UniProt"</pre>
 
 by adding it to our script:
 

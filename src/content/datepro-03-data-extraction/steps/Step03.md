@@ -1,5 +1,6 @@
 <script>
 import Alert from "$components/Alert.svelte";
+import Execute from "$components/Execute.svelte";
 </script>
 
 #### Data elements selection
@@ -32,11 +33,10 @@ We can update our script file:
 
 To contain the following lines:
 
-```bash
-curl -s "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-e=1&6578706f7274=1&chebiId=$1&dbName=UniProt" | \
+<pre class="code border p-2" style="white-space: pre-wrap">curl -s "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-e=1&6578706f7274=1&chebiId=$1&dbName=UniProt" | \
 grep -e 'CC - MISCELLANEOUS' -e 'CC - DISRUPTION PHENOTYPE' -e 'CC - DISEASE' | \
 cut -d, -f1
-```
+</pre>
 
 The last line is the only that changes, except the `| \` in the previous line to
 redirect the output.
