@@ -2,8 +2,6 @@
 import Alert from "$components/Alert.svelte";
 </script>
 
-# Unix Shell
-
 This is the **third tutorial** in a series that will demonstrate how shell scripting can be used to perform the tasks that health and life science specialists may need to undertake to find and retrieve biomedical data and text. We will use the compound caffeine as an example and explore different public repositories to identify diseases related to it. The focus is not on the specific relationships we may discover, but on the process of obtaining them.
 
 The objective of this tutorial is to learn how to efficiently filter and extract relevant data from the CSV file retrieved in the previous tutorial. Specifically, we will focus on filtering for proteins associated with putative caffeine-related diseases and extracting only the corresponding protein identifiers.
