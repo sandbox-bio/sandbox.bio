@@ -49,7 +49,7 @@ export const tutorials = readable([
 	ifblinuxbasics3,
 	datepro1,
 	datepro2,
-	datepro3,
+	datepro3
 ]);
 
 // Tutorial listings

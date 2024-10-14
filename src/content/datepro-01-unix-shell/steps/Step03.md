@@ -3,6 +3,7 @@ import Execute from "$components/Execute.svelte";
 </script>
 
 #### Line breaks
+
 A Unix file represents a single line break by a line feed character, instead of
 two characters (carriage return and line feed) used by Windows. So, if we
 are using a text editor in Windows, we must be careful to use one that lets
@@ -19,7 +20,7 @@ this case tr will delete all carriage returns (`r`). Many command line options
 can be used in short form using a single dash (`-`), or in a long form using two
 dashes (`--`). In this tool, using the `--delete` option is equivalent to the `-d`
 option. Long forms are more self-explanatory, but they take longer to type
-and occupy more space. 
+and occupy more space.
 
 #### Redirection operator
 
@@ -58,7 +59,6 @@ Or, we can reverse it again by typing:
 <Execute command="./reversemyfile.sh mynewfile.txt" />
 
 Of course, the result should exactly be the original contents of `myfile.txt`.
-
 
 #### Debug
 

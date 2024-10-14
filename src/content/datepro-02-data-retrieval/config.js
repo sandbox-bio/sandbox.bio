@@ -21,16 +21,16 @@ export const config = {
 		{ name: "Data Retrieval", component: Step02 },
 		{ name: "Manage Output", component: Step03 },
 		{ name: "Conclusion", component: Conclusion },
-		{ name: "Exercise", component: Exercise01 },
+		{ name: "Exercise", component: Exercise01 }
 	],
 	files: [
 		"chebi_15377_xrefs_UniProt.csv",
-        "chebi_17245_xrefs_UniProt.csv",
-        "chebi_27732_xrefs_UniProt.csv",
-        "chebi_27732_xrefs_UniProt.xls",
-        "chebi_27732_xrefs_UniProt.xml",
-        "chebi_30050_xrefs_UniProt.csv",
-        "localcurl.sh",
-		],
-		init: `mv /usr/local/bin/curl /usr/local/bin/curl.ori; chmod u+x data/localcurl.sh; cp data/localcurl.sh /usr/local/bin/curl;`
+		"chebi_17245_xrefs_UniProt.csv",
+		"chebi_27732_xrefs_UniProt.csv",
+		"chebi_27732_xrefs_UniProt.xls",
+		"chebi_27732_xrefs_UniProt.xml",
+		"chebi_30050_xrefs_UniProt.csv",
+		"localcurl.sh"
+	],
+	init: `mv /usr/local/bin/curl /usr/local/bin/curl.ori; chmod u+x data/localcurl.sh; cp data/localcurl.sh /usr/local/bin/curl;`
 };

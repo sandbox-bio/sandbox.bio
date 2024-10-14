@@ -3,13 +3,14 @@ import Execute from "$components/Execute.svelte";
 </script>
 
 #### Data Retrieval
+
 After having the link, we need a web retrieval tool that works like our internet
 browser, i.e. receives as input a URL for programmatic access and retrieves
 its contents from the internet. We will use Client Uniform Resource Locator
 (cURL), which is available as a command line tool, and allows us to download
-the result of opening a URL directly into a file. 
+the result of opening a URL directly into a file.
 
-<Alert>The ``curl`` command here at this platform will be replaced by a local version to access the data locally instead of online due to access restrictions. However, the same command will work just fine in your local terminal.</Alert>
+<Alert>The `curl` command here at this platform will be replaced by a local version to access the data locally instead of online due to access restrictions. However, the same command will work just fine in your local terminal.</Alert>
 
 For example, to display in our screen the list of proteins related to caffeine,
 we just need to add the respective URL as input argument:
@@ -25,7 +26,7 @@ wget -O- 'https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-=1&6578706f72
 dbName=UniProt'
 ```
 
-Instead of using a fixed URL, we can update the script: 
+Instead of using a fixed URL, we can update the script:
 
 <Execute command="nano getproteins.sh" />
 
@@ -52,5 +53,3 @@ replace the argument:
 And the output on our terminal should be an even longer list of proteins.
 
 The next step will show how to manage these long lists.
-
-

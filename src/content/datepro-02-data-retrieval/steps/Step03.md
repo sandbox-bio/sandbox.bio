@@ -42,7 +42,6 @@ by adding it to our script:
 
 <Execute command="nano getproteins.sh" />
 
-
 Now when executing the script, no progress information is shown:
 
 <Execute command="./getproteins.sh 27732 > chebi_27732_xrefs_UniProt.csv" />

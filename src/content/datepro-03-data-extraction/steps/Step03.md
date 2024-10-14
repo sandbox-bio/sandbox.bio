@@ -51,4 +51,3 @@ To save the output as a file with the relevant proteins’ identifiers, we only
 need to add the redirection operator:
 
 <Execute command="./getproteins.sh 27732 > chebi_27732_xrefs_UniProt_relevant_identifiers.csv" />
-
