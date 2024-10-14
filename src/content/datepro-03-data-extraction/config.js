@@ -7,8 +7,8 @@ import Conclusion from "./steps/Conclusion.md";
 import Exercise01 from "./exercises/Exercise01.md";
 
 export const config = {
-	id: "datepro-01-data-extraction",
-	pwd: "datepro-01-data-extraction",
+	id: "datepro-03-data-extraction",
+	pwd: "datepro-03-data-extraction",
 	name: "Data and Text Processing: Data extraction",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
 	description: "Data Extraction",

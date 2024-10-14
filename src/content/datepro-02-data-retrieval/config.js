@@ -7,8 +7,8 @@ import Conclusion from "./steps/Conclusion.md";
 import Exercise01 from "./exercises/Exercise01.md";
 
 export const config = {
-	id: "datepro-01-data-retrieval",
-	pwd: "datepro-01-data-retrieval",
+	id: "datepro-02-data-retrieval",
+	pwd: "datepro-02-data-retrieval",
 	name: "Data and Text Processing: Data Retrieval",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
 	description: "Data Retrieval",

@@ -19,6 +19,8 @@ import { config as blastIntro } from "$content/blast-intro/config";
 import { config as jellyfishIntro } from "$content/jellyfish-intro/config";
 import { config as seqkitIntro } from "$content/seqkit-intro/config";
 import { config as datepro1 } from "$content/datepro-01-unix-shell/config";
+import { config as datepro2 } from "$content/datepro-02-data-retrieval/config";
+import { config as datepro3 } from "$content/datepro-03-data-extraction/config";
 
 // All tutorials
 export const tutorials = readable([
@@ -45,7 +47,9 @@ export const tutorials = readable([
 	ifblinuxbasics1,
 	ifblinuxbasics2,
 	ifblinuxbasics3,
-	datepro1
+	datepro1,
+	datepro2,
+	datepro3,
 ]);
 
 // Tutorial listings
