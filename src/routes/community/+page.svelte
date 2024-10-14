@@ -41,13 +41,13 @@ import { config as datepro3 } from "$content/datepro-03-data-extraction/config";
 </p>
 
 <h5 class="bg-primary-subtle p-2 mt-5">
-	<a href="https://www.france-bioinformatique.fr/en/home/" class="text-decoration-none" target="_blank" rel="noreferrer">
-		French Institute of Bioinformatics
+	<a href="http://labs.rd.ciencias.ulisboa.pt/book/" class="text-decoration-none" target="_blank" rel="noreferrer">
+		Data and Text Processing for Health and Life Sciences, by Francisco M. Couto
 	</a>
 </h5>
 
-<a href="https://www.france-bioinformatique.fr/en/home/" target="_blank" rel="noreferrer">
-	<img src="/logo-ifb.svg" alt="Logo of the IFB" width="150" />
+<a href="http://labs.rd.ciencias.ulisboa.pt/book/" target="_blank" rel="noreferrer">
+	<img src="https://webpages.ciencias.ulisboa.pt/~fjcouto/Data%20and%20Text%20Processing%20for%20Health%20and%20Life%20Sciences.jpg" alt="Logo of the IFB" width="150" />
 </a>
 
 <TutorialList
@@ -61,6 +61,6 @@ import { config as datepro3 } from "$content/datepro-03-data-extraction/config";
 
 <p class="text-muted small">
 	IFB tutorials are licensed under a
-	<a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" target="_blank" rel="noreferrer"> CC-BY-SA </a>
+	<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>
 	license.
 </p>
