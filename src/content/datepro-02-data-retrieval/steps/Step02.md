@@ -1,4 +1,5 @@
 <script>
+import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -21,10 +22,7 @@ The output on our terminal is the long list of proteins.
 
 An alternative to curl is the command `wget` (not available at this plaform), which also receives a URL as argument but by default `wget` writes the contents to a file instead of displaying it on the screen. So, the equivalent command, is to add the -O- option to select where the contents is placed.
 
-```bash
-wget -O- 'https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-=1&6578706f7274=1&chebiId=27732&
-dbName=UniProt'
-```
+<pre class="code border p-2" style="white-space: pre-wrap">wget -O- 'https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-=1&6578706f7274=1&chebiId=27732&dbName=UniProt'</pre>
 
 Instead of using a fixed URL, we can update the script:
 
@@ -32,9 +30,7 @@ Instead of using a fixed URL, we can update the script:
 
 To contain only the following line:
 
-```bash
-curl "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-=1&6578706f7274=1&chebiId=$1&dbName=UniProt"
-```
+<pre class="code border p-2" style="white-space: pre-wrap">curl "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-=1&6578706f7274=1&chebiId=$1&dbName=UniProt"</pre>
 
 We should note that now we are using double quotes, since we replaced the
 caffeine identifier by `$1`.
