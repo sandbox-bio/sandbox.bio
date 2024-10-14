@@ -1,0 +1,388 @@
+<?xml version="1.0"?>
+<table>
+<row>
+<column>A2AGL3</column>
+<column>Ryanodine receptor 3</column>
+<column>CC - MISCELLANEOUS</column>
+</row>
+<row>
+<column>A4GE69</column>
+<column>7-methylxanthosine synthase 1</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>A4GE70</column>
+<column>3,7-dimethylxanthine N-methyltransferase</column>
+<column>CC - CATALYTIC ACTIVITY; CC - FUNCTION</column>
+</row>
+<row>
+<column>A6MFK9</column>
+<column>Cysteine-rich venom protein</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>B0LPN4</column>
+<column>Ryanodine receptor 2</column>
+<column>CC - MISCELLANEOUS</column>
+</row>
+<row>
+<column>B7FDI0</column>
+<column>Cysteine-rich venom protein</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>B7FDI1</column>
+<column>Cysteine-rich venom protein</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>B8QG00</column>
+<column>Hadrucalcin</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>D7REY3</column>
+<column>Caffeine dehydrogenase subunit alpha</column>
+<column>DE; FT; CC - CATALYTIC ACTIVITY; CC - FUNCTION; CC - BIOPHYSICOCHEMICAL PROPERTIES</column>
+</row>
+<row>
+<column>D7REY4</column>
+<column>Caffeine dehydrogenase subunit beta</column>
+<column>DE; FT; CC - CATALYTIC ACTIVITY; CC - FUNCTION; CC - BIOPHYSICOCHEMICAL PROPERTIES</column>
+</row>
+<row>
+<column>D7REY5</column>
+<column>Caffeine dehydrogenase subunit gamma</column>
+<column>DE; FT; CC - CATALYTIC ACTIVITY; CC - FUNCTION; CC - BIOPHYSICOCHEMICAL PROPERTIES</column>
+</row>
+<row>
+<column>E9PZQ0</column>
+<column>Ryanodine receptor 1</column>
+<column>CC - MISCELLANEOUS</column>
+</row>
+<row>
+<column>E9Q401</column>
+<column>Ryanodine receptor 2</column>
+<column>CC - MISCELLANEOUS</column>
+</row>
+<row>
+<column>F0E1K6</column>
+<column>Probable methylxanthine N7-demethylase NdmC</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>F1LMY4</column>
+<column>Ryanodine receptor 1</column>
+<column>CC - MISCELLANEOUS</column>
+</row>
+<row>
+<column>F8J2D4</column>
+<column>Cysteine-rich venom protein</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>H9N289</column>
+<column>Methylxanthine N1-demethylase NdmA</column>
+<column>CC - CATALYTIC ACTIVITY; CC - FUNCTION; CC - BIOPHYSICOCHEMICAL PROPERTIES</column>
+</row>
+<row>
+<column>H9N290</column>
+<column>Methylxanthine N3-demethylase NdmB</column>
+<column>CC - FUNCTION; CC - BIOPHYSICOCHEMICAL PROPERTIES</column>
+</row>
+<row>
+<column>H9N291</column>
+<column>Oxidoreductase NdmD</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>O13798</column>
+<column>Caffeine-induced protein 16</column>
+<column>DE; FT</column>
+</row>
+<row>
+<column>O13833</column>
+<column>Poly(A) RNA polymerase protein cid1</column>
+<column>DE</column>
+</row>
+<row>
+<column>O14174</column>
+<column>SAGA complex subunit spt20</column>
+<column>CC - DISRUPTION PHENOTYPE</column>
+</row>
+<row>
+<column>O74326</column>
+<column>Poly(A) RNA polymerase cid11</column>
+<column>DE</column>
+</row>
+<row>
+<column>O74518</column>
+<column>Poly(A) RNA polymerase cid12</column>
+<column>DE</column>
+</row>
+<row>
+<column>O74982</column>
+<column>Caffeine-induced death protein 2</column>
+<column>DE; FT</column>
+</row>
+<row>
+<column>O94236</column>
+<column>Eukaryotic translation initiation factor 3 subunit D</column>
+<column>CC - DISRUPTION PHENOTYPE</column>
+</row>
+<row>
+<column>O94513</column>
+<column>Eukaryotic translation initiation factor 3 subunit E</column>
+<column>CC - DISRUPTION PHENOTYPE</column>
+</row>
+<row>
+<column>O94528</column>
+<column>Caffeine resistance protein 5</column>
+<column>DE; FT</column>
+</row>
+<row>
+<column>P05177</column>
+<column>Cytochrome P450 1A2</column>
+<column>CC - FUNCTION; CC - POLYMORPHISM</column>
+</row>
+<row>
+<column>P08684</column>
+<column>Cytochrome P450 3A4</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>P11716</column>
+<column>Ryanodine receptor 1</column>
+<column>CC - MISCELLANEOUS</column>
+</row>
+<row>
+<column>P14068</column>
+<column>Exportin-1</column>
+<column>DE</column>
+</row>
+<row>
+<column>P21817</column>
+<column>Ryanodine receptor 1</column>
+<column>CC - DISEASE; CC - MISCELLANEOUS</column>
+</row>
+<row>
+<column>P38273</column>
+<column>Vacuolar fusion protein CCZ1</column>
+<column>DE</column>
+</row>
+<row>
+<column>P38689</column>
+<column>Ribose-phosphate pyrophosphokinase 3</column>
+<column>CC - DISRUPTION PHENOTYPE</column>
+</row>
+<row>
+<column>P41878</column>
+<column>26S proteasome regulatory subunit rpn11</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>P53289</column>
+<column>Protein phosphatase type 2A regulatory subunit RTS3</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>P54867</column>
+<column>Protein SLG1</column>
+<column>CC - MISCELLANEOUS</column>
+</row>
+<row>
+<column>Q3SB03</column>
+<column>Cysteine-rich venom protein pseudechetoxin-like</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>Q3SB04</column>
+<column>Cysteine-rich venom protein pseudechetoxin-like</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>Q3SB05</column>
+<column>Cysteine-rich venom protein pseudechetoxin-like</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>Q3SB06</column>
+<column>Cysteine-rich venom protein pseudechetoxin-like</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>Q3SB07</column>
+<column>Cysteine-rich venom protein pseudechetoxin-like</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>Q5AHG6</column>
+<column>Serine/threonine-protein kinase SCH9</column>
+<column>CC - DISRUPTION PHENOTYPE</column>
+</row>
+<row>
+<column>Q8AVA3</column>
+<column>Cysteine-rich venom protein pseudecin</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>Q8AVA4</column>
+<column>Cysteine-rich venom protein pseudechetoxin</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>Q8BKX6</column>
+<column>Serine/threonine-protein kinase SMG1</column>
+<column>CC - ENZYME REGULATION</column>
+</row>
+<row>
+<column>Q8H0D2</column>
+<column>3,7-dimethylxanthine N-methyltransferase</column>
+<column>DE; CC - CATALYTIC ACTIVITY; CC - FUNCTION</column>
+</row>
+<row>
+<column>Q8H0D3</column>
+<column>Caffeine synthase 1</column>
+<column>DE; FT; CC - CATALYTIC ACTIVITY; CC - FUNCTION</column>
+</row>
+<row>
+<column>Q8H0G0</column>
+<column>Theobromine synthase 2</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>Q8JGT9</column>
+<column>Cysteine-rich venom protein tigrin</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>Q8JI40</column>
+<column>Cysteine-rich venom protein ablomin</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>Q8N490</column>
+<column>Probable hydrolase PNKD</column>
+<column>CC - DISEASE</column>
+</row>
+<row>
+<column>Q9AVJ9</column>
+<column>Monomethylxanthine methyltransferase 1</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>Q9AVK0</column>
+<column>7-methylxanthosine synthase 1</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>Q9AVK1</column>
+<column>Probable caffeine synthase 3</column>
+<column>DE; FT; CC - FUNCTION</column>
+</row>
+<row>
+<column>Q9AVL9</column>
+<column>Probable caffeine synthase 4</column>
+<column>DE; FT; CC - FUNCTION</column>
+</row>
+<row>
+<column>Q9FZ96</column>
+<column>Purine permease 1</column>
+<column>CC - FUNCTION; CC - ENZYME REGULATION</column>
+</row>
+<row>
+<column>Q9FZN8</column>
+<column>Caffeine synthase 1</column>
+<column>DE; FT; CC - CATALYTIC ACTIVITY; CC - FUNCTION</column>
+</row>
+<row>
+<column>Q9JKK8</column>
+<column>Serine/threonine-protein kinase ATR</column>
+<column>CC - ENZYME REGULATION</column>
+</row>
+<row>
+<column>Q9TS33</column>
+<column>Ryanodine receptor 3</column>
+<column>CC - MISCELLANEOUS</column>
+</row>
+<row>
+<column>Q9UT49</column>
+<column>Poly(A) RNA polymerase cid13</column>
+<column>DE</column>
+</row>
+<row>
+<column>Q9UTN3</column>
+<column>Poly(A) RNA polymerase cid14</column>
+<column>DE</column>
+</row>
+<row>
+<column>Q9VD76</column>
+<column>Gustatory receptor for bitter taste 93a</column>
+<column>CC - FUNCTION; CC - DISRUPTION PHENOTYPE</column>
+</row>
+<row>
+<column>Q9VKA5</column>
+<column>Gustatory and pheromone receptor 33a</column>
+<column>CC - DISRUPTION PHENOTYPE</column>
+</row>
+<row>
+<column>Q9VSH2</column>
+<column>Gustatory receptor for bitter taste 66a</column>
+<column>CC - FUNCTION; CC - DISRUPTION PHENOTYPE</column>
+</row>
+<row>
+<column>Q55F68</column>
+<column>Adenylate cyclase, terminal-differentiation specific</column>
+<column>CC - ENZYME REGULATION</column>
+</row>
+<row>
+<column>Q68CM3</column>
+<column>Probable caffeine synthase 2</column>
+<column>DE; FT; CC - CATALYTIC ACTIVITY; CC - FUNCTION</column>
+</row>
+<row>
+<column>Q84PP7</column>
+<column>Monomethylxanthine methyltransferase 2</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>Q96Q15</column>
+<column>Serine/threonine-protein kinase SMG1</column>
+<column>CC - ENZYME REGULATION</column>
+</row>
+<row>
+<column>Q01663</column>
+<column>AP-1-like transcription factor</column>
+<column>DE</column>
+</row>
+<row>
+<column>Q09146</column>
+<column>Brefeldin A resistance protein</column>
+<column>DE</column>
+</row>
+<row>
+<column>Q12502</column>
+<column>Protein LDB19</column>
+<column>CC - FUNCTION</column>
+</row>
+<row>
+<column>Q13535</column>
+<column>Serine/threonine-protein kinase ATR</column>
+<column>CC - ENZYME REGULATION</column>
+</row>
+<row>
+<column>Q15413</column>
+<column>Ryanodine receptor 3</column>
+<column>CC - MISCELLANEOUS</column>
+</row>
+<row>
+<column>Q92375</column>
+<column>Thioredoxin reductase</column>
+<column>DE</column>
+</row>
+<row>
+<column>Q92736</column>
+<column>Ryanodine receptor 2</column>
+<column>CC - MISCELLANEOUS</column>
+</row>
+</table>

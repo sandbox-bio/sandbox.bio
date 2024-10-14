@@ -10,7 +10,7 @@ export const config = {
 	id: "datepro-01-unix-shell",
 	pwd: "datepro-01-unix-shell",
 	name: "Data and Text Processing: Unix Shell",
-	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Franciaco M. Couto</a>`,
+	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
 	description: "Unix Shell",
 	tags: ["unix", "shell", "terminal", "script", "file"],
 	tools: ["ls", "cat", "tac", "ps", "tr", "mv", "cd", "pwd", "nano", "chmod"],

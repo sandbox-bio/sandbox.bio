@@ -59,9 +59,11 @@ tilde character (~):
 
 <Execute command="cd ~" /> 
 
-Again, to double check if we are in the directory we really want, we should type:
+To return the original `pwd` output, we should type:
 
-<Execute command="pwd" /> 
+<Execute command="cd /root/tutorial" />
+
+/root/tutorial
 
 #### Useful key combinations
 
@@ -88,8 +90,8 @@ The following examples will probably work in any Unix shell, but if we want
 to be certain that we are using bash we can type the following command,
 and check if the output says bash:
 
-<Execute command="ps -p" />
+<Execute command="ps -p $$" />
 
-This tool shows information about active processes running in our computer. The `-p` option selects a given process, and in this case $$ represents the process running in our terminal application. In most terminal applications bash is the default shell. If this is not our case, we may need to type bash, hit enter and now we are using bash.
+This tool shows information about active processes running in our computer. The `-p` option selects a given process, and in this case `$$` represents the process running in our terminal application. In most terminal applications bash is the default shell. If this is not our case, we may need to type bash, hit enter and now we are using bash.
 
 Now that we know how to use a shell, the next step is to write and run a very simple script that reverses the order of the lines in a text file.
