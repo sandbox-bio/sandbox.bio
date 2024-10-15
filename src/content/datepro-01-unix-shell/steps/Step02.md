@@ -28,9 +28,10 @@ proper filename extension. To check if the file is really on our working directo
 
 The contents of the file should appear in our terminal. `cat` is a simple
 command line tool that receives a filename as argument and displays its con-
-tents on the screen. 
+tents on the screen.
 
 #### Reverse file contents
+
 An alternative to `cat` tool is the `tac` tool. To try it, we only need to type:
 
 <Execute command="tac myfile.txt" />
@@ -50,7 +51,7 @@ And add the following line:
 tac $1
 ```
 
-`$1` represents the first argument after the script filename when invoking it. 
+`$1` represents the first argument after the script filename when invoking it.
 
 Exit from the editor with **Ctrl-X**, and then press **Y** and **Enter** to save the file.
 
@@ -63,13 +64,14 @@ of the script, which would specify that it should be executed using the Bash
 shell. However, for simplicity we will not use any shebang in our tutorials.
 
 ### Permissions
+
 A script also needs permission to be executed, so every time we create a new
 script file we need to type:
 
 <Execute command="chmod u+x reversemyfile.sh" />
 
 The command line tool `chmod` just gave the user (`u`) permissions to execute
-(`+x`). 
+(`+x`).
 
 Finally, we can execute the script by providing the `myfile.txt` as argument:
 

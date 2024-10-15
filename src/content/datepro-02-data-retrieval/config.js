@@ -7,8 +7,8 @@ import Conclusion from "./steps/Conclusion.md";
 import Exercise01 from "./exercises/Exercise01.md";
 
 export const config = {
-	id: "datepro-01-data-retrieval",
-	pwd: "datepro-01-data-retrieval",
+	id: "datepro-02-data-retrieval",
+	pwd: "datepro-02-data-retrieval",
 	name: "Data and Text Processing: Data Retrieval",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
 	description: "Data Retrieval",
@@ -21,16 +21,16 @@ export const config = {
 		{ name: "Data Retrieval", component: Step02 },
 		{ name: "Manage Output", component: Step03 },
 		{ name: "Conclusion", component: Conclusion },
-		{ name: "Exercise", component: Exercise01 },
+		{ name: "Exercise", component: Exercise01 }
 	],
 	files: [
 		"chebi_15377_xrefs_UniProt.csv",
-        "chebi_17245_xrefs_UniProt.csv",
-        "chebi_27732_xrefs_UniProt.csv",
-        "chebi_27732_xrefs_UniProt.xls",
-        "chebi_27732_xrefs_UniProt.xml",
-        "chebi_30050_xrefs_UniProt.csv",
-        "localcurl.sh",
-		],
-		init: `mv /usr/local/bin/curl /usr/local/bin/curl.ori; chmod u+x data/localcurl.sh; cp data/localcurl.sh /usr/local/bin/curl;`
+		"chebi_17245_xrefs_UniProt.csv",
+		"chebi_27732_xrefs_UniProt.csv",
+		"chebi_27732_xrefs_UniProt.xls",
+		"chebi_27732_xrefs_UniProt.xml",
+		"chebi_30050_xrefs_UniProt.csv",
+		"localcurl.sh"
+	],
+	init: `mv /usr/local/bin/curl /usr/local/bin/curl.ori; chmod u+x localcurl.sh; cp localcurl.sh /usr/local/bin/curl;`
 };

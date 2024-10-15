@@ -7,8 +7,8 @@ import Conclusion from "./steps/Conclusion.md";
 import Exercise01 from "./exercises/Exercise01.md";
 
 export const config = {
-	id: "datepro-01-data-extraction",
-	pwd: "datepro-01-data-extraction",
+	id: "datepro-03-data-extraction",
+	pwd: "datepro-03-data-extraction",
 	name: "Data and Text Processing: Data extraction",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
 	description: "Data Extraction",
@@ -21,14 +21,14 @@ export const config = {
 		{ name: "Multiple patterns", component: Step02 },
 		{ name: "Extract column", component: Step03 },
 		{ name: "Conclusion", component: Conclusion },
-		{ name: "Exercise", component: Exercise01 },
+		{ name: "Exercise", component: Exercise01 }
 	],
 	files: [
 		"chebi_15377_xrefs_UniProt.csv",
-        "chebi_17245_xrefs_UniProt.csv",
-        "chebi_27732_xrefs_UniProt.csv",
-        "chebi_30050_xrefs_UniProt.csv",
-        "localcurl.sh",
-		],
-		init: `mv /usr/local/bin/curl /usr/local/bin/curl.ori; chmod u+x data/localcurl.sh; cp data/localcurl.sh /usr/local/bin/curl;`
+		"chebi_17245_xrefs_UniProt.csv",
+		"chebi_27732_xrefs_UniProt.csv",
+		"chebi_30050_xrefs_UniProt.csv",
+		"localcurl.sh"
+	],
+	init: `mv /usr/local/bin/curl /usr/local/bin/curl.ori; chmod u+x localcurl.sh; cp localcurl.sh /usr/local/bin/curl;`
 };

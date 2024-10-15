@@ -21,8 +21,7 @@ export const config = {
 		{ name: "Data and Script Files", component: Step02 },
 		{ name: "Save the Output", component: Step03 },
 		{ name: "Conclusion", component: Conclusion },
-		{ name: "Exercise", component: Exercise01 },
+		{ name: "Exercise", component: Exercise01 }
 	],
-	files: [
-		]
+	files: []
 };

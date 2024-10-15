@@ -1,4 +1,4 @@
-This concludes the  **Unix Shell**  tutorial adapted from the same section of the [Data and Text Processing for Health and Life Sciences](https://labs.rd.ciencias.ulisboa.pt/book/) book.
+This concludes the **Unix Shell** tutorial adapted from the same section of the [Data and Text Processing for Health and Life Sciences](https://labs.rd.ciencias.ulisboa.pt/book/) book.
 
 In this tutorial, you learned the basics of how to use a Unix shell, create data and script files, execute them, and save the output.
 

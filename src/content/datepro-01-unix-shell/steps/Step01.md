@@ -16,11 +16,11 @@ As our first command line, we can type:
 <Execute command="pwd" />
 
 The command will show the full path of the directory (folder) in which the shell is working on.
-To understand any command line tool, such as `pwd`, we can 
-add the --help option after any command tool. For example, 
+To understand any command line tool, such as `pwd`, we can
+add the --help option after any command tool. For example,
 to have a more concise description of pwd we can type:
 
-<Execute command="pwd --help" /> 
+<Execute command="pwd --help" />
 
 As our second command line, we can type:
 
@@ -33,31 +33,31 @@ It will show the list of files in the current directory.
 To change the directory, we can use another command line tool, the `cd`
 (change directory) followed by the new path. In a personal computer with Linux we may want to use the Documents directory. Type:
 
-<Execute command="cd Documents" /> 
+<Execute command="cd Documents" />
 
 We will receive the error saying that is no such file or directory.
-This happens because we do not have that directory. 
-To create we can use the `mkdir` command 
+This happens because we do not have that directory.
+To create we can use the `mkdir` command
 
-<Execute command="mkdir Documents" /> 
+<Execute command="mkdir Documents" />
 
 And now try again:
 
-<Execute command="cd Documents" /> 
+<Execute command="cd Documents" />
 
 Now to see what changed we can type:
 
-<Execute command="pwd" /> 
+<Execute command="pwd" />
 
 And if we want to return to the parent directory, we only need to use the
 two dots:
 
-<Execute command="cd .." /> 
+<Execute command="cd .." />
 
 And if we want to return to the home directory, we only need to use the
 tilde character (~):
 
-<Execute command="cd ~" /> 
+<Execute command="cd ~" />
 
 To return the original `pwd` output, we should type:
 
@@ -72,7 +72,7 @@ control (**Ctrl**) and **C key** at the same time . This usually cancels the cur
 tool being executed. For example, try using the `cd` command with only one
 single quote:
 
-<Execute command="cd '" /> 
+<Execute command="cd '" />
 
 This will block the terminal, because it is still waiting for a second single
 quote that closes the argument. Now press **Ctrl-c**, and the command will be
@@ -82,10 +82,11 @@ be canceled, but instead it is executed without the second single quote and
 therefore a syntax error will be shown on our display.
 
 Other useful key combinations are the **Ctrl-l** that when pressed cleans the
-terminal display,  and the **Ctrl-Insert** and **Shift-Insert** that when pressed
+terminal display, and the **Ctrl-Insert** and **Shift-Insert** that when pressed
 copy and paste the selected text, respectively.
 
 #### Shell version
+
 The following examples will probably work in any Unix shell, but if we want
 to be certain that we are using bash we can type the following command,
 and check if the output says bash:

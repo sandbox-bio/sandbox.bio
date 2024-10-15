@@ -1,5 +1,6 @@
 <script>
 import Alert from "$components/Alert.svelte";
+import Execute from "$components/Execute.svelte";
 </script>
 
 #### Data Extraction
@@ -33,9 +34,8 @@ topic `CC - MISCELLANEOUS`, our pattern, in our CSV file:
 <Execute command="grep 'CC - MISCELLANEOUS' data/chebi_27732_xrefs_UniProt.csv" />
 
 The `data` folder contains the files retrieved in the previous tutorial.
- 
+
 The output will be a shorter list of proteins, all with `CC - MISCELLANEOUS`
 as topic.
 
 The next step will show how to filter by multiple topics.
-

@@ -33,10 +33,11 @@ seven hundred proteins, since the 17245 is the ChEBI identifier of a popular
 chemical compound in life systems, the carbon monoxide.
 
 In this case, we are not using a fully RESTful web service, but the data path is pretty modular and self-explanatory. The path is clearly composed of:
+
 - the name of the database (chebi);
 - the method (viewDbAutoXrefs.do);
 - and a list of parameters and their value (arguments) after the question
-mark character (?).
+  mark character (?).
 
 The order of the parameters in the URL is normally not relevant. They are
 separated by the ampersand character (&) and the equals character (=) is
@@ -44,7 +45,7 @@ used to assign a value to each parameter (argument). This modular structure
 of these URLs allows us to use them as data pipelines to fill our local files with
 data, like pipelines that transport oil or gas from one container to another.
 
-####  Single and double quotes
+#### Single and double quotes
 
 To construct the URL for a given ChEBI identifier, let us first understand the
 difference between single quotes and double quotes in a string (sequence of
@@ -62,7 +63,7 @@ echo "The input: $1"
 
 Exit from the editor with **Ctrl-X**, and then press **Y** and **Enter** to save the file.
 
-The command line tool `echo` displays the string received as argument. 
+The command line tool `echo` displays the string received as argument.
 
 Do not forget to save it in our working directory:
 
@@ -77,6 +78,7 @@ Now to execute the script we will only need to type:
 <Execute command="./getproteins.sh" />
 
 The output on the terminal should be:
+
 ```text
 The input: $1
 The input:
@@ -93,11 +95,13 @@ To execute the script with an argument, we can type:
 <Execute command="./getproteins.sh 27732" />
 
 The output on our terminal should be:
+
 ```text
 The input: $1
 The input: 27732
 ```
-We can check now that when using double quotes `$1`  is translated to the
+
+We can check now that when using double quotes `$1` is translated to the
 string given as argument.
 Now we can update our script file named getproteins.sh
 
@@ -110,9 +114,11 @@ echo "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d
 -1169080-e=1&6578706f7274=1&chebiId=$1&dbName=
 UniProt"
 ```
+
 Exit from the editor with **Ctrl-X**, and then press **Y** and **Enter** to save the file.
 
-#### Comments 
+#### Comments
+
 Instead of removing the previous lines, we can transform them in comments
 by adding the hash character (`#`) to the beginning of the line:
 
@@ -123,6 +129,7 @@ echo "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d
 -1169080-e=1&6578706f7274=1&chebiId=$1&dbName=
 UniProt"
 ```
+
 Commented lines are ignored by the computer during script execution, so this script will perform the same actions as the previous one with just one line of code.
 
 Now, we can execute the script giving the ChEBI identifier as argument:
