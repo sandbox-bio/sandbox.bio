@@ -9,7 +9,7 @@ import Exercise01 from "./exercises/Exercise01.md";
 export const config = {
 	id: "datepro-04-task-repetition",
 	pwd: "datepro-04-task-repetition",
-	name: "Data and Text Processing: Task Repetition",
+	name: "Section 3.6: Task Repetition",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
 	description: "Automating UniProt data retrieval: downloading XML files for protein lists in a single step",
 	tags: ["proteins", "download", "lists of arguments", "XML", "UniProt"],

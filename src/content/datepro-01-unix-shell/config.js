@@ -9,7 +9,7 @@ import Exercise01 from "./exercises/Exercise01.md";
 export const config = {
 	id: "datepro-01-unix-shell",
 	pwd: "datepro-01-unix-shell",
-	name: "Data and Text Processing: Unix Shell",
+	name: "Section 3.2: Unix shell",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
 	description: "Creating and using data and script files in a Unix shell",
 	tags: ["unix", "shell", "terminal", "script", "file"],
