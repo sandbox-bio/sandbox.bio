@@ -2,7 +2,6 @@
 import Execute from "$components/Execute.svelte";
 </script>
 
-###### Variable
 We can now update our script file from previous tutorials: 
 
 <Execute command="nano getproteins.sh" />
@@ -16,6 +15,7 @@ cat chebi\_$ID\_xrefs_UniProt_relevant_identifiers.csv | \
 xargs -I {} curl -o chebi\_$ID\_{}.xml 'https://rest.uniprot.org/uniprotkb/{}.xml' 
 </pre>
 
+#### Variable
 
 We should note that the last line now includes the `xargs` and `curl` commands, and the `$ID` variable. This new variable is created in the first line to
 contain the first value given as argument (`$1`). So, every time we mention

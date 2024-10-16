@@ -24,7 +24,7 @@ To check the contents of any of them, we can use the less command:
 
 <Execute command="less chebi_27732_P21817.xml" />
 
-###### File header
+#### File header
 
 We should note that the content of every file has to start with `<?xml` otherwise there was a download error, and we have to run curl again for those
 entries. To check the header of each file, we can use the head command

@@ -11,7 +11,7 @@ export const config = {
 	pwd: "datepro-02-data-retrieval",
 	name: "Data and Text Processing: Data Retrieval",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
-	description: "Data Retrieval",
+	description: "Accessing the ChEBI database using web services for retrieving proteins associated with a given compound",
 	tags: ["curl", "redirection", "parameters", "CSV"],
 	tools: ["curl", "cat", "nano", "chmod"],
 	difficulty: ["beginner"],

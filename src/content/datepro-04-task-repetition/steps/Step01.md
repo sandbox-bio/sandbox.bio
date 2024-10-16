@@ -2,8 +2,6 @@
 import Execute from "$components/Execute.svelte";
 </script>
 
-#### Task Repetition
-
 Given a protein identifier we can construct the URL that will enable us to
 download its information from UniProt. We can use the RESTful web services
 provided by UniProt 39 , more specifically the one that allow us to retrieve a
@@ -13,7 +11,7 @@ identifier, ending with a dot and the data format. For example, the link for
 protein P21817 using the XML format is:
 https://rest.uniprot.org/uniprotkb/P21817.xml
 
-###### Assembly line
+#### Assembly line
 
 However, we need to construct one URL for each protein from the list we
 previously retrieved. The size of the list can be large (hundreds of proteins),

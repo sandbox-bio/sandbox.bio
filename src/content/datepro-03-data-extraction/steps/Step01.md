@@ -3,8 +3,6 @@ import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
-#### Data Extraction
-
 Some data in the CSV file may not be relevant regarding our information
 need, i.e. we may need to identify and extract relevant data. In our case, we
 will select the relevant proteins (lines) using the command line tool `grep`,
