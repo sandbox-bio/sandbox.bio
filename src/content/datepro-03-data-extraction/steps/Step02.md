@@ -5,7 +5,7 @@ import Execute from "$components/Execute.svelte";
 
 To use multiple patterns, we must precede each pattern with the `-e` option:
 
-<Execute command="grep -e 'CC - MISCELLANEOUS' -e 'CC - DISRUPTION PHENOTYPE' -e 'CC - DISEASE' data/chebi_27732_xrefs_UniProt.csv " />
+<Execute command="grep -e 'CC - MISCELLANEOUS' -e 'CC - DISRUPTION PHENOTYPE' -e 'CC - DISEASE' chebi_27732_xrefs_UniProt.csv " />
 
 The equivalent long form to the `-e` option is `--regexp=PATTERN`.
 
@@ -15,7 +15,7 @@ We should note that as previously, we can add `| less` to check all of
 them more carefully. The less command also gives the opportunity to find
 lines based on a pattern. We only need to type `/` and then a pattern.
 
-<Execute command="grep -e 'CC - MISCELLANEOUS' -e 'CC - DISRUPTION PHENOTYPE' -e 'CC - DISEASE' data/chebi_27732_xrefs_UniProt.csv | less" />
+<Execute command="grep -e 'CC - MISCELLANEOUS' -e 'CC - DISRUPTION PHENOTYPE' -e 'CC - DISEASE' chebi_27732_xrefs_UniProt.csv | less" />
 
 We can now update our script file
 
@@ -33,7 +33,13 @@ output of that line as input of the next line, in this case the grep command.
 We need to be careful in ensuring that `\` is the last character in the line, i.e.
 spaces in the end of the line may cause problems.
 
+Add the right permissions with `chmod` as we did previously:
+
+<Execute command="chmod u+x getproteins.sh" />
+
 We can now execute the script again:
+
+<Execute command="chmod u+x getproteins.sh" />
 
 <Execute command="./getproteins.sh 27732" />
 

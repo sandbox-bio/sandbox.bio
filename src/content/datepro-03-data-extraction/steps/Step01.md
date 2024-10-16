@@ -31,7 +31,7 @@ regular expressions, that we will describe later on.
 We can execute the following command that selects the proteins with the
 topic `CC - MISCELLANEOUS`, our pattern, in our CSV file:
 
-<Execute command="grep 'CC - MISCELLANEOUS' data/chebi_27732_xrefs_UniProt.csv" />
+<Execute command="grep 'CC - MISCELLANEOUS' chebi_27732_xrefs_UniProt.csv" />
 
 The `data` folder contains the files retrieved in the previous tutorial.
 

@@ -1,9 +1,7 @@
+#!/bin/bash
+
 # This script simulates the behavior of curl for a specific URL pattern.
 # It accepts an optional -s argument to suppress stderr output.
-
-# Requires in sandbox.bio playground: 
-## mv /usr/local/bin/curl /usr/local/bin/curl.ori; chmod u+x data/localcurl.sh; cp data/localcurl.sh /usr/local/bin/curl;
-
 
 # Check if -s option is present
 if [[ $1 == "-s" ]]; then
@@ -12,7 +10,6 @@ if [[ $1 == "-s" ]]; then
     # Set stderr to /dev/null to suppress output
     exec 2>/dev/null
 fi
-
 
 echo "Simulating downloading file..." >&2
 sleep 1
@@ -25,7 +22,7 @@ if [[ $url == https://www.ebi.ac.uk/chebi/* ]]; then
     # Extract the ChEBI ID from the URL using a regular expression
     chebiId=$(echo $url | grep -oP '(?<=chebiId=)[^&]*')
     # Print the contents of the corresponding CSV file
-    cat $HOME/tutorial/data/chebi_${chebiId}_xrefs_UniProt.csv
+    /usr/local/bin/curl.ori "/data/datepro-02-data-retrieval/chebi_${chebiId}_xrefs_UniProt.csv"
 else
     # If the URL does not match the expected pattern, print an error message
     echo "URL for an unknown location"
