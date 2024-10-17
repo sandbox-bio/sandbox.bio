@@ -1,0 +1,3685 @@
+<?xml version="1.0" encoding="UTF-8"  standalone="no" ?>
+<uniprot xmlns="http://uniprot.org/uniprot" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://uniprot.org/uniprot http://www.uniprot.org/docs/uniprot.xsd">
+<entry dataset="Swiss-Prot" created="2001-09-26" modified="2023-06-28" version="232" xmlns="http://uniprot.org/uniprot">
+  <accession>Q92736</accession>
+  <accession>Q15411</accession>
+  <accession>Q546N8</accession>
+  <accession>Q5T3P2</accession>
+  <name>RYR2_HUMAN</name>
+  <protein>
+    <recommendedName>
+      <fullName>Ryanodine receptor 2</fullName>
+      <shortName>RYR-2</shortName>
+      <shortName>RyR2</shortName>
+      <shortName>hRYR-2</shortName>
+    </recommendedName>
+    <alternativeName>
+      <fullName>Cardiac muscle ryanodine receptor</fullName>
+    </alternativeName>
+    <alternativeName>
+      <fullName>Cardiac muscle ryanodine receptor-calcium release channel</fullName>
+    </alternativeName>
+    <alternativeName>
+      <fullName>Type 2 ryanodine receptor</fullName>
+    </alternativeName>
+  </protein>
+  <gene>
+    <name type="primary">RYR2</name>
+  </gene>
+  <organism>
+    <name type="scientific">Homo sapiens</name>
+    <name type="common">Human</name>
+    <dbReference type="NCBI Taxonomy" id="9606"/>
+    <lineage>
+      <taxon>Eukaryota</taxon>
+      <taxon>Metazoa</taxon>
+      <taxon>Chordata</taxon>
+      <taxon>Craniata</taxon>
+      <taxon>Vertebrata</taxon>
+      <taxon>Euteleostomi</taxon>
+      <taxon>Mammalia</taxon>
+      <taxon>Eutheria</taxon>
+      <taxon>Euarchontoglires</taxon>
+      <taxon>Primates</taxon>
+      <taxon>Haplorrhini</taxon>
+      <taxon>Catarrhini</taxon>
+      <taxon>Hominidae</taxon>
+      <taxon>Homo</taxon>
+    </lineage>
+  </organism>
+  <reference key="1">
+    <citation type="journal article" date="1996" name="Biochem. J." volume="318" first="477" last="487">
+      <title>The human cardiac muscle ryanodine receptor-calcium release channel: identification, primary structure and topological analysis.</title>
+      <authorList>
+        <person name="Tunwell R.E.A."/>
+        <person name="Wickenden C."/>
+        <person name="Bertrand B.M.A."/>
+        <person name="Shevchenko V.I."/>
+        <person name="Walsh M.B."/>
+        <person name="Allen P.D."/>
+        <person name="Lai F.A."/>
+      </authorList>
+      <dbReference type="PubMed" id="8809036"/>
+      <dbReference type="DOI" id="10.1042/bj3180477"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [MRNA]</scope>
+    <scope>ALTERNATIVE SPLICING</scope>
+    <source>
+      <tissue>Heart muscle</tissue>
+    </source>
+  </reference>
+  <reference key="2">
+    <citation type="journal article" date="2001" name="Hum. Mol. Genet." volume="10" first="189" last="194">
+      <title>Identification of mutations in the cardiac ryanodine receptor gene in families affected with arrhythmogenic right ventricular cardiomyopathy type 2 (ARVD2).</title>
+      <authorList>
+        <person name="Tiso N."/>
+        <person name="Stephan D.A."/>
+        <person name="Nava A."/>
+        <person name="Bagattin A."/>
+        <person name="Devaney J.M."/>
+        <person name="Stanchi F."/>
+        <person name="Larderet G."/>
+        <person name="Brahmbhatt B."/>
+        <person name="Brown K."/>
+        <person name="Bauce B."/>
+        <person name="Muriago M."/>
+        <person name="Basso C."/>
+        <person name="Thiene G."/>
+        <person name="Danieli G.A."/>
+        <person name="Rampazzo A."/>
+      </authorList>
+      <dbReference type="PubMed" id="11159936"/>
+      <dbReference type="DOI" id="10.1093/hmg/10.3.189"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [GENOMIC DNA]</scope>
+    <scope>VARIANTS ARVD2 GLN-176; PRO-433; ILE-2386 AND MET-2504</scope>
+  </reference>
+  <reference key="3">
+    <citation type="journal article" date="2006" name="Nature" volume="441" first="315" last="321">
+      <title>The DNA sequence and biological annotation of human chromosome 1.</title>
+      <authorList>
+        <person name="Gregory S.G."/>
+        <person name="Barlow K.F."/>
+        <person name="McLay K.E."/>
+        <person name="Kaul R."/>
+        <person name="Swarbreck D."/>
+        <person name="Dunham A."/>
+        <person name="Scott C.E."/>
+        <person name="Howe K.L."/>
+        <person name="Woodfine K."/>
+        <person name="Spencer C.C.A."/>
+        <person name="Jones M.C."/>
+        <person name="Gillson C."/>
+        <person name="Searle S."/>
+        <person name="Zhou Y."/>
+        <person name="Kokocinski F."/>
+        <person name="McDonald L."/>
+        <person name="Evans R."/>
+        <person name="Phillips K."/>
+        <person name="Atkinson A."/>
+        <person name="Cooper R."/>
+        <person name="Jones C."/>
+        <person name="Hall R.E."/>
+        <person name="Andrews T.D."/>
+        <person name="Lloyd C."/>
+        <person name="Ainscough R."/>
+        <person name="Almeida J.P."/>
+        <person name="Ambrose K.D."/>
+        <person name="Anderson F."/>
+        <person name="Andrew R.W."/>
+        <person name="Ashwell R.I.S."/>
+        <person name="Aubin K."/>
+        <person name="Babbage A.K."/>
+        <person name="Bagguley C.L."/>
+        <person name="Bailey J."/>
+        <person name="Beasley H."/>
+        <person name="Bethel G."/>
+        <person name="Bird C.P."/>
+        <person name="Bray-Allen S."/>
+        <person name="Brown J.Y."/>
+        <person name="Brown A.J."/>
+        <person name="Buckley D."/>
+        <person name="Burton J."/>
+        <person name="Bye J."/>
+        <person name="Carder C."/>
+        <person name="Chapman J.C."/>
+        <person name="Clark S.Y."/>
+        <person name="Clarke G."/>
+        <person name="Clee C."/>
+        <person name="Cobley V."/>
+        <person name="Collier R.E."/>
+        <person name="Corby N."/>
+        <person name="Coville G.J."/>
+        <person name="Davies J."/>
+        <person name="Deadman R."/>
+        <person name="Dunn M."/>
+        <person name="Earthrowl M."/>
+        <person name="Ellington A.G."/>
+        <person name="Errington H."/>
+        <person name="Frankish A."/>
+        <person name="Frankland J."/>
+        <person name="French L."/>
+        <person name="Garner P."/>
+        <person name="Garnett J."/>
+        <person name="Gay L."/>
+        <person name="Ghori M.R.J."/>
+        <person name="Gibson R."/>
+        <person name="Gilby L.M."/>
+        <person name="Gillett W."/>
+        <person name="Glithero R.J."/>
+        <person name="Grafham D.V."/>
+        <person name="Griffiths C."/>
+        <person name="Griffiths-Jones S."/>
+        <person name="Grocock R."/>
+        <person name="Hammond S."/>
+        <person name="Harrison E.S.I."/>
+        <person name="Hart E."/>
+        <person name="Haugen E."/>
+        <person name="Heath P.D."/>
+        <person name="Holmes S."/>
+        <person name="Holt K."/>
+        <person name="Howden P.J."/>
+        <person name="Hunt A.R."/>
+        <person name="Hunt S.E."/>
+        <person name="Hunter G."/>
+        <person name="Isherwood J."/>
+        <person name="James R."/>
+        <person name="Johnson C."/>
+        <person name="Johnson D."/>
+        <person name="Joy A."/>
+        <person name="Kay M."/>
+        <person name="Kershaw J.K."/>
+        <person name="Kibukawa M."/>
+        <person name="Kimberley A.M."/>
+        <person name="King A."/>
+        <person name="Knights A.J."/>
+        <person name="Lad H."/>
+        <person name="Laird G."/>
+        <person name="Lawlor S."/>
+        <person name="Leongamornlert D.A."/>
+        <person name="Lloyd D.M."/>
+        <person name="Loveland J."/>
+        <person name="Lovell J."/>
+        <person name="Lush M.J."/>
+        <person name="Lyne R."/>
+        <person name="Martin S."/>
+        <person name="Mashreghi-Mohammadi M."/>
+        <person name="Matthews L."/>
+        <person name="Matthews N.S.W."/>
+        <person name="McLaren S."/>
+        <person name="Milne S."/>
+        <person name="Mistry S."/>
+        <person name="Moore M.J.F."/>
+        <person name="Nickerson T."/>
+        <person name="O'Dell C.N."/>
+        <person name="Oliver K."/>
+        <person name="Palmeiri A."/>
+        <person name="Palmer S.A."/>
+        <person name="Parker A."/>
+        <person name="Patel D."/>
+        <person name="Pearce A.V."/>
+        <person name="Peck A.I."/>
+        <person name="Pelan S."/>
+        <person name="Phelps K."/>
+        <person name="Phillimore B.J."/>
+        <person name="Plumb R."/>
+        <person name="Rajan J."/>
+        <person name="Raymond C."/>
+        <person name="Rouse G."/>
+        <person name="Saenphimmachak C."/>
+        <person name="Sehra H.K."/>
+        <person name="Sheridan E."/>
+        <person name="Shownkeen R."/>
+        <person name="Sims S."/>
+        <person name="Skuce C.D."/>
+        <person name="Smith M."/>
+        <person name="Steward C."/>
+        <person name="Subramanian S."/>
+        <person name="Sycamore N."/>
+        <person name="Tracey A."/>
+        <person name="Tromans A."/>
+        <person name="Van Helmond Z."/>
+        <person name="Wall M."/>
+        <person name="Wallis J.M."/>
+        <person name="White S."/>
+        <person name="Whitehead S.L."/>
+        <person name="Wilkinson J.E."/>
+        <person name="Willey D.L."/>
+        <person name="Williams H."/>
+        <person name="Wilming L."/>
+        <person name="Wray P.W."/>
+        <person name="Wu Z."/>
+        <person name="Coulson A."/>
+        <person name="Vaudin M."/>
+        <person name="Sulston J.E."/>
+        <person name="Durbin R.M."/>
+        <person name="Hubbard T."/>
+        <person name="Wooster R."/>
+        <person name="Dunham I."/>
+        <person name="Carter N.P."/>
+        <person name="McVean G."/>
+        <person name="Ross M.T."/>
+        <person name="Harrow J."/>
+        <person name="Olson M.V."/>
+        <person name="Beck S."/>
+        <person name="Rogers J."/>
+        <person name="Bentley D.R."/>
+      </authorList>
+      <dbReference type="PubMed" id="16710414"/>
+      <dbReference type="DOI" id="10.1038/nature04727"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]</scope>
+  </reference>
+  <reference key="4">
+    <citation type="journal article" date="1997" name="Biochem. J." volume="322" first="777" last="783">
+      <title>Differential expression of ryanodine receptor RyR2 mRNA in the non-pregnant and pregnant human myometrium.</title>
+      <authorList>
+        <person name="Awad S.S."/>
+        <person name="Lamb H.K."/>
+        <person name="Morgan J.M."/>
+        <person name="Dunlop W."/>
+        <person name="Gillespie J.I."/>
+      </authorList>
+      <dbReference type="PubMed" id="9148749"/>
+      <dbReference type="DOI" id="10.1042/bj3220777"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [MRNA] OF 9-87 AND 533-681</scope>
+    <scope>DEVELOPMENTAL STAGE</scope>
+    <scope>INDUCTION BY TGFB1</scope>
+    <source>
+      <tissue>Heart muscle</tissue>
+      <tissue>Myometrium</tissue>
+    </source>
+  </reference>
+  <reference key="5">
+    <citation type="journal article" date="1998" name="Neuroscience" volume="85" first="205" last="216">
+      <title>Partial cloning and differential expression of ryanodine receptor/calcium-release channel genes in human tissues including the hippocampus and cerebellum.</title>
+      <authorList>
+        <person name="Martin C."/>
+        <person name="Chapman K.E."/>
+        <person name="Seckl J.R."/>
+        <person name="Ashley R.H."/>
+      </authorList>
+      <dbReference type="PubMed" id="9607712"/>
+      <dbReference type="DOI" id="10.1016/s0306-4522(97)00612-x"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [MRNA] OF 4292-4479</scope>
+    <scope>TISSUE SPECIFICITY</scope>
+    <source>
+      <tissue>Cerebellum</tissue>
+      <tissue>Hippocampus</tissue>
+    </source>
+  </reference>
+  <reference key="6">
+    <citation type="journal article" date="2000" name="Cell" volume="101" first="365" last="376">
+      <title>PKA phosphorylation dissociates FKBP12.6 from the calcium release channel (ryanodine receptor): defective regulation in failing hearts.</title>
+      <authorList>
+        <person name="Marx S.O."/>
+        <person name="Reiken S."/>
+        <person name="Hisamatsu Y."/>
+        <person name="Jayaraman T."/>
+        <person name="Burkhoff D."/>
+        <person name="Rosemblit N."/>
+        <person name="Marks A.R."/>
+      </authorList>
+      <dbReference type="PubMed" id="10830164"/>
+      <dbReference type="DOI" id="10.1016/s0092-8674(00)80847-8"/>
+    </citation>
+    <scope>FUNCTION</scope>
+    <scope>IDENTIFICATION IN A COMPLEX WITH FKBP1B; PP1; PP2A AKAP6 AND PKA</scope>
+    <scope>INTERACTION WITH FKBP1B; PKA; PP1 AND PP2A</scope>
+    <scope>SUBCELLULAR LOCATION</scope>
+    <scope>TISSUE SPECIFICITY</scope>
+    <scope>MUTAGENESIS OF SER-2808</scope>
+    <scope>PHOSPHORYLATION AT SER-2808</scope>
+  </reference>
+  <reference key="7">
+    <citation type="journal article" date="2008" name="J. Biol. Chem." volume="283" first="26676" last="26683">
+      <title>S100A1 and calmodulin compete for the same binding site on ryanodine receptor.</title>
+      <authorList>
+        <person name="Wright N.T."/>
+        <person name="Prosser B.L."/>
+        <person name="Varney K.M."/>
+        <person name="Zimmer D.B."/>
+        <person name="Schneider M.F."/>
+        <person name="Weber D.J."/>
+      </authorList>
+      <dbReference type="PubMed" id="18650434"/>
+      <dbReference type="DOI" id="10.1074/jbc.m804432200"/>
+    </citation>
+    <scope>INTERACTION WITH CALM AND S100A1</scope>
+  </reference>
+  <reference key="8">
+    <citation type="journal article" date="2010" name="Circ. Res." volume="106" first="1134" last="1144">
+      <title>CaMKII-dependent diastolic SR Ca2+ leak and elevated diastolic Ca2+ levels in right atrial myocardium of patients with atrial fibrillation.</title>
+      <authorList>
+        <person name="Neef S."/>
+        <person name="Dybkova N."/>
+        <person name="Sossalla S."/>
+        <person name="Ort K.R."/>
+        <person name="Fluschnik N."/>
+        <person name="Neumann K."/>
+        <person name="Seipelt R."/>
+        <person name="Schondube F.A."/>
+        <person name="Hasenfuss G."/>
+        <person name="Maier L.S."/>
+      </authorList>
+      <dbReference type="PubMed" id="20056922"/>
+      <dbReference type="DOI" id="10.1161/circresaha.109.203836"/>
+    </citation>
+    <scope>FUNCTION</scope>
+    <scope>PHOSPHORYLATION AT SER-2808 AND SER-2814</scope>
+  </reference>
+  <reference key="9">
+    <citation type="journal article" date="2002" name="Nature" volume="415" first="198" last="205">
+      <title>Cardiac excitation-contraction coupling.</title>
+      <authorList>
+        <person name="Bers D.M."/>
+      </authorList>
+      <dbReference type="PubMed" id="11805843"/>
+      <dbReference type="DOI" id="10.1038/415198a"/>
+    </citation>
+    <scope>REVIEW</scope>
+  </reference>
+  <reference key="10">
+    <citation type="journal article" date="2009" name="Front. Biosci." volume="14" first="5134" last="5156">
+      <title>Cardiac ryanodine receptor phosphorylation by CaM Kinase II: keeping the balance right.</title>
+      <authorList>
+        <person name="Currie S."/>
+      </authorList>
+      <dbReference type="PubMed" id="19482609"/>
+      <dbReference type="DOI" id="10.2741/3591"/>
+    </citation>
+    <scope>REVIEW</scope>
+  </reference>
+  <reference key="11">
+    <citation type="journal article" date="2010" name="Mol. Med. Report." volume="3" first="199" last="204">
+      <title>Modulation of ryanodine receptor Ca2+ channels.</title>
+      <authorList>
+        <person name="Ozawa T."/>
+      </authorList>
+      <dbReference type="PubMed" id="21472222"/>
+      <dbReference type="DOI" id="10.3892/mmr_00000240"/>
+    </citation>
+    <scope>REVIEW</scope>
+  </reference>
+  <reference key="12">
+    <citation type="journal article" date="2010" name="Cold Spring Harb. Perspect. Biol." volume="2" first="E3996" last="E3996">
+      <title>Ryanodine receptors: structure, expression, molecular details, and function in calcium release.</title>
+      <authorList>
+        <person name="Lanner J.T."/>
+        <person name="Georgiou D.K."/>
+        <person name="Joshi A.D."/>
+        <person name="Hamilton S.L."/>
+      </authorList>
+      <dbReference type="PubMed" id="20961976"/>
+      <dbReference type="DOI" id="10.1101/cshperspect.a003996"/>
+    </citation>
+    <scope>REVIEW</scope>
+  </reference>
+  <reference evidence="36" key="13">
+    <citation type="journal article" date="2014" name="Acta Crystallogr. D" volume="70" first="2897" last="2912">
+      <title>Structural insights into the human RyR2 N-terminal region involved in cardiac arrhythmias.</title>
+      <authorList>
+        <person name="Borko L."/>
+        <person name="Bauerova-Hlinkova V."/>
+        <person name="Hostinova E."/>
+        <person name="Gasperik J."/>
+        <person name="Beck K."/>
+        <person name="Lai F.A."/>
+        <person name="Zahradnikova A."/>
+        <person name="Sevcik J."/>
+      </authorList>
+      <dbReference type="PubMed" id="25372681"/>
+      <dbReference type="DOI" id="10.1107/s1399004714020343"/>
+    </citation>
+    <scope>X-RAY CRYSTALLOGRAPHY (2.39 ANGSTROMS) OF 1-606</scope>
+    <scope>CHARACTERIZATION OF VARIANT CPVT1 PHE-419</scope>
+  </reference>
+  <reference key="14">
+    <citation type="journal article" date="2001" name="Circulation" volume="103" first="196" last="200">
+      <title>Mutations in the cardiac ryanodine receptor gene (hRyR2) underlie catecholaminergic polymorphic ventricular tachycardia.</title>
+      <authorList>
+        <person name="Priori S.G."/>
+        <person name="Napolitano C."/>
+        <person name="Tiso N."/>
+        <person name="Memmi M."/>
+        <person name="Vignati G."/>
+        <person name="Bloise R."/>
+        <person name="Sorrentino V.V."/>
+        <person name="Danieli G.A."/>
+      </authorList>
+      <dbReference type="PubMed" id="11208676"/>
+      <dbReference type="DOI" id="10.1161/01.cir.103.2.196"/>
+    </citation>
+    <scope>VARIANTS CPVT1 LEU-2246; SER-2474; LYS-4104 AND CYS-4497</scope>
+  </reference>
+  <reference key="15">
+    <citation type="journal article" date="2001" name="Circulation" volume="103" first="485" last="490">
+      <title>Mutations of the cardiac ryanodine receptor (RyR2) gene in familial polymorphic ventricular tachycardia.</title>
+      <authorList>
+        <person name="Laitinen P.J."/>
+        <person name="Brown K.M."/>
+        <person name="Piippo K."/>
+        <person name="Swan H."/>
+        <person name="Devaney J.M."/>
+        <person name="Brahmbhatt B."/>
+        <person name="Donarum E.A."/>
+        <person name="Marino M."/>
+        <person name="Tiso N."/>
+        <person name="Viitasalo M."/>
+        <person name="Toivonen L."/>
+        <person name="Stephan D.A."/>
+        <person name="Kontula K."/>
+      </authorList>
+      <dbReference type="PubMed" id="11157710"/>
+      <dbReference type="DOI" id="10.1161/01.cir.103.4.485"/>
+    </citation>
+    <scope>VARIANTS CPVT1 SER-2328; ARG-4201 AND PHE-4653</scope>
+    <scope>VARIANT ARG-2958</scope>
+  </reference>
+  <reference key="16">
+    <citation type="journal article" date="2002" name="Circulation" volume="106" first="69" last="74">
+      <title>Clinical and molecular characterization of patients with catecholaminergic polymorphic ventricular tachycardia.</title>
+      <authorList>
+        <person name="Priori S.G."/>
+        <person name="Napolitano C."/>
+        <person name="Memmi M."/>
+        <person name="Colombi B."/>
+        <person name="Drago F."/>
+        <person name="Gasparini M."/>
+        <person name="DeSimone L."/>
+        <person name="Coltorti F."/>
+        <person name="Bloise R."/>
+        <person name="Keegan R."/>
+        <person name="Cruz Filho F.E.S."/>
+        <person name="Vignati G."/>
+        <person name="Benatar A."/>
+        <person name="DeLogu A."/>
+      </authorList>
+      <dbReference type="PubMed" id="12093772"/>
+      <dbReference type="DOI" id="10.1161/01.cir.0000020013.73106.d8"/>
+    </citation>
+    <scope>VARIANTS CPVT1 LEU-2246; ASP-2311; SER-2474; PHE-3778; SER-3946; SER-3946; LYS-4104; CYS-4497; ILE-4771; MET-4867; ASP-4895 AND LYS-4950</scope>
+    <scope>VARIANT VACRDS GLY-4860</scope>
+  </reference>
+  <reference key="17">
+    <citation type="journal article" date="2002" name="J. Am. Coll. Cardiol." volume="40" first="341" last="349">
+      <title>Screening for ryanodine receptor type 2 mutations in families with effort-induced polymorphic ventricular arrhythmias and sudden death: early diagnosis of asymptomatic carriers.</title>
+      <authorList>
+        <person name="Bauce B."/>
+        <person name="Rampazzo A."/>
+        <person name="Basso C."/>
+        <person name="Bagattin A."/>
+        <person name="Daliento L."/>
+        <person name="Tiso N."/>
+        <person name="Turrini P."/>
+        <person name="Thiene G."/>
+        <person name="Danieli G.A."/>
+        <person name="Nava A."/>
+      </authorList>
+      <dbReference type="PubMed" id="12106942"/>
+      <dbReference type="DOI" id="10.1016/s0735-1097(02)01946-0"/>
+    </citation>
+    <scope>VARIANTS CPVT1 GLN-176; TRP-420; PRO-433; ILE-2386; CYS-2392 AND MET-2504</scope>
+  </reference>
+  <reference key="18">
+    <citation type="journal article" date="2003" name="Eur. J. Hum. Genet." volume="11" first="888" last="891">
+      <title>Molecular genetics of exercise-induced polymorphic ventricular tachycardia: identification of three novel cardiac ryanodine receptor mutations and two common calsequestrin 2 amino-acid polymorphisms.</title>
+      <authorList>
+        <person name="Laitinen P.J."/>
+        <person name="Swan H."/>
+        <person name="Kontula K."/>
+      </authorList>
+      <dbReference type="PubMed" id="14571276"/>
+      <dbReference type="DOI" id="10.1038/sj.ejhg.5201061"/>
+    </citation>
+    <scope>VARIANTS CPVT1 ILE-2306; LEU-4902 AND GLN-4959</scope>
+  </reference>
+  <reference key="19">
+    <citation type="journal article" date="2004" name="Circulation" volume="110" first="2119" last="2124">
+      <title>Spectrum and frequency of cardiac channel defects in swimming-triggered arrhythmia syndromes.</title>
+      <authorList>
+        <person name="Choi G."/>
+        <person name="Kopplin L.J."/>
+        <person name="Tester D.J."/>
+        <person name="Will M.L."/>
+        <person name="Haglund C.M."/>
+        <person name="Ackerman M.J."/>
+      </authorList>
+      <dbReference type="PubMed" id="15466642"/>
+      <dbReference type="DOI" id="10.1161/01.cir.0000144471.98080.ca"/>
+    </citation>
+    <scope>VARIANTS CPVT1 SER-164; LEU-414; PHE-419; THR-2403; CYS-4499; THR-4510; ARG-4671 AND VAL-4848</scope>
+  </reference>
+  <reference key="20">
+    <citation type="journal article" date="2004" name="Hum. Genet." volume="114" first="404" last="404">
+      <title>Gene symbol: RYR2. Disease: effort-induced polymorphic ventricular arrhythmias.</title>
+      <authorList>
+        <person name="Bagattin A."/>
+        <person name="Veronese C."/>
+        <person name="Rampazzo A."/>
+        <person name="Danieli G.A."/>
+      </authorList>
+      <dbReference type="PubMed" id="15046072"/>
+    </citation>
+    <scope>VARIANTS CPVT1 ILE-4504 AND ALA-4880</scope>
+  </reference>
+  <reference key="21">
+    <citation type="journal article" date="2004" name="Hum. Genet." volume="114" first="405" last="405">
+      <title>Gene symbol: RYR2. Disease: effort-induced polymorphic ventricular arrhythmias.</title>
+      <authorList>
+        <person name="Bagattin A."/>
+        <person name="Veronese C."/>
+        <person name="Rampazzo A."/>
+        <person name="Danieli G.A."/>
+      </authorList>
+      <dbReference type="PubMed" id="15046073"/>
+    </citation>
+    <scope>VARIANTS CPVT1 PRO-2387 AND PRO-4607</scope>
+  </reference>
+  <reference key="22">
+    <citation type="journal article" date="2004" name="Mayo Clin. Proc." volume="79" first="1380" last="1384">
+      <title>Targeted mutational analysis of the RyR2-encoded cardiac ryanodine receptor in sudden unexplained death: a molecular autopsy of 49 medical examiner/coroner's cases.</title>
+      <authorList>
+        <person name="Tester D.J."/>
+        <person name="Spoon D.B."/>
+        <person name="Valdivia H.H."/>
+        <person name="Makielski J.C."/>
+        <person name="Ackerman M.J."/>
+      </authorList>
+      <dbReference type="PubMed" id="15544015"/>
+      <dbReference type="DOI" id="10.4065/79.11.1380"/>
+    </citation>
+    <scope>VARIANTS CPVT1 TRP-420; LEU-2246; SER-4097; LYS-4146; PRO-4158 AND CYS-4497</scope>
+  </reference>
+  <reference key="23">
+    <citation type="journal article" date="2005" name="Heart Rhythm" volume="2" first="1099" last="1105">
+      <title>Spectrum and prevalence of cardiac ryanodine receptor (RyR2) mutations in a cohort of unrelated patients referred explicitly for long QT syndrome genetic testing.</title>
+      <authorList>
+        <person name="Tester D.J."/>
+        <person name="Kopplin L.J."/>
+        <person name="Will M.L."/>
+        <person name="Ackerman M.J."/>
+      </authorList>
+      <dbReference type="PubMed" id="16188589"/>
+      <dbReference type="DOI" id="10.1016/j.hrthm.2005.07.012"/>
+    </citation>
+    <scope>VARIANTS CPVT1 GLN-176; LEU-414; PHE-419; ALA-466; THR-2403; PHE-3800; THR-4124; CYS-4499; THR-4510; THR-4556; VAL-4848 AND GLN-4959</scope>
+  </reference>
+  <reference key="24">
+    <citation type="journal article" date="2014" name="PLoS Genet." volume="10" first="E1004772" last="E1004772">
+      <title>De novo mutations in moderate or severe intellectual disability.</title>
+      <authorList>
+        <person name="Hamdan F.F."/>
+        <person name="Srour M."/>
+        <person name="Capo-Chichi J.M."/>
+        <person name="Daoud H."/>
+        <person name="Nassif C."/>
+        <person name="Patry L."/>
+        <person name="Massicotte C."/>
+        <person name="Ambalavanan A."/>
+        <person name="Spiegelman D."/>
+        <person name="Diallo O."/>
+        <person name="Henrion E."/>
+        <person name="Dionne-Laporte A."/>
+        <person name="Fougerat A."/>
+        <person name="Pshezhetsky A.V."/>
+        <person name="Venkateswaran S."/>
+        <person name="Rouleau G.A."/>
+        <person name="Michaud J.L."/>
+      </authorList>
+      <dbReference type="PubMed" id="25356899"/>
+      <dbReference type="DOI" id="10.1371/journal.pgen.1004772"/>
+    </citation>
+    <scope>VARIANT GLU-4955</scope>
+  </reference>
+  <reference key="25">
+    <citation type="journal article" date="2007" name="Proc. Natl. Acad. Sci. U.S.A." volume="104" first="18309" last="18314">
+      <title>Loss of luminal Ca(2+) activation in the cardiac ryanodine receptor is associated with ventricular fibrillation and sudden death.</title>
+      <authorList>
+        <person name="Jiang D."/>
+        <person name="Chen W."/>
+        <person name="Wang R."/>
+        <person name="Zhang L."/>
+        <person name="Chen S.R.W."/>
+      </authorList>
+      <dbReference type="PubMed" id="17984046"/>
+      <dbReference type="DOI" id="10.1073/pnas.0706573104"/>
+    </citation>
+    <scope>CHARACTERIZATION OF VARIANT VACRDS GLY-4860</scope>
+  </reference>
+  <reference key="26">
+    <citation type="journal article" date="2014" name="Heart Rhythm" volume="11" first="1480" last="1483">
+      <title>A novel RyR2 mutation in a 2-year-old baby presenting with atrial fibrillation, atrial flutter, and atrial ectopic tachycardia.</title>
+      <authorList>
+        <person name="Di Pino A."/>
+        <person name="Caruso E."/>
+        <person name="Costanzo L."/>
+        <person name="Guccione P."/>
+      </authorList>
+      <dbReference type="PubMed" id="24793461"/>
+      <dbReference type="DOI" id="10.1016/j.hrthm.2014.04.037"/>
+    </citation>
+    <scope>VARIANT CPVT1 PRO-4159</scope>
+  </reference>
+  <reference key="27">
+    <citation type="journal article" date="2015" name="Int. J. Cardiol." volume="180" first="228" last="236">
+      <title>Short-coupled polymorphic ventricular tachycardia at rest linked to a novel ryanodine receptor (RyR2) mutation: leaky RyR2 channels under non-stress conditions.</title>
+      <authorList>
+        <person name="Cheung J.W."/>
+        <person name="Meli A.C."/>
+        <person name="Xie W."/>
+        <person name="Mittal S."/>
+        <person name="Reiken S."/>
+        <person name="Wronska A."/>
+        <person name="Xu L."/>
+        <person name="Steinberg J.S."/>
+        <person name="Markowitz S.M."/>
+        <person name="Iwai S."/>
+        <person name="Lacampagne A."/>
+        <person name="Lerman B.B."/>
+        <person name="Marks A.R."/>
+      </authorList>
+      <dbReference type="PubMed" id="25463374"/>
+      <dbReference type="DOI" id="10.1016/j.ijcard.2014.11.119"/>
+    </citation>
+    <scope>VARIANT ASP-29</scope>
+  </reference>
+  <reference key="28">
+    <citation type="journal article" date="2015" name="PLoS ONE" volume="10" first="E0139058" last="E0139058">
+      <title>The H29D nutation does not enhance cytosolic Ca2+ activation of the cardiac ryanodine receptor.</title>
+      <authorList>
+        <person name="Xiao Z."/>
+        <person name="Guo W."/>
+        <person name="Yuen S.M."/>
+        <person name="Wang R."/>
+        <person name="Zhang L."/>
+        <person name="Van Petegem F."/>
+        <person name="Chen S.R."/>
+      </authorList>
+      <dbReference type="PubMed" id="26405799"/>
+      <dbReference type="DOI" id="10.1371/journal.pone.0139058"/>
+    </citation>
+    <scope>CHARACTERIZATION OF VARIANT ASP-29</scope>
+  </reference>
+  <reference key="29">
+    <citation type="journal article" date="2016" name="J. Biol. Chem." volume="291" first="24528" last="24537">
+      <title>Enhanced cytosolic Ca2+ activation underlies a common defect of central domain cardiac ryanodine receptor mutations linked to arrhythmias.</title>
+      <authorList>
+        <person name="Xiao Z."/>
+        <person name="Guo W."/>
+        <person name="Sun B."/>
+        <person name="Hunt D.J."/>
+        <person name="Wei J."/>
+        <person name="Liu Y."/>
+        <person name="Wang Y."/>
+        <person name="Wang R."/>
+        <person name="Jones P.P."/>
+        <person name="Back T.G."/>
+        <person name="Chen S.R."/>
+      </authorList>
+      <dbReference type="PubMed" id="27733687"/>
+      <dbReference type="DOI" id="10.1074/jbc.m116.756528"/>
+    </citation>
+    <scope>CHARACTERIZATION OF VARIANTS CVPT1 SER-3946; THR-4124; PRO-4158 AND PRO-4159</scope>
+    <scope>MUTAGENESIS OF GLY-3946; MET-3978 AND HIS-4108</scope>
+    <scope>FUNCTION</scope>
+  </reference>
+  <reference key="30">
+    <citation type="journal article" date="2021" name="Sci. Transl. Med." volume="13">
+      <title>Cardiac ryanodine receptor calcium release deficiency syndrome.</title>
+      <authorList>
+        <person name="Sun B."/>
+        <person name="Yao J."/>
+        <person name="Ni M."/>
+        <person name="Wei J."/>
+        <person name="Zhong X."/>
+        <person name="Guo W."/>
+        <person name="Zhang L."/>
+        <person name="Wang R."/>
+        <person name="Belke D."/>
+        <person name="Chen Y.X."/>
+        <person name="Lieve K.V.V."/>
+        <person name="Broendberg A.K."/>
+        <person name="Roston T.M."/>
+        <person name="Blankoff I."/>
+        <person name="Kammeraad J.A."/>
+        <person name="von Alvensleben J.C."/>
+        <person name="Lazarte J."/>
+        <person name="Vallmitjana A."/>
+        <person name="Bohne L.J."/>
+        <person name="Rose R.A."/>
+        <person name="Benitez R."/>
+        <person name="Hove-Madsen L."/>
+        <person name="Napolitano C."/>
+        <person name="Hegele R.A."/>
+        <person name="Fill M."/>
+        <person name="Sanatani S."/>
+        <person name="Wilde A.A.M."/>
+        <person name="Roberts J.D."/>
+        <person name="Priori S.G."/>
+        <person name="Jensen H.K."/>
+        <person name="Chen S.R.W."/>
+      </authorList>
+      <dbReference type="PubMed" id="33536282"/>
+      <dbReference type="DOI" id="10.1126/scitranslmed.aba7287"/>
+    </citation>
+    <scope>VARIANTS VACRDS LEU-3774; ILE-4196; ALA-4646; GLY-4860 AND PHE-4938</scope>
+    <scope>INVOLVEMENT IN VACRDS</scope>
+    <scope>CHARACTERIZATION OF VARIANTS VACRDS LEU-3774; ILE-4196; ALA-4646; GLY-4860 AND PHE-4938</scope>
+    <scope>MUTAGENESIS OF ILE-3995; ASP-4112; ILE-4855 AND GLN-4879</scope>
+    <scope>FUNCTION</scope>
+  </reference>
+  <comment type="function">
+    <text evidence="10 24 30 31">Calcium channel that mediates the release of Ca(2+) from the sarcoplasmic reticulum into the cytoplasm and thereby plays a key role in triggering cardiac muscle contraction. Aberrant channel activation can lead to cardiac arrhythmia. In cardiac myocytes, calcium release is triggered by increased Ca(2+) levels due to activation of the L-type calcium channel CACNA1C. The calcium channel activity is modulated by formation of heterotetramers with RYR3. Required for cellular calcium ion homeostasis. Required for embryonic heart development.</text>
+  </comment>
+  <comment type="activity regulation">
+    <text evidence="4">Channel activity is modulated by the alkaloid ryanodine that binds to the open Ca-release channel with high affinity. At low concentrations, ryanodine maintains the channel in an open conformation. High ryanodine concentrations inhibit channel activity. Channel activity is regulated by calmodulin (CALM). The calcium release is activated by increased cytoplasmic calcium levels, by nitric oxyde (NO), caffeine and ATP. Channel activity is inhibited by magnesium ions, possibly by competition for calcium binding sites.</text>
+  </comment>
+  <comment type="subunit">
+    <text evidence="3 5 10 23">Homotetramer. Can also form heterotetramers with RYR1 and RYR3 (By similarity). Interacts with FKBP1A and FKBP1B; these interactions may stabilize the channel in its closed state and prevent Ca(2+) leaks. Interacts with CALM and S100A1; these interactions regulate channel activity. Identified in a complex composed of RYR2, FKBP1B, PKA catalytic subunit, PRKAR2A, AKAP6, and the protein phosphatases PP2A and PP1. Interacts directly with FKBP1B, PKA, PP1 and PP2A. Interacts with SELENON (By similarity). In cardiac muscles, identified in a complex, composed of FSD2, CMYA5 and RYR2 (By similarity).</text>
+  </comment>
+  <comment type="interaction">
+    <interactant intactId="EBI-1170425">
+      <id>Q92736</id>
+    </interactant>
+    <interactant intactId="EBI-1027571">
+      <id>P62942</id>
+      <label>FKBP1A</label>
+    </interactant>
+    <organismsDiffer>false</organismsDiffer>
+    <experiments>2</experiments>
+  </comment>
+  <comment type="interaction">
+    <interactant intactId="EBI-1170425">
+      <id>Q92736</id>
+    </interactant>
+    <interactant intactId="EBI-6693977">
+      <id>P68106</id>
+      <label>FKBP1B</label>
+    </interactant>
+    <organismsDiffer>false</organismsDiffer>
+    <experiments>5</experiments>
+  </comment>
+  <comment type="interaction">
+    <interactant intactId="EBI-1170425">
+      <id>Q92736</id>
+    </interactant>
+    <interactant intactId="EBI-389668">
+      <id>Q00987</id>
+      <label>MDM2</label>
+    </interactant>
+    <organismsDiffer>false</organismsDiffer>
+    <experiments>2</experiments>
+  </comment>
+  <comment type="subcellular location">
+    <subcellularLocation>
+      <location evidence="10">Sarcoplasmic reticulum membrane</location>
+      <topology evidence="10">Multi-pass membrane protein</topology>
+    </subcellularLocation>
+    <subcellularLocation>
+      <location evidence="35">Membrane</location>
+      <topology evidence="35">Multi-pass membrane protein</topology>
+    </subcellularLocation>
+    <subcellularLocation>
+      <location evidence="5">Sarcoplasmic reticulum</location>
+    </subcellularLocation>
+    <text evidence="1">The number of predicted transmembrane domains varies between orthologs, but both N-terminus and C-terminus seem to be cytoplasmic.</text>
+  </comment>
+  <comment type="alternative products">
+    <event type="alternative splicing"/>
+    <isoform>
+      <id>Q92736-1</id>
+      <name>1</name>
+      <sequence type="displayed"/>
+    </isoform>
+    <isoform>
+      <id>Q92736-2</id>
+      <name>2</name>
+      <sequence type="described" ref="VSP_005953"/>
+    </isoform>
+  </comment>
+  <comment type="tissue specificity">
+    <text evidence="10 33">Detected in heart muscle (at protein level). Heart muscle, brain (cerebellum and hippocampus) and placenta.</text>
+  </comment>
+  <comment type="developmental stage">
+    <text evidence="32">Expressed in myometrium during pregnancy.</text>
+  </comment>
+  <comment type="induction">
+    <text evidence="32">By TGFB1.</text>
+  </comment>
+  <comment type="domain">
+    <text evidence="34">The calcium release channel activity resides in the C-terminal region while the remaining part of the protein resides in the cytoplasm.</text>
+  </comment>
+  <comment type="PTM">
+    <text evidence="10 24">Channel activity is modulated by phosphorylation. Phosphorylation at Ser-2808 and Ser-2814 increases the open probability of the calcium channel. Phosphorylation is increased in failing heart, leading to calcium leaks and increased cytoplasmic Ca(2+) levels.</text>
+  </comment>
+  <comment type="PTM">
+    <text evidence="1">Phosphorylation at Ser-2031 by PKA enhances the response to lumenal calcium.</text>
+  </comment>
+  <comment type="disease" evidence="12">
+    <disease id="DI-01550">
+      <name>Arrhythmogenic right ventricular dysplasia, familial, 2</name>
+      <acronym>ARVD2</acronym>
+      <description>A congenital heart disease characterized by infiltration of adipose and fibrous tissue into the right ventricle and loss of myocardial cells, resulting in ventricular and supraventricular arrhythmias.</description>
+      <dbReference type="MIM" id="600996"/>
+    </disease>
+    <text>The disease is caused by variants affecting the gene represented in this entry.</text>
+  </comment>
+  <comment type="disease" evidence="11 13 14 15 16 17 18 19 20 21 25 27 30">
+    <disease id="DI-00249">
+      <name>Ventricular tachycardia, catecholaminergic polymorphic, 1, with or without atrial dysfunction and/or dilated cardiomyopathy</name>
+      <acronym>CPVT1</acronym>
+      <description>An arrhythmogenic disorder characterized by stress-induced, bidirectional ventricular tachycardia that may degenerate into cardiac arrest and cause sudden death. Patients present with recurrent syncope, seizures, or sudden death after physical activity or emotional stress. CPVT1 inheritance is autosomal dominant.</description>
+      <dbReference type="MIM" id="604772"/>
+    </disease>
+    <text>The disease is caused by variants affecting the gene represented in this entry.</text>
+  </comment>
+  <comment type="disease" evidence="14 22 31">
+    <disease id="DI-06122">
+      <name>Ventricular arrhythmias due to cardiac ryanodine receptor calcium release deficiency syndrome</name>
+      <acronym>VACRDS</acronym>
+      <description>An autosomal dominant arrhythmogenic disorder characterized by syncope, cardiac arrest and/or sudden unexpected death, often in association with physical exertion or acute emotional stress. Patients who survive manifest polymorphic ventricular tachycardia and ventricular fibrillation. Unlike typical catecholaminergic ventricular tachycardia, arrhythmias are not reproducible on exercise stress testing or adrenaline challenge.</description>
+      <dbReference type="MIM" id="115000"/>
+    </disease>
+    <text>The disease is caused by variants affecting the gene represented in this entry.</text>
+  </comment>
+  <comment type="similarity">
+    <text evidence="34">Belongs to the ryanodine receptor (TC 1.A.3.1) family. RYR2 subfamily.</text>
+  </comment>
+  <comment type="sequence caution" evidence="34">
+    <conflict type="miscellaneous discrepancy">
+      <sequence resource="EMBL-CDS" id="CAH71369" version="1"/>
+    </conflict>
+    <text>Erroneous gene model prediction.</text>
+  </comment>
+  <comment type="sequence caution" evidence="34">
+    <conflict type="miscellaneous discrepancy">
+      <sequence resource="EMBL-CDS" id="CAH71393" version="1"/>
+    </conflict>
+    <text>Erroneous gene model prediction.</text>
+  </comment>
+  <comment type="sequence caution" evidence="34">
+    <conflict type="miscellaneous discrepancy">
+      <sequence resource="EMBL-CDS" id="CAH73918" version="1"/>
+    </conflict>
+    <text>Erroneous gene model prediction.</text>
+  </comment>
+  <comment type="sequence caution" evidence="34">
+    <conflict type="miscellaneous discrepancy">
+      <sequence resource="EMBL-CDS" id="CAI14440" version="1"/>
+    </conflict>
+    <text>Erroneous gene model prediction.</text>
+  </comment>
+  <comment type="sequence caution" evidence="34">
+    <conflict type="miscellaneous discrepancy">
+      <sequence resource="EMBL-CDS" id="CAI15350" version="1"/>
+    </conflict>
+    <text>Erroneous gene model prediction.</text>
+  </comment>
+  <comment type="sequence caution" evidence="34">
+    <conflict type="miscellaneous discrepancy">
+      <sequence resource="EMBL-CDS" id="CAI15936" version="1"/>
+    </conflict>
+    <text>Erroneous gene model prediction.</text>
+  </comment>
+  <comment type="sequence caution" evidence="34">
+    <conflict type="miscellaneous discrepancy">
+      <sequence resource="EMBL-CDS" id="CAI22065" version="1"/>
+    </conflict>
+    <text>Erroneous gene model prediction.</text>
+  </comment>
+  <comment type="online information" name="Wikipedia">
+    <link uri="https://en.wikipedia.org/wiki/Ryanodine_receptor"/>
+    <text>Ryanodine receptor entry</text>
+  </comment>
+  <comment type="online information" name="Wikipedia">
+    <link uri="https://en.wikipedia.org/wiki/RYR2"/>
+    <text>RYR2 entry</text>
+  </comment>
+  <dbReference type="EMBL" id="X98330">
+    <property type="protein sequence ID" value="CAA66975.1"/>
+    <property type="molecule type" value="mRNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300340">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300341">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300342">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300343">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300347">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300349">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300351">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300353">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300355">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300364">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300363">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300362">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300361">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300360">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300359">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300358">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300357">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300356">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300373">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300372">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300371">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300370">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300369">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300368">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300367">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300366">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300365">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300382">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300381">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300380">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300379">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300378">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300377">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300376">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300375">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300374">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300399">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300398">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300397">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300396">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300395">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300394">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300393">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300392">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300391">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300416">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300415">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300414">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300413">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300412">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300411">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300410">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300409">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300408">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300433">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300432">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300431">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300430">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300429">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300428">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300427">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300426">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300425">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300444">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300443">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300442">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300441">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300440">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300439">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300438">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300437">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300436">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300435">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300434">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300424">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300423">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300422">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300421">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300420">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300419">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300418">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300417">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300407">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300406">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300405">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300404">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300403">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300402">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300401">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300400">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300390">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300389">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300388">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300387">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300386">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300385">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300384">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300383">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300354">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300352">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300350">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300348">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300346">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300345">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ300344">
+    <property type="protein sequence ID" value="CAC18855.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL365332">
+    <property type="protein sequence ID" value="CAH71369.1"/>
+    <property type="status" value="ALT_SEQ"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL356773">
+    <property type="protein sequence ID" value="CAH71369.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL359924">
+    <property type="protein sequence ID" value="CAH71369.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL391809">
+    <property type="protein sequence ID" value="CAH71369.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL442065">
+    <property type="protein sequence ID" value="CAH71369.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL445473">
+    <property type="protein sequence ID" value="CAH71369.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL513130">
+    <property type="protein sequence ID" value="CAH71369.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL445473">
+    <property type="protein sequence ID" value="CAH71393.1"/>
+    <property type="status" value="ALT_SEQ"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL356773">
+    <property type="protein sequence ID" value="CAH71393.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL359924">
+    <property type="protein sequence ID" value="CAH71393.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL365332">
+    <property type="protein sequence ID" value="CAH71393.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL391809">
+    <property type="protein sequence ID" value="CAH71393.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL442065">
+    <property type="protein sequence ID" value="CAH71393.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL513130">
+    <property type="protein sequence ID" value="CAH71393.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL356773">
+    <property type="protein sequence ID" value="CAH73918.1"/>
+    <property type="status" value="ALT_SEQ"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL359924">
+    <property type="protein sequence ID" value="CAH73918.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL365332">
+    <property type="protein sequence ID" value="CAH73918.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL391809">
+    <property type="protein sequence ID" value="CAH73918.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL442065">
+    <property type="protein sequence ID" value="CAH73918.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL445473">
+    <property type="protein sequence ID" value="CAH73918.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL513130">
+    <property type="protein sequence ID" value="CAH73918.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL391809">
+    <property type="protein sequence ID" value="CAI14440.1"/>
+    <property type="status" value="ALT_SEQ"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL356773">
+    <property type="protein sequence ID" value="CAI14440.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL359924">
+    <property type="protein sequence ID" value="CAI14440.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL365332">
+    <property type="protein sequence ID" value="CAI14440.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL442065">
+    <property type="protein sequence ID" value="CAI14440.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL445473">
+    <property type="protein sequence ID" value="CAI14440.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL513130">
+    <property type="protein sequence ID" value="CAI14440.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL442065">
+    <property type="protein sequence ID" value="CAI15350.1"/>
+    <property type="status" value="ALT_SEQ"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL356773">
+    <property type="protein sequence ID" value="CAI15350.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL359924">
+    <property type="protein sequence ID" value="CAI15350.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL365332">
+    <property type="protein sequence ID" value="CAI15350.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL391809">
+    <property type="protein sequence ID" value="CAI15350.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL445473">
+    <property type="protein sequence ID" value="CAI15350.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL513130">
+    <property type="protein sequence ID" value="CAI15350.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL513130">
+    <property type="protein sequence ID" value="CAI15936.1"/>
+    <property type="status" value="ALT_SEQ"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL356773">
+    <property type="protein sequence ID" value="CAI15936.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL359924">
+    <property type="protein sequence ID" value="CAI15936.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL365332">
+    <property type="protein sequence ID" value="CAI15936.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL391809">
+    <property type="protein sequence ID" value="CAI15936.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL442065">
+    <property type="protein sequence ID" value="CAI15936.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL445473">
+    <property type="protein sequence ID" value="CAI15936.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL359924">
+    <property type="protein sequence ID" value="CAI22065.1"/>
+    <property type="status" value="ALT_SEQ"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL356773">
+    <property type="protein sequence ID" value="CAI22065.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL365332">
+    <property type="protein sequence ID" value="CAI22065.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL391809">
+    <property type="protein sequence ID" value="CAI22065.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL442065">
+    <property type="protein sequence ID" value="CAI22065.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL445473">
+    <property type="protein sequence ID" value="CAI22065.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AL513130">
+    <property type="protein sequence ID" value="CAI22065.1"/>
+    <property type="status" value="JOINED"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="Y08218">
+    <property type="protein sequence ID" value="CAA69395.1"/>
+    <property type="molecule type" value="mRNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="X91869">
+    <property type="protein sequence ID" value="CAA62975.1"/>
+    <property type="molecule type" value="mRNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AJ002511">
+    <property type="protein sequence ID" value="CAA05502.1"/>
+    <property type="molecule type" value="mRNA"/>
+  </dbReference>
+  <dbReference type="CCDS" id="CCDS55691.1">
+    <molecule id="Q92736-1"/>
+  </dbReference>
+  <dbReference type="PIR" id="S72269">
+    <property type="entry name" value="S72269"/>
+  </dbReference>
+  <dbReference type="RefSeq" id="NP_001026.2">
+    <molecule id="Q92736-1"/>
+    <property type="nucleotide sequence ID" value="NM_001035.2"/>
+  </dbReference>
+  <dbReference type="RefSeq" id="XP_006711868.1">
+    <molecule id="Q92736-2"/>
+    <property type="nucleotide sequence ID" value="XM_006711805.3"/>
+  </dbReference>
+  <dbReference type="PDB" id="4JKQ">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.39 A"/>
+    <property type="chains" value="A=1-606"/>
+  </dbReference>
+  <dbReference type="PDB" id="6Y4O">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="1.84 A"/>
+    <property type="chains" value="B=3581-3607"/>
+  </dbReference>
+  <dbReference type="PDB" id="6Y4P">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.13 A"/>
+    <property type="chains" value="B=3581-3607"/>
+  </dbReference>
+  <dbReference type="PDB" id="7KL5">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="1.65 A"/>
+    <property type="chains" value="B=4246-4275"/>
+  </dbReference>
+  <dbReference type="PDB" id="7U9Q">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.11 A"/>
+    <property type="chains" value="A/B/C/D=1-4967"/>
+  </dbReference>
+  <dbReference type="PDB" id="7U9R">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.69 A"/>
+    <property type="chains" value="A/B/C/D=1-4967"/>
+  </dbReference>
+  <dbReference type="PDB" id="7U9T">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="2.68 A"/>
+    <property type="chains" value="A/B/C/D=1-4967"/>
+  </dbReference>
+  <dbReference type="PDB" id="7U9X">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="2.58 A"/>
+    <property type="chains" value="A/B/C/D=1-4967"/>
+  </dbReference>
+  <dbReference type="PDB" id="7U9Z">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.29 A"/>
+    <property type="chains" value="A/B/C/D=1-4967"/>
+  </dbReference>
+  <dbReference type="PDB" id="7UA1">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="2.99 A"/>
+    <property type="chains" value="A/B/C/D=1-4967"/>
+  </dbReference>
+  <dbReference type="PDB" id="7UA3">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="2.97 A"/>
+    <property type="chains" value="A/B/C/D=1-4967"/>
+  </dbReference>
+  <dbReference type="PDB" id="7UA4">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="2.93 A"/>
+    <property type="chains" value="A/B/C/D=1-4967"/>
+  </dbReference>
+  <dbReference type="PDB" id="7UA5">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="2.83 A"/>
+    <property type="chains" value="A/B/C/D=1-4967"/>
+  </dbReference>
+  <dbReference type="PDB" id="7UA9">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.59 A"/>
+    <property type="chains" value="A/B/C/D=1-4967"/>
+  </dbReference>
+  <dbReference type="PDBsum" id="4JKQ"/>
+  <dbReference type="PDBsum" id="6Y4O"/>
+  <dbReference type="PDBsum" id="6Y4P"/>
+  <dbReference type="PDBsum" id="7KL5"/>
+  <dbReference type="PDBsum" id="7U9Q"/>
+  <dbReference type="PDBsum" id="7U9R"/>
+  <dbReference type="PDBsum" id="7U9T"/>
+  <dbReference type="PDBsum" id="7U9X"/>
+  <dbReference type="PDBsum" id="7U9Z"/>
+  <dbReference type="PDBsum" id="7UA1"/>
+  <dbReference type="PDBsum" id="7UA3"/>
+  <dbReference type="PDBsum" id="7UA4"/>
+  <dbReference type="PDBsum" id="7UA5"/>
+  <dbReference type="PDBsum" id="7UA9"/>
+  <dbReference type="BMRB" id="Q92736"/>
+  <dbReference type="SMR" id="Q92736"/>
+  <dbReference type="BioGRID" id="112174">
+    <property type="interactions" value="40"/>
+  </dbReference>
+  <dbReference type="ComplexPortal" id="CPX-3156">
+    <property type="entry name" value="Ryanodine 2 complex"/>
+  </dbReference>
+  <dbReference type="DIP" id="DIP-38325N"/>
+  <dbReference type="IntAct" id="Q92736">
+    <property type="interactions" value="15"/>
+  </dbReference>
+  <dbReference type="MINT" id="Q92736"/>
+  <dbReference type="STRING" id="9606.ENSP00000355533"/>
+  <dbReference type="ChEMBL" id="CHEMBL4403"/>
+  <dbReference type="DrugBank" id="DB11093">
+    <property type="generic name" value="Calcium citrate"/>
+  </dbReference>
+  <dbReference type="DrugBank" id="DB11348">
+    <property type="generic name" value="Calcium Phosphate"/>
+  </dbReference>
+  <dbReference type="DrugBank" id="DB14481">
+    <property type="generic name" value="Calcium phosphate dihydrate"/>
+  </dbReference>
+  <dbReference type="DrugBank" id="DB01195">
+    <property type="generic name" value="Flecainide"/>
+  </dbReference>
+  <dbReference type="DrugBank" id="DB09085">
+    <property type="generic name" value="Tetracaine"/>
+  </dbReference>
+  <dbReference type="DrugCentral" id="Q92736"/>
+  <dbReference type="GuidetoPHARMACOLOGY" id="748"/>
+  <dbReference type="TCDB" id="1.A.3.1.1">
+    <property type="family name" value="the ryanodine-inositol 1,4,5-triphosphate receptor ca(2+) channel (rir-cac) family"/>
+  </dbReference>
+  <dbReference type="CarbonylDB" id="Q92736"/>
+  <dbReference type="GlyCosmos" id="Q92736">
+    <property type="glycosylation" value="1 site, 1 glycan"/>
+  </dbReference>
+  <dbReference type="GlyGen" id="Q92736">
+    <property type="glycosylation" value="1 site, 1 O-linked glycan (1 site)"/>
+  </dbReference>
+  <dbReference type="iPTMnet" id="Q92736"/>
+  <dbReference type="PhosphoSitePlus" id="Q92736"/>
+  <dbReference type="SwissPalm" id="Q92736"/>
+  <dbReference type="BioMuta" id="RYR2"/>
+  <dbReference type="DMDM" id="308153558"/>
+  <dbReference type="EPD" id="Q92736"/>
+  <dbReference type="jPOST" id="Q92736"/>
+  <dbReference type="MassIVE" id="Q92736"/>
+  <dbReference type="MaxQB" id="Q92736"/>
+  <dbReference type="PaxDb" id="Q92736"/>
+  <dbReference type="PeptideAtlas" id="Q92736"/>
+  <dbReference type="ProteomicsDB" id="75431">
+    <molecule id="Q92736-1"/>
+  </dbReference>
+  <dbReference type="ProteomicsDB" id="75432">
+    <molecule id="Q92736-2"/>
+  </dbReference>
+  <dbReference type="Antibodypedia" id="3476">
+    <property type="antibodies" value="264 antibodies from 31 providers"/>
+  </dbReference>
+  <dbReference type="DNASU" id="6262"/>
+  <dbReference type="Ensembl" id="ENST00000366574.7">
+    <molecule id="Q92736-1"/>
+    <property type="protein sequence ID" value="ENSP00000355533.2"/>
+    <property type="gene ID" value="ENSG00000198626.18"/>
+  </dbReference>
+  <dbReference type="GeneID" id="6262"/>
+  <dbReference type="KEGG" id="hsa:6262"/>
+  <dbReference type="MANE-Select" id="ENST00000366574.7">
+    <property type="protein sequence ID" value="ENSP00000355533.2"/>
+    <property type="RefSeq nucleotide sequence ID" value="NM_001035.3"/>
+    <property type="RefSeq protein sequence ID" value="NP_001026.2"/>
+  </dbReference>
+  <dbReference type="UCSC" id="uc001hyl.2">
+    <molecule id="Q92736-1"/>
+    <property type="organism name" value="human"/>
+  </dbReference>
+  <dbReference type="AGR" id="HGNC:10484"/>
+  <dbReference type="CTD" id="6262"/>
+  <dbReference type="DisGeNET" id="6262"/>
+  <dbReference type="GeneCards" id="RYR2"/>
+  <dbReference type="GeneReviews" id="RYR2"/>
+  <dbReference type="HGNC" id="HGNC:10484">
+    <property type="gene designation" value="RYR2"/>
+  </dbReference>
+  <dbReference type="HPA" id="ENSG00000198626">
+    <property type="expression patterns" value="Tissue enriched (heart)"/>
+  </dbReference>
+  <dbReference type="MalaCards" id="RYR2"/>
+  <dbReference type="MIM" id="115000">
+    <property type="type" value="phenotype"/>
+  </dbReference>
+  <dbReference type="MIM" id="180902">
+    <property type="type" value="gene"/>
+  </dbReference>
+  <dbReference type="MIM" id="600996">
+    <property type="type" value="phenotype"/>
+  </dbReference>
+  <dbReference type="MIM" id="604772">
+    <property type="type" value="phenotype"/>
+  </dbReference>
+  <dbReference type="neXtProt" id="NX_Q92736"/>
+  <dbReference type="OpenTargets" id="ENSG00000198626"/>
+  <dbReference type="Orphanet" id="3286">
+    <property type="disease" value="Catecholaminergic polymorphic ventricular tachycardia"/>
+  </dbReference>
+  <dbReference type="Orphanet" id="293899">
+    <property type="disease" value="Familial isolated arrhythmogenic ventricular dysplasia, biventricular form"/>
+  </dbReference>
+  <dbReference type="Orphanet" id="293888">
+    <property type="disease" value="Familial isolated arrhythmogenic ventricular dysplasia, left dominant form"/>
+  </dbReference>
+  <dbReference type="Orphanet" id="293910">
+    <property type="disease" value="Familial isolated arrhythmogenic ventricular dysplasia, right dominant form"/>
+  </dbReference>
+  <dbReference type="VEuPathDB" id="HostDB:ENSG00000198626"/>
+  <dbReference type="eggNOG" id="KOG2243">
+    <property type="taxonomic scope" value="Eukaryota"/>
+  </dbReference>
+  <dbReference type="GeneTree" id="ENSGT00940000154906"/>
+  <dbReference type="HOGENOM" id="CLU_000040_2_0_1"/>
+  <dbReference type="InParanoid" id="Q92736"/>
+  <dbReference type="OMA" id="HYEDTSD"/>
+  <dbReference type="OrthoDB" id="3144451at2759"/>
+  <dbReference type="PhylomeDB" id="Q92736"/>
+  <dbReference type="TreeFam" id="TF315244"/>
+  <dbReference type="PathwayCommons" id="Q92736"/>
+  <dbReference type="Reactome" id="R-HSA-2672351">
+    <property type="pathway name" value="Stimuli-sensing channels"/>
+  </dbReference>
+  <dbReference type="Reactome" id="R-HSA-5578775">
+    <property type="pathway name" value="Ion homeostasis"/>
+  </dbReference>
+  <dbReference type="SignaLink" id="Q92736"/>
+  <dbReference type="SIGNOR" id="Q92736"/>
+  <dbReference type="BioGRID-ORCS" id="6262">
+    <property type="hits" value="7 hits in 1152 CRISPR screens"/>
+  </dbReference>
+  <dbReference type="ChiTaRS" id="RYR2">
+    <property type="organism name" value="human"/>
+  </dbReference>
+  <dbReference type="GeneWiki" id="Ryanodine_receptor_2"/>
+  <dbReference type="GenomeRNAi" id="6262"/>
+  <dbReference type="Pharos" id="Q92736">
+    <property type="development level" value="Tclin"/>
+  </dbReference>
+  <dbReference type="PRO" id="PR:Q92736"/>
+  <dbReference type="Proteomes" id="UP000005640">
+    <property type="component" value="Chromosome 1"/>
+  </dbReference>
+  <dbReference type="RNAct" id="Q92736">
+    <property type="molecule type" value="protein"/>
+  </dbReference>
+  <dbReference type="Bgee" id="ENSG00000198626">
+    <property type="expression patterns" value="Expressed in heart right ventricle and 137 other tissues"/>
+  </dbReference>
+  <dbReference type="ExpressionAtlas" id="Q92736">
+    <property type="expression patterns" value="baseline and differential"/>
+  </dbReference>
+  <dbReference type="Genevisible" id="Q92736">
+    <property type="organism ID" value="HS"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0034704">
+    <property type="term" value="C:calcium channel complex"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0014701">
+    <property type="term" value="C:junctional sarcoplasmic reticulum membrane"/>
+    <property type="evidence" value="ECO:0000304"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0016020">
+    <property type="term" value="C:membrane"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005886">
+    <property type="term" value="C:plasma membrane"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0032991">
+    <property type="term" value="C:protein-containing complex"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="MGI"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0042383">
+    <property type="term" value="C:sarcolemma"/>
+    <property type="evidence" value="ECO:0000318"/>
+    <property type="project" value="GO_Central"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0016529">
+    <property type="term" value="C:sarcoplasmic reticulum"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0033017">
+    <property type="term" value="C:sarcoplasmic reticulum membrane"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005790">
+    <property type="term" value="C:smooth endoplasmic reticulum"/>
+    <property type="evidence" value="ECO:0000318"/>
+    <property type="project" value="GO_Central"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0030018">
+    <property type="term" value="C:Z disc"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005262">
+    <property type="term" value="F:calcium channel activity"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005509">
+    <property type="term" value="F:calcium ion binding"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="InterPro"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0048763">
+    <property type="term" value="F:calcium-induced calcium release activity"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0015278">
+    <property type="term" value="F:calcium-release channel activity"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005516">
+    <property type="term" value="F:calmodulin binding"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0019899">
+    <property type="term" value="F:enzyme binding"/>
+    <property type="evidence" value="ECO:0000353"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0042802">
+    <property type="term" value="F:identical protein binding"/>
+    <property type="evidence" value="ECO:0000353"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0034236">
+    <property type="term" value="F:protein kinase A catalytic subunit binding"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0034237">
+    <property type="term" value="F:protein kinase A regulatory subunit binding"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0043621">
+    <property type="term" value="F:protein self-association"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="Ensembl"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005219">
+    <property type="term" value="F:ryanodine-sensitive calcium-release channel activity"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0043924">
+    <property type="term" value="F:suramin binding"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0044325">
+    <property type="term" value="F:transmembrane transporter binding"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0006816">
+    <property type="term" value="P:calcium ion transport"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0060402">
+    <property type="term" value="P:calcium ion transport into cytosol"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0019722">
+    <property type="term" value="P:calcium-mediated signaling"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0035584">
+    <property type="term" value="P:calcium-mediated signaling using intracellular calcium source"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0060048">
+    <property type="term" value="P:cardiac muscle contraction"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0003300">
+    <property type="term" value="P:cardiac muscle hypertrophy"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0086064">
+    <property type="term" value="P:cell communication by electrical coupling involved in cardiac conduction"/>
+    <property type="evidence" value="ECO:0000305"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0071313">
+    <property type="term" value="P:cellular response to caffeine"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0071872">
+    <property type="term" value="P:cellular response to epinephrine stimulus"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005513">
+    <property type="term" value="P:detection of calcium ion"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0003143">
+    <property type="term" value="P:embryonic heart tube morphogenesis"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0051649">
+    <property type="term" value="P:establishment of localization in cell"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="Ensembl"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0072599">
+    <property type="term" value="P:establishment of protein localization to endoplasmic reticulum"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0006874">
+    <property type="term" value="P:intracellular calcium ion homeostasis"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0003220">
+    <property type="term" value="P:left ventricular cardiac muscle tissue morphogenesis"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:1901896">
+    <property type="term" value="P:positive regulation of ATPase-coupled calcium transmembrane transporter activity"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0010460">
+    <property type="term" value="P:positive regulation of heart rate"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0051284">
+    <property type="term" value="P:positive regulation of sequestering of calcium ion"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0098735">
+    <property type="term" value="P:positive regulation of the force of heart contraction"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0086029">
+    <property type="term" value="P:Purkinje myocyte to ventricular cardiac muscle cell signaling"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0098910">
+    <property type="term" value="P:regulation of atrial cardiac muscle cell action potential"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0098904">
+    <property type="term" value="P:regulation of AV node cell action potential"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0055117">
+    <property type="term" value="P:regulation of cardiac muscle contraction"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0010882">
+    <property type="term" value="P:regulation of cardiac muscle contraction by calcium ion signaling"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0010881">
+    <property type="term" value="P:regulation of cardiac muscle contraction by regulation of the release of sequestered calcium ion"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0051480">
+    <property type="term" value="P:regulation of cytosolic calcium ion concentration"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0002027">
+    <property type="term" value="P:regulation of heart rate"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0098907">
+    <property type="term" value="P:regulation of SA node cell action potential"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0098911">
+    <property type="term" value="P:regulation of ventricular cardiac muscle cell action potential"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0051209">
+    <property type="term" value="P:release of sequestered calcium ion into cytosol"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0014808">
+    <property type="term" value="P:release of sequestered calcium ion into cytosol by sarcoplasmic reticulum"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0031000">
+    <property type="term" value="P:response to caffeine"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0001666">
+    <property type="term" value="P:response to hypoxia"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0014850">
+    <property type="term" value="P:response to muscle activity"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0035994">
+    <property type="term" value="P:response to muscle stretch"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0051775">
+    <property type="term" value="P:response to redox state"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0070296">
+    <property type="term" value="P:sarcoplasmic reticulum calcium ion transport"/>
+    <property type="evidence" value="ECO:0000304"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0006941">
+    <property type="term" value="P:striated muscle contraction"/>
+    <property type="evidence" value="ECO:0000318"/>
+    <property type="project" value="GO_Central"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0097050">
+    <property type="term" value="P:type B pancreatic cell apoptotic process"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0086005">
+    <property type="term" value="P:ventricular cardiac muscle cell action potential"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="CDD" id="cd12877">
+    <property type="entry name" value="SPRY1_RyR"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="CDD" id="cd12878">
+    <property type="entry name" value="SPRY2_RyR"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="CDD" id="cd12879">
+    <property type="entry name" value="SPRY3_RyR"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="1.10.287.70">
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="1.10.490.160">
+    <property type="match status" value="3"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="2.60.120.920">
+    <property type="match status" value="3"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="2.80.10.50">
+    <property type="match status" value="2"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="1.10.238.10">
+    <property type="entry name" value="EF-hand"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="1.25.10.30">
+    <property type="entry name" value="IP3 receptor type 1 binding core, RIH domain"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR001870">
+    <property type="entry name" value="B30.2/SPRY"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR043136">
+    <property type="entry name" value="B30.2/SPRY_sf"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR013320">
+    <property type="entry name" value="ConA-like_dom_sf"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR011992">
+    <property type="entry name" value="EF-hand-dom_pair"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR002048">
+    <property type="entry name" value="EF_hand_dom"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR014821">
+    <property type="entry name" value="Ins145_P3_rcpt"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR005821">
+    <property type="entry name" value="Ion_trans_dom"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR036300">
+    <property type="entry name" value="MIR_dom_sf"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR016093">
+    <property type="entry name" value="MIR_motif"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR013662">
+    <property type="entry name" value="RIH_assoc-dom"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR000699">
+    <property type="entry name" value="RIH_dom"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR013333">
+    <property type="entry name" value="Ryan_recept"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR015925">
+    <property type="entry name" value="Ryanodine_IP3_receptor"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR003032">
+    <property type="entry name" value="Ryanodine_rcpt"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR009460">
+    <property type="entry name" value="Ryanrecept_TM4-6"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR035910">
+    <property type="entry name" value="RyR/IP3R_RIH_dom_sf"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR035761">
+    <property type="entry name" value="SPRY1_RyR"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR035764">
+    <property type="entry name" value="SPRY2_RyR"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR035762">
+    <property type="entry name" value="SPRY3_RyR"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR003877">
+    <property type="entry name" value="SPRY_dom"/>
+  </dbReference>
+  <dbReference type="PANTHER" id="PTHR46399">
+    <property type="entry name" value="B30.2/SPRY DOMAIN-CONTAINING PROTEIN"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="PANTHER" id="PTHR46399:SF7">
+    <property type="entry name" value="RYANODINE RECEPTOR 2"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF08709">
+    <property type="entry name" value="Ins145_P3_rec"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF00520">
+    <property type="entry name" value="Ion_trans"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF02815">
+    <property type="entry name" value="MIR"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF08454">
+    <property type="entry name" value="RIH_assoc"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF06459">
+    <property type="entry name" value="RR_TM4-6"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF01365">
+    <property type="entry name" value="RYDR_ITPR"/>
+    <property type="match status" value="2"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF02026">
+    <property type="entry name" value="RyR"/>
+    <property type="match status" value="4"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF00622">
+    <property type="entry name" value="SPRY"/>
+    <property type="match status" value="3"/>
+  </dbReference>
+  <dbReference type="PRINTS" id="PR00795">
+    <property type="entry name" value="RYANODINER"/>
+  </dbReference>
+  <dbReference type="SMART" id="SM00472">
+    <property type="entry name" value="MIR"/>
+    <property type="match status" value="4"/>
+  </dbReference>
+  <dbReference type="SMART" id="SM00449">
+    <property type="entry name" value="SPRY"/>
+    <property type="match status" value="3"/>
+  </dbReference>
+  <dbReference type="SUPFAM" id="SSF49899">
+    <property type="entry name" value="Concanavalin A-like lectins/glucanases"/>
+    <property type="match status" value="2"/>
+  </dbReference>
+  <dbReference type="SUPFAM" id="SSF47473">
+    <property type="entry name" value="EF-hand"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="SUPFAM" id="SSF100909">
+    <property type="entry name" value="IP3 receptor type 1 binding core, domain 2"/>
+    <property type="match status" value="2"/>
+  </dbReference>
+  <dbReference type="SUPFAM" id="SSF82109">
+    <property type="entry name" value="MIR domain"/>
+    <property type="match status" value="2"/>
+  </dbReference>
+  <dbReference type="PROSITE" id="PS50188">
+    <property type="entry name" value="B302_SPRY"/>
+    <property type="match status" value="3"/>
+  </dbReference>
+  <dbReference type="PROSITE" id="PS50919">
+    <property type="entry name" value="MIR"/>
+    <property type="match status" value="5"/>
+  </dbReference>
+  <proteinExistence type="evidence at protein level"/>
+  <keyword id="KW-0002">3D-structure</keyword>
+  <keyword id="KW-0025">Alternative splicing</keyword>
+  <keyword id="KW-0106">Calcium</keyword>
+  <keyword id="KW-0107">Calcium channel</keyword>
+  <keyword id="KW-0109">Calcium transport</keyword>
+  <keyword id="KW-0112">Calmodulin-binding</keyword>
+  <keyword id="KW-0122">Cardiomyopathy</keyword>
+  <keyword id="KW-0175">Coiled coil</keyword>
+  <keyword id="KW-0217">Developmental protein</keyword>
+  <keyword id="KW-0225">Disease variant</keyword>
+  <keyword id="KW-0407">Ion channel</keyword>
+  <keyword id="KW-0406">Ion transport</keyword>
+  <keyword id="KW-1071">Ligand-gated ion channel</keyword>
+  <keyword id="KW-0472">Membrane</keyword>
+  <keyword id="KW-0597">Phosphoprotein</keyword>
+  <keyword id="KW-0675">Receptor</keyword>
+  <keyword id="KW-1185">Reference proteome</keyword>
+  <keyword id="KW-0677">Repeat</keyword>
+  <keyword id="KW-0703">Sarcoplasmic reticulum</keyword>
+  <keyword id="KW-0812">Transmembrane</keyword>
+  <keyword id="KW-1133">Transmembrane helix</keyword>
+  <keyword id="KW-0813">Transport</keyword>
+  <feature type="chain" id="PRO_0000219361" description="Ryanodine receptor 2">
+    <location>
+      <begin position="1"/>
+      <end position="4967"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Cytoplasmic" evidence="6">
+    <location>
+      <begin position="1"/>
+      <end position="4281"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical" evidence="6">
+    <location>
+      <begin position="4282"/>
+      <end position="4302"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical" evidence="6">
+    <location>
+      <begin position="4504"/>
+      <end position="4524"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical" evidence="6">
+    <location>
+      <begin position="4580"/>
+      <end position="4600"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical" evidence="6">
+    <location>
+      <begin position="4730"/>
+      <end position="4750"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical" evidence="6">
+    <location>
+      <begin position="4769"/>
+      <end position="4789"/>
+    </location>
+  </feature>
+  <feature type="intramembrane region" description="Pore-forming" evidence="1">
+    <location>
+      <begin position="4820"/>
+      <end position="4829"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical" evidence="6">
+    <location>
+      <begin position="4850"/>
+      <end position="4870"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Cytoplasmic" evidence="6">
+    <location>
+      <begin position="4871"/>
+      <end position="4967"/>
+    </location>
+  </feature>
+  <feature type="domain" description="MIR 1" evidence="7">
+    <location>
+      <begin position="110"/>
+      <end position="165"/>
+    </location>
+  </feature>
+  <feature type="domain" description="MIR 2" evidence="7">
+    <location>
+      <begin position="172"/>
+      <end position="217"/>
+    </location>
+  </feature>
+  <feature type="domain" description="MIR 3" evidence="7">
+    <location>
+      <begin position="225"/>
+      <end position="280"/>
+    </location>
+  </feature>
+  <feature type="domain" description="MIR 4" evidence="7">
+    <location>
+      <begin position="286"/>
+      <end position="343"/>
+    </location>
+  </feature>
+  <feature type="domain" description="MIR 5" evidence="7">
+    <location>
+      <begin position="351"/>
+      <end position="408"/>
+    </location>
+  </feature>
+  <feature type="domain" description="B30.2/SPRY 1" evidence="8">
+    <location>
+      <begin position="599"/>
+      <end position="809"/>
+    </location>
+  </feature>
+  <feature type="repeat" description="1">
+    <location>
+      <begin position="853"/>
+      <end position="966"/>
+    </location>
+  </feature>
+  <feature type="repeat" description="2">
+    <location>
+      <begin position="967"/>
+      <end position="1080"/>
+    </location>
+  </feature>
+  <feature type="domain" description="B30.2/SPRY 2" evidence="8">
+    <location>
+      <begin position="1025"/>
+      <end position="1222"/>
+    </location>
+  </feature>
+  <feature type="domain" description="B30.2/SPRY 3" evidence="8">
+    <location>
+      <begin position="1337"/>
+      <end position="1562"/>
+    </location>
+  </feature>
+  <feature type="repeat" description="3">
+    <location>
+      <begin position="2692"/>
+      <end position="2810"/>
+    </location>
+  </feature>
+  <feature type="repeat" description="4">
+    <location>
+      <begin position="2812"/>
+      <end position="2925"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="4 X approximate repeats">
+    <location>
+      <begin position="853"/>
+      <end position="2925"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="9">
+    <location>
+      <begin position="1856"/>
+      <end position="1891"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="9">
+    <location>
+      <begin position="2354"/>
+      <end position="2379"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Interaction with CALM" evidence="23">
+    <location>
+      <begin position="3581"/>
+      <end position="3610"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="9">
+    <location>
+      <begin position="4210"/>
+      <end position="4229"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="9">
+    <location>
+      <begin position="4415"/>
+      <end position="4467"/>
+    </location>
+  </feature>
+  <feature type="coiled-coil region" evidence="6">
+    <location>
+      <begin position="4412"/>
+      <end position="4445"/>
+    </location>
+  </feature>
+  <feature type="compositionally biased region" description="Basic and acidic residues" evidence="9">
+    <location>
+      <begin position="4212"/>
+      <end position="4229"/>
+    </location>
+  </feature>
+  <feature type="compositionally biased region" description="Basic and acidic residues" evidence="9">
+    <location>
+      <begin position="4418"/>
+      <end position="4467"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="Phosphoserine" evidence="3">
+    <location>
+      <position position="1341"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="Phosphoserine" evidence="2">
+    <location>
+      <position position="1869"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="Phosphoserine; by PKA" evidence="3">
+    <location>
+      <position position="2031"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="Phosphoserine" evidence="3">
+    <location>
+      <position position="2369"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="Phosphoserine" evidence="2">
+    <location>
+      <position position="2697"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="Phosphoserine" evidence="3">
+    <location>
+      <position position="2797"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="Phosphoserine; by CaMK2D and PKA" evidence="10 24">
+    <location>
+      <position position="2808"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="Phosphoserine" evidence="3">
+    <location>
+      <position position="2811"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="Phosphoserine; by CaMK2D" evidence="24">
+    <location>
+      <position position="2814"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="Phosphoserine" evidence="3">
+    <location>
+      <position position="2947"/>
+    </location>
+  </feature>
+  <feature type="splice variant" id="VSP_005953" description="In isoform 2." evidence="34">
+    <original>E</original>
+    <variation>EVTGSQRSK</variation>
+    <location>
+      <position position="3715"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_075283" description="Found in a patient with short-coupled polymorphic ventricular tachycardia at rest; unknown pathological significance; no effect on cytosolic Ca(2+) activation." evidence="28 29">
+    <original>H</original>
+    <variation>D</variation>
+    <location>
+      <position position="29"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044086" description="In CPVT1; dbSNP:rs764772142." evidence="19">
+    <original>P</original>
+    <variation>S</variation>
+    <location>
+      <position position="164"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044087" description="In ARVD2 and CPVT1; dbSNP:rs794728708." evidence="12 15 21">
+    <original>R</original>
+    <variation>Q</variation>
+    <location>
+      <position position="176"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044088" description="In CPVT1; dbSNP:rs371121679." evidence="19 21">
+    <original>R</original>
+    <variation>L</variation>
+    <location>
+      <position position="414"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044089" description="In CPVT1; decreases protein stability; dbSNP:rs1349176732." evidence="19 21 27">
+    <original>I</original>
+    <variation>F</variation>
+    <location>
+      <position position="419"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044090" description="In CPVT1; dbSNP:rs190140598." evidence="15 20">
+    <original>R</original>
+    <variation>W</variation>
+    <location>
+      <position position="420"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_011395" description="In ARVD2 and CPVT1; dbSNP:rs121918602." evidence="12 15">
+    <original>L</original>
+    <variation>P</variation>
+    <location>
+      <position position="433"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_079513" description="In CPVT1; unknown pathological significance; dbSNP:rs376612295." evidence="21">
+    <original>P</original>
+    <variation>A</variation>
+    <location>
+      <position position="466"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044091" description="In dbSNP:rs16835270.">
+    <original>V</original>
+    <variation>I</variation>
+    <location>
+      <position position="507"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_022078" description="In dbSNP:rs3766871.">
+    <original>G</original>
+    <variation>S</variation>
+    <location>
+      <position position="1886"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_011396" description="In CPVT1; dbSNP:rs121918597." evidence="13 14 20">
+    <original>S</original>
+    <variation>L</variation>
+    <location>
+      <position position="2246"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_023694" description="In CPVT1; dbSNP:rs794728746." evidence="16">
+    <original>V</original>
+    <variation>I</variation>
+    <location>
+      <position position="2306"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044092" description="In CPVT1; dbSNP:rs794728747." evidence="14">
+    <original>E</original>
+    <variation>D</variation>
+    <location>
+      <position position="2311"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_011397" description="In CPVT1; dbSNP:rs121918603." evidence="11">
+    <original>P</original>
+    <variation>S</variation>
+    <location>
+      <position position="2328"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_011398" description="In ARVD2 and CPVT1; dbSNP:rs121918601." evidence="12 15">
+    <original>N</original>
+    <variation>I</variation>
+    <location>
+      <position position="2386"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044093" description="In CPVT1; dbSNP:rs794728753." evidence="18">
+    <original>A</original>
+    <variation>P</variation>
+    <location>
+      <position position="2387"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044094" description="In CPVT1; dbSNP:rs772220753." evidence="15">
+    <original>Y</original>
+    <variation>C</variation>
+    <location>
+      <position position="2392"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044095" description="In CPVT1; dbSNP:rs1456929288." evidence="19 21">
+    <original>A</original>
+    <variation>T</variation>
+    <location>
+      <position position="2403"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_011399" description="In CPVT1; dbSNP:rs121918598." evidence="13 14">
+    <original>R</original>
+    <variation>S</variation>
+    <location>
+      <position position="2474"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044096" description="In ARVD2 and CPVT1; dbSNP:rs769219555." evidence="12 15">
+    <original>T</original>
+    <variation>M</variation>
+    <location>
+      <position position="2504"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_011590" description="In dbSNP:rs34967813." evidence="11">
+    <original>Q</original>
+    <variation>R</variation>
+    <location>
+      <position position="2958"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_085649" description="In VACRDS; decreased function in release of sequestered calcium ion into cytosol by sarcoplasmic reticulum; changed ryanodine-sensitive calcium-release channel activity; mutant channels are less resposive to activation by caffeine and store calcium overload; affects channel sensitivity to cytosolic and luminal calcium activation." evidence="31">
+    <original>Q</original>
+    <variation>L</variation>
+    <location>
+      <position position="3774"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044097" description="In CPVT1; dbSNP:rs1472508624." evidence="14">
+    <original>L</original>
+    <variation>F</variation>
+    <location>
+      <position position="3778"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_079514" description="In CPVT1; dbSNP:rs1239093704." evidence="21">
+    <original>C</original>
+    <variation>F</variation>
+    <location>
+      <position position="3800"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044098" description="In CPVT1; changed ryanodine-sensitive calcium-release channel activity; increased sensitivity to cytosolic calcium activation; dbSNP:rs794728777." evidence="14 30">
+    <original>G</original>
+    <variation>S</variation>
+    <location>
+      <position position="3946"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044099" description="In CPVT1; dbSNP:rs794728784." evidence="20">
+    <original>N</original>
+    <variation>S</variation>
+    <location>
+      <position position="4097"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_011400" description="In CPVT1; dbSNP:rs121918599." evidence="13 14">
+    <original>N</original>
+    <variation>K</variation>
+    <location>
+      <position position="4104"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_079515" description="In CPVT1; changed ryanodine-sensitive calcium-release channel activity; increased sensitivity to cytosolic calcium activation; dbSNP:rs1385881911." evidence="21 30">
+    <original>S</original>
+    <variation>T</variation>
+    <location>
+      <position position="4124"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044100" description="In CPVT1; dbSNP:rs1349585791." evidence="20">
+    <original>E</original>
+    <variation>K</variation>
+    <location>
+      <position position="4146"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044101" description="In CPVT1; changed ryanodine-sensitive calcium-release channel activity; increased sensitivity to cytosolic calcium activation; dbSNP:rs1202962809." evidence="20 30">
+    <original>T</original>
+    <variation>P</variation>
+    <location>
+      <position position="4158"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_079516" description="In CPVT1; changed ryanodine-sensitive calcium-release channel activity; increased sensitivity to cytosolic calcium activation; dbSNP:rs1234963411." evidence="25 30">
+    <original>Q</original>
+    <variation>P</variation>
+    <location>
+      <position position="4159"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_085650" description="In VACRDS; decreased function in release of sequestered calcium ion into cytosol by sarcoplasmic reticulum; changed ryanodine-sensitive calcium-release channel activity; mutant channels are less resposive to activation by caffeine and store calcium overload; affects channel sensitivity to cytosolic and luminal calcium activation." evidence="31">
+    <original>T</original>
+    <variation>I</variation>
+    <location>
+      <position position="4196"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_011401" description="In CPVT1; dbSNP:rs121918605." evidence="11">
+    <original>Q</original>
+    <variation>R</variation>
+    <location>
+      <position position="4201"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_011402" description="In CPVT1; dbSNP:rs121918600." evidence="13 14 20">
+    <original>R</original>
+    <variation>C</variation>
+    <location>
+      <position position="4497"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044102" description="In CPVT1; dbSNP:rs1457271141." evidence="19 21">
+    <original>F</original>
+    <variation>C</variation>
+    <location>
+      <position position="4499"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044103" description="In CPVT1; dbSNP:rs1323621379." evidence="17">
+    <original>M</original>
+    <variation>I</variation>
+    <location>
+      <position position="4504"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044104" description="In CPVT1; dbSNP:rs397516510." evidence="19 21">
+    <original>A</original>
+    <variation>T</variation>
+    <location>
+      <position position="4510"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_079517" description="In CPVT1; dbSNP:rs189345192." evidence="21">
+    <original>A</original>
+    <variation>T</variation>
+    <location>
+      <position position="4556"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044105" description="In CPVT1; dbSNP:rs1359163728." evidence="18">
+    <original>A</original>
+    <variation>P</variation>
+    <location>
+      <position position="4607"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_085651" description="In VACRDS; decreased function in release of sequestered calcium ion into cytosol by sarcoplasmic reticulum; changed ryanodine-sensitive calcium-release channel activity; mutant channels are less resposive to activation by caffeine and store calcium overload; affects channel sensitivity to cytosolic and luminal calcium activation." evidence="31">
+    <original>D</original>
+    <variation>A</variation>
+    <location>
+      <position position="4646"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_011403" description="In CPVT1; dbSNP:rs121918604." evidence="11">
+    <original>V</original>
+    <variation>F</variation>
+    <location>
+      <position position="4653"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044106" description="In CPVT1; dbSNP:rs1188352725." evidence="19">
+    <original>G</original>
+    <variation>R</variation>
+    <location>
+      <position position="4671"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044107" description="In CPVT1; dbSNP:rs794728804." evidence="14">
+    <original>V</original>
+    <variation>I</variation>
+    <location>
+      <position position="4771"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044108" description="In CPVT1; dbSNP:rs1363298408." evidence="19 21">
+    <original>I</original>
+    <variation>V</variation>
+    <location>
+      <position position="4848"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044109" description="In VACRDS; decreased function in release of sequestered calcium ion into cytosol by sarcoplasmic reticulum; changed ryanodine-sensitive calcium-release channel activity; diminishes the response to activation by luminal Ca(2+) but has little effect on the sensitivity of the channel to activation by cytosolic Ca(2+); shows caffeine-induced Ca(2+) release but exhibits no store-overload-induced Ca(2+) release (SOICR); HL1 cardiac cells transfected with the G-4860 mutant displayed attenuated SOICR activity compared to cells transfected with wild-type RYR2; dbSNP:rs121918606." evidence="14 22 31">
+    <original>A</original>
+    <variation>G</variation>
+    <location>
+      <position position="4860"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044110" description="In CPVT1; dbSNP:rs1218096653." evidence="14">
+    <original>I</original>
+    <variation>M</variation>
+    <location>
+      <position position="4867"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044111" description="In CPVT1; dbSNP:rs1242723821." evidence="17">
+    <original>V</original>
+    <variation>A</variation>
+    <location>
+      <position position="4880"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044112" description="In CPVT1; dbSNP:rs1185619003." evidence="14">
+    <original>N</original>
+    <variation>D</variation>
+    <location>
+      <position position="4895"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_023695" description="In CPVT1; dbSNP:rs1475453069." evidence="16">
+    <original>P</original>
+    <variation>L</variation>
+    <location>
+      <position position="4902"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_085652" description="In VACRDS; decreased function in release of sequestered calcium ion into cytosol by sarcoplasmic reticulum; changed ryanodine-sensitive calcium-release channel activity; mutant channels are less resposive to activation by caffeine and store calcium overload; affects channel sensitivity to cytosolic and luminal calcium activation." evidence="31">
+    <original>S</original>
+    <variation>F</variation>
+    <location>
+      <position position="4938"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_044113" description="In CPVT1; dbSNP:rs886039172." evidence="14">
+    <original>E</original>
+    <variation>K</variation>
+    <location>
+      <position position="4950"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_078648" description="Probable disease-associated variant found in a patient with intellectual disability, seizures, short stature and severe atrial arrhythmias; dbSNP:rs1553343100." evidence="26">
+    <original>G</original>
+    <variation>E</variation>
+    <location>
+      <position position="4955"/>
+    </location>
+  </feature>
+  <feature type="sequence variant" id="VAR_023696" description="In CPVT1; dbSNP:rs794728811." evidence="16 21">
+    <original>R</original>
+    <variation>Q</variation>
+    <location>
+      <position position="4959"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Abolishes phosphorylation by PKA." evidence="10">
+    <original>S</original>
+    <variation>A</variation>
+    <location>
+      <position position="2808"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Changed ryanodine-sensitive calcium-release channel activity characterized by increased sensitivity to cytosolic calcium activation." evidence="30">
+    <original>G</original>
+    <variation>A</variation>
+    <location>
+      <position position="3946"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Changed ryanodine-sensitive calcium-release channel activity characterized by increased sensitivity to cytosolic calcium activation." evidence="30">
+    <original>M</original>
+    <variation>I</variation>
+    <location>
+      <position position="3978"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Decreased function in release of sequestered calcium ion into cytosol by sarcoplasmic reticulum. Changed ryanodine-sensitive calcium-release channel activity. Mutant channels are less resposive to activation by caffeine and store calcium overload. Affects channel sensitivity to cytosolic and luminal calcium activation." evidence="31">
+    <original>I</original>
+    <variation>V</variation>
+    <location>
+      <position position="3995"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Changed ryanodine-sensitive calcium-release channel activity characterized by increased sensitivity to cytosolic calcium activation." evidence="30">
+    <original>H</original>
+    <variation>N</variation>
+    <location>
+      <position position="4108"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Changed ryanodine-sensitive calcium-release channel activity characterized by increased sensitivity to cytosolic calcium activation." evidence="30">
+    <original>H</original>
+    <variation>Q</variation>
+    <location>
+      <position position="4108"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Decreased function in release of sequestered calcium ion into cytosol by sarcoplasmic reticulum. Changed ryanodine-sensitive calcium-release channel activity. Mutant channels are less resposive to activation by caffeine and store calcium overload. Affects channel sensitivity to cytosolic and luminal calcium activation." evidence="31">
+    <original>D</original>
+    <variation>N</variation>
+    <location>
+      <position position="4112"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Decreased function in release of sequestered calcium ion into cytosol by sarcoplasmic reticulum. Changed ryanodine-sensitive calcium-release channel activity. Mutant channels are less resposive to activation by caffeine and store calcium overload. Affects channel sensitivity to cytosolic and luminal calcium activation." evidence="31">
+    <original>I</original>
+    <variation>M</variation>
+    <location>
+      <position position="4855"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Decreased function in release of sequestered calcium ion into cytosol by sarcoplasmic reticulum. Changed ryanodine-sensitive calcium-release channel activity. Mutant channels are less resposive to activation by caffeine and store calcium overload. Affects channel sensitivity to cytosolic and luminal calcium activation." evidence="31">
+    <original>Q</original>
+    <variation>H</variation>
+    <location>
+      <position position="4879"/>
+    </location>
+  </feature>
+  <feature type="sequence conflict" description="In Ref. 1; CAA66975 and 2; CAC18855." evidence="34" ref="1 2">
+    <original>L</original>
+    <variation>P</variation>
+    <location>
+      <position position="1037"/>
+    </location>
+  </feature>
+  <feature type="sequence conflict" description="In Ref. 1; CAA66975 and 2; CAC18855." evidence="34" ref="1 2">
+    <original>WGWRI</original>
+    <variation>RTMRT</variation>
+    <location>
+      <begin position="2785"/>
+      <end position="2789"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="19"/>
+      <end position="28"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="31"/>
+      <end position="38"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="48"/>
+      <end position="51"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="37">
+    <location>
+      <begin position="53"/>
+      <end position="57"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="37">
+    <location>
+      <begin position="63"/>
+      <end position="65"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="67"/>
+      <end position="73"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="37">
+    <location>
+      <begin position="108"/>
+      <end position="110"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="118"/>
+      <end position="127"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="129"/>
+      <end position="132"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="37">
+    <location>
+      <begin position="139"/>
+      <end position="141"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="145"/>
+      <end position="151"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="159"/>
+      <end position="166"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="180"/>
+      <end position="185"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="37">
+    <location>
+      <begin position="186"/>
+      <end position="188"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="191"/>
+      <end position="196"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="198"/>
+      <end position="208"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="212"/>
+      <end position="218"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="233"/>
+      <end position="238"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="37">
+    <location>
+      <begin position="239"/>
+      <end position="242"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="243"/>
+      <end position="246"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="250"/>
+      <end position="252"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="37">
+    <location>
+      <begin position="256"/>
+      <end position="258"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="261"/>
+      <end position="263"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="37">
+    <location>
+      <begin position="265"/>
+      <end position="269"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="37">
+    <location>
+      <begin position="271"/>
+      <end position="273"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="275"/>
+      <end position="280"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="37">
+    <location>
+      <begin position="283"/>
+      <end position="286"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="295"/>
+      <end position="299"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="37">
+    <location>
+      <begin position="300"/>
+      <end position="302"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="305"/>
+      <end position="308"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="310"/>
+      <end position="312"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="314"/>
+      <end position="317"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="37">
+    <location>
+      <begin position="319"/>
+      <end position="321"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="37">
+    <location>
+      <begin position="324"/>
+      <end position="327"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="329"/>
+      <end position="336"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="340"/>
+      <end position="342"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="37">
+    <location>
+      <begin position="356"/>
+      <end position="358"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="360"/>
+      <end position="365"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="37">
+    <location>
+      <begin position="366"/>
+      <end position="368"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="371"/>
+      <end position="375"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="388"/>
+      <end position="396"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="403"/>
+      <end position="407"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="37">
+    <location>
+      <begin position="410"/>
+      <end position="437"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="37">
+    <location>
+      <begin position="442"/>
+      <end position="444"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="37">
+    <location>
+      <begin position="449"/>
+      <end position="462"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="37">
+    <location>
+      <begin position="472"/>
+      <end position="491"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="37">
+    <location>
+      <begin position="494"/>
+      <end position="506"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="37">
+    <location>
+      <begin position="508"/>
+      <end position="510"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="37">
+    <location>
+      <begin position="511"/>
+      <end position="518"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="37">
+    <location>
+      <begin position="520"/>
+      <end position="541"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="38">
+    <location>
+      <begin position="3584"/>
+      <end position="3604"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="39">
+    <location>
+      <begin position="4247"/>
+      <end position="4272"/>
+    </location>
+  </feature>
+  <evidence type="ECO:0000250" key="1"/>
+  <evidence type="ECO:0000250" key="2">
+    <source>
+      <dbReference type="UniProtKB" id="B0LPN4"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000250" key="3">
+    <source>
+      <dbReference type="UniProtKB" id="E9Q401"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000250" key="4">
+    <source>
+      <dbReference type="UniProtKB" id="P11716"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000250" key="5">
+    <source>
+      <dbReference type="UniProtKB" id="P30957"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000255" key="6"/>
+  <evidence type="ECO:0000255" key="7">
+    <source>
+      <dbReference type="PROSITE-ProRule" id="PRU00131"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000255" key="8">
+    <source>
+      <dbReference type="PROSITE-ProRule" id="PRU00548"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000256" key="9">
+    <source>
+      <dbReference type="SAM" id="MobiDB-lite"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="10">
+    <source>
+      <dbReference type="PubMed" id="10830164"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="11">
+    <source>
+      <dbReference type="PubMed" id="11157710"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="12">
+    <source>
+      <dbReference type="PubMed" id="11159936"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="13">
+    <source>
+      <dbReference type="PubMed" id="11208676"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="14">
+    <source>
+      <dbReference type="PubMed" id="12093772"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="15">
+    <source>
+      <dbReference type="PubMed" id="12106942"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="16">
+    <source>
+      <dbReference type="PubMed" id="14571276"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="17">
+    <source>
+      <dbReference type="PubMed" id="15046072"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="18">
+    <source>
+      <dbReference type="PubMed" id="15046073"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="19">
+    <source>
+      <dbReference type="PubMed" id="15466642"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="20">
+    <source>
+      <dbReference type="PubMed" id="15544015"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="21">
+    <source>
+      <dbReference type="PubMed" id="16188589"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="22">
+    <source>
+      <dbReference type="PubMed" id="17984046"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="23">
+    <source>
+      <dbReference type="PubMed" id="18650434"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="24">
+    <source>
+      <dbReference type="PubMed" id="20056922"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="25">
+    <source>
+      <dbReference type="PubMed" id="24793461"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="26">
+    <source>
+      <dbReference type="PubMed" id="25356899"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="27">
+    <source>
+      <dbReference type="PubMed" id="25372681"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="28">
+    <source>
+      <dbReference type="PubMed" id="25463374"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="29">
+    <source>
+      <dbReference type="PubMed" id="26405799"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="30">
+    <source>
+      <dbReference type="PubMed" id="27733687"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="31">
+    <source>
+      <dbReference type="PubMed" id="33536282"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="32">
+    <source>
+      <dbReference type="PubMed" id="9148749"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="33">
+    <source>
+      <dbReference type="PubMed" id="9607712"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000305" key="34"/>
+  <evidence type="ECO:0000305" key="35">
+    <source>
+      <dbReference type="PubMed" id="10830164"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="36">
+    <source>
+      <dbReference type="PDB" id="4JKQ"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007829" key="37">
+    <source>
+      <dbReference type="PDB" id="4JKQ"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007829" key="38">
+    <source>
+      <dbReference type="PDB" id="6Y4O"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007829" key="39">
+    <source>
+      <dbReference type="PDB" id="7KL5"/>
+    </source>
+  </evidence>
+  <sequence length="4967" mass="564567" checksum="44984485F8677B42" modified="2010-10-05" version="3">MADGGEGEDEIQFLRTDDEVVLQCTATIHKEQQKLCLAAEGFGNRLCFLESTSNSKNVPPDLSICTFVLEQSLSVRALQEMLANTVEKSEGQVDVEKWKFMMKTAQGGGHRTLLYGHAILLRHSYSGMYLCCLSTSRSSTDKLAFDVGLQEDTTGEACWWTIHPASKQRSEGEKVRVGDDLILVSVSSERYLHLSYGNGSLHVDAAFQQTLWSVAPISSGSEAAQGYLIGGDVLRLLHGHMDECLTVPSGEHGEEQRRTVHYEGGAVSVHARSLWRLETLRVAWSGSHIRWGQPFRLRHVTTGKYLSLMEDKNLLLMDKEKADVKSTAFTFRSSKEKLDVGVRKEVDGMGTSEIKYGDSVCYIQHVDTGLWLTYQSVDVKSVRMGSIQRKAIMHHEGHMDDGISLSRSQHEESRTARVIRSTVFLFNRFIRGLDALSKKAKASTVDLPIESVSLSLQDLIGYFHPPDEHLEHEDKQNRLRALKNRQNLFQEEGMINLVLECIDRLHVYSSAAHFADVAGREAGESWKSILNSLYELLAALIRGNRKNCAQFSGSLDWLISRLERLEASSGILEVLHCVLVESPEALNIIKEGHIKSIISLLDKHGRNHKVLDVLCSLCVCHGVAVRSNQHLICDNLLPGRDLLLQTRLVNHVSSMRPNIFLGVSEGSAQYKKWYYELMVDHTEPFVTAEATHLRVGWASTEGYSPYPGGGEEWGGNGVGDDLFSYGFDGLHLWSGCIARTVSSPNQHLLRTDDVISCCLDLSAPSISFRINGQPVQGMFENFNIDGLFFPVVSFSAGIKVRFLLGGRHGEFKFLPPPGYAPCYEAVLPKEKLKVEHSREYKQERTYTRDLLGPTVSLTQAAFTPIPVDTSQIVLPPHLERIREKLAENIHELWVMNKIELGWQYGPVRDDNKRQHPCLVEFSKLPEQERNYNLQMSLETLKTLLALGCHVGISDEHAEDKVKKMKLPKNYQLTSGYKPAPMDLSFIKLTPSQEAMVDKLAENAHNVWARDRIRQGWTYGIQQDVKNRRNPRLVPYTLLDDRTKKSNKDSLREAVRTLLGYGYNLEAPDQDHAARAEVCSGTGERFRIFRAEKTYAVKAGRWYFEFETVTAGDMRVGWSRPGCQPDQELGSDERAFAFDGFKAQRWHQGNEHYGRSWQAGDVVGCMVDMNEHTMMFTLNGEILLDDSGSELAFKDFDVGDGFIPVCSLGVAQVGRMNFGKDVSTLKYFTICGLQEGYEPFAVNTNRDITMWLSKRLPQFLQVPSNHEHIEVTRIDGTIDSSPCLKVTQKSFGSQNSNTDIMFYRLSMPIECAEVFSKTVAGGLPGAGLFGPKNDLEDYDADSDFEVLMKTAHGHLVPDRVDKDKEATKPEFNNHKDYAQEKPSRLKQRFLLRRTKPDYSTSHSARLTEDVLADDRDDYDFLMQTSTYYYSVRIFPGQEPANVWVGWITSDFHQYDTGFDLDRVRTVTVTLGDEKGKVHESIKRSNCYMVCAGESMSPGQGRNNNGLEIGCVVDAASGLLTFIANGKELSTYYQVEPSTKLFPAVFAQATSPNVFQFELGRIKNVMPLSAGLFKSEHKNPVPQCPPRLHVQFLSHVLWSRMPNQFLKVDVSRISERQGWLVQCLDPLQFMSLHIPEENRSVDILELTEQEELLKFHYHTLRLYSAVCALGNHRVAHALCSHVDEPQLLYAIENKYMPGLLRAGYYDLLIDIHLSSYATARLMMNNEYIVPMTEETKSITLFPDENKKHGLPGIGLSTSLRPRMQFSSPSFVSISNECYQYSPEFPLDILKSKTIQMLTEAVKEGSLHARDPVGGTTEFLFVPLIKLFYTLLIMGIFHNEDLKHILQLIEPSVFKEAATPEEESDTLEKELSVDDAKLQGAGEEEAKGGKRPKEGLLQMKLPEPVKLQMCLLLQYLCDCQVRHRIEAIVAFSDDFVAKLQDNQRFRYNEVMQALNMSAALTARKTKEFRSPPQEQINMLLNFKDDKSECPCPEEIRDQLLDFHEDLMTHCGIELDEDGSLDGNSDLTIRGRLLSLVEKVTYLKKKQAEKPVESDSKKSSTLQQLISETMVRWAQESVIEDPELVRAMFVLLHRQYDGIGGLVRALPKTYTINGVSVEDTINLLASLGQIRSLLSVRMGKEEEKLMIRGLGDIMNNKVFYQHPNLMRALGMHETVMEVMVNVLGGGESKEITFPKMVANCCRFLCYFCRISRQNQKAMFDHLSYLLENSSVGLASPAMRGSTPLDVAAASVMDNNELALALREPDLEKVVRYLAGCGLQSCQMLVSKGYPDIGWNPVEGERYLDFLRFAVFCNGESVEENANVVVRLLIRRPECFGPALRGEGGNGLLAAMEEAIKIAEDPSRDGPSPNSGSSKTLDTEEEEDDTIHMGNAIMTFYSALIDLLGRCAPEMHLIHAGKGEAIRIRSILRSLIPLGDLVGVISIAFQMPTIAKDGNVVEPDMSAGFCPDHKAAMVLFLDRVYGIEVQDFLLHLLEVGFLPDLRAAASLDTAALSATDMALALNRYLCTAVLPLLTRCAPLFAGTEHHASLIDSLLHTVYRLSKGCSLTKAQRDSIEVCLLSICGQLRPSMMQHLLRRLVFDVPLLNEHAKMPLKLLTNHYERCWKYYCLPGGWGNFGAASEEELHLSRKLFWGIFDALSQKKYEQELFKLALPCLSAVAGALPPDYMESNYVSMMEKQSSMDSEGNFNPQPVDTSNITIPEKLEYFINKYAEHSHDKWSMDKLANGWIYGEIYSDSSKVQPLMKPYKLLSEKEKEIYRWPIKESLKTMLAWGWRIERTREGDSMALYNRTRRISQTSQVSVDAAHGYSPRAIDMSNVTLSRDLHAMAEMMAENYHNIWAKKKKMELESKGGGNHPLLVPYDTLTAKEKAKDREKAQDILKFLQINGYAVSRGFKDLELDTPSIEKRFAYSFLQQLIRYVDEAHQYILEFDGGSRGKGEHFPYEQEIKFFAKVVLPLIDQYFKNHRLYFLSAASRPLCSGGHASNKEKEMVTSLFCKLGVLVRHRISLFGNDATSIVNCLHILGQTLDARTVMKTGLESVKSALRAFLDNAAEDLEKTMENLKQGQFTHTRNQPKGVTQIINYTTVALLPMLSSLFEHIGQHQFGEDLILEDVQVSCYRILTSLYALGTSKSIYVERQRSALGECLAAFAGAFPVAFLETHLDKHNIYSIYNTKSSRERAALSLPTNVEDVCPNIPSLEKLMEEIVELAESGIRYTQMPHVMEVILPMLCSYMSRWWEHGPENNPERAEMCCTALNSEHMNTLLGNILKIIYNNLGIDEGAWMKRLAVFSQPIINKVKPQLLKTHFLPLMEKLKKKAATVVSEEDHLKAEARGDMSEAELLILDEFTTLARDLYAFYPLLIRFVDYNRAKWLKEPNPEAEELFRMVAEVFIYWSKSHNFKREEQNFVVQNEINNMSFLITDTKSKMSKAAVSDQERKKMKRKGDRYSMQTSLIVAALKRLLPIGLNICAPGDQELIALAKNRFSLKDTEDEVRDIIRSNIHLQGKLEDPAIRWQMALYKDLPNRTDDTSDPEKTVERVLDIANVLFHLEQKSKRVGRRHYCLVEHPQRSKKAVWHKLLSKQRKRAVVACFRMAPLYNLPRHRAVNLFLQGYEKSWIETEEHYFEDKLIEDLAKPGAEPPEEDEGTKRVDPLHQLILLFSRTALTEKCKLEEDFLYMAYADIMAKSCHDEEDDDGEEEVKSFEEKEMEKQKLLYQQARLHDRGAAEMVLQTISASKGETGPMVAATLKLGIAILNGGNSTVQQKMLDYLKEKKDVGFFQSLAGLMQSCSVLDLNAFERQNKAEGLGMVTEEGSGEKVLQDDEFTCDLFRFLQLLCEGHNSDFQNYLRTQTGNNTTVNIIISTVDYLLRVQESISDFYWYYSGKDVIDEQGQRNFSKAIQVAKQVFNTLTEYIQGPCTGNQQSLAHSRLWDAVVGFLHVFAHMQMKLSQDSSQIELLKELMDLQKDMVVMLLSMLEGNVVNGTIGKQMVDMLVESSNNVEMILKFFDMFLKLKDLTSSDTFKEYDPDGKGVISKRDFHKAMESHKHYTQSETEFLLSCAETDENETLDYEEFVKRFHEPAKDIGFNVAVLLTNLSEHMPNDTRLQTFLELAESVLNYFQPFLGRIEIMGSAKRIERVYFEISESSRTQWEKPQVKESKRQFIFDVVNEGGEKEKMELFVNFCEDTIFEMQLAAQISESDLNERSANKEESEKERPEEQGPRMAFFSILTVRSALFALRYNILTLMRMLSLKSLKKQMKKVKKMTVKDMVTAFFSSYWSIFMTLLHFVASVFRGFFRIICSLLLGGSLVEGAKKIKVAELLANMPDPTQDEVRGDGEEGERKPLEAALPSEDLTDLKELTEESDLLSDIFGLDLKREGGQYKLIPHNPNAGLSDLMSNPVPMPEVQEKFQEQKAKEEEKEEKEETKSEPEKAEGEDGEKEEKAKEDKGKQKLRQLHTHRYGEPEVPESAFWKKIIAYQQKLLNYFARNFYNMRMLALFVAFAINFILLFYKVSTSSVVEGKELPTRSSSENAKVTSLDSSSHRIIAVHYVLEESSGYMEPTLRILAILHTVISFFCIIGYYCLKVPLVIFKREKEVARKLEFDGLYITEQPSEDDIKGQWDRLVINTQSFPNNYWDKFVKRKVMDKYGEFYGRDRISELLGMDKAALDFSDAREKKKPKKDSSLSAVLNSIDVKYQMWKLGVVFTDNSFLYLAWYMTMSVLGHYNNFFFAAHLLDIAMGFKTLRTILSSVTHNGKQLVLTVGLLAVVVYLYTVVAFNFFRKFYNKSEDGDTPDMKCDDMLTCYMFHMYVGVRAGGGIGDEIEDPAGDEYEIYRIIFDITFFFFVIVILLAIIQGLIIDAFGELRDQQEQVKEDMETKCFICGIGNDYFDTVPHGFETHTLQEHNLANYLFFLMYLINKDETEHTGQESYVWKMYQERCWEFFPAGDCFRKQYEDQLN</sequence>
+</entry>
+<copyright>
+Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms Distributed under the Creative Commons Attribution (CC BY 4.0) License
+</copyright>
+</uniprot>

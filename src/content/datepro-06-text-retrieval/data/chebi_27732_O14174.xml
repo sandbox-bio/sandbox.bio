@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"  standalone="no" ?>
+<uniprot xmlns="http://uniprot.org/uniprot" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://uniprot.org/uniprot http://www.uniprot.org/docs/uniprot.xsd">
+<entry dataset="Swiss-Prot" created="1998-07-15" modified="2023-05-03" version="116" xmlns="http://uniprot.org/uniprot">
+  <accession>O14174</accession>
+  <name>SPT20_SCHPO</name>
+  <protein>
+    <recommendedName>
+      <fullName>SAGA complex subunit spt20</fullName>
+    </recommendedName>
+  </protein>
+  <gene>
+    <name type="primary">spt20</name>
+    <name type="ORF">SPAC4D7.10c</name>
+  </gene>
+  <organism>
+    <name type="scientific">Schizosaccharomyces pombe (strain 972 / ATCC 24843)</name>
+    <name type="common">Fission yeast</name>
+    <dbReference type="NCBI Taxonomy" id="284812"/>
+    <lineage>
+      <taxon>Eukaryota</taxon>
+      <taxon>Fungi</taxon>
+      <taxon>Dikarya</taxon>
+      <taxon>Ascomycota</taxon>
+      <taxon>Taphrinomycotina</taxon>
+      <taxon>Schizosaccharomycetes</taxon>
+      <taxon>Schizosaccharomycetales</taxon>
+      <taxon>Schizosaccharomycetaceae</taxon>
+      <taxon>Schizosaccharomyces</taxon>
+    </lineage>
+  </organism>
+  <reference key="1">
+    <citation type="journal article" date="2002" name="Nature" volume="415" first="871" last="880">
+      <title>The genome sequence of Schizosaccharomyces pombe.</title>
+      <authorList>
+        <person name="Wood V."/>
+        <person name="Gwilliam R."/>
+        <person name="Rajandream M.A."/>
+        <person name="Lyne M.H."/>
+        <person name="Lyne R."/>
+        <person name="Stewart A."/>
+        <person name="Sgouros J.G."/>
+        <person name="Peat N."/>
+        <person name="Hayles J."/>
+        <person name="Baker S.G."/>
+        <person name="Basham D."/>
+        <person name="Bowman S."/>
+        <person name="Brooks K."/>
+        <person name="Brown D."/>
+        <person name="Brown S."/>
+        <person name="Chillingworth T."/>
+        <person name="Churcher C.M."/>
+        <person name="Collins M."/>
+        <person name="Connor R."/>
+        <person name="Cronin A."/>
+        <person name="Davis P."/>
+        <person name="Feltwell T."/>
+        <person name="Fraser A."/>
+        <person name="Gentles S."/>
+        <person name="Goble A."/>
+        <person name="Hamlin N."/>
+        <person name="Harris D.E."/>
+        <person name="Hidalgo J."/>
+        <person name="Hodgson G."/>
+        <person name="Holroyd S."/>
+        <person name="Hornsby T."/>
+        <person name="Howarth S."/>
+        <person name="Huckle E.J."/>
+        <person name="Hunt S."/>
+        <person name="Jagels K."/>
+        <person name="James K.D."/>
+        <person name="Jones L."/>
+        <person name="Jones M."/>
+        <person name="Leather S."/>
+        <person name="McDonald S."/>
+        <person name="McLean J."/>
+        <person name="Mooney P."/>
+        <person name="Moule S."/>
+        <person name="Mungall K.L."/>
+        <person name="Murphy L.D."/>
+        <person name="Niblett D."/>
+        <person name="Odell C."/>
+        <person name="Oliver K."/>
+        <person name="O'Neil S."/>
+        <person name="Pearson D."/>
+        <person name="Quail M.A."/>
+        <person name="Rabbinowitsch E."/>
+        <person name="Rutherford K.M."/>
+        <person name="Rutter S."/>
+        <person name="Saunders D."/>
+        <person name="Seeger K."/>
+        <person name="Sharp S."/>
+        <person name="Skelton J."/>
+        <person name="Simmonds M.N."/>
+        <person name="Squares R."/>
+        <person name="Squares S."/>
+        <person name="Stevens K."/>
+        <person name="Taylor K."/>
+        <person name="Taylor R.G."/>
+        <person name="Tivey A."/>
+        <person name="Walsh S.V."/>
+        <person name="Warren T."/>
+        <person name="Whitehead S."/>
+        <person name="Woodward J.R."/>
+        <person name="Volckaert G."/>
+        <person name="Aert R."/>
+        <person name="Robben J."/>
+        <person name="Grymonprez B."/>
+        <person name="Weltjens I."/>
+        <person name="Vanstreels E."/>
+        <person name="Rieger M."/>
+        <person name="Schaefer M."/>
+        <person name="Mueller-Auer S."/>
+        <person name="Gabel C."/>
+        <person name="Fuchs M."/>
+        <person name="Duesterhoeft A."/>
+        <person name="Fritzc C."/>
+        <person name="Holzer E."/>
+        <person name="Moestl D."/>
+        <person name="Hilbert H."/>
+        <person name="Borzym K."/>
+        <person name="Langer I."/>
+        <person name="Beck A."/>
+        <person name="Lehrach H."/>
+        <person name="Reinhardt R."/>
+        <person name="Pohl T.M."/>
+        <person name="Eger P."/>
+        <person name="Zimmermann W."/>
+        <person name="Wedler H."/>
+        <person name="Wambutt R."/>
+        <person name="Purnelle B."/>
+        <person name="Goffeau A."/>
+        <person name="Cadieu E."/>
+        <person name="Dreano S."/>
+        <person name="Gloux S."/>
+        <person name="Lelaure V."/>
+        <person name="Mottier S."/>
+        <person name="Galibert F."/>
+        <person name="Aves S.J."/>
+        <person name="Xiang Z."/>
+        <person name="Hunt C."/>
+        <person name="Moore K."/>
+        <person name="Hurst S.M."/>
+        <person name="Lucas M."/>
+        <person name="Rochet M."/>
+        <person name="Gaillardin C."/>
+        <person name="Tallada V.A."/>
+        <person name="Garzon A."/>
+        <person name="Thode G."/>
+        <person name="Daga R.R."/>
+        <person name="Cruzado L."/>
+        <person name="Jimenez J."/>
+        <person name="Sanchez M."/>
+        <person name="del Rey F."/>
+        <person name="Benito J."/>
+        <person name="Dominguez A."/>
+        <person name="Revuelta J.L."/>
+        <person name="Moreno S."/>
+        <person name="Armstrong J."/>
+        <person name="Forsburg S.L."/>
+        <person name="Cerutti L."/>
+        <person name="Lowe T."/>
+        <person name="McCombie W.R."/>
+        <person name="Paulsen I."/>
+        <person name="Potashkin J."/>
+        <person name="Shpakovski G.V."/>
+        <person name="Ussery D."/>
+        <person name="Barrell B.G."/>
+        <person name="Nurse P."/>
+      </authorList>
+      <dbReference type="PubMed" id="11859360"/>
+      <dbReference type="DOI" id="10.1038/nature724"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]</scope>
+    <source>
+      <strain>972 / ATCC 24843</strain>
+    </source>
+  </reference>
+  <reference key="2">
+    <citation type="journal article" date="2006" name="Nat. Biotechnol." volume="24" first="841" last="847">
+      <title>ORFeome cloning and global analysis of protein localization in the fission yeast Schizosaccharomyces pombe.</title>
+      <authorList>
+        <person name="Matsuyama A."/>
+        <person name="Arai R."/>
+        <person name="Yashiroda Y."/>
+        <person name="Shirai A."/>
+        <person name="Kamata A."/>
+        <person name="Sekido S."/>
+        <person name="Kobayashi Y."/>
+        <person name="Hashimoto A."/>
+        <person name="Hamamoto M."/>
+        <person name="Hiraoka Y."/>
+        <person name="Horinouchi S."/>
+        <person name="Yoshida M."/>
+      </authorList>
+      <dbReference type="PubMed" id="16823372"/>
+      <dbReference type="DOI" id="10.1038/nbt1222"/>
+    </citation>
+    <scope>SUBCELLULAR LOCATION [LARGE SCALE ANALYSIS]</scope>
+  </reference>
+  <reference key="3">
+    <citation type="journal article" date="2008" name="Genes Dev." volume="22" first="3184" last="3195">
+      <title>The S. pombe SAGA complex controls the switch from proliferation to sexual differentiation through the opposing roles of its subunits Gcn5 and Spt8.</title>
+      <authorList>
+        <person name="Helmlinger D."/>
+        <person name="Marguerat S."/>
+        <person name="Villen J."/>
+        <person name="Gygi S.P."/>
+        <person name="Bahler J."/>
+        <person name="Winston F."/>
+      </authorList>
+      <dbReference type="PubMed" id="19056896"/>
+      <dbReference type="DOI" id="10.1101/gad.1719908"/>
+    </citation>
+    <scope>IDENTIFICATION IN THE SAGA COMPLEX</scope>
+    <scope>FUNCTION OF THE SAGA COMPLEX</scope>
+    <scope>DISRUPTION PHENOTYPE</scope>
+  </reference>
+  <reference key="4">
+    <citation type="journal article" date="2011" name="EMBO J." volume="30" first="2843" last="2852">
+      <title>Tra1 has specific regulatory roles, rather than global functions, within the SAGA co-activator complex.</title>
+      <authorList>
+        <person name="Helmlinger D."/>
+        <person name="Marguerat S."/>
+        <person name="Villen J."/>
+        <person name="Swaney D.L."/>
+        <person name="Gygi S.P."/>
+        <person name="Bahler J."/>
+        <person name="Winston F."/>
+      </authorList>
+      <dbReference type="PubMed" id="21642955"/>
+      <dbReference type="DOI" id="10.1038/emboj.2011.181"/>
+    </citation>
+    <scope>DISRUPTION PHENOTYPE</scope>
+  </reference>
+  <comment type="function">
+    <text evidence="3">Functions as component of the transcription regulatory histone acetylation (HAT) complex SAGA. At the promoters, SAGA is required for recruitment of the basal transcription machinery. It influences RNA polymerase II transcriptional activity through different activities such as TBP interaction and promoter selectivity, interaction with transcription activators, and chromatin modification through histone acetylation and deubiquitination. SAGA acetylates nucleosomal histone H3 to some extent (to form H3K9ac, H3K14ac, H3K18ac and H3K23ac). SAGA interacts with DNA via upstream activating sequences (UASs).</text>
+  </comment>
+  <comment type="subunit">
+    <text evidence="3">Component of the SAGA complex.</text>
+  </comment>
+  <comment type="subcellular location">
+    <subcellularLocation>
+      <location evidence="2">Nucleus</location>
+    </subcellularLocation>
+    <subcellularLocation>
+      <location evidence="2">Cytoplasm</location>
+    </subcellularLocation>
+  </comment>
+  <comment type="disruption phenotype">
+    <text evidence="3 4">Leads to decreased growth at high temperature and sensitivity to several drugs like hydroxyurea, caffeine, canavanine and rapamycin; as well as to raffinose.</text>
+  </comment>
+  <comment type="similarity">
+    <text evidence="5">Belongs to the SPT20 family.</text>
+  </comment>
+  <dbReference type="EMBL" id="CU329670">
+    <property type="protein sequence ID" value="CAB11282.1"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="PIR" id="T38801">
+    <property type="entry name" value="T38801"/>
+  </dbReference>
+  <dbReference type="RefSeq" id="NP_594963.1">
+    <property type="nucleotide sequence ID" value="NM_001020394.2"/>
+  </dbReference>
+  <dbReference type="AlphaFoldDB" id="O14174"/>
+  <dbReference type="BioGRID" id="280089">
+    <property type="interactions" value="12"/>
+  </dbReference>
+  <dbReference type="IntAct" id="O14174">
+    <property type="interactions" value="2"/>
+  </dbReference>
+  <dbReference type="MINT" id="O14174"/>
+  <dbReference type="STRING" id="4896.SPAC4D7.10c.1"/>
+  <dbReference type="iPTMnet" id="O14174"/>
+  <dbReference type="MaxQB" id="O14174"/>
+  <dbReference type="PaxDb" id="O14174"/>
+  <dbReference type="EnsemblFungi" id="SPAC4D7.10c.1">
+    <property type="protein sequence ID" value="SPAC4D7.10c.1:pep"/>
+    <property type="gene ID" value="SPAC4D7.10c"/>
+  </dbReference>
+  <dbReference type="PomBase" id="SPAC4D7.10c">
+    <property type="gene designation" value="spt20"/>
+  </dbReference>
+  <dbReference type="VEuPathDB" id="FungiDB:SPAC4D7.10c"/>
+  <dbReference type="eggNOG" id="ENOG502QS30">
+    <property type="taxonomic scope" value="Eukaryota"/>
+  </dbReference>
+  <dbReference type="HOGENOM" id="CLU_577656_0_0_1"/>
+  <dbReference type="InParanoid" id="O14174"/>
+  <dbReference type="OMA" id="RMELIPP"/>
+  <dbReference type="PhylomeDB" id="O14174"/>
+  <dbReference type="PRO" id="PR:O14174"/>
+  <dbReference type="Proteomes" id="UP000002485">
+    <property type="component" value="Chromosome I"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005737">
+    <property type="term" value="C:cytoplasm"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="PomBase"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005829">
+    <property type="term" value="C:cytosol"/>
+    <property type="evidence" value="ECO:0007005"/>
+    <property type="project" value="PomBase"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0036391">
+    <property type="term" value="C:medial cortex septin ring"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="PomBase"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005634">
+    <property type="term" value="C:nucleus"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="PomBase"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0000124">
+    <property type="term" value="C:SAGA complex"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="PomBase"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0003713">
+    <property type="term" value="F:transcription coactivator activity"/>
+    <property type="evidence" value="ECO:0000266"/>
+    <property type="project" value="PomBase"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0006357">
+    <property type="term" value="P:regulation of transcription by RNA polymerase II"/>
+    <property type="evidence" value="ECO:0000269"/>
+    <property type="project" value="PomBase"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0031106">
+    <property type="term" value="P:septin ring organization"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="PomBase"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0045815">
+    <property type="term" value="P:transcription initiation-coupled chromatin remodeling"/>
+    <property type="evidence" value="ECO:0000305"/>
+    <property type="project" value="PomBase"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR021950">
+    <property type="entry name" value="Spt20"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR046468">
+    <property type="entry name" value="Spt20-like_SEP"/>
+  </dbReference>
+  <dbReference type="PANTHER" id="PTHR13526">
+    <property type="entry name" value="TRANSCRIPTION FACTOR SPT20 HOMOLOG"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="PANTHER" id="PTHR13526:SF8">
+    <property type="entry name" value="TRANSCRIPTION FACTOR SPT20 HOMOLOG"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF12090">
+    <property type="entry name" value="Spt20"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <proteinExistence type="evidence at protein level"/>
+  <keyword id="KW-0963">Cytoplasm</keyword>
+  <keyword id="KW-0539">Nucleus</keyword>
+  <keyword id="KW-1185">Reference proteome</keyword>
+  <keyword id="KW-0804">Transcription</keyword>
+  <keyword id="KW-0805">Transcription regulation</keyword>
+  <feature type="chain" id="PRO_0000116700" description="SAGA complex subunit spt20">
+    <location>
+      <begin position="1"/>
+      <end position="473"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="1">
+    <location>
+      <begin position="134"/>
+      <end position="179"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="1">
+    <location>
+      <begin position="304"/>
+      <end position="385"/>
+    </location>
+  </feature>
+  <feature type="compositionally biased region" description="Polar residues" evidence="1">
+    <location>
+      <begin position="134"/>
+      <end position="177"/>
+    </location>
+  </feature>
+  <feature type="compositionally biased region" description="Polar residues" evidence="1">
+    <location>
+      <begin position="304"/>
+      <end position="349"/>
+    </location>
+  </feature>
+  <feature type="compositionally biased region" description="Polar residues" evidence="1">
+    <location>
+      <begin position="366"/>
+      <end position="380"/>
+    </location>
+  </feature>
+  <evidence type="ECO:0000256" key="1">
+    <source>
+      <dbReference type="SAM" id="MobiDB-lite"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="2">
+    <source>
+      <dbReference type="PubMed" id="16823372"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="3">
+    <source>
+      <dbReference type="PubMed" id="19056896"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="4">
+    <source>
+      <dbReference type="PubMed" id="21642955"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000305" key="5"/>
+  <sequence length="473" mass="54028" checksum="C098846120AE3DE5" modified="1998-01-01" version="1">MERNNGLGDYTYRYHGKELSLDDFQNKQGIESSDDAFLSKIYENVSNFNVPRKLHDIEHKFSKEEPSLILHIHKFHFRFEQQDGAFTYNGPVKSILQYIRMELIPPDCLEVFRNSDVKFYDGCLTVRIIDHRQSPSADQTVQPQPGSTNQQQQNNTNPINNQPEDTKPNTNSPPVYHTVLRPTPETLWQDLCLLSESFANSLSDEAVLTLESNILLASEAPLFLTPAKSKAEMIQFMNQLADSAPPCTRKKPQGSAQLADEEAERLEKENLLLLMDDQRKRDFQPTFQRLQFIENVRRKRAILQQRQMQMQQQQKAQQQQSPKAQQPPAHLVQSAPVQRKTTPKIQRLPPSSIQIPPPKPMQKFPANAASSESPPNATGNFLPSGPVPANEPMLKRESVDLIKIRQLAILFQQRASQLKARGATREQITEILNRQAIAAGTDLATVMTVARNLHFQQLQMRQQQQQQQMKAER</sequence>
+</entry>
+<copyright>
+Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms Distributed under the Creative Commons Attribution (CC BY 4.0) License
+</copyright>
+</uniprot>

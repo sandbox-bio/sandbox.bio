@@ -7,21 +7,23 @@ import Conclusion from "./steps/Conclusion.md";
 import Exercise01 from "./exercises/Exercise01.md";
 
 export const config = {
-	id: "datepro-01-unix-shell",
-	pwd: "datepro-01-unix-shell",
-	name: "Section 3.2: Unix shell",
+	id: "datepro-04-task-repetition",
+	pwd: "datepro-04-task-repetition",
+	name: "Section 3.6: Task Repetition",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
-	description: "Creating and using data and script files in a Unix shell",
-	tags: ["unix", "shell", "terminal", "script", "file"],
-	tools: ["ls", "cat", "tac", "ps", "tr", "mv", "cd", "pwd", "nano", "chmod"],
+	description: "Automating UniProt data retrieval: downloading XML files for protein lists in a single step",
+	tags: ["proteins", "download", "lists of arguments", "XML", "UniProt"],
+	tools: ["xargs", "curl"],
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "Introduction", component: Intro },
-		{ name: "Unix Shell", component: Step01 },
-		{ name: "Data and Script Files", component: Step02 },
-		{ name: "Save the Output", component: Step03 },
+		{ name: "Assembly line", component: Step01 },
+		{ name: "Download files", component: Step02 },
+		{ name: "Create Script", component: Step03 },
 		{ name: "Conclusion", component: Conclusion },
 		{ name: "Exercise", component: Exercise01 }
 	],
-	files: []
+	files: [
+		"chebi_27732_xrefs_UniProt_relevant_identifiers.csv"
+			]
 };

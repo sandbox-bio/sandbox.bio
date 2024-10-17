@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"  standalone="no" ?>
+<uniprot xmlns="http://uniprot.org/uniprot" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://uniprot.org/uniprot http://www.uniprot.org/docs/uniprot.xsd">
+<entry dataset="Swiss-Prot" created="2004-05-10" modified="2023-05-03" version="125" xmlns="http://uniprot.org/uniprot">
+  <accession>Q9VD76</accession>
+  <name>GR93A_DROME</name>
+  <protein>
+    <recommendedName>
+      <fullName>Gustatory receptor for bitter taste 93a</fullName>
+    </recommendedName>
+  </protein>
+  <gene>
+    <name type="primary">Gr93a</name>
+    <name type="synonym">GR93F.1</name>
+    <name type="ORF">CG13417</name>
+  </gene>
+  <organism evidence="7">
+    <name type="scientific">Drosophila melanogaster</name>
+    <name type="common">Fruit fly</name>
+    <dbReference type="NCBI Taxonomy" id="7227"/>
+    <lineage>
+      <taxon>Eukaryota</taxon>
+      <taxon>Metazoa</taxon>
+      <taxon>Ecdysozoa</taxon>
+      <taxon>Arthropoda</taxon>
+      <taxon>Hexapoda</taxon>
+      <taxon>Insecta</taxon>
+      <taxon>Pterygota</taxon>
+      <taxon>Neoptera</taxon>
+      <taxon>Endopterygota</taxon>
+      <taxon>Diptera</taxon>
+      <taxon>Brachycera</taxon>
+      <taxon>Muscomorpha</taxon>
+      <taxon>Ephydroidea</taxon>
+      <taxon>Drosophilidae</taxon>
+      <taxon>Drosophila</taxon>
+      <taxon>Sophophora</taxon>
+    </lineage>
+  </organism>
+  <reference evidence="6" key="1">
+    <citation type="journal article" date="2000" name="Science" volume="287" first="2185" last="2195">
+      <title>The genome sequence of Drosophila melanogaster.</title>
+      <authorList>
+        <person name="Adams M.D."/>
+        <person name="Celniker S.E."/>
+        <person name="Holt R.A."/>
+        <person name="Evans C.A."/>
+        <person name="Gocayne J.D."/>
+        <person name="Amanatides P.G."/>
+        <person name="Scherer S.E."/>
+        <person name="Li P.W."/>
+        <person name="Hoskins R.A."/>
+        <person name="Galle R.F."/>
+        <person name="George R.A."/>
+        <person name="Lewis S.E."/>
+        <person name="Richards S."/>
+        <person name="Ashburner M."/>
+        <person name="Henderson S.N."/>
+        <person name="Sutton G.G."/>
+        <person name="Wortman J.R."/>
+        <person name="Yandell M.D."/>
+        <person name="Zhang Q."/>
+        <person name="Chen L.X."/>
+        <person name="Brandon R.C."/>
+        <person name="Rogers Y.-H.C."/>
+        <person name="Blazej R.G."/>
+        <person name="Champe M."/>
+        <person name="Pfeiffer B.D."/>
+        <person name="Wan K.H."/>
+        <person name="Doyle C."/>
+        <person name="Baxter E.G."/>
+        <person name="Helt G."/>
+        <person name="Nelson C.R."/>
+        <person name="Miklos G.L.G."/>
+        <person name="Abril J.F."/>
+        <person name="Agbayani A."/>
+        <person name="An H.-J."/>
+        <person name="Andrews-Pfannkoch C."/>
+        <person name="Baldwin D."/>
+        <person name="Ballew R.M."/>
+        <person name="Basu A."/>
+        <person name="Baxendale J."/>
+        <person name="Bayraktaroglu L."/>
+        <person name="Beasley E.M."/>
+        <person name="Beeson K.Y."/>
+        <person name="Benos P.V."/>
+        <person name="Berman B.P."/>
+        <person name="Bhandari D."/>
+        <person name="Bolshakov S."/>
+        <person name="Borkova D."/>
+        <person name="Botchan M.R."/>
+        <person name="Bouck J."/>
+        <person name="Brokstein P."/>
+        <person name="Brottier P."/>
+        <person name="Burtis K.C."/>
+        <person name="Busam D.A."/>
+        <person name="Butler H."/>
+        <person name="Cadieu E."/>
+        <person name="Center A."/>
+        <person name="Chandra I."/>
+        <person name="Cherry J.M."/>
+        <person name="Cawley S."/>
+        <person name="Dahlke C."/>
+        <person name="Davenport L.B."/>
+        <person name="Davies P."/>
+        <person name="de Pablos B."/>
+        <person name="Delcher A."/>
+        <person name="Deng Z."/>
+        <person name="Mays A.D."/>
+        <person name="Dew I."/>
+        <person name="Dietz S.M."/>
+        <person name="Dodson K."/>
+        <person name="Doup L.E."/>
+        <person name="Downes M."/>
+        <person name="Dugan-Rocha S."/>
+        <person name="Dunkov B.C."/>
+        <person name="Dunn P."/>
+        <person name="Durbin K.J."/>
+        <person name="Evangelista C.C."/>
+        <person name="Ferraz C."/>
+        <person name="Ferriera S."/>
+        <person name="Fleischmann W."/>
+        <person name="Fosler C."/>
+        <person name="Gabrielian A.E."/>
+        <person name="Garg N.S."/>
+        <person name="Gelbart W.M."/>
+        <person name="Glasser K."/>
+        <person name="Glodek A."/>
+        <person name="Gong F."/>
+        <person name="Gorrell J.H."/>
+        <person name="Gu Z."/>
+        <person name="Guan P."/>
+        <person name="Harris M."/>
+        <person name="Harris N.L."/>
+        <person name="Harvey D.A."/>
+        <person name="Heiman T.J."/>
+        <person name="Hernandez J.R."/>
+        <person name="Houck J."/>
+        <person name="Hostin D."/>
+        <person name="Houston K.A."/>
+        <person name="Howland T.J."/>
+        <person name="Wei M.-H."/>
+        <person name="Ibegwam C."/>
+        <person name="Jalali M."/>
+        <person name="Kalush F."/>
+        <person name="Karpen G.H."/>
+        <person name="Ke Z."/>
+        <person name="Kennison J.A."/>
+        <person name="Ketchum K.A."/>
+        <person name="Kimmel B.E."/>
+        <person name="Kodira C.D."/>
+        <person name="Kraft C.L."/>
+        <person name="Kravitz S."/>
+        <person name="Kulp D."/>
+        <person name="Lai Z."/>
+        <person name="Lasko P."/>
+        <person name="Lei Y."/>
+        <person name="Levitsky A.A."/>
+        <person name="Li J.H."/>
+        <person name="Li Z."/>
+        <person name="Liang Y."/>
+        <person name="Lin X."/>
+        <person name="Liu X."/>
+        <person name="Mattei B."/>
+        <person name="McIntosh T.C."/>
+        <person name="McLeod M.P."/>
+        <person name="McPherson D."/>
+        <person name="Merkulov G."/>
+        <person name="Milshina N.V."/>
+        <person name="Mobarry C."/>
+        <person name="Morris J."/>
+        <person name="Moshrefi A."/>
+        <person name="Mount S.M."/>
+        <person name="Moy M."/>
+        <person name="Murphy B."/>
+        <person name="Murphy L."/>
+        <person name="Muzny D.M."/>
+        <person name="Nelson D.L."/>
+        <person name="Nelson D.R."/>
+        <person name="Nelson K.A."/>
+        <person name="Nixon K."/>
+        <person name="Nusskern D.R."/>
+        <person name="Pacleb J.M."/>
+        <person name="Palazzolo M."/>
+        <person name="Pittman G.S."/>
+        <person name="Pan S."/>
+        <person name="Pollard J."/>
+        <person name="Puri V."/>
+        <person name="Reese M.G."/>
+        <person name="Reinert K."/>
+        <person name="Remington K."/>
+        <person name="Saunders R.D.C."/>
+        <person name="Scheeler F."/>
+        <person name="Shen H."/>
+        <person name="Shue B.C."/>
+        <person name="Siden-Kiamos I."/>
+        <person name="Simpson M."/>
+        <person name="Skupski M.P."/>
+        <person name="Smith T.J."/>
+        <person name="Spier E."/>
+        <person name="Spradling A.C."/>
+        <person name="Stapleton M."/>
+        <person name="Strong R."/>
+        <person name="Sun E."/>
+        <person name="Svirskas R."/>
+        <person name="Tector C."/>
+        <person name="Turner R."/>
+        <person name="Venter E."/>
+        <person name="Wang A.H."/>
+        <person name="Wang X."/>
+        <person name="Wang Z.-Y."/>
+        <person name="Wassarman D.A."/>
+        <person name="Weinstock G.M."/>
+        <person name="Weissenbach J."/>
+        <person name="Williams S.M."/>
+        <person name="Woodage T."/>
+        <person name="Worley K.C."/>
+        <person name="Wu D."/>
+        <person name="Yang S."/>
+        <person name="Yao Q.A."/>
+        <person name="Ye J."/>
+        <person name="Yeh R.-F."/>
+        <person name="Zaveri J.S."/>
+        <person name="Zhan M."/>
+        <person name="Zhang G."/>
+        <person name="Zhao Q."/>
+        <person name="Zheng L."/>
+        <person name="Zheng X.H."/>
+        <person name="Zhong F.N."/>
+        <person name="Zhong W."/>
+        <person name="Zhou X."/>
+        <person name="Zhu S.C."/>
+        <person name="Zhu X."/>
+        <person name="Smith H.O."/>
+        <person name="Gibbs R.A."/>
+        <person name="Myers E.W."/>
+        <person name="Rubin G.M."/>
+        <person name="Venter J.C."/>
+      </authorList>
+      <dbReference type="PubMed" id="10731132"/>
+      <dbReference type="DOI" id="10.1126/science.287.5461.2185"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]</scope>
+    <source>
+      <strain evidence="3">Berkeley</strain>
+    </source>
+  </reference>
+  <reference evidence="6" key="2">
+    <citation type="journal article" date="2002" name="Genome Biol." volume="3" first="RESEARCH0083.1" last="RESEARCH0083.22">
+      <title>Annotation of the Drosophila melanogaster euchromatic genome: a systematic review.</title>
+      <authorList>
+        <person name="Misra S."/>
+        <person name="Crosby M.A."/>
+        <person name="Mungall C.J."/>
+        <person name="Matthews B.B."/>
+        <person name="Campbell K.S."/>
+        <person name="Hradecky P."/>
+        <person name="Huang Y."/>
+        <person name="Kaminker J.S."/>
+        <person name="Millburn G.H."/>
+        <person name="Prochnik S.E."/>
+        <person name="Smith C.D."/>
+        <person name="Tupy J.L."/>
+        <person name="Whitfield E.J."/>
+        <person name="Bayraktaroglu L."/>
+        <person name="Berman B.P."/>
+        <person name="Bettencourt B.R."/>
+        <person name="Celniker S.E."/>
+        <person name="de Grey A.D.N.J."/>
+        <person name="Drysdale R.A."/>
+        <person name="Harris N.L."/>
+        <person name="Richter J."/>
+        <person name="Russo S."/>
+        <person name="Schroeder A.J."/>
+        <person name="Shu S.Q."/>
+        <person name="Stapleton M."/>
+        <person name="Yamada C."/>
+        <person name="Ashburner M."/>
+        <person name="Gelbart W.M."/>
+        <person name="Rubin G.M."/>
+        <person name="Lewis S.E."/>
+      </authorList>
+      <dbReference type="PubMed" id="12537572"/>
+      <dbReference type="DOI" id="10.1186/gb-2002-3-12-research0083"/>
+    </citation>
+    <scope>GENOME REANNOTATION</scope>
+    <source>
+      <strain>Berkeley</strain>
+    </source>
+  </reference>
+  <reference evidence="6" key="3">
+    <citation type="journal article" date="2000" name="Science" volume="287" first="1830" last="1834">
+      <title>Candidate taste receptors in Drosophila.</title>
+      <authorList>
+        <person name="Clyne P.J."/>
+        <person name="Warr C.G."/>
+        <person name="Carlson J.R."/>
+      </authorList>
+      <dbReference type="PubMed" id="10710312"/>
+      <dbReference type="DOI" id="10.1126/science.287.5459.1830"/>
+    </citation>
+    <scope>IDENTIFICATION</scope>
+  </reference>
+  <reference evidence="6" key="4">
+    <citation type="journal article" date="2001" name="Curr. Biol." volume="11" first="822" last="835">
+      <title>Spatially restricted expression of candidate taste receptors in the Drosophila gustatory system.</title>
+      <authorList>
+        <person name="Dunipace L."/>
+        <person name="Meister S."/>
+        <person name="McNealy C."/>
+        <person name="Amrein H."/>
+      </authorList>
+      <dbReference type="PubMed" id="11516643"/>
+      <dbReference type="DOI" id="10.1016/s0960-9822(01)00258-5"/>
+    </citation>
+    <scope>IDENTIFICATION</scope>
+  </reference>
+  <reference key="5">
+    <citation type="journal article" date="2009" name="Proc. Natl. Acad. Sci. U.S.A." volume="106" first="4495" last="4500">
+      <title>Multiple gustatory receptors required for the caffeine response in Drosophila.</title>
+      <authorList>
+        <person name="Lee Y."/>
+        <person name="Moon S.J."/>
+        <person name="Montell C."/>
+      </authorList>
+      <dbReference type="PubMed" id="19246397"/>
+      <dbReference type="DOI" id="10.1073/pnas.0811744106"/>
+    </citation>
+    <scope>FUNCTION</scope>
+    <scope>DISRUPTION PHENOTYPE</scope>
+  </reference>
+  <reference key="6">
+    <citation type="journal article" date="2011" name="J. Neurosci." volume="31" first="15300" last="15309">
+      <title>Molecular and cellular organization of the taste system in the Drosophila larva.</title>
+      <authorList>
+        <person name="Kwon J.Y."/>
+        <person name="Dahanukar A."/>
+        <person name="Weiss L.A."/>
+        <person name="Carlson J.R."/>
+      </authorList>
+      <dbReference type="PubMed" id="22031876"/>
+      <dbReference type="DOI" id="10.1523/jneurosci.3363-11.2011"/>
+    </citation>
+    <scope>TISSUE SPECIFICITY</scope>
+  </reference>
+  <comment type="function">
+    <text evidence="4">Gustatory receptor required for response to the bitter in taste neurons. Gr93a cells respond to bitter compounds such as caffeine. Flies avoid bitter substances, suggesting that Gr93a neuron activity is sufficient to mediate avoidance behavior.</text>
+  </comment>
+  <comment type="subcellular location">
+    <subcellularLocation>
+      <location evidence="1">Cell membrane</location>
+      <topology evidence="1">Multi-pass membrane protein</topology>
+    </subcellularLocation>
+  </comment>
+  <comment type="tissue specificity">
+    <text evidence="5">In larvae, is expressed in neurons of the dorsal pharyngeal sense organs.</text>
+  </comment>
+  <comment type="disruption phenotype">
+    <text evidence="4">Disrupts fly aversion to caffeine.</text>
+  </comment>
+  <comment type="similarity">
+    <text evidence="6">Belongs to the insect chemoreceptor superfamily. Gustatory receptor (GR) family. Gr93a subfamily.</text>
+  </comment>
+  <dbReference type="EMBL" id="AE014297">
+    <property type="protein sequence ID" value="AAF55923.2"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="RefSeq" id="NP_524442.2">
+    <property type="nucleotide sequence ID" value="NM_079718.3"/>
+  </dbReference>
+  <dbReference type="AlphaFoldDB" id="Q9VD76"/>
+  <dbReference type="STRING" id="7227.FBpp0083531"/>
+  <dbReference type="PaxDb" id="Q9VD76"/>
+  <dbReference type="EnsemblMetazoa" id="FBtr0084133">
+    <property type="protein sequence ID" value="FBpp0083531"/>
+    <property type="gene ID" value="FBgn0041229"/>
+  </dbReference>
+  <dbReference type="GeneID" id="42568"/>
+  <dbReference type="KEGG" id="dme:Dmel_CG13417"/>
+  <dbReference type="AGR" id="FB:FBgn0041229"/>
+  <dbReference type="CTD" id="42568"/>
+  <dbReference type="FlyBase" id="FBgn0041229">
+    <property type="gene designation" value="Gr93a"/>
+  </dbReference>
+  <dbReference type="VEuPathDB" id="VectorBase:FBgn0041229"/>
+  <dbReference type="eggNOG" id="ENOG502T83R">
+    <property type="taxonomic scope" value="Eukaryota"/>
+  </dbReference>
+  <dbReference type="HOGENOM" id="CLU_614325_0_0_1"/>
+  <dbReference type="InParanoid" id="Q9VD76"/>
+  <dbReference type="OMA" id="MCADYAV"/>
+  <dbReference type="OrthoDB" id="3607538at2759"/>
+  <dbReference type="PhylomeDB" id="Q9VD76"/>
+  <dbReference type="BioGRID-ORCS" id="42568">
+    <property type="hits" value="0 hits in 1 CRISPR screen"/>
+  </dbReference>
+  <dbReference type="GenomeRNAi" id="42568"/>
+  <dbReference type="PRO" id="PR:Q9VD76"/>
+  <dbReference type="Proteomes" id="UP000000803">
+    <property type="component" value="Chromosome 3R"/>
+  </dbReference>
+  <dbReference type="Bgee" id="FBgn0041229">
+    <property type="expression patterns" value="Expressed in mouthpart and 1 other tissue"/>
+  </dbReference>
+  <dbReference type="ExpressionAtlas" id="Q9VD76">
+    <property type="expression patterns" value="baseline"/>
+  </dbReference>
+  <dbReference type="Genevisible" id="Q9VD76">
+    <property type="organism ID" value="DM"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0030424">
+    <property type="term" value="C:axon"/>
+    <property type="evidence" value="ECO:0000318"/>
+    <property type="project" value="GO_Central"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0030425">
+    <property type="term" value="C:dendrite"/>
+    <property type="evidence" value="ECO:0000318"/>
+    <property type="project" value="GO_Central"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0016020">
+    <property type="term" value="C:membrane"/>
+    <property type="evidence" value="ECO:0000303"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0043025">
+    <property type="term" value="C:neuronal cell body"/>
+    <property type="evidence" value="ECO:0000318"/>
+    <property type="project" value="GO_Central"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005886">
+    <property type="term" value="C:plasma membrane"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="UniProtKB-SubCell"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0008527">
+    <property type="term" value="F:taste receptor activity"/>
+    <property type="evidence" value="ECO:0000303"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0007635">
+    <property type="term" value="P:chemosensory behavior"/>
+    <property type="evidence" value="ECO:0000318"/>
+    <property type="project" value="GO_Central"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0008049">
+    <property type="term" value="P:male courtship behavior"/>
+    <property type="evidence" value="ECO:0000318"/>
+    <property type="project" value="GO_Central"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0031000">
+    <property type="term" value="P:response to caffeine"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="FlyBase"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0050909">
+    <property type="term" value="P:sensory perception of taste"/>
+    <property type="evidence" value="ECO:0000303"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0007165">
+    <property type="term" value="P:signal transduction"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="UniProtKB-KW"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR013604">
+    <property type="entry name" value="7TM_chemorcpt"/>
+  </dbReference>
+  <dbReference type="PANTHER" id="PTHR21143:SF130">
+    <property type="entry name" value="GUSTATORY AND PHEROMONE RECEPTOR 32A-RELATED"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="PANTHER" id="PTHR21143">
+    <property type="entry name" value="INVERTEBRATE GUSTATORY RECEPTOR"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF08395">
+    <property type="entry name" value="7tm_7"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <proteinExistence type="evidence at transcript level"/>
+  <keyword id="KW-1003">Cell membrane</keyword>
+  <keyword id="KW-0472">Membrane</keyword>
+  <keyword id="KW-0675">Receptor</keyword>
+  <keyword id="KW-1185">Reference proteome</keyword>
+  <keyword id="KW-0807">Transducer</keyword>
+  <keyword id="KW-0812">Transmembrane</keyword>
+  <keyword id="KW-1133">Transmembrane helix</keyword>
+  <feature type="chain" id="PRO_0000216541" description="Gustatory receptor for bitter taste 93a">
+    <location>
+      <begin position="1"/>
+      <end position="419"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Cytoplasmic" evidence="1">
+    <location>
+      <begin position="1"/>
+      <end position="55"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical; Name=1" evidence="2">
+    <location>
+      <begin position="56"/>
+      <end position="76"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Extracellular" evidence="1">
+    <location>
+      <begin position="77"/>
+      <end position="90"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical; Name=2" evidence="2">
+    <location>
+      <begin position="91"/>
+      <end position="111"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Cytoplasmic" evidence="1">
+    <location>
+      <begin position="112"/>
+      <end position="145"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical; Name=3" evidence="2">
+    <location>
+      <begin position="146"/>
+      <end position="166"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Extracellular" evidence="1">
+    <location>
+      <begin position="167"/>
+      <end position="184"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical; Name=4" evidence="2">
+    <location>
+      <begin position="185"/>
+      <end position="205"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Cytoplasmic" evidence="1">
+    <location>
+      <begin position="206"/>
+      <end position="277"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical; Name=5" evidence="2">
+    <location>
+      <begin position="278"/>
+      <end position="298"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Extracellular" evidence="1">
+    <location>
+      <begin position="299"/>
+      <end position="305"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical; Name=6" evidence="2">
+    <location>
+      <begin position="306"/>
+      <end position="326"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Cytoplasmic" evidence="1">
+    <location>
+      <begin position="327"/>
+      <end position="383"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical; Name=7" evidence="2">
+    <location>
+      <begin position="384"/>
+      <end position="404"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Extracellular" evidence="1">
+    <location>
+      <begin position="405"/>
+      <end position="419"/>
+    </location>
+  </feature>
+  <evidence type="ECO:0000250" key="1"/>
+  <evidence type="ECO:0000255" key="2"/>
+  <evidence type="ECO:0000269" key="3">
+    <source>
+      <dbReference type="PubMed" id="10731132"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="4">
+    <source>
+      <dbReference type="PubMed" id="19246397"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="5">
+    <source>
+      <dbReference type="PubMed" id="22031876"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000305" key="6"/>
+  <evidence type="ECO:0000312" key="7">
+    <source>
+      <dbReference type="EMBL" id="AAF55923.2"/>
+    </source>
+  </evidence>
+  <sequence length="419" mass="48834" checksum="A124B6C5304C1B52" modified="2002-10-01" version="2">MFSSSSAMTGKRAESWSRLLLLWLYRCARGLLVLSSSLDRDKLQLKATKQGSRNRFLHILWRCIVVMIYAGLWPMLTSAVIGKRLESYADVLALAQSMSVSILAVISFVIQARGENQFREVLNRYLALYQRICLTTRLRHLFPTKFVVFFLLKLFFTLCGCFHEIIPLFENSHFDDISQMVGTGFGIYMWLGTLCVLDACFLGFLVSGILYEHMANNIIAMLKRMEPIESQDERYRMTKYRRMQLLCDFADELDECAAIYSELYHVTNSFRRILQWQILFYIYLNFINICLMLYQYILHFLNDDEVVFVSIVMAFVKLANLVLLMMCADYTVRQSEVPKKLPLDIVCSDMDERWDKSVETFLGQLQTQRLEIKVLGFFHLNNEFILLILSAIISYLFILIQFGITGGFEASEDIKNRFD</sequence>
+</entry>
+<copyright>
+Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms Distributed under the Creative Commons Attribution (CC BY 4.0) License
+</copyright>
+</uniprot>

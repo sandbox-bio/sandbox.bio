@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"  standalone="no" ?>
+<uniprot xmlns="http://uniprot.org/uniprot" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://uniprot.org/uniprot http://www.uniprot.org/docs/uniprot.xsd">
+<entry dataset="Swiss-Prot" created="1995-02-01" modified="2023-05-03" version="186" xmlns="http://uniprot.org/uniprot">
+  <accession>P38689</accession>
+  <accession>D3DKQ2</accession>
+  <name>KPR3_YEAST</name>
+  <protein>
+    <recommendedName>
+      <fullName>Ribose-phosphate pyrophosphokinase 3</fullName>
+      <ecNumber>2.7.6.1</ecNumber>
+    </recommendedName>
+    <alternativeName>
+      <fullName>Phosphoribosyl pyrophosphate synthase 3</fullName>
+    </alternativeName>
+  </protein>
+  <gene>
+    <name type="primary">PRS3</name>
+    <name type="synonym">PRPS3</name>
+    <name type="ordered locus">YHL011C</name>
+  </gene>
+  <organism>
+    <name type="scientific">Saccharomyces cerevisiae (strain ATCC 204508 / S288c)</name>
+    <name type="common">Baker's yeast</name>
+    <dbReference type="NCBI Taxonomy" id="559292"/>
+    <lineage>
+      <taxon>Eukaryota</taxon>
+      <taxon>Fungi</taxon>
+      <taxon>Dikarya</taxon>
+      <taxon>Ascomycota</taxon>
+      <taxon>Saccharomycotina</taxon>
+      <taxon>Saccharomycetes</taxon>
+      <taxon>Saccharomycetales</taxon>
+      <taxon>Saccharomycetaceae</taxon>
+      <taxon>Saccharomyces</taxon>
+    </lineage>
+  </organism>
+  <reference key="1">
+    <citation type="journal article" date="1994" name="Yeast" volume="10" first="1031" last="1044">
+      <title>Phosphoribosylpyrophosphate synthetase (PRS): a new gene family in Saccharomyces cerevisiae.</title>
+      <authorList>
+        <person name="Carter A.T."/>
+        <person name="Narbad A."/>
+        <person name="Pearson B.M."/>
+        <person name="Beck K.-F."/>
+        <person name="Logghe M."/>
+        <person name="Contreras R."/>
+        <person name="Schweizer M."/>
+      </authorList>
+      <dbReference type="PubMed" id="7992503"/>
+      <dbReference type="DOI" id="10.1002/yea.320100805"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [GENOMIC DNA]</scope>
+    <source>
+      <strain>ATCC 44827 / SKQ2N</strain>
+    </source>
+  </reference>
+  <reference key="2">
+    <citation type="journal article" date="1995" name="Yeast" volume="11" first="191" last="191">
+      <authorList>
+        <person name="Carter A.T."/>
+        <person name="Narbad A."/>
+        <person name="Pearson B.M."/>
+        <person name="Beck K.-F."/>
+        <person name="Logghe M."/>
+        <person name="Contreras R."/>
+        <person name="Schweizer M."/>
+      </authorList>
+    </citation>
+    <scope>ERRATUM OF PUBMED:7992503</scope>
+  </reference>
+  <reference key="3">
+    <citation type="journal article" date="1994" name="Science" volume="265" first="2077" last="2082">
+      <title>Complete nucleotide sequence of Saccharomyces cerevisiae chromosome VIII.</title>
+      <authorList>
+        <person name="Johnston M."/>
+        <person name="Andrews S."/>
+        <person name="Brinkman R."/>
+        <person name="Cooper J."/>
+        <person name="Ding H."/>
+        <person name="Dover J."/>
+        <person name="Du Z."/>
+        <person name="Favello A."/>
+        <person name="Fulton L."/>
+        <person name="Gattung S."/>
+        <person name="Geisel C."/>
+        <person name="Kirsten J."/>
+        <person name="Kucaba T."/>
+        <person name="Hillier L.W."/>
+        <person name="Jier M."/>
+        <person name="Johnston L."/>
+        <person name="Langston Y."/>
+        <person name="Latreille P."/>
+        <person name="Louis E.J."/>
+        <person name="Macri C."/>
+        <person name="Mardis E."/>
+        <person name="Menezes S."/>
+        <person name="Mouser L."/>
+        <person name="Nhan M."/>
+        <person name="Rifkin L."/>
+        <person name="Riles L."/>
+        <person name="St Peter H."/>
+        <person name="Trevaskis E."/>
+        <person name="Vaughan K."/>
+        <person name="Vignati D."/>
+        <person name="Wilcox L."/>
+        <person name="Wohldman P."/>
+        <person name="Waterston R."/>
+        <person name="Wilson R."/>
+        <person name="Vaudin M."/>
+      </authorList>
+      <dbReference type="PubMed" id="8091229"/>
+      <dbReference type="DOI" id="10.1126/science.8091229"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]</scope>
+    <source>
+      <strain>ATCC 204508 / S288c</strain>
+    </source>
+  </reference>
+  <reference key="4">
+    <citation type="journal article" date="2014" name="G3 (Bethesda)" volume="4" first="389" last="398">
+      <title>The reference genome sequence of Saccharomyces cerevisiae: Then and now.</title>
+      <authorList>
+        <person name="Engel S.R."/>
+        <person name="Dietrich F.S."/>
+        <person name="Fisk D.G."/>
+        <person name="Binkley G."/>
+        <person name="Balakrishnan R."/>
+        <person name="Costanzo M.C."/>
+        <person name="Dwight S.S."/>
+        <person name="Hitz B.C."/>
+        <person name="Karra K."/>
+        <person name="Nash R.S."/>
+        <person name="Weng S."/>
+        <person name="Wong E.D."/>
+        <person name="Lloyd P."/>
+        <person name="Skrzypek M.S."/>
+        <person name="Miyasato S.R."/>
+        <person name="Simison M."/>
+        <person name="Cherry J.M."/>
+      </authorList>
+      <dbReference type="PubMed" id="24374639"/>
+      <dbReference type="DOI" id="10.1534/g3.113.008995"/>
+    </citation>
+    <scope>GENOME REANNOTATION</scope>
+    <source>
+      <strain>ATCC 204508 / S288c</strain>
+    </source>
+  </reference>
+  <reference key="5">
+    <citation type="journal article" date="2007" name="Genome Res." volume="17" first="536" last="543">
+      <title>Approaching a complete repository of sequence-verified protein-encoding clones for Saccharomyces cerevisiae.</title>
+      <authorList>
+        <person name="Hu Y."/>
+        <person name="Rolfs A."/>
+        <person name="Bhullar B."/>
+        <person name="Murthy T.V.S."/>
+        <person name="Zhu C."/>
+        <person name="Berger M.F."/>
+        <person name="Camargo A.A."/>
+        <person name="Kelley F."/>
+        <person name="McCarron S."/>
+        <person name="Jepson D."/>
+        <person name="Richardson A."/>
+        <person name="Raphael J."/>
+        <person name="Moreira D."/>
+        <person name="Taycher E."/>
+        <person name="Zuo D."/>
+        <person name="Mohr S."/>
+        <person name="Kane M.F."/>
+        <person name="Williamson J."/>
+        <person name="Simpson A.J.G."/>
+        <person name="Bulyk M.L."/>
+        <person name="Harlow E."/>
+        <person name="Marsischky G."/>
+        <person name="Kolodner R.D."/>
+        <person name="LaBaer J."/>
+      </authorList>
+      <dbReference type="PubMed" id="17322287"/>
+      <dbReference type="DOI" id="10.1101/gr.6037607"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [GENOMIC DNA]</scope>
+    <source>
+      <strain>ATCC 204508 / S288c</strain>
+    </source>
+  </reference>
+  <reference key="6">
+    <citation type="journal article" date="1999" name="J. Biol. Chem." volume="274" first="12480" last="12487">
+      <title>Genetic analysis and enzyme activity suggest the existence of more than one minimal functional unit capable of synthesizing phosphoribosyl pyrophosphate in Saccharomyces cerevisiae.</title>
+      <authorList>
+        <person name="Hernando Y."/>
+        <person name="Carter A.T."/>
+        <person name="Parr A."/>
+        <person name="Hove-Jensen B."/>
+        <person name="Schweizer M."/>
+      </authorList>
+      <dbReference type="PubMed" id="10212224"/>
+      <dbReference type="DOI" id="10.1074/jbc.274.18.12480"/>
+    </citation>
+    <scope>FUNCTION</scope>
+    <scope>ENZYME ACTIVITY</scope>
+  </reference>
+  <reference key="7">
+    <citation type="journal article" date="1999" name="Yeast" volume="15" first="1459" last="1469">
+      <title>The yeast PRS3 gene is required for cell integrity, cell cycle arrest upon nutrient deprivation, ion homeostasis and the proper organization of the actin cytoskeleton.</title>
+      <authorList>
+        <person name="Binley K.M."/>
+        <person name="Radcliffe P.A."/>
+        <person name="Trevethick J."/>
+        <person name="Duffy K.A."/>
+        <person name="Sudbery P.E."/>
+      </authorList>
+      <dbReference type="PubMed" id="10514564"/>
+      <dbReference type="DOI" id="10.1002/(sici)1097-0061(199910)15:14&lt;1459::aid-yea472&gt;3.0.co;2-a"/>
+    </citation>
+    <scope>DISRUPTION PHENOTYPE</scope>
+  </reference>
+  <reference key="8">
+    <citation type="journal article" date="2003" name="Nature" volume="425" first="686" last="691">
+      <title>Global analysis of protein localization in budding yeast.</title>
+      <authorList>
+        <person name="Huh W.-K."/>
+        <person name="Falvo J.V."/>
+        <person name="Gerke L.C."/>
+        <person name="Carroll A.S."/>
+        <person name="Howson R.W."/>
+        <person name="Weissman J.S."/>
+        <person name="O'Shea E.K."/>
+      </authorList>
+      <dbReference type="PubMed" id="14562095"/>
+      <dbReference type="DOI" id="10.1038/nature02026"/>
+    </citation>
+    <scope>SUBCELLULAR LOCATION [LARGE SCALE ANALYSIS]</scope>
+  </reference>
+  <reference key="9">
+    <citation type="journal article" date="2004" name="J. Biol. Chem." volume="279" first="40345" last="40350">
+      <title>Heterooligomeric phosphoribosyl diphosphate synthase of Saccharomyces cerevisiae: combinatorial expression of the five PRS genes in Escherichia coli.</title>
+      <authorList>
+        <person name="Hove-Jensen B."/>
+      </authorList>
+      <dbReference type="PubMed" id="15280369"/>
+      <dbReference type="DOI" id="10.1074/jbc.m405480200"/>
+    </citation>
+    <scope>FUNCTION</scope>
+    <scope>ENZYME ACTIVITY</scope>
+  </reference>
+  <reference key="10">
+    <citation type="journal article" date="2012" name="Proc. Natl. Acad. Sci. U.S.A." volume="109" first="12449" last="12454">
+      <title>N-terminal acetylome analyses and functional insights of the N-terminal acetyltransferase NatB.</title>
+      <authorList>
+        <person name="Van Damme P."/>
+        <person name="Lasa M."/>
+        <person name="Polevoda B."/>
+        <person name="Gazquez C."/>
+        <person name="Elosegui-Artola A."/>
+        <person name="Kim D.S."/>
+        <person name="De Juan-Pardo E."/>
+        <person name="Demeyer K."/>
+        <person name="Hole K."/>
+        <person name="Larrea E."/>
+        <person name="Timmerman E."/>
+        <person name="Prieto J."/>
+        <person name="Arnesen T."/>
+        <person name="Sherman F."/>
+        <person name="Gevaert K."/>
+        <person name="Aldabe R."/>
+      </authorList>
+      <dbReference type="PubMed" id="22814378"/>
+      <dbReference type="DOI" id="10.1073/pnas.1210303109"/>
+    </citation>
+    <scope>IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]</scope>
+  </reference>
+  <comment type="function">
+    <text evidence="2 5">5-phosphoribose 1-diphosphate synthase involved in nucleotide, histidine, and tryptophan biosynthesis. Active in heteromultimeric complexes with other 5-phosphoribose 1-diphosphate synthases (PRS2, PRS3, PRS4 and PRS5).</text>
+  </comment>
+  <comment type="catalytic activity">
+    <reaction evidence="2 5">
+      <text>ATP + D-ribose 5-phosphate = 5-phospho-alpha-D-ribose 1-diphosphate + AMP + H(+)</text>
+      <dbReference type="Rhea" id="RHEA:15609"/>
+      <dbReference type="ChEBI" id="CHEBI:15378"/>
+      <dbReference type="ChEBI" id="CHEBI:30616"/>
+      <dbReference type="ChEBI" id="CHEBI:58017"/>
+      <dbReference type="ChEBI" id="CHEBI:78346"/>
+      <dbReference type="ChEBI" id="CHEBI:456215"/>
+      <dbReference type="EC" id="2.7.6.1"/>
+    </reaction>
+  </comment>
+  <comment type="pathway">
+    <text>Metabolic intermediate biosynthesis; 5-phospho-alpha-D-ribose 1-diphosphate biosynthesis; 5-phospho-alpha-D-ribose 1-diphosphate from D-ribose 5-phosphate (route I): step 1/1.</text>
+  </comment>
+  <comment type="interaction">
+    <interactant intactId="EBI-9877">
+      <id>P38689</id>
+    </interactant>
+    <interactant intactId="EBI-9869">
+      <id>P32895</id>
+      <label>PRS1</label>
+    </interactant>
+    <organismsDiffer>false</organismsDiffer>
+    <experiments>5</experiments>
+  </comment>
+  <comment type="subcellular location">
+    <subcellularLocation>
+      <location evidence="4">Cytoplasm</location>
+    </subcellularLocation>
+  </comment>
+  <comment type="disruption phenotype">
+    <text evidence="3">Cells fail to arrest in G1, cells remain budded and a significant fraction has a G2 DNA content. In such conditions, deletion mutants have a disorganized actin cytoskeleton and actin accumulates in one or two intensely staining clumps per cell. Deletion mutants also show defects in ion homeostasis and cell integrity. They fail to grow on medium containing 1.0 M NaCl, 5 mM caffeine or when incubated at 37 degrees Celsius. The caffeine and temperature sensitivity are rescued by supplementing the growth medium with 1.0 M sorbitol.</text>
+  </comment>
+  <comment type="similarity">
+    <text evidence="6">Belongs to the ribose-phosphate pyrophosphokinase family.</text>
+  </comment>
+  <dbReference type="EC" id="2.7.6.1"/>
+  <dbReference type="EMBL" id="X74415">
+    <property type="protein sequence ID" value="CAA52437.1"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="U11582">
+    <property type="protein sequence ID" value="AAB65063.1"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="AY693094">
+    <property type="protein sequence ID" value="AAT93113.1"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="BK006934">
+    <property type="protein sequence ID" value="DAA06675.1"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="PIR" id="S46824">
+    <property type="entry name" value="S46824"/>
+  </dbReference>
+  <dbReference type="RefSeq" id="NP_011852.1">
+    <property type="nucleotide sequence ID" value="NM_001179091.1"/>
+  </dbReference>
+  <dbReference type="AlphaFoldDB" id="P38689"/>
+  <dbReference type="SMR" id="P38689"/>
+  <dbReference type="BioGRID" id="36412">
+    <property type="interactions" value="61"/>
+  </dbReference>
+  <dbReference type="DIP" id="DIP-4307N"/>
+  <dbReference type="IntAct" id="P38689">
+    <property type="interactions" value="41"/>
+  </dbReference>
+  <dbReference type="MINT" id="P38689"/>
+  <dbReference type="STRING" id="4932.YHL011C"/>
+  <dbReference type="iPTMnet" id="P38689"/>
+  <dbReference type="MaxQB" id="P38689"/>
+  <dbReference type="PaxDb" id="P38689"/>
+  <dbReference type="PeptideAtlas" id="P38689"/>
+  <dbReference type="EnsemblFungi" id="YHL011C_mRNA">
+    <property type="protein sequence ID" value="YHL011C"/>
+    <property type="gene ID" value="YHL011C"/>
+  </dbReference>
+  <dbReference type="GeneID" id="856375"/>
+  <dbReference type="KEGG" id="sce:YHL011C"/>
+  <dbReference type="AGR" id="SGD:S000001003"/>
+  <dbReference type="SGD" id="S000001003">
+    <property type="gene designation" value="PRS3"/>
+  </dbReference>
+  <dbReference type="VEuPathDB" id="FungiDB:YHL011C"/>
+  <dbReference type="eggNOG" id="KOG1448">
+    <property type="taxonomic scope" value="Eukaryota"/>
+  </dbReference>
+  <dbReference type="GeneTree" id="ENSGT00950000182803"/>
+  <dbReference type="HOGENOM" id="CLU_033546_4_0_1"/>
+  <dbReference type="InParanoid" id="P38689"/>
+  <dbReference type="OMA" id="MANNSIK"/>
+  <dbReference type="OrthoDB" id="276387at2759"/>
+  <dbReference type="BioCyc" id="YEAST:YHL011C-MON"/>
+  <dbReference type="Reactome" id="R-SCE-73843">
+    <property type="pathway name" value="5-Phosphoribose 1-diphosphate biosynthesis"/>
+  </dbReference>
+  <dbReference type="UniPathway" id="UPA00087">
+    <property type="reaction ID" value="UER00172"/>
+  </dbReference>
+  <dbReference type="BioGRID-ORCS" id="856375">
+    <property type="hits" value="3 hits in 10 CRISPR screens"/>
+  </dbReference>
+  <dbReference type="PRO" id="PR:P38689"/>
+  <dbReference type="Proteomes" id="UP000002311">
+    <property type="component" value="Chromosome VIII"/>
+  </dbReference>
+  <dbReference type="RNAct" id="P38689">
+    <property type="molecule type" value="protein"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005737">
+    <property type="term" value="C:cytoplasm"/>
+    <property type="evidence" value="ECO:0007005"/>
+    <property type="project" value="SGD"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0002189">
+    <property type="term" value="C:ribose phosphate diphosphokinase complex"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="SGD"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005524">
+    <property type="term" value="F:ATP binding"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="UniProtKB-KW"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0016301">
+    <property type="term" value="F:kinase activity"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="UniProtKB-KW"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0000287">
+    <property type="term" value="F:magnesium ion binding"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="InterPro"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0004749">
+    <property type="term" value="F:ribose phosphate diphosphokinase activity"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="UniProtKB-EC"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0006015">
+    <property type="term" value="P:5-phosphoribose 1-diphosphate biosynthetic process"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="SGD"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0031505">
+    <property type="term" value="P:fungal-type cell wall organization"/>
+    <property type="evidence" value="ECO:0000353"/>
+    <property type="project" value="SGD"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0016310">
+    <property type="term" value="P:phosphorylation"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="UniProtKB-KW"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0006164">
+    <property type="term" value="P:purine nucleotide biosynthetic process"/>
+    <property type="evidence" value="ECO:0000318"/>
+    <property type="project" value="GO_Central"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0008361">
+    <property type="term" value="P:regulation of cell size"/>
+    <property type="evidence" value="ECO:0007001"/>
+    <property type="project" value="SGD"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0009156">
+    <property type="term" value="P:ribonucleoside monophosphate biosynthetic process"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="InterPro"/>
+  </dbReference>
+  <dbReference type="CDD" id="cd06223">
+    <property type="entry name" value="PRTases_typeI"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="3.40.50.2020">
+    <property type="match status" value="2"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR000842">
+    <property type="entry name" value="PRib_PP_synth_CS"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR029099">
+    <property type="entry name" value="Pribosyltran_N"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR000836">
+    <property type="entry name" value="PRibTrfase_dom"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR029057">
+    <property type="entry name" value="PRTase-like"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR005946">
+    <property type="entry name" value="Rib-P_diPkinase"/>
+  </dbReference>
+  <dbReference type="PANTHER" id="PTHR10210">
+    <property type="entry name" value="RIBOSE-PHOSPHATE DIPHOSPHOKINASE FAMILY MEMBER"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="PANTHER" id="PTHR10210:SF48">
+    <property type="entry name" value="RIBOSE-PHOSPHATE PYROPHOSPHOKINASE 3"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF14572">
+    <property type="entry name" value="Pribosyl_synth"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF13793">
+    <property type="entry name" value="Pribosyltran_N"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="SMART" id="SM01400">
+    <property type="entry name" value="Pribosyltran_N"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="SUPFAM" id="SSF53271">
+    <property type="entry name" value="PRTase-like"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="TIGRFAMs" id="TIGR01251">
+    <property type="entry name" value="ribP_PPkin"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="PROSITE" id="PS00114">
+    <property type="entry name" value="PRPP_SYNTHASE"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <proteinExistence type="evidence at protein level"/>
+  <keyword id="KW-0067">ATP-binding</keyword>
+  <keyword id="KW-0963">Cytoplasm</keyword>
+  <keyword id="KW-0418">Kinase</keyword>
+  <keyword id="KW-0460">Magnesium</keyword>
+  <keyword id="KW-0479">Metal-binding</keyword>
+  <keyword id="KW-0545">Nucleotide biosynthesis</keyword>
+  <keyword id="KW-0547">Nucleotide-binding</keyword>
+  <keyword id="KW-1185">Reference proteome</keyword>
+  <keyword id="KW-0808">Transferase</keyword>
+  <feature type="chain" id="PRO_0000141088" description="Ribose-phosphate pyrophosphokinase 3">
+    <location>
+      <begin position="1"/>
+      <end position="320"/>
+    </location>
+  </feature>
+  <feature type="binding site" evidence="1">
+    <location>
+      <position position="131"/>
+    </location>
+    <ligand>
+      <name>Mg(2+)</name>
+      <dbReference type="ChEBI" id="CHEBI:18420"/>
+    </ligand>
+  </feature>
+  <feature type="binding site" evidence="1">
+    <location>
+      <position position="133"/>
+    </location>
+    <ligand>
+      <name>Mg(2+)</name>
+      <dbReference type="ChEBI" id="CHEBI:18420"/>
+    </ligand>
+  </feature>
+  <feature type="binding site" evidence="1">
+    <location>
+      <position position="142"/>
+    </location>
+    <ligand>
+      <name>Mg(2+)</name>
+      <dbReference type="ChEBI" id="CHEBI:18420"/>
+    </ligand>
+  </feature>
+  <feature type="binding site" evidence="1">
+    <location>
+      <position position="146"/>
+    </location>
+    <ligand>
+      <name>Mg(2+)</name>
+      <dbReference type="ChEBI" id="CHEBI:18420"/>
+    </ligand>
+  </feature>
+  <evidence type="ECO:0000255" key="1"/>
+  <evidence type="ECO:0000269" key="2">
+    <source>
+      <dbReference type="PubMed" id="10212224"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="3">
+    <source>
+      <dbReference type="PubMed" id="10514564"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="4">
+    <source>
+      <dbReference type="PubMed" id="14562095"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="5">
+    <source>
+      <dbReference type="PubMed" id="15280369"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000305" key="6"/>
+  <sequence length="320" mass="35124" checksum="D4839D217B7513C4" modified="1995-02-01" version="1">MPTNSIKLLAPDVHRGLAELVAKRLGLQLTSSKLKRDPTGEVSFSIGESVRDQDIFIITQIGSGVVNDRVLELLIMINASKTASARRITAIIPNFPYARQDRKDKSRAPITAKLMADMLTTAGCDHVITMDLHASQIQGFFDVPVDNLYAEPSVVRYIKENVNYMDSIIISPDAGGAKRAATLADRLDLNFALIHKERARANEVSRMVLVGDVTDKICIIVDDMADTCGTLAKAAEILLENRAKSVIAIVTHGVLSGRAIENINNSKLDRVVCTNTVPFEEKIKKCPKLAVIDISSVLAESIRRLHNGESISYLFKNYPL</sequence>
+</entry>
+<copyright>
+Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms Distributed under the Creative Commons Attribution (CC BY 4.0) License
+</copyright>
+</uniprot>

@@ -110,9 +110,7 @@ Now we can update our script file named getproteins.sh
 to contain only the following line:
 
 ```bash
-echo "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d
--1169080-e=1&6578706f7274=1&chebiId=$1&dbName=
-UniProt"
+echo "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-e=1&6578706f7274=1&chebiId=$1&dbName=UniProt"
 ```
 
 Exit from the editor with **Ctrl-X**, and then press **Y** and **Enter** to save the file.
@@ -125,9 +123,7 @@ by adding the hash character (`#`) to the beginning of the line:
 ```bash
 #echo 'The input: $1'
 #echo "The input: $1"
-echo "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d
--1169080-e=1&6578706f7274=1&chebiId=$1&dbName=
-UniProt"
+echo "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-e=1&6578706f7274=1&chebiId=$1&dbName=UniProt"
 ```
 
 Commented lines are ignored by the computer during script execution, so this script will perform the same actions as the previous one with just one line of code.

@@ -1,0 +1,3128 @@
+<?xml version="1.0" encoding="UTF-8"  standalone="no" ?>
+<uniprot xmlns="http://uniprot.org/uniprot" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://uniprot.org/uniprot http://www.uniprot.org/docs/uniprot.xsd">
+<entry dataset="Swiss-Prot" created="1989-10-01" modified="2023-05-03" version="191" xmlns="http://uniprot.org/uniprot">
+  <accession>P11716</accession>
+  <name>RYR1_RABIT</name>
+  <protein>
+    <recommendedName>
+      <fullName>Ryanodine receptor 1</fullName>
+      <shortName>RYR-1</shortName>
+      <shortName>RyR1</shortName>
+    </recommendedName>
+    <alternativeName>
+      <fullName>Skeletal muscle calcium release channel</fullName>
+    </alternativeName>
+    <alternativeName>
+      <fullName>Skeletal muscle ryanodine receptor</fullName>
+    </alternativeName>
+    <alternativeName>
+      <fullName>Skeletal muscle-type ryanodine receptor</fullName>
+    </alternativeName>
+    <alternativeName>
+      <fullName>Type 1 ryanodine receptor</fullName>
+    </alternativeName>
+  </protein>
+  <gene>
+    <name type="primary">RYR1</name>
+  </gene>
+  <organism>
+    <name type="scientific">Oryctolagus cuniculus</name>
+    <name type="common">Rabbit</name>
+    <dbReference type="NCBI Taxonomy" id="9986"/>
+    <lineage>
+      <taxon>Eukaryota</taxon>
+      <taxon>Metazoa</taxon>
+      <taxon>Chordata</taxon>
+      <taxon>Craniata</taxon>
+      <taxon>Vertebrata</taxon>
+      <taxon>Euteleostomi</taxon>
+      <taxon>Mammalia</taxon>
+      <taxon>Eutheria</taxon>
+      <taxon>Euarchontoglires</taxon>
+      <taxon>Glires</taxon>
+      <taxon>Lagomorpha</taxon>
+      <taxon>Leporidae</taxon>
+      <taxon>Oryctolagus</taxon>
+    </lineage>
+  </organism>
+  <reference key="1">
+    <citation type="journal article" date="1989" name="Nature" volume="339" first="439" last="445">
+      <title>Primary structure and expression from complementary DNA of skeletal muscle ryanodine receptor.</title>
+      <authorList>
+        <person name="Takeshima H."/>
+        <person name="Nishimura S."/>
+        <person name="Matsumoto T."/>
+        <person name="Ishido H."/>
+        <person name="Kangawa K."/>
+        <person name="Minamino N."/>
+        <person name="Matsuo H."/>
+        <person name="Ueda M."/>
+        <person name="Hanaoka M."/>
+        <person name="Hirose T."/>
+        <person name="Numa S."/>
+      </authorList>
+      <dbReference type="PubMed" id="2725677"/>
+      <dbReference type="DOI" id="10.1038/339439a0"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [MRNA]</scope>
+    <scope>PARTIAL PROTEIN SEQUENCE</scope>
+    <scope>DOMAIN</scope>
+    <scope>TISSUE SPECIFICITY</scope>
+    <scope>SUBCELLULAR LOCATION</scope>
+    <source>
+      <tissue>Skeletal muscle</tissue>
+    </source>
+  </reference>
+  <reference key="2">
+    <citation type="journal article" date="1990" name="J. Biol. Chem." volume="265" first="2244" last="2256">
+      <title>Molecular cloning of cDNA encoding human and rabbit forms of the Ca2+ release channel (ryanodine receptor) of skeletal muscle sarcoplasmic reticulum.</title>
+      <authorList>
+        <person name="Zorzato F."/>
+        <person name="Fujii J."/>
+        <person name="Otsu K."/>
+        <person name="Phillips M.S."/>
+        <person name="Green N.M."/>
+        <person name="Lai F.A."/>
+        <person name="Meissner G."/>
+        <person name="Maclennan D.H."/>
+      </authorList>
+      <dbReference type="PubMed" id="2298749"/>
+      <dbReference type="DOI" id="10.1016/s0021-9258(19)39968-5"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [MRNA]</scope>
+    <source>
+      <tissue>Skeletal muscle</tissue>
+    </source>
+  </reference>
+  <reference key="3">
+    <citation type="journal article" date="1999" name="J. Biol. Chem." volume="274" first="36831" last="36834">
+      <title>A role for cysteine 3635 of RYR1 in redox modulation and calmodulin binding.</title>
+      <authorList>
+        <person name="Porter Moore C."/>
+        <person name="Zhang J.Z."/>
+        <person name="Hamilton S.L."/>
+      </authorList>
+      <dbReference type="PubMed" id="10601232"/>
+      <dbReference type="DOI" id="10.1074/jbc.274.52.36831"/>
+    </citation>
+    <scope>PROTEIN SEQUENCE OF 3631-3650</scope>
+    <scope>S-NITROSYLATION AT CYS-3635</scope>
+    <scope>INTERACTION WITH CALM</scope>
+  </reference>
+  <reference key="4">
+    <citation type="journal article" date="1986" name="J. Biol. Chem." volume="261" first="8643" last="8648">
+      <title>Calcium-ryanodine receptor complex. Solubilization and partial characterization from skeletal muscle junctional sarcoplasmic reticulum vesicles.</title>
+      <authorList>
+        <person name="Pessah I.N."/>
+        <person name="Francini A.O."/>
+        <person name="Scales D.J."/>
+        <person name="Waterhouse A.L."/>
+        <person name="Casida J.E."/>
+      </authorList>
+      <dbReference type="PubMed" id="3722165"/>
+      <dbReference type="DOI" id="10.1016/s0021-9258(19)84428-9"/>
+    </citation>
+    <scope>FUNCTION</scope>
+    <scope>SUBCELLULAR LOCATION</scope>
+    <scope>TISSUE SPECIFICITY</scope>
+  </reference>
+  <reference key="5">
+    <citation type="journal article" date="1993" name="Biochim. Biophys. Acta" volume="1175" first="193" last="206">
+      <title>Phosphorylation of serine 2843 in ryanodine receptor-calcium release channel of skeletal muscle by cAMP-, cGMP- and CaM-dependent protein kinase.</title>
+      <authorList>
+        <person name="Suko J."/>
+        <person name="Maurer-Fogy I."/>
+        <person name="Plank B."/>
+        <person name="Bertel O."/>
+        <person name="Wyskovsky W."/>
+        <person name="Hohenegger M."/>
+        <person name="Hellmann G."/>
+      </authorList>
+      <dbReference type="PubMed" id="8380342"/>
+      <dbReference type="DOI" id="10.1016/0167-4889(93)90023-i"/>
+    </citation>
+    <scope>PHOSPHORYLATION AT SER-2843</scope>
+  </reference>
+  <reference key="6">
+    <citation type="journal article" date="1995" name="Biochem. Biophys. Res. Commun." volume="214" first="263" last="270">
+      <title>Affinity purification of the ryanodine receptor/calcium release channel from fast twitch skeletal muscle based on its tight association with FKBP12.</title>
+      <authorList>
+        <person name="Xin H.B."/>
+        <person name="Timerman A.P."/>
+        <person name="Onoue H."/>
+        <person name="Wiederrecht G.J."/>
+        <person name="Fleischer S."/>
+      </authorList>
+      <dbReference type="PubMed" id="7669046"/>
+      <dbReference type="DOI" id="10.1006/bbrc.1995.2283"/>
+    </citation>
+    <scope>INTERACTION WITH FKBP1A</scope>
+    <scope>TISSUE SPECIFICITY</scope>
+  </reference>
+  <reference key="7">
+    <citation type="journal article" date="1998" name="Ann. N. Y. Acad. Sci." volume="853" first="149" last="156">
+      <title>FKBP12 modulates gating of the ryanodine receptor/calcium release channel.</title>
+      <authorList>
+        <person name="Ondrias K."/>
+        <person name="Marx S.O."/>
+        <person name="Gaburjakova M."/>
+        <person name="Marks A.R."/>
+      </authorList>
+      <dbReference type="PubMed" id="10603943"/>
+      <dbReference type="DOI" id="10.1111/j.1749-6632.1998.tb08263.x"/>
+    </citation>
+    <scope>INTERACTION WITH FKBP1A</scope>
+  </reference>
+  <reference key="8">
+    <citation type="journal article" date="1998" name="Biochemistry" volume="37" first="12987" last="12993">
+      <title>Dual regulation of the skeletal muscle ryanodine receptor by triadin and calsequestrin.</title>
+      <authorList>
+        <person name="Ohkura M."/>
+        <person name="Furukawa K."/>
+        <person name="Fujimori H."/>
+        <person name="Kuruma A."/>
+        <person name="Kawano S."/>
+        <person name="Hiraoka M."/>
+        <person name="Kuniyasu A."/>
+        <person name="Nakayama H."/>
+        <person name="Ohizumi Y."/>
+      </authorList>
+      <dbReference type="PubMed" id="9737879"/>
+      <dbReference type="DOI" id="10.1021/bi972803d"/>
+    </citation>
+    <scope>INTERACTION WITH TRDN</scope>
+  </reference>
+  <reference key="9">
+    <citation type="journal article" date="1999" name="Biophys. J." volume="77" first="189" last="203">
+      <title>Activation and inhibition of skeletal RyR channels by a part of the skeletal DHPR II-III loop: effects of DHPR Ser687 and FKBP12.</title>
+      <authorList>
+        <person name="Dulhunty A.F."/>
+        <person name="Laver D.R."/>
+        <person name="Gallant E.M."/>
+        <person name="Casarotto M.G."/>
+        <person name="Pace S.M."/>
+        <person name="Curtis S."/>
+      </authorList>
+      <dbReference type="PubMed" id="10388749"/>
+      <dbReference type="DOI" id="10.1016/s0006-3495(99)76881-5"/>
+    </citation>
+    <scope>INTERACTION WITH CACNA1S</scope>
+    <scope>FUNCTION</scope>
+  </reference>
+  <reference key="10">
+    <citation type="journal article" date="1999" name="Proc. Natl. Acad. Sci. U.S.A." volume="96" first="4164" last="4169">
+      <title>A mutation in the transmembrane/luminal domain of the ryanodine receptor is associated with abnormal Ca(2+) release channel function and severe central core disease.</title>
+      <authorList>
+        <person name="Lynch P.J."/>
+        <person name="Tong J."/>
+        <person name="Lehane M."/>
+        <person name="Mallet A."/>
+        <person name="Giblin L."/>
+        <person name="Heffron J.J.A."/>
+        <person name="Vaughan P."/>
+        <person name="Zafra G."/>
+        <person name="MacLennan D.H."/>
+        <person name="McCarthy T.V."/>
+      </authorList>
+      <dbReference type="PubMed" id="10097181"/>
+      <dbReference type="DOI" id="10.1073/pnas.96.7.4164"/>
+    </citation>
+    <scope>FUNCTION</scope>
+    <scope>ACTIVITY REGULATION</scope>
+    <scope>SUBCELLULAR LOCATION</scope>
+    <scope>MUTAGENESIS OF ILE-4897</scope>
+    <scope>SUBUNIT</scope>
+  </reference>
+  <reference key="11">
+    <citation type="journal article" date="2001" name="Proc. Natl. Acad. Sci. U.S.A." volume="98" first="11158" last="11162">
+      <title>Cysteine-3635 is responsible for skeletal muscle ryanodine receptor modulation by NO.</title>
+      <authorList>
+        <person name="Sun J."/>
+        <person name="Xin C."/>
+        <person name="Eu J.P."/>
+        <person name="Stamler J.S."/>
+        <person name="Meissner G."/>
+      </authorList>
+      <dbReference type="PubMed" id="11562475"/>
+      <dbReference type="DOI" id="10.1073/pnas.201289098"/>
+    </citation>
+    <scope>S-NITROSYLATION AT CYS-3635</scope>
+    <scope>MUTAGENESIS OF CYS-3635</scope>
+    <scope>INTERACTION WITH CALM</scope>
+  </reference>
+  <reference key="12">
+    <citation type="journal article" date="2002" name="J. Biol. Chem." volume="277" first="41778" last="41785">
+      <title>Isoform-dependent formation of heteromeric Ca2+ release channels (ryanodine receptors).</title>
+      <authorList>
+        <person name="Xiao B."/>
+        <person name="Masumiya H."/>
+        <person name="Jiang D."/>
+        <person name="Wang R."/>
+        <person name="Sei Y."/>
+        <person name="Zhang L."/>
+        <person name="Murayama T."/>
+        <person name="Ogawa Y."/>
+        <person name="Lai F.A."/>
+        <person name="Wagenknecht T."/>
+        <person name="Chen S.R."/>
+      </authorList>
+      <dbReference type="PubMed" id="12213830"/>
+      <dbReference type="DOI" id="10.1074/jbc.m208210200"/>
+    </citation>
+    <scope>INTERACTION WITH RYR2</scope>
+  </reference>
+  <reference key="13">
+    <citation type="journal article" date="2002" name="Proc. Natl. Acad. Sci. U.S.A." volume="99" first="16725" last="16730">
+      <title>Topology of the Ca2+ release channel of skeletal muscle sarcoplasmic reticulum (RyR1).</title>
+      <authorList>
+        <person name="Du G.G."/>
+        <person name="Sandhu B."/>
+        <person name="Khanna V.K."/>
+        <person name="Guo X.H."/>
+        <person name="MacLennan D.H."/>
+      </authorList>
+      <dbReference type="PubMed" id="12486242"/>
+      <dbReference type="DOI" id="10.1073/pnas.012688999"/>
+    </citation>
+    <scope>SUBCELLULAR LOCATION</scope>
+    <scope>MEMBRANE TOPOLOGY</scope>
+  </reference>
+  <reference key="14">
+    <citation type="journal article" date="2003" name="J. Biol. Chem." volume="278" first="25722" last="25730">
+      <title>Functional defects in six ryanodine receptor isoform-1 (RyR1) mutations associated with malignant hyperthermia and their impact on skeletal excitation-contraction coupling.</title>
+      <authorList>
+        <person name="Yang T."/>
+        <person name="Ta T.A."/>
+        <person name="Pessah I.N."/>
+        <person name="Allen P.D."/>
+      </authorList>
+      <dbReference type="PubMed" id="12732639"/>
+      <dbReference type="DOI" id="10.1074/jbc.m302165200"/>
+    </citation>
+    <scope>FUNCTION</scope>
+    <scope>SUBCELLULAR LOCATION</scope>
+    <scope>ACTIVITY REGULATION</scope>
+    <scope>MUTAGENESIS OF ARG-164; GLY-342; ARG-615; ARG-2163; VAL-2168; ARG-2458 AND THR-4825</scope>
+  </reference>
+  <reference key="15">
+    <citation type="journal article" date="2008" name="Proc. Natl. Acad. Sci. U.S.A." volume="105" first="12485" last="12490">
+      <title>Selenoprotein N is required for ryanodine receptor calcium release channel activity in human and zebrafish muscle.</title>
+      <authorList>
+        <person name="Jurynec M.J."/>
+        <person name="Xia R."/>
+        <person name="Mackrill J.J."/>
+        <person name="Gunther D."/>
+        <person name="Crawford T."/>
+        <person name="Flanigan K.M."/>
+        <person name="Abramson J.J."/>
+        <person name="Howard M.T."/>
+        <person name="Grunwald D.J."/>
+      </authorList>
+      <dbReference type="PubMed" id="18713863"/>
+      <dbReference type="DOI" id="10.1073/pnas.0806015105"/>
+    </citation>
+    <scope>INTERACTION WITH SELENON</scope>
+  </reference>
+  <reference key="16">
+    <citation type="journal article" date="2009" name="Int. J. Biochem. Cell Biol." volume="41" first="2214" last="2224">
+      <title>Junctin and triadin each activate skeletal ryanodine receptors but junctin alone mediates functional interactions with calsequestrin.</title>
+      <authorList>
+        <person name="Wei L."/>
+        <person name="Gallant E.M."/>
+        <person name="Dulhunty A.F."/>
+        <person name="Beard N.A."/>
+      </authorList>
+      <dbReference type="PubMed" id="19398037"/>
+      <dbReference type="DOI" id="10.1016/j.biocel.2009.04.017"/>
+    </citation>
+    <scope>INTERACTION WITH TRDN AND ASPH</scope>
+  </reference>
+  <reference key="17">
+    <citation type="journal article" date="2011" name="Biophys. J." volume="100" first="922" last="930">
+      <title>The beta(1a) subunit of the skeletal DHPR binds to skeletal RyR1 and activates the channel via its 35-residue C-terminal tail.</title>
+      <authorList>
+        <person name="Rebbeck R.T."/>
+        <person name="Karunasekara Y."/>
+        <person name="Gallant E.M."/>
+        <person name="Board P.G."/>
+        <person name="Beard N.A."/>
+        <person name="Casarotto M.G."/>
+        <person name="Dulhunty A.F."/>
+      </authorList>
+      <dbReference type="PubMed" id="21320436"/>
+      <dbReference type="DOI" id="10.1016/j.bpj.2011.01.022"/>
+    </citation>
+    <scope>INTERACTION WITH CACNB1</scope>
+  </reference>
+  <reference key="18">
+    <citation type="journal article" date="2012" name="EMBO J." volume="31" first="417" last="428">
+      <title>Nitric oxide-induced calcium release via ryanodine receptors regulates neuronal function.</title>
+      <authorList>
+        <person name="Kakizawa S."/>
+        <person name="Yamazawa T."/>
+        <person name="Chen Y."/>
+        <person name="Ito A."/>
+        <person name="Murayama T."/>
+        <person name="Oyamada H."/>
+        <person name="Kurebayashi N."/>
+        <person name="Sato O."/>
+        <person name="Watanabe M."/>
+        <person name="Mori N."/>
+        <person name="Oguchi K."/>
+        <person name="Sakurai T."/>
+        <person name="Takeshima H."/>
+        <person name="Saito N."/>
+        <person name="Iino M."/>
+      </authorList>
+      <dbReference type="PubMed" id="22036948"/>
+      <dbReference type="DOI" id="10.1038/emboj.2011.386"/>
+    </citation>
+    <scope>FUNCTION</scope>
+    <scope>ACTIVITY REGULATION</scope>
+    <scope>S-NITROSYLATION AT CYS-3635</scope>
+    <scope>MUTAGENESIS OF CYS-3635</scope>
+  </reference>
+  <reference key="19">
+    <citation type="journal article" date="2016" name="J. Gen. Physiol." volume="147" first="375" last="394">
+      <title>Structure-function relationships of peptides forming the calcin family of ryanodine receptor ligands.</title>
+      <authorList>
+        <person name="Xiao L."/>
+        <person name="Gurrola G.B."/>
+        <person name="Zhang J."/>
+        <person name="Valdivia C.R."/>
+        <person name="SanMartin M."/>
+        <person name="Zamudio F.Z."/>
+        <person name="Zhang L."/>
+        <person name="Possani L.D."/>
+        <person name="Valdivia H.H."/>
+      </authorList>
+      <dbReference type="PubMed" id="27114612"/>
+      <dbReference type="DOI" id="10.1085/jgp.201511499"/>
+    </citation>
+    <scope>INTERACTION WITH SCORPION CALCIN</scope>
+  </reference>
+  <reference key="20">
+    <citation type="journal article" date="2005" name="Nat. Struct. Mol. Biol." volume="12" first="539" last="544">
+      <title>Internal structure and visualization of transmembrane domains of the RyR1 calcium release channel by cryo-EM.</title>
+      <authorList>
+        <person name="Samso M."/>
+        <person name="Wagenknecht T."/>
+        <person name="Allen P.D."/>
+      </authorList>
+      <dbReference type="PubMed" id="15908964"/>
+      <dbReference type="DOI" id="10.1038/nsmb938"/>
+    </citation>
+    <scope>STRUCTURE BY ELECTRON MICROSCOPY (10 ANGSTROMS)</scope>
+    <scope>SUBUNIT</scope>
+    <scope>TISSUE SPECIFICITY</scope>
+    <scope>SUBCELLULAR LOCATION</scope>
+  </reference>
+  <reference key="21">
+    <citation type="journal article" date="2006" name="Structure" volume="14" first="1547" last="1556">
+      <title>Complex of calmodulin with a ryanodine receptor target reveals a novel, flexible binding mode.</title>
+      <authorList>
+        <person name="Maximciuc A.A."/>
+        <person name="Putkey J.A."/>
+        <person name="Shamoo Y."/>
+        <person name="Mackenzie K.R."/>
+      </authorList>
+      <dbReference type="PubMed" id="17027503"/>
+      <dbReference type="DOI" id="10.1016/j.str.2006.08.011"/>
+    </citation>
+    <scope>X-RAY CRYSTALLOGRAPHY (2.0 ANGSTROMS) OF 3614-3643 IN COMPLEX WITH CALM</scope>
+  </reference>
+  <reference key="22">
+    <citation type="journal article" date="2008" name="Proc. Natl. Acad. Sci. U.S.A." volume="105" first="9610" last="9615">
+      <title>Subnanometer-resolution electron cryomicroscopy-based domain models for the cytoplasmic region of skeletal muscle RyR channel.</title>
+      <authorList>
+        <person name="Serysheva I.I."/>
+        <person name="Ludtke S.J."/>
+        <person name="Baker M.L."/>
+        <person name="Cong Y."/>
+        <person name="Topf M."/>
+        <person name="Eramian D."/>
+        <person name="Sali A."/>
+        <person name="Hamilton S.L."/>
+        <person name="Chiu W."/>
+      </authorList>
+      <dbReference type="PubMed" id="18621707"/>
+      <dbReference type="DOI" id="10.1073/pnas.0803189105"/>
+    </citation>
+    <scope>STRUCTURE BY ELECTRON MICROSCOPY (9.6 ANGSTROMS)</scope>
+    <scope>SUBUNIT</scope>
+  </reference>
+  <reference key="23">
+    <citation type="journal article" date="2009" name="Proc. Natl. Acad. Sci. U.S.A." volume="106" first="11040" last="11044">
+      <title>Crystal structure of type I ryanodine receptor amino-terminal beta-trefoil domain reveals a disease-associated mutation 'hot spot' loop.</title>
+      <authorList>
+        <person name="Amador F.J."/>
+        <person name="Liu S."/>
+        <person name="Ishiyama N."/>
+        <person name="Plevin M.J."/>
+        <person name="Wilson A."/>
+        <person name="MacLennan D.H."/>
+        <person name="Ikura M."/>
+      </authorList>
+      <dbReference type="PubMed" id="19541610"/>
+      <dbReference type="DOI" id="10.1073/pnas.0905186106"/>
+    </citation>
+    <scope>X-RAY CRYSTALLOGRAPHY (2.5 ANGSTROMS) OF 1-210</scope>
+  </reference>
+  <reference key="24">
+    <citation type="journal article" date="2009" name="Structure" volume="17" first="1505" last="1514">
+      <title>Crystal structures of the N-terminal domains of cardiac and skeletal muscle ryanodine receptors: insights into disease mutations.</title>
+      <authorList>
+        <person name="Lobo P.A."/>
+        <person name="Van Petegem F."/>
+      </authorList>
+      <dbReference type="PubMed" id="19913485"/>
+      <dbReference type="DOI" id="10.1016/j.str.2009.08.016"/>
+    </citation>
+    <scope>X-RAY CRYSTALLOGRAPHY (2.9 ANGSTROMS) OF 9-205</scope>
+  </reference>
+  <reference key="25">
+    <citation type="journal article" date="2010" name="Nature" volume="468" first="585" last="588">
+      <title>The amino-terminal disease hotspot of ryanodine receptors forms a cytoplasmic vestibule.</title>
+      <authorList>
+        <person name="Tung C.C."/>
+        <person name="Lobo P.A."/>
+        <person name="Kimlicka L."/>
+        <person name="Van Petegem F."/>
+      </authorList>
+      <dbReference type="PubMed" id="21048710"/>
+      <dbReference type="DOI" id="10.1038/nature09471"/>
+    </citation>
+    <scope>X-RAY CRYSTALLOGRAPHY (2.5 ANGSTROMS) OF 1-559</scope>
+  </reference>
+  <reference evidence="44" key="26">
+    <citation type="journal article" date="2012" name="FEBS J." volume="279" first="3952" last="3964">
+      <title>Structural determination of the phosphorylation domain of the ryanodine receptor.</title>
+      <authorList>
+        <person name="Sharma P."/>
+        <person name="Ishiyama N."/>
+        <person name="Nair U."/>
+        <person name="Li W."/>
+        <person name="Dong A."/>
+        <person name="Miyake T."/>
+        <person name="Wilson A."/>
+        <person name="Ryan T."/>
+        <person name="MacLennan D.H."/>
+        <person name="Kislinger T."/>
+        <person name="Ikura M."/>
+        <person name="Dhe-Paganon S."/>
+        <person name="Gramolini A.O."/>
+      </authorList>
+      <dbReference type="PubMed" id="22913516"/>
+      <dbReference type="DOI" id="10.1111/j.1742-4658.2012.08755.x"/>
+    </citation>
+    <scope>X-RAY CRYSTALLOGRAPHY (2.16 ANGSTROMS) OF 2733-2940</scope>
+  </reference>
+  <reference evidence="45 46 47" key="27">
+    <citation type="journal article" date="2012" name="Structure" volume="20" first="1201" last="1211">
+      <title>Disease mutations in the ryanodine receptor central region: crystal structures of a phosphorylation hot spot domain.</title>
+      <authorList>
+        <person name="Yuchi Z."/>
+        <person name="Lau K."/>
+        <person name="Van Petegem F."/>
+      </authorList>
+      <dbReference type="PubMed" id="22705209"/>
+      <dbReference type="DOI" id="10.1016/j.str.2012.04.015"/>
+    </citation>
+    <scope>X-RAY CRYSTALLOGRAPHY (1.59 ANGSTROMS) OF 2734-2940</scope>
+    <scope>MUTAGENESIS OF LEU-2867</scope>
+  </reference>
+  <reference evidence="48 49 50 51 52 53 54 55 56" key="28">
+    <citation type="journal article" date="2013" name="Nat. Commun." volume="4" first="1506" last="1506">
+      <title>Disease mutations in the ryanodine receptor N-terminal region couple to a mobile intersubunit interface.</title>
+      <authorList>
+        <person name="Kimlicka L."/>
+        <person name="Lau K."/>
+        <person name="Tung C.C."/>
+        <person name="Van Petegem F."/>
+      </authorList>
+      <dbReference type="PubMed" id="23422674"/>
+      <dbReference type="DOI" id="10.1038/ncomms2501"/>
+    </citation>
+    <scope>X-RAY CRYSTALLOGRAPHY (2.40 ANGSTROMS) OF 1-536</scope>
+  </reference>
+  <reference evidence="57" key="29">
+    <citation type="journal article" date="2014" name="Nat. Commun." volume="5" first="5397" last="5397">
+      <title>Crystal structures of wild type and disease mutant forms of the ryanodine receptor SPRY2 domain.</title>
+      <authorList>
+        <person name="Lau K."/>
+        <person name="Van Petegem F."/>
+      </authorList>
+      <dbReference type="PubMed" id="25370123"/>
+      <dbReference type="DOI" id="10.1038/ncomms6397"/>
+    </citation>
+    <scope>X-RAY CRYSTALLOGRAPHY (1.84 ANGSTROMS) OF 1070-1246</scope>
+    <scope>MUTAGENESIS OF ARG-1076</scope>
+  </reference>
+  <reference evidence="60" key="30">
+    <citation type="journal article" date="2015" name="Nat. Commun." volume="6" first="7947" last="7947">
+      <title>Crystal structures of ryanodine receptor SPRY1 and tandem-repeat domains reveal a critical FKBP12 binding determinant.</title>
+      <authorList>
+        <person name="Yuchi Z."/>
+        <person name="Yuen S.M."/>
+        <person name="Lau K."/>
+        <person name="Underhill A.Q."/>
+        <person name="Cornea R.L."/>
+        <person name="Fessenden J.D."/>
+        <person name="Van Petegem F."/>
+      </authorList>
+      <dbReference type="PubMed" id="26245150"/>
+      <dbReference type="DOI" id="10.1038/ncomms8947"/>
+    </citation>
+    <scope>X-RAY CRYSTALLOGRAPHY (1.55 ANGSTROMS) OF 857-1054</scope>
+    <scope>INTERACTION WITH FKBP1A</scope>
+    <scope>FUNCTION</scope>
+    <scope>ACTIVITY REGULATION</scope>
+    <scope>MUTAGENESIS OF 674-PHE-LEU-675; ASN-760; ARG-1044; GLY-1050 AND VAL-2461</scope>
+  </reference>
+  <reference evidence="58 59" key="31">
+    <citation type="journal article" date="2015" name="Nature" volume="517" first="39" last="43">
+      <title>Architecture and conformational switch mechanism of the ryanodine receptor.</title>
+      <authorList>
+        <person name="Efremov R.G."/>
+        <person name="Leitner A."/>
+        <person name="Aebersold R."/>
+        <person name="Raunser S."/>
+      </authorList>
+      <dbReference type="PubMed" id="25470059"/>
+      <dbReference type="DOI" id="10.1038/nature13916"/>
+    </citation>
+    <scope>STRUCTURE BY ELECTRON MICROSCOPY (6.10 ANGSTROMS)</scope>
+    <scope>SUBCELLULAR LOCATION</scope>
+    <scope>TOPOLOGY</scope>
+    <scope>TISSUE SPECIFICITY</scope>
+  </reference>
+  <reference evidence="43" key="32">
+    <citation type="journal article" date="2015" name="Nature" volume="517" first="50" last="55">
+      <title>Structure of the rabbit ryanodine receptor RyR1 at near-atomic resolution.</title>
+      <authorList>
+        <person name="Yan Z."/>
+        <person name="Bai X.C."/>
+        <person name="Yan C."/>
+        <person name="Wu J."/>
+        <person name="Li Z."/>
+        <person name="Xie T."/>
+        <person name="Peng W."/>
+        <person name="Yin C.C."/>
+        <person name="Li X."/>
+        <person name="Scheres S.H."/>
+        <person name="Shi Y."/>
+        <person name="Yan N."/>
+      </authorList>
+      <dbReference type="PubMed" id="25517095"/>
+      <dbReference type="DOI" id="10.1038/nature14063"/>
+    </citation>
+    <scope>STRUCTURE BY ELECTRON MICROSCOPY (3.80 ANGSTROMS) IN COMPLEX WITH FKBP1A</scope>
+    <scope>SUBUNIT</scope>
+    <scope>SUBCELLULAR LOCATION</scope>
+    <scope>TOPOLOGY</scope>
+    <scope>TISSUE SPECIFICITY</scope>
+    <scope>DOMAIN</scope>
+  </reference>
+  <reference evidence="66 67 68 69 70 71 72" key="33">
+    <citation type="journal article" date="2016" name="Cell" volume="167" first="145" last="157">
+      <title>Structural basis for gating and activation of RyR1.</title>
+      <authorList>
+        <person name="des Georges A."/>
+        <person name="Clarke O.B."/>
+        <person name="Zalk R."/>
+        <person name="Yuan Q."/>
+        <person name="Condon K.J."/>
+        <person name="Grassucci R.A."/>
+        <person name="Hendrickson W.A."/>
+        <person name="Marks A.R."/>
+        <person name="Frank J."/>
+      </authorList>
+      <dbReference type="PubMed" id="27662087"/>
+      <dbReference type="DOI" id="10.1016/j.cell.2016.08.075"/>
+    </citation>
+    <scope>STRUCTURE BY ELECTRON MICROSCOPY (3.60 ANGSTROMS) OF 12-1275; 1573-2479; 2734-2939 AND 3639-5037 IN COMPLEXES WITH CALCIUM; ATP; RYANODINE AND CAFFEINE</scope>
+    <scope>FUNCTION</scope>
+    <scope>ACTIVITY REGULATION</scope>
+    <scope>SUBUNIT</scope>
+    <scope>SUBCELLULAR LOCATION</scope>
+    <scope>DOMAIN</scope>
+    <scope>TOPOLOGY</scope>
+  </reference>
+  <reference evidence="65" key="34">
+    <citation type="journal article" date="2016" name="Cell Res." volume="26" first="977" last="994">
+      <title>Structural insights into Ca(2+)-activated long-range allosteric channel gating of RyR1.</title>
+      <authorList>
+        <person name="Wei R."/>
+        <person name="Wang X."/>
+        <person name="Zhang Y."/>
+        <person name="Mukherjee S."/>
+        <person name="Zhang L."/>
+        <person name="Chen Q."/>
+        <person name="Huang X."/>
+        <person name="Jing S."/>
+        <person name="Liu C."/>
+        <person name="Li S."/>
+        <person name="Wang G."/>
+        <person name="Xu Y."/>
+        <person name="Zhu S."/>
+        <person name="Williams A.J."/>
+        <person name="Sun F."/>
+        <person name="Yin C.C."/>
+      </authorList>
+      <dbReference type="PubMed" id="27573175"/>
+      <dbReference type="DOI" id="10.1038/cr.2016.99"/>
+    </citation>
+    <scope>STRUCTURE BY ELECTRON MICROSCOPY (4.90 ANGSTROMS)</scope>
+    <scope>SUBUNIT</scope>
+    <scope>SUBCELLULAR LOCATION</scope>
+    <scope>TOPOLOGY</scope>
+    <scope>TISSUE SPECIFICITY</scope>
+  </reference>
+  <reference evidence="61 62 63 64" key="35">
+    <citation type="journal article" date="2016" name="Cell Res." volume="26" first="995" last="1006">
+      <title>The central domain of RyR1 is the transducer for long-range allosteric gating of channel opening.</title>
+      <authorList>
+        <person name="Bai X.C."/>
+        <person name="Yan Z."/>
+        <person name="Wu J."/>
+        <person name="Li Z."/>
+        <person name="Yan N."/>
+      </authorList>
+      <dbReference type="PubMed" id="27468892"/>
+      <dbReference type="DOI" id="10.1038/cr.2016.89"/>
+    </citation>
+    <scope>STRUCTURE BY ELECTRON MICROSCOPY (3.80 ANGSTROMS) IN COMPLEX WITH FKBP1A</scope>
+    <scope>SUBUNIT</scope>
+    <scope>SUBCELLULAR LOCATION</scope>
+    <scope>TOPOLOGY</scope>
+    <scope>TISSUE SPECIFICITY</scope>
+    <scope>DOMAIN</scope>
+  </reference>
+  <comment type="function">
+    <text evidence="1 9 15 22 31 37 39 42">Calcium channel that mediates the release of Ca(2+) from the sarcoplasmic reticulum into the cytoplasm and thereby plays a key role in triggering muscle contraction following depolarization of T-tubules (PubMed:3722165, PubMed:10388749, PubMed:10097181, PubMed:12732639, PubMed:22036948, PubMed:26245150, PubMed:27662087). Repeated very high-level exercise increases the open probability of the channel and leads to Ca(2+) leaking into the cytoplasm (By similarity). Can also mediate the release of Ca(2+) from intracellular stores in neurons, and may thereby promote prolonged Ca(2+) signaling in the brain. Required for normal embryonic development of muscle fibers and skeletal muscle. Required for normal heart morphogenesis, skin development and ossification during embryogenesis (By similarity).</text>
+  </comment>
+  <comment type="activity regulation">
+    <text evidence="15 22 27 31">Channel activity is modulated by the alkaloid ryanodine that binds to the open Ca-release channel with high affinity (PubMed:27662087). At low concentrations, ryanodine maintains the channel in an open conformation (PubMed:27662087). High ryanodine concentrations inhibit channel activity (PubMed:27662087). Channel activity is regulated by calmodulin (CALM). The calcium release is activated by increased cytoplasmic calcium levels, by nitric oxyde (NO), caffeine and ATP (PubMed:12732639, PubMed:22036948, PubMed:26245150, PubMed:27662087). Channel activity is inhibited by magnesium ions, possibly by competition for calcium binding sites (PubMed:12732639).</text>
+  </comment>
+  <comment type="subunit">
+    <text evidence="1 3 8 9 10 11 12 13 16 17 18 19 20 21 25 26 27 29 30 31 33 35">Homotetramer (PubMed:10097181, PubMed:15908964, PubMed:17027503, PubMed:18621707, PubMed:25470059, PubMed:25517095, PubMed:27662087, PubMed:27573175, PubMed:27468892). Can also form heterotetramers with RYR2 (PubMed:12213830). Identified in a complex composed of RYR1, PDE4D, PKA, FKBP1A and protein phosphatase 1 (PP1). Repeated very high-level exercise decreases interaction with PDE4D and protein phosphatase 1 (PP1) (By similarity). Interacts with CALM; CALM with bound calcium inhibits the RYR1 channel activity (PubMed:10601232, PubMed:11562475, PubMed:17027503). Interacts with S100A1 (By similarity). Interacts with FKBP1A; this stabilizes the closed conformation of the channel (PubMed:7669046, PubMed:10603943, PubMed:26245150, PubMed:25517095, PubMed:27468892). Interacts with CACNA1S; interaction with CACNA1S is important for activation of the RYR1 channel (PubMed:10388749). Interacts with CACNB1 (PubMed:21320436). Interacts with TRDN and ASPH; these interactions stimulate RYR1 channel activity (PubMed:9737879, PubMed:19398037). Interacts with SELENON (PubMed:18713863). Interacts with scorpion calcins (AC P0DPT1; AC P0DM30; AC A0A1L4BJ42; AC P59868; AC P60254; AC B8QG00; AC L0GBR1; AC P60252; AC P60253) (PubMed:27114612).</text>
+  </comment>
+  <comment type="interaction">
+    <interactant intactId="EBI-6477441">
+      <id>P11716</id>
+    </interactant>
+    <interactant intactId="EBI-16134925">
+      <id>P62943</id>
+      <label>FKBP1A</label>
+    </interactant>
+    <organismsDiffer>false</organismsDiffer>
+    <experiments>2</experiments>
+  </comment>
+  <comment type="interaction">
+    <interactant intactId="EBI-6477441">
+      <id>P11716</id>
+    </interactant>
+    <interactant intactId="EBI-6477441">
+      <id>P11716</id>
+      <label>RYR1</label>
+    </interactant>
+    <organismsDiffer>false</organismsDiffer>
+    <experiments>7</experiments>
+  </comment>
+  <comment type="interaction">
+    <interactant intactId="EBI-6477441">
+      <id>P11716</id>
+    </interactant>
+    <interactant intactId="EBI-397029">
+      <id>P28652</id>
+      <label>Camk2b</label>
+    </interactant>
+    <organismsDiffer>true</organismsDiffer>
+    <experiments>4</experiments>
+  </comment>
+  <comment type="interaction">
+    <interactant intactId="EBI-6477441">
+      <id>P11716</id>
+    </interactant>
+    <interactant intactId="EBI-1027571">
+      <id>P62942</id>
+      <label>FKBP1A</label>
+    </interactant>
+    <organismsDiffer>true</organismsDiffer>
+    <experiments>2</experiments>
+  </comment>
+  <comment type="interaction">
+    <interactant intactId="EBI-6477441">
+      <id>P11716</id>
+    </interactant>
+    <interactant intactId="EBI-15766566">
+      <id>P68106-1</id>
+      <label>FKBP1B</label>
+    </interactant>
+    <organismsDiffer>true</organismsDiffer>
+    <experiments>2</experiments>
+  </comment>
+  <comment type="interaction">
+    <interactant intactId="EBI-6477441">
+      <id>P11716</id>
+    </interactant>
+    <interactant intactId="EBI-6477285">
+      <id>P02639</id>
+      <label>S100A1</label>
+    </interactant>
+    <organismsDiffer>true</organismsDiffer>
+    <experiments>3</experiments>
+  </comment>
+  <comment type="subcellular location">
+    <subcellularLocation>
+      <location evidence="14 26 28 29 30 31 32">Sarcoplasmic reticulum membrane</location>
+      <topology evidence="25 26 29 30 31">Multi-pass membrane protein</topology>
+    </subcellularLocation>
+    <subcellularLocation>
+      <location evidence="19">Sarcoplasmic reticulum</location>
+    </subcellularLocation>
+    <subcellularLocation>
+      <location evidence="15">Membrane</location>
+      <topology evidence="25 26 29 30 31">Multi-pass membrane protein</topology>
+    </subcellularLocation>
+    <text evidence="14 25 29 30 31">The number of predicted transmembrane domains varies between orthologs, but the 3D-structures show the presence of six transmembrane regions. Both N-terminus and C-terminus are cytoplasmic.</text>
+  </comment>
+  <comment type="tissue specificity">
+    <text evidence="16 25 26 28 29 30 32 33">Detected in skeletal muscle (at protein level) (PubMed:2725677, PubMed:3722165, PubMed:25470059, PubMed:25517095, PubMed:27573175, PubMed:27468892). Fast- or slow-twitch skeletal muscle.</text>
+  </comment>
+  <comment type="domain">
+    <text evidence="26 28 29 30 31">The calcium release channel activity resides in the C-terminal region while the remaining part of the protein constitutes the 'foot' structure spanning the junctional gap between the sarcoplasmic reticulum (SR) and the T-tubule (PubMed:2725677, PubMed:25517095, PubMed:27662087, PubMed:27573175, PubMed:27468892). Pore opening is mediated via the cytoplasmic calcium-binding domains that mediate a small rotation of the channel-forming transmembrane regions that then leads to channel opening (PubMed:27468892).</text>
+  </comment>
+  <comment type="PTM">
+    <text>The N-terminus is blocked.</text>
+  </comment>
+  <comment type="PTM">
+    <text evidence="3">Channel activity is modulated by phosphorylation. Phosphorylation at Ser-2843 may increase channel activity. Repeated very high-level exercise increases phosphorylation at Ser-2843.</text>
+  </comment>
+  <comment type="PTM">
+    <text evidence="3 22">Activated by reversible S-nitrosylation (PubMed:22036948). Repeated very high-level exercise increases S-nitrosylation (By similarity).</text>
+  </comment>
+  <comment type="miscellaneous">
+    <text evidence="8">Coexpression of normal and mutant Thr-4897 RYR1 in a 1:1 ratio produces RYR1 channels with normal halothane and caffeine sensitivities, but maximal levels of Ca(2+) release are reduced by 67%. Binding of [3H]ryanodine indicates that the heterozygous channel is activated by Ca(2+) concentrations 4-fold lower than normal. Single-cell analysis of cotransfected cells shows a significantly increased resting cytoplasmic Ca(2+) level and a significantly reduced luminal Ca(2+) level. These data indicated a leaky channel, possibly caused by a reduction in the Ca(2+) concentration required for channel activation.</text>
+  </comment>
+  <comment type="similarity">
+    <text evidence="36">Belongs to the ryanodine receptor (TC 1.A.3.1) family. RYR1 subfamily.</text>
+  </comment>
+  <dbReference type="EMBL" id="X15209">
+    <property type="protein sequence ID" value="CAA33279.1"/>
+    <property type="molecule type" value="mRNA"/>
+  </dbReference>
+  <dbReference type="EMBL" id="X15750">
+    <property type="protein sequence ID" value="CAA33762.1"/>
+    <property type="molecule type" value="mRNA"/>
+  </dbReference>
+  <dbReference type="PIR" id="S04654">
+    <property type="entry name" value="B35041"/>
+  </dbReference>
+  <dbReference type="RefSeq" id="NP_001095188.1">
+    <property type="nucleotide sequence ID" value="NM_001101718.1"/>
+  </dbReference>
+  <dbReference type="PDB" id="2BCX">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.00 A"/>
+    <property type="chains" value="B=3614-3643"/>
+  </dbReference>
+  <dbReference type="PDB" id="2XOA">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.50 A"/>
+    <property type="chains" value="A=1-559"/>
+  </dbReference>
+  <dbReference type="PDB" id="3HSM">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.50 A"/>
+    <property type="chains" value="A/B=1-210"/>
+  </dbReference>
+  <dbReference type="PDB" id="3ILA">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.90 A"/>
+    <property type="chains" value="A/B/C/D/E/F/G/H/I=9-205"/>
+  </dbReference>
+  <dbReference type="PDB" id="3J8H">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="A/C/E/G=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="3RQR">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.16 A"/>
+    <property type="chains" value="A=2733-2940"/>
+  </dbReference>
+  <dbReference type="PDB" id="4ERT">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="1.95 A"/>
+    <property type="chains" value="A=2734-2940"/>
+  </dbReference>
+  <dbReference type="PDB" id="4ESU">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="1.59 A"/>
+    <property type="chains" value="A=2734-2940"/>
+  </dbReference>
+  <dbReference type="PDB" id="4ETT">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.20 A"/>
+    <property type="chains" value="A=2734-2940"/>
+  </dbReference>
+  <dbReference type="PDB" id="4ETU">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.19 A"/>
+    <property type="chains" value="A=2734-2938"/>
+  </dbReference>
+  <dbReference type="PDB" id="4I0Y">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.80 A"/>
+    <property type="chains" value="A=1-536"/>
+  </dbReference>
+  <dbReference type="PDB" id="4I1E">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.40 A"/>
+    <property type="chains" value="A=1-536"/>
+  </dbReference>
+  <dbReference type="PDB" id="4I2S">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.50 A"/>
+    <property type="chains" value="A=1-536"/>
+  </dbReference>
+  <dbReference type="PDB" id="4I37">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.95 A"/>
+    <property type="chains" value="A=1-536"/>
+  </dbReference>
+  <dbReference type="PDB" id="4I3N">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.95 A"/>
+    <property type="chains" value="A=1-536"/>
+  </dbReference>
+  <dbReference type="PDB" id="4I6I">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.50 A"/>
+    <property type="chains" value="A=1-559"/>
+  </dbReference>
+  <dbReference type="PDB" id="4I7I">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.90 A"/>
+    <property type="chains" value="A=1-536"/>
+  </dbReference>
+  <dbReference type="PDB" id="4I8M">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.80 A"/>
+    <property type="chains" value="A=1-536"/>
+  </dbReference>
+  <dbReference type="PDB" id="4I96">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="2.73 A"/>
+    <property type="chains" value="A=217-536"/>
+  </dbReference>
+  <dbReference type="PDB" id="4P9J">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="1.84 A"/>
+    <property type="chains" value="A/B/C=1070-1246"/>
+  </dbReference>
+  <dbReference type="PDB" id="4UWA">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="6.10 A"/>
+    <property type="chains" value="A/B/C/D=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="4UWE">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="8.50 A"/>
+    <property type="chains" value="A/B/C/D=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5C30">
+    <property type="method" value="X-ray"/>
+    <property type="resolution" value="1.55 A"/>
+    <property type="chains" value="A=857-1054"/>
+  </dbReference>
+  <dbReference type="PDB" id="5GKY">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="A/C/E/G=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5GKZ">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="4.00 A"/>
+    <property type="chains" value="A/C/E/G=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5GL0">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="4.20 A"/>
+    <property type="chains" value="A/C/E/G=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5GL1">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="5.70 A"/>
+    <property type="chains" value="A/C/E/G=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5J8V">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="4.90 A"/>
+    <property type="chains" value="A/B/C/D=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5T15">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5T9M">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5T9N">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5T9R">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5T9S">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5T9V">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4540-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TA3">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TAL">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TAM">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TAN">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TAP">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TAQ">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TAS">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TAT">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TAU">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TAV">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TAW">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TAX">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TAY">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TAZ">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TB0">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TB1">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TB2">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TB3">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="5TB4">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="B/E/G/I=12-1275, B/E/G/I=1573-2479, B/E/G/I=2734-2939, B/E/G/I=3639-4253, B/E/G/I=4541-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="6FG3">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="7.30 A"/>
+    <property type="chains" value="A/B/C/D=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="6FOO">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="8.20 A"/>
+    <property type="chains" value="A/B/C/D=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="6M2W">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="A/D/G/J=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="6WOT">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.54 A"/>
+    <property type="chains" value="A/B/C/D=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="7CF9">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="4.70 A"/>
+    <property type="chains" value="A/C/E/G=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="7M6A">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.36 A"/>
+    <property type="chains" value="A/B/G/I=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="7M6L">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.98 A"/>
+    <property type="chains" value="A/B/G/I=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="7T64">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="4.00 A"/>
+    <property type="chains" value="A/B/C/D=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="7T65">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="4.05 A"/>
+    <property type="chains" value="A/B/C/D=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="7TDG">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="A/B/C/D=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="7TDH">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="4.00 A"/>
+    <property type="chains" value="A/B/C/D=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="7TDI">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.30 A"/>
+    <property type="chains" value="A/B/C/D=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="7TDJ">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.70 A"/>
+    <property type="chains" value="A/B/C/D=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="7TDK">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="3.80 A"/>
+    <property type="chains" value="A/B/C/D=1-5037"/>
+  </dbReference>
+  <dbReference type="PDB" id="7TZC">
+    <property type="method" value="EM"/>
+    <property type="resolution" value="2.45 A"/>
+    <property type="chains" value="A/B/G/I=1-5037"/>
+  </dbReference>
+  <dbReference type="PDBsum" id="2BCX"/>
+  <dbReference type="PDBsum" id="2XOA"/>
+  <dbReference type="PDBsum" id="3HSM"/>
+  <dbReference type="PDBsum" id="3ILA"/>
+  <dbReference type="PDBsum" id="3J8H"/>
+  <dbReference type="PDBsum" id="3RQR"/>
+  <dbReference type="PDBsum" id="4ERT"/>
+  <dbReference type="PDBsum" id="4ESU"/>
+  <dbReference type="PDBsum" id="4ETT"/>
+  <dbReference type="PDBsum" id="4ETU"/>
+  <dbReference type="PDBsum" id="4I0Y"/>
+  <dbReference type="PDBsum" id="4I1E"/>
+  <dbReference type="PDBsum" id="4I2S"/>
+  <dbReference type="PDBsum" id="4I37"/>
+  <dbReference type="PDBsum" id="4I3N"/>
+  <dbReference type="PDBsum" id="4I6I"/>
+  <dbReference type="PDBsum" id="4I7I"/>
+  <dbReference type="PDBsum" id="4I8M"/>
+  <dbReference type="PDBsum" id="4I96"/>
+  <dbReference type="PDBsum" id="4P9J"/>
+  <dbReference type="PDBsum" id="4UWA"/>
+  <dbReference type="PDBsum" id="4UWE"/>
+  <dbReference type="PDBsum" id="5C30"/>
+  <dbReference type="PDBsum" id="5GKY"/>
+  <dbReference type="PDBsum" id="5GKZ"/>
+  <dbReference type="PDBsum" id="5GL0"/>
+  <dbReference type="PDBsum" id="5GL1"/>
+  <dbReference type="PDBsum" id="5J8V"/>
+  <dbReference type="PDBsum" id="5T15"/>
+  <dbReference type="PDBsum" id="5T9M"/>
+  <dbReference type="PDBsum" id="5T9N"/>
+  <dbReference type="PDBsum" id="5T9R"/>
+  <dbReference type="PDBsum" id="5T9S"/>
+  <dbReference type="PDBsum" id="5T9V"/>
+  <dbReference type="PDBsum" id="5TA3"/>
+  <dbReference type="PDBsum" id="5TAL"/>
+  <dbReference type="PDBsum" id="5TAM"/>
+  <dbReference type="PDBsum" id="5TAN"/>
+  <dbReference type="PDBsum" id="5TAP"/>
+  <dbReference type="PDBsum" id="5TAQ"/>
+  <dbReference type="PDBsum" id="5TAS"/>
+  <dbReference type="PDBsum" id="5TAT"/>
+  <dbReference type="PDBsum" id="5TAU"/>
+  <dbReference type="PDBsum" id="5TAV"/>
+  <dbReference type="PDBsum" id="5TAW"/>
+  <dbReference type="PDBsum" id="5TAX"/>
+  <dbReference type="PDBsum" id="5TAY"/>
+  <dbReference type="PDBsum" id="5TAZ"/>
+  <dbReference type="PDBsum" id="5TB0"/>
+  <dbReference type="PDBsum" id="5TB1"/>
+  <dbReference type="PDBsum" id="5TB2"/>
+  <dbReference type="PDBsum" id="5TB3"/>
+  <dbReference type="PDBsum" id="5TB4"/>
+  <dbReference type="PDBsum" id="6FG3"/>
+  <dbReference type="PDBsum" id="6FOO"/>
+  <dbReference type="PDBsum" id="6M2W"/>
+  <dbReference type="PDBsum" id="6WOT"/>
+  <dbReference type="PDBsum" id="7CF9"/>
+  <dbReference type="PDBsum" id="7M6A"/>
+  <dbReference type="PDBsum" id="7M6L"/>
+  <dbReference type="PDBsum" id="7T64"/>
+  <dbReference type="PDBsum" id="7T65"/>
+  <dbReference type="PDBsum" id="7TDG"/>
+  <dbReference type="PDBsum" id="7TDH"/>
+  <dbReference type="PDBsum" id="7TDI"/>
+  <dbReference type="PDBsum" id="7TDJ"/>
+  <dbReference type="PDBsum" id="7TDK"/>
+  <dbReference type="PDBsum" id="7TZC"/>
+  <dbReference type="SMR" id="P11716"/>
+  <dbReference type="BioGRID" id="1172559">
+    <property type="interactions" value="3"/>
+  </dbReference>
+  <dbReference type="ComplexPortal" id="CPX-3136">
+    <property type="entry name" value="Ryanodine 1 complex"/>
+  </dbReference>
+  <dbReference type="DIP" id="DIP-41872N"/>
+  <dbReference type="IntAct" id="P11716">
+    <property type="interactions" value="8"/>
+  </dbReference>
+  <dbReference type="MINT" id="P11716"/>
+  <dbReference type="BindingDB" id="P11716"/>
+  <dbReference type="ChEMBL" id="CHEMBL3288"/>
+  <dbReference type="iPTMnet" id="P11716"/>
+  <dbReference type="SwissPalm" id="P11716"/>
+  <dbReference type="GeneID" id="100009540"/>
+  <dbReference type="KEGG" id="ocu:100009540"/>
+  <dbReference type="CTD" id="6261"/>
+  <dbReference type="InParanoid" id="P11716"/>
+  <dbReference type="OrthoDB" id="3144451at2759"/>
+  <dbReference type="EvolutionaryTrace" id="P11716"/>
+  <dbReference type="PRO" id="PR:P11716"/>
+  <dbReference type="Proteomes" id="UP000001811">
+    <property type="component" value="Unplaced"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0016020">
+    <property type="term" value="C:membrane"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0031090">
+    <property type="term" value="C:organelle membrane"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:1990425">
+    <property type="term" value="C:ryanodine receptor complex"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0016529">
+    <property type="term" value="C:sarcoplasmic reticulum"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0033017">
+    <property type="term" value="C:sarcoplasmic reticulum membrane"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0014802">
+    <property type="term" value="C:terminal cisterna"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005524">
+    <property type="term" value="F:ATP binding"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0035381">
+    <property type="term" value="F:ATP-gated ion channel activity"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="CAFA"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005262">
+    <property type="term" value="F:calcium channel activity"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005509">
+    <property type="term" value="F:calcium ion binding"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0015278">
+    <property type="term" value="F:calcium-release channel activity"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="AgBase"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005516">
+    <property type="term" value="F:calmodulin binding"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0097718">
+    <property type="term" value="F:disordered domain specific binding"/>
+    <property type="evidence" value="ECO:0000353"/>
+    <property type="project" value="CAFA"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0042802">
+    <property type="term" value="F:identical protein binding"/>
+    <property type="evidence" value="ECO:0000353"/>
+    <property type="project" value="IntAct"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005219">
+    <property type="term" value="F:ryanodine-sensitive calcium-release channel activity"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0015643">
+    <property type="term" value="F:toxic substance binding"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="AgBase"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0044325">
+    <property type="term" value="F:transmembrane transporter binding"/>
+    <property type="evidence" value="ECO:0000353"/>
+    <property type="project" value="BHF-UCL"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005245">
+    <property type="term" value="F:voltage-gated calcium channel activity"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0070588">
+    <property type="term" value="P:calcium ion transmembrane transport"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0071313">
+    <property type="term" value="P:cellular response to caffeine"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0071277">
+    <property type="term" value="P:cellular response to calcium ion"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0006874">
+    <property type="term" value="P:intracellular calcium ion homeostasis"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="InterPro"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0006936">
+    <property type="term" value="P:muscle contraction"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0043931">
+    <property type="term" value="P:ossification involved in bone maturation"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0003151">
+    <property type="term" value="P:outflow tract morphogenesis"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0051289">
+    <property type="term" value="P:protein homotetramerization"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0051209">
+    <property type="term" value="P:release of sequestered calcium ion into cytosol"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="CAFA"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0014808">
+    <property type="term" value="P:release of sequestered calcium ion into cytosol by sarcoplasmic reticulum"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0048741">
+    <property type="term" value="P:skeletal muscle fiber development"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0043588">
+    <property type="term" value="P:skin development"/>
+    <property type="evidence" value="ECO:0000250"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="CDD" id="cd12877">
+    <property type="entry name" value="SPRY1_RyR"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="CDD" id="cd12878">
+    <property type="entry name" value="SPRY2_RyR"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="CDD" id="cd12879">
+    <property type="entry name" value="SPRY3_RyR"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="1.10.287.70">
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="1.10.490.160">
+    <property type="match status" value="2"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="2.60.120.920">
+    <property type="match status" value="3"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="2.80.10.50">
+    <property type="match status" value="2"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="6.20.350.10">
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="1.25.10.30">
+    <property type="entry name" value="IP3 receptor type 1 binding core, RIH domain"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR001870">
+    <property type="entry name" value="B30.2/SPRY"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR043136">
+    <property type="entry name" value="B30.2/SPRY_sf"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR013320">
+    <property type="entry name" value="ConA-like_dom_sf"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR011992">
+    <property type="entry name" value="EF-hand-dom_pair"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR014821">
+    <property type="entry name" value="Ins145_P3_rcpt"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR005821">
+    <property type="entry name" value="Ion_trans_dom"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR036300">
+    <property type="entry name" value="MIR_dom_sf"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR016093">
+    <property type="entry name" value="MIR_motif"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR013662">
+    <property type="entry name" value="RIH_assoc-dom"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR000699">
+    <property type="entry name" value="RIH_dom"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR013333">
+    <property type="entry name" value="Ryan_recept"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR015925">
+    <property type="entry name" value="Ryanodine_IP3_receptor"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR003032">
+    <property type="entry name" value="Ryanodine_rcpt"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR009460">
+    <property type="entry name" value="Ryanrecept_TM4-6"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR035910">
+    <property type="entry name" value="RyR/IP3R_RIH_dom_sf"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR035761">
+    <property type="entry name" value="SPRY1_RyR"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR035764">
+    <property type="entry name" value="SPRY2_RyR"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR035762">
+    <property type="entry name" value="SPRY3_RyR"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR003877">
+    <property type="entry name" value="SPRY_dom"/>
+  </dbReference>
+  <dbReference type="PANTHER" id="PTHR46399">
+    <property type="entry name" value="B30.2/SPRY DOMAIN-CONTAINING PROTEIN"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="PANTHER" id="PTHR46399:SF10">
+    <property type="entry name" value="RYANODINE RECEPTOR 1"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF08709">
+    <property type="entry name" value="Ins145_P3_rec"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF00520">
+    <property type="entry name" value="Ion_trans"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF02815">
+    <property type="entry name" value="MIR"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF08454">
+    <property type="entry name" value="RIH_assoc"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF06459">
+    <property type="entry name" value="RR_TM4-6"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF01365">
+    <property type="entry name" value="RYDR_ITPR"/>
+    <property type="match status" value="2"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF02026">
+    <property type="entry name" value="RyR"/>
+    <property type="match status" value="4"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF00622">
+    <property type="entry name" value="SPRY"/>
+    <property type="match status" value="3"/>
+  </dbReference>
+  <dbReference type="PRINTS" id="PR00795">
+    <property type="entry name" value="RYANODINER"/>
+  </dbReference>
+  <dbReference type="SMART" id="SM00472">
+    <property type="entry name" value="MIR"/>
+    <property type="match status" value="4"/>
+  </dbReference>
+  <dbReference type="SMART" id="SM00449">
+    <property type="entry name" value="SPRY"/>
+    <property type="match status" value="3"/>
+  </dbReference>
+  <dbReference type="SUPFAM" id="SSF49899">
+    <property type="entry name" value="Concanavalin A-like lectins/glucanases"/>
+    <property type="match status" value="3"/>
+  </dbReference>
+  <dbReference type="SUPFAM" id="SSF47473">
+    <property type="entry name" value="EF-hand"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="SUPFAM" id="SSF100909">
+    <property type="entry name" value="IP3 receptor type 1 binding core, domain 2"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="SUPFAM" id="SSF82109">
+    <property type="entry name" value="MIR domain"/>
+    <property type="match status" value="2"/>
+  </dbReference>
+  <dbReference type="PROSITE" id="PS50188">
+    <property type="entry name" value="B302_SPRY"/>
+    <property type="match status" value="3"/>
+  </dbReference>
+  <dbReference type="PROSITE" id="PS50919">
+    <property type="entry name" value="MIR"/>
+    <property type="match status" value="5"/>
+  </dbReference>
+  <proteinExistence type="evidence at protein level"/>
+  <keyword id="KW-0002">3D-structure</keyword>
+  <keyword id="KW-0067">ATP-binding</keyword>
+  <keyword id="KW-0106">Calcium</keyword>
+  <keyword id="KW-0107">Calcium channel</keyword>
+  <keyword id="KW-0109">Calcium transport</keyword>
+  <keyword id="KW-0112">Calmodulin-binding</keyword>
+  <keyword id="KW-0217">Developmental protein</keyword>
+  <keyword id="KW-0903">Direct protein sequencing</keyword>
+  <keyword id="KW-0407">Ion channel</keyword>
+  <keyword id="KW-0406">Ion transport</keyword>
+  <keyword id="KW-1071">Ligand-gated ion channel</keyword>
+  <keyword id="KW-0472">Membrane</keyword>
+  <keyword id="KW-0479">Metal-binding</keyword>
+  <keyword id="KW-0547">Nucleotide-binding</keyword>
+  <keyword id="KW-0597">Phosphoprotein</keyword>
+  <keyword id="KW-0675">Receptor</keyword>
+  <keyword id="KW-1185">Reference proteome</keyword>
+  <keyword id="KW-0677">Repeat</keyword>
+  <keyword id="KW-0702">S-nitrosylation</keyword>
+  <keyword id="KW-0703">Sarcoplasmic reticulum</keyword>
+  <keyword id="KW-0812">Transmembrane</keyword>
+  <keyword id="KW-1133">Transmembrane helix</keyword>
+  <keyword id="KW-0813">Transport</keyword>
+  <feature type="chain" id="PRO_0000219360" description="Ryanodine receptor 1">
+    <location>
+      <begin position="1"/>
+      <end position="5037"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Cytoplasmic" evidence="25 26 29 30">
+    <location>
+      <begin position="1"/>
+      <end position="4558"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical; Name=1" evidence="25 26 29 30">
+    <location>
+      <begin position="4559"/>
+      <end position="4579"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Lumenal" evidence="25 26 29 30">
+    <location>
+      <begin position="4580"/>
+      <end position="4640"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical; Name=2" evidence="25 26 29 30">
+    <location>
+      <begin position="4641"/>
+      <end position="4661"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Cytoplasmic" evidence="25 26 29 30">
+    <location>
+      <begin position="4662"/>
+      <end position="4779"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical; Name=3" evidence="25 26 29 30">
+    <location>
+      <begin position="4780"/>
+      <end position="4802"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Lumenal" evidence="25 26 29 30">
+    <location>
+      <position position="4803"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical; Name=4" evidence="25 26 29 30">
+    <location>
+      <begin position="4804"/>
+      <end position="4820"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Cytoplasmic" evidence="25 26 29 30">
+    <location>
+      <begin position="4821"/>
+      <end position="4835"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical; Name=5" evidence="25 26 29 30">
+    <location>
+      <begin position="4836"/>
+      <end position="4856"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Lumenal" evidence="25 26 29 30">
+    <location>
+      <begin position="4857"/>
+      <end position="4879"/>
+    </location>
+  </feature>
+  <feature type="intramembrane region" description="Pore-forming" evidence="25 26 29 30">
+    <location>
+      <begin position="4880"/>
+      <end position="4899"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Lumenal" evidence="25 26 29 30">
+    <location>
+      <begin position="4900"/>
+      <end position="4919"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical; Name=6" evidence="25 26 29 30">
+    <location>
+      <begin position="4920"/>
+      <end position="4940"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Cytoplasmic" evidence="25 26 29 30">
+    <location>
+      <begin position="4941"/>
+      <end position="5037"/>
+    </location>
+  </feature>
+  <feature type="domain" description="MIR 1" evidence="4">
+    <location>
+      <begin position="98"/>
+      <end position="153"/>
+    </location>
+  </feature>
+  <feature type="domain" description="MIR 2" evidence="4">
+    <location>
+      <begin position="160"/>
+      <end position="205"/>
+    </location>
+  </feature>
+  <feature type="domain" description="MIR 3" evidence="4">
+    <location>
+      <begin position="211"/>
+      <end position="265"/>
+    </location>
+  </feature>
+  <feature type="domain" description="MIR 4" evidence="4">
+    <location>
+      <begin position="271"/>
+      <end position="334"/>
+    </location>
+  </feature>
+  <feature type="domain" description="MIR 5" evidence="4">
+    <location>
+      <begin position="336"/>
+      <end position="394"/>
+    </location>
+  </feature>
+  <feature type="domain" description="B30.2/SPRY 1" evidence="6">
+    <location>
+      <begin position="582"/>
+      <end position="798"/>
+    </location>
+  </feature>
+  <feature type="repeat" description="1">
+    <location>
+      <begin position="842"/>
+      <end position="955"/>
+    </location>
+  </feature>
+  <feature type="repeat" description="2">
+    <location>
+      <begin position="956"/>
+      <end position="1069"/>
+    </location>
+  </feature>
+  <feature type="domain" description="B30.2/SPRY 2" evidence="6">
+    <location>
+      <begin position="1014"/>
+      <end position="1209"/>
+    </location>
+  </feature>
+  <feature type="repeat" description="3; truncated">
+    <location>
+      <begin position="1345"/>
+      <end position="1360"/>
+    </location>
+  </feature>
+  <feature type="domain" description="B30.2/SPRY 3" evidence="6">
+    <location>
+      <begin position="1358"/>
+      <end position="1571"/>
+    </location>
+  </feature>
+  <feature type="repeat" description="4; truncated">
+    <location>
+      <begin position="1373"/>
+      <end position="1388"/>
+    </location>
+  </feature>
+  <feature type="repeat" description="5">
+    <location>
+      <begin position="2726"/>
+      <end position="2845"/>
+    </location>
+  </feature>
+  <feature type="repeat" description="6">
+    <location>
+      <begin position="2846"/>
+      <end position="2959"/>
+    </location>
+  </feature>
+  <feature type="domain" description="EF-hand" evidence="5 30">
+    <location>
+      <begin position="4075"/>
+      <end position="4103"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Interaction with FKBP1A" evidence="27">
+    <location>
+      <begin position="670"/>
+      <end position="681"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="6 X approximate repeats">
+    <location>
+      <begin position="842"/>
+      <end position="2959"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="7">
+    <location>
+      <begin position="1308"/>
+      <end position="1383"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="7">
+    <location>
+      <begin position="1867"/>
+      <end position="1922"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="7">
+    <location>
+      <begin position="2390"/>
+      <end position="2412"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="7">
+    <location>
+      <begin position="2828"/>
+      <end position="2858"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="7">
+    <location>
+      <begin position="3478"/>
+      <end position="3501"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Interaction with CALM">
+    <location>
+      <begin position="3614"/>
+      <end position="3643"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="7">
+    <location>
+      <begin position="4252"/>
+      <end position="4282"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="7">
+    <location>
+      <begin position="4381"/>
+      <end position="4534"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="7">
+    <location>
+      <begin position="4588"/>
+      <end position="4620"/>
+    </location>
+  </feature>
+  <feature type="short sequence motif" description="Selectivity filter" evidence="38 40 41">
+    <location>
+      <begin position="4894"/>
+      <end position="4900"/>
+    </location>
+  </feature>
+  <feature type="compositionally biased region" description="Acidic residues" evidence="7">
+    <location>
+      <begin position="1870"/>
+      <end position="1920"/>
+    </location>
+  </feature>
+  <feature type="compositionally biased region" description="Basic and acidic residues" evidence="7">
+    <location>
+      <begin position="2828"/>
+      <end position="2843"/>
+    </location>
+  </feature>
+  <feature type="compositionally biased region" description="Acidic residues" evidence="7">
+    <location>
+      <begin position="4255"/>
+      <end position="4270"/>
+    </location>
+  </feature>
+  <feature type="compositionally biased region" description="Acidic residues" evidence="7">
+    <location>
+      <begin position="4484"/>
+      <end position="4504"/>
+    </location>
+  </feature>
+  <feature type="binding site" evidence="41 69 70 71 72">
+    <location>
+      <position position="3893"/>
+    </location>
+    <ligand>
+      <name>Ca(2+)</name>
+      <dbReference type="ChEBI" id="CHEBI:29108"/>
+    </ligand>
+  </feature>
+  <feature type="binding site" evidence="41 69 70 71 72">
+    <location>
+      <position position="3967"/>
+    </location>
+    <ligand>
+      <name>Ca(2+)</name>
+      <dbReference type="ChEBI" id="CHEBI:29108"/>
+    </ligand>
+  </feature>
+  <feature type="binding site" evidence="41 68 69 70 71 72 73 74 75">
+    <location>
+      <begin position="4211"/>
+      <end position="4215"/>
+    </location>
+    <ligand>
+      <name>ATP</name>
+      <dbReference type="ChEBI" id="CHEBI:30616"/>
+    </ligand>
+  </feature>
+  <feature type="binding site" evidence="41 72">
+    <location>
+      <position position="4716"/>
+    </location>
+    <ligand>
+      <name>caffeine</name>
+      <dbReference type="ChEBI" id="CHEBI:27732"/>
+    </ligand>
+  </feature>
+  <feature type="binding site" evidence="41 68 69 70 71 72 73 74 75">
+    <location>
+      <begin position="4954"/>
+      <end position="4959"/>
+    </location>
+    <ligand>
+      <name>ATP</name>
+      <dbReference type="ChEBI" id="CHEBI:30616"/>
+    </ligand>
+  </feature>
+  <feature type="binding site" evidence="41 68 69 70 71 72 73 74 75">
+    <location>
+      <begin position="4979"/>
+      <end position="4985"/>
+    </location>
+    <ligand>
+      <name>ATP</name>
+      <dbReference type="ChEBI" id="CHEBI:30616"/>
+    </ligand>
+  </feature>
+  <feature type="binding site" evidence="41 69 70 71 72">
+    <location>
+      <position position="5001"/>
+    </location>
+    <ligand>
+      <name>Ca(2+)</name>
+      <dbReference type="ChEBI" id="CHEBI:29108"/>
+    </ligand>
+  </feature>
+  <feature type="modified residue" description="Phosphoserine" evidence="2">
+    <location>
+      <position position="1338"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="Phosphoserine" evidence="2">
+    <location>
+      <position position="2345"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="Phosphoserine; by PKA and PKG" evidence="34">
+    <location>
+      <position position="2843"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="S-nitrosocysteine" evidence="10 12 22">
+    <location>
+      <position position="3635"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="Phosphothreonine" evidence="2">
+    <location>
+      <position position="4466"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="Phosphoserine" evidence="2">
+    <location>
+      <position position="4470"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="Phosphotyrosine" evidence="3">
+    <location>
+      <position position="4863"/>
+    </location>
+  </feature>
+  <feature type="modified residue" description="Phosphoserine" evidence="3">
+    <location>
+      <position position="4866"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Decreases threshold for channel activation by K(+), caffeine and 4-chloro-m-cresol. Decreases inhibition by Mg(2+)." evidence="15">
+    <original>R</original>
+    <variation>C</variation>
+    <location>
+      <position position="164"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Decreases threshold for channel activation by K(+), caffeine and 4-chloro-m-cresol. Decreases inhibition by Mg(2+)." evidence="15">
+    <original>G</original>
+    <variation>R</variation>
+    <location>
+      <position position="342"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Decreases threshold for channel activation by K(+), caffeine and 4-chloro-m-cresol. Decreases inhibition by Mg(2+)." evidence="15">
+    <original>R</original>
+    <variation>C</variation>
+    <location>
+      <position position="615"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Loss of interaction with FKBP1A." evidence="27">
+    <original>FL</original>
+    <variation>AA</variation>
+    <location>
+      <begin position="674"/>
+      <end position="675"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Impairs interaction with FKBP1A." evidence="27">
+    <original>N</original>
+    <variation>D</variation>
+    <location>
+      <position position="760"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Decreases protein stability." evidence="27">
+    <original>R</original>
+    <variation>C</variation>
+    <location>
+      <position position="1044"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Decreases protein stability." evidence="27">
+    <original>G</original>
+    <variation>S</variation>
+    <location>
+      <position position="1050"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Decreases protein stability." evidence="24">
+    <original>R</original>
+    <variation>W</variation>
+    <location>
+      <position position="1076"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Decreases threshold for channel activation by K(+), caffeine and 4-chloro-m-cresol. Decreases inhibition by Mg(2+)." evidence="15">
+    <original>R</original>
+    <variation>C</variation>
+    <location>
+      <position position="2163"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Decreases threshold for channel activation by K(+), caffeine and 4-chloro-m-cresol. Decreases inhibition by Mg(2+)." evidence="15">
+    <original>V</original>
+    <variation>M</variation>
+    <location>
+      <position position="2168"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Decreases threshold for channel activation by K(+), caffeine and 4-chloro-m-cresol. Decreases inhibition by Mg(2+)." evidence="15">
+    <original>R</original>
+    <variation>H</variation>
+    <location>
+      <position position="2458"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Impairs interaction with FKBP1A." evidence="27">
+    <original>V</original>
+    <variation>G</variation>
+    <location>
+      <position position="2461"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Decreases protein stability." evidence="23">
+    <original>L</original>
+    <variation>G</variation>
+    <location>
+      <position position="2867"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Abolishes S-nitrosocysteine formation." evidence="12 22">
+    <original>C</original>
+    <variation>A</variation>
+    <location>
+      <position position="3635"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Decreases threshold for channel activation by K(+), caffeine and 4-chloro-m-cresol. Decreases inhibition by Mg(2+)." evidence="15">
+    <original>T</original>
+    <variation>I</variation>
+    <location>
+      <position position="4825"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Loss of channel activation by halothane and caffeine due to Ca(2+) store depletion, probably due to constant Ca(2+) leakage through the mutant channel." evidence="8">
+    <original>I</original>
+    <variation>T</variation>
+    <location>
+      <position position="4897"/>
+    </location>
+  </feature>
+  <feature type="sequence conflict" description="In Ref. 2; no nucleotide entry." evidence="36" ref="2">
+    <original>E</original>
+    <variation>D</variation>
+    <location>
+      <position position="2015"/>
+    </location>
+  </feature>
+  <feature type="sequence conflict" description="In Ref. 2; no nucleotide entry." evidence="36" ref="2">
+    <location>
+      <begin position="3481"/>
+      <end position="3485"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="19"/>
+      <end position="28"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="31"/>
+      <end position="38"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="78">
+    <location>
+      <begin position="42"/>
+      <end position="44"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="48"/>
+      <end position="51"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="82">
+    <location>
+      <begin position="53"/>
+      <end position="57"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="82">
+    <location>
+      <begin position="63"/>
+      <end position="65"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="67"/>
+      <end position="73"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="82">
+    <location>
+      <begin position="75"/>
+      <end position="83"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="106"/>
+      <end position="111"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="82">
+    <location>
+      <begin position="112"/>
+      <end position="114"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="117"/>
+      <end position="120"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="133"/>
+      <end position="140"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="83">
+    <location>
+      <begin position="144"/>
+      <end position="146"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="147"/>
+      <end position="154"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="79">
+    <location>
+      <begin position="164"/>
+      <end position="166"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="168"/>
+      <end position="173"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="82">
+    <location>
+      <begin position="174"/>
+      <end position="176"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="179"/>
+      <end position="183"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="84">
+    <location>
+      <begin position="186"/>
+      <end position="188"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="190"/>
+      <end position="196"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="200"/>
+      <end position="206"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="219"/>
+      <end position="223"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="225"/>
+      <end position="233"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="82">
+    <location>
+      <begin position="239"/>
+      <end position="242"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="245"/>
+      <end position="250"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="82">
+    <location>
+      <begin position="251"/>
+      <end position="254"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="82">
+    <location>
+      <begin position="256"/>
+      <end position="258"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="260"/>
+      <end position="265"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="82">
+    <location>
+      <begin position="268"/>
+      <end position="271"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="280"/>
+      <end position="284"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="82">
+    <location>
+      <begin position="285"/>
+      <end position="287"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="290"/>
+      <end position="294"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="82">
+    <location>
+      <begin position="295"/>
+      <end position="297"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="298"/>
+      <end position="302"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="82">
+    <location>
+      <begin position="304"/>
+      <end position="306"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="82">
+    <location>
+      <begin position="309"/>
+      <end position="312"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="314"/>
+      <end position="319"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="77">
+    <location>
+      <begin position="332"/>
+      <end position="334"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="82">
+    <location>
+      <begin position="341"/>
+      <end position="343"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="346"/>
+      <end position="350"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="82">
+    <location>
+      <begin position="351"/>
+      <end position="353"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="356"/>
+      <end position="359"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="373"/>
+      <end position="381"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="388"/>
+      <end position="392"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="82">
+    <location>
+      <begin position="395"/>
+      <end position="420"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="82">
+    <location>
+      <begin position="421"/>
+      <end position="423"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="82">
+    <location>
+      <begin position="438"/>
+      <end position="451"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="82">
+    <location>
+      <begin position="461"/>
+      <end position="480"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="82">
+    <location>
+      <begin position="483"/>
+      <end position="494"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="82">
+    <location>
+      <begin position="497"/>
+      <end position="499"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="82">
+    <location>
+      <begin position="500"/>
+      <end position="504"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="82">
+    <location>
+      <begin position="509"/>
+      <end position="512"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="82">
+    <location>
+      <begin position="515"/>
+      <end position="530"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="86">
+    <location>
+      <begin position="865"/>
+      <end position="867"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="86">
+    <location>
+      <begin position="868"/>
+      <end position="888"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="86">
+    <location>
+      <begin position="899"/>
+      <end position="902"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="86">
+    <location>
+      <begin position="910"/>
+      <end position="912"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="86">
+    <location>
+      <begin position="915"/>
+      <end position="934"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="86">
+    <location>
+      <begin position="939"/>
+      <end position="941"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="86">
+    <location>
+      <begin position="946"/>
+      <end position="949"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="86">
+    <location>
+      <begin position="957"/>
+      <end position="959"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="86">
+    <location>
+      <begin position="979"/>
+      <end position="990"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="86">
+    <location>
+      <begin position="994"/>
+      <end position="997"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="86">
+    <location>
+      <begin position="998"/>
+      <end position="1001"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="86">
+    <location>
+      <begin position="1002"/>
+      <end position="1005"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="86">
+    <location>
+      <begin position="1021"/>
+      <end position="1023"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="86">
+    <location>
+      <begin position="1024"/>
+      <end position="1026"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="86">
+    <location>
+      <begin position="1029"/>
+      <end position="1048"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="86">
+    <location>
+      <begin position="1051"/>
+      <end position="1053"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="85">
+    <location>
+      <begin position="1073"/>
+      <end position="1075"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="85">
+    <location>
+      <begin position="1079"/>
+      <end position="1081"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="85">
+    <location>
+      <begin position="1083"/>
+      <end position="1096"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="85">
+    <location>
+      <begin position="1098"/>
+      <end position="1105"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="85">
+    <location>
+      <begin position="1121"/>
+      <end position="1125"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="85">
+    <location>
+      <begin position="1126"/>
+      <end position="1129"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="85">
+    <location>
+      <begin position="1130"/>
+      <end position="1140"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="85">
+    <location>
+      <begin position="1148"/>
+      <end position="1154"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="85">
+    <location>
+      <begin position="1155"/>
+      <end position="1158"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="85">
+    <location>
+      <begin position="1159"/>
+      <end position="1164"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="85">
+    <location>
+      <begin position="1178"/>
+      <end position="1181"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="85">
+    <location>
+      <begin position="1188"/>
+      <end position="1194"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="85">
+    <location>
+      <begin position="1200"/>
+      <end position="1203"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="85">
+    <location>
+      <begin position="1208"/>
+      <end position="1210"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="85">
+    <location>
+      <begin position="1214"/>
+      <end position="1222"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="85">
+    <location>
+      <begin position="1226"/>
+      <end position="1229"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="85">
+    <location>
+      <begin position="1242"/>
+      <end position="1244"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="80">
+    <location>
+      <begin position="2749"/>
+      <end position="2751"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="80">
+    <location>
+      <begin position="2752"/>
+      <end position="2772"/>
+    </location>
+  </feature>
+  <feature type="turn" evidence="80">
+    <location>
+      <begin position="2783"/>
+      <end position="2786"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="80">
+    <location>
+      <begin position="2794"/>
+      <end position="2796"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="80">
+    <location>
+      <begin position="2799"/>
+      <end position="2818"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="80">
+    <location>
+      <begin position="2822"/>
+      <end position="2825"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="81">
+    <location>
+      <begin position="2862"/>
+      <end position="2864"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="80">
+    <location>
+      <begin position="2869"/>
+      <end position="2897"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="80">
+    <location>
+      <begin position="2908"/>
+      <end position="2910"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="80">
+    <location>
+      <begin position="2913"/>
+      <end position="2932"/>
+    </location>
+  </feature>
+  <feature type="strand" evidence="80">
+    <location>
+      <begin position="2935"/>
+      <end position="2938"/>
+    </location>
+  </feature>
+  <feature type="helix" evidence="76">
+    <location>
+      <begin position="3617"/>
+      <end position="3638"/>
+    </location>
+  </feature>
+  <evidence type="ECO:0000250" key="1">
+    <source>
+      <dbReference type="UniProtKB" id="E9PZQ0"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000250" key="2">
+    <source>
+      <dbReference type="UniProtKB" id="F1LMY4"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000250" key="3">
+    <source>
+      <dbReference type="UniProtKB" id="P21817"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000255" key="4">
+    <source>
+      <dbReference type="PROSITE-ProRule" id="PRU00131"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000255" key="5">
+    <source>
+      <dbReference type="PROSITE-ProRule" id="PRU00448"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000255" key="6">
+    <source>
+      <dbReference type="PROSITE-ProRule" id="PRU00548"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000256" key="7">
+    <source>
+      <dbReference type="SAM" id="MobiDB-lite"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="8">
+    <source>
+      <dbReference type="PubMed" id="10097181"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="9">
+    <source>
+      <dbReference type="PubMed" id="10388749"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="10">
+    <source>
+      <dbReference type="PubMed" id="10601232"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="11">
+    <source>
+      <dbReference type="PubMed" id="10603943"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="12">
+    <source>
+      <dbReference type="PubMed" id="11562475"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="13">
+    <source>
+      <dbReference type="PubMed" id="12213830"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="14">
+    <source>
+      <dbReference type="PubMed" id="12486242"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="15">
+    <source>
+      <dbReference type="PubMed" id="12732639"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="16">
+    <source>
+      <dbReference type="PubMed" id="15908964"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="17">
+    <source>
+      <dbReference type="PubMed" id="17027503"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="18">
+    <source>
+      <dbReference type="PubMed" id="18621707"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="19">
+    <source>
+      <dbReference type="PubMed" id="18713863"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="20">
+    <source>
+      <dbReference type="PubMed" id="19398037"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="21">
+    <source>
+      <dbReference type="PubMed" id="21320436"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="22">
+    <source>
+      <dbReference type="PubMed" id="22036948"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="23">
+    <source>
+      <dbReference type="PubMed" id="22705209"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="24">
+    <source>
+      <dbReference type="PubMed" id="25370123"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="25">
+    <source>
+      <dbReference type="PubMed" id="25470059"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="26">
+    <source>
+      <dbReference type="PubMed" id="25517095"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="27">
+    <source>
+      <dbReference type="PubMed" id="26245150"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="28">
+    <source>
+      <dbReference type="PubMed" id="2725677"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="29">
+    <source>
+      <dbReference type="PubMed" id="27468892"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="30">
+    <source>
+      <dbReference type="PubMed" id="27573175"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="31">
+    <source>
+      <dbReference type="PubMed" id="27662087"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="32">
+    <source>
+      <dbReference type="PubMed" id="3722165"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="33">
+    <source>
+      <dbReference type="PubMed" id="7669046"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="34">
+    <source>
+      <dbReference type="PubMed" id="8380342"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="35">
+    <source>
+      <dbReference type="PubMed" id="9737879"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000305" key="36"/>
+  <evidence type="ECO:0000305" key="37">
+    <source>
+      <dbReference type="PubMed" id="10097181"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000305" key="38">
+    <source>
+      <dbReference type="PubMed" id="25517095"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000305" key="39">
+    <source>
+      <dbReference type="PubMed" id="26245150"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000305" key="40">
+    <source>
+      <dbReference type="PubMed" id="27573175"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000305" key="41">
+    <source>
+      <dbReference type="PubMed" id="27662087"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000305" key="42">
+    <source>
+      <dbReference type="PubMed" id="3722165"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="43">
+    <source>
+      <dbReference type="PDB" id="3J8H"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="44">
+    <source>
+      <dbReference type="PDB" id="3RQR"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="45">
+    <source>
+      <dbReference type="PDB" id="4ERT"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="46">
+    <source>
+      <dbReference type="PDB" id="4ESU"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="47">
+    <source>
+      <dbReference type="PDB" id="4ETU"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="48">
+    <source>
+      <dbReference type="PDB" id="4I0Y"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="49">
+    <source>
+      <dbReference type="PDB" id="4I1E"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="50">
+    <source>
+      <dbReference type="PDB" id="4I2S"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="51">
+    <source>
+      <dbReference type="PDB" id="4I37"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="52">
+    <source>
+      <dbReference type="PDB" id="4I3N"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="53">
+    <source>
+      <dbReference type="PDB" id="4I6I"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="54">
+    <source>
+      <dbReference type="PDB" id="4I7I"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="55">
+    <source>
+      <dbReference type="PDB" id="4I8M"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="56">
+    <source>
+      <dbReference type="PDB" id="4I96"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="57">
+    <source>
+      <dbReference type="PDB" id="4P9J"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="58">
+    <source>
+      <dbReference type="PDB" id="4UWA"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="59">
+    <source>
+      <dbReference type="PDB" id="4UWE"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="60">
+    <source>
+      <dbReference type="PDB" id="5C30"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="61">
+    <source>
+      <dbReference type="PDB" id="5GKY"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="62">
+    <source>
+      <dbReference type="PDB" id="5GKZ"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="63">
+    <source>
+      <dbReference type="PDB" id="5GL0"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="64">
+    <source>
+      <dbReference type="PDB" id="5GL1"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="65">
+    <source>
+      <dbReference type="PDB" id="5J8V"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="66">
+    <source>
+      <dbReference type="PDB" id="5T15"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="67">
+    <source>
+      <dbReference type="PDB" id="5T9M"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="68">
+    <source>
+      <dbReference type="PDB" id="5T9V"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="69">
+    <source>
+      <dbReference type="PDB" id="5TA3"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="70">
+    <source>
+      <dbReference type="PDB" id="5TAL"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="71">
+    <source>
+      <dbReference type="PDB" id="5TAM"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="72">
+    <source>
+      <dbReference type="PDB" id="5TAN"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="73">
+    <source>
+      <dbReference type="PDB" id="5TAS"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="74">
+    <source>
+      <dbReference type="PDB" id="5TAT"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007744" key="75">
+    <source>
+      <dbReference type="PDB" id="5TAU"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007829" key="76">
+    <source>
+      <dbReference type="PDB" id="2BCX"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007829" key="77">
+    <source>
+      <dbReference type="PDB" id="2XOA"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007829" key="78">
+    <source>
+      <dbReference type="PDB" id="3HSM"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007829" key="79">
+    <source>
+      <dbReference type="PDB" id="3ILA"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007829" key="80">
+    <source>
+      <dbReference type="PDB" id="4ESU"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007829" key="81">
+    <source>
+      <dbReference type="PDB" id="4ETT"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007829" key="82">
+    <source>
+      <dbReference type="PDB" id="4I1E"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007829" key="83">
+    <source>
+      <dbReference type="PDB" id="4I6I"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007829" key="84">
+    <source>
+      <dbReference type="PDB" id="4I8M"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007829" key="85">
+    <source>
+      <dbReference type="PDB" id="4P9J"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0007829" key="86">
+    <source>
+      <dbReference type="PDB" id="5C30"/>
+    </source>
+  </evidence>
+  <sequence length="5037" mass="565253" checksum="4ABD87AA26697070" modified="1989-10-01" version="1">MGDGGEGEDEVQFLRTDDEVVLQCSATVLKEQLKLCLAAEGFGNRLCFLEPTSNAQNVPPDLAICCFTLEQSLSVRALQEMLANTVEAGVESSQGGGHRTLLYGHAILLRHAHSRMYLSCLTTSRSMTDKLAFDVGLQEDATGEACWWTMHPASKQRSEGEKVRVGDDLILVSVSSERYLHLSTASGELQVDASFMQTLWNMNPICSCCEEGYVTGGHVLRLFHGHMDECLTISAADSDDQRRLVYYEGGAVCTHARSLWRLEPLRISWSGSHLRWGQPLRIRHVTTGRYLALTEDQGLVVVDACKAHTKATSFCFRVSKEKLDTAPKRDVEGMGPPEIKYGESLCFVQHVASGLWLTYAAPDPKALRLGVLKKKAILHQEGHMDDALFLTRCQQEESQAARMIHSTAGLYNQFIKGLDSFSGKPRGSGPPAGPALPIEAVILSLQDLIGYFEPPSEELQHEEKQSKLRSLRNRQSLFQEEGMLSLVLNCIDRLNVYTTAAHFAEYAGEEAAESWKEIVNLLYELLASLIRGNRANCALFSTNLDWVVSKLDRLEASSGILEVLYCVLIESPEVLNIIQENHIKSIISLLDKHGRNHKVLDVLCSLCVCNGVAVRSNQDLITENLLPGRELLLQTNLINYVTSIRPNIFVGRAEGSTQYGKWYFEVMVDEVVPFLTAQATHLRVGWALTEGYSPYPGGGEGWGGNGVGDDLYSYGFDGLHLWTGHVARPVTSPGQHLLAPEDVVSCCLDLSVPSISFRINGCPVQGVFEAFNLDGLFFPVVSFSAGVKVRFLLGGRHGEFKFLPPPGYAPCHEAVLPRERLRLEPIKEYRREGPRGPHLVGPSRCLSHTDFVPCPVDTVQIVLPPHLERIREKLAENIHELWALTRIEQGWTYGPVRDDNKRLHPCLVNFHSLPEPERNYNLQMSGETLKTLLALGCHVGMADEKAEDNLKKTKLPKTYMMSNGYKPAPLDLSHVRLTPAQTTLVDRLAENGHNVWARDRVAQGWSYSAVQDIPARRNPRLVPYRLLDEATKRSNRDSLCQAVRTLLGYGYNIEPPDQEPSQVENQSRWDRVRIFRAEKSYTVQSGRWYFEFEAVTTGEMRVGWARPELRPDVELGADELAYVFNGHRGQRWHLGSEPFGRPWQSGDVVGCMIDLTENTIIFTLNGEVLMSDSGSETAFREIEIGDGFLPVCSLGPGQVGHLNLGQDVSSLRFFAICGLQEGFEPFAINMQRPVTTWFSKSLPQFEPVPPEHPHYEVARMDGTVDTPPCLRLAHRTWGSQNSLVEMLFLRLSLPVQFHQHFRCTAGATPLAPPGLQPPAEDEARAAEPDPDYENLRRSAGGWGEAEGGKEGTAKEGTPGGTPQPGVEAQPVRAENEKDATTEKNKKRGFLFKAKKAAMMTQPPATPALPRLPHDVVPADNRDDPEIILNTTTYYYSVRVFAGQEPSCVWVGWVTPDYHQHDMNFDLSKVRAVTVTMGDEQGNVHSSLKCSNCYMVWGGDFVSPGQQGRISHTDLVIGCLVDLATGLMTFTANGKESNTFFQVEPNTKLFPAVFVLPTHQNVIQFELGKQKNIMPLSAAMFLSERKNPAPQCPPRLEVQMLMPVSWSRMPNHFLQVETRRAGERLGWAVQCQDPLTMMALHIPEENRCMDILELSERLDLQRFHSHTLRLYRAVCALGNNRVAHALCSHVDQAQLLHALEDAHLPGPLRAGYYDLLISIHLESACRSRRSMLSEYIVPLTPETRAITLFPPGRKGGNARRHGLPGVGVTTSLRPPHHFSPPCFVAALPAAGVAEAPARLSPAIPLEALRDKALRMLGEAVRDGGQHARDPVGGSVEFQFVPVLKLVSTLLVMGIFGDEDVKQILKMIEPEVFTEEEEEEEEEEEEEEEEEEDEEEKEEDEEEEEKEDAEKEEEEAPEGEKEDLEEGLLQMKLPESVKLQMCNLLEYFCDQELQHRVESLAAFAERYVDKLQANQRSRYALLMRAFTMSAAETARRTREFRSPPQEQINMLLHFKDEADEEDCPLPEDIRQDLQDFHQDLLAHCGIQLEGEEEEPEEETSLSSRLRSLLETVRLVKKKEEKPEEELPAEEKKPQSLQELVSHMVVRWAQEDYVQSPELVRAMFSLLHRQYDGLGELLRALPRAYTISPSSVEDTMSLLECLGQIRSLLIVQMGPQEENLMIQSIGNIMNNKVFYQHPNLMRALGMHETVMEVMVNVLGGGETKEIRFPKMVTSCCRFLCYFCRISRQNQRSMFDHLSYLLENSGIGLGMQGSTPLDVAAASVIDNNELALALQEQDLEKVVSYLAGCGLQSCPMLLAKGYPDIGWNPCGGERYLDFLRFAVFVNGESVEENANVVVRLLIRKPECFGPALRGEGGSGLLAAIEEAIRISEDPARDGPGVRRDRRREHFGEEPPEENRVHLGHAIMSFYAALIDLLGRCAPEMHLIQAGKGEALRIRAILRSLVPLDDLVGIISLPLQIPTLGKDGALVQPKMSASFVPDHKASMVLFLDRVYGIENQDFLLHVLDVGFLPDMRAAASLDTATFSTTEMALALNRYLCLAVLPLITKCAPLFAGTEHRAIMVDSMLHTVYRLSRGRSLTKAQRDVIEDCLMALCRYIRPSMLQHLLRRLVFDVPILNEFAKMPLKLLTNHYERCWKYYCLPTGWANFGVTSEEELHLTRKLFWGIFDSLAHKKYDQELYRMAMPCLCAIAGALPPDYVDASYSSKAEKKATVDAEGNFDPRPVETLNVIIPEKLDSFINKFAEYTHEKWAFDKIQNNWSYGENVDEELKTHPMLRPYKTFSEKDKEIYRWPIKESLKAMIAWEWTIEKAREGEEERTEKKKTRKISQTAQTYDPREGYNPQPPDLSGVTLSRELQAMAEQLAENYHNTWGRKKKQELEAKGGGTHPLLVPYDTLTAKEKARDREKAQELLKFLQMNGYAVTRGLKDMELDTSSIEKRFAFGFLQQLLRWMDISQEFIAHLEAVVSSGRVEKSPHEQEIKFFAKILLPLINQYFTNHCLYFLSTPAKVLGSGGHASNKEKEMITSLFCKLAALVRHRVSLFGTDAPAVVNCLHILARSLDARTVMKSGPEIVKAGLRSFFESASEDIEKMVENLRLGKVSQARTQVKGVGQNLTYTTVALLPVLTTLFQHIAQHQFGDDVILDDVQVSCYRTLCSIYSLGTTKNTYVEKLRPALGECLARLAAAMPVAFLEPQLNEYNACSVYTTKSPRERAILGLPNSVEEMCPDIPVLDRLMADIGGLAESGARYTEMPHVIEITLPMLCSYLPRWWERGPEAPPPALPAGAPPPCTAVTSDHLNSLLGNILRIIVNNLGIDEATWMKRLAVFAQPIVSRARPELLHSHFIPTIGRLRKRAGKVVAEEEQLRLEAKAEAEEGELLVRDEFSVLCRDLYALYPLLIRYVDNNRAHWLTEPNANAEELFRMVGEIFIYWSKSHNFKREEQNFVVQNEINNMSFLTADSKSKMAKAGDAQSGGSDQERTKKKRRGDRYSVQTSLIVATLKKMLPIGLNMCAPTDQDLIMLAKTRYALKDTDEEVREFLQNNLHLQGKVEGSPSLRWQMALYRGLPGREEDADDPEKIVRRVQEVSAVLYHLEQTEHPYKSKKAVWHKLLSKQRRRAVVACFRMTPLYNLPTHRACNMFLESYKAAWILTEDHSFEDRMIDDLSKAGEQEEEEEEVEEKKPDPLHQLVLHFSRTALTEKSKLDEDYLYMAYADIMAKSCHLEEGGENGEAEEEEVEVSFEEKEMEKQRLLYQQSRLHTRGAAEMVLQMISACKGETGAMVSSTLKLGISILNGGNAEVQQKMLDYLKDKKEVGFFQSIQALMQTCSVLDLNAFERQNKAEGLGMVNEDGTVINRQNGEKVMADDEFTQDLFRFLQLLCEGHNNDFQNYLRTQTGNTTTINIIICTVDYLLRLQESISDFYWYYSGKDVIEEQGKRNFSKAMSVAKQVFNSLTEYIQGPCTGNQQSLAHSRLWDAVVGFLHVFAHMMMKLAQDSSQIELLKELLDLQKDMVVMLLSLLEGNVVNGMIARQMVDMLVESSSNVEMILKFFDMFLKLKDIVGSEAFQDYVTDPRGLISKKDFQKAMDSQKQFTGPEIQFLLSCSEADENEMINFEEFANRFQEPARDIGFNVAVLLTNLSEHVPHDPRLRNFLELAESILEYFRPYLGRIEIMGASRRIERIYFEISETNRAQWEMPQVKESKRQFIFDVVNEGGEAEKMELFVSFCEDTIFEMQIAAQISEPEGEPEADEDEGMGEAAAEGAEEGAAGAEGAAGTVAAGATARLAAAAARALRGLSYRSLRRRVRRLRRLTAREAATALAALLWAVVARAGAAGAGAAAGALRLLWGSLFGGGLVEGAKKVTVTELLAGMPDPTSDEVHGEQPAGPGGDADGAGEGEGEGDAAEGDGDEEVAGHEAGPGGAEGVVAVADGGPFRPEGAGGLGDMGDTTPAEPPTPEGSPILKRKLGVDGEEEELVPEPEPEPEPEPEKADEENGEKEEVPEAPPEPPKKAPPSPPAKKEEAGGAGMEFWGELEVQRVKFLNYLSRNFYTLRFLALFLAFAINFILLFYKVSDSPPGEDDMEGSAAGDLAGAGSGGGSGWGSGAGEEAEGDEDENMVYYFLEESTGYMEPALWCLSLLHTLVAFLCIIGYNCLKVPLVIFKREKELARKLEFDGLYITEQPGDDDVKGQWDRLVLNTPSFPSNYWDKFVKRKVLDKHGDIFGRERIAELLGMDLASLEITAHNERKPDPPPGLLTWLMSIDVKYQIWKFGVIFTDNSFLYLGWYMVMSLLGHYNNFFFAAHLLDIAMGVKTLRTILSSVTHNGKQLVMTVGLLAVVVYLYTVVAFNFFRKFYNKSEDEDEPDMKCDDMMTCYLFHMYVGVRAGGGIGDEIEDPAGDEYELYRVVFDITFFFFVIVILLAIIQGLIIDAFGELRDQQEQVKEDMETKCFICGIGSDYFDTTPHGFETHTLEEHNLANYMFFLMYLINKDETEHTGQESYVWKMYQERCWDFFPAGDCFRKQYEDQLS</sequence>
+</entry>
+<copyright>
+Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms Distributed under the Creative Commons Attribution (CC BY 4.0) License
+</copyright>
+</uniprot>

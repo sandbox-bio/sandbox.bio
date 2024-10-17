@@ -1,0 +1,884 @@
+<?xml version="1.0" encoding="UTF-8"  standalone="no" ?>
+<uniprot xmlns="http://uniprot.org/uniprot" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://uniprot.org/uniprot http://www.uniprot.org/docs/uniprot.xsd">
+<entry dataset="Swiss-Prot" created="2012-02-22" modified="2023-06-28" version="138" xmlns="http://uniprot.org/uniprot">
+  <accession>Q9TS33</accession>
+  <name>RYR3_RABIT</name>
+  <protein>
+    <recommendedName>
+      <fullName>Ryanodine receptor 3</fullName>
+      <shortName>RYR-3</shortName>
+      <shortName>RyR3</shortName>
+    </recommendedName>
+    <alternativeName>
+      <fullName>Brain ryanodine receptor-calcium release channel</fullName>
+    </alternativeName>
+    <alternativeName>
+      <fullName>Brain-type ryanodine receptor</fullName>
+    </alternativeName>
+    <alternativeName>
+      <fullName>Type 3 ryanodine receptor</fullName>
+    </alternativeName>
+  </protein>
+  <organism>
+    <name type="scientific">Oryctolagus cuniculus</name>
+    <name type="common">Rabbit</name>
+    <dbReference type="NCBI Taxonomy" id="9986"/>
+    <lineage>
+      <taxon>Eukaryota</taxon>
+      <taxon>Metazoa</taxon>
+      <taxon>Chordata</taxon>
+      <taxon>Craniata</taxon>
+      <taxon>Vertebrata</taxon>
+      <taxon>Euteleostomi</taxon>
+      <taxon>Mammalia</taxon>
+      <taxon>Eutheria</taxon>
+      <taxon>Euarchontoglires</taxon>
+      <taxon>Glires</taxon>
+      <taxon>Lagomorpha</taxon>
+      <taxon>Leporidae</taxon>
+      <taxon>Oryctolagus</taxon>
+    </lineage>
+  </organism>
+  <reference key="1">
+    <citation type="journal article" date="1992" name="FEBS Lett." volume="312" first="229" last="235">
+      <title>Primary structure and distribution of a novel ryanodine receptor/calcium release channel from rabbit brain.</title>
+      <authorList>
+        <person name="Hakamata Y."/>
+        <person name="Nakai J."/>
+        <person name="Takeshima H."/>
+        <person name="Imoto K."/>
+      </authorList>
+      <dbReference type="PubMed" id="1330694"/>
+      <dbReference type="DOI" id="10.1016/0014-5793(92)80941-9"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [MRNA] (ISOFORM 1)</scope>
+    <scope>TISSUE SPECIFICITY</scope>
+    <source>
+      <tissue>Brain</tissue>
+    </source>
+  </reference>
+  <reference key="2">
+    <citation type="journal article" date="1997" name="J. Biol. Chem." volume="272" first="24234" last="24246">
+      <title>Functional characterization of the recombinant type 3 Ca2+ release channel (ryanodine receptor) expressed in HEK293 cells.</title>
+      <authorList>
+        <person name="Chen S.R."/>
+        <person name="Li X."/>
+        <person name="Ebisawa K."/>
+        <person name="Zhang L."/>
+      </authorList>
+      <dbReference type="PubMed" id="9305876"/>
+      <dbReference type="DOI" id="10.1074/jbc.272.39.24234"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [MRNA] (ISOFORMS 1 AND 3)</scope>
+    <scope>FUNCTION</scope>
+    <scope>SUBCELLULAR LOCATION</scope>
+    <scope>REGULATION BY RYANODINE; CALMODULIN; CALCIUM LEVELS; MAGNESIUM; ATP; CAFFEINE AND RUTHENIUM RED</scope>
+    <scope>TISSUE SPECIFICITY</scope>
+    <source>
+      <tissue>Uterus</tissue>
+    </source>
+  </reference>
+  <reference key="3">
+    <citation type="journal article" date="2003" name="J. Biol. Chem." volume="278" first="4763" last="4769">
+      <title>Smooth muscle tissues express a major dominant negative splice variant of the type 3 Ca2+ release channel (ryanodine receptor).</title>
+      <authorList>
+        <person name="Jiang D."/>
+        <person name="Xiao B."/>
+        <person name="Li X."/>
+        <person name="Chen S.R."/>
+      </authorList>
+      <dbReference type="PubMed" id="12471029"/>
+      <dbReference type="DOI" id="10.1074/jbc.m210410200"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [MRNA] (ISOFORMS 1; 2; 3 AND 4)</scope>
+    <scope>ALTERNATIVE SPLICING</scope>
+    <scope>FUNCTION</scope>
+    <scope>SUBUNIT</scope>
+    <scope>INTERACTION WITH RYR2</scope>
+    <scope>TISSUE SPECIFICITY</scope>
+    <source>
+      <tissue>Uterus</tissue>
+    </source>
+  </reference>
+  <reference key="4">
+    <citation type="journal article" date="1998" name="J. Biol. Chem." volume="273" first="14675" last="14678">
+      <title>Molecular identification of the ryanodine receptor Ca2+ sensor.</title>
+      <authorList>
+        <person name="Chen S.R."/>
+        <person name="Ebisawa K."/>
+        <person name="Li X."/>
+        <person name="Zhang L."/>
+      </authorList>
+      <dbReference type="PubMed" id="9614063"/>
+      <dbReference type="DOI" id="10.1074/jbc.273.24.14675"/>
+    </citation>
+    <scope>FUNCTION</scope>
+    <scope>SUBUNIT</scope>
+    <scope>MUTAGENESIS OF GLU-3885</scope>
+  </reference>
+  <reference key="5">
+    <citation type="journal article" date="1999" name="J. Biol. Chem." volume="274" first="17297" last="17308">
+      <title>Further characterization of the type 3 ryanodine receptor (RyR3) purified from rabbit diaphragm.</title>
+      <authorList>
+        <person name="Murayama T."/>
+        <person name="Oba T."/>
+        <person name="Katayama E."/>
+        <person name="Oyamada H."/>
+        <person name="Oguchi K."/>
+        <person name="Kobayashi M."/>
+        <person name="Otsuka K."/>
+        <person name="Ogawa Y."/>
+      </authorList>
+      <dbReference type="PubMed" id="10358090"/>
+      <dbReference type="DOI" id="10.1074/jbc.274.24.17297"/>
+    </citation>
+    <scope>FUNCTION</scope>
+    <scope>SUBUNIT</scope>
+    <scope>DOMAIN</scope>
+    <scope>INTERACTION WITH FKBP1A</scope>
+    <scope>SUBCELLULAR LOCATION</scope>
+    <scope>MEMBRANE TOPOLOGY</scope>
+    <scope>ELECTRON MICROSCOPY</scope>
+    <scope>REGULATION BY RYANODINE; CALCIUM LEVELS; MAGNESIUM; ATP AND CAFFEINE</scope>
+    <scope>TISSUE SPECIFICITY</scope>
+  </reference>
+  <reference key="6">
+    <citation type="journal article" date="2002" name="J. Biol. Chem." volume="277" first="41778" last="41785">
+      <title>Isoform-dependent formation of heteromeric Ca2+ release channels (ryanodine receptors).</title>
+      <authorList>
+        <person name="Xiao B."/>
+        <person name="Masumiya H."/>
+        <person name="Jiang D."/>
+        <person name="Wang R."/>
+        <person name="Sei Y."/>
+        <person name="Zhang L."/>
+        <person name="Murayama T."/>
+        <person name="Ogawa Y."/>
+        <person name="Lai F.A."/>
+        <person name="Wagenknecht T."/>
+        <person name="Chen S.R."/>
+      </authorList>
+      <dbReference type="PubMed" id="12213830"/>
+      <dbReference type="DOI" id="10.1074/jbc.m208210200"/>
+    </citation>
+    <scope>INTERACTION WITH RYR2</scope>
+    <scope>FUNCTION</scope>
+  </reference>
+  <reference key="7">
+    <citation type="journal article" date="2005" name="Biochem. Biophys. Res. Commun." volume="337" first="195" last="200">
+      <title>Selective expression of the type 3 isoform of ryanodine receptor Ca2+ release channel (RyR3) in a subset of slow fibers in diaphragm and cephalic muscles of adult rabbits.</title>
+      <authorList>
+        <person name="Conti A."/>
+        <person name="Reggiani C."/>
+        <person name="Sorrentino V."/>
+      </authorList>
+      <dbReference type="PubMed" id="16176801"/>
+      <dbReference type="DOI" id="10.1016/j.bbrc.2005.09.027"/>
+    </citation>
+    <scope>SUBCELLULAR LOCATION</scope>
+    <scope>TISSUE SPECIFICITY</scope>
+    <scope>DEVELOPMENTAL STAGE</scope>
+  </reference>
+  <reference key="8">
+    <citation type="journal article" date="2005" name="Biochemistry" volume="44" first="15074" last="15081">
+      <title>Calmodulin regulation and identification of calmodulin binding region of type-3 ryanodine receptor calcium release channel.</title>
+      <authorList>
+        <person name="Yamaguchi N."/>
+        <person name="Xu L."/>
+        <person name="Pasek D.A."/>
+        <person name="Evans K.E."/>
+        <person name="Chen S.R."/>
+        <person name="Meissner G."/>
+      </authorList>
+      <dbReference type="PubMed" id="16274254"/>
+      <dbReference type="DOI" id="10.1021/bi051251t"/>
+    </citation>
+    <scope>FUNCTION</scope>
+    <scope>INTERACTION WITH CALM</scope>
+    <scope>SUBCELLULAR LOCATION</scope>
+    <scope>TISSUE SPECIFICITY</scope>
+  </reference>
+  <reference key="9">
+    <citation type="journal article" date="2008" name="Proc. Natl. Acad. Sci. U.S.A." volume="105" first="12485" last="12490">
+      <title>Selenoprotein N is required for ryanodine receptor calcium release channel activity in human and zebrafish muscle.</title>
+      <authorList>
+        <person name="Jurynec M.J."/>
+        <person name="Xia R."/>
+        <person name="Mackrill J.J."/>
+        <person name="Gunther D."/>
+        <person name="Crawford T."/>
+        <person name="Flanigan K.M."/>
+        <person name="Abramson J.J."/>
+        <person name="Howard M.T."/>
+        <person name="Grunwald D.J."/>
+      </authorList>
+      <dbReference type="PubMed" id="18713863"/>
+      <dbReference type="DOI" id="10.1073/pnas.0806015105"/>
+    </citation>
+    <scope>INTERACTION WITH SELENON</scope>
+    <scope>SUBCELLULAR LOCATION</scope>
+  </reference>
+  <comment type="function">
+    <text evidence="6 7 8 11 13 14">Calcium channel that mediates the release of Ca(2+) from the sarcoplasmic reticulum into the cytoplasm in muscle and thereby plays a role in triggering muscle contraction. May regulate Ca(2+) release by other calcium channels. Calcium channel that mediates Ca(2+)-induced Ca(2+) release from the endoplasmic reticulum in non-muscle cells. Plays a role in cellular calcium signaling. Contributes to cellular calcium ion homeostasis. Isoform 2 lacks a predicted transmembrane segment and does not form functional calcium channels by itself; however, it can form tetramers with isoforms that contain the full complement of transmembrane segments and modulate their activity.</text>
+  </comment>
+  <comment type="subunit">
+    <text evidence="6 7 8 11 12 14">Homotetramer. Isoform 2 can form tetramers with isoform 1. Heterotetramer with RYR2. Interacts with FKBP1A. Interacts with CALM. Interacts with SELENON (PubMed:18713863).</text>
+  </comment>
+  <comment type="interaction">
+    <interactant intactId="EBI-9542578">
+      <id>Q9TS33</id>
+    </interactant>
+    <interactant intactId="EBI-9542578">
+      <id>Q9TS33</id>
+      <label>-</label>
+    </interactant>
+    <organismsDiffer>false</organismsDiffer>
+    <experiments>2</experiments>
+  </comment>
+  <comment type="subcellular location">
+    <subcellularLocation>
+      <location>Sarcoplasmic reticulum membrane</location>
+      <topology>Multi-pass membrane protein</topology>
+    </subcellularLocation>
+    <subcellularLocation>
+      <location>Membrane</location>
+      <topology>Multi-pass membrane protein</topology>
+    </subcellularLocation>
+    <subcellularLocation>
+      <location>Microsome membrane</location>
+      <topology>Multi-pass membrane protein</topology>
+    </subcellularLocation>
+    <subcellularLocation>
+      <location evidence="12">Sarcoplasmic reticulum</location>
+    </subcellularLocation>
+    <text evidence="1">The number of predicted transmembrane domains varies between orthologs, but both N-terminus and C-terminus seem to be cytoplasmic.</text>
+  </comment>
+  <comment type="alternative products">
+    <event type="alternative splicing"/>
+    <isoform>
+      <id>Q9TS33-1</id>
+      <name>1</name>
+      <sequence type="displayed"/>
+    </isoform>
+    <isoform>
+      <id>Q9TS33-2</id>
+      <name>2</name>
+      <name>AS-8a</name>
+      <sequence type="described" ref="VSP_042306"/>
+    </isoform>
+    <isoform>
+      <id>Q9TS33-3</id>
+      <name>3</name>
+      <sequence type="described" ref="VSP_042305"/>
+    </isoform>
+    <isoform>
+      <id>Q9TS33-4</id>
+      <name>4</name>
+      <sequence type="described" ref="VSP_042307"/>
+    </isoform>
+    <text>Additional isoforms seem to exist.</text>
+  </comment>
+  <comment type="tissue specificity">
+    <text evidence="6 8 9 10 11 13">Detected in skeletal muscle from young rabbits and in adult diaphragm muscle (at protein level). Detected in brain, especially in corpus striatum, thalamus and hippocampus. Detected in taenia coli, uterus, vas deferens, aorta, stomach, small intestine, heart, diaphragm and ureter. Isoform 2 is highly expressed in uterus and aorta, and at much lower levels in heart, brain and diaphragm.</text>
+  </comment>
+  <comment type="developmental stage">
+    <text evidence="10">Ubiquitous in skeletal muscle in neonates and in 15 day old rabbits. In adult, detected in diaphragm muscle, and in a subset of skeletal muscles including digastricus, pterygoideus, tongue and masseter.</text>
+  </comment>
+  <comment type="domain">
+    <text evidence="18">The calcium release channel activity resides in the C-terminal region while the remaining part of the protein resides in the cytoplasm.</text>
+  </comment>
+  <comment type="miscellaneous">
+    <text>Channel activity is modulated by the alkaloid ryanodine that binds to the open calcium-release channel with high affinity. At low concentrations, ryanodine maintains the channel in an open conformation. High ryanodine concentrations inhibit channel activity. Channel activity is regulated by calmodulin (CALM). The calcium release is activated by elevated cytoplasmic calcium levels in the micromolar range, by caffeine and adenine nucleotides, such as AMP and ATP. Inhibited by Mg(2+) and ruthenium red.</text>
+  </comment>
+  <comment type="miscellaneous">
+    <molecule>Isoform 2</molecule>
+    <text evidence="17">Lacks a predicted transmembrane segment and does not form functional calcium channels.</text>
+  </comment>
+  <comment type="similarity">
+    <text evidence="17">Belongs to the ryanodine receptor (TC 1.A.3.1) family. RYR3 subfamily.</text>
+  </comment>
+  <dbReference type="EMBL" id="X68650">
+    <property type="protein sequence ID" value="CAC16153.1"/>
+    <property type="molecule type" value="mRNA"/>
+  </dbReference>
+  <dbReference type="PIR" id="S27272">
+    <property type="entry name" value="S27272"/>
+  </dbReference>
+  <dbReference type="RefSeq" id="NP_001076231.1">
+    <molecule id="Q9TS33-1"/>
+    <property type="nucleotide sequence ID" value="NM_001082762.1"/>
+  </dbReference>
+  <dbReference type="SMR" id="Q9TS33"/>
+  <dbReference type="ComplexPortal" id="CPX-3157">
+    <molecule id="Q9TS33-1"/>
+    <property type="entry name" value="Ryanodine 3 complex"/>
+  </dbReference>
+  <dbReference type="STRING" id="9986.ENSOCUP00000009882"/>
+  <dbReference type="GeneID" id="100009545"/>
+  <dbReference type="KEGG" id="ocu:100009545"/>
+  <dbReference type="CTD" id="6263"/>
+  <dbReference type="eggNOG" id="KOG2243">
+    <property type="taxonomic scope" value="Eukaryota"/>
+  </dbReference>
+  <dbReference type="InParanoid" id="Q9TS33"/>
+  <dbReference type="OrthoDB" id="3144451at2759"/>
+  <dbReference type="Proteomes" id="UP000001811">
+    <property type="component" value="Unplaced"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0016020">
+    <property type="term" value="C:membrane"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0016529">
+    <property type="term" value="C:sarcoplasmic reticulum"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0033017">
+    <property type="term" value="C:sarcoplasmic reticulum membrane"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005509">
+    <property type="term" value="F:calcium ion binding"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="InterPro"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005516">
+    <property type="term" value="F:calmodulin binding"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="UniProtKB-KW"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0042802">
+    <property type="term" value="F:identical protein binding"/>
+    <property type="evidence" value="ECO:0000353"/>
+    <property type="project" value="IntAct"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005219">
+    <property type="term" value="F:ryanodine-sensitive calcium-release channel activity"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0070588">
+    <property type="term" value="P:calcium ion transmembrane transport"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0071318">
+    <property type="term" value="P:cellular response to ATP"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0071313">
+    <property type="term" value="P:cellular response to caffeine"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0071277">
+    <property type="term" value="P:cellular response to calcium ion"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0071286">
+    <property type="term" value="P:cellular response to magnesium ion"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0006874">
+    <property type="term" value="P:intracellular calcium ion homeostasis"/>
+    <property type="evidence" value="ECO:0000304"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0006936">
+    <property type="term" value="P:muscle contraction"/>
+    <property type="evidence" value="ECO:0000303"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0051289">
+    <property type="term" value="P:protein homotetramerization"/>
+    <property type="evidence" value="ECO:0000314"/>
+    <property type="project" value="UniProtKB"/>
+  </dbReference>
+  <dbReference type="CDD" id="cd12877">
+    <property type="entry name" value="SPRY1_RyR"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="CDD" id="cd12879">
+    <property type="entry name" value="SPRY3_RyR"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="1.10.287.70">
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="1.10.490.160">
+    <property type="match status" value="2"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="2.60.120.920">
+    <property type="match status" value="3"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="2.80.10.50">
+    <property type="match status" value="2"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="6.20.350.10">
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="1.10.238.10">
+    <property type="entry name" value="EF-hand"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="1.25.10.30">
+    <property type="entry name" value="IP3 receptor type 1 binding core, RIH domain"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR001870">
+    <property type="entry name" value="B30.2/SPRY"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR043136">
+    <property type="entry name" value="B30.2/SPRY_sf"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR013320">
+    <property type="entry name" value="ConA-like_dom_sf"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR011992">
+    <property type="entry name" value="EF-hand-dom_pair"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR002048">
+    <property type="entry name" value="EF_hand_dom"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR014821">
+    <property type="entry name" value="Ins145_P3_rcpt"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR005821">
+    <property type="entry name" value="Ion_trans_dom"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR036300">
+    <property type="entry name" value="MIR_dom_sf"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR016093">
+    <property type="entry name" value="MIR_motif"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR013662">
+    <property type="entry name" value="RIH_assoc-dom"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR000699">
+    <property type="entry name" value="RIH_dom"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR013333">
+    <property type="entry name" value="Ryan_recept"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR015925">
+    <property type="entry name" value="Ryanodine_IP3_receptor"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR003032">
+    <property type="entry name" value="Ryanodine_rcpt"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR009460">
+    <property type="entry name" value="Ryanrecept_TM4-6"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR035910">
+    <property type="entry name" value="RyR/IP3R_RIH_dom_sf"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR035761">
+    <property type="entry name" value="SPRY1_RyR"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR035762">
+    <property type="entry name" value="SPRY3_RyR"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR003877">
+    <property type="entry name" value="SPRY_dom"/>
+  </dbReference>
+  <dbReference type="PANTHER" id="PTHR46399">
+    <property type="entry name" value="B30.2/SPRY DOMAIN-CONTAINING PROTEIN"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="PANTHER" id="PTHR46399:SF9">
+    <property type="entry name" value="RYANODINE RECEPTOR 3"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF08709">
+    <property type="entry name" value="Ins145_P3_rec"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF00520">
+    <property type="entry name" value="Ion_trans"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF02815">
+    <property type="entry name" value="MIR"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF08454">
+    <property type="entry name" value="RIH_assoc"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF06459">
+    <property type="entry name" value="RR_TM4-6"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF01365">
+    <property type="entry name" value="RYDR_ITPR"/>
+    <property type="match status" value="2"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF02026">
+    <property type="entry name" value="RyR"/>
+    <property type="match status" value="4"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF00622">
+    <property type="entry name" value="SPRY"/>
+    <property type="match status" value="3"/>
+  </dbReference>
+  <dbReference type="PRINTS" id="PR00795">
+    <property type="entry name" value="RYANODINER"/>
+  </dbReference>
+  <dbReference type="SMART" id="SM00472">
+    <property type="entry name" value="MIR"/>
+    <property type="match status" value="4"/>
+  </dbReference>
+  <dbReference type="SMART" id="SM00449">
+    <property type="entry name" value="SPRY"/>
+    <property type="match status" value="3"/>
+  </dbReference>
+  <dbReference type="SUPFAM" id="SSF49899">
+    <property type="entry name" value="Concanavalin A-like lectins/glucanases"/>
+    <property type="match status" value="3"/>
+  </dbReference>
+  <dbReference type="SUPFAM" id="SSF47473">
+    <property type="entry name" value="EF-hand"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="SUPFAM" id="SSF100909">
+    <property type="entry name" value="IP3 receptor type 1 binding core, domain 2"/>
+    <property type="match status" value="2"/>
+  </dbReference>
+  <dbReference type="SUPFAM" id="SSF82109">
+    <property type="entry name" value="MIR domain"/>
+    <property type="match status" value="2"/>
+  </dbReference>
+  <dbReference type="PROSITE" id="PS50188">
+    <property type="entry name" value="B302_SPRY"/>
+    <property type="match status" value="3"/>
+  </dbReference>
+  <dbReference type="PROSITE" id="PS50919">
+    <property type="entry name" value="MIR"/>
+    <property type="match status" value="5"/>
+  </dbReference>
+  <proteinExistence type="evidence at protein level"/>
+  <keyword id="KW-0025">Alternative splicing</keyword>
+  <keyword id="KW-0106">Calcium</keyword>
+  <keyword id="KW-0107">Calcium channel</keyword>
+  <keyword id="KW-0109">Calcium transport</keyword>
+  <keyword id="KW-0112">Calmodulin-binding</keyword>
+  <keyword id="KW-0256">Endoplasmic reticulum</keyword>
+  <keyword id="KW-0407">Ion channel</keyword>
+  <keyword id="KW-0406">Ion transport</keyword>
+  <keyword id="KW-1071">Ligand-gated ion channel</keyword>
+  <keyword id="KW-0472">Membrane</keyword>
+  <keyword id="KW-0492">Microsome</keyword>
+  <keyword id="KW-0675">Receptor</keyword>
+  <keyword id="KW-1185">Reference proteome</keyword>
+  <keyword id="KW-0677">Repeat</keyword>
+  <keyword id="KW-0703">Sarcoplasmic reticulum</keyword>
+  <keyword id="KW-0812">Transmembrane</keyword>
+  <keyword id="KW-1133">Transmembrane helix</keyword>
+  <keyword id="KW-0813">Transport</keyword>
+  <feature type="chain" id="PRO_0000415649" description="Ryanodine receptor 3">
+    <location>
+      <begin position="1"/>
+      <end position="4872"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Cytoplasmic" evidence="2">
+    <location>
+      <begin position="1"/>
+      <end position="4188"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical" evidence="2">
+    <location>
+      <begin position="4189"/>
+      <end position="4209"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical" evidence="2">
+    <location>
+      <begin position="4412"/>
+      <end position="4432"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical" evidence="2">
+    <location>
+      <begin position="4487"/>
+      <end position="4507"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical" evidence="2">
+    <location>
+      <begin position="4612"/>
+      <end position="4632"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical" evidence="2">
+    <location>
+      <begin position="4635"/>
+      <end position="4655"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical" evidence="2">
+    <location>
+      <begin position="4674"/>
+      <end position="4694"/>
+    </location>
+  </feature>
+  <feature type="intramembrane region" description="Pore-forming" evidence="1">
+    <location>
+      <begin position="4725"/>
+      <end position="4734"/>
+    </location>
+  </feature>
+  <feature type="transmembrane region" description="Helical" evidence="2">
+    <location>
+      <begin position="4755"/>
+      <end position="4775"/>
+    </location>
+  </feature>
+  <feature type="topological domain" description="Cytoplasmic" evidence="2">
+    <location>
+      <begin position="4776"/>
+      <end position="4872"/>
+    </location>
+  </feature>
+  <feature type="domain" description="MIR 1" evidence="3">
+    <location>
+      <begin position="100"/>
+      <end position="155"/>
+    </location>
+  </feature>
+  <feature type="domain" description="MIR 2" evidence="3">
+    <location>
+      <begin position="162"/>
+      <end position="207"/>
+    </location>
+  </feature>
+  <feature type="domain" description="MIR 3" evidence="3">
+    <location>
+      <begin position="215"/>
+      <end position="269"/>
+    </location>
+  </feature>
+  <feature type="domain" description="MIR 4" evidence="3">
+    <location>
+      <begin position="275"/>
+      <end position="333"/>
+    </location>
+  </feature>
+  <feature type="domain" description="MIR 5" evidence="3">
+    <location>
+      <begin position="343"/>
+      <end position="400"/>
+    </location>
+  </feature>
+  <feature type="domain" description="B30.2/SPRY 1" evidence="4">
+    <location>
+      <begin position="585"/>
+      <end position="796"/>
+    </location>
+  </feature>
+  <feature type="repeat" description="1">
+    <location>
+      <begin position="840"/>
+      <end position="953"/>
+    </location>
+  </feature>
+  <feature type="repeat" description="2">
+    <location>
+      <begin position="954"/>
+      <end position="1068"/>
+    </location>
+  </feature>
+  <feature type="domain" description="B30.2/SPRY 2" evidence="4">
+    <location>
+      <begin position="1012"/>
+      <end position="1208"/>
+    </location>
+  </feature>
+  <feature type="domain" description="B30.2/SPRY 3" evidence="4">
+    <location>
+      <begin position="1254"/>
+      <end position="1466"/>
+    </location>
+  </feature>
+  <feature type="repeat" description="3">
+    <location>
+      <begin position="2592"/>
+      <end position="2710"/>
+    </location>
+  </feature>
+  <feature type="repeat" description="4">
+    <location>
+      <begin position="2711"/>
+      <end position="2823"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="4 X approximate repeats">
+    <location>
+      <begin position="840"/>
+      <end position="2823"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Interaction with FKBP1A" evidence="1">
+    <location>
+      <begin position="2325"/>
+      <end position="2338"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Interaction with CALM" evidence="11">
+    <location>
+      <begin position="3472"/>
+      <end position="3501"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="5">
+    <location>
+      <begin position="3587"/>
+      <end position="3615"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="5">
+    <location>
+      <begin position="4104"/>
+      <end position="4124"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="5">
+    <location>
+      <begin position="4305"/>
+      <end position="4358"/>
+    </location>
+  </feature>
+  <feature type="compositionally biased region" description="Acidic residues" evidence="5">
+    <location>
+      <begin position="4110"/>
+      <end position="4124"/>
+    </location>
+  </feature>
+  <feature type="compositionally biased region" description="Basic and acidic residues" evidence="5">
+    <location>
+      <begin position="4316"/>
+      <end position="4358"/>
+    </location>
+  </feature>
+  <feature type="site" description="Important for activation by Ca(2+)">
+    <location>
+      <position position="3885"/>
+    </location>
+  </feature>
+  <feature type="splice variant" id="VSP_042305" description="In isoform 3." evidence="15 16">
+    <location>
+      <begin position="3341"/>
+      <end position="3345"/>
+    </location>
+  </feature>
+  <feature type="splice variant" id="VSP_042306" description="In isoform 2." evidence="15">
+    <location>
+      <begin position="4406"/>
+      <end position="4434"/>
+    </location>
+  </feature>
+  <feature type="splice variant" id="VSP_042307" description="In isoform 4." evidence="15">
+    <location>
+      <begin position="4791"/>
+      <end position="4841"/>
+    </location>
+  </feature>
+  <feature type="mutagenesis site" description="Reduces calcium-sensitivity by over 10000-fold." evidence="14">
+    <original>E</original>
+    <variation>A</variation>
+    <location>
+      <position position="3885"/>
+    </location>
+  </feature>
+  <evidence type="ECO:0000250" key="1"/>
+  <evidence type="ECO:0000255" key="2"/>
+  <evidence type="ECO:0000255" key="3">
+    <source>
+      <dbReference type="PROSITE-ProRule" id="PRU00131"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000255" key="4">
+    <source>
+      <dbReference type="PROSITE-ProRule" id="PRU00548"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000256" key="5">
+    <source>
+      <dbReference type="SAM" id="MobiDB-lite"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="6">
+    <source>
+      <dbReference type="PubMed" id="10358090"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="7">
+    <source>
+      <dbReference type="PubMed" id="12213830"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="8">
+    <source>
+      <dbReference type="PubMed" id="12471029"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="9">
+    <source>
+      <dbReference type="PubMed" id="1330694"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="10">
+    <source>
+      <dbReference type="PubMed" id="16176801"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="11">
+    <source>
+      <dbReference type="PubMed" id="16274254"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="12">
+    <source>
+      <dbReference type="PubMed" id="18713863"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="13">
+    <source>
+      <dbReference type="PubMed" id="9305876"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="14">
+    <source>
+      <dbReference type="PubMed" id="9614063"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000303" key="15">
+    <source>
+      <dbReference type="PubMed" id="12471029"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000303" key="16">
+    <source>
+      <dbReference type="PubMed" id="9305876"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000305" key="17"/>
+  <evidence type="ECO:0000305" key="18">
+    <source>
+      <dbReference type="PubMed" id="10358090"/>
+    </source>
+  </evidence>
+  <sequence length="4872" mass="551929" checksum="D1DC6B85CD6B93E6" modified="2000-05-01" version="1">MAEGGEGGEDEIQFLRTEDEVVLQCIATVHKEQRKFCLAAEGLGNRLCFLEPTSEAKFIPPDLCVCNFVLEQSLSVRALQEMLANTGENGGEGAAQGGGHRTLLYGHAILLRHSFSGMYLTCLTTSRSQTDKLAFDVGLREHATGEACWWTIHPASKQRSEGEKVRIGDDLILVSVSSERYLHLSISNGNIQVDASFMQTLWNVHPTCSGSSIEEGYLLGGHVVRLFHGHDECLTIPSTDQNDSQHRRIFYEAGGAGTRARSLWRVEPLRISWSGSNIRWGQAFRLRHLTTGHYLALTEDQGLLLQDRGKADTKSTAFSFRPSKETKEKLDSSHKRDIEGMGVPEIKYGDSVCFVQHIASGLWVTYKAQDAKTSRLGPLKRKVILHQEGHMDDGLTLQRCQREESQAARIIRNTTALFSQFVSGNNRTAAPVTLPIEEVLQTLHDLIAYFQPPEEEMQHEDKQNKLRSLKNRQNLFKEEGMLALVLNCIDRLNIYNSVAHFAGIAREESGMAWKEVLSLLYKLLAALIRGNRNTCAQFSNNLDWLISKLDRLESSSGILEVLHCILIESPEALNLIAEGHIKSIISLLDKHGRNHKVLDVLCSLCLCNGVAVRANQNLICDNLLPRRNLLLQTRLINDVTSIRPNIFLGVAEGSAQYKKWYFELIIDQVDPFLTAEPTHLRVGWASSSGYAPYPGGGEGWGGNGVGDDLYSYGFDGLHLWSGRIPRAVASINQHLLKSDDVVSCCLDLGVPSISFRINGQPVQGMFENFNTDGLFFPVMSFSAGVKVRFLMGGRHGEFKFLPPSGYAPCYEALLPKEKMRLEPVKEYKRDAEGVRDLLGTTQFLSQASFIPCPIDTSQVVLPPHLEKIRDRLAENIHELWGMNKIELGWTFGKMRDDNKRQHPCLVEFSKLPETEKNYNLQMSTETLKTLLALGCHIAHVNPAAEEDLKKVKLPKNYMMSNGYKPAPLDLSDVKLLPPQEILVDKLAENAHNVWAKDRIKQGWTYGIQQDLKNKRNPRLVPYALLDERTKKSNRDSLREAVRTFVGYGYNIEPSDQELADPAVEKVSIDKIRFFRVERSYAVRSGKWYFEFEVVTGGDMRVGWARPGCRPDIELGPMTKPLCLKAAGASVGTKVVGILGVPWQPGDVVGCMINLDDASMIFTLNGELLITNKGSELAFADYEIENGFVPICSLGLSQIGRMNLGTDASTFKFYTMCGLQEGFEPFAVNMNRDVAMWFSKRLPTFVNVPKDHPHIEVVRIDGTMDSPPCLKVTHKTFGTQNSNANMIYCRLSMPVECHSSFSHSPCLDSEAFQKRKQMQEILSHTTTQCFYSIRIFAGQDPSCVWVGWVTPDYHLYSEKFDLNKNCTVTVTLGDERGRVHESVKRSNCYMVWGGDVVASSQRSSRSNVDLEIGCLVDLAMGMLSFSANGKELGTCYQVEPNTKVFPAVFLQPTSTSLFQFELGKLKNAMPLSAAIFKSEEKNPVPQCPPRLDVQTIQPVLWSRMPNSFLKVETERVSERHGWVVQCLEPLQMMALHIPEENRCVDILELCEQEDLMQFHYHTLRLYSAVCALGNSRVAYALCSHVDLSQLFHAIDNKYLPGLLRSGFYDLLISIHLANAKERKLMMKNEYIIPITSTTRNIRLYPDESKKHGLPGVGPRTCLKPGFKFSTPCFVVTNEERQKQSPEIPLEILKMKALSMLTEAVQCSGAHIRDPVGGSVEFQFVPVLKLVGTLLVMGVFCDDDVRQILLLIDPSVFGEHSADTEEGAEKEEVSQVEEKAVEAGEKTSKEARKEAPVRGLLQTRLPESVKLQMCELLSYLCDCELQHRVEAIVAFGDIYVSKLQANQKFRYNELMQALNMSAALTARKTREFRSPPQEQINMLLNFQLGENCPCPEEIREELYDFHEDLLVHCGVPLEEEEEEEEDTSWTGKLRTLVYKIKGPPKPEKEQPTEEEERCPTTLKELISQTMIRWAQEDQIQDAELVRMMFNLLRRQYDSIGELLQALRKTYTISHASVSDTINLLAALGQIRSLLSVRMGREEELLMINGLGDIMNNKVFYQHPNLMRVLGMHETVMEVMVNVLGTEKSQIAFPKMVASCCRFLCYFCRISRQNQKAMFEHLSYLLENSSVGLASPSMRGSTPLDVAASSVMDNNELALGLEEPDLEKVVTYLAGCGLQSCPMLLAKGYPDVGWNPIEGERYLSFLRFAVFVNSESVEENASVVVKLLIRRPECFGPALRGEGGNGLLAAMQGAIKISESPALDLPSQGYKREVPEDGEEEEEIVHMGNAIMSFYSALIDLLGRCAPEMHLIQTGKGEAIRIRSILRSLVPTEDLVGIISIPLKLPSLNKDGSVSEPDMAANFCPDHKAPMVLFLDRVYGIKDQTFLLHLLEVGFLPDLRASASLDTVALSTTESALALNRYICSAVLPLLTRCAPLFAGTEHYTSLIDSTLQTIYRLSKGRSLTKAQRDTIEECLLAICNHLRPSMLQQLLRRLVFDVPQLNDYCKMPLKLLTNHFEQCWKYYCLPSGWGSYGLAVEEELHLTEKLFWGIFDSLSHKKYDPDLFRMSLPCLSAIAGALPPDYLDTRITATLEKQVSVDADGNFDPKPINTINFSLPEKLEYIVTKYAEHSHDKWACEKSQSGWKYGISLDENVKTHPLIRPFKTLTEKEKEIYRWPARESLKTMLAVGWTVERTKEGEALVQLRENEKLRSVSQTSQGNSYNPAPLDLSNVVLSRELQGMVEVVAENYHNIWAKKKKLELESKGGGSHPLLVPYDTLTAKEKFRDREKAQDLFKFLQVNGVIVSRGMKDMELDAFSMEKRFAYKFLKKILKYVDSAQEFIAHLEAIVSSGKTEKSPHDQEIKFFAKVLLPLVDQYFTNHRLYFLSSPLKPLSSSGYASHKEKEMVASLFCKLAALVRHRISLFGSDSTTMVSCLHILAQTLDTRTVMKSGSELVKAGLRAFFESAAEDLEKTSENLKLGKFTHSRTQIKGVSQNINYTTVALLPILTSIFEHVAQHQFGVDLLLGDVQISCYRILCSLYSLGTGKNIYVERQRPALGECLASLAAAIPVAFLEPTLNRYNALSVFNTKTPRERSILGMPDTVEEMCPDIPQLEGLMKEINDLAESGARYTEMPHVIEVILPMLCNYLSYWWERGPENLSPSTGPCCSKVTSEHLSLILGNILKIINNNLGIDEASWMKRIAVYAQPIISKARPDLLRSHFIPTLEKLKKKAVKTVQEEEQLKADGKGDTQEAELLILDEFAILCRDLYAFYPMLIRYVDNNRSNWLKSPDGDSDQLFRMVAEVFILWCKSHNFKREEQNFVIQNEINNLAFLTGDSKSKMSKAMQVKSGGQDQERKKTKRRGDLYSIQTSLIVAALKKMLPIGLNMCTPGDQELISLAKSRYSYRDTDEEVKEHLRNNLHLQEKSDDPAVKWQLNLYKDVLKSEEPSNPEKTVERVQRISAAVFHLEQVEQPLRSKKAVWHKLLSKQRKRAVVACFRMAPLYNLPRHRSINLFLHGYQRFWIETEEYSFEEKLVQDLAKSPKVEEEEEEEMEKQPDPLHQIILHFSRNALTERSKLEDDPLYTSYSSMMAKSCQSGEDEEEEDKEKTFEEKEMEKQKTLYQQARLHERGAAEMVLQMISASKGEMSPMVVETLKLGIAILNGGNAGVQQKMLDYLKVKKDAGFFQSLSGLMQSCSVLDLNAFERQNKAEGLGMVTEEGTLIVRERGEKVLQNDEFTRDLFRFLQLLCEGHNSDFQNFLRTQMGNTTTVNVIISTVDYLLRLQESISDFYWYYSGKDIIDESGQHNFSKALAVTKQIFNSLTEYIQGPCIGNQQSLAHSRLWDAVVGFLHVFANMQMKLSQDSSQIELLKELLDLLQDMVVMLLSLLEGNVVNGTIGKQMVDTLVESSTNVEMILKFFDMFLKLKDLTSSDTFKEYDPDGKGIISKKEFQKAMEGQKQYTQSEIDFLLSCAEADENDMFNYIDFVDRFHEPAKDIGFNVAVLLTNLSEHMPNDSRLKCLLDPAESVLNYFEPYLGRIEIMGGAKKIERVYFEISESSRTQWEKPQVKESKRQFIFDVVNEGGEQEKMELFVNFCEDTIFEMQLASQISESDSADRPEEEEGDEESSYVLEINGEEEEDKSFESASAFAMACASLKRNITNLLRKATLKNLRKQYRNVKKMTAKELVKVFFSFFWMLFVGLFQLFFTIVGGIFQILWSTVFGGGLVEGAKNIRVTKILGDMPDPTQFGIHDDAMEAERAEVAEAGITTELVHFVKGERGDTELMSDLFGLHPKKEGGVKHGPEVGLGDLSEIIGKDEPPTLESTVRKKRKAQAAETKAEHEAEGKVESEKADLEDGEKEDKAKEEERAEYLWAEVTKKKKRRRGQKVEKPEAFMANFFKGLEIYQTKLLHYLARNFYNLRFLALFVAFAINFILLFYKVTEEPLEEETEDVANLWNSLNDEEEEEAMVFFVLQESTGYMAPTLRALAVVHTIISLVCVVGYYCLKVPLVVFKREKEIARKLEFDGLYITEQPSEDDIKGQWDRLVINTPSFPHNYWDKFVKRKVINKYGDLYGAERIAELLGLDKNALDFSPVEETTAEAASLVSWLSSIDMKYHIWKLGVVFTDNSFLYLAWYTTMSVLGHYNNFFFAAHLLDIAMGFKTLRTILSSVTHNGKQLVLTVGLLAVVVYLYTVVAFNFFRKFYNKSEDDDEPDMKCDDMMTCYLFHMYVGVRAGGGIGDEIEDPAGDPYEMYRIVFDITFFFFVIVILLAIIQGLIIDAFGELRDQQEQVREDMETKCFICGIGNDYFDTTPHGFETHTLQEHNLANYLFFLMYLINKDETEHTGQESYVWKMYQERCWDFFPAGDCFRKQYEDQLG</sequence>
+</entry>
+<copyright>
+Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms Distributed under the Creative Commons Attribution (CC BY 4.0) License
+</copyright>
+</uniprot>

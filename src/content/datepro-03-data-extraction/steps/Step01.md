@@ -3,8 +3,6 @@ import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
-#### Data Extraction
-
 Some data in the CSV file may not be relevant regarding our information
 need, i.e. we may need to identify and extract relevant data. In our case, we
 will select the relevant proteins (lines) using the command line tool `grep`,
@@ -31,7 +29,7 @@ regular expressions, that we will describe later on.
 We can execute the following command that selects the proteins with the
 topic `CC - MISCELLANEOUS`, our pattern, in our CSV file:
 
-<Execute command="grep 'CC - MISCELLANEOUS' data/chebi_27732_xrefs_UniProt.csv" />
+<Execute command="grep 'CC - MISCELLANEOUS' chebi_27732_xrefs_UniProt.csv" />
 
 The `data` folder contains the files retrieved in the previous tutorial.
 
