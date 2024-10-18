@@ -7,5 +7,5 @@ This is the **fourth tutorial** in a series that will demonstrate how shell scri
 The objective of this tutorial is to learn how to use task repetition techniques to efficiently apply the same task to all proteins in the list we gathered in the previous tutorial. The task will be to construct the URL that will enable us to download the information from UniProt for each protein using the [RESTful web services provided by UniProt](https://www.uniprot.org/help/api).
 
 <Alert>
-This tutorial is part of a series of tutorials adapted as interactive versions of the hands-on steps described in the [Data and Text Processing for Health and Life Sciences](https://labs.rd.ciencias.ulisboa.pt/book/) book, which is licensed under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). In general, the contents are the same, but access to data via `curl` is not possible, so the tutorials will use local files. 
+This tutorial is part of a series of tutorials adapted as interactive versions of the hands-on steps described in the [Data and Text Processing for Health and Life Sciences](https://labs.rd.ciencias.ulisboa.pt/book/) book, which is licensed under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). 
 </Alert>

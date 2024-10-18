@@ -7,5 +7,5 @@ This is the **third tutorial** in a series that will demonstrate how shell scrip
 The objective of this tutorial is to learn how to efficiently filter and extract relevant data from the CSV file retrieved in the previous tutorial. Specifically, we will focus on filtering for proteins associated with putative caffeine-related diseases and extracting only the corresponding protein identifiers.
 
 <Alert>
-This tutorial is part of a series of tutorials adapted as interactive versions of the hands-on steps described in the [Data and Text Processing for Health and Life Sciences](https://labs.rd.ciencias.ulisboa.pt/book/) book, which is licensed under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). In general, the contents are the same, but access to data via `curl` is not possible, so the tutorials will use local files. 
+This tutorial is part of a series of tutorials adapted as interactive versions of the hands-on steps described in the [Data and Text Processing for Health and Life Sciences](https://labs.rd.ciencias.ulisboa.pt/book/) book, which is licensed under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). 
 </Alert>
