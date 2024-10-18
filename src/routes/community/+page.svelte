@@ -7,6 +7,11 @@ import { config as ifblinuxbasics3 } from "$content/ifb-linux-basics-3/config.js
 import { config as datepro1 } from "$content/datepro-01-unix-shell/config";
 import { config as datepro2 } from "$content/datepro-02-data-retrieval/config";
 import { config as datepro3 } from "$content/datepro-03-data-extraction/config";
+import { config as datepro4 } from "$content/datepro-04-task-repetition/config";
+import { config as datepro5 } from "$content/datepro-05-xml-processing/config";
+import { config as datepro6 } from "$content/datepro-06-text-retrieval/config";
+import { config as datepro7 } from "$content/datepro-07-text-processing/config";
+import { config as datepro8 } from "$content/datepro-08-semantic-processing/config";
 </script>
 
 <svelte:head>
@@ -48,7 +53,7 @@ import { config as datepro3 } from "$content/datepro-03-data-extraction/config";
 
 <a href="http://labs.rd.ciencias.ulisboa.pt/book/" target="_blank" rel="noreferrer">
 	<img
-		src="https://webpages.ciencias.ulisboa.pt/~fjcouto/Data%20and%20Text%20Processing%20for%20Health%20and%20Life%20Sciences.jpg"
+		src="/logo-book-data-processing.jpg"
 		alt="Book cover"
 		height="150"
 	/>
@@ -58,7 +63,7 @@ import { config as datepro3 } from "$content/datepro-03-data-extraction/config";
 	categories={[
 		{
 			name: "",
-			tutorials: [datepro1, datepro2, datepro3]
+			tutorials: [datepro1, datepro2, datepro3, datepro4, datepro5, datepro6, datepro7, datepro8]
 		}
 	]}
 />
