@@ -30,14 +30,16 @@ Thus, we can now update the script
 
 To have the following commands:
 
-```bash
+<pre class="code border p-2" style="white-space: pre-wrap">
 ID=$1 # The CHEBI identifier given as input is renamed to ID
 rm -f chebi\_$ID\_*.rdf # Removes any previous files
-grep -l '<name type="scientific">Homo sapiens</name>' chebi\_$ID\_*.xml | \
-xargs -i &lcub;&rcub; grep '<dbReference type="PubMed"' {} | \
-cut -d\" -f4 | sort -u | \
-xargs -i &lcub;&rcub; curl -o chebi\_$ID\_{}.rdf 'https://rest.uniprot.org/citations/{}.rdf' 
-```
+
+grep -l '&lt;name type="scientific">Homo sapiens&lt;/name>' chebi\_$ID\_*.xml | \\
+    xargs -i &lcub;&rcub; grep '&lt;dbReference type="PubMed"' &lcub;&rcub; | \\
+    cut -d'"' -f4 | sort -u | \\
+    xargs -i &lcub;&rcub; curl -o chebi\_$ID\_&lcub;&rcub;.rdf 'https://rest.uniprot.org/citations/&lcub;&rcub;.rdf' 
+</pre>
+
 Again, do not forget to save it in our working directory, and add the right
 permissions with chmod as we did previously with the other scripts.
 

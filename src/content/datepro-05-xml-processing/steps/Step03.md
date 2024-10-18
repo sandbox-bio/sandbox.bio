@@ -21,8 +21,11 @@ In the case of our protein XML files, we can see that their second line defines
 a specific namespace using the `xmlns` attribute:
 
 ```xml
-<uniprot xmlns="http://uniprot.org/uniprot" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:schemaLocation="http://uniprot.org/uniprot http://www.uniprot.org/support/docs/uniprot.xsd">
+<uniprot
+    xmlns="http://uniprot.org/uniprot"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://uniprot.org/uniprot 
+    http://www.uniprot.org/support/docs/uniprot.xsd">
 ```
 
 This complicates our XPath queries, since we need to explicitly specify that
@@ -140,6 +143,6 @@ To extract the identifiers, we can use the cut command:
 Extracting XPath results
 To extract the identifiers, we can use the cut command:
 
-<Execute command={`xmllint --xpath '//dbReference[@type="PubMed"]/@id' chebi_27732_P21817_entry.xml | cut -d\" -f2`} />
+<Execute command={`xmllint --xpath '//dbReference[@type="PubMed"]/@id' chebi_27732_P21817_entry.xml | cut -d'"' -f2`} />
 
 The cut command extracts the value inside the double quotes.

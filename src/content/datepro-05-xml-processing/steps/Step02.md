@@ -4,19 +4,19 @@ import Execute from "$components/Execute.svelte";
 
 To extract just the identifier, we can again use the cut command:
 
-<Execute command={`grep 'dbReference type="PubMed"' chebi_27732_P21817.xml | cut -d\" -f4`} />
+<Execute command={`grep 'dbReference type="PubMed"' chebi_27732_P21817.xml | cut -d'"' -f4`} />
 
 We should note that `"` is used as the separation character and, since the
 PubMed identifier appears after the third `"`, the `4` represents the identifier.
 Now the output should be just the list of identifiers.
 
-<Execute command={`grep '<name type="scientific">Homo sapiens<\/name>' chebi_27732_*.xml" />`} />
+<Execute command={`grep '&lt;name type="scientific">Homo sapiens&lt;/name>' chebi_27732_*.xml`} />
 
 #### PubMed identifiers extraction
 
 Now to apply to every protein we may again use the `xargs` command:
 
-<Execute command={`grep -l 'name type="scientific">Homo sapiens</name>' chebi_27732_*.xml | xargs -i &lcub;&rcub; grep 'dbReference type="PubMed"' {} | cut -d\" -f4`} />
+<Execute command={`grep -l '&lt;name type="scientific">Homo sapiens&lt;/name>' chebi_27732_*.xml | \\ xargs -i &lcub;&rcub; grep 'dbReference type="PubMed"' &lcub;&rcub; | \\ cut -d'"' -f4`} />
 
 This may provide a long list of PubMed identifiers, including repetitions since
 the same publication can be cited in different entries.
@@ -25,21 +25,21 @@ the same publication can be cited in different entries.
 
 To help us identify the repetitions, we can add the sort command, which will display the repeated identifiers in consecutive lines (due by sorting all identifiers):
 
-<Execute command={`grep -l 'name type="scientific">Homo sapiens</name>' chebi_27732_*.xml | xargs -i &lcub;&rcub; grep 'dbReference type="PubMed"' {} | cut -d\" -f4 | sort`} />
+<Execute command={`grep -l '&lt;name type="scientific">Homo sapiens&lt;/name>' chebi_27732_*.xml | \\ xargs -i &lcub;&rcub; grep 'dbReference type="PubMed"' &lcub;&rcub; | \\ cut -d'"' -f4 | \\ sort`} />
 
 For example some repeated PubMed identifiers that we should easily be
 able to see, such as `9607712`.
 
 Fortunately, we also have the `-u` option that removes all these duplicates:
 
-<Execute command={`grep -l 'name type="scientific">Homo sapiens</name>' chebi_27732_*.xml | xargs -i &lcub;&rcub; grep 'dbReference type="PubMed"' {} | cut -d\" -f4 | sort -u`} />
+<Execute command={`grep -l 'name type="scientific">Homo sapiens&lt;/name>' chebi_27732_*.xml | xargs -i &lcub;&rcub; grep 'dbReference type="PubMed"' &lcub;&rcub; | cut -d'"' -f4 | sort -u`} />
 
 To easily check how many duplicates were removed, we can use the word
 count `wc` command with and without the usage of the `-u` option:
 
-<Execute command={`grep -l 'name type="scientific">Homo sapiens</name>' chebi_27732_*.xml | xargs -i &lcub;&rcub; grep 'dbReference type="PubMed"' {} | cut -d\" -f4 | sort | wc`} />
+<Execute command={`grep -l 'name type="scientific">Homo sapiens&lt;/name>' chebi_27732_*.xml | xargs -i &lcub;&rcub; grep 'dbReference type="PubMed"' &lcub;&rcub; | cut -d'"' -f4 | sort | wc`} />
 
-<Execute command={`grep -l 'name type="scientific">Homo sapiens</name>' chebi_27732_*.xml | xargs -i &lcub;&rcub; grep 'dbReference type="PubMed"' {} | cut -d\" -f4 | sort -u | wc`} />
+<Execute command={`grep -l 'name type="scientific">Homo sapiens&lt;/name>' chebi_27732_*.xml | xargs -i &lcub;&rcub; grep 'dbReference type="PubMed"' &lcub;&rcub; | cut -d'"' -f4 | sort -u | wc`} />
 
 In case we have in our folder any auxiliary file, such as `chebi_27732_P21817_entry.xml`, we should add the option --exclude *entry.xml to the first `grep` command.
 
@@ -58,12 +58,12 @@ editor:
 
 to add the following lines:
 
-```bash
-ID=$1 # The CHEBI identifier given as input is renamed to ID
-grep -l '<name type="scientific">Homo sapiens</name>' chebi\_$ID\_*.xml | \
-xargs -i &lcub;&rcub; grep '<dbReference type="PubMed"' {} | \
-cut -d\" -f4 | sort -u
-```
+<pre class="code border p-2" style="white-space: pre-wrap">ID=$1 # The CHEBI identifier given as input is renamed to ID
+grep -l '&lt;name type="scientific">Homo sapiens&lt;/name>' chebi\_$ID\_*.xml | \
+xargs -i &lcub;&rcub; grep '&lt;dbReference type="PubMed"' &lcub;&rcub; | \
+cut -d'"' -f4 | sort -u
+</pre>
+
 Again, do not forget to save it in our working directory, and add the right
 permissions with chmod as we did previously with the other scripts.
 
