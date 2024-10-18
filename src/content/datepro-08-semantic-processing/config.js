@@ -8,6 +8,7 @@ import Step05 from "./steps/Step05.md";
 import Step06 from "./steps/Step06.md";
 import Step07 from "./steps/Step07.md";
 import Step08 from "./steps/Step08.md";
+import Step09 from "./steps/Step09.md";
 import Conclusion from "./steps/Conclusion.md";
 import Exercise01 from "./exercises/Exercise01.md";
 
