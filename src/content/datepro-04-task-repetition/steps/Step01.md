@@ -26,18 +26,18 @@ We can start by experimenting the `xargs` command by giving as input the list of
 and display each identifier on the screen in the middle of a text message by
 providing the echo command as argument:
 
-<Execute command="cat chebi_27732_xrefs_UniProt_relevant_identifiers.csv | xargs -I {} echo 'Another protein id {} to retrieve'" />
+<Execute command="cat chebi_27732_xrefs_UniProt_relevant_identifiers.csv | xargs -I &lcub;&rcub; echo 'Another protein id &lcub;&rcub; to retrieve'" />
 
 The xargs command received as input the contents our CSV file, and for
 each line displayed a message including the identifier in that line. The `-I`
-option tells `xargs` to replace `{}` in the command line given as argument by
+option tells `xargs` to replace `&lcub;&rcub;` in the command line given as argument by
 the value of the line being processed. The equivalent long form to the `-I`
 option is `--replace=R`.
 
 Instead of creating inconsequential text messages, we can use xargs to
 create the URLs:
 
-<Execute command="cat chebi_27732_xrefs_UniProt_relevant_identifiers.csv | xargs -I {} echo 'https://rest.uniprot.org/uniprotkb/{}.xml'" />
+<Execute command="cat chebi_27732_xrefs_UniProt_relevant_identifiers.csv | xargs -I &lcub;&rcub; echo 'https://rest.uniprot.org/uniprotkb/&lcub;&rcub;.xml'" />
 
 We can try to use these links in our internet browser to check if those
 displayed URLs are working correctly.

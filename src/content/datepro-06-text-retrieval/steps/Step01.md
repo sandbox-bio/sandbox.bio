@@ -34,9 +34,9 @@ To have the following commands:
 ID=$1 # The CHEBI identifier given as input is renamed to ID
 rm -f chebi\_$ID\_*.rdf # Removes any previous files
 grep -l '<name type="scientific">Homo sapiens</name>' chebi\_$ID\_*.xml | \
-xargs -I {} grep '<dbReference type="PubMed"' {} | \
+xargs -i &lcub;&rcub; grep '<dbReference type="PubMed"' {} | \
 cut -d\" -f4 | sort -u | \
-xargs -I {} curl -o chebi\_$ID\_{}.rdf 'https://rest.uniprot.org/citations/{}.rdf' 
+xargs -i &lcub;&rcub; curl -o chebi\_$ID\_{}.rdf 'https://rest.uniprot.org/citations/{}.rdf' 
 ```
 Again, do not forget to save it in our working directory, and add the right
 permissions with chmod as we did previously with the other scripts.
