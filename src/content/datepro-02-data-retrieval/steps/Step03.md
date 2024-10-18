@@ -19,7 +19,7 @@ and the filename, as described previously:
 We should note that `curl` still prints some progress information into the
 terminal.
 
-<Alert>In your local term the progress information will more detailed.</Alert>
+<Alert>In your local terminal the progress information will more detailed.</Alert>
 
 #### Standard error output
 
@@ -32,14 +32,13 @@ case to the null device (/dev/null):
 
 <Execute command="./getproteins.sh 27732 > chebi_27732_xrefs_UniProt.csv 2>/dev/null" />
 
-We can also use the -s option of curl in order to suppress the progress
-information,:
-
-<pre class="code border p-2" style="white-space: pre-wrap">curl -s "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-=1&6578706f7274=1&chebiId=$1&dbName=UniProt"</pre>
-
-by adding it to our script:
+We can also use the `-s` option of curl in order to suppress the progress information, by adding to our script:
 
 <Execute command="nano getproteins.sh" />
+
+the `-s` option:
+
+<pre class="code border p-2" style="white-space: pre-wrap">curl -s "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-=1&6578706f7274=1&chebiId=$1&dbName=UniProt"</pre>
 
 Now when executing the script, no progress information is shown:
 
@@ -50,5 +49,4 @@ use the less command:
 
 <Execute command="less chebi_27732_xrefs_UniProt.csv" />
 
-We can also open the file in our spreadsheet application, such as LibreOffice
-Calc or Microsoft Excel.
+We can also open the file in our spreadsheet application, such as LibreOffice Calc or Microsoft Excel.

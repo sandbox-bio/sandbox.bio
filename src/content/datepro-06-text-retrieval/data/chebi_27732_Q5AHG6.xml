@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"  standalone="no" ?>
+<uniprot xmlns="http://uniprot.org/uniprot" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://uniprot.org/uniprot http://www.uniprot.org/docs/uniprot.xsd">
+<entry dataset="Swiss-Prot" created="2013-05-01" modified="2023-02-22" version="125" xmlns="http://uniprot.org/uniprot">
+  <accession>Q5AHG6</accession>
+  <accession>A0A1D8PGZ3</accession>
+  <name>SCH9_CANAL</name>
+  <protein>
+    <recommendedName>
+      <fullName>Serine/threonine-protein kinase SCH9</fullName>
+      <ecNumber>2.7.11.1</ecNumber>
+    </recommendedName>
+  </protein>
+  <gene>
+    <name type="primary">SCH9</name>
+    <name type="ordered locus">CAALFM_C203940CA</name>
+    <name type="ORF">CaO19.829</name>
+    <name type="ORF">CaO19.8449</name>
+  </gene>
+  <organism>
+    <name type="scientific">Candida albicans (strain SC5314 / ATCC MYA-2876)</name>
+    <name type="common">Yeast</name>
+    <dbReference type="NCBI Taxonomy" id="237561"/>
+    <lineage>
+      <taxon>Eukaryota</taxon>
+      <taxon>Fungi</taxon>
+      <taxon>Dikarya</taxon>
+      <taxon>Ascomycota</taxon>
+      <taxon>Saccharomycotina</taxon>
+      <taxon>Saccharomycetes</taxon>
+      <taxon>Saccharomycetales</taxon>
+      <taxon>Debaryomycetaceae</taxon>
+      <taxon>Candida/Lodderomyces clade</taxon>
+      <taxon>Candida</taxon>
+    </lineage>
+  </organism>
+  <reference key="1">
+    <citation type="journal article" date="2004" name="Proc. Natl. Acad. Sci. U.S.A." volume="101" first="7329" last="7334">
+      <title>The diploid genome sequence of Candida albicans.</title>
+      <authorList>
+        <person name="Jones T."/>
+        <person name="Federspiel N.A."/>
+        <person name="Chibana H."/>
+        <person name="Dungan J."/>
+        <person name="Kalman S."/>
+        <person name="Magee B.B."/>
+        <person name="Newport G."/>
+        <person name="Thorstenson Y.R."/>
+        <person name="Agabian N."/>
+        <person name="Magee P.T."/>
+        <person name="Davis R.W."/>
+        <person name="Scherer S."/>
+      </authorList>
+      <dbReference type="PubMed" id="15123810"/>
+      <dbReference type="DOI" id="10.1073/pnas.0401648101"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]</scope>
+    <source>
+      <strain>SC5314 / ATCC MYA-2876</strain>
+    </source>
+  </reference>
+  <reference key="2">
+    <citation type="journal article" date="2007" name="Genome Biol." volume="8" first="RESEARCH52.1" last="RESEARCH52.12">
+      <title>Assembly of the Candida albicans genome into sixteen supercontigs aligned on the eight chromosomes.</title>
+      <authorList>
+        <person name="van het Hoog M."/>
+        <person name="Rast T.J."/>
+        <person name="Martchenko M."/>
+        <person name="Grindle S."/>
+        <person name="Dignard D."/>
+        <person name="Hogues H."/>
+        <person name="Cuomo C."/>
+        <person name="Berriman M."/>
+        <person name="Scherer S."/>
+        <person name="Magee B.B."/>
+        <person name="Whiteway M."/>
+        <person name="Chibana H."/>
+        <person name="Nantel A."/>
+        <person name="Magee P.T."/>
+      </authorList>
+      <dbReference type="PubMed" id="17419877"/>
+      <dbReference type="DOI" id="10.1186/gb-2007-8-4-r52"/>
+    </citation>
+    <scope>GENOME REANNOTATION</scope>
+    <source>
+      <strain>SC5314 / ATCC MYA-2876</strain>
+    </source>
+  </reference>
+  <reference key="3">
+    <citation type="journal article" date="2013" name="Genome Biol." volume="14" first="RESEARCH97.1" last="RESEARCH97.14">
+      <title>Assembly of a phased diploid Candida albicans genome facilitates allele-specific measurements and provides a simple model for repeat and indel structure.</title>
+      <authorList>
+        <person name="Muzzey D."/>
+        <person name="Schwartz K."/>
+        <person name="Weissman J.S."/>
+        <person name="Sherlock G."/>
+      </authorList>
+      <dbReference type="PubMed" id="24025428"/>
+      <dbReference type="DOI" id="10.1186/gb-2013-14-9-r97"/>
+    </citation>
+    <scope>NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]</scope>
+    <scope>GENOME REANNOTATION</scope>
+    <source>
+      <strain>SC5314 / ATCC MYA-2876</strain>
+    </source>
+  </reference>
+  <reference key="4">
+    <citation type="journal article" date="2003" name="Microbiology" volume="149" first="3629" last="3637">
+      <title>Genetic control of chlamydospore formation in Candida albicans.</title>
+      <authorList>
+        <person name="Nobile C.J."/>
+        <person name="Bruno V.M."/>
+        <person name="Richard M.L."/>
+        <person name="Davis D.A."/>
+        <person name="Mitchell A.P."/>
+      </authorList>
+      <dbReference type="PubMed" id="14663094"/>
+      <dbReference type="DOI" id="10.1099/mic.0.26640-0"/>
+    </citation>
+    <scope>FUNCTION</scope>
+  </reference>
+  <reference key="5">
+    <citation type="journal article" date="2010" name="FEMS Yeast Res." volume="10" first="462" last="470">
+      <title>The protein kinase CaSch9p is required for the cell growth, filamentation and virulence in the human fungal pathogen Candida albicans.</title>
+      <authorList>
+        <person name="Liu W."/>
+        <person name="Zhao J."/>
+        <person name="Li X."/>
+        <person name="Li Y."/>
+        <person name="Jiang L."/>
+      </authorList>
+      <dbReference type="PubMed" id="20345900"/>
+      <dbReference type="DOI" id="10.1111/j.1567-1364.2010.00617.x"/>
+    </citation>
+    <scope>DISRUPTION PHENOTYPE</scope>
+    <scope>FUNCTION</scope>
+  </reference>
+  <reference key="6">
+    <citation type="journal article" date="2011" name="Eukaryot. Cell" volume="10" first="502" last="511">
+      <title>Sch9 kinase integrates hypoxia and CO2 sensing to suppress hyphal morphogenesis in Candida albicans.</title>
+      <authorList>
+        <person name="Stichternoth C."/>
+        <person name="Fraund A."/>
+        <person name="Setiadi E."/>
+        <person name="Giasson L."/>
+        <person name="Vecchiarelli A."/>
+        <person name="Ernst J.F."/>
+      </authorList>
+      <dbReference type="PubMed" id="21335533"/>
+      <dbReference type="DOI" id="10.1128/ec.00289-10"/>
+    </citation>
+    <scope>DISRUPTION PHENOTYPE</scope>
+    <scope>FUNCTION</scope>
+  </reference>
+  <comment type="function">
+    <text evidence="1 7 8 9">Protein kinase that is part of growth control pathway which is at least partially redundant with the cAMP pathway (By similarity). Plays a role in filamentous growth and virulence. Prevents hypha formation specifically under hypoxia at high CO(2) levels. Required for chlamydospore formation, distinctive morphological feature of the fungal pathogen C.albicans that can be induced to form in oxygen-limited environments and has been reported in clinical specimens.</text>
+  </comment>
+  <comment type="catalytic activity">
+    <reaction>
+      <text>ATP + L-seryl-[protein] = ADP + H(+) + O-phospho-L-seryl-[protein]</text>
+      <dbReference type="Rhea" id="RHEA:17989"/>
+      <dbReference type="Rhea" id="RHEA-COMP:9863"/>
+      <dbReference type="Rhea" id="RHEA-COMP:11604"/>
+      <dbReference type="ChEBI" id="CHEBI:15378"/>
+      <dbReference type="ChEBI" id="CHEBI:29999"/>
+      <dbReference type="ChEBI" id="CHEBI:30616"/>
+      <dbReference type="ChEBI" id="CHEBI:83421"/>
+      <dbReference type="ChEBI" id="CHEBI:456216"/>
+      <dbReference type="EC" id="2.7.11.1"/>
+    </reaction>
+  </comment>
+  <comment type="catalytic activity">
+    <reaction>
+      <text>ATP + L-threonyl-[protein] = ADP + H(+) + O-phospho-L-threonyl-[protein]</text>
+      <dbReference type="Rhea" id="RHEA:46608"/>
+      <dbReference type="Rhea" id="RHEA-COMP:11060"/>
+      <dbReference type="Rhea" id="RHEA-COMP:11605"/>
+      <dbReference type="ChEBI" id="CHEBI:15378"/>
+      <dbReference type="ChEBI" id="CHEBI:30013"/>
+      <dbReference type="ChEBI" id="CHEBI:30616"/>
+      <dbReference type="ChEBI" id="CHEBI:61977"/>
+      <dbReference type="ChEBI" id="CHEBI:456216"/>
+      <dbReference type="EC" id="2.7.11.1"/>
+    </reaction>
+  </comment>
+  <comment type="disruption phenotype">
+    <text evidence="8 9">Leads to reduced cell size and to sensitivity to rapamycin, caffeine and sodium dodecyl sulfate. Attenuates the virulence of in a mouse model of systemic candidiasis.</text>
+  </comment>
+  <comment type="similarity">
+    <text evidence="10">Belongs to the protein kinase superfamily. AGC Ser/Thr protein kinase family. cAMP subfamily.</text>
+  </comment>
+  <dbReference type="EC" id="2.7.11.1"/>
+  <dbReference type="EMBL" id="CP017624">
+    <property type="protein sequence ID" value="AOW27421.1"/>
+    <property type="molecule type" value="Genomic_DNA"/>
+  </dbReference>
+  <dbReference type="RefSeq" id="XP_720953.2">
+    <property type="nucleotide sequence ID" value="XM_715860.2"/>
+  </dbReference>
+  <dbReference type="AlphaFoldDB" id="Q5AHG6"/>
+  <dbReference type="SMR" id="Q5AHG6"/>
+  <dbReference type="STRING" id="237561.Q5AHG6"/>
+  <dbReference type="EnsemblFungi" id="C2_03940C_A-T">
+    <property type="protein sequence ID" value="C2_03940C_A-T-p1"/>
+    <property type="gene ID" value="C2_03940C_A"/>
+  </dbReference>
+  <dbReference type="GeneID" id="3637421"/>
+  <dbReference type="KEGG" id="cal:CAALFM_C203940CA"/>
+  <dbReference type="CGD" id="CAL0000175489">
+    <property type="gene designation" value="SCH9"/>
+  </dbReference>
+  <dbReference type="VEuPathDB" id="FungiDB:C2_03940C_A"/>
+  <dbReference type="eggNOG" id="KOG0598">
+    <property type="taxonomic scope" value="Eukaryota"/>
+  </dbReference>
+  <dbReference type="HOGENOM" id="CLU_000288_52_2_1"/>
+  <dbReference type="InParanoid" id="Q5AHG6"/>
+  <dbReference type="OrthoDB" id="10768at2759"/>
+  <dbReference type="PHI-base" id="PHI:2557"/>
+  <dbReference type="PRO" id="PR:Q5AHG6"/>
+  <dbReference type="Proteomes" id="UP000000559">
+    <property type="component" value="Chromosome 2"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0000785">
+    <property type="term" value="C:chromatin"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="EnsemblFungi"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0000329">
+    <property type="term" value="C:fungal-type vacuole membrane"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="EnsemblFungi"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005634">
+    <property type="term" value="C:nucleus"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="EnsemblFungi"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0005524">
+    <property type="term" value="F:ATP binding"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="UniProtKB-KW"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0106310">
+    <property type="term" value="F:protein serine kinase activity"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="RHEA"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0004674">
+    <property type="term" value="F:protein serine/threonine kinase activity"/>
+    <property type="evidence" value="ECO:0000318"/>
+    <property type="project" value="GO_Central"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0009267">
+    <property type="term" value="P:cellular response to starvation"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="CGD"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0001410">
+    <property type="term" value="P:chlamydospore formation"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="CGD"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0044114">
+    <property type="term" value="P:development of symbiont in host"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="CGD"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0030447">
+    <property type="term" value="P:filamentous growth"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="CGD"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0044182">
+    <property type="term" value="P:filamentous growth of a population of unicellular organisms"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="CGD"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0036171">
+    <property type="term" value="P:filamentous growth of a population of unicellular organisms in response to chemical stimulus"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="CGD"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0036170">
+    <property type="term" value="P:filamentous growth of a population of unicellular organisms in response to starvation"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="CGD"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0035556">
+    <property type="term" value="P:intracellular signal transduction"/>
+    <property type="evidence" value="ECO:0000318"/>
+    <property type="project" value="GO_Central"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:1900438">
+    <property type="term" value="P:negative regulation of filamentous growth of a population of unicellular organisms in response to chemical stimulus"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="CGD"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0018105">
+    <property type="term" value="P:peptidyl-serine phosphorylation"/>
+    <property type="evidence" value="ECO:0000318"/>
+    <property type="project" value="GO_Central"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:1900436">
+    <property type="term" value="P:positive regulation of filamentous growth of a population of unicellular organisms in response to starvation"/>
+    <property type="evidence" value="ECO:0000315"/>
+    <property type="project" value="CGD"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:1904828">
+    <property type="term" value="P:positive regulation of hydrogen sulfide biosynthetic process"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="EnsemblFungi"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0060963">
+    <property type="term" value="P:positive regulation of ribosomal protein gene transcription by RNA polymerase II"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="EnsemblFungi"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0045943">
+    <property type="term" value="P:positive regulation of transcription by RNA polymerase I"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="EnsemblFungi"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0045945">
+    <property type="term" value="P:positive regulation of transcription by RNA polymerase III"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="EnsemblFungi"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:1901494">
+    <property type="term" value="P:regulation of cysteine metabolic process"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="EnsemblFungi"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0032880">
+    <property type="term" value="P:regulation of protein localization"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="EnsemblFungi"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0047484">
+    <property type="term" value="P:regulation of response to osmotic stress"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="EnsemblFungi"/>
+  </dbReference>
+  <dbReference type="GO" id="GO:0090153">
+    <property type="term" value="P:regulation of sphingolipid biosynthetic process"/>
+    <property type="evidence" value="ECO:0007669"/>
+    <property type="project" value="EnsemblFungi"/>
+  </dbReference>
+  <dbReference type="CDD" id="cd11651">
+    <property type="entry name" value="YPK1_N_like"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="2.60.40.150">
+    <property type="entry name" value="C2 domain"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Gene3D" id="1.10.510.10">
+    <property type="entry name" value="Transferase(Phosphotransferase) domain 1"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR000961">
+    <property type="entry name" value="AGC-kinase_C"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR000008">
+    <property type="entry name" value="C2_dom"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR035892">
+    <property type="entry name" value="C2_domain_sf"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR011009">
+    <property type="entry name" value="Kinase-like_dom_sf"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR017892">
+    <property type="entry name" value="Pkinase_C"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR000719">
+    <property type="entry name" value="Prot_kinase_dom"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR017441">
+    <property type="entry name" value="Protein_kinase_ATP_BS"/>
+  </dbReference>
+  <dbReference type="InterPro" id="IPR008271">
+    <property type="entry name" value="Ser/Thr_kinase_AS"/>
+  </dbReference>
+  <dbReference type="PANTHER" id="PTHR24351:SF235">
+    <property type="entry name" value="AGC/AKT PROTEIN KINASE SCK1"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="PANTHER" id="PTHR24351">
+    <property type="entry name" value="RIBOSOMAL PROTEIN S6 KINASE"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF00168">
+    <property type="entry name" value="C2"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF00069">
+    <property type="entry name" value="Pkinase"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="Pfam" id="PF00433">
+    <property type="entry name" value="Pkinase_C"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="SMART" id="SM00239">
+    <property type="entry name" value="C2"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="SMART" id="SM00133">
+    <property type="entry name" value="S_TK_X"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="SMART" id="SM00220">
+    <property type="entry name" value="S_TKc"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="SUPFAM" id="SSF49562">
+    <property type="entry name" value="C2 domain (Calcium/lipid-binding domain, CaLB)"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="SUPFAM" id="SSF56112">
+    <property type="entry name" value="Protein kinase-like (PK-like)"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="PROSITE" id="PS51285">
+    <property type="entry name" value="AGC_KINASE_CTER"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="PROSITE" id="PS50004">
+    <property type="entry name" value="C2"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="PROSITE" id="PS00107">
+    <property type="entry name" value="PROTEIN_KINASE_ATP"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="PROSITE" id="PS50011">
+    <property type="entry name" value="PROTEIN_KINASE_DOM"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <dbReference type="PROSITE" id="PS00108">
+    <property type="entry name" value="PROTEIN_KINASE_ST"/>
+    <property type="match status" value="1"/>
+  </dbReference>
+  <proteinExistence type="inferred from homology"/>
+  <keyword id="KW-0067">ATP-binding</keyword>
+  <keyword id="KW-0418">Kinase</keyword>
+  <keyword id="KW-0547">Nucleotide-binding</keyword>
+  <keyword id="KW-0597">Phosphoprotein</keyword>
+  <keyword id="KW-1185">Reference proteome</keyword>
+  <keyword id="KW-0723">Serine/threonine-protein kinase</keyword>
+  <keyword id="KW-0808">Transferase</keyword>
+  <keyword id="KW-0843">Virulence</keyword>
+  <feature type="chain" id="PRO_0000422106" description="Serine/threonine-protein kinase SCH9">
+    <location>
+      <begin position="1"/>
+      <end position="787"/>
+    </location>
+  </feature>
+  <feature type="domain" description="C2" evidence="2">
+    <location>
+      <begin position="182"/>
+      <end position="354"/>
+    </location>
+  </feature>
+  <feature type="domain" description="Protein kinase" evidence="3">
+    <location>
+      <begin position="392"/>
+      <end position="653"/>
+    </location>
+  </feature>
+  <feature type="domain" description="AGC-kinase C-terminal" evidence="4">
+    <location>
+      <begin position="654"/>
+      <end position="729"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="6">
+    <location>
+      <begin position="1"/>
+      <end position="82"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="6">
+    <location>
+      <begin position="132"/>
+      <end position="172"/>
+    </location>
+  </feature>
+  <feature type="region of interest" description="Disordered" evidence="6">
+    <location>
+      <begin position="238"/>
+      <end position="280"/>
+    </location>
+  </feature>
+  <feature type="compositionally biased region" description="Polar residues" evidence="6">
+    <location>
+      <begin position="13"/>
+      <end position="34"/>
+    </location>
+  </feature>
+  <feature type="compositionally biased region" description="Polar residues" evidence="6">
+    <location>
+      <begin position="44"/>
+      <end position="82"/>
+    </location>
+  </feature>
+  <feature type="compositionally biased region" description="Polar residues" evidence="6">
+    <location>
+      <begin position="238"/>
+      <end position="267"/>
+    </location>
+  </feature>
+  <feature type="active site" description="Proton acceptor" evidence="3 5">
+    <location>
+      <position position="518"/>
+    </location>
+  </feature>
+  <feature type="binding site" evidence="3">
+    <location>
+      <begin position="398"/>
+      <end position="406"/>
+    </location>
+    <ligand>
+      <name>ATP</name>
+      <dbReference type="ChEBI" id="CHEBI:30616"/>
+    </ligand>
+  </feature>
+  <feature type="binding site" evidence="3">
+    <location>
+      <position position="421"/>
+    </location>
+    <ligand>
+      <name>ATP</name>
+      <dbReference type="ChEBI" id="CHEBI:30616"/>
+    </ligand>
+  </feature>
+  <evidence type="ECO:0000250" key="1"/>
+  <evidence type="ECO:0000255" key="2">
+    <source>
+      <dbReference type="PROSITE-ProRule" id="PRU00041"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000255" key="3">
+    <source>
+      <dbReference type="PROSITE-ProRule" id="PRU00159"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000255" key="4">
+    <source>
+      <dbReference type="PROSITE-ProRule" id="PRU00618"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000255" key="5">
+    <source>
+      <dbReference type="PROSITE-ProRule" id="PRU10027"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000256" key="6">
+    <source>
+      <dbReference type="SAM" id="MobiDB-lite"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="7">
+    <source>
+      <dbReference type="PubMed" id="14663094"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="8">
+    <source>
+      <dbReference type="PubMed" id="20345900"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000269" key="9">
+    <source>
+      <dbReference type="PubMed" id="21335533"/>
+    </source>
+  </evidence>
+  <evidence type="ECO:0000305" key="10"/>
+  <sequence length="787" mass="88746" checksum="68669E0EC178936C" modified="2017-05-10" version="2">MVDFAKSLFGFGNYKKESSSQSPTPPPSAHSSQEQHHKSNTEEYPQSHLSQQQHSHRYQPPHMSEQSHQFPQQQQQQQQSGTNKFFPKTLVSAAPTTAVANHSSVYGTTSTTTNNYPEAYLNQTFKNNIYNPQQQQQQQAQQPPPEQQQSSAPYQNSANIQQPYGNQWGSSQDQDANIITIDKTGNKLSPASRDSPIKGKLKVTILEAKDIFATQPYVVCSFESSEFVTNAPDSYGKSPVSSFGHNNNQGHNGPRNMYNSNHGPSPKALPMKNSGNLFGQRPSMYQRQLSTPHLNLPNDSSNPIWNHDTIFDVVGSKSELDISVYDGARDDAFLGHVRISPSTDKNNKNESEWLQLGARITGETVSSGHIKIKWEYTSFDNNIKRSYGPDDFHFLRLLGKGTFGQVFQVRKKDTNRVYAMKILSKKVIVKKKEIAHTIGERNILVRTSAASSPFIVGLKFSFQTPSDLFLVTDFMSGGELFFHLQKEGRFNEDRSKFYTAELILALEHLHDNDIVYRDLKPENILLDANGHIALCDFGLSKADLNMDGTTNTFCGTTEYLAPEVLLDEQGYTKMVDFWSLGVLIFEMTCGWSPFHAENTQQMYKNIAFGKVRFPKDVLSPEGRSFVKGLLNRNPKHRLGATDDARELKAHPFFADIDWDLLRAKNIPPPFKPHIVSETDISNFDTEFTSENTSALKRQMEMATTPLSPGIQANFKGFTYVDDSTMDDHFARSYRANAFRPPGSFIPGDPNLPPDEEVLAEQIEEEDEMEVDEDQHMDDEFVNGRFDL</sequence>
+</entry>
+<copyright>
+Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms Distributed under the Creative Commons Attribution (CC BY 4.0) License
+</copyright>
+</uniprot>
