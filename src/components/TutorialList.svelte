@@ -7,6 +7,7 @@ import MailingList from "./MailingList.svelte";
 const TAG_COLORS = {
 	beginner: "primary",
 	difficult: "warning",
+	advanced: "danger",
 	intermediate: "warning"
 };
 
