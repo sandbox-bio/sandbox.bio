@@ -9,7 +9,7 @@ Human proteins
 For performing this filter, we can again use the grep command, to select only
 the lines of any XML file that specify the organism as Homo sapiens:
 
-<Execute command="grep '<name type="scientific">Homo sapiens</name>' chebi_27732_*.xml" />
+<Execute command={`grep '&lt;name type="scientific">Homo sapiens&lt;/name>' chebi_27732_*.xml`} />
 
 We should get in our display the filenames that represent a human protein.
 
@@ -20,7 +20,7 @@ where each line was matched.
 We can use the `cut` command to extract only the filename, but grep has
 the `-l` option to just print the filename:
 
-<Execute command="grep -l '<name type="scientific">Homo sapiens</name>' chebi_27732_*.xml" />
+<Execute command={`grep -l '&lt;name type="scientific">Homo sapiens&lt;/name>' chebi_27732_*.xml`} />
 
 The equivalent long form to the `-l` option is `--files-with-matches`.
 
@@ -31,7 +31,7 @@ The output will now show only the filenames. These four files represent the four
 Now we need to extract the PubMed identifiers from these files to retrieve
 the related publications. For example, if we execute the following command:
 
-<Execute command="grep 'dbReference type="PubMed"' chebi_27732_P21817.xml" />
+<Execute command={`grep 'dbReference type="PubMed"' chebi_27732_P21817.xml`} />
 
 The output is a long list of publications related to protein P21817.
 
