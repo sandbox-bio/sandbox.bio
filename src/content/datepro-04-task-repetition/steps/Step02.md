@@ -6,7 +6,7 @@ import Execute from "$components/Execute.svelte";
 Now that we have the URLs, we can automatically download the files using
 the curl command instead of echo:
 
-<Execute command="cat chebi_27732_xrefs_UniProt_relevant_identifiers.csv | xargs -I {} curl -o 'chebi_27732_{}.xml' 'https://rest.uniprot.org/uniprotkb/{}.xml' " />
+<Execute command="cat chebi_27732_xrefs_UniProt_relevant_identifiers.csv | xargs -I &lcub;&rcub; curl -o 'chebi_27732_&lcub;&rcub;.xml' 'https://rest.uniprot.org/uniprotkb/&lcub;&rcub;.xml' " />
 
 <Alert>The `curl` command on this platform has access restrictions but works with  `rest.uniprot.org` links.</Alert>
 

@@ -12,7 +12,7 @@ To contain the following lines:
 ID=$1 # The CHEBI identifier given as input is renamed to ID
 rm -f chebi\_$ID\_*.xml # Removes any previous files
 cat chebi\_$ID\_xrefs_UniProt_relevant_identifiers.csv | \
-xargs -I {} curl -o chebi\_$ID\_{}.xml 'https://rest.uniprot.org/uniprotkb/{}.xml' 
+xargs -I &lcub;&rcub; curl -o chebi\_$ID\_&lcub;&rcub;.xml 'https://rest.uniprot.org/uniprotkb/&lcub;&rcub;.xml' 
 </pre>
 
 #### Variable

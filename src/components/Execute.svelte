@@ -11,7 +11,10 @@ $: commandToRun = command
 		`
 `
 	)
-	.replace(/ \\ /g, " ");
+	.replace(/ \\ /g, " ")
+	.replaceAll("&lt;", "<")
+	.replaceAll("&lcub;", "{")
+	.replaceAll("&rcub;", "}")
 $: commandPretty = command.replace(/ \\ /g, " \\ <br />&nbsp;&nbsp;&nbsp;").replace(/\\n/g, "<br>");
 </script>
 
