@@ -1,0 +1,77 @@
+A2AGL3,Ryanodine receptor 3,CC - MISCELLANEOUS
+A4GE69,7-methylxanthosine synthase 1,CC - FUNCTION
+A4GE70,"3,7-dimethylxanthine N-methyltransferase",CC - CATALYTIC ACTIVITY; CC - FUNCTION
+A6MFK9,Cysteine-rich venom protein,CC - FUNCTION
+B0LPN4,Ryanodine receptor 2,CC - MISCELLANEOUS
+B7FDI0,Cysteine-rich venom protein,CC - FUNCTION
+B7FDI1,Cysteine-rich venom protein,CC - FUNCTION
+B8QG00,Hadrucalcin,CC - FUNCTION
+D7REY3,Caffeine dehydrogenase subunit alpha,DE; FT; CC - CATALYTIC ACTIVITY; CC - FUNCTION; CC - BIOPHYSICOCHEMICAL PROPERTIES
+D7REY4,Caffeine dehydrogenase subunit beta,DE; FT; CC - CATALYTIC ACTIVITY; CC - FUNCTION; CC - BIOPHYSICOCHEMICAL PROPERTIES
+D7REY5,Caffeine dehydrogenase subunit gamma,DE; FT; CC - CATALYTIC ACTIVITY; CC - FUNCTION; CC - BIOPHYSICOCHEMICAL PROPERTIES
+E9PZQ0,Ryanodine receptor 1,CC - MISCELLANEOUS
+E9Q401,Ryanodine receptor 2,CC - MISCELLANEOUS
+F0E1K6,Probable methylxanthine N7-demethylase NdmC,CC - FUNCTION
+F1LMY4,Ryanodine receptor 1,CC - MISCELLANEOUS
+F8J2D4,Cysteine-rich venom protein,CC - FUNCTION
+H9N289,Methylxanthine N1-demethylase NdmA,CC - CATALYTIC ACTIVITY; CC - FUNCTION; CC - BIOPHYSICOCHEMICAL PROPERTIES
+H9N290,Methylxanthine N3-demethylase NdmB,CC - FUNCTION; CC - BIOPHYSICOCHEMICAL PROPERTIES
+H9N291,Oxidoreductase NdmD,CC - FUNCTION
+O13798,Caffeine-induced protein 16,DE; FT
+O13833,Poly(A) RNA polymerase protein cid1,DE
+O14174,SAGA complex subunit spt20,CC - DISRUPTION PHENOTYPE
+O74326,Poly(A) RNA polymerase cid11,DE
+O74518,Poly(A) RNA polymerase cid12,DE
+O74982,Caffeine-induced death protein 2,DE; FT
+O94236,Eukaryotic translation initiation factor 3 subunit D,CC - DISRUPTION PHENOTYPE
+O94513,Eukaryotic translation initiation factor 3 subunit E,CC - DISRUPTION PHENOTYPE
+O94528,Caffeine resistance protein 5,DE; FT
+P05177,Cytochrome P450 1A2,CC - FUNCTION; CC - POLYMORPHISM
+P08684,Cytochrome P450 3A4,CC - FUNCTION
+P11716,Ryanodine receptor 1,CC - MISCELLANEOUS
+P14068,Exportin-1,DE
+P21817,Ryanodine receptor 1,CC - DISEASE; CC - MISCELLANEOUS
+P38273,Vacuolar fusion protein CCZ1,DE
+P38689,Ribose-phosphate pyrophosphokinase 3,CC - DISRUPTION PHENOTYPE
+P41878,26S proteasome regulatory subunit rpn11,CC - FUNCTION
+P53289,Protein phosphatase type 2A regulatory subunit RTS3,CC - FUNCTION
+P54867,Protein SLG1,CC - MISCELLANEOUS
+Q3SB03,Cysteine-rich venom protein pseudechetoxin-like,CC - FUNCTION
+Q3SB04,Cysteine-rich venom protein pseudechetoxin-like,CC - FUNCTION
+Q3SB05,Cysteine-rich venom protein pseudechetoxin-like,CC - FUNCTION
+Q3SB06,Cysteine-rich venom protein pseudechetoxin-like,CC - FUNCTION
+Q3SB07,Cysteine-rich venom protein pseudechetoxin-like,CC - FUNCTION
+Q5AHG6,Serine/threonine-protein kinase SCH9,CC - DISRUPTION PHENOTYPE
+Q8AVA3,Cysteine-rich venom protein pseudecin,CC - FUNCTION
+Q8AVA4,Cysteine-rich venom protein pseudechetoxin,CC - FUNCTION
+Q8BKX6,Serine/threonine-protein kinase SMG1,CC - ENZYME REGULATION
+Q8H0D2,"3,7-dimethylxanthine N-methyltransferase",DE; CC - CATALYTIC ACTIVITY; CC - FUNCTION
+Q8H0D3,Caffeine synthase 1,DE; FT; CC - CATALYTIC ACTIVITY; CC - FUNCTION
+Q8H0G0,Theobromine synthase 2,CC - FUNCTION
+Q8JGT9,Cysteine-rich venom protein tigrin,CC - FUNCTION
+Q8JI40,Cysteine-rich venom protein ablomin,CC - FUNCTION
+Q8N490,Probable hydrolase PNKD,CC - DISEASE
+Q9AVJ9,Monomethylxanthine methyltransferase 1,CC - FUNCTION
+Q9AVK0,7-methylxanthosine synthase 1,CC - FUNCTION
+Q9AVK1,Probable caffeine synthase 3,DE; FT; CC - FUNCTION
+Q9AVL9,Probable caffeine synthase 4,DE; FT; CC - FUNCTION
+Q9FZ96,Purine permease 1,CC - FUNCTION; CC - ENZYME REGULATION
+Q9FZN8,Caffeine synthase 1,DE; FT; CC - CATALYTIC ACTIVITY; CC - FUNCTION
+Q9JKK8,Serine/threonine-protein kinase ATR,CC - ENZYME REGULATION
+Q9TS33,Ryanodine receptor 3,CC - MISCELLANEOUS
+Q9UT49,Poly(A) RNA polymerase cid13,DE
+Q9UTN3,Poly(A) RNA polymerase cid14,DE
+Q9VD76,Gustatory receptor for bitter taste 93a,CC - FUNCTION; CC - DISRUPTION PHENOTYPE
+Q9VKA5,Gustatory and pheromone receptor 33a,CC - DISRUPTION PHENOTYPE
+Q9VSH2,Gustatory receptor for bitter taste 66a,CC - FUNCTION; CC - DISRUPTION PHENOTYPE
+Q55F68,"Adenylate cyclase, terminal-differentiation specific",CC - ENZYME REGULATION
+Q68CM3,Probable caffeine synthase 2,DE; FT; CC - CATALYTIC ACTIVITY; CC - FUNCTION
+Q84PP7,Monomethylxanthine methyltransferase 2,CC - FUNCTION
+Q96Q15,Serine/threonine-protein kinase SMG1,CC - ENZYME REGULATION
+Q01663,AP-1-like transcription factor,DE
+Q09146,Brefeldin A resistance protein,DE
+Q12502,Protein LDB19,CC - FUNCTION
+Q13535,Serine/threonine-protein kinase ATR,CC - ENZYME REGULATION
+Q15413,Ryanodine receptor 3,CC - MISCELLANEOUS
+Q92375,Thioredoxin reductase,DE
+Q92736,Ryanodine receptor 2,CC - MISCELLANEOUS
