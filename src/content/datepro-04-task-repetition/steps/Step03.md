@@ -10,9 +10,9 @@ To contain the following lines:
 
 <pre class="code border p-2" style="white-space: pre-wrap">
 ID=$1 # The CHEBI identifier given as input is renamed to ID
-rm -f chebi\_$ID\_*.xml # Removes any previous files
-cat chebi\_$ID\_xrefs_UniProt_relevant_identifiers.csv | \
-xargs -I &lcub;&rcub; curl -o chebi\_$ID\_&lcub;&rcub;.xml 'https://rest.uniprot.org/uniprotkb/&lcub;&rcub;.xml' 
+rm -f chebi\_$&lcub;ID&rcub;\_*.xml # Removes any previous files
+cat chebi\_$&lcub;ID&rcub;\_xrefs_UniProt_relevant_identifiers.csv | \
+xargs -I &lcub;&rcub; curl -o chebi\_$&lcub;ID&rcub;\_&lcub;&rcub;.xml 'https://rest.uniprot.org/uniprotkb/&lcub;&rcub;.xml' 
 </pre>
 
 #### Variable
@@ -36,3 +36,5 @@ To execute the script once more:
 And again, to check the results:
 
 <Execute command="head -n 1 chebi_27732_*.xml | less" />
+
+Type `q` to exit from `less`.
