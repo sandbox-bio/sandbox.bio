@@ -115,6 +115,7 @@ sequence ID:
 
 <Execute command={`xmllint --xpath '//dbReference/property[@type="protein sequence ID"]' chebi_27732_P21817_entry.xml`} />
 
+
 - `//dbReference/property[@type="protein sequence ID"]/@value` - the string assigned to each attribute value of the previous property
 elements:
 
@@ -123,7 +124,6 @@ elements:
 - `/entry/sequence/text()` - the contents inside the sequence element:
 
 <Execute command={`xmllint --xpath '/entry/sequence/text()' chebi_27732_P21817_entry.xml`} />
-
 
 Thus, an alternative way to extract the PubMed identifiers using `xmllint`
 instead of `grep`, would be something like this:
