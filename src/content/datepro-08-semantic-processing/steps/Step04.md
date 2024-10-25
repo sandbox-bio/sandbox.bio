@@ -2,103 +2,78 @@
 import Execute from "$components/Execute.svelte";
 </script>
 
-##  Ancestors
+##  Parent Classes
 
-Finding all the ancestors of a class includes many chain invocations of the `getparents.sh` until we get no matches. We also should avoid relations that
-are cyclic, otherwise we will enter in a infinite loop. Thus, for identifying the ancestors of a class, we will only consider parent relations, i.e. subsumption relations.
+Parent classes represent generalizations that may also be relevant to recognize in text. To extract all the parent classes of malignant hyperthermia, we can use the following XPath query: 
 
-#### Grandparents
+<Execute command="xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/DOID_8545']/*[local-name()='subClassOf']/@*[local-name()='resource']" doid.owl" />
 
-In the previous step we were able to extract the direct parents of a class, but the parents of these parents also represent generalizations of the original class. For example, to get the parents of the parents (grandparents) of
-malignant hyperthermia we need to invoke getparents.sh twice:
+The first part of the XPath is the same as the above to get the class element, then `[local-name()='subClassOf']` is used to get the subclass
+element, and finally `@*[local-name()='resource']` is used to get the attribute containing its URI.
 
-<Execute command="echo 'malignant hyperthermia' | ./geturi.sh doid.owl | ./getparents.sh doid.owl | ./getparents.sh doid.owl" />
+The output should be the URIs representing the parents of class `8545`.
 
-And we will find the URIs of the grandparents of malignant hyperthermia.
+We can also execute the same command for caffeine:
 
-Or to get their labels we can add the `getlabels.sh` script:
+<Execute command="xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/CHEBI_27732']/*[local-name()='subClassOf']/@*[local-name()='resource']" chebi_lite.owl" />
 
-<Execute command="echo 'malignant hyperthermia' | ./geturi.sh doid.owl | ./getparents.sh doid.owl | ./getparents.sh doid.owl | ./getlabels.sh doid.owl" />
+The output will now include the parents of caffeine.
 
-And we find the labels of the grandparents of malignant hyperthermia.
+We should note that we no longer can use the string function, because ontologies are organized as DAGs using multiple inheritance, i.e. each class can have multiple parents, and the string function only returns the first
+match. To get only the URIs, we can apply the previous technique of using the `cut` command:
 
-#### Root class
-However, there are classes that do not have any parent, which are called root classes. _disease_ and _chemical entity_ are root classes of DO and ChEBI ontologies, respectively. As we can see these are
-highly generic terms.
-To check if it is the root class, we can ask for their parents:
+<Execute command="xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/DOID_8545']/*[local-name()='subClassOf']/@*[local-name()='resource']" doid.owl | cut -d\" -f2" />
 
-<Execute command="echo 'disease' | ./geturi.sh doid.owl | ./getparents.sh doid.owl" />
+Now the output only contains the URIs.
 
-<Execute command="echo 'chemical entity' | ./geturi.sh chebi_lite.owl | ./getparents.sh chebi_lite.owl" />
+We can now create a script that receives multiple URIs given as standard input and the OWL file where to find all the parents as argument. The script named getparents.sh 
 
-In both cases, we will get the warning that no matches were found, confirming that they are the root class.
-```text
-XPath set is empty
-```
-
-#### Recursion
-We can now build a script that receives a list of URIs as standard input, and invokes `getparents.sh` recursively until it reaches the root class. The script named `getancestors.sh`
-
-<Execute command="nano getancestors.sh" />
+<Execute command="nano getparents.sh" />
 
 should contain the following lines:
 
 ```bash
 OWLFILE=$1
-CLASSES=$(cat -)
-[[ -z "$CLASSES" ]] && exit
-PARENTS=$(echo "$CLASSES" | ./getparents.sh $OWLFILE | sort -u)
-echo "$PARENTS"
-echo "$PARENTS" | ./getancestors.sh $OWLFILE
+xargs -I {} xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='{}']/*[local-name()='subClassOf']/@*[local-name()='resource']" $OWLFILE | \
+cut -d\" -f2
 ```
 
-The second line of the script saves the standard input in a variable named `CLASSES`, because we need to use it twice: i) to check if the input as any classes or is empty (line 3) and ii) to get the parents of the classes given as input (line 4). If the input is empty then the script ends, this is the base case
-of the [recursion](https://en.wikipedia.org/wiki/Recursion). This is required so the recursion stops at a given point. Otherwise, the script would run indefinitely until the user stops it manually. The fourth line of the script stores the output in a variable named `PARENTS`, because we need also to use it twice: i) to output these direct parents (line 5), and ii) to get the ancestors of these parents (line 6). We should note that we are invoking the `getancestors.sh` script inside the `getancestors.sh`, which
-defines the recursion step. Since the subsumption relation is acyclic, we expect that at some time we will reach classes without parents (root classes) and then the script will end.
-We should note that the echo of the variables `CLASSES` and `PARENTS` need to be inside commas, so the newline characters are preserved.
+and add the permission:
 
+<Execute command="chmod u+x getparents.sh" />
 
-#### Iteration
-Recursion is most of the times computational expensive, but usually it is possible to replace recursion with iteration to develop a more efficient algorithm.
-Explaining iteration and how to refactor a recursive script is out of scope of this tutorial, nevertheless the following script represents an equivalent way to get all the ancestors without using recursion:
+To get the parents of malignant hyperthermia, we will only need to give the URI as input and the OWL file as argument:
 
-```bash
-OWLFILE=$1
-CLASSES=$(cat -)
-ANCESTORS=""
-while [[ ! -z "$CLASSES" ]]
-do
-  PARENTS=$(echo "$CLASSES" | ./getparents.sh $OWLFILE | sort -u)
-  ANCESTORS="$ANCESTORS\n$PARENTS"
-  CLASSES=$PARENTS
-done
-echo -e "$ANCESTORS"
-```
+<Execute command="echo 'http://purl.obolibrary.org/obo/DOID_8545' | ./getparents.sh doid.owl" />
 
-The script uses the while command that basically implements iteration by repeating a set of commands (lines 6-8) while a given condition is satisfied (line 4).
+The output will include the URIs of the two parents.
 
-To test the recursive script, we can provide as standard input the label malignant hyperthermia:
+#### Labels of parents
 
-<Execute command="chmod u+x getancestors.sh" />
+But if we need the labels we can redirect the output to the `getlabels.sh` script:
 
-<Execute command="echo 'http://purl.obolibrary.org/obo/DOID_8545' | ./getancestors.sh doid.owl" />
+<Execute command="echo 'http://purl.obolibrary.org/obo/DOID_8545' | ./getparents.sh doid.owl | ./getlabels.sh doid.owl" />
 
-The output will be the URI of all its ancestors
+The output will now be the label of the parents of malignant hyperthermia.
 
-We should note that we will still receive the XPath warning when the script reaches the root class and no parents are found:
-```text
-XPath set is empty
-```
+Again, the same can be done with caffeine:
 
-To remove this warning and just get the labels of the ancestors of malignant hyperthermia, we can redirect the warnings to the null device:
+<Execute command="echo 'http://purl.obolibrary.org/obo/CHEBI_27732' | ./getparents.sh chebi_lite.owl | ./getlabels.sh chebi_lite.owl" />
 
-<Execute command="echo 'malignant hyperthermia' | ./geturi.sh doid.owl | ./getancestors.sh doid.owl 2>/dev/null | ./getlabels.sh doid.owl" />
+And now the output contains the labels of the parents of caffeine.
 
-The output will now include the name of all ancestors of malignant hyperthermia.
-We should note that the first two ancestors are the direct parents of malignant hyperthermia, and the last one is the root class. This happens because the recursive script prints the parents before invoking itself to find the ancestors
-of the direct parents.
-We can do the same with caffeine, but be advised that given the higher number of ancestors in ChEBI we may now have to wait a little longer for the script to end.
+#### Related classes
+If we are interested in using all the related classes besides the ones that represent a generalization (`subClassOf` ), we have to change our XPath to:
 
-<Execute command="echo 'caffeine' | ./geturi.sh chebi_lite.owl | ./getancestors.sh chebi_lite.owl | ./getlabels.sh chebi_lite.owl | sort -u" /> 
+<Execute command="xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/CHEBI_27732']/*[local-name()='subClassOf']//*[local-name()='someValuesFrom']/@*[local-name()='resource']" chebi_lite.owl | cut -d\" -f2" />
 
-The results include repeated classes that were found by using different branches, so that is why we need to add the sort command with the `-u` option to eliminate the duplicates. The script will print the ancestors being found by the script.
+We should note that these related classes are in the attribute resource of `someValuesFrom` element inside a subClassOf element. The URIs of the related classes of caffeine are now displayed.
+
+#### Labels of related classes
+
+To get the labels of these related classes, we only need to add the getlabels.sh
+script:
+
+<Execute command="xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/CHEBI_27732']/*[local-name()='subClassOf']//*[local-name()='someValuesFrom']/@*[local-name()='resource']" chebi_lite.owl | cut -d\" -f2 | ./getlabels.sh chebi_lite.owl" />
+
+The output is now terms that we could use to expand our text processing.

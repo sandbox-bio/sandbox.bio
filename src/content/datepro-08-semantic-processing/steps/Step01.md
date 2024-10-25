@@ -12,31 +12,17 @@ represented in ChEBI and DO ontologies, respectively.
 
 #### OWL files
 
-The ontologies are already preloaded in this tutorial:
+The ontologies are preloaded for this tutorial, but not in their entirety:
 
-<Execute command="ls *" />
+<Execute command="du -h *.owl " />
 
-Both files are in `gz` format, so we will need to decompress them first:
+As you can see, the preloaded files are only a few KB in size, while the original ones are several MB. Since the original files are very large OWL files containing numerous classes, we have reduced the number of classes to avoid long waiting times for command line execution. 
 
-<Execute command="gunzip -N doid.owl.gz" />
+<Alert>
+Using the reduced OWL files preloaded in this tutorial, the command lines described here may work in a similar, but not identical, manner.
+</Alert>
 
-<Execute command="gunzip -N chebi_lite.owl.gz" />
-
-<Alert>Please be patient, as decompression may take some time. In the meantime, feel free to read the following text while the task is running.</Alert>
-
-The previous commands will create the files `chebi_lite.owl` and `doid.owl`,
-respectively.
-We should note that these links are for the specific releases used in this
-book. Using another release may change the output of the examples pre-
-sented in this chapter.
-To retrieve the most recent release we should use the following links:
-- http://purl.obolibrary.org/obo/doid.owl
-- http://purl.obolibrary.org/obo/chebi/chebi_lite.owl
-
-To find other ontology links search for them on the [BioPortal](http://bioportal.bioontology.org/) or on the
-[OBO Foundry] (http://www.obofoundry.org/) webpages. Alternatively, we can also get the OWL files from the [book file archive](http://labs.rd.ciencias.ulisboa.pt/book/).
-
-We could also retrieve both OWL files by using `curl`:
+The original OWL files can be retrieved by using `curl`:
 
 ```bash 
 curl -L -O http://purl.obolibrary.org/obo/doid/releases/2021-03-29/doid.owl" 
@@ -48,6 +34,16 @@ The `-O` option saves the content to a local file named according to the name
 of the remote file, usually the last part of the URL. The equivalent long form
 to the `-O` option is `--remote-name`. The option `-L` enables the curl command to follow a [URL redirection](https://en.wikipedia.org/wiki/URL_redirection). The equivalent long form to the `-L`
 option is `--location`.
+
+The previous `curl` commands will create the files `chebi_lite.owl` and `doid.owl`, respectively.
+We should note that these links are for the specific releases used in the book, and using another release may change the output of the examples presented in it.
+To retrieve the most recent release we should use the following links:
+- http://purl.obolibrary.org/obo/doid.owl
+- http://purl.obolibrary.org/obo/chebi/chebi_lite.owl
+
+To find other ontology links search for them on the [BioPortal](http://bioportal.bioontology.org/) or on the
+[OBO Foundry] (http://www.obofoundry.org/) webpages. Alternatively, we can also get the OWL files from the [book file archive](http://labs.rd.ciencias.ulisboa.pt/book/).
+
 
 #### Class label
 
@@ -63,8 +59,6 @@ For each `grep` the output will be the line that describes the property label
 (`rdfs:label`), which is inside the definition of the class that represents the
 entity.
 
-<Alert>Once again, please be patient, as these OWL files are quite large. In the meantime, feel free to read the following text while the task is running.</Alert>
-
 #### Class definition
 To retrieve the full class definition, a more efficient approach is to use the 
 `xmllint` command, which we already used in previous tutorials to process XML:
@@ -78,8 +72,7 @@ For example, we can check that malignant hyperthermia is a subclass of
 that malignant hyperthermia is a special case of a autosomal dominant disease
 and of a muscle tissue disease.
 
-We can search for those specific relations between malignant hyperthermia
-and the entries `0050736` and `66`:
+We can search for those specific relations between malignant hyperthermia and the entries `0050736` and `66`:
 
 <Execute command="xmllint --xpath "//*[local-name()='label' and text()='malignant hyperthermia']/..//*[@*[local-name()='resource' and .='http://purl.obolibrary.org/obo/DOID_66' or .='http://purl.obolibrary.org/obo/DOID_0050736']]" doid.owl" />
 
@@ -88,7 +81,7 @@ The relation specification uses the `subClassOf` element.
 
 We can do the same to retrieve the full class definition of caffeine:
 
-<Execute command="xmllint --xpath "//*[local-name()='label' and text()=' caffeine']/.." chebi_lite.owl" />
+<Execute command="xmllint --xpath "//*[local-name()='label' and text()='caffeine']/.." chebi_lite.owl" />
 
 From the output we can see that the types of semantics available for caffeine differs from the semantics of malignant hyperthermia, but they still share
 many important properties, such as the definition of `subClassOf`.
@@ -98,7 +91,7 @@ alkaloid), and [27134](http://purl.obolibrary.org/obo/CHEBI_26385) (trimethylxan
 We can search for those specific relations between caffeine and the entries
 `26385` and `27134`:
 
-<Execute command="xmllint --xpath "//*[local-name()='label' and text()='caffeine']/..//*[@*[local-name()='resource' and .='http://purl.obolibrary.org/obo/CHEBI_26385' or .='http://purl.obolibrary.org/obo/CHEBI_27134']]" doid.owl" />
+<Execute command="xmllint --xpath "//*[local-name()='label' and text()='caffeine']/..//*[@*[local-name()='resource' and .='http://purl.obolibrary.org/obo/CHEBI_26385' or .='http://purl.obolibrary.org/obo/CHEBI_27134']]" chebi_lite.owl" />
 
 The relation specification uses the `subClassOf` element.
 

@@ -36,7 +36,9 @@ export const config = {
 		{ name: "Exercise", component: Exercise01 }
 	],
 	files: [
-		"chebi_lite.owl.gz",
-		"doid.owl.gz"
+		"chebi_lite.owl",
+		"doid.owl",
+		"MER.tgz",
+		"chebi_27732_sentences"
         	]
 };
