@@ -2,11 +2,12 @@
 import Execute from "$components/Execute.svelte";
 </script>
 
-##  Generic Lexicon
+## Generic Lexicon
 
 Instead of using a customized and limited lexicon, we may be interested in recognizing any of the diseases represented in the ontology. By recognizing all the diseases in our caffeine related text, we will be able to find all the diseases that may be related to caffeine
 
 #### All labels
+
 To extract all the labels from the disease ontology we can use the same XPath query used before, but now without restricting it to any URI:
 
 <Execute command={`xmllint --xpath "//*[local-name()='Class']/*[local-name()='hasExactSynonym' or local-name()='hasRelatedSynonym' or local-name()='label']/text()" doid.owl`} />
@@ -23,7 +24,7 @@ xmllint --xpath "//*[local-name()='Class']/*[local-name()='hasExactSynonym' or l
 sort -u
 ```
 
-We should note that this script is similar to the `getlabels.sh` script without the `xargs`, since it does not receive a list of URIs as standard input. 
+We should note that this script is similar to the `getlabels.sh` script without the `xargs`, since it does not receive a list of URIs as standard input.
 Now we can execute the script to extract all labels from the OWL file:
 
 <Execute command="chmod u+x getalllabels.sh" />
@@ -52,6 +53,7 @@ The output will show the large list of sentences mentioning diseases.
 Problematic entries
 Despite using the `-F` option, the lexicon contains some problematic entries.
 Some entries have expressions enclosed by parentheses or brackets, that represent alternatives or a category:
+
 ```text
 Post measles encephalitis (disorder)
 Glaucomatous atrophy [cupping] of optic disc
@@ -59,6 +61,7 @@ Glaucomatous atrophy [cupping] of optic disc
 
 Other entries have separation characters, such as commas or colons, to
 represent a specialization. For example:
+
 ```text
 Tapeworm infection: intestinal taenia solum
 Tapeworm infection: pork
@@ -68,25 +71,30 @@ ATR, nondeletion type
 
 A problem is that not all have the same meaning. A comma may also be
 part of the term. For example:
+
 ```text
 46,XY DSD due to LHB deficiency
 ```
 
 Other case includes using `&amp;` to represent an ampersand. For example:
+
 ```text
 Gonococcal synovitis &amp;/or tenosynovitis
 ```
 
 However, most of the times the alternatives are already included in the
 lexicon in different lines. For example:
+
 ```text
 Gonococcal synovitis and tenosynovitis
 Gonococcal synovitis or tenosynovitis
 ```
+
 As we can see by these examples, it is not trivial to devise rules that fully
 solve these issues. Very likely there will be exceptions to any rule we devise and that we are not aware of.
 
 #### Special characters frequency
+
 To check the impact of each of these issues, we can count the number of times they appear in the lexicon:
 
 <Execute command="grep -c -F '(' diseases.txt" />
@@ -131,6 +139,7 @@ If we really need these alternatives, we would have to create multiple
 entries in the lexicon or transform the labels in regular expressions.
 
 #### Removing extra terms
+
 The second fix is to remove all the text after a separation character, by using the `sed` command:
 
 <Execute command="tr -d '[]()&lcub;&rcub;' < diseases.txt | sed -E 's/[,:;] .*$//'" />
@@ -149,16 +158,18 @@ The third fix is to remove any leading or trailing spaces of a label:
 We should note that we added two more replacement expressions to the `sed` command by separating them with a semicolon.
 
 We can now update the script `getalllabels.sh`:
- 
+
 <Execute command="nano getalllabels.sh" />
 
 To include the previous `tr` and `sed` commands:
+
 ```bash
 OWLFILE=$1
 xmllint --xpath "//*[local-name()='Class']/*[local-name()='hasExactSynonym' or local-name()='hasRelatedSynonym' or local-name()='label']/text()" $OWLFILE | \
 tr -d '[](){}' | \
 sed -E 's/[,:;] .*$//; s/^ *//; s/ *$//' | sort -u
 ```
+
 And we can now generate a fixed lexicon:
 
 <Execute command="./getalllabels.sh doid.owl > diseases.txt" />

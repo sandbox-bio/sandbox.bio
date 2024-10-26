@@ -18,7 +18,7 @@ We can retrieve the publication entry by executing the following command:
 
 <Execute command="curl https://rest.uniprot.org/citations/1354642.rdf" />
 
-<Alert>The `curl` command on this platform has access restrictions but works with  `rest.uniprot.org` and `eutils.ncbi.nlm.nih.gov` links.</Alert>
+<Alert>The `curl` command on this platform has access restrictions but works with `rest.uniprot.org` and `eutils.ncbi.nlm.nih.gov` links.</Alert>
 
 Alternatively, we can use the web service provided by PubMed at NCBI ,
 by still using curl but with another link:
@@ -27,7 +27,7 @@ by still using curl but with another link:
 
 The result is in XML and we can replace the PubMed identifier `135464` by a
 comma separated list of identifiers, such has `2298749,1354642,8220422`.
-Thus, we can now update the script 
+Thus, we can now update the script
 
 <Execute command="nano getpublications.sh" />
 

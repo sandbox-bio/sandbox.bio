@@ -2,7 +2,7 @@
 import Execute from "$components/Execute.svelte";
 </script>
 
-##  Synonyms
+## Synonyms
 
 For example, to find all the synonyms of a disease, we can use the same XPath as used before but replacing the keyword label by `hasExactSynonym`:
 
@@ -47,6 +47,7 @@ However, we can update the script `geturi.sh`:
 <Execute command="nano geturi.sh" />
 
 To also include synonyms:
+
 ```bash
 OWLFILE=$1
 xargs -I {} xmllint --xpath "//*[(local-name()='hasExactSynonym' or local-name()='hasRelatedSynonym' or local-name()='label') and text()='{}']/../@*[local-name()='about']" $OWLFILE | \

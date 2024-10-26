@@ -14,19 +14,23 @@ struct a pattern that allow any kind of characters between two entities:
 
 The following sentence is one of the eight displayed sentences mentioning
 a possible relation:
+
 ```text
 257: ... MHS families were investigated with a caffeine ...
 ```
+
 However, we are missing all the sentences that have caffeine first:
 <Execute command="grep -n -w -E '(C|c)affeine.*MH[SNE]?' chebi_27732_sentences.txt" />
 
 We will be able to see that sometimes caffeine comes first:
+
 ```text
 837: ... caffeine-halothane contracture test were greater in those who had a known MH ...
 1132: ... caffeine threshold and tension values and the MH ...
 ```
 
 #### Multiple filters
+
 The most flexible approach is use two `grep` commands. The first selects the
 sentences mentioning one of the entities, and the other selects from the previously selected sentences the ones mentioning the other entity. For example,
 we can first search for the acronyms and then for caffeine:
@@ -36,6 +40,7 @@ we can first search for the acronyms and then for caffeine:
 This will show all the ten sentences mentioning caffeine and an acronym.
 
 #### Relation type
+
 If we are interested in a specific type of relationship, we may have an additional filter for a specific verb. For example, we can add a filter for sentences with the verb response or diagnosed:
 
 <Execute command="grep -n -w -E 'MH[SNE]?' chebi_27732_sentences.txt | grep -w -E '(C|c)affeine' | grep -w -E 'response|diagnosed'" />

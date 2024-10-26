@@ -38,16 +38,20 @@ We can check that: i) many lines are empty because an extra newline character wi
 as a decimal mark in a number, then some sentences are split in multiple
 lines because they have decimal number in them. For example, the original
 sentence:
+
 ```text
 These 10 mutations account for 21.9% of the North American MH-susceptible population
 ```
+
 is split in two lines:
+
 ```text
 These 10 mutations account for 21
 9% of the North American MH-susceptible population
 ```
 
 #### String Replacement
+
 This means that looking at just one character is not enough, we need some
 context. For performing this, we will use the `sed` command that we may
 consider as a more powerful version of the `tr` command. The `sed` command
@@ -66,13 +70,15 @@ case insensitive.
 For example, the original fragment of text:
 ``text
 ... link between the caffeine threshold and tension ...
-```
+
+````
 will be converted to:
 ```text
 ... link between the CHEBI:27732 threshold and tension ...
-```
+````
 
 #### Multi-character delimiters
+
 To replace the delimiter characters by a newline when followed by at least
 one space character, we can use the following command:
 
@@ -85,6 +91,7 @@ We now get 1092 lines from the original 255 lines:
 <Execute command="sed -E 's/[.!?] +/\n/g' chebi_27732.txt | wc -l" />
 
 #### Keep delimiters
+
 The previous `sed` command is removing the delimiter characters from the
 text, and this may cause other problems. A better solution is to keep the
 delimiter characters and just add the newline. The `sed` command allows us to
@@ -103,13 +110,16 @@ For example, the original fragment of text:
 ```text
 ... muscle relaxants. To date, ...
 ```
+
 will be converted to:
+
 ```text
 ... muscle relaxants.
 To date, ...
 ```
 
 However, other common issues may still persist:
+
 ```text
 ... bulk.&lt;h4&gt;Methods&lt;/h4&gt;Fetal ...
 ... sequencing.&lt;h4&gt;Results&lt;/h4&gt;Whole ...
@@ -122,7 +132,7 @@ character besides the space:
 <Execute command="sed -E 's/([.!?])([& ]+)/\1\n\2/g' chebi_27732.txt | wc -l" />
 
 We now get 1179 lines, i.e. this pattern is more flexible and was able to split
-more 87 sentences. 
+more 87 sentences.
 
 <Execute command="expr 1179 - 1092" />
 

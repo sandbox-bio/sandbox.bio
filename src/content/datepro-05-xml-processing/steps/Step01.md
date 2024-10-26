@@ -35,4 +35,4 @@ the related publications. For example, if we execute the following command:
 
 The output is a long list of publications related to protein P21817.
 
-In the next step, we will learn how to extract these identifiers from all human proteins. 
+In the next step, we will learn how to extract these identifiers from all human proteins.

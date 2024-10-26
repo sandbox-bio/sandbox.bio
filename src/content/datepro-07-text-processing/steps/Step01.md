@@ -2,7 +2,7 @@
 import Execute from "$components/Execute.svelte";
 </script>
 
-## Pattern Matching 
+## Pattern Matching
 
 We used the `grep` command in the last tutorials to find a disease in the text,
 since grep receives as argument a pattern to find an exact match in the text,
@@ -10,6 +10,7 @@ like any search functionality provided by conventional text editors. However,
 we may need to search for multiple patterns even when interested in a single
 disease. For example, when searching for mentions of malignant hyperthermia, we may also be interested in finding mentions using related expressions,
 such as:
+
 - MH : acronym
 - MHS : acronym for malignant hyperthermia susceptible
 
@@ -30,9 +31,10 @@ using a full case sensitive grep, we might think on performing a case sensitive 
 The equivalent long form to the `-i` option is `--ignore-case`. We should note that each execution of grep will produce two separate lists of matching lines that might be overlapped. Alternatively, we can also convert it to just one case sensitive grep, if we are sure that Malignant hyperthermia is the only alternative case to malignant
 hyperthermia present in the text. So, we can add it as another pattern:
 
-<Execute command="grep -e 'Malignant hyperthermia' -e 'malignant hyperthermia' -e 'MH' -e 'MHS' chebi_27732.txt" /> 
+<Execute command="grep -e 'Malignant hyperthermia' -e 'malignant hyperthermia' -e 'MH' -e 'MHS' chebi_27732.txt" />
 
 #### Number of matches
+
 To be sure that we are not losing any match, we can count the number of matching lines for both cases. First we execute a case insensitive grep and then we execute a case sensitive `grep`, both using the `-c` option:
 
 <Execute command="grep -c -i 'malignant hyperthermia' chebi_27732.txt" />
@@ -94,6 +96,7 @@ case, or just some of them. Moreover, these inconsistent mentions sometimes
 may even be found in the same publication.
 
 #### Evaluation metrics
+
 These inconsistencies made by humans when mentioning case sensitive expressions, is one of the reasons that most online search engines use case insensitive searches as default. This type of approach favors recall, while case sensitive search favor precision. Recall is the proportion of the number of correct matches found by our tool over the total number of correct mentions in the texts (found or not found).
 Case insensitive searches avoid missing mentions, so they favor recall.
 Precision is the proportion of the number of correct matches found by
@@ -105,6 +108,7 @@ vice-versa. To know how good the trade-off is, we can use the [F-measure](https:
 which is the harmonic average of the [precision and recall](https://en.wikipedia.org/wiki/Precision_and_recall).
 
 #### Word Matching
+
 Acronyms (or terms) may also appear inside common words or longer
 acronyms. For example, when searching for MH, the word _victimhood_ will
 produce a match:
@@ -131,6 +135,7 @@ Word matching improves precision but decreases recall, since we may miss
 some less common acronyms that we are not aware of, but are still relevant
 for our study. For example, consider that we may also be interested in the
 following acronyms:
+
 - MHE : acronym for malignant hyperthermia equivocal
 - MHN: acronym for malignant hyperthermia normal
 

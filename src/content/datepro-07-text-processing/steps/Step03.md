@@ -59,6 +59,7 @@ The output will show that only 15 of the 100 matches were at the end of the
 line.
 
 #### Near the end
+
 Sometimes we do not want the mention ending exactly at the last character.
 We may be more flexible and allow a following expression, or a given number
 of characters. For example, to allow 10 other characters between the end of
@@ -73,6 +74,7 @@ as families and patients, are now allowed to appear between the mention of
 Malignant Hyperthermia and the end of the line.
 
 #### Word in between
+
 To allow a word in between, independently of its length, we can add to the
 pattern an optional sequence of non-space characters (the word) preceded
 by a space:

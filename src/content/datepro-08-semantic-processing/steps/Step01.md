@@ -2,7 +2,7 @@
 import Execute from "$components/Execute.svelte";
 </script>
 
-##  Classes
+## Classes
 
 In the previous tutorials we searched for mentions of caffeine and malignant
 hyperthermia in text. However, we may miss related entities that may also
@@ -16,7 +16,7 @@ The ontologies are preloaded for this tutorial, but not in their entirety:
 
 <Execute command="du -h *.owl " />
 
-As you can see, the preloaded files are only a few KB in size, while the original ones are several MB. Since the original files are very large OWL files containing numerous classes, we have reduced the number of classes to avoid long waiting times for command line execution. 
+As you can see, the preloaded files are only a few KB in size, while the original ones are several MB. Since the original files are very large OWL files containing numerous classes, we have reduced the number of classes to avoid long waiting times for command line execution.
 
 <Alert>
 Using the reduced OWL files preloaded in this tutorial, the command lines described here may work in a similar, but not identical, manner.
@@ -24,10 +24,11 @@ Using the reduced OWL files preloaded in this tutorial, the command lines descri
 
 The original OWL files can be retrieved by using `curl`:
 
-```bash 
-curl -L -O http://purl.obolibrary.org/obo/doid/releases/2021-03-29/doid.owl" 
+```bash
+curl -L -O http://purl.obolibrary.org/obo/doid/releases/2021-03-29/doid.owl"
 curl -L -O http://purl.obolibrary.org/obo/chebi/198/chebi_lite.owl
 ```
+
 <Alert>The `curl` command here at this platform cannot download the files due to access restrictions. However, the same command will work just fine in your local terminal.</Alert>
 
 The `-O` option saves the content to a local file named according to the name
@@ -38,12 +39,12 @@ option is `--location`.
 The previous `curl` commands will create the files `chebi_lite.owl` and `doid.owl`, respectively.
 We should note that these links are for the specific releases used in the book, and using another release may change the output of the examples presented in it.
 To retrieve the most recent release we should use the following links:
+
 - http://purl.obolibrary.org/obo/doid.owl
 - http://purl.obolibrary.org/obo/chebi/chebi_lite.owl
 
 To find other ontology links search for them on the [BioPortal](http://bioportal.bioontology.org/) or on the
 [OBO Foundry] (http://www.obofoundry.org/) webpages. Alternatively, we can also get the OWL files from the [book file archive](http://labs.rd.ciencias.ulisboa.pt/book/).
-
 
 #### Class label
 
@@ -60,7 +61,8 @@ For each `grep` the output will be the line that describes the property label
 entity.
 
 #### Class definition
-To retrieve the full class definition, a more efficient approach is to use the 
+
+To retrieve the full class definition, a more efficient approach is to use the
 `xmllint` command, which we already used in previous tutorials to process XML:
 
 <Execute command={`xmllint --xpath "//*[local-name()='label' and text()='malignant hyperthermia']/.." doid.owl`} />
@@ -98,7 +100,7 @@ The relation specification uses the `subClassOf` element.
 #### Related Classes
 
 There are additional subclass relationships that do not represent subsump-
-tion (_is-a_). 
+tion (_is-a_).
 For example, the relationship between caffeine and the entry [25435](http://purl.obolibrary.org/obo/CHEBI_25435) (mutagen) is defined by the entry [0000087](http://purl.obolibrary.org/obo/RO_0000087) (has role) of the Relations Ontology.
 This means that the relationship defines that caffeine has role mutagen.
 We can search that specific relation between caffeine and mutagen (CHEBI:25435):

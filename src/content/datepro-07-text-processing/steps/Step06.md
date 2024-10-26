@@ -8,12 +8,13 @@ The script created in the previous section only accepts one pattern, however
 we may need to recognize different entities, or different mentions of the
 same entity, such as the official name, possible synonyms, and the acronyms.
 Fortunately, `grep` allows us to include a list of patterns directly from a file
-using the `-f` option. The equivalent long form to the `-f` option is `--file=FILE`. 
-For example, we can create a text file named `patterns.txt` 
+using the `-f` option. The equivalent long form to the `-f` option is `--file=FILE`.
+For example, we can create a text file named `patterns.txt`
 
 <Execute command="nano patterns.txt" />
 
 with the following three patterns:
+
 ```bash
 (M|m)alignant (H|h)yperthermia
 MH[SNE]?
@@ -26,7 +27,7 @@ Then we can execute the previous grep but using multiple patterns specified in t
 
 Analyzing the output, we can check that the same sentences may include
 different entities.
-We can now update our script named `getentities.sh` 
+We can now update our script named `getentities.sh`
 
 <Execute command="nano getentities.sh" />
 
@@ -43,7 +44,7 @@ We can execute the script giving as argument the file containing the patterns:
 <Execute command="./getentities.sh patterns.txt < chebi_27732_sentences.txt" />
 
 To save the output as a file named chebi_27732.tsv, we only need to add
-the redirection operator: 
+the redirection operator:
 
 <Execute command="./getentities.sh patterns.txt < chebi_27732_sentences.txt > chebi_27732.tsv" />
 

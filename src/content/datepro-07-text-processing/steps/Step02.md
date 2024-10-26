@@ -14,6 +14,7 @@ specifying multiple alternatives to match in a specific part of the pattern, in
 this case an S or an N as the last character.
 Regular expressions can be better understood by clearly separating three
 distinct components:
+
 - input : any string where we want to find something
 - pattern : a string that specifies what we are looking for
 - match : a fragment of the input (a substring) where the pattern can be found
@@ -41,7 +42,7 @@ a pattern without any regular expression operator, such as MH. For example,
 the following commands will produce the same results:
 
 <Execute command="echo -e 'MHS\nMHN' | grep 'MH'" />
-<Execute command="echo -e 'MHS\nMHN' | grep -E 'MH'" /> 
+<Execute command="echo -e 'MHS\nMHN' | grep -E 'MH'" />
 
 Note, that we use the `-e` option so the echo command interpret the `\n`
 characters as a newline. Thus, the echo command outputs two lines, that
@@ -49,6 +50,7 @@ are given as input to the grep command. We should note that the grep
 command filters lines.
 
 #### Alternation
+
 The first regular expression operator we will test is the alternation, which
 we introduced above. An alternation is represented by the bar character (`|`)
 that specifies a pattern where any match must include either the preceding or
@@ -115,6 +117,7 @@ in a `grep` command with a single pattern using alternation:
 And we will obtain the same 100 matching lines.
 
 #### Multiple characters
+
 A useful regular expression feature is that we can use the dot character (`.`) to
 represent any character, so if we want to find all the acronyms that start with
 MH we can execute the following command:
@@ -124,6 +127,7 @@ MH we can execute the following command:
 We should note that we use the `-o` option of the command grep so it just displays the matches and not all the line that includes the match. The equivalent long form to the `-o` option is `--only-matching`.
 
 The output will be the following three-character lines:
+
 ```text
 MH
 MH)
@@ -135,6 +139,7 @@ MHE
 MHN
 MHS
 ```
+
 The `-o` option also solves the problem of counting the total number of
 matches, and not just the number of lines with a match:
 
@@ -181,6 +186,7 @@ and the tab characters are matched by `\s`:
 <Execute command="echo -e 'space: :\ntab:\t:' | grep -E '\s'" />
 
 ###### Groups
+
 Fortunately, the regular expressions include the group operator that let us
 easily specify a set of characters. A group operator is represented by a set of
 characters enclosed within square brackets. Any of the enclosed characters
@@ -231,6 +237,7 @@ Finally, we have the correct list of all three character acronyms starting
 with MH.
 
 ###### Negation
+
 Another frequent case is the need to match any character with a few exceptions. For example, if we need to find all the matches that start with MH followed by any character except an alphabet letter. Fortunately, we can use the negation feature within a group operator. The negation feature is represented
 by the circumflex character (`^`) right next to the left bracket. The negation
 means that all the characters and ranges enclosed within the brackets are the
@@ -249,12 +256,14 @@ the negative group:
 The output should now contain one less acronym.
 
 #### Quantifiers
+
 Above we were interested in finding acronyms composed of exactly three
 characters. However, we may need to find all acronyms that start with MH
 independently of their length. This functionality is also available in regular
 expressions using the quantifiers operators.
 
 ###### Optional
+
 The simplest quantifier is the optional operator that is specified by an item
 followed by the question mark character (`?`). The item can be a character,
 an operator or a sub-pattern enclosed by parentheses. That item becomes
@@ -273,6 +282,7 @@ We can add the space character to the group:
 Now the output includes the two-character acronym MH and the MH match.
 
 ###### Multiple and optional
+
 To find all the acronyms independently of their length, we can use the asterisk
 character (`*`). The preceding item becomes optional and can be repeated
 multiple times. For example, to find all the acronyms starting with MH and

@@ -41,7 +41,7 @@ count `wc` command with and without the usage of the `-u` option:
 
 <Execute command={`grep -l '&lt;name type="scientific">Homo sapiens&lt;/name>' chebi_27732_*.xml | xargs -I &lcub;&rcub; grep 'dbReference type="PubMed"' &lcub;&rcub; | cut -d'"' -f4 | sort -u | wc`} />
 
-In case we have in our folder any auxiliary file, such as `chebi_27732_P21817_entry.xml`, we should add the option --exclude *entry.xml to the first `grep` command.
+In case we have in our folder any auxiliary file, such as `chebi_27732_P21817_entry.xml`, we should add the option `--exclude *entry.xml` to the first `grep` command.
 
 `wc` prints the numbers of lines, words, and bytes, thus in our case we are
 interested in first number.
@@ -80,4 +80,4 @@ We can verify how many unique publications were obtained by using the
 
 The output will be 133 as expected.
 
-In the next step, we will learn how to perform more complex queries in XML files. 
+In the next step, we will learn how to perform more complex queries in XML files.

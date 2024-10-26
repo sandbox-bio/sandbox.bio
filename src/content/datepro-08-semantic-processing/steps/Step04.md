@@ -2,9 +2,9 @@
 import Execute from "$components/Execute.svelte";
 </script>
 
-##  Parent Classes
+## Parent Classes
 
-Parent classes represent generalizations that may also be relevant to recognize in text. To extract all the parent classes of malignant hyperthermia, we can use the following XPath query: 
+Parent classes represent generalizations that may also be relevant to recognize in text. To extract all the parent classes of malignant hyperthermia, we can use the following XPath query:
 
 <Execute command={`xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/DOID_8545']/*[local-name()='subClassOf']/@*[local-name()='resource']" doid.owl`} />
 
@@ -26,7 +26,7 @@ match. To get only the URIs, we can apply the previous technique of using the `c
 
 Now the output only contains the URIs.
 
-We can now create a script that receives multiple URIs given as standard input and the OWL file where to find all the parents as argument. The script named getparents.sh 
+We can now create a script that receives multiple URIs given as standard input and the OWL file where to find all the parents as argument. The script named getparents.sh
 
 <Execute command="nano getparents.sh" />
 
@@ -63,6 +63,7 @@ Again, the same can be done with caffeine:
 And now the output contains the labels of the parents of caffeine.
 
 #### Related classes
+
 If we are interested in using all the related classes besides the ones that represent a generalization (`subClassOf` ), we have to change our XPath to:
 
 <Execute command={`xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/CHEBI_27732']/*[local-name()='subClassOf']//*[local-name()='someValuesFrom']/@*[local-name()='resource']" chebi_lite.owl | cut -d\" -f2`} />

@@ -18,7 +18,7 @@ query:
 
 The output should now be free of XML elements.
 
-Thus, let us create the script `gettext.sh` 
+Thus, let us create the script `gettext.sh`
 
 <Execute command="nano gettext.sh" />
 
