@@ -13,7 +13,7 @@ The output on our terminal should be a longer list of proteins.
 
 We should note that as previously, we can add `| less` to check all of
 them more carefully. The less command also gives the opportunity to find
-lines based on a pattern. We only need to type `/` and then a pattern. To exit from less type `q`.
+lines based on a pattern. We only need to type `/` and then a pattern. To exit from `less`, type `q`.
 
 <Execute command="grep -e 'CC - MISCELLANEOUS' -e 'CC - DISRUPTION PHENOTYPE' -e 'CC - DISEASE' chebi_27732_xrefs_UniProt.csv | less" />
 

@@ -32,7 +32,7 @@ together with `less`.
 
 <Execute command="head -n 1 chebi_27732_*.xml | less" />
 
-To exit from `less`type `q`.
+To exit from `less`, type `q`.
 
 The `-n` option specifies how many lines to print, in the previous command
 just one.
