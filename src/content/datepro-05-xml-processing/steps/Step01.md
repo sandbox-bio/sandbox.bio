@@ -31,8 +31,8 @@ The output will now show only the filenames. These four files represent the four
 Now we need to extract the PubMed identifiers from these files to retrieve
 the related publications. For example, if we execute the following command:
 
-<Execute command={`grep 'dbReference type="PubMed"' chebi_27732_P21817.xml`} />
+<Execute command={`grep '&lt;dbReference type="PubMed"' chebi_27732_P21817.xml`} />
 
 The output is a long list of publications related to protein P21817.
 
-In the next step, we will learn how to extract these identifiers from all human proteins. 
+In the next step, we will learn how to extract these identifiers from all human proteins.

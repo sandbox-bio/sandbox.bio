@@ -18,14 +18,14 @@ query:
 
 The output should now be free of XML elements.
 
-Thus, let us create the script `gettext.sh` 
+Thus, let us create the script `gettext.sh`
 
 <Execute command="nano gettext.sh" />
 
 To have the following commands:
 
 <pre class="code border p-2" style="white-space: pre-wrap">ID=$1 # The CHEBI identifier given as input is renamed to ID
-xmllint --xpath "//*[local-name()='title' or local-name()='comment']/text()" chebi\_$ID\_*.rdf</pre>
+xmllint --xpath "//*[local-name()='title' or local-name()='comment']/text()" chebi\_$ID\_&#42;.rdf</pre>
 
 Again do not forget to save it in our working directory, and add the right
 permissions.
@@ -35,6 +35,8 @@ permissions.
 Now to execute the script and see the retrieved text:
 
 <Execute command="./gettext.sh 27732 | less" />
+
+Type `q` to exit from `less`.
 
 We can save the resulting text in a file named `chebi_27732.txt` that we
 may share or read using our favorite text editor, by adding the redirection

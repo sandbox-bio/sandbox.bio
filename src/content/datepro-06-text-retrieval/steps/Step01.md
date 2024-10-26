@@ -1,4 +1,5 @@
 <script>
+import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -17,6 +18,8 @@ We can retrieve the publication entry by executing the following command:
 
 <Execute command="curl https://rest.uniprot.org/citations/1354642.rdf" />
 
+<Alert>The `curl` command on this platform has access restrictions but works with `rest.uniprot.org` and `eutils.ncbi.nlm.nih.gov` links.</Alert>
+
 Alternatively, we can use the web service provided by PubMed at NCBI ,
 by still using curl but with another link:
 
@@ -24,7 +27,7 @@ by still using curl but with another link:
 
 The result is in XML and we can replace the PubMed identifier `135464` by a
 comma separated list of identifiers, such has `2298749,1354642,8220422`.
-Thus, we can now update the script 
+Thus, we can now update the script
 
 <Execute command="nano getpublications.sh" />
 
@@ -32,12 +35,12 @@ To have the following commands:
 
 <pre class="code border p-2" style="white-space: pre-wrap">
 ID=$1 # The CHEBI identifier given as input is renamed to ID
-rm -f chebi\_$ID\_*.rdf # Removes any previous files
+rm -f chebi\_$&lcub;ID&rcub;\_*.rdf # Removes any previous files
 
-grep -l '&lt;name type="scientific">Homo sapiens&lt;/name>' chebi\_$ID\_*.xml | \\
-    xargs -i &lcub;&rcub; grep '&lt;dbReference type="PubMed"' &lcub;&rcub; | \\
+grep -l '&lt;name type="scientific">Homo sapiens&lt;/name>' chebi\_$&lcub;ID&rcub;\_*.xml | \\
+    xargs -I &lcub;&rcub; grep '&lt;dbReference type="PubMed"' &lcub;&rcub; | \\
     cut -d'"' -f4 | sort -u | \\
-    xargs -i &lcub;&rcub; curl -o chebi\_$ID\_&lcub;&rcub;.rdf 'https://rest.uniprot.org/citations/&lcub;&rcub;.rdf' 
+    xargs -I &lcub;&rcub; curl -o chebi\_$&lcub;ID&rcub;\_&lcub;&rcub;.rdf 'https://rest.uniprot.org/citations/&lcub;&rcub;.rdf' 
 </pre>
 
 Again, do not forget to save it in our working directory, and add the right

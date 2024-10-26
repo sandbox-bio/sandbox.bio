@@ -17,7 +17,7 @@ export const config = {
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
 	description: "Pattern matching and regular expressions to extract information from text.",
 	tags: ["Pattern matching", "Regular expressions", "Tokenization", "Entity recognition", "Relation extraction"],
-	tools: ["grep", "diff",  "sed", "echo", "sort", "tr", "wc"],
+	tools: ["grep", "diff", "sed", "echo", "sort", "tr", "wc"],
 	difficulty: ["advanced"],
 	steps: [
 		{ name: "Introduction", component: Intro },
@@ -31,7 +31,5 @@ export const config = {
 		{ name: "Conclusion", component: Conclusion },
 		{ name: "Exercise", component: Exercise01 }
 	],
-	files: [
-		"chebi_27732.txt"
-        	]
+	files: ["chebi_27732.txt"]
 };

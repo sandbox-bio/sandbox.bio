@@ -1,0 +1,1513 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://purl.obolibrary.org/obo/doid.owl#"
+     xml:base="http://purl.obolibrary.org/obo/doid.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:doid="http://purl.obolibrary.org/obo/doid#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0050177">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/DOID_4"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0004019"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SO_0000704"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_630"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A genetic disease that is the result of one or more abnormal alleles and may be dominant, semi-dominant, or recessive.</obo:IAO_0000115>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0050177</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_AGR_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_GXD_slim"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monogenic disease</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0050184">
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Measles virus infectious disease that results_in inflammation located_in brain, has_material_basis_in Measles virus, which is transmitted_by contact with oronasal secretions, or semen of an infected person. The infection has_symptom headache, has_symptom irritability, has_symptom drowsiness, has_symptom abnormal reflexes, has_symptom involuntary movements, has_symptom hemiplagia, has_symptom ataxia, has_symptom nystagmus, and has_symptom dysphasia.</obo:IAO_0000115>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:9127</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasExactSynonym xml:lang="en">Post measles encephalitis (disorder)</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Post-measles encephalitis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">postmeasles encephalitis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0050184</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">obsolete Measles virus encephalitis</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0050429">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050736"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_9182"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000147"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A pemphigus that is characterized by recurring blistering most commonly occurring in the folds of the skin and has_material_basis_in mutations in the ATP2C1 gene that result in loss of adhesion within the skin.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:6559</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:Q82.8</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D016506</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C82865</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:169600</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:79468000</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0085106</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">BENIGN CHRONIC PEMPHIGUS</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Pemphigus, Benign Familial</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0050429</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM mapping confirmed by DO. [SN].</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hailey-Hailey disease</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0050431">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0060036"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An intrinsic cardiomyopathy that is characterized by hypokinetic areas involving the free wall of the right ventricle, with fibrofatty replacement of the right ventricular myocardium, with associated arrhythmias originating in the right ventricle.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D019571</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C84571</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:PS107970</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:217656</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:247</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:281170005</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0349788</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">ARVC</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">ARVC cardiomyopathy</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">ARVD</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">arrhythmogenic right ventricular dysplasia</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">arrhythmogenic right ventricular dysplasia/cardiomyopathy</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0050431</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_rare_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Xref MGI.
+OMIM mapping confirmed by DO. [SN].</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">arrhythmogenic right ventricular cardiomyopathy</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0050434">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050736"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_2843"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000147"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/doid#has_symptom"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SYMP_0000287"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A long QT syndrome that has_material_basis_in autosomal dominant inheritance of a mutation in the KCNJ2 gene which disrupts the rhythm of the heart's lower chambers (ventricular arrhythmia) and results_in an unusually small lower jaw (micrognathia), low-set ears, and an abnormal curvature of the fingers called clinodactyly.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:9453</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D050030</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C84559</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:170390</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:37553</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:422348008</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C1563715</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">ANDERSEN CARDIODYSRHYTHMIC PERIODIC PARALYSIS</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Andersen syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">LQT7</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Long QT syndrome 7</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Potassium-Sensitive Cardiodysrhythmic Type</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0050434</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM mapping confirmed by DO. [SN].</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Andersen-Tawil syndrome</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0050700">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_114"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A heart disease and a myopathy that is characterized by deterioration of the function of the heart muscle.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lschriml</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2012-01-03T02:54:11Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:I42</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:425</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:425.9</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D009202</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C34830</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C53654</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:266301006</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:89461002</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:89600009</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0033141</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0036529</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0878544</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">Cardiomyopathies</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0050700</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_FlyBase_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_RAD_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D009202 added from NeuroDevNet [WAK].</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cardiomyopathy</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0050736">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/DOID_4"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000147"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050739"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An autosomal genetic disease that is characterized by the presence of one disease-associated mutation of a gene which is sufficient to cause the disease.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lschriml</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2012-07-24T12:51:47Z</oboInOwl:creation_date>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0050736</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">autosomal dominant disease</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0050739">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/DOID_4"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000934"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050177"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A monogenic disease that has_material_basis_in a mutation in a single gene on one of the non-sex chromosomes.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lschriml</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2012-07-24T04:45:53Z</oboInOwl:creation_date>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0050739</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_MGI_slim"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">autosomal genetic disease</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0050782">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_225"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A syndrome that is characterized by the development of a one or more tumors (gastrinoma) in the pancreas, duodenum, or both that secrete excessive levels of gastrin, a hormone that stimulates production of acid by the stomach.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lschriml</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2013-10-23T12:51:49Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:7918</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:E16.4</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D015043</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C3453</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:267477002</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0043515</oboInOwl:hasDbXref>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0050782</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zollinger-Ellison syndrome</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0050888">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_1059"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An intellectual disability that is characterized by the presence of associated medical and behavioral sign and symptoms.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lschriml</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2014-08-14T10:55:32Z</oboInOwl:creation_date>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0050888</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_FlyBase_slim"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">syndromic intellectual disability</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0060224">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_10273"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/doid#has_symptom"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SYMP_0000177"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/doid#has_symptom"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SYMP_0000530"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A heart conduction disease that is characterized by uncoordinated electrical activity in the heart's upper chambers (the atria), which causes the heartbeat to become fast and irregular and has symptoms palpitations, weakness, fatigue, lightheadedness, dizziness, confusion, shortness of breath and chest pain.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">emitraka</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2015-01-16T14:55:21Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:427.31</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D001281</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C50466</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:266306001</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0004238</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">A-fib</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0060224</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">atrial fibrillation</rdfs:label>
+        <skos:exactMatch rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D001281</skos:exactMatch>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0060249">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0080010"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001130"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002200"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/HP_0010674"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A bone structure disease characterized by an appreciable lateral deviation in the normally straight vertical line of the spine.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">emitraka</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2015-01-29T15:44:16Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:M41.9</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D012600</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C78603</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:36773001</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0036439</oboInOwl:hasDbXref>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0060249</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NT MGI add.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">scoliosis</rdfs:label>
+        <skos:exactMatch rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D012600</skos:exactMatch>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0060319">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_6000"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/doid#has_symptom"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SYMP_0000292"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A congestive heart failure characterized by a sudden stop in effective blood circulation due to the failure of the heart to contract effectively or at all.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">emitraka</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2015-02-25T15:12:30Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:I46</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:427.5</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D006323</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C50479</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C50483</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:30298009</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0018790</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0600228</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">cardiopulmonary arrest</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">circulatory arrest</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0060319</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cardiac arrest</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0060507">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0060503"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001022"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/FOODON_00002487"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A fruit allergy triggered by Ziziphus mauritiana plant fruit food product.</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">Ziziphus mauritiana fruit allergy</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0060507</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_IEDB_slim"/>
+        <rdfs:label xml:lang="en">Indian plum allergy</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0060674">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050177"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_10273"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0004019"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SO_0000704"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/doid#has_symptom"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SYMP_0000827"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A heart conduction disease characterized by adrenergically induced ventricular tachycardia manifesting as syncope and sudden death during exercise, stress or catecholamine infusion without the presence of structural cardiac abnormalities.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:I47.2</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:PS604772</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:3286</oboInOwl:hasDbXref>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0060674</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">catecholaminergic polymorphic ventricular tachycardia</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0060773">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050737"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_225"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000148"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A syndrome characterized by cleft lip, cleft palate, hypodontia, anodontia, microdontia, syndactyly, palmoplantar hyperkeratosis, onychodysplasia, and sparse hair that has_material_basis_in homozygous mutation in the NECTIN1 gene on chromosome 11q23.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:375</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:225060</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:3253</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">CLPED1</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Margarita type of ectodermal dysplasia</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Zlotogora-Zilberman-Tenenbaum syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">cleft lip/palate-syndactyly-pili torti syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">syndactyly-ectodermal dysplasia-cleft/lip palate</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0060773</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cleft lip-palate-ectodermal dysplasia syndrome</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0080000">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/DOID_4"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002385"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_17"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A musculoskeletal system disease that affects the muscles.</obo:IAO_0000115>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0080000</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">muscular disease</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0080100">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0080015"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_423"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0004019"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/HP_0001197"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/doid#has_symptom"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SYMP_0000094"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A myopathy that is characterized by the lack of muscle tone or floppiness at birth.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lschriml</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2015-11-10T17:25:05Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:255300</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Batten Turner congenital myopathy</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0080100</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">congenital myopathy</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0080102">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0080100"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0004019"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/HP_0001197"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A congenital myopathy that is characterized by skeletal muscle weakness, particularly in the muscles of the shoulders, upper arms, hips, and thighs.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lschriml</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2015-11-10T17:27:15Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:255310</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">CFTD</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0080102</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">congenital fiber-type disproportion</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0080400">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050567"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050737"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000148"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An orofacial cleft that has_material_basis_in by homozygous mutation in the PVRL1 gene on chromosome 11q23.</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">Zlotogora-Ogur syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0080400</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">orofacial cleft 7</rdfs:label>
+        <skos:exactMatch rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:C563464</skos:exactMatch>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0090091">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050737"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0090070"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000148"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A hypogonadotropic hypogonadism that has_material_basis_in homozygous or compound heterozygous mutation in the LHB gene on chromosome 19q13.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:Q56.1</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:228300</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:325448</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">46,XY DSD due to LHB deficiency</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">46,XY DSD due to luteinizing hormone subunit beta deficiency</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">46,XY disorder of sex development due to LHB deficiency</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">46,XY disorder of sex development due to luteinizing hormone subunit beta deficiency</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Leydig cell hypoplasia due to luteinizing hormone subunit beta deficiency</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Pasqualini syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">fertile eunuch syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">leydig cell hypoplasia due to LHB deficiency</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0090091</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hypogonadotropic hypogonadism 23 with or without anosmia</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0110029">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0060388"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_1099"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SO_0000159"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SO_0000340"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An alpha thalassemia that has_material_basis_in a deletion in chromosome 16p that involves the alpha-1 (HBA1) and alpha-2 (HBA2) genes, among others.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:D56.0</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:141750</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:98791</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">ATR syndrome linked to chromosome 16</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">ATR syndrome, deletion type</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">ATR-16 syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">alpha thalassemia-intellectual disability syndrome, deletion type</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">alpha thalassemia-retardation syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">alpha-thalassemia-intellectual disability syndrome linked to chromosome 16</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">alpha-thalassemia/mental retardation syndrome, deletion-type</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">alpha-thalassemia/mental retardation syndrome, type 1</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0110029</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alpha thalassemia-intellectual disability syndrome type 1</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0110030">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0080009"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_1099"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000146"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An alpha thalassemia that has_material_basis_in mutation in the ATRX gene on Xq21.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:D56.0</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:301040</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:847</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">ATR, nondeletion type</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">ATR-X syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">alpha-thalassemia/mental retardation syndrome nondeletion type</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0110030</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alpha thalassemia-X-linked intellectual disability syndrome</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0110034">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0080009"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_10983"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000146"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An Alport syndrome that has_material_basis_in mutation in the gene encoding the alpha-5 chain of basement membrane collagen type IV (COL4A5).</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:301050</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:88917</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">nephropathy and deafness, X-linked</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0110034</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">X-linked Alport syndrome</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0110035">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050736"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_10652"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000147"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An Alzheimer's disease that is characterized by an association of the apolipoprotein E E4 allele.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:G30</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:104310</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">AD2</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Alzheimer disease 2, late onset</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Alzheimer disease associated with APOE4</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Alzheimer disease-2</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0110035</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alzheimer's disease 2</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0110071">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050431"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050736"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000147"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An arrhythmogenic right ventricular dysplasia that has_material_basis_in heterozygous mutation in the cardiac ryanodine receptor-2 gene (RYR2) on chromosome 1q43.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:I42.8</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:600996</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">ARVC2</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">ARVD2</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">arrhythmogenic right ventricular cardiomyopathy 2</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">familial arrhythmogenic right ventricular dysplasia 2</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0110071</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">arrhythmogenic right ventricular dysplasia 2</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0110644">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050736"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_2843"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000147"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A long QT syndrome that has_material_basis_in dominant inheritance of mutation in the KCNQ1 gene on chromosome 11p15.5-p15.4.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:3284</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:I45.8</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:192500</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">LQT1</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">ventricular fibrillation with prolonged QT interval</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0110644</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">long QT syndrome 1</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0110645">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050736"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_2843"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000147"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A long QT syndrome that has_material_basis_in dominant inheritance of mutation in the KCNH2 gene on chromosome 7q36.1.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:3285</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:I45.8</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:613688</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">LQT2</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0110645</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">long QT syndrome 2</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0110646">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050736"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_2843"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000147"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A long QT syndrome that has_material_basis_in dominant inheritance of mutation in the SCN5A gene on chromosome 3p22.2.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:3286</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:I45.8</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:603830</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">LQT3</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0110646</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">long QT syndrome 3</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0110647">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050736"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_2843"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000147"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A long QT syndrome that has_material_basis_in dominant inheritance of mutation in the KCNE1 gene on chromosome 21q22.12.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:10433</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:I45.8</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:613695</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">LQT5</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0110647</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">long QT syndrome 5</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0110648">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050736"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_2843"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000147"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A long QT interval syndrome that has_material_basis_in dominant inheritance of mutation in the KCNE2 gene on chromosome 21q22.11.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:10434</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:I45.8</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:613693</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">LQT6</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0110648</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">long QT syndrome 6</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0110921">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050120"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050737"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000148"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A hemophagocytic lymphohistiocytosis that has_material_basis_in an autosomal recessive mutation of HPLH1 on chromosome 9q21.3-q22.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:267700</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">FHL1</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">HLH1</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">HPLH1</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0110921</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">familial hemophagocytic lymphohistiocytosis 1</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0111161">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050736"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0080001"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_225"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/DOID_4"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0004766"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000147"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A syndrome characterized by Crouzon-like features, premature synostosis of cranial sutures, and acanthosis nigricans that has_material_basis_in heterozygous missense mutation in the FGFR3 gene on chromosome 4p16.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:612247</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:93262</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">CAN</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Crouzon-dermoskeletal syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Crouzonodermoskeletal syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0111161</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Crouzon syndrome-acanthosis nigricans syndrome</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0111456">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050737"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050888"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000148"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A syndromic intellectual disability characterized by developmental delay, growth retardation with a small head circumference, facial dysmorphisms, and low cholesterol levels that has_material_basis_in homozygous or compund heterozygous mutation in UBE3B on chromosome 12q24.11.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:3084</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:C537013</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:244450</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:2707</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:722056009</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C1855663</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">KOS</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">blepharophimosis ptosis intellectual disability syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">oculocerebrofacial syndrome, Kaufman type</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0111456</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kaufman oculocerebrofacial syndrome</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0111712">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_225"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A syndrome characterized by polyhydramnios, fetal macrosomia, abdominal wall defects, skeletal abnormalities, feeding difficulties and impaired swallowing, dysmorphic features, developmental delay and intellectual disability that has_material_basis_in heterozygous mutation in an imprinting region on chromosome 14q32.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:608149</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:254519</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">KOS</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0111712</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kagami-Ogata syndrome</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0111820">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_11193"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A syndactyly characterized by webbing between the second and third toes in the absence of hand involvement.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:609815</oboInOwl:hasDbXref>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0111820</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">zygodactyly 1</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_0112152">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050737"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_225"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000148"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A syndrome characterized by colobomas, congenital heart defects, migratory ichthyosiform dermatosis, intellectual disability, and ear anomalies that has_material_basis_in homozygous or compound heterozygous mutation in PIGL on chromosome 17p11.2.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:310</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:C536729</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:280000</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:3474</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:720639008</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C1848392</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PIGL-CDG</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zunich neuroectodermal syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zunich-Kaye syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">coloboma-congenital heart disease-ichthyosiform dermatosis-intellectual disability-ear anomalies syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">congenital disorder of glycosylation due to PIGL deficiency</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neuroectodermal dysplasia, CHIME type</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neuroectodermal syndrome, Zunich type</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0112152</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CHIME syndrome</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_10079">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050596"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0080000"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_114"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_331"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_37"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_5614"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000014"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000948"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000970"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001017"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002385"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A taeniasis that results from ingestion of eggs or larvae of the Taenia solium tapeworm in undercooked pork or fecally contaminated food or water, which subsequently infect the central nervous system, heart, muscles, subcutaneous tissues, and eyes. Neurocysticercosis causes seizures, mental disturbances, focal neurologic deficits and intracerebral lesions.</obo:IAO_0000115>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:10078</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:14424</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:8194</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:B69</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:123.1</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D003551</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C34520</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:59051007</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0010678</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">Pork tapeworm infection</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Tapeworm infection: intestinal taenia solum</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Tapeworm infection: pork</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">intestinal taenia solium infection</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">neurocysticercosis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">tenia solium infectious disease</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:10079</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cysticercosis</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_10337">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_5723"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An optic atrophy that is characterized by optic nerve damage with increased optic cup to disc ratio secondary to glaucoma, which is an eye disease related to abnormal aqueous fluid outflow that inappropriately raises intraocular pressure and results in optic nerve atrophy with progressive visual field loss. Glaucomatous atrophy of optic disc can be caused by any form of glaucoma.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:H47.23</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:377.14</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:1207009</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0271342</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">Glaucomatous atrophy [cupping] of optic disc</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:10337</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">glaucomatous atrophy of optic disc</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_1059">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0060038"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002200"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/HP_0012759"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A specific developmental disorder that involves significant limitations both in mental functioning and in adaptive behavior such as communicating, taking care of him or herself, and social skills.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C84392</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:1855002</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0025362</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">MENTAL RETARDATION, AUTOSOMAL RECESSIVE 15</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:hasRelatedSynonym xml:lang="en">mental retardation</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:1059</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_FlyBase_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM mapping submitted by NeuroDevNet. [LS].</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">intellectual disability</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_11722">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_450"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/doid#has_symptom"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SYMP_0000094"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A myotonic disease that is characterized by progressive muscle wasting and weakness affecting the distal skeletal and smooth muscles of lower legs, hands, neck, and face along with myotonia and cataracts and has_material_basis_in the autosomal dominant inheritance of the DMPK gene containing an expansion of a CTG trinucleotide repeat in the non-coding region.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:8310</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:G71.11</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:359.21</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D009223</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C84914</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:160900</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:77956009</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0027126</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">Dystrophia myotonica</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Steinert disease</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">congenital myotonic dystrophy</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">myotonic dystrophy of Steinert</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:11722</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_FlyBase_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM mapping confirmed by DO. [SN].</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">myotonic dystrophy type 1</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_12704">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050950"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An autosomal recessive cerebellar ataxia that is characterized by cerebellar ataxia, telangiectases, immune defects, and a predisposition to malignancy and that has_material_basis_in homozygous or compound heterozygous mutation in the ATM gene on chromosome 11q22.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:5862</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D001260</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C2887</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:208900</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:68504005</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0004135</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">Boder-Sedgwick syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Louis Bar syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:12704</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_FlyBase_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM mapping confirmed by DO. [SN].</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ataxia telangiectasia</rdfs:label>
+        <skos:exactMatch rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D001260</skos:exactMatch>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_12859">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_480"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A movement disease characterized by brief, semi-directed, irregular movements that not repetitive or rhythmic, but appear to flow from one muscle to the next.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:G25.5</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:118700</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:215450</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:1429</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">chorea</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">hereditary chorea</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:12859</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_rare_slim"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Xref MGI.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">choreatic disease</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_13454">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_2703"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002451"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/TRANS_0000007"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:098.51</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:186927008</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0343714</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">Gonococcal synovitis &amp;/or tenosynovitis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Gonococcal synovitis and tenosynovitis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Gonococcal synovitis or tenosynovitis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:13454</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#gram-negative_bacterial_infectious_disease"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#sexually_transmitted_infectious_disease"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gonococcal synovitis</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_14452">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_1029"/>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:5557</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:6729</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:G72.3</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D020514</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C84775</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:170400</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:613345</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:681</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:240093008</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0238358</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">Hypokalemic familial periodic paralysis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Hypokalemic periodic paralysis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Periodic paralysis I</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Westphal disease</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">familial hypokalemic periodic paralysis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">familial periodic paralysis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">periodic hypokalemic paralysis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:14452</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM mapping confirmed by DO. [SN].</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hypokalemic periodic paralysis</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_162">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_14566"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A disease of cellular proliferation that is malignant and primary, characterized by uncontrolled cellular proliferation, local cell invasion and metastasis.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:C80.1</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:199</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICDO:M8000/3</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D009369</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C9305</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:269513004</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0006826</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">malignant neoplasm</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">malignant tumor</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">primary cancer</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:162</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_AGR_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_FlyBase_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_GXD_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_RAD_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_cancer_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Updating out dated UMLS CUI.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cancer</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_17">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/DOID_4"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0001025"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002204"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_7"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A disease of anatomical entity that occurs in the muscular and/or skeletal system.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D009140</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C107377</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:268047003</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0026857</oboInOwl:hasDbXref>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:17</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_AGR_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_GXD_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_MGI_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">musculoskeletal system disease</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_1826">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_936"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A brain disease that is characterized by the occurrance of at least two unprovoked seizures resulting from a persistent epileptogenic abnormality of the brain that is able to spontaneously generate paroxysmal activity and typically manifested by sudden brief episodes of altered or diminished consciousness, involuntary movements, or convulsions.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EFO:0000474</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:G40.909</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:345.9</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D004827</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C3020</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:267698007</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0014544</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">epilepsy syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">epileptic syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:1826</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_FlyBase_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">epilepsy</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_1883">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_934"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_11103"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/doid#has_symptom"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SYMP_0000125"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/doid#has_symptom"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SYMP_0000458"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/doid#has_symptom"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SYMP_0019145"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A viral infectious disease that results_in inflammation located_in liver, has_material_basis_in Hepatitis C virus, which is transmitted_by blood from an infected person enters the body of an uninfected person. The infection has_symptom fever, has_symptom fatigue, has_symptom loss of appetite, has_symptom nausea, has_symptom vomiting, has_symptom abdominal pain, has_symptom clay-colored bowel movements, has_symptom joint pain, and has_symptom jaundice.</obo:IAO_0000115>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:12430</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:12432</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:2049</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EFO:0003047</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:B19.20</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:070.7</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D006526</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C3098</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:154349000</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0019196</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">NANBH</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Viral hepatitis C</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">chronic hepatitis C</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">hepatitis C infection</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">hepatitis nonA nonB</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:1883</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hepatitis C</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_1921">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0060429"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chromosomal duplication syndrome that is characterized by infertility and that has_material_basis_in an extra X chromosome in cells in men.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:8705</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:Q98.0</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:758.7</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D007713</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C34752</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:405770005</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0022735</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">47, XXY</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Hypogonadotropic Hypogonadism</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Klinefelter's syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">XXY syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">XXY trisomy</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:1921</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">No OMIM mapping, confirmed by DO. [LS].</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Klinefelter syndrome</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_225">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/DOID_4"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0004019"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SYMP_0000462"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_4"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A disease characterized by a group of signs and symptoms that occur together and characterize a particular abnormality.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D013577</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C28193</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:64572001</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0039082</oboInOwl:hasDbXref>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:225</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_AGR_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_GXD_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_MGI_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">syndrome</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_2487">
+        <oboInOwl:hasExactSynonym xml:lang="en">hypercholesteremia</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:hasRelatedSynonym xml:lang="en">hypercholesterolaemia</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:2487</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">obsolete hypercholesterolemia</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_2843">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0060036"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/doid#has_symptom"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SYMP_0000287"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An autosomal genetic disease that is characterized by delayed repolarization of the heart following a heartbeat increases the risk of episodes of torsade de pointes (TDP, a form of irregular heartbeat that originates from the ventricles).</obo:IAO_0000115>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:4069</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:6922</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:I45.81</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:426.82</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D008133</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C34786</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:PS192500</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:101016</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:768</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:20852007</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:9651007</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0023976</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0035828</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">LQT</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Romano-Ward syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">long Q-T syndrome</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:2843</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_FlyBase_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM mapping confirmed by DO. [SN].</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">long QT syndrome</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_2985">
+        <oboInOwl:hasExactSynonym xml:lang="en">CAN</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">chronic rejection of renal transplant (disorder)</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:2985</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">obsolete chronic rejection of renal transplant</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_306">
+        <oboInOwl:hasExactSynonym xml:lang="en">Dyskinesia</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:306</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">obsolete dyskinetic syndrome</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_3191">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_422"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/doid#has_symptom"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SYMP_0000094"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A congenital structural myopathy characterized by generally non-progressive muscle weakness of varying severity; certain muscle fibers show the presence of rod-like structures called nemaline bodies.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:12033</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:G71.21</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D017696</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:PS161800</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:607</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:75072002</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0206157</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">Nemaline body disease</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">nemaline rod myopathy</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">rod myopathy</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:3191</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_FlyBase_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_rare_slim"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Xref MGI.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nemaline myopathy</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_3529">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_422"/>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:G71.29</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D020512</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C83010</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:117000</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:43152001</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0751951</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">central core disease</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:3529</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM mapping confirmed by DO. [SN].</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">central core myopathy</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_4">
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A disease is a disposition (i) to undergo pathological processes that (ii) exists in an organism because of one or more disorders in that organism.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D004194</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C2991</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:64572001</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0012634</oboInOwl:hasDbXref>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:4</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_RAD_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_423">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_66"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/doid#has_symptom"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SYMP_0000094"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A muscular disease in which the muscle fibers do not function resulting in muscular weakness.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:G72.9</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:359.9</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D009135</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C101216</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:155094005</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0026848</oboInOwl:hasDbXref>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:423</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_FlyBase_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">myopathy</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_539">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_1279"/>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:10868</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:378.56</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D009886</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C79697</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:16110005</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:78097002</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0029089</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0155338</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">Total ophthalmoplegia</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">oculomotor paralysis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:539</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ophthalmoplegia</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_543">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_480"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A movement disease that is characterized by involuntary muscle contractions causing repetitive or twisting movements.</obo:IAO_0000115>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:544</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:G24</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D004421</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D020821</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C34563</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:PS128100</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:15802004</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:250068003</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0013421</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0393593</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">dystonic disease</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:543</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_FlyBase_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dystonia</rdfs:label>
+        <skos:exactMatch rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D004421</skos:exactMatch>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_600">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_599"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A specific phobia that involves a fear caused by the presence or thought of a specific animal that poses little or no danger at all.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C35273</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:54307006</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0233711</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">Fear of animals</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Zoophobia</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:600</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">animal phobia</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_630">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/DOID_4"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0004019"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SO_0001537"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_4"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A disease that has_material_basis_in genetic variations in the human genome.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D030342</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C3101</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:32895009</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0019247</oboInOwl:hasDbXref>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:630</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_RAD_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">genetic disease</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_6364">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_936"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/doid#has_symptom"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SYMP_0000458"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A brain disease that is characterized by moderate to severe headaches, nausea, extreme sensitivity to light and sound and intense unilaterial throbbing or pulsing.</obo:IAO_0000115>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:12437</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EFO:0003821</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:G43</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:346</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D008881</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C89715</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:157300</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:155046006</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:193036004</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0042331</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0149931</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">migraine disorder</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">migraine variant</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">migraine with or without aura</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:6364</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Xref MGI.
+OMIM mapping confirmed by DO. [SN].</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">migraine</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_66">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0080000"/>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:66</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">muscle tissue disease</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_7">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_4"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A disease that manifests in a defined anatomical structure.</obo:IAO_0000115>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:1</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:2</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:5</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:71</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:72</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:8</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:7</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_RAD_slim"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease of anatomical entity</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_8485">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_2473"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An opportunistic mycosis that results_in fungal infection located_in sinuses, located_in brain, or located_in lungs of immunocompromised people, has_material_basis_in Mucorales molds.</obo:IAO_0000115>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0050087</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0050595</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:8486</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasExactSynonym xml:lang="en">disseminated mucormycosis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">zygomycosis</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:8485</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mucormycosis</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_8545">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0050736"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_66"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IDO_0000664"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/GENO_0000147"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A muscle tissue disease that is characterized by a drastic and uncontrolled increase in skeletal muscle oxidative metabolism, which overwhelms the body's capacity to supply oxygen, remove carbon dioxide, and regulate body temperature.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:6964</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:T88.3</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:995.86</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D008305</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C84869</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:PS145600</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:423</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:111738008</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0024591</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">anesthesia related hyperthermia</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">malignant hyperpyrexia due to anesthesia</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:8545</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_rare_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Xref MGI.
+OMIM mapping confirmed by DO. [SN].</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">malignant hyperthermia</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_8567">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0060058"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A lymphoma that is marked by the presence of a type of cell called the Reed-Sternberg cell.</obo:IAO_0000115>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0060059</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:8652</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:8671</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:8685</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:8710</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:8715</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:8841</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:8953</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:9096</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:9107</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EFO:0000183</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:2714</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:C81</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:201</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D006689</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C9357</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:236000</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:300221</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:400021</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:98293</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:118599009</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0019829</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">HL</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Hodgkin disease</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Hodgkin lymphoma</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Hodgkin's sarcoma</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Hodgkins lymphoma</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">stage I Subdiaphragmatic Hodgkin Lymphoma</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">stage II Subdiaphragmatic Hodgkin Lymphoma</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:8567</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_cancer_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#DO_rare_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/doid#NCIthesaurus"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Xref MGI.
+OMIM mapping confirmed by DO. [SN].</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hodgkin's lymphoma</rdfs:label>
+        <skos:exactMatch rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D006689</skos:exactMatch>
+        <skos:exactMatch rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCI:C9357</skos:exactMatch>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_9336">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_0060044"/>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM:302.1</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:154907002</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0152186</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">Zoophilia</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:9336</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bestiality</rdfs:label>
+    </owl:Class>
+<owl:Class rdf:about="http://purl.obolibrary.org/obo/DOID_9883">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_9884"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/doid#has_symptom"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/SYMP_0000094"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A muscular dystrophy that involves slowly worsening muscle weakness of the legs and pelvis, and has_material_basis in X-linked recessive inheritance of mutation in the dystrophin gene on chromosome Xp21.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GARD:5900</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM:300376</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ORDO:98895</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SNOMEDCT_US_2020_09_01:111501005</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0699741</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym xml:lang="en">Benign pseudohypertrophic muscular dystrophy</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">benign congenital myopathy</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:9883</oboInOwl:id>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OMIM mapping confirmed by DO. [SN].</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Becker muscular dystrophy</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi -->
+

@@ -23,7 +23,5 @@ export const config = {
 		{ name: "Conclusion", component: Conclusion },
 		{ name: "Exercise", component: Exercise01 }
 	],
-	files: [
-		"chebi_27732_xrefs_UniProt_relevant_identifiers.csv"
-			]
+	files: ["chebi_27732_xrefs_UniProt_relevant_identifiers.csv"]
 };

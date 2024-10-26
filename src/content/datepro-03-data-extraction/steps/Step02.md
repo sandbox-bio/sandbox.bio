@@ -13,7 +13,7 @@ The output on our terminal should be a longer list of proteins.
 
 We should note that as previously, we can add `| less` to check all of
 them more carefully. The less command also gives the opportunity to find
-lines based on a pattern. We only need to type `/` and then a pattern.
+lines based on a pattern. We only need to type `/` and then a pattern. To exit from `less`, type `q`.
 
 <Execute command="grep -e 'CC - MISCELLANEOUS' -e 'CC - DISRUPTION PHENOTYPE' -e 'CC - DISEASE' chebi_27732_xrefs_UniProt.csv | less" />
 
@@ -38,8 +38,6 @@ Add the right permissions with `chmod` as we did previously:
 <Execute command="chmod u+x getproteins.sh" />
 
 We can now execute the script again:
-
-<Execute command="chmod u+x getproteins.sh" />
 
 <Execute command="./getproteins.sh 27732" />
 
