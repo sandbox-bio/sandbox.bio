@@ -6,13 +6,13 @@ import Execute from "$components/Execute.svelte";
 
 For example, to find all the synonyms of a disease, we can use the same XPath as used before but replacing the keyword label by `hasExactSynonym`:
 
-<Execute command="xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/DOID_8545']/*[local-name()='hasExactSynonym']" doid.owl" />
+<Execute command={`xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/DOID_8545']/*[local-name()='hasExactSynonym']" doid.owl`} />
 
 The output will be the two synonyms of malignant hyperthermia
 
 We can also get both the primary label and the synonyms. We only need to add an alternative match to the keyword label:
 
-<Execute command="xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/DOID_8545']/*[local-name()='hasExactSynonym' or local-name()='label']" doid.owl" />
+<Execute command={`xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/DOID_8545']/*[local-name()='hasExactSynonym' or local-name()='label']" doid.owl`} />
 
 The output will include now the two synonyms plus the official label
 

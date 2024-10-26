@@ -30,7 +30,7 @@ using a full case sensitive grep, we might think on performing a case sensitive 
 The equivalent long form to the `-i` option is `--ignore-case`. We should note that each execution of grep will produce two separate lists of matching lines that might be overlapped. Alternatively, we can also convert it to just one case sensitive grep, if we are sure that Malignant hyperthermia is the only alternative case to malignant
 hyperthermia present in the text. So, we can add it as another pattern:
 
-<Execute command="grep -e 'Malignant hyperthermia' -e 'malignant hyperthermia' -e 'MH' -e 'MHS' chebi_27732.txt"> 
+<Execute command="grep -e 'Malignant hyperthermia' -e 'malignant hyperthermia' -e 'MH' -e 'MHS' chebi_27732.txt" /> 
 
 #### Number of matches
 To be sure that we are not losing any match, we can count the number of matching lines for both cases. First we execute a case insensitive grep and then we execute a case sensitive `grep`, both using the `-c` option:
@@ -109,14 +109,14 @@ Acronyms (or terms) may also appear inside common words or longer
 acronyms. For example, when searching for MH, the word _victimhood_ will
 produce a match:
 
-<Execute command="$echo "victimhood" | grep -i 'MH'" />
+<Execute command={`$echo "victimhood" | grep -i 'MH'`} />
 
 The problem with _victimhood_ could be easily solved by using case sensitive
 matching, but not for a longer acronym. For example, the acronym NEDMHM
 for neurodevelopmental disorder with midbrain and hindbrain malformations
 will produce a case sensitive match:
 
-<Execute command="echo "NEDMHM" | grep 'MH'" />
+<Execute command={`echo "NEDMHM" | grep 'MH'`} />
 
 One way to address this problem is to use the -w option of grep to only
 match entire words, i.e. the match must be preceded and followed by char-
@@ -124,8 +124,8 @@ acters that are not letters, digits, or an underscore (or be at the beginning or
 
 Using this option, neither victimhood or NEDMHM will produce a match:
 
-<Execute command="echo "victimhood" | grep -w -i 'MH'" />
-<Execute command="echo "NEDMHM" | grep -w -i 'MH'" />
+<Execute command={`echo "victimhood" | grep -w -i 'MH'`} />
+<Execute command={`echo "NEDMHM" | grep -w -i 'MH'`} />
 
 Word matching improves precision but decreases recall, since we may miss
 some less common acronyms that we are not aware of, but are still relevant
@@ -137,7 +137,7 @@ following acronyms:
 If we apply word matching, we will not get a match, since both exact
 matches are followed by a letter:
 
-<Execute command="echo "MHE and MHN" | grep -w -i 'MH'" />
+<Execute command={`echo "MHE and MHN" | grep -w -i 'MH'`} />
 
 These are not trivial problems to solve by exact pattern matching, we may
 need regular expressions to address some of these issues more efficiently.

@@ -9,7 +9,7 @@ Instead of using a customized and limited lexicon, we may be interested in recog
 #### All labels
 To extract all the labels from the disease ontology we can use the same XPath query used before, but now without restricting it to any URI:
 
-<Execute command="xmllint --xpath "//*[local-name()='Class']/*[local-name()='hasExactSynonym' or local-name()='hasRelatedSynonym' or local-name()='label']/text()" doid.owl" />
+<Execute command={`xmllint --xpath "//*[local-name()='Class']/*[local-name()='hasExactSynonym' or local-name()='hasRelatedSynonym' or local-name()='label']/text()" doid.owl`} />
 
 We can create a script named `getalllabels.sh`:
 
@@ -121,11 +121,11 @@ try to solve them completely, but at least address the most obvious cases.
 
 The first fix we will do, is to remove all the parentheses and brackets by using the tr command, since they will not be found in the text:
 
-<Execute command="tr -d '[](){}' < diseases.txt" />
+<Execute command="tr -d '[]()&lcub;&rcub;' < diseases.txt" />
 
 Of course, we may lose the shorter labels, such as _Post measles encephalitis_, but at least now, the disease _Post measles encephalitis disorder_ will be recognized:
 
-<Execute command="tr -d '[](){}' < diseases.txt | grep 'Post measles encephalitis disorder'" />
+<Execute command="tr -d '[]()&lcub;&rcub;' < diseases.txt | grep 'Post measles encephalitis disorder'" />
 
 If we really need these alternatives, we would have to create multiple
 entries in the lexicon or transform the labels in regular expressions.
@@ -133,18 +133,18 @@ entries in the lexicon or transform the labels in regular expressions.
 #### Removing extra terms
 The second fix is to remove all the text after a separation character, by using the `sed` command:
 
-<Execute command="tr -d '[](){}' < diseases.txt | sed -E 's/[,:;] .*$//'" />
+<Execute command="tr -d '[]()&lcub;&rcub;' < diseases.txt | sed -E 's/[,:;] .*$//'" />
 
 We should note that the regular expression enforces a space after the separation character to avoid separation characters that are not really separating two expressions, such as: _46,XY DSD due to LHB deficiency_
 We can see that now we are able to recognize both ATR and _ATR syndrome_:
 
-<Execute command="tr -d '[](){}' < diseases.txt | sed -E 's/[,:;] .*$//' | grep -E '^ATR'" />
+<Execute command="tr -d '[]()&lcub;&rcub;' < diseases.txt | sed -E 's/[,:;] .*$//' | grep -E '^ATR'" />
 
 #### Removing extra spaces
 
 The third fix is to remove any leading or trailing spaces of a label:
 
-<Execute command="tr -d '[](){}' < diseases.txt | sed -E 's/[,:;] .*$//; s/^ *//; s/ *$//'" />
+<Execute command="tr -d '[]()&lcub;&rcub;' < diseases.txt | sed -E 's/[,:;] .*$//; s/^ *//; s/ *$//'" />
 
 We should note that we added two more replacement expressions to the `sed` command by separating them with a semicolon.
 

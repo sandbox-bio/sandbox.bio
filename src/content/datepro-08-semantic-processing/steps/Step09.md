@@ -41,7 +41,7 @@ These patterns are created according to the number of words of each term.
 #### MER execution
 Now we are ready to execute MER, by providing each sentence from the file `chebi_27732_sentences.txt` as argument to its `get_entities.sh` script.
 
-<Execute command="cat ../chebi_27732_sentences.txt | tr -d "'" | xargs -I {} ./get_entities.sh '{}' doid" />
+<Execute command={`cat ../chebi_27732_sentences.txt | tr -d "'" | xargs -I &lcub;&rcub; ./get_entities.sh '&lcub;&rcub;' doid`} />
 
 We removed single quotes from the text, since they are special characters to the command line `xargs`. We should note that this is the get_entities.sh script inside the MER folder, not the one we created before. Now we will be able to obtain a large number of matches.
 
@@ -49,7 +49,7 @@ The first two numbers represent the start and end position of the match in the s
 
 We can also redirect the output to a TSV file named `diseases_recognized.tsv`:
 
-<Execute command="cat ../chebi_27732_sentences.txt | tr -d "'" | xargs -I {} ./get_entities.sh '{}' doid > ../diseases_recognized.tsv" />
+<Execute command="cat ../chebi_27732_sentences.txt | tr -d "'" | xargs -I &lcub;&rcub; ./get_entities.sh '&lcub;&rcub;' doid > ../diseases_recognized.tsv" />
 
 We can now open the file in our spreadsheet application, such as LibreOffice Calc or Microsoft Excel.
 

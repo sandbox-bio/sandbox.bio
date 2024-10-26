@@ -89,6 +89,7 @@ get another match:
 <Execute command="echo -e 'MHS\nN' | grep -w -E 'MHS|N'" />
 
 We can also move the opening parenthesis one character to the left:
+
 <Execute command="echo -e 'MHS\nMHN' | grep -E 'M(HS|N)'" />
 
 Only MHS is now displayed, since the alternative now represents MN without
@@ -105,8 +106,7 @@ acronyms MHS, MHE or MHN:
 We can now transform our previous grep command with multiple case
 sensitive patterns:
 
-<Execute command="grep -c -e 'Malignant hyperthermia' -e 'Malignant
-Hyperthermia' -e 'malignant hyperthermia' chebi_27732.txt">
+<Execute command="grep -c -e 'Malignant hyperthermia' -e 'Malignant Hyperthermia' -e 'malignant hyperthermia' chebi_27732.txt" />
 
 in a `grep` command with a single pattern using alternation:
 
@@ -210,8 +210,7 @@ lowercase letter will not be matched:
 
 The output will be only one line.
 
-If we intend to keep the usage of a case sensitive grep and at the same
-time find lowercase matches, then we need to add the a-z range:
+If we intend to keep the usage of a case sensitive grep and at the same time find lowercase matches, then we need to add the a-z range:
 
 <Execute command="echo -e 'MHS\nMHs' | grep -E 'MH[A-Za-z]'" />
 
@@ -316,17 +315,17 @@ Using curly brackets, the question mark character (`?`) can be replaced by
 <Execute command="grep -o -w -E 'MH[A-Z0-9]?' chebi_27732.txt | sort -u" />
 <Execute command="grep -o -w -E 'MH[A-Z0-9]{0,1}' chebi_27732.txt | sort -u" />
 
-The asterisk character (`*`) can be replaced by `{0,}`. Thus, the following
+The asterisk character (`*`) can be replaced by `&lcub;0,&rcub;`. Thus, the following
 two patterns are equivalent:
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]*' chebi_27732.txt | sort -u" />
 
-<Execute command="grep -o -w -E 'MH[A-Z0-9]{0,}' chebi_27732.txt | sort -u" />
+<Execute command="grep -o -w -E 'MH[A-Z0-9]&lcub;0,&rcub;' chebi_27732.txt | sort -u" />
 
-The plus character (`+`) can be replaced by `{1,}`. Thus, the following two
+The plus character (`+`) can be replaced by `&lcub;1,&rcub;`. Thus, the following two
 patterns are equivalent:
 <Execute command="grep -o -w -E 'MH[A-Z0-9]+' chebi_27732.txt | sort -u" />
-<Execute command="grep -o -w -E 'MH[A-Z0-9]{1,}' chebi_27732.txt | sort -u" />
+<Execute command="grep -o -w -E 'MH[A-Z0-9]&lcub;1,&rcub;' chebi_27732.txt | sort -u" />
 
 On the other hand using `{1,1}` is the same as not having any operator.
 Thus, the following two patterns are equivalent:

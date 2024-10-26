@@ -63,7 +63,7 @@ entity.
 To retrieve the full class definition, a more efficient approach is to use the 
 `xmllint` command, which we already used in previous tutorials to process XML:
 
-<Execute command="xmllint --xpath "//*[local-name()='label' and text()='malignant hyperthermia']/.." doid.owl" />
+<Execute command={`xmllint --xpath "//*[local-name()='label' and text()='malignant hyperthermia']/.." doid.owl`} />
 
 The XPath query starts by finding the label that contains malignant hyperthermia and then `..` gives the parent element, in this case the Class element. From the output we can see that the semantics of malignant hyperthermia is much more than its label.
 
@@ -74,14 +74,14 @@ and of a muscle tissue disease.
 
 We can search for those specific relations between malignant hyperthermia and the entries `0050736` and `66`:
 
-<Execute command="xmllint --xpath "//*[local-name()='label' and text()='malignant hyperthermia']/..//*[@*[local-name()='resource' and .='http://purl.obolibrary.org/obo/DOID_66' or .='http://purl.obolibrary.org/obo/DOID_0050736']]" doid.owl" />
+<Execute command={`xmllint --xpath "//*[local-name()='label' and text()='malignant hyperthermia']/..//*[@*[local-name()='resource' and .='http://purl.obolibrary.org/obo/DOID_66' or .='http://purl.obolibrary.org/obo/DOID_0050736']]" doid.owl`} />
 
 We added the `@*[local-name()='resource']` to extract the URI specified in an attribute resource of any descendant element `//*[...]`.
 The relation specification uses the `subClassOf` element.
 
 We can do the same to retrieve the full class definition of caffeine:
 
-<Execute command="xmllint --xpath "//*[local-name()='label' and text()='caffeine']/.." chebi_lite.owl" />
+<Execute command={`xmllint --xpath "//*[local-name()='label' and text()='caffeine']/.." chebi_lite.owl`} />
 
 From the output we can see that the types of semantics available for caffeine differs from the semantics of malignant hyperthermia, but they still share
 many important properties, such as the definition of `subClassOf`.
@@ -91,7 +91,7 @@ alkaloid), and [27134](http://purl.obolibrary.org/obo/CHEBI_26385) (trimethylxan
 We can search for those specific relations between caffeine and the entries
 `26385` and `27134`:
 
-<Execute command="xmllint --xpath "//*[local-name()='label' and text()='caffeine']/..//*[@*[local-name()='resource' and .='http://purl.obolibrary.org/obo/CHEBI_26385' or .='http://purl.obolibrary.org/obo/CHEBI_27134']]" chebi_lite.owl" />
+<Execute command={`xmllint --xpath "//*[local-name()='label' and text()='caffeine']/..//*[@*[local-name()='resource' and .='http://purl.obolibrary.org/obo/CHEBI_26385' or .='http://purl.obolibrary.org/obo/CHEBI_27134']]" chebi_lite.owl`} />
 
 The relation specification uses the `subClassOf` element.
 
@@ -103,14 +103,14 @@ For example, the relationship between caffeine and the entry [25435](http://purl
 This means that the relationship defines that caffeine has role mutagen.
 We can search that specific relation between caffeine and mutagen (CHEBI:25435):
 
-<Execute command="xmllint --xpath "//*[local-name()='label' and text()='caffeine']/..//*[@*[local-name()='resource' and .='http://purl.obolibrary.org/obo/CHEBI_25435']]/../.." chebi_lite.owl" />
+<Execute command={`xmllint --xpath "//*[local-name()='label' and text()='caffeine']/..//*[@*[local-name()='resource' and .='http://purl.obolibrary.org/obo/CHEBI_25435']]/../.." chebi_lite.owl`} />
 
 The specification uses the Restriction element.
 
 We can now search in the OWL file for the definition of the type of relation
 has role (`RO:0000087`):
 
-<Execute command="xmllint --xpath "//*[local-name()='ObjectProperty'][@*[local-name()='about']='http://purl.obolibrary.org/obo/RO_0000087']" chebi_lite.owl" />
+<Execute command={`xmllint --xpath "//*[local-name()='ObjectProperty'][@*[local-name()='about']='http://purl.obolibrary.org/obo/RO_0000087']" chebi_lite.owl`} />
 
 The XPath query starts by finding the elements ObjectProperty and then
 selects the ones containing the about attribute with the relation URI as
