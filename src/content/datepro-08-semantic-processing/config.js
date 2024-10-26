@@ -19,7 +19,7 @@ export const config = {
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
 	description: "Exploring biomedical ontologies to identify relevant entities in text.",
 	tags: ["Ontologies", "Classes", "Ancestors", "Lexicon", "Entity Linking"],
-	tools: ["xmllint", "curl",  "xargs", "gunzip", "unzip", "echo", "while", "sort", "tr", "wc"],
+	tools: ["xmllint", "curl", "xargs", "gunzip", "unzip", "echo", "while", "sort", "tr", "wc"],
 	difficulty: ["advanced"],
 	steps: [
 		{ name: "Introduction", component: Intro },
@@ -35,10 +35,5 @@ export const config = {
 		{ name: "Conclusion", component: Conclusion },
 		{ name: "Exercise", component: Exercise01 }
 	],
-	files: [
-		"chebi_lite.owl",
-		"doid.owl",
-		"MER.tgz",
-		"chebi_27732_sentences"
-        	]
+	files: ["chebi_lite.owl", "doid.owl", "MER.tgz", "chebi_27732_sentences"]
 };

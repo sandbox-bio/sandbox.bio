@@ -14,7 +14,7 @@ $: commandToRun = command
 	.replace(/ \\ /g, " ")
 	.replaceAll("&lt;", "<")
 	.replaceAll("&lcub;", "{")
-	.replaceAll("&rcub;", "}")
+	.replaceAll("&rcub;", "}");
 $: commandPretty = command.replace(/ \\ /g, " \\ <br />&nbsp;&nbsp;&nbsp;").replace(/\\n/g, "<br>");
 </script>
 

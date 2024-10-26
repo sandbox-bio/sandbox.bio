@@ -52,11 +52,7 @@ import { config as datepro8 } from "$content/datepro-08-semantic-processing/conf
 </h5>
 
 <a href="http://labs.rd.ciencias.ulisboa.pt/book/" target="_blank" rel="noreferrer">
-	<img
-		src="/logo-book-data-processing.jpg"
-		alt="Book cover"
-		height="150"
-	/>
+	<img src="/logo-book-data-processing.jpg" alt="Book cover" height="150" />
 </a>
 
 <TutorialList

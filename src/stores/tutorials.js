@@ -59,7 +59,7 @@ export const tutorials = readable([
 	datepro5,
 	datepro6,
 	datepro7,
-	datepro8,
+	datepro8
 ]);
 
 // Tutorial listings
