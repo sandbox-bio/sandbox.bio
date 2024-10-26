@@ -11,6 +11,13 @@ We preloaded a reduced version of MER with just the essential files. We can star
 
 <Execute command="tar -xzf MER.tgz" />
 
+Alternatively, if we want to run MER locally, we can download the latest compressed file (zip) version and extract its contents:
+```bash
+curl -O -L https://github.com/lasigeBioTM/MER/archive/
+master.zip
+unzip master.zip
+mv MER-master MER
+```
 We now have to copy the Human Disease Ontology in to the data folder of MER, and then enter into the MER folder:
 
 <Execute command="cp doid.owl MER/data/" />
@@ -24,7 +31,7 @@ To execute MER, we need first to create the lexicon files:
 
 This may take a few minutes to run. However, we only need to execute it
 once, each time we want to use a new version of the ontology. If we wait, the output will include the last patterns of each of the lexicon files.
-We can check the contents of the created lexicons by using the tail command:
+We can check the contents of the created lexicons by using the `tail` command:
 
 <Execute command="tail data/doid_*" />
 
@@ -46,4 +53,6 @@ We can also redirect the output to a TSV file named `diseases_recognized.tsv`:
 
 We can now open the file in our spreadsheet application, such as LibreOffice Calc or Microsoft Excel.
 
-
+<Alert>
+By using the reduced OWL files preloaded in this tutorial, we will get just a portion of the full list of mentions of diseases from the Human Disease Ontology.
+</Alert>

@@ -80,5 +80,6 @@ close in meaning they are to the other diseases also found in the text.
 #### Semantic similarity
 Semantic similarity measures have been successfully applied to solve these ambiguity problems. Semantic similarity quantifies how close two classes are in terms of semantics encoded in a given ontology. Using the web tool Semantic Similarity Measures using Disjunctive Shared Information ([DiShIn](http://labs.rd.ciencias.ulisboa.pt/dishin/)), we can calculate the semantic similarity between our recognized classes. For example, we can calculate the similarity between _Kaufman oculocerebrofacial syndrome_
 (DOID:0111456) and _Syndromic intellectual disability_ (DOID:0050888), and the similarity between _Kagami-Ogata syndrome_ (DOID:0111712)
-and _Syndromic intellectual disability_ (DOID:0050888)
-We would see that for all measures _Syndromic intellectual disability_ is much more similar to _Kaufman oculocerebrofacial syndrome_ than to _Kagami-Ogata syndrome_.  This means that by using semantic similarity we can identify _Kaufman oculocerebrofacial syndrome_ as the correct linked entity for the mention KOS in this text.
+and _Syndromic intellectual disability_ (DOID:0050888).
+
+We would see that for all measures _Syndromic intellectual disability_ is much more similar to _Kaufman oculocerebrofacial syndrome_ than to _Kagami-Ogata syndrome_. This means that by using semantic similarity we can automatically identify _Kaufman oculocerebrofacial syndrome_ as the correct linked entity for the mention KOS in this text.
