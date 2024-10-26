@@ -39,9 +39,7 @@ as a decimal mark in a number, then some sentences are split in multiple
 lines because they have decimal number in them. For example, the original
 sentence:
 
-```text
-These 10 mutations account for 21.9% of the North American MH-susceptible population
-```
+_These 10 mutations account for 21.9% of the North American MH-susceptible population_
 
 is split in two lines:
 
@@ -68,14 +66,17 @@ the expression to replace the matches; `FLAGS` are multiple options, such as
 `g` to replace all matches in each line and not just the first one, and `i` to be
 case insensitive.
 For example, the original fragment of text:
-``text
+
+```text
 ... link between the caffeine threshold and tension ...
 
-````
+```
+
 will be converted to:
+
 ```text
 ... link between the CHEBI:27732 threshold and tension ...
-````
+```
 
 #### Multi-character delimiters
 
