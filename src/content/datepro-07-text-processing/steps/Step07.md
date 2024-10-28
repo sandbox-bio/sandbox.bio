@@ -16,7 +16,8 @@ The following sentence is one of the eight displayed sentences mentioning
 a possible relation:
 
 ```text
-257: ... MHS families were investigated with a caffeine ...
+257: ... MHS families were investigated with
+     a caffeine ...
 ```
 
 However, we are missing all the sentences that have caffeine first:
@@ -25,8 +26,10 @@ However, we are missing all the sentences that have caffeine first:
 We will be able to see that sometimes caffeine comes first:
 
 ```text
-837: ... caffeine-halothane contracture test were greater in those who had a known MH ...
-1132: ... caffeine threshold and tension values and the MH ...
+837: ... caffeine-halothane contracture test were
+     greater in those who had a known MH ...
+1132: ... caffeine threshold and tension values
+      and the MH ...
 ```
 
 #### Multiple filters
@@ -50,7 +53,9 @@ in the sentence. For example, in the following sentence the verb response
 appears first than any of the two entities:
 
 ```text
-58: The relationship between the IVCT response and genotype was ... the number of MHS discordants ... at 2.0 mM caffeine ...
+58: The relationship between the IVCT response
+    and genotype was ... the number of MHS discordants
+    ... at 2.0 mM caffeine ...
 ```
 
 If the verb needs to appear between the two entities, we have to construct

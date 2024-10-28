@@ -25,8 +25,11 @@ we can use the following pattern:
 The output will include the list of lines beginning with a mention to Malignant Hyperthermia:
 
 ```text
-... Malignant hyperthermia (MH) is a potentially fatal autosomal ...
-Malignant hyperthermia (MH) is a pharmacogenetic disorder ...
+... Malignant hyperthermia (MH) is a
+potentially fatal autosomal ...
+
+Malignant hyperthermia (MH) is a
+pharmacogenetic disorder ...
 ```
 
 To check how many of the matching lines were filtered, we can count the

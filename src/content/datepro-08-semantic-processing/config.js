@@ -35,5 +35,5 @@ export const config = {
 		{ name: "Conclusion", component: Conclusion },
 		{ name: "Exercise", component: Exercise01 }
 	],
-	files: ["chebi_lite.owl", "doid.owl", "MER.tgz", "chebi_27732_sentences"]
+	files: ["chebi_lite.owl", "doid.owl", "MER.tgz", "chebi_27732_sentences.txt"]
 };

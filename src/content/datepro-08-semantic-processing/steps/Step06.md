@@ -1,4 +1,5 @@
 <script>
+import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -54,13 +55,16 @@ We now get more sentences, including some that do not include a direct
 mention to caffeine or malignant hyperthermia. For example, the following sentence was selected because it mentions molecule, which is an ancestor of caffeine.
 
 ```text
-The remainder of the molecule is hydrophilic and presumably constitutes the cytoplasmic domain of the protein.
+The remainder of the molecule is hydrophilic
+and presumably constitutes the cytoplasmic
+domain of the protein.
 ```
 
 Another example is the following sentence, which was selected because it mentions disease, which is an ancestor of malignant hyperthermia:
 
 ```text
-Our data suggest that divergent activity profiles may cause varied disease phenotypes by specific mutations.
+Our data suggest that divergent activity profiles
+may cause varied disease phenotypes by specific mutations.
 ```
 
 We can also use our script `getentities.sh` (previous tutorial) giving this lexicon as argument. However, since we are not using any regular expressions it would be better to replace the `-E` option by `-F` to the `grep` command in the script, so the lexicon is interpreted as list of fixed strings to be

@@ -60,7 +60,8 @@ mention:
 From the output, we can easily identify the missing matching lines:
 
 ```text
-...gene are associated with Malignant Hyperthermia (MH) and...
+...gene are associated with Malignant
+Hyperthermia (MH) and...
 ```
 
 We were missing the case where both words have the first letter in uppercase.
