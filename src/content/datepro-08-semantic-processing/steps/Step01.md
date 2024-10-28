@@ -15,7 +15,7 @@ represented in ChEBI and DO ontologies, respectively.
 
 The ontologies are preloaded for this tutorial, but not in their entirety:
 
-<Execute command="du -h *.owl " />
+<Execute command="du -h *.owl" />
 
 As you can see, the preloaded files are only a few KB in size, while the original ones are several MB. Since the original files are very large OWL files containing numerous classes, we have reduced the number of classes to avoid long waiting times for command line execution.
 
@@ -25,10 +25,10 @@ Using the reduced OWL files preloaded in this tutorial, the command lines descri
 
 The original OWL files can be retrieved by using `curl`:
 
-```bash
-curl -L -O http://purl.obolibrary.org/obo/doid/releases/2021-03-29/doid.owl"
-curl -L -O http://purl.obolibrary.org/obo/chebi/198/chebi_lite.owl
-```
+<pre class="code border p-2" style="white-space: pre-wrap">
+curl -L -O "http://purl.obolibrary.org/obo/doid/releases/2021-03-29/doid.owl"
+
+curl -L -O "http://purl.obolibrary.org/obo/chebi/198/chebi_lite.owl"</pre>
 
 <Alert>The `curl` command here at this platform cannot download the files due to access restrictions. However, the same command will work just fine in your local terminal.</Alert>
 
@@ -44,8 +44,7 @@ To retrieve the most recent release we should use the following links:
 - http://purl.obolibrary.org/obo/doid.owl
 - http://purl.obolibrary.org/obo/chebi/chebi_lite.owl
 
-To find other ontology links search for them on the [BioPortal](http://bioportal.bioontology.org/) or on the
-[OBO Foundry] (http://www.obofoundry.org/) webpages. Alternatively, we can also get the OWL files from the [book file archive](http://labs.rd.ciencias.ulisboa.pt/book/).
+To find other ontology links search for them on the [BioPortal](http://bioportal.bioontology.org/) or on the [OBO Foundry](http://www.obofoundry.org/) webpages. Alternatively, we can also get the OWL files from the [book file archive](http://labs.rd.ciencias.ulisboa.pt/book/).
 
 #### Class label
 

@@ -68,14 +68,16 @@ case insensitive.
 For example, the original fragment of text:
 
 ```text
-... link between the caffeine threshold and tension ...
+... link between the caffeine
+threshold and tension ...
 
 ```
 
 will be converted to:
 
 ```text
-... link between the CHEBI:27732 threshold and tension ...
+... link between the CHEBI:27732
+threshold and tension ...
 ```
 
 #### Multi-character delimiters

@@ -22,10 +22,9 @@ Thus, we can now update the script `getlabels.sh`:
 
 To include synonyms:
 
-```bash
+<pre class="code border p-2" style="white-space: pre-wrap">
 OWLFILE=$1
-xargs -I {} xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='{}']/*[local-name()='hasExactSynonym' or local-name()='hasRelatedSynonym' or local-name()='label']/text()" $OWLFILE
-```
+xargs -I &lcub;&rcub; xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='&lcub;&rcub;']/*[local-name()='hasExactSynonym' or local-name()='hasRelatedSynonym' or local-name()='label']/text()" $OWLFILE</pre>
 
 We can test the script exactly in the same way as before:
 
@@ -48,11 +47,10 @@ However, we can update the script `geturi.sh`:
 
 To also include synonyms:
 
-```bash
+<pre class="code border p-2" style="white-space: pre-wrap">
 OWLFILE=$1
-xargs -I {} xmllint --xpath "//*[(local-name()='hasExactSynonym' or local-name()='hasRelatedSynonym' or local-name()='label') and text()='{}']/../@*[local-name()='about']" $OWLFILE | \
-cut -d\" -f2
-```
+xargs -I &lcub;&rcub; xmllint --xpath "//*[(local-name()='hasExactSynonym' or local-name()='hasRelatedSynonym' or local-name()='label') and text()='&lcub;&rcub;']/../@*[local-name()='about']" $OWLFILE | \
+cut -d\" -f2</pre>
 
 Now we can execute the same command:
 
