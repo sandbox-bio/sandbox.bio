@@ -35,8 +35,9 @@ pharmacogenetic disorder ...
 To check how many of the matching lines were filtered, we can count the
 number of occurrences when using the circumflex and when not:
 
-<Execute command="grep -c -E '^(M|m)alignant (H|h)yperthermia' chebi_27732.txt
-grep -c -E '(M|m)alignant (H|h)yperthermia' chebi_27732.txt" />
+<Execute command="grep -c -E '^(M|m)alignant (H|h)yperthermia' chebi_27732.txt" />
+
+<Execute command="grep -c -E '(M|m)alignant (H|h)yperthermia' chebi_27732.txt" />
 
 The output will show that only 20 of the 100 matches were considered.
 
@@ -69,7 +70,7 @@ of characters. For example, to allow 10 other characters between the end of
 the line and the mention of Malignant Hyperthermia, we can add a quantifier
 to the dot operator:
 
-<Execute command="grep -c -E '(M|m)alignant (H|h)yperthermia.{0,10}$' chebi_27732.txt" />
+<Execute command="grep -c -E '(M|m)alignant (H|h)yperthermia.&lcub;0,10&rcub;$' chebi_27732.txt" />
 
 The output will show that we have 20 matches.
 If we remove the `-c` option, we will be able to check that words, such
@@ -99,8 +100,7 @@ with an acronym, MH or MHS, then we can execute two grep commands.
 The first gets the lines starting with Malignant Hyperthermia and the next
 filters the output of the latter with lines ending with an acronym:
 
-<Execute command="grep -E '^(M|m)alignant (H|h)yperthermia' chebi_27732.
-txt | grep -w -E 'MHS?.$'" />
+<Execute command="grep -E '^(M|m)alignant (H|h)yperthermia' chebi_27732.txt | grep -w -E 'MHS?.$'" />
 
 Alternatively, we can add both the circumflex and dollar operators to the
 same pattern. However, we cannot forget to add `.*` to match anything in

@@ -42,6 +42,7 @@ a pattern without any regular expression operator, such as MH. For example,
 the following commands will produce the same results:
 
 <Execute command="echo -e 'MHS\nMHN' | grep 'MH'" />
+
 <Execute command="echo -e 'MHS\nMHN' | grep -E 'MH'" />
 
 Note, that we use the `-e` option so the echo command interpret the `\n`
@@ -298,7 +299,7 @@ command will match MH1 and not MH:
 
 <Execute command="echo 'MH1' | grep -o -E 'MH[0-9]*'" />
 
-####### Multiple and compulsory
+###### Multiple and compulsory
 
 To make the preceding item compulsory and able to repeat it multiple times,
 we may replace the asterisk by the plus character (`+`). For example, the fol-
@@ -315,44 +316,43 @@ acronym MH.
 The above quantifiers are the most popular, but the functionality of all of
 them can be reproduced by using curly braces to specify the minimal and
 maximum number of occurrences. The item is followed by an expression of
-the type `&lcub;n,m&rcub;` where n and m are to be replaced by a number specifying the
+the type &lcub;`n,m`&rcub; where n and m are to be replaced by a number specifying the
 minimum and maximum number of occurrences, respectively. n and m may
 also be omitted, which means that no minimum or maximum limit is to be
 imposed.
 
-Using curly brackets, the question mark character (`?`) can be replaced by
-`{0,1}`. Thus, the following two patterns are equivalent:
+Using curly brackets, the question mark character (`?`) can be replaced by &lcub;`0,1`&rcub;. Thus, the following two patterns are equivalent:
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]?' chebi_27732.txt | sort -u" />
 
-<Execute command="grep -o -w -E 'MH[A-Z0-9]{0,1}' chebi_27732.txt | sort -u" />
+<Execute command="grep -o -w -E 'MH[A-Z0-9]&lcub;0,1&rcub;' chebi_27732.txt | sort -u" />
 
-The asterisk character (`*`) can be replaced by `&lcub;0,&rcub;`. Thus, the following
+The asterisk character (`*`) can be replaced by &lcub;`0,`&rcub;. Thus, the following
 two patterns are equivalent:
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]*' chebi_27732.txt | sort -u" />
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]&lcub;0,&rcub;' chebi_27732.txt | sort -u" />
 
-The plus character (`+`) can be replaced by `&lcub;1,&rcub;`. Thus, the following two
+The plus character (`+`) can be replaced by &lcub;`1,`&rcub;. Thus, the following two
 patterns are equivalent:
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]+' chebi_27732.txt | sort -u" />
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]&lcub;1,&rcub;' chebi_27732.txt | sort -u" />
 
-On the other hand using `{1,1}` is the same as not having any operator.
+On the other hand using &lcub;`1,1`&rcub; is the same as not having any operator.
 Thus, the following two patterns are equivalent:
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]' chebi_27732.txt | sort -u" />
 
-<Execute command="grep -o -w -E 'MH[A-Z0-9]{1,1}' chebi_27732.txt | sort -u" />
+<Execute command="grep -o -w -E 'MH[A-Z0-9]&lcub;1,1&rcub;' chebi_27732.txt | sort -u" />
 
 The previous commands display the all the three-character acronyms.
 For example, if we are looking for acronyms with exactly 4 characters then
 we can apply the following pattern:
 
-<Execute command="grep -o -w -E 'MH[A-Z0-9]{2,2}' chebi_27732.txt | sort -u" />
+<Execute command="grep -o -w -E 'MH[A-Z0-9]&lcub;2,2&rcub;' chebi_27732.txt | sort -u" />
 
 We should note that we use 2 as both the minimum and maximum since MH
 already count as 2 characters. The output of the previous command is now the four-character acronym: MHS1

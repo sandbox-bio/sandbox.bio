@@ -41,8 +41,7 @@ with the following lines:
 
 <pre class="code border p-2" style="white-space: pre-wrap">
 OWLFILE=$1
-xargs -I &lcub;&rcub; xmllint --xpath "//*[local-name()='label'
-and text()='&lcub;&rcub;']/../@*[local-name()='about']" $OWLFILE | \
+xargs -I &lcub;&rcub; xmllint --xpath "//*[local-name()='label' and text()='&lcub;&rcub;']/../@*[local-name()='about']" $OWLFILE | \
 cut -d\" -f2</pre>
 
 Again we cannot forget to save the file in our working directory, and add the right permissions using `chmod` as we did with our scripts in the previous turorials.

@@ -114,7 +114,7 @@ Acronyms (or terms) may also appear inside common words or longer
 acronyms. For example, when searching for MH, the word _victimhood_ will
 produce a match:
 
-<Execute command={`$echo "victimhood" | grep -i 'MH'`} />
+<Execute command={`echo "victimhood" | grep -i 'MH'`} />
 
 The problem with _victimhood_ could be easily solved by using case sensitive
 matching, but not for a longer acronym. For example, the acronym NEDMHM
