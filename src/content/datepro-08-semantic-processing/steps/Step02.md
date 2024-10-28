@@ -27,11 +27,11 @@ The output will now be only the attribute value.
 Unfortunately, the string function returns only one attribute value, even if many are matched. Nonetheless, we use the string function because we assume that malignant hyperthermia is an unambiguous label, i.e. only one
 class will match. To avoid this limitation we can add the cut command using the character delimiting the URI, i.e. ".
 
-<Execute command={`xmllint --xpath "//*[local-name()='label' and text()='malignant hyperthermia']/../@*[local-name()='about']" doid.owl | cut -d\" -f2`} />
+<Execute command={`xmllint --xpath "//*[local-name()='label' and text()='malignant hyperthermia']/../@*[local-name()='about']" doid.owl | cut -d'"' -f2`} />
 
 To get the URI of caffeine is just about the same command:
 
-<Execute command={`xmllint --xpath "//*[local-name()='label' and text()='caffeine']/../@*[local-name()='about']" chebi_lite.owl | cut -d\" -f2`} />
+<Execute command={`xmllint --xpath "//*[local-name()='label' and text()='caffeine']/../@*[local-name()='about']" chebi_lite.owl | cut -d'"' -f2`} />
 
 We can now write a script that receives multiple labels given as standard input and the OWL file where to find the URIs as argument. Thus, we can create the script named `geturi.sh`
 
