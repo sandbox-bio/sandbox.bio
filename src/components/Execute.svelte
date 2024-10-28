@@ -6,16 +6,11 @@ export let command;
 export let inline = false;
 
 $: commandToRun = command
-	.replace(
-		/\\n/g,
-		`
-`
-	)
 	.replace(/ \\ /g, " ")
 	.replaceAll("&lt;", "<")
 	.replaceAll("&lcub;", "{")
 	.replaceAll("&rcub;", "}");
-$: commandPretty = command.replace(/ \\ /g, " \\ <br />&nbsp;&nbsp;&nbsp;").replace(/\\n/g, "<br>");
+$: commandPretty = command.replace(/ \\ /g, " \\ <br />&nbsp;&nbsp;&nbsp;");
 </script>
 
 {#if inline}
