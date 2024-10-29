@@ -39,11 +39,11 @@ We can now write a script that receives multiple labels given as standard input 
 
 with the following lines:
 
-<pre class="code border p-2" style="white-space: pre-wrap">
+```bash
 OWLFILE=$1
-xargs -I &lcub;&rcub; xmllint --xpath "//*[local-name()='label'
-and text()='&lcub;&rcub;']/../@*[local-name()='about']" $OWLFILE | \
-cut -d\" -f2</pre>
+
+xargs -I {} xmllint --xpath "//*[local-name()='label' and text()='{}']/../@*[local-name()='about']" $OWLFILE | cut -d'"' -f2
+```
 
 Again we cannot forget to save the file in our working directory, and add the right permissions using `chmod` as we did with our scripts in the previous turorials.
 
@@ -86,8 +86,11 @@ caffeine. We can now write a script that receives multiple URIs given as standar
 
 with the following lines:
 
-<pre class="code border p-2" style="white-space: pre-wrap">OWLFILE=$1
-xargs -I &lcub;&rcub; xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='&lcub;&rcub;']/*[local-name()='label']/text()" $OWLFILE</pre>
+```bash
+OWLFILE=$1
+
+xargs -I {} xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='{}']/*[local-name()='label']/text()" $OWLFILE
+```
 
 The `xargs` command is used to process each line of the standard input. Now to execute the script we only need to provide the URIs as standard input:
 

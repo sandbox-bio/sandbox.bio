@@ -32,10 +32,11 @@ We can now create a script that receives multiple URIs given as standard input a
 
 should contain the following lines:
 
-<pre class="code border p-2" style="white-space: pre-wrap">
+```bash
 OWLFILE=$1
-xargs -I &lcub;&rcub; xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='&lcub;&rcub;']/*[local-name()='subClassOf']/@*[local-name()='resource']" $OWLFILE | \
-cut -d\" -f2</pre>
+
+xargs -I {} xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='{}']/*[local-name()='subClassOf']/@*[local-name()='resource']" $OWLFILE | cut -d'"' -f2
+```
 
 and add the permission:
 

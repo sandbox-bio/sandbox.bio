@@ -8,12 +8,21 @@ We can now update our script file from previous tutorials:
 
 To contain the following lines:
 
-<pre class="code border p-2" style="white-space: pre-wrap">
-ID=$1 # The CHEBI identifier given as input is renamed to ID
-rm -f chebi\_$&lcub;ID&rcub;\_*.xml # Removes any previous files
-cat chebi\_$&lcub;ID&rcub;\_xrefs_UniProt_relevant_identifiers.csv | \
-xargs -I &lcub;&rcub; curl -o chebi\_$&lcub;ID&rcub;\_&lcub;&rcub;.xml 'https://rest.uniprot.org/uniprotkb/&lcub;&rcub;.xml' 
-</pre>
+```bash
+# CHEBI identifier given as input is renamed to ID
+ID=$1
+
+# Removes any previous files
+rm -f chebi_${ID}_*.xml
+
+csv_file=chebi_${ID}_xrefs_UniProt_relevant_identifiers.csv
+
+cat "$csv_file" | \\
+  xargs \\
+    -I {} curl \\
+    -o chebi_${ID}_{}.xml \\
+    'https://rest.uniprot.org/uniprotkb/{}.xml'
+```
 
 #### Variable
 

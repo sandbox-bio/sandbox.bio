@@ -4,7 +4,7 @@ import Execute from "$components/Execute.svelte";
 
 To extract just the identifier, we can again use the cut command:
 
-<Execute command={`grep ''&lt;dbReference type="PubMed"' chebi_27732_P21817.xml | cut -d'"' -f4`} />
+<Execute command={`grep '&lt;dbReference type="PubMed"' chebi_27732_P21817.xml | cut -d'"' -f4`} />
 
 We should note that `"` is used as the separation character and, since the
 PubMed identifier appears after the third `"`, the `4` represents the identifier.
@@ -58,11 +58,17 @@ editor:
 
 to add the following lines:
 
-<pre class="code border p-2" style="white-space: pre-wrap">ID=$1 # The CHEBI identifier given as input is renamed to ID
-grep -l '&lt;name type="scientific">Homo sapiens&lt;/name>' chebi\_$ID\_*.xml | \
-xargs -I &lcub;&rcub; grep '&lt;dbReference type="PubMed"' &lcub;&rcub; | \
-cut -d'"' -f4 | sort -u
-</pre>
+```bash
+# CHEBI identifier given as input is renamed to ID
+ID=$1
+
+grep -l '<name type="scientific">Homo sapiens</name>' chebi_$ID_*.xml | \\
+    xargs \\
+        -I {} \\
+        grep '<dbReference type="PubMed"' {} | \\
+    cut -d'"' -f4 | \\
+    sort -u
+```
 
 Again, do not forget to save it in our working directory, and add the right
 permissions with chmod as we did previously with the other scripts.

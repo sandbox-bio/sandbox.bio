@@ -25,10 +25,11 @@ Using the reduced OWL files preloaded in this tutorial, the command lines descri
 
 The original OWL files can be retrieved by using `curl`:
 
-<pre class="code border p-2" style="white-space: pre-wrap">
+```bash
 curl -L -O "http://purl.obolibrary.org/obo/doid/releases/2021-03-29/doid.owl"
 
-curl -L -O "http://purl.obolibrary.org/obo/chebi/198/chebi_lite.owl"</pre>
+curl -L -O "http://purl.obolibrary.org/obo/chebi/198/chebi_lite.owl"
+```
 
 <Alert>The `curl` command here at this platform cannot download the files due to access restrictions. However, the same command will work just fine in your local terminal.</Alert>
 

@@ -23,8 +23,15 @@ We can now update our script file
 
 To contain the following lines:
 
-<pre class="code border p-2" style="white-space: pre-wrap">curl -s "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-e=1&6578706f7274=1&chebiId=$1&dbName=UniProt" | \\
-grep -e 'CC - MISCELLANEOUS' -e 'CC - DISRUPTION PHENOTYPE' -e 'CC - DISEASE'</pre>
+```bash
+url="https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-e=1&6578706f7274=1&chebiId=$1&dbName=UniProt"
+
+curl -s "$url" | \\
+    grep \\
+      -e 'CC - MISCELLANEOUS' \\
+      -e 'CC - DISRUPTION PHENOTYPE' \\
+      -e 'CC - DISEASE'
+```
 
 <Alert>The `curl` command here at this platform will be replaced by a local version to access the data locally instead of online due to access restrictions. However, the same command will work just fine in your local terminal.</Alert>
 

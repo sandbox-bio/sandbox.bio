@@ -24,8 +24,13 @@ Thus, let us create the script `gettext.sh`
 
 To have the following commands:
 
-<pre class="code border p-2" style="white-space: pre-wrap">ID=$1 # The CHEBI identifier given as input is renamed to ID
-xmllint --xpath "//*[local-name()='title' or local-name()='comment']/text()" chebi\_$ID\_&#42;.rdf</pre>
+```bash
+# CHEBI identifier given as input is renamed to ID
+ID=$1
+
+xmllint \\
+    --xpath "//*[local-name()='title' or local-name()='comment']/text()" chebi_$ID_*.rdf
+```
 
 Again do not forget to save it in our working directory, and add the right
 permissions.

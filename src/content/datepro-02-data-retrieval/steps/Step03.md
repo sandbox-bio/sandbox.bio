@@ -38,7 +38,9 @@ We can also use the `-s` option of curl in order to suppress the progress inform
 
 the `-s` option:
 
-<pre class="code border p-2" style="white-space: pre-wrap">curl -s "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-=1&6578706f7274=1&chebiId=$1&dbName=UniProt"</pre>
+```bash
+curl -s "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-=1&6578706f7274=1&chebiId=$1&dbName=UniProt"
+```
 
 Now when executing the script, no progress information is shown:
 

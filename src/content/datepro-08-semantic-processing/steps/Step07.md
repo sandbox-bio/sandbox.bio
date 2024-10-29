@@ -18,10 +18,11 @@ We can create a script named `getalllabels.sh`:
 
 That receives as argument the OWL file where to find all labels containing the following lines:
 
-<pre class="code border p-2" style="white-space: pre-wrap">
+```bash
 OWLFILE=$1
-xmllint --xpath "//*[local-name()='Class']/*[local-name()='hasExactSynonym' or local-name()='hasRelatedSynonym' or local-name()='label']/text()" $OWLFILE | \
-sort -u</pre>
+
+xmllint --xpath "//*[local-name()='Class']/*[local-name()='hasExactSynonym' or local-name()='hasRelatedSynonym' or local-name()='label']/text()" $OWLFILE | sort -u
+```
 
 We should note that this script is similar to the `getlabels.sh` script without the `xargs`, since it does not receive a list of URIs as standard input.
 Now we can execute the script to extract all labels from the OWL file:
@@ -162,14 +163,16 @@ We can now update the script `getalllabels.sh`:
 
 To include the previous `tr` and `sed` commands:
 
-<pre class="code border p-2" style="white-space: pre-wrap">
+```bash
 OWLFILE=$1
+
 xmllint \\
-    --xpath "//*[local-name()='Class']/*[local-name()='hasExactSynonym' or local-name()='hasRelatedSynonym' or local-name()='label']/text()" \\
-    $OWLFILE | \\
-tr -d '[]()&lcub;&rcub;' | \\
-sed -E 's/[,:;] .*$//; s/^ *//; s/ *$//' | \\
-sort -u</pre>
+    --xpath \\
+        "//*[local-name()='Class']/*[local-name()='hasExactSynonym' or local-name()='hasRelatedSynonym' or local-name()='label']/text()" $OWLFILE | \\
+    tr -d '[](){}' | \\
+    sed -E 's/[,:;] .*$//; s/^ *//; s/ *$//' | \\
+    sort -u
+```
 
 And we can now generate a fixed lexicon:
 
