@@ -22,7 +22,7 @@ The output will now include the parents of caffeine.
 We should note that we no longer can use the string function, because ontologies are organized as DAGs using multiple inheritance, i.e. each class can have multiple parents, and the string function only returns the first
 match. To get only the URIs, we can apply the previous technique of using the `cut` command:
 
-<Execute command={`xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/DOID_8545']/*[local-name()='subClassOf']/@*[local-name()='resource']" doid.owl | cut -d\" -f2`} />
+<Execute command={`xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/DOID_8545']/*[local-name()='subClassOf']/@*[local-name()='resource']" doid.owl | cut -d'"' -f2`} />
 
 Now the output only contains the URIs.
 
@@ -65,7 +65,7 @@ And now the output contains the labels of the parents of caffeine.
 
 If we are interested in using all the related classes besides the ones that represent a generalization (`subClassOf` ), we have to change our XPath to:
 
-<Execute command={`xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/CHEBI_27732']/*[local-name()='subClassOf']//*[local-name()='someValuesFrom']/@*[local-name()='resource']" chebi_lite.owl | cut -d\" -f2`} />
+<Execute command={`xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/CHEBI_27732']/*[local-name()='subClassOf']//*[local-name()='someValuesFrom']/@*[local-name()='resource']" chebi_lite.owl | cut -d'"' -f2`} />
 
 We should note that these related classes are in the attribute resource of `someValuesFrom` element inside a subClassOf element. The URIs of the related classes of caffeine are now displayed.
 
@@ -74,6 +74,6 @@ We should note that these related classes are in the attribute resource of `some
 To get the labels of these related classes, we only need to add the getlabels.sh
 script:
 
-<Execute command={`xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/CHEBI_27732']/*[local-name()='subClassOf']//*[local-name()='someValuesFrom']/@*[local-name()='resource']" chebi_lite.owl | cut -d\" -f2 | ./getlabels.sh chebi_lite.owl`} />
+<Execute command={`xmllint --xpath "//*[local-name()='Class'][@*[local-name()='about']='http://purl.obolibrary.org/obo/CHEBI_27732']/*[local-name()='subClassOf']//*[local-name()='someValuesFrom']/@*[local-name()='resource']" chebi_lite.owl | cut -d'"' -f2 | ./getlabels.sh chebi_lite.owl`} />
 
 The output is now terms that we could use to expand our text processing.
