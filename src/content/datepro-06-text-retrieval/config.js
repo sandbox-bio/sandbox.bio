@@ -9,7 +9,7 @@ import Exercise01 from "./exercises/Exercise01.md";
 export const config = {
 	id: "datepro-06-text-retrieval",
 	pwd: "datepro-06-text-retrieval",
-	name: "Section 3.7: Text Retrieval",
+	name: "Section 3.8: Text Retrieval",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
 	description: "Retrieving titles and abstracts from PubMed",
 	tags: ["PubMed", "Text", "Retrieval", "Disease Recognition"],
