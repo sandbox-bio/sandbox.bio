@@ -11,7 +11,7 @@ export const config = {
 	pwd: "datepro-04-task-repetition",
 	name: "Section 3.6: Task Repetition",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
-	description: "Automating UniProt data retrieval: downloading XML files for protein lists in a single step",
+	description: "Streamlining UniProt data retrieval by automating the download of XML files for multiple protein lists in a single step",
 	tags: ["proteins", "download", "lists of arguments", "XML", "UniProt"],
 	tools: ["xargs", "curl"],
 	difficulty: ["beginner"],

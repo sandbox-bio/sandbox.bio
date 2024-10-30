@@ -15,7 +15,7 @@ export const config = {
 	pwd: "datepro-07-text-processing",
 	name: "Chapter 4: Text Processing",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
-	description: "Pattern matching and regular expressions to extract information from text.",
+	description: "Applying pattern matching and regular expressions to identify and extract specific information from text data",
 	tags: ["Pattern matching", "Regular expressions", "Tokenization", "Entity recognition", "Relation extraction"],
 	tools: ["grep", "diff", "sed", "echo", "sort", "tr", "wc"],
 	difficulty: ["advanced"],

@@ -100,8 +100,7 @@ The relation specification uses the `subClassOf` element.
 
 #### Related Classes
 
-There are additional subclass relationships that do not represent subsump-
-tion (_is-a_).
+There are additional subclass relationships that do not represent subsumption (_is-a_).
 For example, the relationship between caffeine and the entry [25435](http://purl.obolibrary.org/obo/CHEBI_25435) (mutagen) is defined by the entry [0000087](http://purl.obolibrary.org/obo/RO_0000087) (has role) of the Relations Ontology.
 This means that the relationship defines that caffeine has role mutagen.
 We can search that specific relation between caffeine and mutagen (CHEBI:25435):

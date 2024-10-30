@@ -11,7 +11,7 @@ export const config = {
 	pwd: "datepro-03-data-extraction",
 	name: "Section 3.5: Data Extraction",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
-	description: "Filtering and extracting relevant data from a CSV file: focusing on proteins associated with putative related diseases",
+	description: "Filtering and extracting key data from CSV files, with a focus on proteins linked to potential disease associations",
 	tags: ["filter", "extract", "pattern", "CSV"],
 	tools: ["grep", "cut"],
 	difficulty: ["beginner"],

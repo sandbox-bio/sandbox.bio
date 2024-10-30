@@ -53,7 +53,7 @@ The first two numbers represent the start and end position of the match in the s
 
 We can also redirect the output to a TSV file named `diseases_recognized.tsv`:
 
-<Execute command="cat ../chebi_27732_sentences.txt | tr -d "'" | xargs -I &lcub;&rcub; ./get_entities.sh '&lcub;&rcub;' doid > ../diseases_recognized.tsv" />
+<Execute command={`cat ../chebi_27732_sentences.txt | tr -d "'" | xargs -I &lcub;&rcub; ./get_entities.sh '&lcub;&rcub;' doid > ..diseases_recognized.tsv`} />
 
 We can now open the file in our spreadsheet application, such as LibreOffice Calc or Microsoft Excel.
 

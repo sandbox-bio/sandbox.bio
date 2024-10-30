@@ -17,7 +17,7 @@ export const config = {
 	pwd: "datepro-08-semantic-processing",
 	name: "Chapter 5: Semantic Processing",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
-	description: "Exploring biomedical ontologies to identify relevant entities in text.",
+	description: "Leveraging biomedical ontologies to detect and categorize relevant entities within textual data",
 	tags: ["Ontologies", "Classes", "Ancestors", "Lexicon", "Entity Linking"],
 	tools: ["xmllint", "curl", "xargs", "gunzip", "unzip", "echo", "while", "sort", "tr", "wc"],
 	difficulty: ["advanced"],

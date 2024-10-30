@@ -99,8 +99,7 @@ with an acronym, MH or MHS, then we can execute two grep commands.
 The first gets the lines starting with Malignant Hyperthermia and the next
 filters the output of the latter with lines ending with an acronym:
 
-<Execute command="grep -E '^(M|m)alignant (H|h)yperthermia' chebi_27732.
-txt | grep -w -E 'MHS?.$'" />
+<Execute command="grep -E '^(M|m)alignant (H|h)yperthermia' chebi_27732.txt | grep -w -E 'MHS?.$'" />
 
 Alternatively, we can add both the circumflex and dollar operators to the
 same pattern. However, we cannot forget to add `.*` to match anything in

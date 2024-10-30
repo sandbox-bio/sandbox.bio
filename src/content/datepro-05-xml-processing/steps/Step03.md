@@ -76,9 +76,7 @@ The XPath syntax allow us to create many useful queries, such as:
 
 <Execute command={`xmllint --xpath '//dbReference' chebi_27732_P21817_entry.xml`} />
 
-- `/entry//dbReference` - equivalent to the previous query but specify-
-  ing that the dbReference elements are descendants of the entry ele-
-  ment:
+- `/entry//dbReference` - equivalent to the previous query but specifying that the dbReference elements are descendants of the entry element:
 
 <Execute command={`xmllint --xpath '/entry//dbReference' chebi_27732_P21817_entry.xml`} />
 

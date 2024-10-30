@@ -11,7 +11,7 @@ export const config = {
 	pwd: "datepro-01-unix-shell",
 	name: "Section 3.2: Unix shell",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
-	description: "Creating and using data and script files in a Unix shell",
+	description: "Using Unix commands to create, manage, and execute data and script files",
 	tags: ["unix", "shell", "terminal", "script", "file"],
 	tools: ["ls", "cat", "tac", "ps", "tr", "mv", "cd", "pwd", "nano", "chmod"],
 	difficulty: ["beginner"],

@@ -11,7 +11,7 @@ export const config = {
 	pwd: "datepro-06-text-retrieval",
 	name: "Section 3.8: Text Retrieval",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
-	description: "Retrieving titles and abstracts from PubMed",
+	description: "Extracting article titles and abstracts from PubMed for targeted research purposes",
 	tags: ["PubMed", "Text", "Retrieval", "Disease Recognition"],
 	tools: ["xargs", "grep", "xmllint", "curl", "cut"],
 	difficulty: ["beginner"],

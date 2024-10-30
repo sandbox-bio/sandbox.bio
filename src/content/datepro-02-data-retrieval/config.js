@@ -9,9 +9,9 @@ import Exercise01 from "./exercises/Exercise01.md";
 export const config = {
 	id: "datepro-02-data-retrieval",
 	pwd: "datepro-02-data-retrieval",
-	name: "Section 3.4: Data Retrieval",
+	name: "Sections 3.3 and 3.4: Data Retrieval",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
-	description: "Accessing the ChEBI database using web services for retrieving proteins associated with a given compound",
+	description: "Utilizing web services to access the ChEBI database, retrieving proteins associated with specific compounds",
 	tags: ["curl", "redirection", "parameters", "CSV"],
 	tools: ["curl", "cat", "nano", "chmod"],
 	difficulty: ["beginner"],
