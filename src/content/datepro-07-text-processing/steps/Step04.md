@@ -5,8 +5,7 @@ import Execute from "$components/Execute.svelte";
 ## Tokenization
 
 As we have shown in the previous section, sometimes we need to work at the
-level of a sentence and not use a full document as the input string. Tokeniza-
-tion is a Natural Language Processing (NLP) task that aims at identifying
+level of a sentence and not use a full document as the input string. Tokenization is a Natural Language Processing (NLP) task that aims at identifying
 boundaries in the text to fragment it into basic units called tokens. These
 tokens can be sentences, phrases, multi-word expressions, or words.
 
@@ -15,8 +14,7 @@ tokens can be sentences, phrases, multi-word expressions, or words.
 In most languages, some specific characters can be considered as accurate
 boundaries to fragment text into tokens. For example, the space character
 to identify words; the period (.), the question mark (?) and the exclamation
-mark (!) to identify the ending of a sentence; and the comma (,), the semi-
-colon (;), the colon (:) or any kind of parenthesis to identify a phrase within a
+mark (!) to identify the ending of a sentence; and the comma (,), the semi-colon (;), the colon (:) or any kind of parenthesis to identify a phrase within a
 sentence. However, this problem may be more complex in languages without
 explicitly delimiters, such as Chinese.
 
@@ -31,6 +29,8 @@ We get 1618 lines from the original 255 lines.
 Unfortunately, this is not just so simple. We need to analyze the output:
 
 <Execute command="tr '[.!?]' '\n' < chebi_27732.txt | less" />
+
+Type `q` to exit `less`.
 
 #### Wrong tokens
 

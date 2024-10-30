@@ -34,8 +34,7 @@ The grep command allows us the possibility to include regular expression
 operators in the input pattern. grep understands two different versions of
 regular expression syntax: [basic and extended](https://www.regular-expressions.info/posix.html). We will use the extended
 syntax for two reasons: (i) the basic does not support relevant operators,
-such as alternation; (ii) and to clearly differentiate exact matching from reg-
-ular expression matching. Thus, we will start to use the `-E` option, which
+such as alternation; (ii) and to clearly differentiate exact matching from regular expression matching. Thus, we will start to use the `-E` option, which
 makes the command interpret the pattern as an extended regular expression. The equivalent long form to the `-E` option is `--extended-regexp`.
 We should note that this option does not affects the matching when using
 a pattern without any regular expression operator, such as MH. For example,
@@ -126,19 +125,7 @@ MH we can execute the following command:
 
 We should note that we use the `-o` option of the command grep so it just displays the matches and not all the line that includes the match. The equivalent long form to the `-o` option is `--only-matching`.
 
-The output will be the following three-character lines:
-
-```text
-MH
-MH)
-MH,
-MH.
-MH1
-MH2
-MHE
-MHN
-MHS
-```
+The output will be all the three-character matches.
 
 The `-o` option also solves the problem of counting the total number of
 matches, and not just the number of lines with a match:
@@ -178,8 +165,7 @@ MH :
 Thus, what we really want is matches where the third character is a letter or
 a numerical digit.
 
-Sometimes, the text includes other characters that also represent horizon-
-tal or vertical space in typography, such as the tab character. All these characters are known as whitespaces and can be represented by the expression
+Sometimes, the text includes other characters that also represent horizontal or vertical space in typography, such as the tab character. All these characters are known as whitespaces and can be represented by the expression
 `\s` in a pattern 4 . The following command demonstrates that both the space
 and the tab characters are matched by `\s`:
 
@@ -301,8 +287,7 @@ command will match MH1 and not MH:
 ####### Multiple and compulsory
 
 To make the preceding item compulsory and able to repeat it multiple times,
-we may replace the asterisk by the plus character (`+`). For example, the fol-
-lowing pattern will find all the acronyms starting with MH followed by at
+we may replace the asterisk by the plus character (`+`). For example, the following pattern will find all the acronyms starting with MH followed by at
 least one alphabetic letter or numeric digit:
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]+' chebi_27732.txt | sort -u" />
@@ -315,44 +300,44 @@ acronym MH.
 The above quantifiers are the most popular, but the functionality of all of
 them can be reproduced by using curly braces to specify the minimal and
 maximum number of occurrences. The item is followed by an expression of
-the type `&lcub;n,m&rcub;` where n and m are to be replaced by a number specifying the
+the type &lcub;`n,m`&rcub; where n and m are to be replaced by a number specifying the
 minimum and maximum number of occurrences, respectively. n and m may
 also be omitted, which means that no minimum or maximum limit is to be
 imposed.
 
 Using curly brackets, the question mark character (`?`) can be replaced by
-`{0,1}`. Thus, the following two patterns are equivalent:
+&lcub;`0,1`&rcub;. Thus, the following two patterns are equivalent:
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]?' chebi_27732.txt | sort -u" />
 
-<Execute command="grep -o -w -E 'MH[A-Z0-9]{0,1}' chebi_27732.txt | sort -u" />
+<Execute command="grep -o -w -E 'MH[A-Z0-9]&lcub;0,1&rcub;' chebi_27732.txt | sort -u" />
 
-The asterisk character (`*`) can be replaced by `&lcub;0,&rcub;`. Thus, the following
+The asterisk character (`*`) can be replaced by &lcub;`0,`&rcub;. Thus, the following
 two patterns are equivalent:
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]*' chebi_27732.txt | sort -u" />
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]&lcub;0,&rcub;' chebi_27732.txt | sort -u" />
 
-The plus character (`+`) can be replaced by `&lcub;1,&rcub;`. Thus, the following two
+The plus character (`+`) can be replaced by &lcub;`1,`&rcub;. Thus, the following two
 patterns are equivalent:
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]+' chebi_27732.txt | sort -u" />
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]&lcub;1,&rcub;' chebi_27732.txt | sort -u" />
 
-On the other hand using `{1,1}` is the same as not having any operator.
+On the other hand using &lcub;`1,1`&rcub; is the same as not having any operator.
 Thus, the following two patterns are equivalent:
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]' chebi_27732.txt | sort -u" />
 
-<Execute command="grep -o -w -E 'MH[A-Z0-9]{1,1}' chebi_27732.txt | sort -u" />
+<Execute command="grep -o -w -E 'MH[A-Z0-9]&lcub;1,1&rcub;' chebi_27732.txt | sort -u" />
 
 The previous commands display the all the three-character acronyms.
 For example, if we are looking for acronyms with exactly 4 characters then
 we can apply the following pattern:
 
-<Execute command="grep -o -w -E 'MH[A-Z0-9]{2,2}' chebi_27732.txt | sort -u" />
+<Execute command="grep -o -w -E 'MH[A-Z0-9]&lcub;2,2&rcub;' chebi_27732.txt | sort -u" />
 
 We should note that we use 2 as both the minimum and maximum since MH
 already count as 2 characters. The output of the previous command is now the four-character acronym: MHS1

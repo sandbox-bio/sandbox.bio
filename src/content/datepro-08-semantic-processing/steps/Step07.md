@@ -105,7 +105,7 @@ To check the impact of each of these issues, we can count the number of times th
 
 <Execute command="grep -c -F ':' diseases.txt" />
 
-<Execute command="grep -c -F '&ampamp;' diseases.txt" />
+<Execute command="grep -c -F '&amp;' diseases.txt" />
 
 In the original OWL file we would see that parentheses and commas are the most frequent, with more than one thousand entries.
 
@@ -234,8 +234,7 @@ Some important diseases could only be recognized by performing a case insensitiv
 
 <Execute command="grep -i -E '^dyskinesia$' diseases.txt" />
 
-The lexicon has only the disease name with the first character in upper-
-case.
+The lexicon has only the disease name with the first character in uppercase.
 
 #### Incorrect matches
 

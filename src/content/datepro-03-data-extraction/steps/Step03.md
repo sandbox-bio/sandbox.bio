@@ -34,9 +34,9 @@ We can update our script file:
 To contain the following lines:
 
 ```bash
-url="https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-e=1&6578706f7274=1&chebiId=$1&dbName=UniProt"
+URL="https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-e=1&6578706f7274=1&chebiId=$1&dbName=UniProt"
 
-curl -s "$url" | \\
+curl -s "$URL" | \\
     grep -e 'CC - MISCELLANEOUS' \\
         -e 'CC - DISRUPTION PHENOTYPE' \\
         -e 'CC - DISEASE' | \\

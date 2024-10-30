@@ -7,8 +7,7 @@ import Execute from "$components/Execute.svelte";
 Finding the relevant entities in text is sometimes not enough. We need to
 know which sentences may describe possible relationships between those entities, such as a relation between a disease and a compound.
 
-This a complex text mining challenge, but a simple approach is to con-
-struct a pattern that allow any kind of characters between two entities:
+This a complex text mining challenge, but a simple approach is to construct a pattern that allow any kind of characters between two entities:
 
 <Execute command="grep -n -w -E 'MH[SNE]?.*(C|c)affeine' chebi_27732_sentences.txt" />
 
@@ -16,8 +15,8 @@ The following sentence is one of the eight displayed sentences mentioning
 a possible relation:
 
 ```text
-257: ... MHS families were investigated with
-     a caffeine ...
+... MHS families were investigated 
+    with a caffeine ...
 ```
 
 However, we are missing all the sentences that have caffeine first:
@@ -26,10 +25,10 @@ However, we are missing all the sentences that have caffeine first:
 We will be able to see that sometimes caffeine comes first:
 
 ```text
-837: ... caffeine-halothane contracture test were
-     greater in those who had a known MH ...
-1132: ... caffeine threshold and tension values
-      and the MH ...
+... caffeine-halothane contracture test were
+    greater in those who had a known MH ...
+... caffeine threshold and tension values
+    and the MH ...
 ```
 
 #### Multiple filters
@@ -53,9 +52,9 @@ in the sentence. For example, in the following sentence the verb response
 appears first than any of the two entities:
 
 ```text
-58: The relationship between the IVCT response
-    and genotype was ... the number of MHS discordants
-    ... at 2.0 mM caffeine ...
+The relationship between the IVCT response
+and genotype was ... the number of MHS discordants
+... at 2.0 mM caffeine ...
 ```
 
 If the verb needs to appear between the two entities, we have to construct

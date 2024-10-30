@@ -11,7 +11,7 @@ export const config = {
 	pwd: "datepro-05-xml-processing",
 	name: "Section 3.7: XML Processing",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
-	description: "Searching, Filtering, and Extracting XML Data",
+	description: "Navigating XML structures to search, filter, and extract relevant information efficiently",
 	tags: ["proteins", "search", "XPath query", "XML", "UniProt"],
 	tools: ["xmllint", "grep", "expr", "sort", "wc", "cut"],
 	difficulty: ["intermediate"],

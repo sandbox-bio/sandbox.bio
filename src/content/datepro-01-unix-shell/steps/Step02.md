@@ -27,8 +27,7 @@ proper filename extension. To check if the file is really on our working directo
 <Execute command="cat myfile.txt" />
 
 The contents of the file should appear in our terminal. `cat` is a simple
-command line tool that receives a filename as argument and displays its con-
-tents on the screen.
+command line tool that receives a filename as argument and displays its contents on the screen.
 
 #### Reverse file contents
 

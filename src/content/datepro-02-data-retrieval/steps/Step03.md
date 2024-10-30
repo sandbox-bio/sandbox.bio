@@ -23,8 +23,8 @@ terminal.
 
 #### Standard error output
 
-This happens because it is displaying that information into the standard er-
-ror output, which was not redirected to the file. The `>` character without
+This happens because it is displaying that information into the standard error output, 
+which was not redirected to the file. The `>` character without
 any preceding number by default redirects the standard output. The same
 happens if we precede it by the number 1. If we do not want to see that
 information, we can also redirect the standard error output (2), but in this

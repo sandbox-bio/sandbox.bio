@@ -92,8 +92,7 @@ apply the two grep commands directly in diff without needing extra files:
 A problem that may occur with case sensitive matching is that some
 acronyms are defined with lowercase letters in the middle, such as ChEBI,
 and humans are not consistent with the way they mention them. The same
-acronym may be mentioned in their original form or with all letters in upper-
-case, or just some of them. Moreover, these inconsistent mentions sometimes
+acronym may be mentioned in their original form or with all letters in uppercase, or just some of them. Moreover, these inconsistent mentions sometimes
 may even be found in the same publication.
 
 #### Evaluation metrics
@@ -103,8 +102,7 @@ Case insensitive searches avoid missing mentions, so they favor recall.
 Precision is the proportion of the number of correct matches found by
 our tool over the total number of matches found (correct or incorrect). Case
 sensitive searches avoid incorrect matches, so they favor precision.
-Normally, there is a trade-off between precision and recall. Using a tech-
-nique that improves precision, most of the times, will decrease recall, and
+Normally, there is a trade-off between precision and recall. Using a technique that improves precision, most of the times, will decrease recall, and
 vice-versa. To know how good the trade-off is, we can use the [F-measure](https://en.wikipedia.org/wiki/F1_score),
 which is the harmonic average of the [precision and recall](https://en.wikipedia.org/wiki/Precision_and_recall).
 
@@ -114,7 +112,7 @@ Acronyms (or terms) may also appear inside common words or longer
 acronyms. For example, when searching for MH, the word _victimhood_ will
 produce a match:
 
-<Execute command={`$echo "victimhood" | grep -i 'MH'`} />
+<Execute command={`echo "victimhood" | grep -i 'MH'`} />
 
 The problem with _victimhood_ could be easily solved by using case sensitive
 matching, but not for a longer acronym. For example, the acronym NEDMHM
@@ -124,8 +122,7 @@ will produce a case sensitive match:
 <Execute command={`echo "NEDMHM" | grep 'MH'`} />
 
 One way to address this problem is to use the -w option of grep to only
-match entire words, i.e. the match must be preceded and followed by char-
-acters that are not letters, digits, or an underscore (or be at the beginning or end of the line). The equivalent long form to the `-w` option is `--word-regexp`.
+match entire words, i.e. the match must be preceded and followed by characters that are not letters, digits, or an underscore (or be at the beginning or end of the line). The equivalent long form to the `-w` option is `--word-regexp`.
 
 Using this option, neither victimhood or NEDMHM will produce a match:
 
