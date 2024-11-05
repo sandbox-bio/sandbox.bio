@@ -3,16 +3,25 @@ import { json } from "@sveltejs/kit";
 
 export async function POST({ request }) {
 	const data = await request.json();
-	const response = await fetch(`https://api.convertkit.com/v3/tags/${env.CONVERTKIT_TAG_ID}/subscribe`, {
+	const payload = {
 		method: "POST",
-		headers: { "Content-Type": "application/json; charset=utf-8" },
+		headers: {
+			"Content-Type": "application/json",
+			Accept: "application/json",
+			"X-Kit-Api-Key": env.KIT_API_KEY
+		},
 		body: JSON.stringify({
-			api_secret: env.CONVERTKIT_API_KEY,
-			email: data.email
+			email_address: data.email
 		})
-	}).then((d) => d.json());
+	};
+
+	// Add email to subscribes
+	await fetch(`https://api.kit.com/v4/subscribers`, payload).then((d) => d.json());
+
+	// Tag email with sandbox.bio
+	const response = await fetch(`https://api.kit.com/v4/tags/${env.KIT_TAG_ID}/subscribers`, payload).then((d) => d.json());
 
 	return json({
-		error: response.message
+		error: response?.errors?.join("\n")
 	});
 }
