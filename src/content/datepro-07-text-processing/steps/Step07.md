@@ -15,7 +15,7 @@ The following sentence is one of the eight displayed sentences mentioning
 a possible relation:
 
 ```text
-... MHS families were investigated 
+... MHS families were investigated
     with a caffeine ...
 ```
 

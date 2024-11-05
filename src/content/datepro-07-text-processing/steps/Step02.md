@@ -284,7 +284,7 @@ command will match MH1 and not MH:
 
 <Execute command="echo 'MH1' | grep -o -E 'MH[0-9]*'" />
 
-####### Multiple and compulsory
+###### Multiple and compulsory
 
 To make the preceding item compulsory and able to repeat it multiple times,
 we may replace the asterisk by the plus character (`+`). For example, the following pattern will find all the acronyms starting with MH followed by at
