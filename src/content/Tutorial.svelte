@@ -70,7 +70,7 @@ onMount(() => {
 <div class="container-fluid pb-3 px-0">
 	<div class="d-grid gap-2" style="grid-template-columns: {tutorial.steps.length > 0 ? '1fr 2fr' : ''}; height:85vh; max-height:85vh">
 		{#if tutorial.steps.length > 0}
-			<div class="bg-light border rounded-3 p-2 d-flex align-items-end flex-column">
+			<div class="bg-light border rounded-3 p-2 d-flex align-items-end flex-column" style="width:25vw; max-width:25vw">
 				<div id="tutorial-sidebar" class="w-100 p-2 mb-auto" style="max-height:77vh; overflow-y:scroll; overflow-x:hidden">
 					<h4>{stepInfo.name || tutorial.name}</h4>
 					{#if stepInfo.subtitle || (step == 0 && tutorial.subtitle)}

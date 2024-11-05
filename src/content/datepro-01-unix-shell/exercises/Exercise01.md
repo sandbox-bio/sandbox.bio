@@ -1,0 +1,1 @@
+Create a script `mirror.sh` that receives as input the name of a file and outputs the contents of that file plus the contents in reverse order. This means the output of executing the script should contain double the number of lines of the input file.

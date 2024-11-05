@@ -18,6 +18,14 @@ import { config as carpentriesShellNovice } from "$content/carpentries-shell-nov
 import { config as blastIntro } from "$content/blast-intro/config";
 import { config as jellyfishIntro } from "$content/jellyfish-intro/config";
 import { config as seqkitIntro } from "$content/seqkit-intro/config";
+import { config as datepro1 } from "$content/datepro-01-unix-shell/config";
+import { config as datepro2 } from "$content/datepro-02-data-retrieval/config";
+import { config as datepro3 } from "$content/datepro-03-data-extraction/config";
+import { config as datepro4 } from "$content/datepro-04-task-repetition/config";
+import { config as datepro5 } from "$content/datepro-05-xml-processing/config";
+import { config as datepro6 } from "$content/datepro-06-text-retrieval/config";
+import { config as datepro7 } from "$content/datepro-07-text-processing/config";
+import { config as datepro8 } from "$content/datepro-08-semantic-processing/config";
 
 // All tutorials
 export const tutorials = readable([
@@ -43,7 +51,15 @@ export const tutorials = readable([
 	// Community tutorials
 	ifblinuxbasics1,
 	ifblinuxbasics2,
-	ifblinuxbasics3
+	ifblinuxbasics3,
+	datepro1,
+	datepro2,
+	datepro3,
+	datepro4,
+	datepro5,
+	datepro6,
+	datepro7,
+	datepro8
 ]);
 
 // Tutorial listings

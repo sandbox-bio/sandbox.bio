@@ -1,0 +1,1000 @@
+A0A315,Photosystem Q(B) protein,CC - CATALYTIC ACTIVITY
+A0A320,"ATP synthase subunit alpha, chloroplastic",CC - CATALYTIC ACTIVITY
+A0A330,Photosystem II D2 protein,CC - CATALYTIC ACTIVITY
+A0A342,"ATP synthase subunit beta, chloroplastic",CC - CATALYTIC ACTIVITY
+A0A351,Cytochrome b559 subunit beta,CC - FUNCTION
+A0A352,Cytochrome b559 subunit alpha,CC - FUNCTION
+A0AAL4,Tubulin alpha chain,CC - SUBUNIT
+A0ACX8,Catalase-peroxidase,CC - CATALYTIC ACTIVITY
+A0AEM0,Arginine deiminase,CC - CATALYTIC ACTIVITY
+A0AF11,Peptidyl-tRNA hydrolase,CC - CATALYTIC ACTIVITY
+A0AFQ9,ATP synthase subunit alpha 1,CC - CATALYTIC ACTIVITY
+A0AFR1,ATP synthase subunit beta 1,CC - CATALYTIC ACTIVITY
+A0AFT8,Heme-degrading monooxygenase,CC - CATALYTIC ACTIVITY
+A0AFU8,3-dehydroquinate dehydratase,CC - CATALYTIC ACTIVITY
+A0AG13,Phosphoribosyl-ATP pyrophosphatase,CC - CATALYTIC ACTIVITY
+A0AG14,Phosphoribosyl-AMP cyclohydrolase,CC - CATALYTIC ACTIVITY
+A0AG15,Imidazole glycerol phosphate synthase subunit HisF,CC - CATALYTIC ACTIVITY
+A0AG17,Imidazole glycerol phosphate synthase subunit HisH,CC - CATALYTIC ACTIVITY
+A0AG18,Imidazoleglycerol-phosphate dehydratase,CC - CATALYTIC ACTIVITY
+A0AGP9,Spermidine/putrescine import ATP-binding protein PotA,CC - CATALYTIC ACTIVITY
+A0AGV7,"Fructose-1,6-bisphosphatase class 3",CC - CATALYTIC ACTIVITY
+A0AH75,Glucosamine-6-phosphate deaminase,CC - CATALYTIC ACTIVITY
+A0AHD1,"2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-acetyltransferase",CC - CATALYTIC ACTIVITY
+A0AHD2,N-acetyldiaminopimelate deacetylase,CC - CATALYTIC ACTIVITY
+A0AHG3,Peptide deformylase,CC - CATALYTIC ACTIVITY
+A0AHK7,GMP synthase [glutamine-hydrolyzing],CC - CATALYTIC ACTIVITY
+A0AIG1,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0AII3,Acylphosphatase,CC - CATALYTIC ACTIVITY
+A0AIN8,4-hydroxy-tetrahydrodipicolinate synthase,CC - CATALYTIC ACTIVITY
+A0AIQ0,Probable manganese-dependent inorganic pyrophosphatase,CC - CATALYTIC ACTIVITY
+A0AIS8,Elongation factor 4,CC - CATALYTIC ACTIVITY
+A0AIU3,5&#039;-methylthioadenosine/S-adenosylhomocysteine nucleosidase,CC - CATALYTIC ACTIVITY
+A0AIY1,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A0AIY2,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A0AJ05,Porphobilinogen deaminase,CC - CATALYTIC ACTIVITY
+A0AJ79,Tryptophan synthase alpha chain,CC - CATALYTIC ACTIVITY
+A0AJ80,Tryptophan synthase beta chain,CC - CATALYTIC ACTIVITY
+A0AJ82,Indole-3-glycerol phosphate synthase,CC - CATALYTIC ACTIVITY
+A0AJB3,N-acetylmuramic acid 6-phosphate etherase,CC - CATALYTIC ACTIVITY; CC - MISCELLANEOUS
+A0AJB9,S-adenosylmethionine synthase,CC - CATALYTIC ACTIVITY
+A0AJJ5,Adenine deaminase,CC - CATALYTIC ACTIVITY
+A0AJK8,Glutamyl-tRNA(Gln) amidotransferase subunit A,CC - CATALYTIC ACTIVITY
+A0AJL9,Bifunctional purine biosynthesis protein PurH,CC - CATALYTIC ACTIVITY
+A0AJM3,Phosphoribosylformylglycinamidine synthase 2,CC - CATALYTIC ACTIVITY
+A0AJM4,Phosphoribosylformylglycinamidine synthase 1,CC - CATALYTIC ACTIVITY
+A0AJS6,Serine/threonine phosphatase stp,CC - CATALYTIC ACTIVITY
+A0AJU0,Carbamoyl-phosphate synthase large chain,CC - CATALYTIC ACTIVITY
+A0AJU2,Dihydroorotase,CC - CATALYTIC ACTIVITY
+A0AJW4,Peptide methionine sulfoxide reductase MsrB,CC - CATALYTIC ACTIVITY
+A0AJW5,Peptide methionine sulfoxide reductase MsrA,CC - CATALYTIC ACTIVITY
+A0AK07,3-methyl-2-oxobutanoate hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0AK12,4-hydroxy-tetrahydrodipicolinate reductase,CC - CATALYTIC ACTIVITY
+A0AK45,GTP cyclohydrolase 1,CC - CATALYTIC ACTIVITY
+A0AK88,Dihydroxy-acid dehydratase,CC - CATALYTIC ACTIVITY
+A0AK92,2-isopropylmalate synthase,CC - CATALYTIC ACTIVITY
+A0AK94,3-isopropylmalate dehydratase large subunit,CC - CATALYTIC ACTIVITY
+A0AK95,3-isopropylmalate dehydratase small subunit,CC - CATALYTIC ACTIVITY
+A0AL18,ATP-dependent helicase/nuclease subunit A,CC - CATALYTIC ACTIVITY
+A0AL19,ATP-dependent helicase/deoxyribonuclease subunit B,CC - CATALYTIC ACTIVITY
+A0ALD9,Enolase,CC - CATALYTIC ACTIVITY
+A0ALG5,Pyrophosphatase PpaX,CC - CATALYTIC ACTIVITY
+A0ALK8,3-hydroxyacyl-[acyl-carrier-protein] dehydratase FabZ,CC - CATALYTIC ACTIVITY
+A0ALL3,ATP synthase subunit beta 2,CC - CATALYTIC ACTIVITY
+A0ALL5,ATP synthase subunit alpha 2,CC - CATALYTIC ACTIVITY
+A0ALM4,Serine hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0AM15,Potassium-transporting ATPase C chain,CC - CATALYTIC ACTIVITY
+A0AM16,Potassium-transporting ATPase B chain,CC - CATALYTIC ACTIVITY
+A0AM17,Potassium-transporting ATPase A chain,CC - CATALYTIC ACTIVITY
+A0AXI7,1-aminocyclopropane-1-carboxylate deaminase,CC - CATALYTIC ACTIVITY
+A0AXR0,3-methyl-2-oxobutanoate hydroxymethyltransferase 2,CC - CATALYTIC ACTIVITY
+A0AYZ1,GTP cyclohydrolase FolE2 1,CC - CATALYTIC ACTIVITY
+A0AZ60,3-isopropylmalate dehydratase large subunit,CC - CATALYTIC ACTIVITY
+A0AZ71,Tryptophan synthase alpha chain,CC - CATALYTIC ACTIVITY
+A0B1M7,Ribose import ATP-binding protein RbsA 2,CC - CATALYTIC ACTIVITY
+A0B2F6,NAD/NADP-dependent betaine aldehyde dehydrogenase,CC - CATALYTIC ACTIVITY
+A0B2F7,Oxygen-dependent choline dehydrogenase,CC - CATALYTIC ACTIVITY
+A0B2Q6,Catalase-peroxidase 2,CC - CATALYTIC ACTIVITY
+A0B3Q5,Acylphosphatase,CC - CATALYTIC ACTIVITY
+A0B3Z7,Arabinose import ATP-binding protein AraG 2,CC - CATALYTIC ACTIVITY
+A0B5C6,Phosphoribosylformylglycinamidine synthase 1,CC - CATALYTIC ACTIVITY
+A0B5C7,Phosphoribosylformylglycinamidine synthase 2,CC - CATALYTIC ACTIVITY
+A0B5E9,Type-2 serine--tRNA ligase,CC - COFACTOR
+A0B5J1,GMP synthase [glutamine-hydrolyzing] subunit A,CC - CATALYTIC ACTIVITY
+A0B5P5,FO synthase subunit 1,CC - CATALYTIC ACTIVITY
+A0B6A6,7-cyano-7-deazaguanine synthase,CC - CATALYTIC ACTIVITY
+A0B6I9,Adenine deaminase,CC - CATALYTIC ACTIVITY
+A0B6K6,3-dehydroquinate synthase,CC - CATALYTIC ACTIVITY
+A0B6K7,3-dehydroquinate dehydratase,CC - CATALYTIC ACTIVITY
+A0B6Y9,Dihydroxy-acid dehydratase,CC - CATALYTIC ACTIVITY
+A0B7E1,4-hydroxy-tetrahydrodipicolinate synthase,CC - CATALYTIC ACTIVITY
+A0B7E8,Enolase,CC - CATALYTIC ACTIVITY
+A0B7H6,CTP synthase,CC - CATALYTIC ACTIVITY
+A0B7J8,Phosphoglycolate phosphatase,CC - CATALYTIC ACTIVITY
+A0B7V2,5-methylthioadenosine/S-adenosylhomocysteine deaminase,CC - CATALYTIC ACTIVITY
+A0B8B3,Phosphoribosyl-AMP cyclohydrolase,CC - CATALYTIC ACTIVITY
+A0B8J6,Serine hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0B8J7,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0B8K9,Carbamoyl-phosphate synthase large chain,CC - CATALYTIC ACTIVITY
+A0B8M6,5&#039;-nucleotidase SurE,CC - CATALYTIC ACTIVITY
+A0B9K2,V-type ATP synthase alpha chain,CC - CATALYTIC ACTIVITY
+A0B9M2,Undecaprenyl-diphosphatase,CC - CATALYTIC ACTIVITY
+A0B9N7,IMP cyclohydrolase,CC - CATALYTIC ACTIVITY
+A0B137,Aliphatic amidase,CC - CATALYTIC ACTIVITY
+A0B297,Putative ribose/galactose/methyl galactoside import ATP-binding protein 2,CC - CATALYTIC ACTIVITY
+A0B338,GTP cyclohydrolase FolE2 2,CC - CATALYTIC ACTIVITY
+A0B571,Acylphosphatase,CC - CATALYTIC ACTIVITY
+A0B624,GTP cyclohydrolase MptA,CC - CATALYTIC ACTIVITY
+A0B742,S-adenosylmethionine synthase,CC - CATALYTIC ACTIVITY
+A0BLX0,Probable protein phosphatase 2C 2,CC - CATALYTIC ACTIVITY
+A0BQL0,Probable protein phosphatase 2C 3,CC - CATALYTIC ACTIVITY
+A0C1E4,Serine/threonine-protein phosphatase PP-X homolog 3,CC - CATALYTIC ACTIVITY
+A0CCD2,Serine/threonine-protein phosphatase PP-X homolog 4,CC - CATALYTIC ACTIVITY
+A0CNL9,Serine/threonine-protein phosphatase PP2A catalytic subunit 2,CC - CATALYTIC ACTIVITY
+A0CUB5,Probable protein phosphatase 2C 5,CC - CATALYTIC ACTIVITY
+A0DJ90,Serine/threonine-protein phosphatase PP-X homolog 2,CC - CATALYTIC ACTIVITY
+A0DSB3,Probable protein phosphatase 2C 6,CC - CATALYTIC ACTIVITY
+A0DTY1,Probable protein phosphatase 2C 4,CC - CATALYTIC ACTIVITY
+A0FI79,72 kDa inositol polyphosphate 5-phosphatase,CC - CATALYTIC ACTIVITY; CC - FUNCTION
+A0JC76,3-amino-4-hydroxybenzoic acid synthase,CC - CATALYTIC ACTIVITY
+A0JMA9,Katanin p60 ATPase-containing subunit A-like 2,CC - CATALYTIC ACTIVITY
+A0JMS7,N-acyl-aromatic-L-amino acid amidohydrolase (carboxylate-forming),CC - CATALYTIC ACTIVITY
+A0JNA3,Inosine-5&#039;-monophosphate dehydrogenase 1,CC - CATALYTIC ACTIVITY
+A0JND9,Ectonucleoside triphosphate diphosphohydrolase 8,CC - CATALYTIC ACTIVITY
+A0JNI4,Serine racemase,CC - CATALYTIC ACTIVITY
+A0JNQ7,Colipase,CC - FUNCTION
+A0JNU3,60 kDa lysophospholipase,CC - CATALYTIC ACTIVITY
+A0JPQ8,Alkylglycerol monooxygenase,CC - CATALYTIC ACTIVITY
+A0JQW8,Probable 5-dehydro-4-deoxyglucarate dehydratase,CC - CATALYTIC ACTIVITY
+A0JRH2,Urease subunit gamma,CC - CATALYTIC ACTIVITY
+A0JRH3,Urease subunit beta,CC - CATALYTIC ACTIVITY
+A0JRH4,Urease subunit alpha,CC - CATALYTIC ACTIVITY
+A0JTE5,Acylphosphatase,CC - CATALYTIC ACTIVITY
+A0JTZ0,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0JU21,Enolase,CC - CATALYTIC ACTIVITY
+A0JU94,Peptidyl-tRNA hydrolase,CC - CATALYTIC ACTIVITY
+A0JUI7,Imidazolonepropionase,CC - CATALYTIC ACTIVITY
+A0JUS8,4-hydroxy-3-methylbut-2-en-1-yl diphosphate synthase,CC - CATALYTIC ACTIVITY
+A0JUZ5,Imidazoleglycerol-phosphate dehydratase,CC - CATALYTIC ACTIVITY
+A0JVB5,3-methyl-2-oxobutanoate hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0JVK2,"6,7-dimethyl-8-ribityllumazine synthase",CC - CATALYTIC ACTIVITY
+A0JVK3,Phosphoribosyl-ATP pyrophosphatase,CC - CATALYTIC ACTIVITY
+A0JVK5,Imidazole glycerol phosphate synthase subunit HisF,CC - CATALYTIC ACTIVITY
+A0JVK7,Phosphoribosyl-AMP cyclohydrolase,CC - CATALYTIC ACTIVITY
+A0JVL1,Indole-3-glycerol phosphate synthase,CC - CATALYTIC ACTIVITY
+A0JWX7,Undecaprenyl-diphosphatase,CC - CATALYTIC ACTIVITY
+A0JX36,2-isopropylmalate synthase,CC - CATALYTIC ACTIVITY
+A0JX50,Elongation factor 4,CC - CATALYTIC ACTIVITY
+A0JX72,Carbamoyl-phosphate synthase large chain,CC - CATALYTIC ACTIVITY
+A0JXB1,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A0JXB2,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A0JXQ4,Peptide methionine sulfoxide reductase MsrA,CC - CATALYTIC ACTIVITY
+A0JXX7,3-isopropylmalate dehydratase small subunit,CC - CATALYTIC ACTIVITY
+A0JXX8,3-isopropylmalate dehydratase large subunit,CC - CATALYTIC ACTIVITY
+A0JXZ9,Dihydroxy-acid dehydratase,CC - CATALYTIC ACTIVITY
+A0JY49,Glucosamine-6-phosphate deaminase,CC - CATALYTIC ACTIVITY
+A0JY64,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
+A0JY66,ATP synthase subunit alpha,CC - CATALYTIC ACTIVITY
+A0K2V4,Putative pterin-4-alpha-carbinolamine dehydratase,CC - CATALYTIC ACTIVITY
+A0K2Y1,ATP synthase subunit alpha,CC - CATALYTIC ACTIVITY
+A0K2Y3,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
+A0K3S5,sn-glycerol-3-phosphate import ATP-binding protein UgpC,CC - CATALYTIC ACTIVITY
+A0K3V4,Imidazoleglycerol-phosphate dehydratase,CC - CATALYTIC ACTIVITY
+A0K3V8,Imidazole glycerol phosphate synthase subunit HisF,CC - CATALYTIC ACTIVITY
+A0K3V9,Phosphoribosyl-AMP cyclohydrolase,CC - CATALYTIC ACTIVITY
+A0K3W0,Phosphoribosyl-ATP pyrophosphatase,CC - CATALYTIC ACTIVITY
+A0K4E8,Arabinose import ATP-binding protein AraG 1,CC - CATALYTIC ACTIVITY
+A0K4H7,4-hydroxy-tetrahydrodipicolinate reductase,CC - CATALYTIC ACTIVITY
+A0K4K8,Anhydro-N-acetylmuramic acid kinase,CC - CATALYTIC ACTIVITY
+A0K4L4,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A0K4L5,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A0K4L7,Bifunctional purine biosynthesis protein PurH,CC - CATALYTIC ACTIVITY
+A0K4Q2,Catalase-peroxidase 1,CC - CATALYTIC ACTIVITY
+A0K4T1,3-methyl-2-oxobutanoate hydroxymethyltransferase 1,CC - CATALYTIC ACTIVITY
+A0K5D2,"6,7-dimethyl-8-ribityllumazine synthase",CC - CATALYTIC ACTIVITY
+A0K5J0,"Fructose-1,6-bisphosphatase class 1",CC - CATALYTIC ACTIVITY
+A0K5P0,D-amino acid dehydrogenase small subunit,CC - CATALYTIC ACTIVITY
+A0K5S6,Nicotinate phosphoribosyltransferase,CC - CATALYTIC ACTIVITY
+A0K5V7,Elongation factor 4,CC - CATALYTIC ACTIVITY
+A0K6E4,Undecaprenyl-diphosphatase 2,CC - CATALYTIC ACTIVITY
+A0K6Q0,Putative ribose/galactose/methyl galactoside import ATP-binding protein 1,CC - CATALYTIC ACTIVITY
+A0K8B3,GMP synthase [glutamine-hydrolyzing],CC - CATALYTIC ACTIVITY
+A0K8C7,Putative phosphoenolpyruvate synthase regulatory protein,DE; CC - CATALYTIC ACTIVITY
+A0K8D2,3-hydroxyacyl-[acyl-carrier-protein] dehydratase FabZ,CC - CATALYTIC ACTIVITY
+A0K8F4,"2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-succinyltransferase",CC - CATALYTIC ACTIVITY
+A0K8F6,Succinyl-diaminopimelate desuccinylase,CC - CATALYTIC ACTIVITY
+A0K8N1,Enolase,CC - CATALYTIC ACTIVITY
+A0K8N2,2-dehydro-3-deoxyphosphooctonate aldolase,CC - CATALYTIC ACTIVITY
+A0K8N3,CTP synthase,CC - CATALYTIC ACTIVITY
+A0K8R4,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0K8U2,Imidazolonepropionase,CC - CATALYTIC ACTIVITY
+A0K9K6,Deoxycytidine triphosphate deaminase,CC - CATALYTIC ACTIVITY
+A0K9S9,Quinolinate synthase A,CC - CATALYTIC ACTIVITY
+A0K9T8,Deoxyuridine 5&#039;-triphosphate nucleotidohydrolase,CC - CATALYTIC ACTIVITY
+A0K9Z1,Pyridoxine/pyridoxamine 5&#039;-phosphate oxidase,CC - CATALYTIC ACTIVITY
+A0K458,Indole-3-glycerol phosphate synthase,CC - CATALYTIC ACTIVITY
+A0K493,UDP-3-O-[3-hydroxymyristoyl] N-acetylglucosamine deacetylase,CC - CATALYTIC ACTIVITY
+A0K516,D-(-)-3-hydroxybutyrate oligomer hydrolase,CC - CATALYTIC ACTIVITY
+A0K576,Urease subunit alpha,CC - CATALYTIC ACTIVITY
+A0K577,Urease subunit beta,CC - CATALYTIC ACTIVITY
+A0K578,Urease subunit gamma,CC - CATALYTIC ACTIVITY
+A0K593,Undecaprenyl-diphosphatase 1,CC - CATALYTIC ACTIVITY
+A0K608,N-succinylglutamate 5-semialdehyde dehydrogenase,CC - CATALYTIC ACTIVITY
+A0K609,N-succinylarginine dihydrolase,CC - CATALYTIC ACTIVITY
+A0K610,Succinylglutamate desuccinylase,CC - CATALYTIC ACTIVITY
+A0K718,Ribose import ATP-binding protein RbsA 1,CC - CATALYTIC ACTIVITY
+A0K833,Peptide methionine sulfoxide reductase MsrB,CC - CATALYTIC ACTIVITY
+A0K933,2-isopropylmalate synthase,CC - CATALYTIC ACTIVITY
+A0K960,Potassium-transporting ATPase C chain,CC - CATALYTIC ACTIVITY
+A0KA00,Kynurenine formamidase,CC - CATALYTIC ACTIVITY
+A0KAM7,Peptidyl-tRNA hydrolase,CC - CATALYTIC ACTIVITY
+A0KAV6,Taurine import ATP-binding protein TauB,CC - CATALYTIC ACTIVITY
+A0KBF2,S-adenosylmethionine synthase,CC - CATALYTIC ACTIVITY
+A0KBH9,Glutamyl-tRNA(Gln) amidotransferase subunit A,CC - CATALYTIC ACTIVITY
+A0KBJ0,7-cyano-7-deazaguanine synthase,CC - CATALYTIC ACTIVITY
+A0KDV2,L-rhamnonate dehydratase,CC - CATALYTIC ACTIVITY
+A0KE25,Putative ribose/galactose/methyl galactoside import ATP-binding protein 3,CC - CATALYTIC ACTIVITY
+A0KE38,3-(3-hydroxy-phenyl)propionate/3-hydroxycinnamic acid hydroxylase,CC - CATALYTIC ACTIVITY
+A0KE53,Xylose import ATP-binding protein XylG,CC - CATALYTIC ACTIVITY
+A0KEG8,"Guanosine-5&#039;-triphosphate,3&#039;-diphosphate pyrophosphatase",CC - CATALYTIC ACTIVITY
+A0KEG9,ATP-dependent RNA helicase RhlB,CC - CATALYTIC ACTIVITY
+A0KEL1,Fatty acid oxidation complex subunit alpha,CC - CATALYTIC ACTIVITY
+A0KEM6,Deoxyuridine 5&#039;-triphosphate nucleotidohydrolase,CC - CATALYTIC ACTIVITY
+A0KEX6,Threonylcarbamoyl-AMP synthase,CC - CATALYTIC ACTIVITY
+A0KEX7,Oxygen-dependent coproporphyrinogen-III oxidase,CC - CATALYTIC ACTIVITY
+A0KF11,Pimeloyl-[acyl-carrier protein] methyl ester esterase,CC - CATALYTIC ACTIVITY
+A0KF84,Imidazolonepropionase,CC - CATALYTIC ACTIVITY
+A0KF85,Formimidoylglutamase,CC - CATALYTIC ACTIVITY
+A0KFC0,N-acetylmuramic acid 6-phosphate etherase,CC - CATALYTIC ACTIVITY; CC - MISCELLANEOUS
+A0KFU8,Phosphoenolpyruvate carboxylase,CC - CATALYTIC ACTIVITY
+A0KG42,4-hydroxy-3-methylbut-2-enyl diphosphate reductase,CC - CATALYTIC ACTIVITY
+A0KGD2,D-erythrose-4-phosphate dehydrogenase,CC - CATALYTIC ACTIVITY
+A0KGF0,Elongation factor 4,CC - CATALYTIC ACTIVITY
+A0KGH2,CTP synthase,CC - CATALYTIC ACTIVITY
+A0KGH3,Enolase,CC - CATALYTIC ACTIVITY
+A0KGH8,5&#039;-nucleotidase SurE,CC - CATALYTIC ACTIVITY
+A0KGJ2,Bifunctional purine biosynthesis protein PurH,CC - CATALYTIC ACTIVITY
+A0KGM6,3-isopropylmalate dehydratase small subunit,CC - CATALYTIC ACTIVITY
+A0KGM7,3-isopropylmalate dehydratase large subunit,CC - CATALYTIC ACTIVITY
+A0KGM9,2-isopropylmalate synthase,CC - CATALYTIC ACTIVITY
+A0KGT6,"Bis(5&#039;-nucleosyl)-tetraphosphatase, symmetrical",CC - CATALYTIC ACTIVITY
+A0KGY5,Probable 4-deoxy-4-formamido-L-arabinose-phosphoundecaprenol deformylase ArnD,CC - CATALYTIC ACTIVITY
+A0KHA2,Hydroxylamine reductase,CC - FUNCTION
+A0KHG0,"2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-succinyltransferase",CC - CATALYTIC ACTIVITY
+A0KHH4,3-hydroxyacyl-[acyl-carrier-protein] dehydratase FabZ,CC - CATALYTIC ACTIVITY
+A0KI46,Pyridoxine/pyridoxamine 5&#039;-phosphate oxidase,CC - CATALYTIC ACTIVITY
+A0KIB5,Succinyl-diaminopimelate desuccinylase,CC - CATALYTIC ACTIVITY
+A0KIG3,Glucosamine-6-phosphate deaminase,CC - CATALYTIC ACTIVITY
+A0KIK2,Hydroxyacylglutathione hydrolase,CC - CATALYTIC ACTIVITY
+A0KIM1,Periplasmic nitrate reductase,CC - CATALYTIC ACTIVITY
+A0KIN6,GTP cyclohydrolase 1,CC - CATALYTIC ACTIVITY
+A0KIZ1,5&#039;-methylthioadenosine/S-adenosylhomocysteine nucleosidase,CC - CATALYTIC ACTIVITY
+A0KJ91,GTP cyclohydrolase-2,CC - CATALYTIC ACTIVITY
+A0KJA0,7-cyano-7-deazaguanine synthase,CC - CATALYTIC ACTIVITY
+A0KJD4,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0KJG4,Putative pterin-4-alpha-carbinolamine dehydratase,CC - CATALYTIC ACTIVITY
+A0KJH4,Cytidine deaminase,CC - CATALYTIC ACTIVITY
+A0KJM0,Phosphonoacetaldehyde hydrolase,CC - CATALYTIC ACTIVITY
+A0KJP1,D-amino acid dehydrogenase small subunit,CC - CATALYTIC ACTIVITY
+A0KJP3,Tryptophanase,CC - CATALYTIC ACTIVITY
+A0KJS0,GMP synthase [glutamine-hydrolyzing],CC - CATALYTIC ACTIVITY
+A0KJT2,"Fructose-1,6-bisphosphatase class 1",CC - CATALYTIC ACTIVITY
+A0KKB0,Imidazole glycerol phosphate synthase subunit HisF,CC - CATALYTIC ACTIVITY
+A0KKE7,"Selenide, water dikinase",DE; FT; CC - CATALYTIC ACTIVITY
+A0KKF3,Acylphosphatase,CC - CATALYTIC ACTIVITY
+A0KKF9,Deoxycytidine triphosphate deaminase,CC - CATALYTIC ACTIVITY
+A0KLP9,Putative phosphoenolpyruvate synthase regulatory protein,DE; CC - CATALYTIC ACTIVITY
+A0KLW6,"UDP-2,3-diacylglucosamine hydrolase",CC - CATALYTIC ACTIVITY
+A0KMD0,Tryptophan synthase beta chain,CC - CATALYTIC ACTIVITY
+A0KMD1,Tryptophan synthase alpha chain,CC - CATALYTIC ACTIVITY
+A0KMV4,N-succinylarginine dihydrolase,CC - CATALYTIC ACTIVITY
+A0KN04,Peptidyl-tRNA hydrolase,CC - CATALYTIC ACTIVITY
+A0KN18,N-succinylglutamate 5-semialdehyde dehydrogenase,CC - CATALYTIC ACTIVITY
+A0KNH4,Serine hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0KNI3,3-dehydroquinate dehydratase,CC - CATALYTIC ACTIVITY
+A0KNL0,Sulfite reductase [NADPH] hemoprotein beta-component,CC - CATALYTIC ACTIVITY
+A0KNV3,Glutaminase,CC - CATALYTIC ACTIVITY
+A0KP07,3-methyl-2-oxobutanoate hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0KPA2,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A0KPA3,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A0KPW7,UDP-3-O-[3-hydroxymyristoyl] N-acetylglucosamine deacetylase,CC - CATALYTIC ACTIVITY
+A0KQI1,Undecaprenyl-diphosphatase,CC - CATALYTIC ACTIVITY
+A0KQS4,Dihydroxy-acid dehydratase,CC - CATALYTIC ACTIVITY
+A0KQX8,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
+A0KQY0,ATP synthase subunit alpha,CC - CATALYTIC ACTIVITY
+A0KR50,Fatty acid oxidation complex subunit alpha,CC - CATALYTIC ACTIVITY
+A0KR66,Threonylcarbamoyl-AMP synthase,CC - CATALYTIC ACTIVITY
+A0KR67,Oxygen-dependent coproporphyrinogen-III oxidase,CC - CATALYTIC ACTIVITY
+A0KRB5,Enolase-phosphatase E1,CC - CATALYTIC ACTIVITY
+A0KRC4,Imidazolonepropionase,CC - CATALYTIC ACTIVITY
+A0KRC6,Urocanate hydratase,CC - CATALYTIC ACTIVITY
+A0KRK1,"Selenide, water dikinase",DE; FT; CC - CATALYTIC ACTIVITY
+A0KRY0,Catalase-peroxidase 1,CC - CATALYTIC ACTIVITY
+A0KS32,Dihydroxy-acid dehydratase,CC - CATALYTIC ACTIVITY
+A0KS60,Porphobilinogen deaminase,CC - CATALYTIC ACTIVITY
+A0KS84,ATP-dependent RNA helicase RhlB,CC - CATALYTIC ACTIVITY
+A0KSI2,3-dehydroquinate dehydratase,CC - CATALYTIC ACTIVITY
+A0KST2,N-succinylglutamate 5-semialdehyde dehydrogenase,CC - CATALYTIC ACTIVITY
+A0KSW7,"Fructose-1,6-bisphosphatase class 1",CC - CATALYTIC ACTIVITY
+A0KSX7,Cytochrome c-552,CC - CATALYTIC ACTIVITY
+A0KT94,2-dehydro-3-deoxyphosphooctonate aldolase,CC - CATALYTIC ACTIVITY
+A0KTH4,Sulfite reductase [NADPH] flavoprotein alpha-component,CC - CATALYTIC ACTIVITY
+A0KTH5,Sulfite reductase [NADPH] hemoprotein beta-component,CC - CATALYTIC ACTIVITY
+A0KTT2,4-hydroxy-tetrahydrodipicolinate reductase,CC - CATALYTIC ACTIVITY
+A0KTX7,Peptidyl-tRNA hydrolase,CC - CATALYTIC ACTIVITY
+A0KU60,Serine hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0KU81,CTP synthase,CC - CATALYTIC ACTIVITY
+A0KU82,Enolase,CC - CATALYTIC ACTIVITY
+A0KU87,5&#039;-nucleotidase SurE,CC - CATALYTIC ACTIVITY
+A0KUF0,Glutaminase,CC - CATALYTIC ACTIVITY
+A0KUJ5,4-hydroxy-3-methylbut-2-en-1-yl diphosphate synthase,CC - CATALYTIC ACTIVITY
+A0KUK2,GMP synthase [glutamine-hydrolyzing],CC - CATALYTIC ACTIVITY
+A0KV76,Fatty acid oxidation complex subunit alpha,CC - CATALYTIC ACTIVITY; CC - FUNCTION
+A0KVD1,Tryptophan synthase beta chain,CC - CATALYTIC ACTIVITY
+A0KVM1,3-hydroxydecanoyl-[acyl-carrier-protein] dehydratase,CC - CATALYTIC ACTIVITY
+A0KVP0,Pyridoxine/pyridoxamine 5&#039;-phosphate oxidase,CC - CATALYTIC ACTIVITY
+A0KVS0,4-hydroxy-tetrahydrodipicolinate synthase,CC - CATALYTIC ACTIVITY
+A0KVZ2,N-succinylarginine dihydrolase,CC - CATALYTIC ACTIVITY
+A0KVZ9,Putative phosphoenolpyruvate synthase regulatory protein,DE; CC - CATALYTIC ACTIVITY
+A0KW27,Deoxycytidine triphosphate deaminase,CC - CATALYTIC ACTIVITY
+A0KWB0,Imidazole glycerol phosphate synthase subunit HisF,CC - CATALYTIC ACTIVITY
+A0KWH4,Succinyl-diaminopimelate desuccinylase,CC - CATALYTIC ACTIVITY
+A0KWK2,Thiazole synthase,CC - CATALYTIC ACTIVITY
+A0KWL8,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A0KWL9,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A0KX39,Quinolinate synthase A,CC - CATALYTIC ACTIVITY
+A0KX43,Succinylglutamate desuccinylase,CC - CATALYTIC ACTIVITY
+A0KX75,7-cyano-7-deazaguanine synthase,CC - CATALYTIC ACTIVITY
+A0KXS9,Hydroxyacylglutathione hydrolase,CC - CATALYTIC ACTIVITY
+A0KYD1,Cytidine deaminase,CC - CATALYTIC ACTIVITY
+A0KYF8,GTP cyclohydrolase-2,CC - CATALYTIC ACTIVITY
+A0KYM1,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0KYM4,"UDP-2,3-diacylglucosamine hydrolase",CC - CATALYTIC ACTIVITY
+A0KYY8,Putative pterin-4-alpha-carbinolamine dehydratase,CC - CATALYTIC ACTIVITY
+A0KZ12,3-hydroxyacyl-[acyl-carrier-protein] dehydratase FabZ,CC - CATALYTIC ACTIVITY
+A0KZ26,"2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-succinyltransferase",CC - CATALYTIC ACTIVITY
+A0KZL7,Hydroxylamine reductase,CC - FUNCTION
+A0KZN4,Elongation factor 4,CC - CATALYTIC ACTIVITY
+A0KZQ7,5&#039;-methylthioadenosine/S-adenosylhomocysteine nucleosidase,CC - CATALYTIC ACTIVITY
+A0KZR5,Anhydro-N-acetylmuramic acid kinase,CC - CATALYTIC ACTIVITY
+A0KZT4,Undecaprenyl-diphosphatase,CC - CATALYTIC ACTIVITY
+A0L0B8,Dihydroorotase,CC - CATALYTIC ACTIVITY
+A0L0K7,D-erythrose-4-phosphate dehydrogenase,CC - CATALYTIC ACTIVITY
+A0L0K9,S-adenosylmethionine synthase,CC - CATALYTIC ACTIVITY
+A0L0M2,Non-canonical purine NTP phosphatase,CC - CATALYTIC ACTIVITY
+A0L0R2,3-methyl-2-oxobutanoate hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0L0W9,Putative agmatine deiminase,CC - CATALYTIC ACTIVITY
+A0L1N7,UDP-3-O-[3-hydroxymyristoyl] N-acetylglucosamine deacetylase,CC - CATALYTIC ACTIVITY
+A0L1Q7,3-isopropylmalate dehydratase small subunit,CC - CATALYTIC ACTIVITY
+A0L1Q8,3-isopropylmalate dehydratase large subunit,CC - CATALYTIC ACTIVITY
+A0L1R0,2-isopropylmalate synthase,CC - CATALYTIC ACTIVITY
+A0L1S1,Deoxyuridine 5&#039;-triphosphate nucleotidohydrolase,CC - CATALYTIC ACTIVITY
+A0L1S4,GTP cyclohydrolase 1,CC - CATALYTIC ACTIVITY
+A0L2R5,Adenosine deaminase,CC - CATALYTIC ACTIVITY
+A0L2S8,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
+A0L2T0,ATP synthase subunit alpha,CC - CATALYTIC ACTIVITY
+A0L3M6,3-methyl-2-oxobutanoate hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0L3N2,Succinyl-diaminopimelate desuccinylase,CC - CATALYTIC ACTIVITY
+A0L3Z9,"6,7-dimethyl-8-ribityllumazine synthase",CC - CATALYTIC ACTIVITY
+A0L4K6,5&#039;-nucleotidase SurE,CC - CATALYTIC ACTIVITY
+A0L4R8,7-cyano-7-deazaguanine synthase,CC - CATALYTIC ACTIVITY
+A0L4V5,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A0L4V9,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A0L4Z4,4-hydroxy-tetrahydrodipicolinate reductase,CC - CATALYTIC ACTIVITY
+A0L5E8,Thiazole synthase,CC - CATALYTIC ACTIVITY
+A0L5G0,Glutamyl-tRNA(Gln) amidotransferase subunit A,CC - CATALYTIC ACTIVITY
+A0L6F0,Urease subunit gamma,CC - CATALYTIC ACTIVITY
+A0L6F1,Urease subunit beta,CC - CATALYTIC ACTIVITY
+A0L6F2,Urease subunit alpha,CC - CATALYTIC ACTIVITY
+A0L6X0,Nitrogenase iron protein,CC - CATALYTIC ACTIVITY
+A0L7X4,2-dehydro-3-deoxyphosphooctonate aldolase,CC - CATALYTIC ACTIVITY
+A0L7X8,Enolase,CC - CATALYTIC ACTIVITY
+A0L8I1,GTP cyclohydrolase FolE2,CC - CATALYTIC ACTIVITY
+A0L8J4,3-isopropylmalate dehydratase large subunit,CC - CATALYTIC ACTIVITY
+A0L8J5,3-isopropylmalate dehydratase small subunit,CC - CATALYTIC ACTIVITY
+A0L8Q3,Dihydroxy-acid dehydratase,CC - CATALYTIC ACTIVITY
+A0L8R5,3-hydroxyacyl-[acyl-carrier-protein] dehydratase FabZ,CC - CATALYTIC ACTIVITY
+A0L8S5,Pyridoxine 5&#039;-phosphate synthase,CC - CATALYTIC ACTIVITY
+A0L9F4,Undecaprenyl-diphosphatase,CC - CATALYTIC ACTIVITY
+A0L066,"Bis(5&#039;-nucleosyl)-tetraphosphatase, symmetrical",CC - CATALYTIC ACTIVITY
+A0L153,Catalase-peroxidase 2,CC - CATALYTIC ACTIVITY
+A0L403,Serine hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0L631,Elongation factor 4,CC - CATALYTIC ACTIVITY
+A0LA39,Indole-3-glycerol phosphate synthase,CC - CATALYTIC ACTIVITY
+A0LBT6,Imidazoleglycerol-phosphate dehydratase,CC - CATALYTIC ACTIVITY
+A0LBW3,2-isopropylmalate synthase,CC - CATALYTIC ACTIVITY
+A0LCF3,Imidazole glycerol phosphate synthase subunit HisF,CC - CATALYTIC ACTIVITY
+A0LCF4,Phosphoribosyl-AMP cyclohydrolase,CC - CATALYTIC ACTIVITY
+A0LCF5,Phosphoribosyl-ATP pyrophosphatase,CC - CATALYTIC ACTIVITY
+A0LCX5,S-adenosylmethionine synthase,CC - CATALYTIC ACTIVITY
+A0LD71,4-hydroxy-3-methylbut-2-enyl diphosphate reductase,CC - CATALYTIC ACTIVITY
+A0LDA0,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
+A0LDA2,ATP synthase subunit alpha,CC - CATALYTIC ACTIVITY
+A0LDB0,Bifunctional purine biosynthesis protein PurH,CC - CATALYTIC ACTIVITY
+A0LDB5,4-hydroxy-tetrahydrodipicolinate synthase,CC - CATALYTIC ACTIVITY
+A0LDN3,4-hydroxy-3-methylbut-2-en-1-yl diphosphate synthase,CC - CATALYTIC ACTIVITY
+A0LE04,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0LEA5,LL-diaminopimelate aminotransferase,CC - CATALYTIC ACTIVITY
+A0LEA6,4-hydroxy-tetrahydrodipicolinate reductase,CC - CATALYTIC ACTIVITY
+A0LEA7,4-hydroxy-tetrahydrodipicolinate synthase,CC - CATALYTIC ACTIVITY
+A0LEC9,Enolase,CC - CATALYTIC ACTIVITY
+A0LEJ7,Peptide deformylase,CC - CATALYTIC ACTIVITY
+A0LF54,Dihydroxy-acid dehydratase,CC - CATALYTIC ACTIVITY
+A0LF65,S-adenosylmethionine synthase,CC - CATALYTIC ACTIVITY
+A0LFB5,Adenine deaminase,CC - CATALYTIC ACTIVITY
+A0LFI1,Imidazole glycerol phosphate synthase subunit HisF,CC - CATALYTIC ACTIVITY
+A0LG38,Non-canonical purine NTP pyrophosphatase,CC - CATALYTIC ACTIVITY
+A0LG71,Undecaprenyl-diphosphatase,CC - CATALYTIC ACTIVITY
+A0LGY6,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A0LGY7,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A0LH11,Nitrogenase iron protein,CC - CATALYTIC ACTIVITY
+A0LHG0,5&#039;-nucleotidase SurE,CC - CATALYTIC ACTIVITY
+A0LI00,Elongation factor 4,CC - CATALYTIC ACTIVITY
+A0LI16,Serine hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0LI20,"6,7-dimethyl-8-ribityllumazine synthase",CC - CATALYTIC ACTIVITY
+A0LI66,Acylphosphatase,CC - CATALYTIC ACTIVITY
+A0LJ55,Tryptophan synthase alpha chain,CC - CATALYTIC ACTIVITY
+A0LJ58,Indole-3-glycerol phosphate synthase,CC - CATALYTIC ACTIVITY
+A0LJA4,Thiazole synthase,CC - CATALYTIC ACTIVITY
+A0LJR5,7-cyano-7-deazaguanine synthase,CC - CATALYTIC ACTIVITY
+A0LK05,2-dehydro-3-deoxyphosphooctonate aldolase,CC - CATALYTIC ACTIVITY
+A0LK22,Dihydroorotase,CC - CATALYTIC ACTIVITY
+A0LK96,Pyridoxine 5&#039;-phosphate synthase,CC - CATALYTIC ACTIVITY
+A0LKV6,Imidazolonepropionase,CC - CATALYTIC ACTIVITY
+A0LLF8,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
+A0LLG0,ATP synthase subunit alpha,CC - CATALYTIC ACTIVITY
+A0LLR2,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0LLU8,3-dehydroquinate dehydratase,CC - CATALYTIC ACTIVITY
+A0LLW3,3-methyl-2-oxobutanoate hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0LMC1,Phosphonoacetaldehyde hydrolase,CC - CATALYTIC ACTIVITY
+A0LMI3,5-methylthioadenosine/S-adenosylhomocysteine deaminase,CC - CATALYTIC ACTIVITY
+A0LN73,Porphobilinogen deaminase,CC - CATALYTIC ACTIVITY
+A0LNW5,Hydroxylamine reductase,CC - FUNCTION
+A0LP22,Glutamyl-tRNA(Gln) amidotransferase subunit A,CC - CATALYTIC ACTIVITY
+A0LPR6,3-hydroxyacyl-[acyl-carrier-protein] dehydratase FabZ,CC - CATALYTIC ACTIVITY
+A0LQG8,Imidazoleglycerol-phosphate dehydratase,CC - CATALYTIC ACTIVITY
+A0LQM0,Phosphoribosyl-AMP cyclohydrolase,CC - CATALYTIC ACTIVITY
+A0LQR3,GTP cyclohydrolase FolE2,CC - CATALYTIC ACTIVITY
+A0LR22,Futalosine hydrolase,CC - CATALYTIC ACTIVITY
+A0LR32,Pyridoxine/pyridoxamine 5&#039;-phosphate oxidase,CC - CATALYTIC ACTIVITY
+A0LRF1,Porphobilinogen deaminase,CC - CATALYTIC ACTIVITY
+A0LRH8,Aminodeoxyfutalosine deaminase,CC - CATALYTIC ACTIVITY
+A0LRU9,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0LSL4,ATP synthase subunit alpha,CC - CATALYTIC ACTIVITY
+A0LSL6,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
+A0LSR0,Glutamyl-tRNA(Gln) amidotransferase subunit A,CC - CATALYTIC ACTIVITY
+A0LSR8,Dihydroxy-acid dehydratase,CC - CATALYTIC ACTIVITY
+A0LSX9,Undecaprenyl-diphosphatase,CC - CATALYTIC ACTIVITY
+A0LTD0,3-methyl-2-oxobutanoate hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0LTS3,Imidazoleglycerol-phosphate dehydratase,CC - CATALYTIC ACTIVITY
+A0LTT2,Phosphoribosyl-AMP cyclohydrolase,CC - CATALYTIC ACTIVITY
+A0LTT7,Tryptophan synthase alpha chain,CC - CATALYTIC ACTIVITY
+A0LUA5,CTP synthase,CC - CATALYTIC ACTIVITY
+A0LUD3,"6,7-dimethyl-8-ribityllumazine synthase",CC - CATALYTIC ACTIVITY
+A0LUE1,Peptide deformylase,CC - CATALYTIC ACTIVITY
+A0LUE6,Spermidine/putrescine import ATP-binding protein PotA,CC - CATALYTIC ACTIVITY
+A0LUK5,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A0LUK6,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A0LV15,4-hydroxy-tetrahydrodipicolinate synthase,CC - CATALYTIC ACTIVITY
+A0LV34,4-hydroxy-3-methylbut-2-en-1-yl diphosphate synthase,CC - CATALYTIC ACTIVITY
+A0LV49,Serine hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0LV84,Acylphosphatase,CC - CATALYTIC ACTIVITY
+A0LVA2,3-isopropylmalate dehydratase small subunit,CC - CATALYTIC ACTIVITY
+A0LVA3,3-isopropylmalate dehydratase large subunit,CC - CATALYTIC ACTIVITY
+A0LW20,4-hydroxy-3-methylbut-2-enyl diphosphate reductase,CC - CATALYTIC ACTIVITY
+A0LW30,1D-myo-inositol 2-acetamido-2-deoxy-alpha-D-glucopyranoside deacetylase,CC - CATALYTIC ACTIVITY
+A0LW71,Enolase,CC - CATALYTIC ACTIVITY
+A0LWS4,Deoxycytidine triphosphate deaminase,CC - CATALYTIC ACTIVITY
+A0LXR1,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A0LXS4,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A0LXW0,Pyridoxine 5&#039;-phosphate synthase,CC - CATALYTIC ACTIVITY
+A0LY55,S-adenosylmethionine synthase,CC - CATALYTIC ACTIVITY
+A0LZ30,4-hydroxy-tetrahydrodipicolinate synthase,CC - CATALYTIC ACTIVITY
+A0LZE0,Imidazolonepropionase,CC - CATALYTIC ACTIVITY
+A0LZH6,"6,7-dimethyl-8-ribityllumazine synthase",CC - CATALYTIC ACTIVITY
+A0LZI4,4-hydroxy-tetrahydrodipicolinate reductase,CC - CATALYTIC ACTIVITY
+A0LZM9,Catalase-peroxidase,CC - CATALYTIC ACTIVITY
+A0M0C9,Non-canonical purine NTP pyrophosphatase,CC - CATALYTIC ACTIVITY
+A0M0J2,"Fructose-1,6-bisphosphatase class 1 1",CC - CATALYTIC ACTIVITY
+A0M1H4,Putative pterin-4-alpha-carbinolamine dehydratase,CC - CATALYTIC ACTIVITY
+A0M2G0,Pyridoxine/pyridoxamine 5&#039;-phosphate oxidase,CC - CATALYTIC ACTIVITY
+A0M3I8,CTP synthase,CC - CATALYTIC ACTIVITY
+A0M3J8,GMP synthase [glutamine-hydrolyzing],CC - CATALYTIC ACTIVITY
+A0M3N2,Serine hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0M3P3,Peptide deformylase,CC - CATALYTIC ACTIVITY
+A0M4T5,Tryptophan synthase alpha chain,CC - CATALYTIC ACTIVITY
+A0M4X2,Kynurenine 3-monooxygenase,CC - CATALYTIC ACTIVITY
+A0M4Y1,Kynureninase,CC - CATALYTIC ACTIVITY
+A0M4Z1,Glutaminase,CC - CATALYTIC ACTIVITY
+A0M5L6,5&#039;-nucleotidase SurE,CC - CATALYTIC ACTIVITY
+A0M5T6,Undecaprenyl-diphosphatase,CC - CATALYTIC ACTIVITY
+A0M5W6,Adenosylhomocysteinase,CC - CATALYTIC ACTIVITY
+A0M6G4,ATP synthase subunit alpha,CC - CATALYTIC ACTIVITY
+A0M6M2,Elongation factor 4,CC - CATALYTIC ACTIVITY
+A0M6M4,N-acetylmuramic acid 6-phosphate etherase,CC - CATALYTIC ACTIVITY; CC - MISCELLANEOUS
+A0M283,Imidazole glycerol phosphate synthase subunit HisF,CC - CATALYTIC ACTIVITY
+A0M360,3-methyl-2-oxobutanoate hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0M367,3-isopropylmalate dehydratase small subunit,CC - CATALYTIC ACTIVITY
+A0M554,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0M568,Enolase,CC - CATALYTIC ACTIVITY
+A0M764,"Fructose-1,6-bisphosphatase class 1 2",CC - CATALYTIC ACTIVITY
+A0M791,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
+A0MD28,Replicase polyprotein 1ab,CC - CATALYTIC ACTIVITY
+A0MES8,Ethylene-responsive transcription factor ABI4,CC - FUNCTION
+A0MH68,"Probable phospho-2-dehydro-3-deoxyheptonate aldolase, chloroplastic",CC - CATALYTIC ACTIVITY
+A0PKQ3,4-hydroxy-3-methylbut-2-enyl diphosphate reductase,CC - CATALYTIC ACTIVITY
+A0PLM7,Deoxycytidine triphosphate deaminase,CC - CATALYTIC ACTIVITY
+A0PLU7,o-succinylbenzoate synthase,CC - CATALYTIC ACTIVITY
+A0PMI0,Trehalose-phosphate phosphatase,CC - CATALYTIC ACTIVITY
+A0PMQ6,1D-myo-inositol 2-acetamido-2-deoxy-alpha-D-glucopyranoside deacetylase,CC - CATALYTIC ACTIVITY
+A0PMV4,Dihydroxy-acid dehydratase,CC - CATALYTIC ACTIVITY
+A0PN13,Succinate-semialdehyde dehydrogenase [NADP(+)] 1,CC - CATALYTIC ACTIVITY
+A0PNG6,3-methyl-2-oxobutanoate hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0PNJ1,Adenosine deaminase,CC - CATALYTIC ACTIVITY
+A0PNK2,Peptide deformylase,CC - CATALYTIC ACTIVITY
+A0PNP3,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0PP16,Imidazoleglycerol-phosphate dehydratase,CC - CATALYTIC ACTIVITY
+A0PP20,Imidazole glycerol phosphate synthase subunit HisF,CC - CATALYTIC ACTIVITY
+A0PP21,Phosphoribosyl-AMP cyclohydrolase,CC - CATALYTIC ACTIVITY
+A0PP28,Indole-3-glycerol phosphate synthase,CC - CATALYTIC ACTIVITY
+A0PP30,Tryptophan synthase alpha chain,CC - CATALYTIC ACTIVITY
+A0PPA8,CTP synthase,CC - CATALYTIC ACTIVITY
+A0PPD2,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A0PPD3,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A0PPJ8,S-adenosylmethionine synthase,CC - CATALYTIC ACTIVITY
+A0PPL6,Riboflavin biosynthesis protein RibBA,CC - CATALYTIC ACTIVITY
+A0PPL7,"6,7-dimethyl-8-ribityllumazine synthase",CC - CATALYTIC ACTIVITY
+A0PPN8,Phosphoenolpyruvate carboxylase,CC - CATALYTIC ACTIVITY
+A0PPX4,Glutamyl-tRNA(Gln) amidotransferase subunit A,CC - CATALYTIC ACTIVITY
+A0PPZ6,3-isopropylmalate dehydratase large subunit,CC - CATALYTIC ACTIVITY
+A0PPZ7,3-isopropylmalate dehydratase small subunit,CC - CATALYTIC ACTIVITY
+A0PQF8,4-hydroxy-tetrahydrodipicolinate reductase,CC - CATALYTIC ACTIVITY
+A0PQH6,Catalase-peroxidase,CC - CATALYTIC ACTIVITY
+A0PQV0,Phosphoribosyl-ATP pyrophosphatase,CC - CATALYTIC ACTIVITY
+A0PQW1,Undecaprenyl-diphosphatase,CC - CATALYTIC ACTIVITY
+A0PRF5,Adenosylhomocysteinase,CC - CATALYTIC ACTIVITY
+A0PRX9,Thiazole synthase,CC - CATALYTIC ACTIVITY
+A0PSD4,Alkyl hydroperoxide reductase AhpD,CC - CATALYTIC ACTIVITY
+A0PSG2,Urease subunit alpha,CC - CATALYTIC ACTIVITY
+A0PSG3,Urease subunit beta,CC - CATALYTIC ACTIVITY
+A0PSG4,Urease subunit gamma,CC - CATALYTIC ACTIVITY
+A0PSI5,Malate synthase G,CC - CATALYTIC ACTIVITY
+A0PST9,Putative succinate-semialdehyde dehydrogenase [NADP(+)] 2,CC - CATALYTIC ACTIVITY
+A0PT52,Deoxyuridine 5&#039;-triphosphate nucleotidohydrolase,CC - CATALYTIC ACTIVITY
+A0PTH3,Glutaminase,CC - CATALYTIC ACTIVITY
+A0PUK0,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
+A0PUK2,ATP synthase subunit alpha,CC - CATALYTIC ACTIVITY
+A0PV57,GTP cyclohydrolase 1,CC - CATALYTIC ACTIVITY
+A0PVE6,2-isopropylmalate synthase,CC - CATALYTIC ACTIVITY
+A0PW29,Porphobilinogen deaminase,CC - CATALYTIC ACTIVITY
+A0PW55,Enolase,CC - CATALYTIC ACTIVITY
+A0PW66,Peptidyl-tRNA hydrolase,CC - CATALYTIC ACTIVITY
+A0PW79,Arginine deiminase,CC - CATALYTIC ACTIVITY
+A0PWC5,Bifunctional purine biosynthesis protein PurH,CC - CATALYTIC ACTIVITY
+A0PWH2,Peptide methionine sulfoxide reductase MsrA,CC - CATALYTIC ACTIVITY
+A0PX17,Prephenate dehydratase,CC - CATALYTIC ACTIVITY
+A0PXC3,3-hydroxyacyl-[acyl-carrier-protein] dehydratase FabZ,CC - CATALYTIC ACTIVITY
+A0PXL3,Peptidyl-tRNA hydrolase,CC - CATALYTIC ACTIVITY
+A0PXP6,Imidazoleglycerol-phosphate dehydratase,CC - CATALYTIC ACTIVITY
+A0PXP9,Phosphoribosyl-ATP pyrophosphatase,CC - CATALYTIC ACTIVITY
+A0PXQ3,3-methyl-2-oxobutanoate hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0PY57,Spermidine/putrescine import ATP-binding protein PotA,CC - CATALYTIC ACTIVITY
+A0PY66,ATP-dependent helicase/deoxyribonuclease subunit B,CC - CATALYTIC ACTIVITY
+A0PY67,ATP-dependent helicase/nuclease subunit A,CC - CATALYTIC ACTIVITY
+A0PYE7,3-dehydroquinate dehydratase,CC - CATALYTIC ACTIVITY
+A0PYH3,Tryptophan synthase beta chain,CC - CATALYTIC ACTIVITY
+A0PYP4,Enolase,CC - CATALYTIC ACTIVITY
+A0PYW1,Glucosamine-6-phosphate deaminase,CC - CATALYTIC ACTIVITY
+A0PYZ1,"Fructose-1,6-bisphosphatase class 3",CC - CATALYTIC ACTIVITY
+A0PZC6,V-type ATP synthase alpha chain,CC - CATALYTIC ACTIVITY
+A0PZL5,"2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-acetyltransferase",CC - CATALYTIC ACTIVITY
+A0PZM2,4-hydroxy-tetrahydrodipicolinate reductase,CC - CATALYTIC ACTIVITY
+A0PZM3,4-hydroxy-tetrahydrodipicolinate synthase,CC - CATALYTIC ACTIVITY
+A0PZV4,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A0PZX4,Serine hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0PZY2,Probable chemoreceptor glutamine deamidase CheD,CC - CATALYTIC ACTIVITY
+A0Q0A0,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0Q0E8,Dihydroxy-acid dehydratase,CC - CATALYTIC ACTIVITY
+A0Q1F7,7-cyano-7-deazaguanine synthase,CC - CATALYTIC ACTIVITY
+A0Q1J0,Bifunctional purine biosynthesis protein PurH,CC - CATALYTIC ACTIVITY
+A0Q1N5,Deoxyuridine 5&#039;-triphosphate nucleotidohydrolase,CC - CATALYTIC ACTIVITY
+A0Q1R8,Elongation factor 4,CC - CATALYTIC ACTIVITY
+A0Q1U7,Quinolinate synthase A,CC - CATALYTIC ACTIVITY
+A0Q2B1,Porphobilinogen deaminase,CC - CATALYTIC ACTIVITY
+A0Q2L7,GTP cyclohydrolase 1,CC - CATALYTIC ACTIVITY
+A0Q2Q0,Glutamyl-tRNA(Gln) amidotransferase subunit A,CC - CATALYTIC ACTIVITY
+A0Q2S8,GMP synthase [glutamine-hydrolyzing],CC - CATALYTIC ACTIVITY
+A0Q2Y4,S-adenosylmethionine synthase,CC - CATALYTIC ACTIVITY
+A0Q2Z4,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
+A0Q2Z6,ATP synthase subunit alpha,CC - CATALYTIC ACTIVITY
+A0Q3H6,"6,7-dimethyl-8-ribityllumazine synthase",CC - CATALYTIC ACTIVITY
+A0Q3H7,Riboflavin biosynthesis protein RibBA,CC - CATALYTIC ACTIVITY
+A0Q4H7,Deoxyuridine 5&#039;-triphosphate nucleotidohydrolase,CC - CATALYTIC ACTIVITY
+A0Q4L3,CTP synthase,CC - CATALYTIC ACTIVITY
+A0Q4T9,4-hydroxy-3-methylbut-2-enyl diphosphate reductase,CC - CATALYTIC ACTIVITY
+A0Q5E2,3-dehydroquinate dehydratase,CC - CATALYTIC ACTIVITY
+A0Q5J1,2-dehydro-3-deoxyphosphooctonate aldolase,CC - CATALYTIC ACTIVITY
+A0Q5J9,Enolase,CC - CATALYTIC ACTIVITY
+A0Q5L1,Catalase-peroxidase,CC - CATALYTIC ACTIVITY
+A0Q6B4,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A0Q6C0,GMP synthase [glutamine-hydrolyzing],CC - CATALYTIC ACTIVITY
+A0Q6H6,Oxygen-dependent coproporphyrinogen-III oxidase,CC - CATALYTIC ACTIVITY
+A0Q6M6,Peptidyl-tRNA hydrolase,CC - CATALYTIC ACTIVITY
+A0Q6P7,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A0Q6R5,Dihydroxy-acid dehydratase,CC - CATALYTIC ACTIVITY
+A0Q6U8,4-hydroxy-3-methylbut-2-en-1-yl diphosphate synthase,CC - CATALYTIC ACTIVITY
+A0Q7B6,tRNA(Ile)-lysidine synthase,CC - CATALYTIC ACTIVITY
+A0Q7C5,Serine hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0Q7I7,Anhydro-N-acetylmuramic acid kinase,CC - CATALYTIC ACTIVITY
+A0Q7L2,3-methyl-2-oxobutanoate hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0Q7M7,Hydroxyacylglutathione hydrolase,CC - CATALYTIC ACTIVITY
+A0Q7Y1,3-hydroxyacyl-[acyl-carrier-protein] dehydratase FabZ,CC - CATALYTIC ACTIVITY
+A0Q8D9,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
+A0Q8E1,ATP synthase subunit alpha,CC - CATALYTIC ACTIVITY
+A0Q8I2,Glutamyl-tRNA(Gln) amidotransferase subunit A,CC - CATALYTIC ACTIVITY
+A0Q8L0,Potassium-transporting ATPase A chain,CC - CATALYTIC ACTIVITY
+A0Q8L5,4-hydroxy-tetrahydrodipicolinate synthase,CC - CATALYTIC ACTIVITY
+A0Q8M6,Tryptophan synthase beta chain,CC - CATALYTIC ACTIVITY
+A0Q210,Undecaprenyl-diphosphatase,CC - CATALYTIC ACTIVITY
+A0Q355,Hydroxylamine reductase,CC - FUNCTION
+A0Q380,Probable 2-phosphosulfolactate phosphatase,CC - CATALYTIC ACTIVITY
+A0Q406,3-isopropylmalate dehydratase small subunit,CC - CATALYTIC ACTIVITY
+A0Q453,Elongation factor 4,CC - CATALYTIC ACTIVITY
+A0Q481,Porphobilinogen deaminase,CC - CATALYTIC ACTIVITY
+A0Q505,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0Q696,Deoxycytidine triphosphate deaminase,CC - CATALYTIC ACTIVITY
+A0Q804,N-acetylmuramic acid 6-phosphate etherase,CC - CATALYTIC ACTIVITY; CC - MISCELLANEOUS
+A0Q862,S-adenosylmethionine synthase,CC - CATALYTIC ACTIVITY
+A0Q994,Prephenate dehydratase,CC - CATALYTIC ACTIVITY
+A0QA85,GTP cyclohydrolase 1,CC - CATALYTIC ACTIVITY
+A0QAT1,Phosphoribosylformylglycinamidine synthase 2,CC - CATALYTIC ACTIVITY
+A0QB57,3-(3-hydroxy-phenyl)propionate/3-hydroxycinnamic acid hydroxylase,CC - CATALYTIC ACTIVITY
+A0QBI8,Pyridoxine/pyridoxamine 5&#039;-phosphate oxidase,CC - CATALYTIC ACTIVITY
+A0QBT9,Arginine deiminase,CC - CATALYTIC ACTIVITY
+A0QBW3,Peptidyl-tRNA hydrolase,CC - CATALYTIC ACTIVITY
+A0QBX4,Enolase,CC - CATALYTIC ACTIVITY
+A0QBY3,Potassium-transporting ATPase A chain,CC - CATALYTIC ACTIVITY
+A0QC23,Serine hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0QCA6,Putative pterin-4-alpha-carbinolamine dehydratase,CC - CATALYTIC ACTIVITY
+A0QCB7,1D-myo-inositol 2-acetamido-2-deoxy-alpha-D-glucopyranoside deacetylase,CC - CATALYTIC ACTIVITY
+A0QCX6,ATP synthase subunit alpha,CC - CATALYTIC ACTIVITY
+A0QCX8,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
+A0QEV5,3-methyl-2-oxobutanoate hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0QFA4,Phosphoribosyl-ATP pyrophosphatase,CC - CATALYTIC ACTIVITY
+A0QGA4,Catalase-peroxidase,CC - CATALYTIC ACTIVITY
+A0QGI9,Alkyl hydroperoxide reductase AhpD,CC - CATALYTIC ACTIVITY
+A0QGK1,Undecaprenyl-diphosphatase,CC - CATALYTIC ACTIVITY
+A0QGM8,Malate synthase G,CC - CATALYTIC ACTIVITY
+A0QH68,CTP synthase,CC - CATALYTIC ACTIVITY
+A0QHG8,Tryptophan synthase alpha chain,CC - CATALYTIC ACTIVITY
+A0QHH0,Indole-3-glycerol phosphate synthase,CC - CATALYTIC ACTIVITY
+A0QHH5,Phosphoribosyl-AMP cyclohydrolase,CC - CATALYTIC ACTIVITY
+A0QHH6,Imidazole glycerol phosphate synthase subunit HisF,CC - CATALYTIC ACTIVITY
+A0QHI0,Imidazoleglycerol-phosphate dehydratase,CC - CATALYTIC ACTIVITY
+A0QHI6,Quinolinate synthase A,CC - CATALYTIC ACTIVITY
+A0QHY0,Phosphoenolpyruvate carboxylase,CC - CATALYTIC ACTIVITY
+A0QI08,"6,7-dimethyl-8-ribityllumazine synthase",CC - CATALYTIC ACTIVITY
+A0QI09,Riboflavin biosynthesis protein RibBA,CC - CATALYTIC ACTIVITY
+A0QI26,S-adenosylmethionine synthase,CC - CATALYTIC ACTIVITY
+A0QI58,3-dehydroquinate dehydratase,CC - CATALYTIC ACTIVITY
+A0QIB7,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A0QIB8,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A0QIM8,Deoxyuridine 5&#039;-triphosphate nucleotidohydrolase,CC - CATALYTIC ACTIVITY
+A0QJ63,Acylphosphatase,CC - CATALYTIC ACTIVITY
+A0QJB6,3-isopropylmalate dehydratase small subunit,CC - CATALYTIC ACTIVITY
+A0QJB7,3-isopropylmalate dehydratase large subunit,CC - CATALYTIC ACTIVITY
+A0QJD4,Glutamyl-tRNA(Gln) amidotransferase subunit A,CC - CATALYTIC ACTIVITY
+A0QJH8,Probable enoyl-CoA hydratase echA17,CC - CATALYTIC ACTIVITY
+A0QJI1,Phosphoserine phosphatase,CC - CATALYTIC ACTIVITY
+A0QKJ4,Adenosine deaminase,CC - CATALYTIC ACTIVITY
+A0QKM1,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0QKN5,Trehalose-phosphate phosphatase,CC - CATALYTIC ACTIVITY
+A0QLI0,Porphobilinogen deaminase,CC - CATALYTIC ACTIVITY
+A0QLT3,Thiazole synthase,CC - CATALYTIC ACTIVITY
+A0QM15,Deoxycytidine triphosphate deaminase,CC - CATALYTIC ACTIVITY
+A0QMB9,Succinate-semialdehyde dehydrogenase [NADP(+)],CC - CATALYTIC ACTIVITY
+A0QMH2,Dihydroxy-acid dehydratase,CC - CATALYTIC ACTIVITY
+A0QNX1,N-acetylmuramic acid 6-phosphate etherase,CC - CATALYTIC ACTIVITY; CC - MISCELLANEOUS
+A0QPU4,Porin MspB,CC - FUNCTION
+A0QQ70,Phosphate-import ATP-binding protein PhnC,CC - CATALYTIC ACTIVITY
+A0QQ98,Deoxycytidine triphosphate deaminase,CC - CATALYTIC ACTIVITY
+A0QQL0,Thiazole synthase,CC - CATALYTIC ACTIVITY
+A0QQP8,Peptide deformylase,CC - CATALYTIC ACTIVITY
+A0QR29,Porin MspA,CC - FUNCTION
+A0QRD3,"1,4-Dihydroxy-2-naphthoyl-CoA synthase",CC - CATALYTIC ACTIVITY
+A0QRG0,o-succinylbenzoate synthase,CC - CATALYTIC ACTIVITY
+A0QRN3,Urocanate hydratase,CC - CATALYTIC ACTIVITY
+A0QRN6,Imidazolonepropionase,CC - CATALYTIC ACTIVITY
+A0QSK6,"dTDP-glucose 4,6-dehydratase",CC - CATALYTIC ACTIVITY
+A0QSY5,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0QU88,Glucosamine-6-phosphate deaminase,CC - CATALYTIC ACTIVITY
+A0QV24,Acylphosphatase,CC - CATALYTIC ACTIVITY
+A0QVQ8,Alanine dehydrogenase,CC - CATALYTIC ACTIVITY
+A0QVR3,4-hydroxy-tetrahydrodipicolinate reductase,CC - CATALYTIC ACTIVITY
+A0QW08,Deoxyuridine 5&#039;-triphosphate nucleotidohydrolase,CC - CATALYTIC ACTIVITY
+A0QWH5,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A0QWH6,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A0QWT3,S-adenosylmethionine synthase,CC - CATALYTIC ACTIVITY
+A0QWX4,Phosphoenolpyruvate carboxylase,CC - CATALYTIC ACTIVITY
+A0QX20,Aconitate hydratase,CC - CATALYTIC ACTIVITY
+A0QX83,Imidazoleglycerol-phosphate dehydratase,CC - CATALYTIC ACTIVITY
+A0QX86,Inositol-1-monophosphatase ImpA,CC - CATALYTIC ACTIVITY
+A0QX87,Imidazole glycerol phosphate synthase subunit HisF,CC - CATALYTIC ACTIVITY
+A0QX88,Phosphoribosyl-AMP cyclohydrolase,CC - CATALYTIC ACTIVITY
+A0QX95,Indole-3-glycerol phosphate synthase,CC - CATALYTIC ACTIVITY
+A0QXX7,Catalase-peroxidase 2,CC - CATALYTIC ACTIVITY
+A0QYE0,Urease subunit alpha,CC - CATALYTIC ACTIVITY
+A0QYE2,Urease subunit gamma,CC - CATALYTIC ACTIVITY
+A0QYP1,Catalase-peroxidase 3,CC - CATALYTIC ACTIVITY
+A0QYQ7,CTP synthase,CC - CATALYTIC ACTIVITY
+A0QZX2,Phosphoribosyl-ATP pyrophosphatase,CC - CATALYTIC ACTIVITY
+A0QZY5,Undecaprenyl-diphosphatase,CC - CATALYTIC ACTIVITY
+A0R0W9,Trehalase,CC - CATALYTIC ACTIVITY
+A0R1C2,NAD-specific glutamate dehydrogenase,CC - CATALYTIC ACTIVITY
+A0R1T4,3-(3-hydroxy-phenyl)propionate/3-hydroxycinnamic acid hydroxylase,CC - CATALYTIC ACTIVITY
+A0R1V9,Alkyl hydroperoxide reductase subunit C,CC - CATALYTIC ACTIVITY
+A0R2G4,Succinyl-diaminopimelate desuccinylase,CC - CATALYTIC ACTIVITY
+A0R2G5,"2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-succinyltransferase",CC - CATALYTIC ACTIVITY
+A0R2I7,1D-myo-inositol 2-acetamido-2-deoxy-alpha-D-glucopyranoside deacetylase,CC - CATALYTIC ACTIVITY
+A0R2K7,Putative pterin-4-alpha-carbinolamine dehydratase,CC - CATALYTIC ACTIVITY
+A0R2V7,Serine hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0R2W9,Mycothiol S-conjugate amidase,CC - CATALYTIC ACTIVITY
+A0R3A7,Probable cobalt/nickel-exporting P-type ATPase,CC - CATALYTIC ACTIVITY
+A0R3B8,Enolase,CC - CATALYTIC ACTIVITY
+A0R3C4,Nucleoside triphosphate pyrophosphohydrolase,CC - CATALYTIC ACTIVITY
+A0R3D3,Peptidyl-tRNA hydrolase,CC - CATALYTIC ACTIVITY
+A0R3I3,Porin MspC,CC - FUNCTION
+A0R4C0,Phosphate import ATP-binding protein PstB,CC - CATALYTIC ACTIVITY
+A0R4Q0,Putative succinate-semialdehyde dehydrogenase [NADP(+)],CC - CATALYTIC ACTIVITY
+A0R4R3,3-ketosteroid-9-alpha-monooxygenase oxygenase subunit,CC - CATALYTIC ACTIVITY
+A0R8U6,DEAD-box ATP-dependent RNA helicase CshA,CC - CATALYTIC ACTIVITY
+A0R8W7,GMP synthase [glutamine-hydrolyzing],CC - CATALYTIC ACTIVITY
+A0R8Y3,Undecaprenyl-diphosphatase 1,CC - CATALYTIC ACTIVITY
+A0R8Z5,Phosphoribosylformylglycinamidine synthase 1,CC - CATALYTIC ACTIVITY
+A0R8Z6,Phosphoribosylformylglycinamidine synthase 2,CC - CATALYTIC ACTIVITY
+A0R9W6,Undecaprenyl-diphosphatase 2,CC - CATALYTIC ACTIVITY
+A0R033,Phospho-2-dehydro-3-deoxyheptonate aldolase AroG,CC - CATALYTIC ACTIVITY
+A0R200,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
+A0R202,ATP synthase subunit alpha,CC - CATALYTIC ACTIVITY
+A0R220,Threonine synthase,CC - CATALYTIC ACTIVITY; CC - FUNCTION
+A0R395,Potassium-transporting ATPase A chain,CC - CATALYTIC ACTIVITY
+A0R420,Pyridoxine/pyridoxamine 5&#039;-phosphate oxidase,CC - CATALYTIC ACTIVITY
+A0R541,Porin MspD,CC - FUNCTION
+A0R566,Carbonic anhydrase,CC - CATALYTIC ACTIVITY
+A0R609,Catalase-peroxidase 1,CC - CATALYTIC ACTIVITY
+A0R643,Prephenate dehydratase,CC - CATALYTIC ACTIVITY
+A0R647,Ferritin BfrB,CC - CATALYTIC ACTIVITY
+A0R900,Bifunctional purine biosynthesis protein PurH,CC - CATALYTIC ACTIVITY
+A0R909,1-pyrroline-5-carboxylate dehydrogenase,CC - CATALYTIC ACTIVITY
+A0R921,Glutamyl-tRNA(Gln) amidotransferase subunit A,CC - CATALYTIC ACTIVITY
+A0R969,Arginine deiminase,CC - CATALYTIC ACTIVITY
+A0RA08,Thiazole synthase,CC - CATALYTIC ACTIVITY
+A0RA12,Potassium-transporting ATPase A chain,CC - CATALYTIC ACTIVITY
+A0RA13,Potassium-transporting ATPase B chain,CC - CATALYTIC ACTIVITY
+A0RAX6,ATP-dependent helicase/deoxyribonuclease subunit B,CC - CATALYTIC ACTIVITY
+A0RAX7,ATP-dependent helicase/nuclease subunit A,CC - CATALYTIC ACTIVITY
+A0RB32,Bis(5&#039;-nucleosyl)-tetraphosphatase PrpE [asymmetrical],CC - CATALYTIC ACTIVITY
+A0RB62,Indole-3-glycerol phosphate synthase,CC - CATALYTIC ACTIVITY
+A0RB64,Tryptophan synthase beta chain,CC - CATALYTIC ACTIVITY
+A0RB65,Tryptophan synthase alpha chain,CC - CATALYTIC ACTIVITY
+A0RBB0,Spermidine/putrescine import ATP-binding protein PotA,CC - CATALYTIC ACTIVITY
+A0RBE8,Phosphonoacetaldehyde hydrolase,CC - CATALYTIC ACTIVITY
+A0RBG1,7-cyano-7-deazaguanine synthase,CC - CATALYTIC ACTIVITY
+A0RBJ8,Undecaprenyl-diphosphatase 3,CC - CATALYTIC ACTIVITY
+A0RBL2,2-isopropylmalate synthase,CC - CATALYTIC ACTIVITY
+A0RBL4,3-isopropylmalate dehydratase large subunit,CC - CATALYTIC ACTIVITY
+A0RBL9,Imidazoleglycerol-phosphate dehydratase,CC - CATALYTIC ACTIVITY
+A0RBM0,Imidazole glycerol phosphate synthase subunit HisH,CC - CATALYTIC ACTIVITY
+A0RBM2,Imidazole glycerol phosphate synthase subunit HisF,CC - CATALYTIC ACTIVITY
+A0RBM3,Phosphoribosyl-AMP cyclohydrolase,CC - CATALYTIC ACTIVITY
+A0RBM4,Phosphoribosyl-ATP pyrophosphatase,CC - CATALYTIC ACTIVITY
+A0RBW5,GTP cyclohydrolase 1,CC - CATALYTIC ACTIVITY
+A0RBY6,4-hydroxy-tetrahydrodipicolinate reductase,CC - CATALYTIC ACTIVITY
+A0RBZ2,3-methyl-2-oxobutanoate hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0RCL3,Dihydroxy-acid dehydratase,CC - CATALYTIC ACTIVITY
+A0RCM7,5-methylthioadenosine/S-adenosylhomocysteine deaminase,CC - CATALYTIC ACTIVITY
+A0RDW1,Methylmalonate semialdehyde dehydrogenase [acylating] 1,CC - CATALYTIC ACTIVITY
+A0RE53,Anhydro-N-acetylmuramic acid kinase,CC - CATALYTIC ACTIVITY
+A0REB5,Methylmalonate semialdehyde dehydrogenase [acylating] 2,CC - CATALYTIC ACTIVITY
+A0REB6,"3D-(3,5/4)-trihydroxycyclohexane-1,2-dione hydrolase",CC - CATALYTIC ACTIVITY
+A0REB7,Inosose dehydratase,CC - CATALYTIC ACTIVITY
+A0RET0,Undecaprenyl-diphosphatase 4,CC - CATALYTIC ACTIVITY
+A0REX1,Kynurenine formamidase,CC - CATALYTIC ACTIVITY
+A0REX2,Kynureninase,CC - CATALYTIC ACTIVITY
+A0RH37,Imidazolonepropionase,CC - CATALYTIC ACTIVITY
+A0RH38,Urocanate hydratase,CC - CATALYTIC ACTIVITY
+A0RHQ8,Carbamoyl-phosphate synthase large chain,CC - CATALYTIC ACTIVITY
+A0RHR0,Dihydroorotase,CC - CATALYTIC ACTIVITY
+A0RHV8,Formamidase,CC - CATALYTIC ACTIVITY
+A0RHZ2,N-acetyldiaminopimelate deacetylase,CC - CATALYTIC ACTIVITY
+A0RHZ3,"2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-acetyltransferase",CC - CATALYTIC ACTIVITY
+A0RI43,2-hydroxy-3-keto-5-methylthiopentenyl-1-phosphate phosphatase,CC - CATALYTIC ACTIVITY
+A0RI44,Methylthioribulose-1-phosphate dehydratase,CC - CATALYTIC ACTIVITY
+A0RI59,Glucosamine-6-phosphate deaminase,CC - CATALYTIC ACTIVITY
+A0RIB3,Riboflavin biosynthesis protein RibBA,CC - CATALYTIC ACTIVITY
+A0RIB4,"6,7-dimethyl-8-ribityllumazine synthase",CC - CATALYTIC ACTIVITY
+A0RIH3,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0RIQ2,4-hydroxy-3-methylbut-2-en-1-yl diphosphate synthase,CC - CATALYTIC ACTIVITY
+A0RIR1,4-hydroxy-3-methylbut-2-enyl diphosphate reductase,CC - CATALYTIC ACTIVITY
+A0RIT7,Elongation factor 4,CC - CATALYTIC ACTIVITY
+A0RIY7,5&#039;-methylthioadenosine/S-adenosylhomocysteine nucleosidase,CC - CATALYTIC ACTIVITY
+A0RJ26,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A0RJ27,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A0RJ35,Quinolinate synthase A,CC - CATALYTIC ACTIVITY
+A0RJ81,Porphobilinogen deaminase,CC - CATALYTIC ACTIVITY
+A0RJE3,Heme-degrading monooxygenase,CC - CATALYTIC ACTIVITY
+A0RJZ7,S-adenosylmethionine synthase,CC - CATALYTIC ACTIVITY
+A0RKS3,Enolase,CC - CATALYTIC ACTIVITY
+A0RKU8,Pyrophosphatase PpaX,CC - CATALYTIC ACTIVITY
+A0RL73,3-hydroxyacyl-[acyl-carrier-protein] dehydratase FabZ,CC - CATALYTIC ACTIVITY
+A0RL95,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
+A0RL97,ATP synthase subunit alpha,CC - CATALYTIC ACTIVITY
+A0RLA3,Serine hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0RLC3,CTP synthase,CC - CATALYTIC ACTIVITY
+A0RM81,7-cyano-7-deazaguanine synthase,CC - CATALYTIC ACTIVITY
+A0RMG7,3-isopropylmalate dehydratase large subunit,CC - CATALYTIC ACTIVITY
+A0RMH2,Enolase,CC - CATALYTIC ACTIVITY
+A0RMP5,Non-canonical purine NTP pyrophosphatase,CC - CATALYTIC ACTIVITY
+A0RMR7,4-hydroxy-tetrahydrodipicolinate reductase,CC - CATALYTIC ACTIVITY
+A0RMT3,3-hydroxyacyl-[acyl-carrier-protein] dehydratase FabZ,CC - CATALYTIC ACTIVITY
+A0RMU4,5&#039;-nucleotidase SurE,CC - CATALYTIC ACTIVITY
+A0RMV6,Peptidyl-tRNA hydrolase,CC - CATALYTIC ACTIVITY
+A0RN82,3-methyl-2-oxobutanoate hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0RN84,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A0RNK4,Glutamyl-tRNA(Gln) amidotransferase subunit A,CC - CATALYTIC ACTIVITY
+A0RNM0,Succinyl-diaminopimelate desuccinylase,CC - CATALYTIC ACTIVITY
+A0RNN3,Indole-3-glycerol phosphate synthase,CC - CATALYTIC ACTIVITY
+A0RNS2,Pyridoxine 5&#039;-phosphate synthase,CC - CATALYTIC ACTIVITY
+A0RNT3,Porphobilinogen deaminase,CC - CATALYTIC ACTIVITY
+A0RP26,4-hydroxy-tetrahydrodipicolinate synthase,CC - CATALYTIC ACTIVITY
+A0RP36,"Fructose-1,6-bisphosphatase class 1",CC - CATALYTIC ACTIVITY
+A0RP49,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A0RPL8,4-hydroxy-3-methylbut-2-en-1-yl diphosphate synthase,CC - CATALYTIC ACTIVITY
+A0RQ16,Serine hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0RQ36,Periplasmic nitrate reductase,CC - CATALYTIC ACTIVITY
+A0RQ49,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0RQ64,Imidazoleglycerol-phosphate dehydratase,CC - CATALYTIC ACTIVITY
+A0RQA9,Undecaprenyl-diphosphatase,CC - CATALYTIC ACTIVITY
+A0RQC4,4-hydroxy-3-methylbut-2-enyl diphosphate reductase,CC - CATALYTIC ACTIVITY
+A0RQD7,GMP synthase [glutamine-hydrolyzing],CC - CATALYTIC ACTIVITY
+A0RQJ7,"6,7-dimethyl-8-ribityllumazine synthase",CC - CATALYTIC ACTIVITY
+A0RQK7,2-isopropylmalate synthase,CC - CATALYTIC ACTIVITY
+A0RQX4,Elongation factor 4,CC - CATALYTIC ACTIVITY
+A0RQZ8,UDP-3-O-[3-hydroxymyristoyl] N-acetylglucosamine deacetylase,CC - CATALYTIC ACTIVITY
+A0RR26,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
+A0RR28,ATP synthase subunit alpha,CC - CATALYTIC ACTIVITY
+A0RR66,Deoxycytidine triphosphate deaminase,CC - CATALYTIC ACTIVITY
+A0RR75,GTP cyclohydrolase-2,CC - CATALYTIC ACTIVITY
+A0RRN7,Dihydroxy-acid dehydratase,CC - CATALYTIC ACTIVITY
+A0RRT8,Imidazole glycerol phosphate synthase subunit HisF,CC - CATALYTIC ACTIVITY
+A0RTU3,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A0RU27,3-dehydroquinate synthase,CC - CATALYTIC ACTIVITY
+A0RU64,Glutamyl-tRNA(Gln) amidotransferase subunit A,CC - CATALYTIC ACTIVITY
+A0RXK1,V-type ATP synthase alpha chain,CC - CATALYTIC ACTIVITY
+A0RXQ5,3-methyl-2-oxobutanoate hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A0RZ37,Adenine deaminase,CC - CATALYTIC ACTIVITY
+A0RZ60,tRNA(Ile2) 2-agmatinylcytidine synthetase TiaS,CC - CATALYTIC ACTIVITY
+A0RZ75,Imidazoleglycerol-phosphate dehydratase,CC - CATALYTIC ACTIVITY
+A0RZ79,Phosphoribosyl-AMP cyclohydrolase,CC - CATALYTIC ACTIVITY
+A0SJA5,"Fructose-1,6-bisphosphatase class 3",CC - CATALYTIC ACTIVITY
+A0T0A3,Cytochrome b559 subunit alpha,CC - FUNCTION
+A0T0A4,Cytochrome b559 subunit beta,CC - FUNCTION
+A0T0D2,"ATP synthase subunit beta, chloroplastic",CC - CATALYTIC ACTIVITY
+A0T0F1,"ATP synthase subunit alpha, chloroplastic",CC - CATALYTIC ACTIVITY
+A0T0G9,Photosystem Q(B) protein,CC - CATALYTIC ACTIVITY
+A0T0L1,Thiazole synthase,CC - CATALYTIC ACTIVITY
+A0T0N6,Ribulose bisphosphate carboxylase large chain,CC - CATALYTIC ACTIVITY
+A0T0P4,"ATP synthase subunit alpha, chloroplastic",CC - CATALYTIC ACTIVITY
+A0T0R6,"ATP synthase subunit beta, chloroplastic",CC - CATALYTIC ACTIVITY
+A0T0T0,Photosystem II D2 protein,CC - CATALYTIC ACTIVITY
+A0T0U1,Cytochrome b559 subunit beta,CC - FUNCTION
+A0T0U2,Cytochrome b559 subunit alpha,CC - FUNCTION
+A0T0W2,Photosystem Q(B) protein,CC - CATALYTIC ACTIVITY
+A0T097,Photosystem II D2 protein,CC - CATALYTIC ACTIVITY
+A0T103,Thiazole synthase,CC - CATALYTIC ACTIVITY
+A0ZSF2,Nacrein-like protein F,CC - CATALYTIC ACTIVITY
+A0ZSF3,Nacrein-like protein M,CC - CATALYTIC ACTIVITY
+A0ZSF4,Nacrein-like protein P1,CC - CATALYTIC ACTIVITY
+A0ZSF5,Nacrein-like protein P2,CC - CATALYTIC ACTIVITY
+A0ZSF6,Nacrein-like protein C1,CC - CATALYTIC ACTIVITY
+A0ZSF7,Nacrein-like protein C2,CC - CATALYTIC ACTIVITY
+A0ZZ15,Photosystem Q(B) protein,CC - CATALYTIC ACTIVITY
+A0ZZ20,"ATP synthase subunit alpha, chloroplastic",CC - CATALYTIC ACTIVITY
+A0ZZ30,Photosystem II D2 protein,CC - CATALYTIC ACTIVITY
+A0ZZ42,"ATP synthase subunit beta, chloroplastic",CC - CATALYTIC ACTIVITY
+A0ZZ43,Ribulose bisphosphate carboxylase large chain,CC - CATALYTIC ACTIVITY
+A0ZZ51,Cytochrome b559 subunit beta,CC - FUNCTION
+A0ZZ52,Cytochrome b559 subunit alpha,CC - FUNCTION
+A0ZZS7,3-isopropylmalate dehydratase large subunit,CC - CATALYTIC ACTIVITY
+A0ZZS8,3-isopropylmalate dehydratase small subunit,CC - CATALYTIC ACTIVITY
+A1A0T4,Carbamoyl-phosphate synthase large chain,CC - CATALYTIC ACTIVITY
+A1A0T7,Dihydroxy-acid dehydratase,CC - CATALYTIC ACTIVITY
+A1A0T9,S-adenosylmethionine synthase,CC - CATALYTIC ACTIVITY
+A1A1I5,Imidazole glycerol phosphate synthase subunit HisF,CC - CATALYTIC ACTIVITY
+A1A1I6,Phosphoribosyl-AMP cyclohydrolase,CC - CATALYTIC ACTIVITY
+A1A1J2,Phosphoribosyl-ATP pyrophosphatase,CC - CATALYTIC ACTIVITY
+A1A1K2,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A1A1K3,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A1A1M3,Undecaprenyl-diphosphatase,CC - CATALYTIC ACTIVITY
+A1A1V0,Serine hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A1A2H5,Imidazoleglycerol-phosphate dehydratase,CC - CATALYTIC ACTIVITY
+A1A2Z1,Peptide deformylase,CC - CATALYTIC ACTIVITY
+A1A3C5,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
+A1A3C7,ATP synthase subunit alpha,CC - CATALYTIC ACTIVITY
+A1A3S8,Deoxycytidine triphosphate deaminase,CC - CATALYTIC ACTIVITY
+A1A4H6,Probable ATP-dependent RNA helicase DDX27,CC - CATALYTIC ACTIVITY
+A1A4J6,Probable phospholipid-transporting ATPase IIB,CC - CATALYTIC ACTIVITY
+A1A4K5,Ectonucleotide pyrophosphatase/phosphodiesterase family member 2,CC - CATALYTIC ACTIVITY
+A1A4L1,Acyl-coenzyme A thioesterase THEM4,CC - CATALYTIC ACTIVITY
+A1A4Q9,U8 snoRNA-decapping enzyme,CC - CATALYTIC ACTIVITY
+A1A5Z0,Glucose-6-phosphatase 3,CC - CATALYTIC ACTIVITY
+A1A7B9,3-isopropylmalate dehydratase small subunit,CC - CATALYTIC ACTIVITY
+A1A7C0,3-isopropylmalate dehydratase large subunit,CC - CATALYTIC ACTIVITY
+A1A7C2,2-isopropylmalate synthase,CC - CATALYTIC ACTIVITY
+A1A7E1,UDP-3-O-[3-hydroxymyristoyl] N-acetylglucosamine deacetylase,CC - CATALYTIC ACTIVITY
+A1A7I0,3-methyl-2-oxobutanoate hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A1A7K5,5&#039;-methylthioadenosine/S-adenosylhomocysteine nucleosidase,CC - CATALYTIC ACTIVITY
+A1A7K6,Deoxyguanosinetriphosphate triphosphohydrolase,CC - CATALYTIC ACTIVITY
+A1A7L0,"2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-succinyltransferase",CC - CATALYTIC ACTIVITY
+A1A7L1,Bifunctional uridylyltransferase/uridylyl-removing enzyme,CC - CATALYTIC ACTIVITY
+A1A7Q3,Hydroxyacylglutathione hydrolase,CC - CATALYTIC ACTIVITY
+A1A8B3,7-cyano-7-deazaguanine synthase,CC - CATALYTIC ACTIVITY
+A1A8H7,Allantoinase,CC - CATALYTIC ACTIVITY
+A1A8J0,"UDP-2,3-diacylglucosamine hydrolase",CC - CATALYTIC ACTIVITY
+A1A8J4,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A1A8T7,Glucosamine-6-phosphate deaminase,CC - CATALYTIC ACTIVITY
+A1A8W1,Potassium-transporting ATPase B chain,CC - CATALYTIC ACTIVITY
+A1A8Z3,Quinolinate synthase A,CC - CATALYTIC ACTIVITY
+A1A9B1,Hydroxylamine reductase,CC - FUNCTION
+A1A9L2,Alkanesulfonate monooxygenase,CC - CATALYTIC ACTIVITY
+A1A9N7,Acylphosphatase,CC - CATALYTIC ACTIVITY
+A1A9R4,Putative aminoacrylate hydrolase RutD,CC - CATALYTIC ACTIVITY
+A1A9R6,Peroxyureidoacrylate/ureidoacrylate amidohydrolase RutB,CC - CATALYTIC ACTIVITY
+A1A9R7,Pyrimidine monooxygenase RutA,CC - CATALYTIC ACTIVITY
+A1A9V4,N-methyl-L-tryptophan oxidase,CC - CATALYTIC ACTIVITY
+A1A9V7,Dihydroorotase,CC - CATALYTIC ACTIVITY
+A1A141,Peptidyl-tRNA hydrolase,CC - CATALYTIC ACTIVITY
+A1A143,Enolase,CC - CATALYTIC ACTIVITY
+A1A171,Bifunctional protein FolD,CC - CATALYTIC ACTIVITY
+A1A777,4-hydroxy-3-methylbut-2-enyl diphosphate reductase,CC - CATALYTIC ACTIVITY
+A1A780,4-hydroxy-tetrahydrodipicolinate reductase,CC - CATALYTIC ACTIVITY
+A1A798,"Bis(5&#039;-nucleosyl)-tetraphosphatase, symmetrical",CC - CATALYTIC ACTIVITY
+A1A834,S-formylglutathione hydrolase FrmB,CC - CATALYTIC ACTIVITY
+A1A909,6-phosphogluconolactonase,CC - CATALYTIC ACTIVITY
+A1AA20,Spermidine/putrescine import ATP-binding protein PotA,CC - CATALYTIC ACTIVITY
+A1AAC5,Periplasmic trehalase,CC - CATALYTIC ACTIVITY
+A1AAE2,2-dehydro-3-deoxyphosphooctonate aldolase,CC - CATALYTIC ACTIVITY
+A1AAN0,Tryptophan synthase alpha chain,CC - CATALYTIC ACTIVITY
+A1AAN1,Tryptophan synthase beta chain,CC - CATALYTIC ACTIVITY
+A1AB46,Gamma-aminobutyraldehyde dehydrogenase,CC - CATALYTIC ACTIVITY
+A1ABG8,Adenosine deaminase,CC - CATALYTIC ACTIVITY
+A1ABI3,Pyridoxine/pyridoxamine 5&#039;-phosphate oxidase,CC - CATALYTIC ACTIVITY
+A1ABI5,Anhydro-N-acetylmuramic acid kinase,CC - CATALYTIC ACTIVITY
+A1ABN0,3-dehydroquinate dehydratase,CC - CATALYTIC ACTIVITY
+A1ABP0,Phosphoenolpyruvate synthase regulatory protein,DE; CC - CATALYTIC ACTIVITY
+A1ABP5,Vitamin B12 import ATP-binding protein BtuD,CC - CATALYTIC ACTIVITY
+A1ABS5,Succinylglutamate desuccinylase,CC - CATALYTIC ACTIVITY
+A1ABS6,N-succinylarginine dihydrolase,CC - CATALYTIC ACTIVITY
+A1AC21,Holliday junction ATP-dependent DNA helicase RuvB,CC - CATALYTIC ACTIVITY
+A1AC22,Holliday junction ATP-dependent DNA helicase RuvA,CC - CATALYTIC ACTIVITY
+A1ACA3,Putative mannosyl-3-phosphoglycerate phosphatase,CC - CATALYTIC ACTIVITY
+A1ACB2,Molecular chaperone Hsp31 and glyoxalase 3,CC - CATALYTIC ACTIVITY
+A1ACN7,Imidazole glycerol phosphate synthase subunit HisF,CC - CATALYTIC ACTIVITY
+A1ACS1,Deoxycytidine triphosphate deaminase,CC - CATALYTIC ACTIVITY
+A1AD04,Cytidine deaminase,CC - CATALYTIC ACTIVITY
+A1AD13,GTP cyclohydrolase 1,CC - CATALYTIC ACTIVITY
+A1AD14,S-formylglutathione hydrolase YeiG,CC - CATALYTIC ACTIVITY
+A1AD20,Pyrimidine-specific ribonucleoside hydrolase RihB,CC - CATALYTIC ACTIVITY
+A1AD59,Periplasmic nitrate reductase,CC - CATALYTIC ACTIVITY
+A1AD99,L-rhamnonate dehydratase,CC - CATALYTIC ACTIVITY
+A1ADA3,Nucleoside triphosphatase NudI,CC - CATALYTIC ACTIVITY
+A1ADA8,Probable 4-deoxy-4-formamido-L-arabinose-phosphoundecaprenol deformylase ArnD,CC - CATALYTIC ACTIVITY
+A1ADB3,o-succinylbenzoate synthase,CC - CATALYTIC ACTIVITY
+A1ADE0,5&#039;-deoxynucleotidase YfbR,CC - CATALYTIC ACTIVITY
+A1ADI8,Fatty acid oxidation complex subunit alpha,CC - CATALYTIC ACTIVITY; CC - FUNCTION
+A1ADU3,N-acetylmuramic acid 6-phosphate etherase,CC - CATALYTIC ACTIVITY; CC - MISCELLANEOUS
+A1ADV0,Oxygen-dependent coproporphyrinogen-III oxidase,CC - CATALYTIC ACTIVITY
+A1ADX2,GDP-mannose pyrophosphatase NudK,CC - CATALYTIC ACTIVITY
+A1ADX7,Succinyl-diaminopimelate desuccinylase,CC - CATALYTIC ACTIVITY
+A1AE43,GMP synthase [glutamine-hydrolyzing],CC - CATALYTIC ACTIVITY
+A1AE53,4-hydroxy-3-methylbut-2-en-1-yl diphosphate synthase,CC - CATALYTIC ACTIVITY
+A1AE82,Serine hydroxymethyltransferase,CC - CATALYTIC ACTIVITY
+A1AE99,Elongation factor 4,CC - CATALYTIC ACTIVITY
+A1AET8,5&#039;/3&#039;-nucleotidase SurE,CC - CATALYTIC ACTIVITY
+A1AEU9,Sulfite reductase [NADPH] hemoprotein beta-component,CC - CATALYTIC ACTIVITY
+A1AEV0,Sulfite reductase [NADPH] flavoprotein alpha-component,CC - CATALYTIC ACTIVITY
+A1AEW7,Enolase,CC - CATALYTIC ACTIVITY
+A1AEW8,CTP synthase,CC - CATALYTIC ACTIVITY
+A1AFB1,D-erythrose-4-phosphate dehydrogenase,CC - CATALYTIC ACTIVITY
+A1AFC5,Agmatinase,CC - CATALYTIC ACTIVITY
+A1AFX9,Undecaprenyl-diphosphatase,CC - CATALYTIC ACTIVITY
+A1AFZ3,Putrescine aminotransferase,CC - CATALYTIC ACTIVITY
+A1AGH4,Threonylcarbamoyl-AMP synthase,CC - CATALYTIC ACTIVITY
+A1AGH8,Peptide deformylase,CC - CATALYTIC ACTIVITY
+A1AGT6,Pimeloyl-[acyl-carrier protein] methyl ester esterase,CC - CATALYTIC ACTIVITY
+A1AGY1,sn-glycerol-3-phosphate import ATP-binding protein UgpC,CC - CATALYTIC ACTIVITY
+A1AH61,Cytoplasmic trehalase,CC - CATALYTIC ACTIVITY
+A1AHH1,Deoxyuridine 5&#039;-triphosphate nucleotidohydrolase,CC - CATALYTIC ACTIVITY
+A1AHK5,Adenine deaminase,CC - CATALYTIC ACTIVITY
+A1AHM7,D-galactonate dehydratase,CC - CATALYTIC ACTIVITY
+A1AHR4,ATP synthase subunit beta,CC - CATALYTIC ACTIVITY
