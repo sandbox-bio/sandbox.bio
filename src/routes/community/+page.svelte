@@ -20,7 +20,7 @@ import { config as datepro8 } from "$content/datepro-08-semantic-processing/conf
 
 <h3 class="my-3">Community Tutorials</h3>
 
-<h5 class="bg-primary-subtle p-2">
+<h5 class="bg-primary-subtle p-2" id="ifb">
 	<a href="https://www.france-bioinformatique.fr/en/home/" class="text-decoration-none" target="_blank" rel="noreferrer">
 		French Institute of Bioinformatics
 	</a>
@@ -45,7 +45,7 @@ import { config as datepro8 } from "$content/datepro-08-semantic-processing/conf
 	license.
 </p>
 
-<h5 class="bg-primary-subtle p-2 mt-5">
+<h5 class="bg-primary-subtle p-2 mt-5" id="data-processing">
 	<a href="http://labs.rd.ciencias.ulisboa.pt/book/" class="text-decoration-none" target="_blank" rel="noreferrer">
 		Data and Text Processing for Health and Life Sciences, by Francisco M. Couto
 	</a>
