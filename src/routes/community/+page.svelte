@@ -3,7 +3,7 @@ import { Card, CardBody, CardHeader } from "sveltestrap";
 </script>
 
 <svelte:head>
-	<title>Community - sandbox.bio</title>
+	<title>Community Tutorials - sandbox.bio</title>
 </svelte:head>
 
 <h3 class="my-3">Community Tutorials</h3>
@@ -19,7 +19,7 @@ import { Card, CardBody, CardHeader } from "sveltestrap";
 				<p class="card-text text-muted">By the French Institute of Bioinformatics</p>
 			</div>
 			<div class="card-body d-flex align-items-center justify-content-center">
-				<img src="/logo-ifb.svg" alt="IFB logo" height="100" />
+				<img src="/assets/community/linux-basics/logo.svg" alt="IFB logo" height="100" />
 			</div>
 		</div>
 	</div>
@@ -33,7 +33,7 @@ import { Card, CardBody, CardHeader } from "sveltestrap";
 				<p class="card-text">By Francisco M. Couto</p>
 			</div>
 			<div class="card-body d-flex align-items-center justify-content-center">
-				<img src="/logo-book-data-processing.jpg" alt="Book cover" width="150" />
+				<img src="/assets/community/data-processing/logo.jpg" alt="Book cover" width="150" />
 			</div>
 		</div>
 	</div>
