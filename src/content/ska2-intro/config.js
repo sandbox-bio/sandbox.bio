@@ -29,7 +29,7 @@ export const config = {
 		"assemblies/LA189.fa.gz",
 		"assemblies/LA207.fa.gz",
 		"assemblies/LA243.fa.gz",
-		"assemblies/ska_input_reference.tsv",
+		"assemblies/ska_input_ref.tsv",
 		"assemblies/ska_input.tsv"
 	]
 };
