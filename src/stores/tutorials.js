@@ -69,7 +69,7 @@ export const categories = readable([
 	{
 		name: "Recently added",
 		icon: "star-fill",
-		tutorials: [seqkitIntro, carpentriesShellNovice, blastIntro],
+		tutorials: [ska2Intro, seqkitIntro, carpentriesShellNovice, blastIntro],
 		mailinglist: true
 	},
 	{
@@ -90,7 +90,7 @@ export const categories = readable([
 	{
 		name: "Data analysis",
 		icon: "cpu-fill",
-		tutorials: [bowtie2Intro, blastIntro, jellyfishIntro, dnaSecrets, viralAmplicon, debuggingPuzzles]
+		tutorials: [bowtie2Intro, blastIntro, jellyfishIntro, dnaSecrets, viralAmplicon, ska2Intro, debuggingPuzzles]
 	}
 ]);
 

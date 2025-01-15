@@ -8,14 +8,14 @@ import Step4 from "./steps/Step4.md";
 
 export const config = {
 	id: "ska2-intro",
-	name: "Comparing genomes with SKA",
-	subtitle: `by <a href="https://github.com/vrbouza" target="_blank">Víctor Rodríguez Bouza</a>`,
-	description: "TODO",
+	name: "Building trees with SKA",
+	subtitle: `by <a href="https://github.com/vrbouza" target="_blank">Víctor Rodríguez Bouza</a> and <a href="https://maklin.fi/" target="_blank">Tommi Mäklin</a>`,
+	description: "Use SKA to build trees for comparing small and very similar genomes",
 	tags: ["ska2", "k-mers"],
 	tools: ["ska"],
 	difficulty: ["beginner"],
 	steps: [
-		{ name: "Comparing genomes with SKA", component: Intro },
+		{ name: "Building trees with SKA", component: Intro },
 		{ name: "Why SKA is good for building phylogenetic trees", component: Step0 },
 		{ name: "Indexing the assemblies", component: Step1 },
 		{ name: "Producing the SNP alignment", component: Step2 },

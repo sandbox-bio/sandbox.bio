@@ -16,3 +16,5 @@ And, with it, we can align against the reference genome using `ska map`:
 Compared to `ska align`, `ska map` keeps all bases in the reference sequence and replaces the sites it cannot find in the indexed assemblies with gaps. We can create the tree again with our script:
 
 <Execute command="python3 create_tree.py output/reference_map.aln" />
+
+Here we can see that the reference is not closely related to any of the other entries. This makes complete sense, as the reference we took comes from the _E. coli_ K-12 strain, isolated one century ago on the other side of the world (Palo Alto, California, USA)!
