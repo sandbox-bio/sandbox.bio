@@ -71,7 +71,7 @@ function getEnvironmentInfo() {
 	// return environments["stg.sandbox.bio"];
 
 	// If running tests on GitHub or using preview branches, run them on prd assets, despite being on localhost
-	if (env.PUBLIC_TESTS === "true" || window.location.hostname.endsWith(".sandbox-bio.pages.dev")) return environments["sandbox.bio"];
+	if (env.PUBLIC_USE_PRD_ASSETS === "true" || window.location.hostname.endsWith(".sandbox-bio.pages.dev")) return environments["sandbox.bio"];
 
 	// Otherwise, use hostname
 	const envInfo = environments[window.location.hostname];
