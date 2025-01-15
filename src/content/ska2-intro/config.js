@@ -16,11 +16,20 @@ export const config = {
 	difficulty: ["beginner"],
 	steps: [
 		{ name: "Comparing genomes with SKA", component: Intro },
-		{name: "Why SKA is good for building phylogenetic trees", component: Step0},
+		{ name: "Why SKA is good for building phylogenetic trees", component: Step0 },
 		{ name: "Indexing the assemblies", component: Step1 },
 		{ name: "Producing the SNP alignment", component: Step2 },
 		{ name: "Building the trees", component: Step3 },
-		{ name: "Working with references", component: Step4 },
+		{ name: "Working with references", component: Step4 }
 	],
-	files: ["create_tree.py", "assemblies/GCA_000005845.2.fna.gz", "assemblies/LA160.fa.gz", "assemblies/LA189.fa.gz", "assemblies/LA207.fa.gz", "assemblies/LA243.fa.gz", "assemblies/ska_input_reference.tsv", "assemblies/ska_input.tsv"]
+	files: [
+		"create_tree.py",
+		"assemblies/GCA_000005845.2.fna.gz",
+		"assemblies/LA160.fa.gz",
+		"assemblies/LA189.fa.gz",
+		"assemblies/LA207.fa.gz",
+		"assemblies/LA243.fa.gz",
+		"assemblies/ska_input_reference.tsv",
+		"assemblies/ska_input.tsv"
+	]
 };
