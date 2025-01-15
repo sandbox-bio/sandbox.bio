@@ -26,6 +26,7 @@ import { config as datepro5 } from "$content/datepro-05-xml-processing/config";
 import { config as datepro6 } from "$content/datepro-06-text-retrieval/config";
 import { config as datepro7 } from "$content/datepro-07-text-processing/config";
 import { config as datepro8 } from "$content/datepro-08-semantic-processing/config";
+import { config as ska2Intro } from "$content/ska2-intro/config";
 
 // All tutorials
 export const tutorials = readable([
@@ -48,6 +49,7 @@ export const tutorials = readable([
 	jellyfishIntro,
 	blastIntro,
 	seqkitIntro,
+	ska2Intro,
 	// Community tutorials
 	ifblinuxbasics1,
 	ifblinuxbasics2,
