@@ -18,8 +18,8 @@ To contribute a new tutorial:
 
 Before setting up your local environment, make sure you:
 
-* Have forked this repo so you can send a PR to contribute your changes.
-* Have `npm` and `node` [installed on your computer](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+- Have forked this repo so you can send a PR to contribute your changes.
+- Have `npm` and `node` [installed on your computer](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
 Then, on your terminal, run the following commands:
 
