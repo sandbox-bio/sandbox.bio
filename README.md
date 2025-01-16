@@ -26,6 +26,7 @@ Then, on your terminal, run the following commands:
 ```bash
 # Clone your fork
 git clone https://github.com/YOUR_USERNAME_GOES_HERE/sandbox.bio.git
+git checkout -b my-new-tutorial
 
 # Set up your environment
 cd sandbox.bio
@@ -60,7 +61,6 @@ Here's how you should structure your tutorial within the sandbox.bio repository:
 ### Tutorial format
 
 Tutorial steps are defined as Markdown. See the [bedtools tutorial](https://raw.githubusercontent.com/sandbox-bio/sandbox.bio/main/src/content/bedtools-intro/steps/Step12.md) for an example format.
-
 
 ### Exercises
 
