@@ -104,7 +104,7 @@ onMount(() => {
 <Styles />
 
 {#if env?.PUBLIC_USE_PRD_ASSETS}
-	<div class="bg-primary text-light text-center" style="font-size:10px">Development Mode</div>
+	<div class="bg-primary-subtle text-primary text-center" style="font-size:10px">Development Mode</div>
 {/if}
 
 <!-- Navigation bar -->
