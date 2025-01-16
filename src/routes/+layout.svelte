@@ -28,6 +28,7 @@ import LoginWithGoogle from "$components/LoginWithGoogle.svelte";
 import { supabaseAnon } from "$src/utils";
 import { user } from "$stores/user.js";
 import { progress } from "$stores/progress.js";
+import { env } from "$env/dynamic/public";
 
 const playgrounds = [
 	{ name: "Terminal", url: "/tutorials/playground", description: "Open ended" },
@@ -102,6 +103,10 @@ onMount(() => {
 <!-- Bootstrap CSS and icons -->
 <Styles />
 
+{#if env?.PUBLIC_USE_PRD_ASSETS}
+	<div class="bg-primary-subtle text-primary text-center" style="font-size:10px">Development Mode</div>
+{/if}
+
 <!-- Navigation bar -->
 <Navbar light container color="light" expand="md">
 	<NavbarBrand href="/">&#129516; sandbox.bio</NavbarBrand>
@@ -150,12 +155,14 @@ onMount(() => {
 </Navbar>
 
 <!-- Toast Alert -->
-<div class="p-4 mb-4 me-3 position-fixed bottom-0 end-0" style="z-index: 15">
-	<Toast autohide isOpen={toastOpen} header="" class="me-1">
-		<ToastHeader toggle={toastToggle}>Note</ToastHeader>
-		<ToastBody>Remember to log in to save your progress!</ToastBody>
-	</Toast>
-</div>
+{#if !env?.PUBLIC_USE_PRD_ASSETS}
+	<div class="p-4 mb-4 me-3 position-fixed bottom-0 end-0" style="z-index: 15">
+		<Toast autohide isOpen={toastOpen} header="" class="me-1">
+			<ToastHeader toggle={toastToggle}>Note</ToastHeader>
+			<ToastBody>Remember to log in to save your progress!</ToastBody>
+		</Toast>
+	</div>
+{/if}
 
 <!-- Login/Signup modal -->
 <Modal body header="" toggle={() => (loginModalOpen = !loginModalOpen)} isOpen={loginModalOpen}>

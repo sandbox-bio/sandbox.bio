@@ -1,100 +1,89 @@
 # sandbox.bio
 
-[![Tests](https://github.com/robertaboukhalil/sandbox.bio/actions/workflows/tests.yml/badge.svg)](https://github.com/robertaboukhalil/sandbox.bio/actions/workflows/tests.yml)
-
 Interactive bioinformatics command-line tutorials.
 
----
+# Contributing
 
-## Local development
+## Overview
 
-### Branches
+To contribute a new tutorial:
 
-- `main`: Development branch, pushing there runs tests
-- `stg`: Staging branch, merge into this branch to deploy to stg.sandbox.bio
-- `prd`: Production branch, merge into this branch to deploy to sandbox.bio
+1. Reach out through [GitHub Discussions](https://github.com/sandbox-bio/sandbox.bio/discussions) or by email to discuss the tutorial you want to add to sandbox.bio. It can be a new tutorial you want to write or an existing tutorial you want to port over. Please include the name of the command-line tools your tutorial needs.
+2. We'll work together to add new tools to the sandbox.bio engine's [Dockerfile](https://github.com/sandbox-bio/v86/blob/master/tools/docker/debian/Dockerfile). To be supported, tools must be compiled to a 32-bit i686 architecture, and if they use SIMD, can only use SSE, SSE2, and SSE3. JVM-based tools are not supported because they require large downloads, and are not performant in this environment.
+3. Fork this repo and set up your local environment (next section)
+4. Write the tutorial
+5. Send a PR
 
-### Environment setup
+## Local development setup
 
-Define environment variables in `.env`:
+Before setting up your local environment, make sure you:
 
-```bash
-# Supabase database URL
-PUBLIC_SUPABASE_URL=...
-# Supabase database public key
-PUBLIC_SUPABASE_API_KEY=...
-# Supabase database admin key
-SUPABASE_API_KEY=...
-```
+* Have forked this repo so you can send a PR to contribute your changes.
+* Have `npm` and `node` [installed on your computer](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
-Launch the web server:
+Then, on your terminal, run the following commands:
 
 ```bash
-npm install
-npm run dev
+# Clone your fork
+git clone https://github.com/YOUR_USERNAME_GOES_HERE/sandbox.bio.git
+cd sandbox.bio
+git checkout -b my-new-tutorial
+
+# Set up your environment
+./bin/setup.sh
 ```
 
-### Tests
+If everything goes well, a browser window will open with sandbox.bio running locally, with a blue "Development Mode" ribbon at the top of the page. You may see a blank page for a few seconds.
 
-- `npm run test` will launch all the tests in headless way
-- `npx playwright test --ui` opens Playwright UI
+## Writing your tutorial
 
-### Deploy
+Write your tutorial using the template at `src/content/_template/`. Don't worry about renaming `_template`, we'll do that during the PR process.
 
-Generate Debian assets:
+### Tutorial Structure
+
+Here's how you should structure your tutorial within the sandbox.bio repository:
 
 ```bash
-# Generate static assets (see https://github.com/sandbox-bio/v86/blob/master/NOTES.md)
-git clone https://github.com/sandbox-bio/v86.git && cd v86
-make all
-make build/xterm.js
-
-# Generate .bin files
-cd tools/docker/debian/
-./generate.sh
+/src/content/
+  some-tool-intro/
+    data/               # Data you want to be preloaded in the terminal when the tutorial loads.
+      reads.fastq       # Keep these files as small as possible, ideally < 100KB if possible.
+      aligned.bam
+    steps/              # Tutorial content for each step, defined in Markdown format (see format below).
+        Step1.md
+        Step2.md
+    exercises/          # Exercises (see format below).
+      Exercise1.md
+    config.js           # Configuration file that defines order of tutorial steps, and other metadata.
+    README.md           # Include where you downloaded files from, and how/if they were processed (optional).
 ```
 
-Deploy:
+### Tutorial format
 
-```bash
-# Upload .bin files
-export CLOUDFLARE_ACCOUNT_ID=ID_GOES_HERE
+Tutorial steps are defined as Markdown. See the [bedtools tutorial](https://raw.githubusercontent.com/sandbox-bio/sandbox.bio/main/src/content/bedtools-intro/steps/Step12.md) for an example format.
 
-# Deploy main to stg
-SOURCE=main
-DEST=stg
+### Exercises
 
-# Deploy stg to prd
-SOURCE=stg
-DEST=prd
+See [this exercise](https://raw.githubusercontent.com/sandbox-bio/sandbox.bio/b3174e01e25c48c1bf655e894626eb0a09c88992/src/content/debugging-puzzles/steps/PuzzleBedSpaces.md) for how to format an exercise, optional hints to show learners, and the criteria for marking an exercise as successfully completed.
 
-# Deploy assets and new debian image first (to avoid users caching a 404 for a non-existent image)
-./bin/deploy-v86.sh $DEST
-# Deploy code changes
-git push origin --delete $DEST
-git checkout -b $DEST --track origin/$SOURCE
-git push origin $DEST
-git checkout main
-git branch -d $DEST
+### Quizzes
+
+Multiple-choice quizzes can be implemented as follows. If there is only one valid answer, the quiz will display radio boxes, otherwise it will show checkboxes.
+
+```js
+<Quiz
+	id="step3-quiz2"
+	choices={[
+		{ valid: false, value: `Montreal` },
+		{ valid: true, value: `Ottawa` },
+		{ valid: false, value: `Toronto` },
+		{ valid: false, value: `Vancouver` }
+	]}
+>
+	<span slot="prompt">What is the capital of Canada?</span>
+</Quiz>
 ```
 
----
+### config.js
 
-## Infrastructure
-
-### Database
-
-| Table | Description                      | Access |
-| ----- | -------------------------------- | ------ |
-| logs  | Log all calls to `sandbox.bio/*` | RLS    |
-| pings | Analytics for tutorial progress  | RLS    |
-| state | Save tutorial progress           | RLS    |
-
-Append `_stg` to table names for dev/stg environments.
-
-### Grafana
-
-[Dashboard](https://sandboxbio.grafana.net)
-
-- Import `grafana.json` into new Grafana instance: Depending on the setup, you might need to find/replace the postgres connection `uid` and replace it with the `uid` of the connection created.
-- Export `grafana.json` to repo: Remove top-level `id`, `uid`, and `version` fields to avoid the import error `The dashboard has been changed by someone else`.
+See the [bedtools tutorial](https://github.com/sandbox-bio/sandbox.bio/blob/main/src/content/bedtools-intro/config.js) for an example `config.js` to use as baseline.
