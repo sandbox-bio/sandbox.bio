@@ -12,7 +12,7 @@ export const config = {
 	id: "_template",
 	name: "An example tutorial",
 	subtitle: `by <a href="https://google.com" target="_blank">Your Name</a>`,
-	description: "Do things and learn things.",
+	description: "Do stuff and learn things.",
 	tags: ["bedtools", "igv"],
 	difficulty: ["beginner"],
 
