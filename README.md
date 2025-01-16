@@ -26,10 +26,10 @@ Then, on your terminal, run the following commands:
 ```bash
 # Clone your fork
 git clone https://github.com/YOUR_USERNAME_GOES_HERE/sandbox.bio.git
+cd sandbox.bio
 git checkout -b my-new-tutorial
 
 # Set up your environment
-cd sandbox.bio
 ./bin/setup.sh
 ```
 
