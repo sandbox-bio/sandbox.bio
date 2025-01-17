@@ -317,8 +317,10 @@ async function fsLoad() {
 	for (const file of files) {
 		if (file.isDir) {
 			await $cli.createFolder(file.path);
-		} else {
+		} else if (file.contents) {
 			await $cli.createFile(file.path, file.contents);
+		} else {
+			console.warn(`Skipping file ${file?.path} because too large to save in browser.`);
 		}
 	}
 }

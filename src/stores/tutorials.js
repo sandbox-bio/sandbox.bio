@@ -27,6 +27,7 @@ import { config as datepro5 } from "$content/datepro-05-xml-processing/config";
 import { config as datepro6 } from "$content/datepro-06-text-retrieval/config";
 import { config as datepro7 } from "$content/datepro-07-text-processing/config";
 import { config as datepro8 } from "$content/datepro-08-semantic-processing/config";
+import { config as ska2Intro } from "$content/ska2-intro/config";
 import { env } from "$env/dynamic/public";
 
 // All tutorials
@@ -50,6 +51,7 @@ export const tutorials = readable([
 	jellyfishIntro,
 	blastIntro,
 	seqkitIntro,
+	ska2Intro,
 	// Community tutorials
 	ifblinuxbasics1,
 	ifblinuxbasics2,
@@ -71,7 +73,7 @@ export const categories = readable([
 	{
 		name: "Recently added",
 		icon: "star-fill",
-		tutorials: (env?.PUBLIC_USE_PRD_ASSETS ? [_template] : []).concat([seqkitIntro, carpentriesShellNovice, blastIntro]),
+		tutorials: (env?.PUBLIC_USE_PRD_ASSETS ? [_template] : []).concat([ska2Intro, seqkitIntro, carpentriesShellNovice, blastIntro]),
 		mailinglist: true
 	},
 	{
@@ -92,7 +94,7 @@ export const categories = readable([
 	{
 		name: "Data analysis",
 		icon: "cpu-fill",
-		tutorials: [bowtie2Intro, blastIntro, jellyfishIntro, dnaSecrets, viralAmplicon, debuggingPuzzles]
+		tutorials: [bowtie2Intro, blastIntro, jellyfishIntro, dnaSecrets, viralAmplicon, ska2Intro, debuggingPuzzles]
 	}
 ]);
 
