@@ -1,4 +1,5 @@
 import { readable } from "svelte/store";
+import { config as _template } from "$content/_template/config.js";
 import { config as terminalIntro } from "$content/terminal-basics/config.js";
 import { config as igvIntro } from "$content/igv-intro/config.js";
 import { config as bedtoolsIntro } from "$content/bedtools-intro/config.js";
@@ -27,6 +28,7 @@ import { config as datepro6 } from "$content/datepro-06-text-retrieval/config";
 import { config as datepro7 } from "$content/datepro-07-text-processing/config";
 import { config as datepro8 } from "$content/datepro-08-semantic-processing/config";
 import { config as ska2Intro } from "$content/ska2-intro/config";
+import { env } from "$env/dynamic/public";
 
 // All tutorials
 export const tutorials = readable([
@@ -61,7 +63,9 @@ export const tutorials = readable([
 	datepro5,
 	datepro6,
 	datepro7,
-	datepro8
+	datepro8,
+	// Template tutorial
+	_template
 ]);
 
 // Tutorial listings
@@ -69,7 +73,7 @@ export const categories = readable([
 	{
 		name: "Recently added",
 		icon: "star-fill",
-		tutorials: [ska2Intro, seqkitIntro, carpentriesShellNovice, blastIntro],
+		tutorials: (env?.PUBLIC_USE_PRD_ASSETS ? [_template] : []).concat([ska2Intro, seqkitIntro, carpentriesShellNovice, blastIntro]),
 		mailinglist: true
 	},
 	{
