@@ -10,7 +10,7 @@ export const config = {
 	id: "ska2-intro",
 	name: "Building trees with SKA",
 	subtitle: `by <a href="https://github.com/vrbouza" target="_blank">Víctor Rodríguez Bouza</a> and <a href="https://maklin.fi/" target="_blank">Tommi Mäklin</a>`,
-	description: "Use SKA to build trees for comparing small and very similar genomes",
+	description: "Use ska.rust to compare and align closely related small genomes using split k-mers",
 	tags: ["ska2", "k-mers"],
 	tools: ["ska"],
 	difficulty: ["beginner"],
