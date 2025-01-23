@@ -6,7 +6,7 @@ import Step3 from "./steps/Step3.md";
 import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
-	id: "viral-phylogenetics",
+	id: "viral_phylogenetics",
 	name: "Viral Phylogenetics",
 	subtitle: `by <a href="https://www.linkedin.com/in/madison-ritter-b1374518a" target="_blank">Maddie Ritter</a> and <a href="https://www.linkedin.com/in/kyra-fetter" target="_blank">Kyra Fetter</a>`,
 	description: "Perfrom viral phylogenetics analysis using real HIV-1 whole-genome sequences.",
