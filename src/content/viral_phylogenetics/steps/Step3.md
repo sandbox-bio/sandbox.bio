@@ -12,17 +12,7 @@ take a look at the usage instruction of LSD2.
 
 We will want to use the following flags in our command:
 
-- '-i' specifies the input file, which is an unrooted phylogenetic tree
-- '-d' speficies the file with sequences dates, which is essential for rooting
-- '-r'
-- '-l'
-- '-u'
-- '-R'
-- '-t'
-- '-v'
-- '-s'
+- `-i` specifies the input file, which is an unrooted phylogenetic tree
+- `-d` speficies the file with sequences dates, which is essential for rooting
 
 2. Try <Execute command="lsd2 -i tree_file.nwk -d hiv1_dates.txt -r a -l -1 -u 0 -q 0.2 -R 365 -t 0.00000000010000000000 -v 1 -s 9182" inline /> to generate our phylogenetic tree.
-
-
-
