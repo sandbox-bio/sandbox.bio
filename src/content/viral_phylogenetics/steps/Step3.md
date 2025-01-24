@@ -22,7 +22,7 @@ We will want to use the following flags in our command:
 - '-v'
 - '-s'
 
-2. Try <Execute command="lsd2 -i phylogenetic.tree -d hiv1_dates.txt -r a -l -1 -u 0 -q 0.2 -R 365 -t 0.00000000010000000000 -v 1 -s 9182" inline /> to generate our phylogenetic tree.
+2. Try <Execute command="lsd2 -i tree_file.nwk -d hiv1_dates.txt -r a -l -1 -u 0 -q 0.2 -R 365 -t 0.00000000010000000000 -v 1 -s 9182" inline /> to generate our phylogenetic tree.
 
 
 
