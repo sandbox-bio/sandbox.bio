@@ -3,7 +3,7 @@ import Link from "$components/Link.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
-**Generate a phylogenetic tree using FastTree**
+**Generate an unrooted phylogenetic tree using FastTree**
 
 Now that we have run multiple sequence alignment on our dataset, we can use [FastTree](https://morgannprice.github.io/fasttree/) to generate our phylogenetic tree.
 
