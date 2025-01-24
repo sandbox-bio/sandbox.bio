@@ -5,7 +5,7 @@ import Execute from "$components/Execute.svelte";
 
 **Generate an rooted phylogenetic tree using LSD2**
 
-In the previous step we created an unrooted phylogenetic tree, now, we will use [LSD2](https://github.com/tothuhien/lsd2) to create a rooted tree. LSD2 is a program that uses least-squares methods to estiamte rates and dates, and 
+In the previous step we created an unrooted phylogenetic tree, now, we will use [LSD2](https://github.com/tothuhien/lsd2) to create a rooted tree. LSD2 is a program that uses least-squares methods to estimate rates and dates.  
 
 1. Try <Execute command="LSD2 -help" inline /> to
 take a look at the usage instruction of LSD2.
