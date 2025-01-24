@@ -15,5 +15,4 @@ take a look at the usage instruction of FastTree.
 - We also want to specify that our alignment data is made up of nucleotides, and not amino acids, so we will also include '-nt' in our command. 
 
 2. Try <Execute command="FastTree -gtr -nt -gamma hiv1_aligned.txt > tree_file.nwk
-" inline /> to
-take a look at all the usage instruction of FastTree.
+" inline /> to generate our phylogenetic tree.
