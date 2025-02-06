@@ -25,4 +25,4 @@ Let's make some sense of this command:
 
 After running the above command, we will have our unrooted phylogenetic tree. Use <Execute command="head -10 tree_file.nwk" inline /> to view the first 10 lines of the tree file. Read more about Newick file formats [here](https://en.wikipedia.org/wiki/Newick_format).
 
-
+Now, use <Execute command="downlaod tree_file.nwk" inline /> to store this file locally. Navigate to [Taxonium](https://taxonium.org/?xType=x_dist) to upload the file, and view your unrooted phylogenetic tree. 
