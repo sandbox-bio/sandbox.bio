@@ -24,6 +24,6 @@ We will want to use the following flags in our command:
 
 2. Try <Execute command="lsd2 -i tree_file.nwk -d hiv1_dates.txt -r a -l -1 -u 0 -q 0.2 -R 365 -t 0.00000000010000000000 -v 1 -s 9182" inline /> to generate our phylogenetic tree.
 
-This generates our rooted tree and outputs a file called `phylogenetic.tree.result.nwk`. Like Step 2, we can visualize this tree at the command line with <Execute command="head -5 phylogenetic.tree.result.nwk" inline />
+Now, we have a rooted tree stored in a file called `phylogenetic.tree.result.nwk`. Like in Step 2, we can visualize this tree at the command line with <Execute command="head -5 phylogenetic.tree.result.nwk" inline />
 
 Now, download the file with <Execute command="download phylogenetic.tree.result.nwk" inline /> so that it can be visualized in [Taxonium](https://taxonium.org/?xType=x_dist). 
