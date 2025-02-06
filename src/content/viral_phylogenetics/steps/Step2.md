@@ -15,11 +15,11 @@ take a look at the usage instruction of FastTree.
 
 Let's make some sense of this command:
 
-- FastTree uses the [Jukes-Cantor](https://en.wikipedia.org/wiki/Models_of_DNA_evolution#JC69_model_(Jukes_and_Cantor_1969)) or Generalized Time-Reversible [GTR](https://en.wikipedia.org/wiki/Substitution_model#Generalised_time_reversible) models of nucleotide evolution. We will specify that we want to use the generalized time-reversible model and incorporate the flag `-gtr` in our command. 
+- `-gtr`FastTree uses the [Jukes-Cantor](https://en.wikipedia.org/wiki/Models_of_DNA_evolution#JC69_model_(Jukes_and_Cantor_1969)) or Generalized Time-Reversible [GTR](https://en.wikipedia.org/wiki/Substitution_model#Generalised_time_reversible) models of nucleotide evolution. We will specify that we want to use the generalized time-reversible model and incorporate the flag `-gtr` in our command. 
 
-- We also want to specify that our alignment data is made up of nucleotides, and not amino acids, so we will also include `-nt` in our command.
+- `-nt` specifies that our alignment data is made up of nucleotides, and not amino acids
 
 - `-gamma` is an optional flag that allows for rescaling of the branch lengths and computation of a Gamma2-based liklihood
 
-- `hiv1_sequences.MSA.fas > tree_file.nwk` tells FastTree to take in our multiple sequence alignment file (from Step 1) and output our phylogentic tree to a file called `tree_file.nwk`. A `nwk` file is a Newick format file, which is often used to represent phylogenetic trees. It is a text-based way to represent the tree structure.
+- `hiv1_sequences.MSA.fas > tree_file.nwk` tells FastTree to take in our multiple sequence alignment file (from Step 1) and output our phylogentic tree to a file called `tree_file.nwk`. A `.nwk` file is a Newick format file, which is often used to represent phylogenetic trees. It is a text-based way to represent the tree structure
 
