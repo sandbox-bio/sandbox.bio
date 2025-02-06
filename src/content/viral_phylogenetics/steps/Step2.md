@@ -15,7 +15,7 @@ take a look at the usage instruction of FastTree.
 
 Let's make some sense of this command:
 
-- `-gtr`FastTree uses the [Jukes-Cantor](https://en.wikipedia.org/wiki/Models_of_DNA_evolution#JC69_model_(Jukes_and_Cantor_1969)) or Generalized Time-Reversible [GTR](https://en.wikipedia.org/wiki/Substitution_model#Generalised_time_reversible) models of nucleotide evolution. We will specify that we want to use the generalized time-reversible model and incorporate the flag `-gtr` in our command. 
+- `-gtr` FastTree uses the [Jukes-Cantor](https://en.wikipedia.org/wiki/Models_of_DNA_evolution#JC69_model_(Jukes_and_Cantor_1969)) or Generalized Time-Reversible [GTR](https://en.wikipedia.org/wiki/Substitution_model#Generalised_time_reversible) models of nucleotide evolution. We will specify that we want to use the generalized time-reversible model and incorporate the flag `-gtr` in our command. 
 
 - `-nt` specifies that our alignment data is made up of nucleotides, and not amino acids
 
