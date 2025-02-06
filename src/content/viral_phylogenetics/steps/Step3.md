@@ -26,4 +26,4 @@ We will want to use the following flags in our command:
 
 This generates our rooted tree and outputs a file called `phylogenetic.tree.result.nwk`. Like Step 2, we can visualize this tree at the command line with <Execute command="head -5 phylogenetic.tree.result.nwk" inline />
 
-Now, download the file with <Execute command="download phylogenetic.tree.result.nwk" inline />locally so that it can be visualized in [Taxonium](https://taxonium.org/?xType=x_dist). 
+Now, download the file with <Execute command="download phylogenetic.tree.result.nwk" inline /> so that it can be visualized in [Taxonium](https://taxonium.org/?xType=x_dist). 
