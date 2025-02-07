@@ -15,9 +15,9 @@ export const config = {
 	difficulty: ["intermediate"],
 	steps: [
 		{ name: "Viral Phylogenetics", component: Intro },
-		{ name: "Data Analysis", component: Step1, subtitle: "Align the reads", header: true },
-		{ name: "Data Analysis", component: Step2, subtitle: "Perform phylogenetic inference", header: true },
-		{ name: "Data Analysis", component: Step3, subtitle: "Root and date the phylogeny" },
+		{ name: "Multiple Sequence Alignment", component: Step1, subtitle: "Align the reads", header: true },
+		{ name: "Generate Unrooted Tree", component: Step2, subtitle: "Use `FastTree` to generate an unrooted tree from alignment data", header: true },
+		{ name: "Generate Rooted Tree", component: Step3, subtitle: "Use `LSD2` and dates file to generate a rooted tree" },
 		{ name: "The end", component: Conclusion, subtitle: "Conclusion", header: true }
 	],
 	files: ["hiv1_sequences.fas", "hiv1_dates.txt"],
