@@ -8,14 +8,14 @@ import Execute from "$components/Execute.svelte";
 Now that we have run multiple sequence alignment on our dataset, we can use [FastTree](https://morgannprice.github.io/fasttree/) to generate our phylogenetic tree.
 
 1. Try <Execute command="FastTree" inline /> to
-take a look at the usage instruction of FastTree.
+take a look at the usage instructions.
 
 2. Now, try <Execute command="FastTree -gtr -nt -gamma hiv1_sequences.MSA.fas > tree_file.nwk
 " inline /> to generate our phylogenetic tree.
 
 Let's make some sense of this command:
 
-- `-gtr` FastTree uses the [Jukes-Cantor](https://en.wikipedia.org/wiki/Models_of_DNA_evolution#JC69_model_(Jukes_and_Cantor_1969)) or Generalized Time-Reversible [GTR](https://en.wikipedia.org/wiki/Substitution_model#Generalised_time_reversible) models of nucleotide evolution. We will specify that we want to use the generalized time-reversible model and incorporate the flag `-gtr` in our command. 
+- `-gtr` indicates we will be using a Generalized Time-Reversible [GTR](https://en.wikipedia.org/wiki/Substitution_model#Generalised_time_reversible) model of evolution for our tree. FastTree can be run with either the [Jukes-Cantor](https://en.wikipedia.org/wiki/Models_of_DNA_evolution#JC69_model_(Jukes_and_Cantor_1969)) or GTR models.
 
 - `-nt` specifies that our alignment data is made up of nucleotides, and not amino acids
 
