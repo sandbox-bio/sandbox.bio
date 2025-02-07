@@ -24,12 +24,13 @@ Let's make some sense of this command:
 
 - `hiv1_sequences.MSA.fas > tree_file.nwk` tells FastTree to take in our multiple sequence alignment file (from Step 1) and output our phylogentic tree to a file called `tree_file.nwk`. A `.nwk` file is a Newick format file, which is often used to represent phylogenetic trees. It is a text-based way to represent the tree structure.
 
-After running the above command, we will have our unrooted phylogenetic tree. Use <Execute command="head -10 tree_file.nwk" inline /> to view the first 10 lines of the tree file. You can read more about Newick file formats [here](https://en.wikipedia.org/wiki/Newick_format).
+3. After running the above command, we will have our unrooted phylogenetic tree. Use <Execute command="head -10 tree_file.nwk" inline /> to view the first 10 lines of the tree file. You can read more about Newick file formats [here](https://en.wikipedia.org/wiki/Newick_format).
 
-Now, let's quickly visualize how this information makes a tree in the terminal using <Execute command="nw_display - < tree_file.nwk" inline />
+4. Now, let's quickly visualize how this information makes a tree in the terminal using <Execute command="nw_display - < tree_file.nwk" inline />
 
 
-Why might be want to create an unrooted tree, over a rooted tree with a common ancestor?
+**Why might be want to create an unrooted tree, over a rooted tree (with a common ancestor)?**
+
 <Quiz
 	id="step2-quiz1"
 	choices={[
@@ -41,4 +42,6 @@ Why might be want to create an unrooted tree, over a rooted tree with a common a
 	<span slot="prompt"></span>
 </Quiz>
 
-While this is incredibly cool, we can get a slighly prettier tree using webtools. Use <Execute command="download tree_file.nwk" inline /> to store the file locally. Navigate to [Taxonium](https://taxonium.org/?xType=x_dist) to upload the file, and view your unrooted phylogenetic tree. 
+5. We can visualize our tool even better using webtools. First, use <Execute command="download tree_file.nwk" inline /> to store the file locally.
+   
+6. Navigate to [Taxonium](https://taxonium.org/?xType=x_dist) to upload the file, and view your unrooted phylogenetic tree. 
