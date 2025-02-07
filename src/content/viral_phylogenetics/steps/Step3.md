@@ -9,7 +9,9 @@ In the previous step we created an unrooted phylogenetic tree, now, we will use 
 
 1. Try <Execute command="LSD2 -help" inline /> to take a look at the usage instruction of LSD2.
 
-We will want to use the following flags in our command:
+2. Now, to generate our rooted tree, use <Execute command="lsd2 -i tree_file.nwk -d hiv1_dates.txt -r a -l -1 -u 0 -q 0.2 -R 365 -t 0.00000000010000000000 -v 1 -s 9182" inline /> 
+
+The above command incorporates the following flags:
 
 - `-i` specifies the input file, which is our unrooted phylogenetic tree from Step 2
 - `-d` specifies the file with sequences dates, which is essential for rooting
@@ -22,8 +24,8 @@ We will want to use the following flags in our command:
 - `-v 1` sets the verbosity level to 1
 - `-s 9182` sets the random seed for reproducibility
 
-2. Try <Execute command="lsd2 -i tree_file.nwk -d hiv1_dates.txt -r a -l -1 -u 0 -q 0.2 -R 365 -t 0.00000000010000000000 -v 1 -s 9182" inline /> to generate our phylogenetic tree.
+3. Now, we have a rooted tree stored in a file called `phylogenetic.tree.result.nwk`. Like in Step 2, we can assess the Newick file at the command line with <Execute command="head -5 phylogenetic.tree.result.nwk" inline />
 
-Now, we have a rooted tree stored in a file called `phylogenetic.tree.result.nwk`. Like in Step 2, we can visualize this tree at the command line with <Execute command="head -5 phylogenetic.tree.result.nwk" inline />
+4. 
 
-Now, download the file with <Execute command="download phylogenetic.tree.result.nwk" inline /> so that it can be visualized in [Taxonium](https://taxonium.org/?xType=x_dist). 
+5. Download the file with <Execute command="download phylogenetic.tree.result.nwk" inline /> so you can visualize it in [Taxonium](https://taxonium.org/?xType=x_dist). 
