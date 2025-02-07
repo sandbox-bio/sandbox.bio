@@ -1,11 +1,12 @@
 <script>
 import Link from "$components/Link.svelte";
 import Execute from "$components/Execute.svelte";
+import Quiz from "$components/Quiz.svelte";
 </script>
 
 **Generate an unrooted phylogenetic tree using FastTree**
 
-Now that we have run multiple sequence alignment on our dataset, we can use [FastTree](https://morgannprice.github.io/fasttree/) to generate our phylogenetic tree.
+Now that we have run multiple sequence alignment on our dataset, we can use [FastTree](https://morgannprice.github.io/fasttree/) to generate an unrooted phylogenetic tree to assess relative ancestral relationships between our samples.
 
 1. Try <Execute command="FastTree" inline /> to
 take a look at the usage instructions.
@@ -26,5 +27,18 @@ Let's make some sense of this command:
 After running the above command, we will have our unrooted phylogenetic tree. Use <Execute command="head -10 tree_file.nwk" inline /> to view the first 10 lines of the tree file. You can read more about Newick file formats [here](https://en.wikipedia.org/wiki/Newick_format).
 
 Now, let's quickly visualize how this information makes a tree in the terminal using <Execute command="nw_display - < tree_file.nwk" inline />
+
+
+Why might be want to create an unrooted tree, over a rooted tree with a common ancestor?
+<Quiz
+	id="step2-quiz1"
+	choices={[
+		{ valid: false, value: `To determine the evolutionary direction and ancestral lineage of species` },
+		{ valid: true, value: `To analyze relationships without assuming a common ancestor or direction of evolution` },
+		{ valid: false, value: `Because unrooted trees are always more accurate than rooted trees` },
+		{ valid: false, value: `To define the exact point in time when species diverged` },
+    ]}>
+	<span slot="prompt"></span>
+</Quiz>
 
 While this is incredibly cool, we can get a slighly prettier tree using webtools. Use <Execute command="downlaod tree_file.nwk" inline /> to store the file locally. Navigate to [Taxonium](https://taxonium.org/?xType=x_dist) to upload the file, and view your unrooted phylogenetic tree. 
