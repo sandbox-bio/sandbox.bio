@@ -26,7 +26,7 @@ What do the characters after the `>` represent? Take a look at the FASTA format 
 	<span slot="prompt"></span>
 </Quiz>
 
-Next, let's figure out how many sequences are in `hiv1_sequences.fas`. To do so, we can use the `grep` command, which will enable us to search for a particular text pattern in a file. `grep "^>" hiv1_sequences.fas` will count the number of lines in `hiv1_sequences.fas` where the first character is `>`. Now, try to use this command to figure out how many sequences are in `hiv1_sequences.fas`! (Hint: try piping the output into `wc -l` to return the count of the number of lines output by `grep`).
+Next, let's figure out how many sequences are in `hiv1_sequences.fas`. To do so, we can use the `grep "<pattern>" <file>` command, which will enable us to search for a particular text pattern in a file. For example, `grep "abc" test.txt` will return all lines containing the string `"abc"`. Use the `grep` command to determine how many sequences are in `hiv1_sequences.fas`. (Hint: add `"^"` to the beginning of `"pattern"` to limit the search to lines that begin with `"pattern"`. `wc -l` may also be helpful!).
 
 How many sequences are in `hiv1_sequences.fas`?
 
@@ -41,7 +41,7 @@ How many sequences are in `hiv1_sequences.fas`?
 	<span slot="prompt"></span>
 </Quiz>
 
-If you're still curious, try to determine the length of each sequence in `hiv1_sequences.fas`!
+If you're up for a challenge, try to determine the length of each sequence in `hiv1_sequences.fas`!
 
 **2. Multiple sequence alignment (MSA)**
 
