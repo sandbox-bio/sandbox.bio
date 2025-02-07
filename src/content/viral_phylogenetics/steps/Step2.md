@@ -41,4 +41,4 @@ Why might be want to create an unrooted tree, over a rooted tree with a common a
 	<span slot="prompt"></span>
 </Quiz>
 
-While this is incredibly cool, we can get a slighly prettier tree using webtools. Use <Execute command="downlaod tree_file.nwk" inline /> to store the file locally. Navigate to [Taxonium](https://taxonium.org/?xType=x_dist) to upload the file, and view your unrooted phylogenetic tree. 
+While this is incredibly cool, we can get a slighly prettier tree using webtools. Use <Execute command="download tree_file.nwk" inline /> to store the file locally. Navigate to [Taxonium](https://taxonium.org/?xType=x_dist) to upload the file, and view your unrooted phylogenetic tree. 
