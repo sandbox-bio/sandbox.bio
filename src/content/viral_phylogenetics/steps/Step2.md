@@ -4,8 +4,6 @@ import Execute from "$components/Execute.svelte";
 import Quiz from "$components/Quiz.svelte";
 </script>
 
-**Generate an unrooted phylogenetic tree using FastTree**
-
 Now that we have run multiple sequence alignment on our dataset, we can use [FastTree](https://morgannprice.github.io/fasttree/) to generate an unrooted phylogenetic tree to assess relative ancestral relationships between our samples.
 
 1. Try <Execute command="FastTree" inline /> to
