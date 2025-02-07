@@ -22,7 +22,7 @@ The above command incorporates the following flags:
 - `-v 1` sets the verbosity level to 1
 - `-s 9182` sets the random seed for reproducibility
 
-3. Now, we have a rooted tree stored in a file called `phylogenetic.tree.result.nwk`. Like in Step 2, we can assess the Newick file at the command line with <Execute command="head -5 phylogenetic.tree.result.nwk" inline />
+3. Now, we have a rooted tree stored in a file called `phylogenetic.tree.result.nwk`. Like in Step 2, we can view the first 10 lines of the Newick file at the command line with <Execute command="head -10 phylogenetic.tree.result.nwk" inline />
 
 4. Let's visualize in the terminal using <Execute command="nw_display - < phylogenetic.tree.result.nwk" inline />
 
