@@ -26,6 +26,6 @@ The above command incorporates the following flags:
 
 3. Now, we have a rooted tree stored in a file called `phylogenetic.tree.result.nwk`. Like in Step 2, we can assess the Newick file at the command line with <Execute command="head -5 phylogenetic.tree.result.nwk" inline />
 
-4. Now, let's quickly visualize in the terminal using <Execute command="nw_display - < phylogenetic.tree.result.nwk" inline />
+4. Let's visualize in the terminal using <Execute command="nw_display - < phylogenetic.tree.result.nwk" inline />
 
-5. Download the file with <Execute command="download phylogenetic.tree.result.nwk" inline /> so you can visualize it in [Taxonium](https://taxonium.org/?xType=x_dist). 
+5. Again, we can download the file with <Execute command="download phylogenetic.tree.result.nwk" inline /> so that it can be uploaded and better visualized in [Taxonium](https://taxonium.org/?xType=x_dist). 
