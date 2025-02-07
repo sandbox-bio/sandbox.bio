@@ -16,8 +16,8 @@ export const config = {
 	steps: [
 		{ name: "Viral Phylogenetics", component: Intro },
 		{ name: "Multiple Sequence Alignment", component: Step1, subtitle: "Align the reads", header: true },
-		{ name: "Generate Unrooted Tree", component: Step2, subtitle: "Use `FastTree` to generate an unrooted tree from alignment data", header: true },
-		{ name: "Generate Rooted Tree", component: Step3, subtitle: "Use `LSD2` and dates file to generate a rooted tree" },
+		{ name: "Generate Unrooted Tree", component: Step2, subtitle: "Use FastTree to generate a tree from alignment data", header: true },
+		{ name: "Generate Rooted Tree", component: Step3, subtitle: "Use LSD2 and dates file to generate a rooted tree" },
 		{ name: "The end", component: Conclusion, subtitle: "Conclusion", header: true }
 	],
 	files: ["hiv1_sequences.fas", "hiv1_dates.txt"],
