@@ -37,7 +37,15 @@ If everything goes well, a browser window will open with sandbox.bio running loc
 
 ## Writing your tutorial
 
-Write your tutorial using the template at `src/content/_template/`. Don't worry about renaming `_template`, we'll do that during the PR process.
+Make a copy of the template:
+
+```bash
+TUTORIAL_ID=awesome-tool-intro
+mkdir -p "./src/content/$TUTORIAL_ID"
+cp -r "./src/content/_template/" "./src/content/$TUTORIAL_ID"
+```
+
+Modify the files as needed--see the next section for information about how files are organized. 
 
 ### Tutorial Structure
 
