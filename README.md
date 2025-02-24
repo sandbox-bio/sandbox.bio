@@ -45,6 +45,10 @@ mkdir -p "./src/content/$TUTORIAL_ID"
 cp -r "./src/content/_template/" "./src/content/$TUTORIAL_ID"
 ```
 
+Then you need to modify `src/stores/tutorials.js`:
+1. Import your new tutorial at the [top of the file](https://github.com/sandbox-bio/sandbox.bio/blob/main/src/stores/tutorials.js#L30): `import { config as awesomeToolIntro } from "$content/awesome-tool-intro/config";`
+2. Add your tutorial to the `tutorials` variable on [this line](https://github.com/sandbox-bio/sandbox.bio/blob/main/src/stores/tutorials.js#L54)
+
 Modify the files as needed--see the next section for information about how files are organized. 
 
 ### Tutorial Structure
