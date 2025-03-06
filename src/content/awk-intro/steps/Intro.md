@@ -1,12 +1,9 @@
 <script>
 import Link from "$components/Link.svelte";
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
-<Alert>
-	Make sure you're comfortable with the <Link href="/tutorials/terminal-basics">Terminal Basics</Link> (e.g. `ls`, `head`, `tail`, `grep`) before going through this tutorial.
-</Alert>
+> Make sure you're comfortable with the <Link href="/tutorials/terminal-basics">Terminal Basics</Link> (e.g. `ls`, `head`, `tail`, `grep`) before going through this tutorial.
 
 Awk is a power tool to help you **filter, extract and transform data files** on the command line.
 

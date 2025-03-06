@@ -36,7 +36,7 @@ Go to the folder `exercise-data/`:
 
 Leah has several hundred data files, each of which is formatted like this:
 
-```
+```js
 2013-11-05,deer,5
 2013-11-05,rabbit,22
 2013-11-05,raccoon,7

@@ -33,7 +33,7 @@ You and your friend, having just finished reading Little Women by Louisa May Alc
 
 The file `stats.txt` should match the following format:
 
-```
+```js
 Jo:
 111
 Meg:

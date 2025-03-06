@@ -40,7 +40,7 @@ Go to the folder `exercise-data/`:
 
 Leah has several hundred data files saved in one directory, each of which is formatted like this:
 
-```
+```js
 2012-11-05,deer,5
 2012-11-05,rabbit,22
 2012-11-05,raccoon,7
@@ -53,7 +53,7 @@ Leah has several hundred data files saved in one directory, each of which is for
 
 She wants to **write a shell script that takes a species as the first command-line argument and a directory as the second argument**. The script should return one file called `<species>.txt` containing a list of dates and the number of that species seen on each date. For example using the data shown above, `rabbit.txt` would contain:
 
-```
+```js
 2012-11-05,22
 2012-11-06,19
 2012-11-07,16
@@ -61,7 +61,7 @@ She wants to **write a shell script that takes a species as the first command-li
 
 Below, each line contains an individual command, or pipe. Arrange their sequence in one command in order to achieve Leah’s goal:
 
-```
+```bash
 cut -d : -f 2
 >
 |

@@ -4,7 +4,7 @@ import Quiz from "$components/Quiz.svelte";
 
 Consider the file `exercise-data/animal-counts/animals.csv`:
 
-```
+```js
 2012-11-05,deer,5
 2012-11-05,rabbit,22
 2012-11-05,raccoon,7

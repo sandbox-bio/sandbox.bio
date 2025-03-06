@@ -8,7 +8,7 @@ if `pwd` displays `/Users/backup`,
 and `-r` tells `ls` to display things in reverse order,
 what command(s) will result in the following output:
 
-```output
+```bash
 pnas_sub/ pnas_final/ original/
 ```
 

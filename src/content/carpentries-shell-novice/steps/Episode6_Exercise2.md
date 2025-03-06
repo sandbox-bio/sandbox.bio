@@ -9,14 +9,14 @@ Go to the folder `exercise-data/alkanes/`:
 
 In the `alkanes` directory, imagine you have a shell script called `script.sh` containing the following commands:
 
-```
+```bash
 head -n $2 $1
 tail -n $3 $1
 ```
 
 While you are in the `alkanes` directory, you type the following command:
 
-```
+```bash
 bash script.sh '*.pdb' 1 1
 ```
 
