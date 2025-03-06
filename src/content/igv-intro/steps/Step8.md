@@ -22,7 +22,7 @@ Load GC content track
 
 Note the concordance of coverage with GC content.
 
-<Alert color="info">
+<Alert>
 	**Question**
 
     Why are there blue and red reads throughout the alignments?

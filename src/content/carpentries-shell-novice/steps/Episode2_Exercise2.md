@@ -6,7 +6,7 @@ import Image from "$components/Image.svelte";
 Using the filesystem diagram below, if `pwd` displays `/Users/thing`,
 what will `ls -F ../backup` display?
 
-<Image src="https://swcarpentry.github.io/shell-novice/fig/filesystem-challenge.svg" />
+<Image src="https://swcarpentry.github.io/shell-novice/fig/filesystem-challenge.svg" alt="File system diagram" />
 
 <Quiz id="q2.2" choices={[
 { valid: false, value: "../backup: No such file or directory"},

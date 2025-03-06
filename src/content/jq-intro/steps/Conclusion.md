@@ -12,7 +12,7 @@ This concludes the tutorial on using `jq`!
 
     `jq '.key[0].subkey[2:3].subsubkey'`
 
-    `jq` programs can contain object constructors <code>&#123;...&#125;</code> and array constructors `[...]`. You use these when you want to wrap back up something you've pulled out of a JSON document using the above indexes:
+    `jq` programs can contain object constructors <code>&#123; ... &#125;</code> and array constructors `[...]`. You use these when you want to wrap back up something you've pulled out of a JSON document using the above indexes:
 
     <code>jq '[&#123; key1: .key1, key2: .key2 &#125;]'</code><br /><br />
 

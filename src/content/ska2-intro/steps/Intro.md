@@ -7,4 +7,4 @@ import Image from "$components/Image.svelte";
 
 This tutorial (adapted from [this guide](https://www.bacpop.org/guides/building_trees_with_ska)) will explain how to use SKA to build a phylogenetic tree for some _Escherichia coli_ lineages in a few minutes. Although SKA is tailored more towards analysing variation within a lineage, tree-building ends up working fine for the whole species but requires more memory.
 
-<Image src="/data/ska2-intro/ska_logo.png" />
+<Image src="/data/ska2-intro/ska_logo.png" alt="SKA logo" />

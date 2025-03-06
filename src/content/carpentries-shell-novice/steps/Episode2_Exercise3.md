@@ -12,7 +12,7 @@ what command(s) will result in the following output:
 pnas_sub/ pnas_final/ original/
 ```
 
-<Image src="https://swcarpentry.github.io/shell-novice/fig/filesystem-challenge.svg" />
+<Image src="https://swcarpentry.github.io/shell-novice/fig/filesystem-challenge.svg" alt="File system diagram" />
 
 <Quiz id="q2.3" choices={[
 { valid: false, value: "ls pwd"},
