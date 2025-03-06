@@ -1,5 +1,4 @@
 <script>
-import { Icon } from "sveltestrap";
 import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
@@ -17,5 +16,5 @@ To extract those sequences from `hairpins.fa`, use the `-f` flag:
 <Execute command="seqkit grep -f ids.txt hairpins.fa" />
 
 <Alert color="primary">
-    <Icon name="lightbulb-fill" /> This is a useful tool because the alternative ways to achieve this on the command line would be more challenging. You could try using good-old `grep` but that only matches the sequence name line. You could use `grep -A2` to also retrieve the sequence, but that assumes all sequences have 2 lines, which they do not.
+    💡 This is a useful tool because the alternative ways to achieve this on the command line would be more challenging. You could try using good-old `grep` but that only matches the sequence name line. You could use `grep -A2` to also retrieve the sequence, but that assumes all sequences have 2 lines, which they do not.
 </Alert>
