@@ -11,7 +11,7 @@ Let's go through the same sets of steps as before.
 <Execute command="mafft hiv1_sequences.fas > hiv1_sequences.MSA.fas" inline />
 
 2. Generate an unrooted tree with FastTree:
-Try <Execute command="FastTree -gtr -nt -gamma hiv1_sequences.MSA.fas > tree_file.nwk
+<Execute command="FastTree -gtr -nt -gamma hiv1_sequences.MSA.fas > tree_file.nwk
 " inline />
 
 3. Generate a rooted tree with LSD2:
