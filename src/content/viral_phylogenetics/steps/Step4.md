@@ -8,7 +8,7 @@ Now, we have the tools to generate phylogenetic trees! Let's take a look at a sl
 Let's go through the same sets of steps as before.
 
 1. Run mutliple sequence alignment with MAFFT:
-2. <Execute command="mafft hiv1_sequences.fas > hiv1_sequences.MSA.fas" inline />
+<Execute command="mafft hiv1_sequences.fas > hiv1_sequences.MSA.fas" inline />
 
 2. Generate an unrooted tree with FastTree:
 Try <Execute command="FastTree -gtr -nt -gamma hiv1_sequences.MSA.fas > tree_file.nwk
