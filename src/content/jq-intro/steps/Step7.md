@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -27,17 +26,14 @@ And if you want just a label count that is easy as well:
 
 <Execute command={`jq '{ title: .title, number: .number, labels: .labels | length }' issue.json`} />
 
-<Alert>
-	**What I Learned: Pipes and Filters**:
-
-    Everything in `jq` is a filter that you can combine with pipes (`|`). This mimics the behavior of a UNIX shell.
-
-    You can use the pipes and the `jq` built-ins to build complicated transformations from simple operations.
-
-    It ends up looking something like this:
-
-    * `jq '.key1.subkey2[] | sort'`
-    * `jq '.key2.subkey | length'`
-    * `jq '.key3 | floor | tostring | length'`
-
-</Alert>
+> **What I Learned: Pipes and Filters**:
+> 
+> Everything in `jq` is a filter that you can combine with pipes (`|`). This mimics the behavior of a UNIX shell.
+> 
+> You can use the pipes and the `jq` built-ins to build complicated transformations from simple operations.
+> 
+> It ends up looking something like this:
+> 
+> * `jq '.key1.subkey2[] | sort'`
+> * `jq '.key2.subkey | length'`
+> * `jq '.key3 | floor | tostring | length'`
