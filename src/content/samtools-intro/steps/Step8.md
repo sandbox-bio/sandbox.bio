@@ -15,22 +15,22 @@ that aligned "properly" to the reference genome.
 To ask the `view` command to report solely "proper pairs", we use the `-f` option
 and ask for alignments where the second bit is true (proper pair is true):
 
-<Execute command={"samtools view -f 0x2 sample.sorted.bam | head"} />
+<Execute command="samtools view -f 0x2 sample.sorted.bam | head" />
 
 How many _properly_ paired alignments are there? (use the `-c` option)
 
-<Execute command={"samtools view -c -f 0x2 sample.sorted.bam"} />
+<Execute command="samtools view -c -f 0x2 sample.sorted.bam" />
 
 Now, let's ask for alignments that are NOT properly paired. To do this, we use the `-F` option (note the capitalization to denote "opposite").
 
-<Execute command={"samtools view -c -F 0x2 sample.sorted.bam"} />
+<Execute command="samtools view -c -F 0x2 sample.sorted.bam" />
 
 How many _total_ alignments?
 
-<Execute command={"samtools view -c sample.sorted.bam"} />
+<Execute command="samtools view -c sample.sorted.bam" />
 
 Does everything add up?
 
 To get a summary of the flags in our BAM file, we can use `samtools flagstats`:
 
-<Execute command={"samtools flagstats sample.sorted.bam"} />
+<Execute command="samtools flagstats sample.sorted.bam" />

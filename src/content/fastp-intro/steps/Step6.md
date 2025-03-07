@@ -6,7 +6,7 @@ One common FASTQ filtering step is to remove reads that are too short to be usef
 
 In the previous step, notice this line in the output of `fastp`:
 
-```
+```js
 reads failed due to too short: 0
 ```
 
@@ -18,6 +18,6 @@ For example, to only keep reads that are longer than 50bp, let's use the `--leng
 
 With a stricter threshold, we now see that there are more reads that were discarded:
 
-```
+```js
 reads failed due to too short: 372
 ```

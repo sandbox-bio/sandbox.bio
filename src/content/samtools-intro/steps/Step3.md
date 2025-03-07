@@ -6,8 +6,8 @@ To do anything meaningful with alignment data from BWA or other aligners (which 
 
 To convert SAM to BAM, we use the `samtools view` command. We must specify that we want the output to be BAM (by default it produces SAM) with the `-b` option. Samtools follows the UNIX convention of sending its output to the UNIX STDOUT, so we need to use `-o` to create a BAM file from the output.
 
-<Execute command={"samtools view -b sample.sam -o sample.bam"} />
+<Execute command="samtools view -b sample.sam -o sample.bam" />
 
 Now, we can use the `samtools view` command to convert the BAM to SAM so we mere mortals can read it:
 
-<Execute command={"samtools view sample.bam | head -n 5"} />
+<Execute command="samtools view sample.bam | head -n 5" />

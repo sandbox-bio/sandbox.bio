@@ -6,4 +6,4 @@ So far, we focused on using `fastp` to evaluate data quality. But if we want to 
 
 <Execute command="fastp \ --in1 HG004_R1.fastq.gz \ --in2 HG004_R2.fastq.gz \ --out1 HG004_R1_filtered.fastq.gz \ --out2 HG004_R2_filtered.fastq.gz" />
 
-This creates the original HTML/JSON reports, along with a filtered FASTQ file for each input: <Execute inline command="ls -l" />
+This creates the original HTML/JSON reports, along with a filtered FASTQ file for each input: <Execute inline command="ls -lh" />. Notice that FASTQ files with `filtered` in their filenames are smaller, as expected.

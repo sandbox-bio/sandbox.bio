@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -13,4 +12,4 @@ The structure of the output is as follows:
 
 2. Next, you'll see stats about how many reads and bases were removed and for what reason. For example, 942 reads were trimmed because adapter sequences were detected in those reads.
 
-<Alert>Although the report mentions reads being filtered, `fastp` does not overwrite your original data! Later in this tutorial, we'll see how we can retrieve those filtered reads so we can use them in downstream analyses.</Alert>
+> Although the report mentions reads being filtered, `fastp` does not overwrite your original data! Later in this tutorial, we'll see how we can retrieve those filtered reads so we can use them in downstream analyses.

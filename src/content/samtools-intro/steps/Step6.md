@@ -18,9 +18,9 @@ view to text-based SAM alignments that are easy for _humans_ to read and process
 
 Let us start by inspecting the first five alignments in our BAM in detail:
 
-<Execute command={"samtools view sample.sorted.bam | head -n 5"} />
+<Execute command="samtools view sample.sorted.bam | head -n 5" />
 
-For each read, can you identify where in the genome the read landed? With what mapping quality? Can you parse what the SAM flags mean? (use <Execute command={"samtools flags"} inline />)
+For each read, can you identify where in the genome the read landed? With what mapping quality? Can you parse what the SAM flags mean? (use <Execute command="samtools flags" inline />)
 
 Finally, let's visualize the alignments: <button class="btn btn-sm btn-primary" on:click={() => isOpen = !isOpen}>Launch IGV</button>
 
