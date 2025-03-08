@@ -38,7 +38,7 @@ Returning to my GitHub API problem, to wrap the number and the title up into an 
 > If you were building up a JSON object out of several selectors, it would end up looking something like this:
 > 
 > ```shell
-> jq '{ "key1": [jq filter], "key2": [jq filter] }'
+> jq '&lbrace; "key1": [jq filter], "key2": [jq filter] }'
 > ```
 > 
 > Which is the same syntax for an object in a JSON document, except with jq you can use filters as values.
