@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -57,6 +56,4 @@ We can also redirect the output to a TSV file named `diseases_recognized.tsv`:
 
 We can now open the file in our spreadsheet application, such as LibreOffice Calc or Microsoft Excel.
 
-<Alert>
-By using the reduced OWL files preloaded in this tutorial, we will get just a portion of the full list of mentions of diseases from the Human Disease Ontology.
-</Alert>
+> By using the reduced OWL files preloaded in this tutorial, we will get just a portion of the full list of mentions of diseases from the Human Disease Ontology.

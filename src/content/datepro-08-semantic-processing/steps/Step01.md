@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -19,9 +18,7 @@ The ontologies are preloaded for this tutorial, but not in their entirety:
 
 As you can see, the preloaded files are only a few KB in size, while the original ones are several MB. Since the original files are very large OWL files containing numerous classes, we have reduced the number of classes to avoid long waiting times for command line execution.
 
-<Alert>
-Using the reduced OWL files preloaded in this tutorial, the command lines described here may work in a similar, but not identical, manner.
-</Alert>
+> Using the reduced OWL files preloaded in this tutorial, the command lines described here may work in a similar, but not identical, manner.
 
 The original OWL files can be retrieved by using `curl`:
 
@@ -31,7 +28,7 @@ curl -L -O "http://purl.obolibrary.org/obo/doid/releases/2021-03-29/doid.owl"
 curl -L -O "http://purl.obolibrary.org/obo/chebi/198/chebi_lite.owl"
 ```
 
-<Alert>The `curl` command here at this platform cannot download the files due to access restrictions. However, the same command will work just fine in your local terminal.</Alert>
+> The `curl` command here at this platform cannot download the files due to access restrictions. However, the same command will work just fine in your local terminal.
 
 The `-O` option saves the content to a local file named according to the name
 of the remote file, usually the last part of the URL. The equivalent long form

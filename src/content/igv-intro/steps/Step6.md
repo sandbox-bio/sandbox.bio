@@ -29,9 +29,6 @@ Color alignments by `read strand`: click the track gear icon on the right and ch
 
 </Alert>
 
-<Alert>
-	**Question**
-
-    How does `Color by read strand` help?
-
-</Alert>
+> **Question**
+>
+> How does `Color by read strand` help?

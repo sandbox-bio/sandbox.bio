@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -18,7 +17,7 @@ We can retrieve the publication entry by executing the following command:
 
 <Execute command="curl https://rest.uniprot.org/citations/1354642.rdf" />
 
-<Alert>The `curl` command on this platform has access restrictions but works with `rest.uniprot.org` and `eutils.ncbi.nlm.nih.gov` links.</Alert>
+> The `curl` command on this platform has access restrictions but works with `rest.uniprot.org` and `eutils.ncbi.nlm.nih.gov` links.
 
 Alternatively, we can use the web service provided by PubMed at NCBI ,
 by still using curl but with another link:

@@ -2,7 +2,6 @@
 // Solution:
 //    bedtools makewindows -g genome.txt -w 500000 > windows.bed; bedtools intersect -a windows.bed -b exons.bed -c > windows.exons.bedg
 
-import Alert from "$components/Alert.svelte";
 import Exercise from "$components/Exercise.svelte";
 
 let criteria = [
@@ -30,8 +29,6 @@ let criteria = [
 
 Count how many exons occur in each 500kb interval ("window") in the human genome. Use the files `exons.bed` and `genome.txt` as input.
 
-<Alert>
-	**Hint**: have a look at the `bedtools makewindows` tool.
-</Alert>
+> Hint**: have a look at the `bedtools makewindows` tool.
 
 <Exercise {criteria} />

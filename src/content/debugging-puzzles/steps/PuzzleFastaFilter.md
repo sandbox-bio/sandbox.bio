@@ -1,8 +1,9 @@
 <script>
 import Execute from "$components/Execute.svelte";
 import Exercise from "$components/Exercise.svelte";
+import { browser } from "$app/environment";
 
-const hostname = window.location.origin;
+const hostname = browser && window.location.origin;
 const curl = `curl ${hostname}/data/debugging-puzzles/sequences.fa`;
 const criteria = [
 	{
@@ -11,8 +12,8 @@ const criteria = [
 			type: "file",
 			path: "sequences.fa",
 			action: "contents",
-			commandExpected: "echo -n 1951",
-			commandObserved: `stat --printf="%s" sequences.fa`,
+			commandExpected: "echo 1951",
+			commandObserved: `stat -c "%s" sequences.fa`,
 		}]
 	},
 		{

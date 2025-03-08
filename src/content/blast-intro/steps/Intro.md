@@ -1,12 +1,9 @@
 <script>
 import Link from "$components/Link.svelte";
-import Alert from "$components/Alert.svelte";
 import Image from "$components/Image.svelte";
 </script>
 
-<Alert>
-This tutorial is an interactive version of the <Link href="https://open.oregonstate.education/computationalbiology/chapter/command-line-blast/">BLAST chapter</Link> of the open-access textbook **A Primer for Computational Biology**, by Shawn T. O'Neil. The book is licensed under a <Link href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons license</Link>.
-</Alert>
+> This tutorial is an interactive version of the <Link href="https://open.oregonstate.education/computationalbiology/chapter/command-line-blast/">BLAST chapter</Link> of the open-access textbook **A Primer for Computational Biology**, by Shawn T. O'Neil. The book is licensed under a <Link href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons license</Link>.
 
 BLAST, or Basic Local Alignment Search Tool, is a nearly ubiquitous tool for sequence alignment.
 

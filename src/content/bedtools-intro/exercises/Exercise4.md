@@ -3,7 +3,6 @@
 //    bedtools jaccard -a cpg.bed -b <(grep Enhancer hesc.chromHmm.bed) > jaccard.enhancers.txt; bedtools jaccard -a cpg.bed -b <(grep Promoter hesc.chromHmm.bed) > jaccard.promoters.txt
 
 import Exercise from "$components/Exercise.svelte";
-import Alert from "$components/Alert.svelte";
 
 let criteria = [
 {
@@ -29,8 +28,6 @@ let criteria = [
 
 What is the Jaccard statistic between CpG and hESC enhancers? Compare that to the Jaccard statistic between CpG and hESC promoters. Does the result make sense?
 
-<Alert>
-	**Hint**: to find enhancers, you can use `grep` on the `hesc.chromHmm.bed` file using the `Enhancer` pattern.
-</Alert>
+> **Hint**: to find enhancers, you can use `grep` on the `hesc.chromHmm.bed` file using the `Enhancer` pattern.
 
 <Exercise {criteria} />

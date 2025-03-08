@@ -5,7 +5,6 @@
 */
 
 import Link from "$components/Link.svelte";
-import Alert from "$components/Alert.svelte";
 import Exercise from "$components/Exercise.svelte";
 
 let criteria = [
@@ -40,8 +39,6 @@ let criteria = [
 
 Now that we have reads aligned to the reference genome, let's call variants using `bcftools`. Output the variants to the file `variants.bcf`.
 
-<Alert>
-	**Hint**: Check out the <Link href="/tutorials/bowtie2-intro/6">bcftools section</Link> of the bowtie2 tutorial for an example of how to run `bcftools`.
-</Alert>
+> **Hint**: Check out the <Link href="/tutorials/bowtie2-intro/6">bcftools section</Link> of the bowtie2 tutorial for an example of how to run `bcftools`.
 
 <Exercise {criteria} />

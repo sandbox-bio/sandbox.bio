@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import IGVUpdateBtn from "$components/igv/IGVUpdateBtn.svelte";
 </script>
 
@@ -22,9 +21,6 @@ Load GC content track
 
 Note the concordance of coverage with GC content.
 
-<Alert>
-	**Question**
-
-    Why are there blue and red reads throughout the alignments?
-
-</Alert>
+> **Question**
+>
+> Why are there blue and red reads throughout the alignments?

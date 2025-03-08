@@ -1,16 +1,12 @@
 <script>
 import Link from "$components/Link.svelte";
-import Alert from "$components/Alert.svelte";
 </script>
 
-<Alert>
-	This is a template for creating new sandbox.bio tutorials.
-
-    To modify this template, change the files within `src/content/_template/`.
-
-    Check out the <Link href="https://github.com/sandbox-bio/sandbox.bio/blob/main/README.md">README</Link> for details about the file and folder structure.
-
-</Alert>
+> This is a template for creating new sandbox.bio tutorials.
+> 
+> To modify this template, change the files within `src/content/_template/`.
+> 
+> Check out the <Link href="https://github.com/sandbox-bio/sandbox.bio/blob/main/README.md">README</Link> for details about the file and folder structure.
 
 Our goal is to work through examples that demonstrate how to explore, process and manipulate genomic interval files (e.g., `BED`, `VCF`, `BAM`) with the `bedtools` software package.
 

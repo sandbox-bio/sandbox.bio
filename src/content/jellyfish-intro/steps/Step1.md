@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -19,13 +18,11 @@ where:
 - `-s 11000`: our estimate of the number of k-mers in this genome. The Dengue genome is 10.6kbp so we choose 11k. This is just an approximation, Jellyfish will automatically resize its hash data structure to fit if needed
 - `-o dengue.jf`: store results in `dengue.jf` (this is a binary file that we will query with Jellyfish)
 
-<Alert>
-   You can use `seqtk` to calculate how many bases are in a FASTA file:
-
-<Execute command={`seqtk comp dengue.fa`} />
-
-Use <Execute inline command="seqtk comp" /> to view what the columns in the output above represent.
-</Alert>
+> You can use `seqtk` to calculate how many bases are in a FASTA file:
+>
+> <Execute command={`seqtk comp dengue.fa`} />
+> 
+> Use <Execute inline command="seqtk comp" /> to view what the columns in the output above represent.
 
 Using the output of Jellyfish, let's look at the distribution of 7-mers:
 

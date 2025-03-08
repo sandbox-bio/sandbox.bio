@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -19,7 +18,7 @@ and the filename, as described previously:
 We should note that `curl` still prints some progress information into the
 terminal.
 
-<Alert>In your local terminal the progress information will more detailed.</Alert>
+> In your local terminal the progress information will more detailed.
 
 #### Standard error output
 
