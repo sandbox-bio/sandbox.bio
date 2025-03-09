@@ -16,10 +16,7 @@ done
 { valid: false, value: "All files are listed."},
 { valid: false, value: "Only cubane.pdb, octane.pdb and pentane.pdb are listed."},
 { valid: true, value: "Only cubane.pdb is listed."},
-]}>
-<span slot="prompt">
-</span>
-</Quiz>
+]} />
 
 How would the output differ from using this command instead (`*c*` instead of `c*`):
 
@@ -36,7 +33,4 @@ done
 { valid: false, value: "No files are listed this time."},
 { valid: true, value: "The files cubane.pdb and octane.pdb will be listed."},
 { valid: false, value: "Only the file octane.pdb will be listed."},
-]}>
-<span slot="prompt">
-</span>
-</Quiz>
+]} />

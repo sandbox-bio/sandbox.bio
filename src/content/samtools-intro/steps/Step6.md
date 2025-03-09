@@ -22,7 +22,9 @@ Let us start by inspecting the first five alignments in our BAM in detail:
 
 For each read, can you identify where in the genome the read landed? With what mapping quality? Can you parse what the SAM flags mean? (use <Execute command="samtools flags" inline />)
 
-Finally, let's visualize the alignments: <button class="btn btn-sm btn-primary" on:click={() => isOpen = !isOpen}>Launch IGV</button>
+Finally, let's visualize the alignments:
+
+<button class="btn btn-sm btn-primary mb-3" on:click={() => isOpen = !isOpen}>Launch IGV</button>
 
 <IGVModal options={igvOptions} bind:isOpen={isOpen} />
 

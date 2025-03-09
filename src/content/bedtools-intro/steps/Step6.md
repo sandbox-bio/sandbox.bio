@@ -7,9 +7,9 @@ So far the examples presented have used the traditional algorithm in bedtools fo
 
 For example, compare the difference in speed between the two approaches when finding intersections between `exons.bed` and `hesc.chromHmm.bed`:
 
-<Execute command={"time bedtools intersect -a gwas.bed -b hesc.chromHmm.bed > /dev/null"} />
+<Execute command="time bedtools intersect -a gwas.bed -b hesc.chromHmm.bed > /dev/null" />
 
-<Execute command={"time bedtools intersect -a gwas.bed -b hesc.chromHmm.bed -sorted > /dev/null"} />
+<Execute command="time bedtools intersect -a gwas.bed -b hesc.chromHmm.bed -sorted > /dev/null" />
 
 > **Note:** While the run times in this example are quite small, the performance gains from using the `-sorted` option grow as datasets grow larger. For example, compare the runtimes of the sorted and unsorted approaches as a function of dataset size in the figure below.
 >

@@ -9,7 +9,4 @@ Suppose you want to delete your processed data files, and only keep your raw fil
 { valid: true, value: "rm *.txt"},
 { valid: false, value: "rm * .txt"},
 { valid: false, value: "rm *.*"},
-]}>
-<span slot="prompt">
-</span>
-</Quiz>
+]} />

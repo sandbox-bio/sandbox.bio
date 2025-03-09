@@ -17,7 +17,4 @@ done
 { valid: false, value: "Prints cubane.pdb, ethane.pdb, and methane.pdb, and the text from all three files would be concatenated and saved to a file called alkanes.pdb."},
 { valid: false, value: "Prints cubane.pdb, ethane.pdb, methane.pdb, octane.pdb, and pentane.pdb, and the text from propane.pdb will be saved to a file called alkanes.pdb."},
 { valid: false, value: "None of the above."},
-]}>
-<span slot="prompt">
-</span>
-</Quiz>
+]} />

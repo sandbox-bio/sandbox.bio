@@ -18,7 +18,4 @@ pnas_sub/ pnas_final/ original/
 { valid: false, value: "ls pwd"},
 { valid: true, value: "ls -r -F"},
 { valid: true, value: "ls -r -F /Users/backup"},
-]}>
-<span slot="prompt">
-</span>
-</Quiz>
+]} />

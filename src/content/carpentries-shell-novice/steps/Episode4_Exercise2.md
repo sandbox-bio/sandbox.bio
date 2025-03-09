@@ -10,7 +10,4 @@ lines. Which command listed below would work?
 { valid: false, value: "wc -l * | sort -n | head -n 1-3"},
 { valid: false, value: "wc -l * | head -n 3 | sort -n"},
 { valid: true, value: "wc -l * | sort -n | head -n 3"},
-]}>
-<span slot="prompt">
-</span>
-</Quiz>
+]} />

@@ -6,10 +6,10 @@ We will use the bedtools implementation of a Jaccard statistic to measure the si
 
 Let's walk through an example: we would expect the Dnase hypersensivity sites to be rather similar between two samples of the **same** fetal tissue type. Let's test:
 
-<Execute command={"bedtools jaccard \\ -a fHeart-DS16621.bed \\ -b fHeart-DS15839.bed"} />
+<Execute command="bedtools jaccard \\ -a fHeart-DS16621.bed \\ -b fHeart-DS15839.bed" />
 
 But what about the similarity of two **different** tissue types?
 
-<Execute command={"bedtools jaccard \\ -a fHeart-DS16621.bed \\ -b fSkin-DS19745.bed"} />
+<Execute command="bedtools jaccard \\ -a fHeart-DS16621.bed \\ -b fSkin-DS19745.bed" />
 
 Hopefully this demonstrates how the Jaccard statistic can be used as a simple statistic to reduce the dimensionality of the comparison between two large (e.g., often containing thousands or millions of intervals) feature sets.

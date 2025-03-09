@@ -21,11 +21,11 @@ const hints = [
 
 The file `chromosomes.txt` is a text file that contains an **unsorted** list of chromosome names:
 
-<Execute command={"cat chromosomes.txt"} />
+<Execute command="cat chromosomes.txt" />
 
 We can use the `sort` command to sort this file, where `-n` sorts numerically:
 
-<Execute command={"sort -n chromosomes.txt"} />
+<Execute command="sort -n chromosomes.txt" />
 
 While the file is more sorted than before, it doesn't look quite right: `chr10` appears right after `chr1` but before `chr2`.
 

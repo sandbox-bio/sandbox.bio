@@ -43,19 +43,19 @@ const hints = [
 
 Here's a fasta file that contains various sequences from the human genome and you want to know how many sequences are in the file:
 
-<Execute command={"head sequences.fa"} />
+<Execute command="head sequences.fa" />
 
 Each FASTA record starts with a `>`, and you can assume those carets are not seen anywhere else in the record.
 
 Naturally, you reach for good old `grep` and find lines that contain `>`. Easy peasy--click below to run the command:
 
-<Execute command={"grep > sequences.fa"} />
+<Execute command="grep > sequences.fa" />
 
 That's odd, you were expecting to see lines containing `>`, not the `grep` command usage output.
 
 Oups, we lost the data in `sequences.fa`:
 
-<Execute command={"cat sequences.fa"} />
+<Execute command="cat sequences.fa" />
 
 The file is empty, but don't worry, we can regenerate the data easily (not always the case in real life!):
 

@@ -9,8 +9,8 @@ For many analyses, one wants to measure the genome wide coverage of a feature fi
 
 As an example, let's produce a histogram of coverage of the exons throughout the genome. Like the `merge` tool, `genomecov` requires pre-sorted data. It also needs a genome file as above.
 
-<Execute command={"bedtools genomecov -i exons.bed -g genome.txt"} />
+<Execute command="bedtools genomecov -i exons.bed -g genome.txt" />
 
 Using the `-bg` option, one can also produce BEDGRAPH output which represents the "depth" fo feature coverage for each base pair in the genome:
 
-<Execute command={"bedtools genomecov -i exons.bed -g genome.txt -bg | head -n 20"} />
+<Execute command="bedtools genomecov -i exons.bed -g genome.txt -bg | head -n 20" />

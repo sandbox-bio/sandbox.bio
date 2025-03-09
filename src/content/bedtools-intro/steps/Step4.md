@@ -4,7 +4,7 @@ import Execute from "$components/Execute.svelte";
 
 By default, `intersect` reports intervals that represent overlaps between your two files. To demonstrate, let's identify all of the CpG islands that overlap exons:
 
-<Execute command={"bedtools intersect -a cpg.bed -b exons.bed | head -n 5"} />
+<Execute command="bedtools intersect -a cpg.bed -b exons.bed | head -n 5" />
 
 > In this case, the intervals reported are NOT the original CpG intervals, but rather a refined interval reflecting solely the portion of each original CpG interval that overlapped with the exon(s).
 
@@ -12,4 +12,4 @@ The `-wa` (write A) and `-wb` (write B) options allow one to see the original re
 
 As such, instead of not only showing you **where** the intersections occurred, it shows you **what** intersected.
 
-<Execute command={"bedtools intersect -a cpg.bed -b exons.bed -wa -wb | head -n 5"} />
+<Execute command="bedtools intersect -a cpg.bed -b exons.bed -wa -wb | head -n 5" />

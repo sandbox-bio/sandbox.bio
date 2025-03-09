@@ -13,7 +13,4 @@ what will `ls -F ../backup` display?
 { valid: false, value: "2012-12-01 2013-01-08 2013-01-27"},
 { valid: false, value: "2012-12-01/ 2013-01-08/ 2013-01-27/"},
 { valid: true, value: "original/ pnas_final/ pnas_sub/"},
-]}>
-<span slot="prompt">
-</span>
-</Quiz>
+]} />
