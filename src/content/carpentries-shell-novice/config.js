@@ -31,7 +31,7 @@ export const config = {
 	description: "Command-line exercises from the Carpentries' Unix Shell lesson.",
 	tags: ["terminal", "exercises", "carpentries"],
 	tools: ["cut", "sort", "uniq", "grep", "cut", "wc", "vim", "find"],
-	difficulty: ["beginner"],
+	difficulty: ["intermediate"],
 	new: true,
 	init: "mkdir -p ~/tutorial/raw ~/tutorial/loops",
 	steps: [

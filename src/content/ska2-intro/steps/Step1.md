@@ -5,7 +5,7 @@ import Execute from "$components/Execute.svelte";
 
 To run the split _k_-mer alignment, we first need to build an index of the split _k_-mers from the assemblies. This is accomplished with the `ska build` command which requires a tab-separated list consisting of the sequence name and assembly file path as input:
 
-```
+```bash
 ID1	path/to/fasta_file_1.fasta.gz
 ID2	path/to/fasta_file_2.fasta.gz
 ID3	path/to/fasta_file_3.fasta.gz

@@ -42,7 +42,7 @@ rm -f chebi_${ID}_*.rdf
 grep -l '<name type="scientific">Homo sapiens</name>' chebi_${ID}_*.xml | \\
     xargs \\
       -I {} \\
-      grep '<dbReference type="PubMed"' {} | \\
+      grep '&lt;dbReference type="PubMed"' {} | \\
     cut -d'"' -f4 | \\
     sort -u | \\
     xargs \\

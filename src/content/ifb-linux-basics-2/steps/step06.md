@@ -29,7 +29,7 @@ tree /root/tutorial/projects/facts
 The `cp` (**c**o**p**y) command copies files or directories. It takes 2 paths as argument:
 
 ```bash
-cp <source_path> <destination_path>
+cp [source_path] [destination_path]
 ```
 
 Example: go to the `~/tutorial/test` directory and duplicate the file named `first_file.txt` while changing its name to `third_file.txt`:
