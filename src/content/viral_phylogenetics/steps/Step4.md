@@ -16,3 +16,5 @@ Let's go through the same sets of steps as before.
 
 3. Generate a rooted tree with LSD2:
 <Execute command="lsd2 -i tree_file.nwk -d hiv1_dates.txt -l -1 -o lsd2_out" inline />
+
+Now, let's take a look at the trees to ensure that they reflect what we would expect from the data.
