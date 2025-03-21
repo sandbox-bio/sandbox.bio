@@ -4,7 +4,7 @@ import Execute from "$components/Execute.svelte";
 import Quiz from "$components/Quiz.svelte";
 </script>
 
-In the previous step we created an unrooted phylogenetic tree through Phylogenetic Inference. However, because we have access to the collection of dates of the seqeunces in our SARS-CoV2 dataset, we can "root" the tree (find the most likely position of the MRCA) and "date" the tree (scale the branch lengths to be in units of time). We will use [LSD2](https://github.com/tothuhien/lsd2) to generate a rooted tree, and we will use an outgroup to help us do this. Known organisms that are distantly related to the species of interest can act as outgroups (i.e. references) when inferring a rooted tree, which can help us perform more accurate rooting and dating. In our case, we will use a RaTG13 bat coronavirus as our outgroup. 
+In the previous step we created an unrooted phylogenetic tree through Phylogenetic Inference. However, because we have access to the collection of dates of the seqeunces in our SARS-CoV-2 dataset, we can "root" the tree (find the most likely position of the MRCA) and "date" the tree (scale the branch lengths to be in units of time). We will use [LSD2](https://github.com/tothuhien/lsd2) to generate a rooted tree, and we will use an outgroup to help us do this. Known organisms that are distantly related to the species of interest can act as outgroups (i.e. references) when inferring a rooted tree, which can help us perform more accurate rooting and dating. In our case, we will use a RaTG13 bat coronavirus as our outgroup. 
 
 1. Try <Execute command="LSD2 -help" inline /> to take a look at the usage instruction of LSD2.
 
@@ -24,7 +24,7 @@ The above command incorporates the following flags:
 
 5. Again, we can download the file with <Execute command="download lsd2_out.nwk" inline /> so that it can be uploaded and better visualized in [Taxonium](https://taxonium.org/?xType=x_dist). 
 
-**Take a look at the `lsd2_out` log file. When did the MRCA exist?**
+Take a look at the `lsd2_out` log file. When did the MRCA exist?
 
 <Quiz
 	id="step3-quiz1"
@@ -37,7 +37,7 @@ The above command incorporates the following flags:
 	<span slot="prompt"></span>
 </Quiz>
 
-**WHO delcared COVID-19 a pandemic on March 11, 2020. Does our MRCA date to before or after this day?**
+WHO delcared COVID-19 a pandemic on March 11, 2020. Does our MRCA date to before or after this day?
 
 <Quiz
 	id="step3-quiz2"
@@ -48,7 +48,7 @@ The above command incorporates the following flags:
 	<span slot="prompt"></span>
 </Quiz>
 
-**We used 10 SARS-CoV2 sequences to generate this rooted tree. Which statement is true about this approach?**
+We used 10 SARS-CoV-2 sequences to generate this rooted tree. Which statement is true about this approach?
 
 <Quiz
 	id="step3-quiz3"
@@ -60,3 +60,5 @@ The above command incorporates the following flags:
     ]}>
 	<span slot="prompt"></span>
 </Quiz>
+
+The fact that the date of the MRCA is in April 2019 reflects the fact that SARS-CoV-2 is [incredibly difficult to root](https://doi.org/10.1126/science.abp8337). Outgroup rooting does a decent job getting us close to the correct MRCA, but more sophisticated methods are needed to improve the accuracy of SARS-CoV-2 MRCA. 

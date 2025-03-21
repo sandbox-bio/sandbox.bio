@@ -6,9 +6,9 @@ import Quiz from "$components/Quiz.svelte";
 
 **1. The sequencing reads**
 
-For this tutorial, we will be using SARS-CoV2 whole genome sequences collected from samples from real people! These sequences can be found in the file `sarscov2_sequences.fas`. Let's start by taking a peek at this file.
+For this tutorial, we will be using SARS-CoV-2 whole genome sequences collected from samples from real people! These sequences can be found in the file `sarscov2_sequences.fas`. Let's start by taking a peek at this file.
 
-Try <Execute command="less -S sarscov2_sequences.fas" inline /> to take a look at the SARS-CoV2 sequences we will be using. To exit the view, you can simply type `q` for `quit`.
+Try <Execute command="less -S sarscov2_sequences.fas" inline /> to take a look at the SARS-CoV-2 sequences we will be using. To exit the view, you can simply type `q` for `quit`.
 
 `sarscov2_sequences.fas` is in FASTA format, the standardized file format for nucleotide sequence data.
 
@@ -44,7 +44,7 @@ If you're up for an extra challenge, try to determine the length of each sequenc
 
 **2. Multiple sequence alignment (MSA)**
 
-Now, let's begin the phylogenetic analysis by performing Multiple Sequence Alignment (MSA) for our SARS-CoV2 sequences. Recall that like human genomes, viral genomes can "evolve" (i.e. mutate) as they replicate. Common mutatations inlcude substitutions, insertions, and deletions. Given a set of viral sequences, each of which differ from the sequence of the common ancestor by a series of mutations, it is our job to first "line up" each of our sequences so that each position in the "alignment" of our sequences corresponds to the same position in the sequence of the common ancestor. 
+Now, let's begin the phylogenetic analysis by performing Multiple Sequence Alignment (MSA) for our SARS-CoV-2 sequences. Recall that like human genomes, viral genomes can "evolve" (i.e. mutate) as they replicate. Common mutatations inlcude substitutions, insertions, and deletions. Given a set of viral sequences, each of which differ from the sequence of the common ancestor by a series of mutations, it is our job to first "line up" each of our sequences so that each position in the "alignment" of our sequences corresponds to the same position in the sequence of the common ancestor. 
 
 We will use MAFFT to perform MSA. Check out how MAFFT should be used with <Execute command="mafft -h" inline />.
 
