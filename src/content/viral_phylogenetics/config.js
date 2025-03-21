@@ -3,6 +3,7 @@ import Intro from "./steps/Intro.md";
 import Step1 from "./steps/Step1.md";
 import Step2 from "./steps/Step2.md";
 import Step3 from "./steps/Step3.md";
+import Step4 from "./steps/Step4.md";
 import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
@@ -18,6 +19,7 @@ export const config = {
 		{ name: "Multiple Sequence Alignment", component: Step1, subtitle: "Align the reads", header: true },
 		{ name: "Generate Unrooted Tree", component: Step2, subtitle: "Use FastTree to generate a tree from alignment data", header: true },
 		{ name: "Generate Rooted Tree", component: Step3, subtitle: "Use LSD2 and dates file to generate a rooted tree" },
+		{ name: "Can We Date the MRCA of HIV-1?", component: Step4, subtitle: "Let's perform a viral phylogenetic analysis on HIV-1 genomes", header: true },
 		{ name: "The end", component: Conclusion, subtitle: "Conclusion", header: true }
 	],
 	files: ["hiv1_sequences.fas", "hiv1_dates.txt"],
