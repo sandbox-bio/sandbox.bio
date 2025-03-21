@@ -5,9 +5,9 @@ import Alert from "$components/Alert.svelte";
 
 Welcome to the Viral Phylogenetics tutorial!
 
-Phylogeny is the study of how organisms are related to each other through evolution. [Phylogenetic trees](https://en.wikipedia.org/wiki/Phylogenetic_tree) are visual representations of these relationships, helping us understand how different species are connected.
+In this tutorial, you will perform a viral phylogenetics analysis on real viral sequences. You will seek to identify when the Most Recent Common Ancestor (MRCA) existed by learning the three fundamental steps in phylogenetic analysis: Multiple Sequence Alignment (MSA), Phylogenetic Inference, and Rooting/Dating. 
 
-In this tutorial, we will run multiple sequence alignments on HIV-1 data and generate both, rooted and unrooted, phylogenetic trees using publically available bioinformatics tools.
+At the end, you'll have the opportunity to embark on your own phylogenetic exploration of the HIV-1. Welcome aboard!
 
 <Alert>
 The exercises in this tutorial are adapted from the **<Link href="https://github.com/Niema-Lab/Viral-Phylogenetics-Activity">Viral Phylogenetics Activity</Link>** by **<Link href="https://niema.net/">Niema Moshiri</Link>**.
