@@ -44,7 +44,7 @@ If you're up for an extra challenge, try to determine the length of each sequenc
 
 **2. Multiple sequence alignment (MSA)**
 
-Now, let's begin the phylogenetic analysis by performing Multiple Sequence Alignment (MSA) for our SARS-CoV-2 sequences. Recall that like human genomes, viral genomes can "evolve" (i.e. mutate) as they replicate. Common mutatations inlcude substitutions, insertions, and deletions. Given a set of viral sequences, each of which differ from the sequence of the common ancestor by a series of mutations, it is our job to first "line up" each of our sequences so that each position in the "alignment" of our sequences corresponds to the same position in the sequence of the common ancestor. 
+Now, let's begin the phylogenetic analysis by performing Multiple Sequence Alignment (MSA) for our SARS-CoV-2 sequences. Recall that like human genomes, viral genomes can "evolve" (i.e. mutate) as they replicate. Common mutations include substitutions, insertions, and deletions. Given a set of viral sequences, each of which differ from the sequence of the common ancestor by a series of mutations, it is our job to first "line up" each of our sequences so that each position in the "alignment" of our sequences corresponds to the same position in the sequence of the common ancestor. 
 
 We will use MAFFT to perform MSA. Check out how MAFFT should be used with <Execute command="mafft -h" inline />.
 

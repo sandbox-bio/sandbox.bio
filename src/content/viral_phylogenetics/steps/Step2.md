@@ -4,7 +4,7 @@ import Execute from "$components/Execute.svelte";
 import Quiz from "$components/Quiz.svelte";
 </script>
 
-Now that we have run MSA on our dataset, we can perform Phylogenetic Inference: using the MSA and mathematical models of evolution, we can identify the evolutionary tree (i.e. phylogeny) that best describes the evolutionary relationships between the sequences in our MSA. It is important to note that the phylogeny we produce in this step will be unrooted. This means that while we can determine the relative evolutionary relationships between sequences, we cannot "root" the tree (and thus identify the date of the MRCA) because the directionality of time is not known. In an unrooted tree, branch lengths are in units of mutations instead of in uniuts of time.
+Now that we have run MSA on our dataset, we can perform Phylogenetic Inference: using the MSA and mathematical models of evolution, we can identify the evolutionary tree (i.e. phylogeny) that best describes the evolutionary relationships between the sequences in our MSA. It is important to note that the phylogeny we produce in this step will be unrooted. This means that while we can determine the relative evolutionary relationships between sequences, we cannot "root" the tree (and thus identify the date of the MRCA) because the directionality of time is not known. In an unrooted tree, branch lengths are in units of mutations instead of in units of time.
 
 We will use [FastTree](https://morgannprice.github.io/fasttree/) to generate an unrooted phylogenetic tree to assess relative ancestral relationships between our samples.
 
@@ -18,9 +18,9 @@ Let's make some sense of this command:
 
 - `-nt` specifies that our alignment is of nucleotides and not amino acids
 
-- `-gamma` is an optional flag that allows for rescaling of the branch lengths and computation of a Gamma2-based liklihood
+- `-gamma` is an optional flag that allows for rescaling of the branch lengths and computation of a Gamma2-based likelihood
 
-- `sarscov2_sequences.msa.fas > sarscov2_sequences.unrooted_tree.nwk` tells FastTree to take in our multiple sequence alignment file (from Step 1) as input and to output the unrooted phylogentic tree to a file called `sarscov2_sequences.unrooted_tree.nwk` in the same directory. A `.nwk` file is in Newick format, which is often used to represent phylogenetic trees. It is a text-based way to represent the tree structure. You can read more about Newick format [here](https://en.wikipedia.org/wiki/Newick_format).
+- `sarscov2_sequences.msa.fas > sarscov2_sequences.unrooted_tree.nwk` tells FastTree to take in our multiple sequence alignment file (from Step 1) as input and to output the unrooted phylogenetic tree to a file called `sarscov2_sequences.unrooted_tree.nwk` in the same directory. A `.nwk` file is in Newick format, which is often used to represent phylogenetic trees. It is a text-based way to represent the tree structure. You can read more about Newick format [here](https://en.wikipedia.org/wiki/Newick_format).
 
 3. Use <Execute command="head -10 sarscov2_sequences.unrooted_tree.nwk" inline /> to view the first 10 lines of the tree file.
 

@@ -4,7 +4,7 @@ import Execute from "$components/Execute.svelte";
 import Quiz from "$components/Quiz.svelte";
 </script>
 
-In the previous step we created an unrooted phylogenetic tree through Phylogenetic Inference. However, because we have access to the collection of dates of the seqeunces in our SARS-CoV-2 dataset, we can "root" the tree (find the most likely position of the MRCA) and "date" the tree (scale the branch lengths to be in units of time). We will use [LSD2](https://github.com/tothuhien/lsd2) to generate a rooted tree, and we will use an outgroup to help us do this. Known organisms that are distantly related to the species of interest can act as outgroups (i.e. references) when inferring a rooted tree, which can help us perform more accurate rooting and dating. In our case, we will use a RaTG13 bat coronavirus as our outgroup. 
+In the previous step we created an unrooted phylogenetic tree through Phylogenetic Inference. However, because we have access to the collection of dates of the sequences in our SARS-CoV-2 dataset, we can "root" the tree (find the most likely position of the MRCA) and "date" the tree (scale the branch lengths to be in units of time). We will use [LSD2](https://github.com/tothuhien/lsd2) to generate a rooted tree, and we will use an outgroup to help us do this. Known organisms that are distantly related to the species of interest can act as outgroups (i.e. references) when inferring a rooted tree, which can help us perform more accurate rooting and dating. In our case, we will use a RaTG13 bat coronavirus sequence as our outgroup. 
 
 1. Try <Execute command="LSD2 -help" inline /> to take a look at the usage instruction of LSD2.
 
@@ -37,7 +37,7 @@ Take a look at the `lsd2_out` log file. When did the MRCA exist?
 	<span slot="prompt"></span>
 </Quiz>
 
-WHO delcared COVID-19 a pandemic on March 11, 2020. Does our MRCA date to before or after this day?
+WHO declared COVID-19 a pandemic on March 11, 2020. Does our MRCA date to before or after this day?
 
 <Quiz
 	id="step3-quiz2"
