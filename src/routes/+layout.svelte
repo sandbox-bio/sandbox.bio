@@ -23,9 +23,7 @@ import {
 	ToastHeader,
 	ToastBody
 } from "sveltestrap";
-import Login from "$components/Login.svelte";
-import LoginWithGoogle from "$components/LoginWithGoogle.svelte";
-import { supabaseAnon } from "$src/utils";
+
 import { user } from "$stores/user.js";
 import { progress } from "$stores/progress.js";
 import { env } from "$env/dynamic/public";
@@ -43,7 +41,6 @@ const playgrounds = [
 // -----------------------------------------------------------------------------
 
 let isNavbarOpen;
-let loginModalOpen = false;
 let toastOpen = false;
 let toastToggle = () => (toastOpen = !toastOpen);
 
@@ -52,37 +49,6 @@ export let data = {};
 $: $progress = data.progress;
 $: path = $page.url.pathname;
 
-// -----------------------------------------------------------------------------
-// Warn about losing progress if don't login
-// -----------------------------------------------------------------------------
-
-function remindLogin() {
-	if ($user.email == null && path.startsWith("/tutorials")) toastToggle();
-	setTimeout(remindLogin, 300000); // every 5 mins
-}
-
-// -----------------------------------------------------------------------------
-// User auth
-// -----------------------------------------------------------------------------
-
-async function loginWithGoogle() {
-	const redirectTo = $page.url.pathname;
-	const result = await supabaseAnon.auth.signInWithOAuth({
-		provider: "google",
-		options: { redirectTo: `${$page.url.origin}/redirect?url=${redirectTo}` }
-	});
-	if (result.error) alert(result.error);
-}
-
-async function logout() {
-	const data = await supabaseAnon.auth.signOut();
-	if (data.error) console.error(data.error);
-	else $user = {};
-}
-
-onMount(() => {
-	setTimeout(remindLogin, 30000);
-});
 </script>
 
 <svelte:head>
@@ -138,18 +104,6 @@ onMount(() => {
 			<NavItem>
 				<NavLink href="/community" active={path.startsWith("/community")}>Community</NavLink>
 			</NavItem>
-			<NavItem>
-				{#if $user?.email}
-					<NavLink id="logout" on:click={logout}>Logout</NavLink>
-					<Tooltip target="logout">
-						<small>
-							{$user.email}
-						</small>
-					</Tooltip>
-				{:else}
-					<NavLink on:click={() => (loginModalOpen = true)}>Log in</NavLink>
-				{/if}
-			</NavItem>
 		</Nav>
 	</Collapse>
 </Navbar>
@@ -164,30 +118,6 @@ onMount(() => {
 	</div>
 {/if}
 
-<!-- Login/Signup modal -->
-<Modal body header="" toggle={() => (loginModalOpen = !loginModalOpen)} isOpen={loginModalOpen}>
-	<TabContent>
-		<!-- Login -->
-		<TabPane tabId="login" active>
-			<span class="h6" slot="tab">Log in</span>
-
-			<!-- Login with Google -->
-			<p class="mt-2 mb-2 small text-muted">Log in to save your progress:</p>
-			<LoginWithGoogle direction="in" on:click={loginWithGoogle} />
-
-			<!-- Or email/password -->
-			<h6 class="mt-5">Or log in with your e-mail and password:</h6>
-			<Login />
-		</TabPane>
-
-		<!-- Signup -->
-		<TabPane tabId="signup">
-			<span class="h6" slot="tab">Sign up</span>
-			<p class="mt-2 mb-2 small text-muted">Create an account to save your progress:</p>
-			<LoginWithGoogle direction="up" on:click={loginWithGoogle} />
-		</TabPane>
-	</TabContent>
-</Modal>
 
 <!-- Page Content -->
 <Container class="mt-4">

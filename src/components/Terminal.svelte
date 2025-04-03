@@ -9,17 +9,8 @@ import { SerializeAddon } from "xterm-addon-serialize";
 import { env } from "$env/dynamic/public";
 import { V86 } from "$thirdparty/v86/libv86";
 import { EXEC_MODE_BUS, EXEC_MODE_TERMINAL_HIDDEN, cli } from "$stores/cli";
-import { LocalState, log } from "$src/utils";
-import {
-	BUS_OUTPUT_CUSTOM_COMMAND,
-	BUS_INPUT,
-	BUS_OUTPUT,
-	DEBIAN_STATE_ID,
-	DIR_TUTORIAL,
-	LOGGING_INFO,
-	MAX_FILE_SIZE_TO_CACHE,
-	URL_ASSETS
-} from "$src/config";
+import { LocalState } from "$src/utils";
+import { BUS_OUTPUT_CUSTOM_COMMAND, BUS_INPUT, BUS_OUTPUT, DEBIAN_STATE_ID, DIR_TUTORIAL, MAX_FILE_SIZE_TO_CACHE, URL_ASSETS } from "$src/config";
 import "xterm/css/xterm.css";
 const DEBUG = false;
 const SYNC_FS = true;
@@ -71,12 +62,14 @@ function getEnvironmentInfo() {
 	// return environments["stg.sandbox.bio"];
 
 	// If running tests on GitHub or using preview branches, run them on prd assets, despite being on localhost
-	if (env.PUBLIC_USE_PRD_ASSETS === "true" || window.location.hostname.endsWith(".sandbox-bio.pages.dev")) return environments["sandbox.bio"];
+	//if (env.PUBLIC_USE_PRD_ASSETS === "true" || window.location.hostname.endsWith(".sandbox-bio.pages.dev"))
+
+	return environments["sandbox.bio"];
 
 	// Otherwise, use hostname
-	const envInfo = environments[window.location.hostname];
-	if (!envInfo) throw "Unrecognized deploy environment";
-	return envInfo;
+	///const envInfo = environments[window.location.hostname];
+	// if (!envInfo) throw "Unrecognized deploy environment";
+	// return envInfo;
 }
 
 // =============================================================================
@@ -266,8 +259,6 @@ function handleResize(firstTime = false) {
 
 	// Limitation: this doesn't work if you're inside vim/less/etc, or halfway through a command
 	// before resizing, but that should be less likely.
-	if (firstTime) log(LOGGING_INFO, "Set terminal size", dims);
-	else log(LOGGING_INFO, "Resize terminal", dims);
 	$cli.exec(`stty rows ${dims.rows} cols ${dims.cols}`, {
 		mode: firstTime ? EXEC_MODE_TERMINAL_HIDDEN : null
 	});

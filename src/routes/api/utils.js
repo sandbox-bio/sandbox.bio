@@ -1,13 +1,3 @@
-import { createClient } from "@supabase/supabase-js";
-import { env } from "$env/dynamic/private";
-import { env as envPublic } from "$env/dynamic/public";
-
-// -----------------------------------------------------------------------------
-// Supabase Client (variables are stored as secrets in Cloudflare Worker -- see README)
-// -----------------------------------------------------------------------------
-
-export const supabase = createClient(envPublic.PUBLIC_SUPABASE_URL, env.SUPABASE_API_KEY);
-
 // -----------------------------------------------------------------------------
 // Utilities
 // -----------------------------------------------------------------------------
