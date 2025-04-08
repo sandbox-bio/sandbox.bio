@@ -13,6 +13,7 @@ import Conclusion from "./steps/Conclusion.md";
 export const config = {
 	id: "samtools-intro",
 	name: "BAM parsing with samtools",
+	icon: "file-medical",
 	subtitle: `by <a href="http://quinlanlab.org/" target="_blank">Aaron Quinlan</a>`,
 	description: "Explore and wrangle <code>.sam/.bam</code> files with samtools.",
 	tags: ["samtools", "IGV"],

@@ -27,6 +27,7 @@ import Episode7_Exercise4 from "./steps/Episode7_Exercise4.md";
 export const config = {
 	id: "carpentries-shell-novice",
 	name: "Terminal Exercises",
+	icon: "terminal-plus",
 	subtitle: "Exercises from the Carpentries' Unix Shell lesson",
 	description: "Command-line exercises from the Carpentries' Unix Shell lesson.",
 	tags: ["terminal", "exercises", "carpentries"],

@@ -8,6 +8,7 @@ import Step4 from "./steps/Step4.md";
 export const config = {
 	id: "jellyfish-intro",
 	name: "K-mer counting with Jellyfish",
+	icon: "list-ol",
 	subtitle: `by <a href="https://robert.bio" target="_blank">Robert Aboukhalil</a>`,
 	description: "Learn the basics of k-mer counting using Jellyfish",
 	tags: ["kmer", "counting", "jellyfish"],

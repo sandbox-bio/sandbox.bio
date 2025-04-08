@@ -11,6 +11,7 @@ import Step8 from "./steps/Step8.md";
 export const config = {
 	id: "blast-intro",
 	name: "Sequence alignment with BLAST",
+	icon: "binoculars",
 	description: "Use BLAST to align DNA and protein sequences.",
 	tags: ["blastn", "blastp"],
 	tools: ["makeblastdb", "blastp", "blastn", "blast_formatter", "blastdbcmd", "wc"],

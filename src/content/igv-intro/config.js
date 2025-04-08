@@ -39,6 +39,7 @@ const TRACK_REPEATS = {
 export const config = {
 	id: "igv-intro",
 	name: "Visualize variants with IGV",
+	icon: "calendar2-week",
 	subtitle: `by Malachi Griffith, Sorana Morrissy, Jim Robinson, Ben Ainscough, Jason Walker, and Obi Griffith`,
 	description: "Distinguish real variants from artifacts using the IGV genome browser.",
 	tags: ["igv"],

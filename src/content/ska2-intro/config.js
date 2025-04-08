@@ -9,6 +9,7 @@ import Step4 from "./steps/Step4.md";
 export const config = {
 	id: "ska2-intro",
 	name: "Building trees with SKA",
+	icon: "tree",
 	subtitle: `by <a href="https://github.com/vrbouza" target="_blank">Víctor Rodríguez Bouza</a> and <a href="https://maklin.fi/" target="_blank">Tommi Mäklin</a>`,
 	description: "Use ska.rust to compare and align closely related small genomes using split k-mers",
 	tags: ["ska2", "k-mers"],
