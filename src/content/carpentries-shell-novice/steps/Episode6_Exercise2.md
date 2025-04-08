@@ -5,9 +5,9 @@ import Execute from "$components/Execute.svelte";
 
 Go to the folder `exercise-data/alkanes/`:
 
-<Execute command="cd ~/tutorial/exercise-data/alkanes/" />
+<Execute command="cd $TUTORIAL/exercise-data/alkanes/" />
 
-In the `alkanes` directory, imagine you have a shell script called `script.sh` containing the following commands:
+In this directory, imagine you have a shell script called `script.sh` containing the following commands:
 
 ```bash
 head -n $2 $1

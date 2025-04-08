@@ -32,7 +32,7 @@ const criteria = [
 
 Go to the folder `exercise-data/`:
 
-<Execute command="cd ~/tutorial/exercise-data/" />
+<Execute command="cd $TUTORIAL/exercise-data/" />
 
 Leah has several hundred data files, each of which is formatted like this:
 

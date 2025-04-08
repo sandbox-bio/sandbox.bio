@@ -23,9 +23,14 @@ let criteria = [
 }];
 </script>
 
+First, go to the `animal-counts` folder:
+
+<Execute command="cd $TUTORIAL/exercise-data/animal-counts" />
+<Execute command="ls -l" />
+
 For the file `animals.csv`, consider the following command:
 
-<Execute command="cut -d , -f 2 ~/tutorial/exercise-data/animal-counts/animals.csv" />
+<Execute command="cut -d , -f 2 animals.csv" />
 
 The `cut` command is used to remove or 'cut out' certain sections of each line in the file,
 and `cut` expects the lines to be separated into columns by a <kbd>Tab</kbd> character.

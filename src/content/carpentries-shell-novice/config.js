@@ -34,7 +34,7 @@ export const config = {
 	tools: ["cut", "sort", "uniq", "grep", "cut", "wc", "vim", "find"],
 	difficulty: ["intermediate"],
 	new: true,
-	init: "mkdir -p ~/tutorial/raw ~/tutorial/loops",
+	init: "mkdir -p $TUTORIAL/raw $TUTORIAL/loops",
 	steps: [
 		{ name: "Terminal Exercises", component: Intro },
 		// ---------------------------------------------------------------------
