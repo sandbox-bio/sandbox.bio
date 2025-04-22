@@ -17,10 +17,10 @@ rm -f chebi_${ID}_*.xml
 
 csv_file=chebi_${ID}_xrefs_UniProt_relevant_identifiers.csv
 
-cat "$csv_file" | \\
-  xargs \\
-    -I {} curl \\
-    -o chebi_${ID}_{}.xml \\
+cat "$csv_file" | \
+  xargs \
+    -I {} curl \
+    -o chebi_${ID}_{}.xml \
     'https://rest.uniprot.org/uniprotkb/{}.xml'
 ```
 
