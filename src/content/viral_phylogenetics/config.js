@@ -10,9 +10,9 @@ export const config = {
 	id: "viral_phylogenetics",
 	name: "Viral Phylogenetics",
 	subtitle: `by <a href="https://www.linkedin.com/in/madison-ritter-b1374518a" target="_blank">Maddie Ritter</a> and <a href="https://www.linkedin.com/in/kyra-fetter" target="_blank">Kyra Fetter</a>`,
-	description: "Perfrom viral phylogenetics analysis using real HIV-1 whole-genome sequences.",
+	description: "Perfrom viral phylogenetics analysis using real SARS-COV2 whole-genome sequences.",
 	tags: ["MSA", "phylogeny", "FastTree", "LSD2"],
-	tools: ["mafft", "FastTree", "LSD2", "less", "ls", "echo", "head", "cat", "download", "nw_display"],
+	tools: ["mafft", "FastTree", "LSD2", "less", "ls", "echo", "head", "cat", "download", "nw_display", "ViralMSA.py"],
 	difficulty: ["intermediate"],
 	steps: [
 		{ name: "Viral Phylogenetics", component: Intro },
@@ -22,7 +22,7 @@ export const config = {
 		{ name: "Can We Date the MRCA of HIV-1?", component: Step4, subtitle: "Let's perform a viral phylogenetic analysis on HIV-1 genomes", header: true },
 		{ name: "The end", component: Conclusion, subtitle: "Conclusion", header: true }
 	],
-	files: ["hiv1_sequences.fas", "hiv1_dates.txt", "hiv1_outgroups.txt", "sarscov2_sequences.fas", "sarscov2_dates.txt", "sarscov2_outgroup.txt"],
+	files: ["hiv1_sequences.fas", "hiv1_dates.txt", "hiv1_outgroups.txt", "sarscov2_sequences.fas", "sarscov2_dates.txt", "sarscov2_outgroup.txt", "reference.fas"],
 	//init: `REF_FASTA=reference.fasta
 //PRIMER_BED=primer.bed`
 };

@@ -9,7 +9,7 @@ Now you have the tools you need to perform a full phylogenetic analysis! Let's t
 
 Take the time to go through the same set of steps as you did with SARS-CoV-2:
 
-1. Run multiple sequence alignment with MAFFT using `hiv1_sequences.fas`
+1. Run multiple sequence alignment with ViralMSA using `hiv1_sequences.fas` and `hiv_reference.fas`.
 
 2. Generate an unrooted tree with FastTree
 

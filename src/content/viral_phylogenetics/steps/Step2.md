@@ -10,7 +10,7 @@ We will use [FastTree](https://morgannprice.github.io/fasttree/) to generate an 
 
 1. Try <Execute command="FastTree" inline /> to take a look at the usage instructions.
 
-2. Now, try <Execute command="FastTree -gtr -nt -gamma sarscov2_sequences.msa.fas > sarscov2_sequences.unrooted_tree.nwk" inline /> to generate our phylogenetic tree.
+2. Now, try <Execute command="FastTree -gtr -nt -gamma ViralMSA_Out/sarscov2_sequences.fas.aln > sarscov2_sequences.unrooted_tree.nwk" inline /> to generate our phylogenetic tree.
 
 Let's make some sense of this command:
 
