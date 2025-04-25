@@ -22,7 +22,7 @@ export const config = {
 		{ name: "Can We Date the MRCA of HIV-1?", component: Step4, subtitle: "Let's perform a viral phylogenetic analysis on HIV-1 genomes", header: true },
 		{ name: "The end", component: Conclusion, subtitle: "Conclusion", header: true }
 	],
-	files: ["hiv1_sequences.fas", "hiv1_dates.txt", "hiv1_outgroups.txt", "sarscov2_sequences.fas", "sarscov2_dates.txt", "sarscov2_outgroup.txt", "reference.fas"],
+	files: ["hiv1_sequences.fas", "hiv1_dates.txt", "hiv1_outgroups.txt", "hiv1_reference.fas", "sarscov2_sequences.fas", "sarscov2_dates.txt", "sarscov2_outgroup.txt", "sarscov2_reference.fas"],
 	//init: `REF_FASTA=reference.fasta
 //PRIMER_BED=primer.bed`
 };
