@@ -48,7 +48,7 @@ Now, let's begin the phylogenetic analysis by performing Multiple Sequence Align
 
 We will use [ViralMSA](https://github.com/niemasd/ViralMSA) to perform MSA. Check out how ViralMSA should be used with <Execute command="ViralMSA.py -h" inline />.
 
-To run perform MSA for the sequences in `sarscov2_sequences.fas`, use <Execute command="ViralMSA.py -s sarscov2_sequences.fas -r sarscov2_reference.fas -e myemail -o ViralMSA_Out" inline />. Note that in this case we use a dummy email, but feel free to use a valid email address in your future runs of ViralMSA!
+To run perform MSA for the sequences in `sarscov2_sequences.fas`, use <Execute command="ViralMSA.py  --omit_ref -s sarscov2_sequences.fas -r sarscov2_reference.fas -e myemail -o ViralMSA_Out" inline />. Note that in this case we use a dummy email, but feel free to use a valid email address in your future runs of ViralMSA!
 
 Take a quick look at `sarscov2_sequences.fas.aln`. This file is still in FASTA format, but what changed?
 
