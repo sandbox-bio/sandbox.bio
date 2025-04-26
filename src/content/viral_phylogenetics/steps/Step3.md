@@ -30,8 +30,8 @@ Take a look at the `lsd2_out` log file. When did the MRCA exist?
 	id="step3-quiz1"
 	choices={[
 		{ valid: false, value: `2019-08-12` },
-		{ valid: false, value: `2020-03-11` },
-		{ valid: true, value: `2019-04-11` },
+		{ valid: false, value: `2019-03-11` },
+		{ valid: true, value: `2020-03-02` },
 		{ valid: false, value: `2020-01-28` },
     ]}>
 	<span slot="prompt"></span>
