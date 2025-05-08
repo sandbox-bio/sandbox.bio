@@ -18,11 +18,10 @@ Let's make some sense of this command:
 
 - `sarscov2_sequences.msa.fas > sarscov2_sequences.unrooted_tree.nwk` tells FastTree to take in our multiple sequence alignment file (from Step 1) as input and to output the unrooted phylogenetic tree to a file called `sarscov2_sequences.unrooted_tree.nwk` in the same directory. A `.nwk` file is in Newick format, which is often used to represent phylogenetic trees. It is a text-based way to represent the tree structure. You can read more about Newick format [here](https://en.wikipedia.org/wiki/Newick_format).
 
-```
-Optional Commands to improve accuracy:
--gtr implements use of a [Generalized Time-Reversible](https://en.wikipedia.org/wiki/Substitution_model#Generalised_time_reversible) (GTR) model of evolution for our tree. FastTree can be run with either the [Jukes-Cantor](https://en.wikipedia.org/wiki/Models_of_DNA_evolution#JC69_model_(Jukes_and_Cantor_1969)) or GTR model.
--gamma allows for rescaling of the branch lengths and computation of a Gamma2-based likelihood
-```
+**Optional Commands to improve accuracy:**
+- `-gtr` implements use of a [Generalized Time-Reversible](https://en.wikipedia.org/wiki/Substitution_model#Generalised_time_reversible) (GTR) model of evolution for our tree. FastTree can be run with either the [Jukes-Cantor](https://en.wikipedia.org/wiki/Models_of_DNA_evolution#JC69_model_(Jukes_and_Cantor_1969)) or GTR model.
+- `-gamma` allows for rescaling of the branch lengths and computation of a Gamma2-based likelihood
+
 
 3. Use <Execute command="head -10 sarscov2_sequences.unrooted_tree.nwk" inline /> to view the first 10 lines of the tree file.
 
