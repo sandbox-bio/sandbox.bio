@@ -20,8 +20,8 @@ Let's make some sense of this command:
 
 ```
 Optional Commands to improve accuracy:
-- `-gtr` implements use of a [Generalized Time-Reversible](https://en.wikipedia.org/wiki/Substitution_model#Generalised_time_reversible) (GTR) model of evolution for our tree. FastTree can be run with either the [Jukes-Cantor](https://en.wikipedia.org/wiki/Models_of_DNA_evolution#JC69_model_(Jukes_and_Cantor_1969)) or GTR model.
-- `-gamma` allows for rescaling of the branch lengths and computation of a Gamma2-based likelihood
+-gtr implements use of a [Generalized Time-Reversible](https://en.wikipedia.org/wiki/Substitution_model#Generalised_time_reversible) (GTR) model of evolution for our tree. FastTree can be run with either the [Jukes-Cantor](https://en.wikipedia.org/wiki/Models_of_DNA_evolution#JC69_model_(Jukes_and_Cantor_1969)) or GTR model.
+-gamma allows for rescaling of the branch lengths and computation of a Gamma2-based likelihood
 ```
 
 3. Use <Execute command="head -10 sarscov2_sequences.unrooted_tree.nwk" inline /> to view the first 10 lines of the tree file.
