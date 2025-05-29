@@ -8,6 +8,7 @@ import Exercise01 from "./exercises/Exercise01.md";
 
 export const config = {
 	id: "datepro-06-text-retrieval",
+	next: "datepro-07-text-processing",
 	pwd: "datepro-06-text-retrieval",
 	name: "Section 3.8: Text Retrieval",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
@@ -20,8 +21,8 @@ export const config = {
 		{ name: "Publication Retrieval", component: Step01 },
 		{ name: "Text Extraction", component: Step02 },
 		{ name: "Disease Recognition", component: Step03 },
+		{ name: "Exercise", component: Exercise01 },
 		{ name: "Conclusion", component: Conclusion },
-		{ name: "Exercise", component: Exercise01 }
 	],
 	files: [
 		"chebi_27732_A2AGL3.xml",

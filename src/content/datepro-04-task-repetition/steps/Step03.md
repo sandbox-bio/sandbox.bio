@@ -20,8 +20,7 @@ csv_file=chebi_${ID}_xrefs_UniProt_relevant_identifiers.csv
 cat "$csv_file" | \
   xargs \
     -I {} curl \
-    -o chebi_${ID}_{}.xml \
-    'https://rest.uniprot.org/uniprotkb/{}.xml'
+    -O 'https://rest.uniprot.org/uniprotkb/{}.xml'
 ```
 
 #### Variable
@@ -44,6 +43,6 @@ To execute the script once more:
 
 And again, to check the results:
 
-<Execute command="head -n 1 chebi_27732_*.xml | less" />
+<Execute command="head -n 1 *.xml | less" />
 
 Type `q` to exit from `less`.

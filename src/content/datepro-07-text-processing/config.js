@@ -12,6 +12,7 @@ import Exercise01 from "./exercises/Exercise01.md";
 
 export const config = {
 	id: "datepro-07-text-processing",
+	next: "datepro-08-semantic-processing",
 	pwd: "datepro-07-text-processing",
 	name: "Chapter 4: Text Processing",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
@@ -28,8 +29,8 @@ export const config = {
 		{ name: "Entity recognition", component: Step05 },
 		{ name: "Pattern File", component: Step06 },
 		{ name: "Relation Extraction", component: Step07 },
+		{ name: "Exercise", component: Exercise01 },
 		{ name: "Conclusion", component: Conclusion },
-		{ name: "Exercise", component: Exercise01 }
 	],
 	files: ["chebi_27732.txt"]
 };

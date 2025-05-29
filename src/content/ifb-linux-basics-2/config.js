@@ -11,6 +11,7 @@ import Step8 from "./steps/step08.md";
 
 export const config = {
 	id: "ifb-linux-basics-2",
+	next: "ifb-linux-basics-3",
 	pwd: "ifb-linux-basics-2",
 	name: "Manipulating files and directories",
 	subtitle: `by <a href="https://www.france-bioinformatique.fr/en/home/" target="_blank">French Institute of Bioinformatics</a>`,

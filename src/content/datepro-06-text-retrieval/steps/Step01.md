@@ -47,8 +47,7 @@ grep -l '<name type="scientific">Homo sapiens</name>' chebi_${ID}_*.xml | \
     sort -u | \
     xargs \
       -I {} \
-      curl -o chebi_${ID}_{}.rdf \
-      'https://rest.uniprot.org/citations/{}.rdf'
+      curl -O 'https://rest.uniprot.org/citations/{}.rdf'
 ```
 
 Again, do not forget to save it in our working directory, and add the right
@@ -66,7 +65,7 @@ one minute with a standard internet connection.
 To check if everything worked as expected we can use the ls command to
 view which files were created:
 
-<Execute command="ls chebi_27732_*.rdf" />
+<Execute command="ls *.rdf" />
 
 If for any reason, we are not able to download the abstracts from UniProt,
 we can get them from the [book file archive](http://labs.rd.ciencias.ulisboa.pt/book/).

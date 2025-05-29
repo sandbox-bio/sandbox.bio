@@ -63,8 +63,6 @@ To return the original `pwd` output, we should type:
 
 <Execute command="cd /root/tutorial" />
 
-/root/tutorial
-
 #### Useful key combinations
 
 Every time the terminal is blocked by any reason, we can press both the
@@ -81,7 +79,7 @@ aborted. Now we can type again the previous command, but instead of pressing
 be canceled, but instead it is executed without the second single quote and
 therefore a syntax error will be shown on our display.
 
-Other useful key combinations are the **Ctrl-l** that when pressed cleans the
+Other useful key combinations are the **Ctrl-L** that when pressed cleans the
 terminal display, and the **Ctrl-Insert** and **Shift-Insert** that when pressed
 copy and paste the selected text, respectively.
 
@@ -91,8 +89,8 @@ The following examples will probably work in any Unix shell, but if we want
 to be certain that we are using bash we can type the following command,
 and check if the output says bash:
 
-<Execute command="ps -p $$" />
+<Execute command="ps | grep $$" />
 
-This tool shows information about active processes running in our computer. The `-p` option selects a given process, and in this case `$$` represents the process running in our terminal application. In most terminal applications bash is the default shell. If this is not our case, we may need to type bash, hit enter and now we are using bash.
+This tool shows information about active processes running in our computer. In this case `$$` represents the ID of the process running in our terminal application. In most terminal applications bash is the default shell. If this is not our case, we may need to type bash, hit enter and now we are using bash.
 
 Now that we know how to use a shell, the next step is to write and run a very simple script that reverses the order of the lines in a text file.

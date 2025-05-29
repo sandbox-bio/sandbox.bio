@@ -13,41 +13,11 @@ printing some characters on the screen. Thus, what we should do is redirect
 the output to a CSV file. This can be done by adding the redirect operator `>`
 and the filename, as described previously:
 
-<Execute command="./getproteins.sh 27732 > chebi_27732_xrefs_UniProt.csv" />
-
-We should note that `curl` still prints some progress information into the
-terminal.
-
-> In your local terminal the progress information will more detailed.
-
-#### Standard error output
-
-This happens because it is displaying that information into the standard error output,
-which was not redirected to the file. The `>` character without
-any preceding number by default redirects the standard output. The same
-happens if we precede it by the number 1. If we do not want to see that
-information, we can also redirect the standard error output (2), but in this
-case to the null device (/dev/null):
-
-<Execute command="./getproteins.sh 27732 > chebi_27732_xrefs_UniProt.csv 2>/dev/null" />
-
-We can also use the `-s` option of curl in order to suppress the progress information, by adding to our script:
-
-<Execute command="nano getproteins.sh" />
-
-the `-s` option:
-
-```bash
-curl -s "https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-=1&6578706f7274=1&chebiId=$1&dbName=UniProt"
-```
-
-Now when executing the script, no progress information is shown:
-
-<Execute command="./getproteins.sh 27732 > chebi_27732_xrefs_UniProt.csv" />
+<Execute command="./getproteins.sh 27732 > output.csv" />
 
 To check if the file was really created and to analyze its contents, we can
 use the less command:
 
-<Execute command="less chebi_27732_xrefs_UniProt.csv" />
+<Execute command="less output.csv" />
 
 We can also open the file in our spreadsheet application, such as LibreOffice Calc or Microsoft Excel.

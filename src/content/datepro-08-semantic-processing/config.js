@@ -32,8 +32,8 @@ export const config = {
 		{ name: "Generic Lexicon", component: Step07 },
 		{ name: "Entity Linking", component: Step08 },
 		{ name: "Large lexicons", component: Step09 },
+		{ name: "Exercise", component: Exercise01 },
 		{ name: "Conclusion", component: Conclusion },
-		{ name: "Exercise", component: Exercise01 }
 	],
 	files: ["chebi_lite.owl", "doid.owl", "MER.tgz", "chebi_27732_sentences.txt"]
 };

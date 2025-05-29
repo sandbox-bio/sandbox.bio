@@ -8,6 +8,7 @@ import Exercise01 from "./exercises/Exercise01.md";
 
 export const config = {
 	id: "datepro-04-task-repetition",
+	next: "datepro-05-xml-processing",
 	pwd: "datepro-04-task-repetition",
 	name: "Section 3.6: Task Repetition",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
@@ -20,8 +21,10 @@ export const config = {
 		{ name: "Assembly line", component: Step01 },
 		{ name: "Download files", component: Step02 },
 		{ name: "Create Script", component: Step03 },
+		{ name: "Exercise", component: Exercise01 },
 		{ name: "Conclusion", component: Conclusion },
-		{ name: "Exercise", component: Exercise01 }
 	],
-	files: ["chebi_27732_xrefs_UniProt_relevant_identifiers.csv"]
+	files: [
+		"chebi_27732_xrefs_UniProt_relevant_identifiers.csv"
+	]
 };

@@ -20,7 +20,7 @@ In the manual process described in the book (Section: Caffeine Example), we down
 for downloading a CSV, Excel, or XML file, respectively.
 
 We should note that the only difference between the three URLs is a single
-numerical digit (1,` 2, and 3) after the first equals character (=), which means
+numerical digit (`1`, `2`, and `3`) after the first equals character (`=`), which means
 that this digit can be used as an argument to select the type of file. Another
 parameter that is easily observable is the ChEBI identifier (27732). Try to
 replace 27732 by 17245 in any of those URLs, for
@@ -34,14 +34,14 @@ chemical compound in life systems, the carbon monoxide.
 
 In this case, we are not using a fully RESTful web service, but the data path is pretty modular and self-explanatory. The path is clearly composed of:
 
-- the name of the database (chebi);
-- the method (viewDbAutoXrefs.do);
+- the name of the database (`chebi`);
+- the method (`viewDbAutoXrefs.do`);
 - and a list of parameters and their value (arguments) after the question
   mark character (?).
 
 The order of the parameters in the URL is normally not relevant. They are
-separated by the ampersand character (&) and the equals character (=) is
-used to assign a value to each parameter (argument). This modular structure
+separated by the ampersand character (`&`) and the equals character (`=`) is
+used to assign a value to each parameter (`argument`). This modular structure
 of these URLs allows us to use them as data pipelines to fill our local files with
 data, like pipelines that transport oil or gas from one container to another.
 
