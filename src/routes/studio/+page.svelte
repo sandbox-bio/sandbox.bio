@@ -25,7 +25,7 @@ Get a file listing:
 
 Here's a long command:
 
-<Execute command="bedtools merge \\ -i exons.bed -o count,collapse \\ -d 90 -c 1,4" />
+<Execute command={"bedtools merge \\ -i exons.bed -o count,collapse \\ -d 90 -c 1,4"} />
 `;
 
 // Set state

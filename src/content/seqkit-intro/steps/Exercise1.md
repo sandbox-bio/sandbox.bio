@@ -21,7 +21,7 @@ let criteria = [
 		path: "formatted.fa",
 		action: "contents",
         commandObserved: "echo 81",
-        commandExpected: "sed '2q;d' formatted.fa | wc --chars"  // much faster check than running seqkit seq
+        commandExpected: "sed '2q;d' formatted.fa | wc -c"  // much faster check than running seqkit seq
 	}]
 }];
 </script>

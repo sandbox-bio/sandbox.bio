@@ -5,7 +5,7 @@ import Execute from "$components/Execute.svelte";
 
 You may have noticed that, for the purposes of this exercise, the SAM file was just an intermediate file that was output by `minimap2` and then used as input by `viral_consensus`. It turns out that we can actually skip writing an intermediate file and instead directly feed the output of `minimap2` into `viral_consensus`. Run the following:
 
-<Execute command="minimap2 -a -x sr $REF_FASTA \ reads_R1.fq reads_R2.fq | \ viral_consensus -i - \ -r $REF_FASTA \ -o consensus.fa \ -op position_counts.tsv \ -oi insertion_counts.json \ -p $PRIMER_BED -po 5" />
+<Execute command={"minimap2 -a -x sr $REF_FASTA \ reads_R1.fq reads_R2.fq | \ viral_consensus -i - \ -r $REF_FASTA \ -o consensus.fa \ -op position_counts.tsv \ -oi insertion_counts.json \ -p $PRIMER_BED -po 5"} />
 
 Let's break this seemingly complex command into its individual components to make some sense of it:
 

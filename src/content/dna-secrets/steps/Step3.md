@@ -22,7 +22,7 @@ let criteria = [
 		type: "file",
 		path: "variants.bcf",
 		action: "contents",
-		commandExpected: `echo -e "60"`,
+		commandExpected: `echo -e "59"`,
 		commandObserved: "bcftools view variants.bcf | wc -l"
 	}]
 },

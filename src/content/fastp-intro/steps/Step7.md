@@ -8,13 +8,13 @@ For example, `--cut_front` lets you remove low quality bases at the beginning of
 
 Here it is in action:
 
-<Execute command="fastp \ --in1 HG004_R1.fastq.gz \ --in2 HG004_R2.fastq.gz \ --cut_front" />
+<Execute command={"fastp \ --in1 HG004_R1.fastq.gz \ --in2 HG004_R2.fastq.gz \ --cut_front"} />
 
 > The 4bp window size and quality threshold of Q20 are customizable using `--cut_front_window_size` and `--cut_front_mean_quality`.
 
 Similarly, to remove low quality bases at the ends of reads, you can use the `--cut_right` flag. Like `--cut_front`, it will use a sliding window starting at the beginning of the read **but** as soon as it finds a window with low mean base quality, it will get rid of the rest of the read!
 
-<Execute command="fastp \ --in1 HG004_R1.fastq.gz \ --in2 HG004_R2.fastq.gz \ --cut_front \ --cut_right" />
+<Execute command={"fastp \ --in1 HG004_R1.fastq.gz \ --in2 HG004_R2.fastq.gz \ --cut_front \ --cut_right"} />
 
 Note that, when using only `--cut_front`, the total number of bases is 3,657,586:
 

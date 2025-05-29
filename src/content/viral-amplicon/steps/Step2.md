@@ -5,7 +5,7 @@ import Execute from "$components/Execute.svelte";
 
 First, we'll use `minimap2` to align the sequencing paired-end reads in `reads_R1.fq` and `reads_R2.fq` to the reference genome located at `$REF`. Run the following:
 
-<Execute command="minimap2 -a -o reads.mapped.sam -x sr \ $REF_FASTA reads_R1.fq reads_R2.fq" />
+<Execute command={"minimap2 -a -o reads.mapped.sam -x sr \ $REF_FASTA reads_R1.fq reads_R2.fq"} />
 
 Let's make some sense of this `minimap2` command:
 

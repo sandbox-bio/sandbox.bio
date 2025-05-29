@@ -7,11 +7,11 @@ In addition to the reference-free alignments, SKA can also be used to produce al
 
 To do so, we need to create a new alignment, but adding the reference to it. We have provided another input file list, `assemblies/ska_input_ref.tsv`, that replaces one of the previous entries with the reference, so let's run again the alignment with:
 
-<Execute command="ska build \ -f assemblies/ska_input_ref.tsv \ -k 31 \ -o output/reference_index" />
+<Execute command={"ska build \ -f assemblies/ska_input_ref.tsv \ -k 31 \ -o output/reference_index"} />
 
 And, with it, we can align against the reference genome using `ska map`:
 
-<Execute command="ska map \ -o output/reference_map.aln \ --ambig-mask assemblies/GCA_000005845.2.fna.gz \ output/reference_index.skf" />
+<Execute command={"ska map \ -o output/reference_map.aln \ --ambig-mask assemblies/GCA_000005845.2.fna.gz \ output/reference_index.skf"} />
 
 Compared to `ska align`, `ska map` keeps all bases in the reference sequence and replaces the sites it cannot find in the indexed assemblies with gaps. We can create the tree again with our script:
 

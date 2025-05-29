@@ -10,7 +10,7 @@ Now that we have a SAM file, we'll use `viral_consensus` to perform consensus se
 
 Then, `viral_consensus` uses the trimmed reads to count the nucleotides at each position in order to call a "consensus sequence": a viral genome sequence containing the "consensus" (i.e., most abundant) nucleotide at each position. Both steps (trimming and consensus sequence calling) happen in a single `viral_consensus` command. Run the following:
 
-<Execute command="viral_consensus -i reads.mapped.sam \ -r $REF_FASTA \ -o consensus.fa \ -op position_counts.tsv \ -oi insertion_counts.json \ -p $PRIMER_BED \ -po 5" />
+<Execute command={"viral_consensus -i reads.mapped.sam \ -r $REF_FASTA \ -o consensus.fa \ -op position_counts.tsv \ -oi insertion_counts.json \ -p $PRIMER_BED \ -po 5"} />
 
 Let's break this seemingly complex command into its individual components to make some sense of it:
 

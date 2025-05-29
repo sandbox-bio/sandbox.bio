@@ -5,7 +5,7 @@ import Execute from "$components/Execute.svelte";
 
 Next, run:
 
-<Execute command="bowtie2 \ -x $REF \ -U reads_1.fq \ -S eg1.sam" />
+<Execute command={"bowtie2 \ -x $REF \ -U reads_1.fq \ -S eg1.sam"} />
 
 This runs the Bowtie 2 aligner, which aligns a set of unpaired reads to the <Link href="http://en.wikipedia.org/wiki/Lambda_phage">Lambda phage</Link> reference genome using the index generated in the previous step. The alignment results in SAM format are written to the file `eg1.sam`, and a short alignment summary is written to the console. (Actually, the summary is written to the "standard error" or "stderr" filehandle, which is typically printed to the console.)
 

@@ -4,7 +4,7 @@ import Execute from "$components/Execute.svelte";
 
 To generate a simple QC report, we call `fastp` and specify the location of our paired-end data:
 
-<Execute command="fastp \ --in1 ./HG004_R1.fastq.gz \ --in2 ./HG004_R2.fastq.gz" />
+<Execute command={"fastp \ --in1 ./HG004_R1.fastq.gz \ --in2 ./HG004_R2.fastq.gz"} />
 
 The structure of the output is as follows:
 

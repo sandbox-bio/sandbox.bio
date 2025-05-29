@@ -5,7 +5,7 @@ import Execute from "$components/Execute.svelte";
 
 To generate variant calls in the VCF format, run `bcftools mpileup`, followed by `bcftools call`:
 
-<Execute command="bcftools mpileup -f $REF_FASTA eg2.sorted.bam | \ bcftools call -m -v -Ob -o eg2.bcf -" />
+<Execute command={"bcftools mpileup -f $REF_FASTA eg2.sorted.bam | \ bcftools call -m -v -Ob -o eg2.bcf -"} />
 
 where:
 
