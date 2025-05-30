@@ -17,7 +17,7 @@ export const config = {
 	description: "Use variant calling to decode a secret message stored in sequencing data.",
 	tags: ["bowtie2", "bcftools"],
 	tools: ["samtools", "bcftools", "bowtie2", "echo", "ls", "head"],
-	difficulty: ["intermediate"],
+	difficulty: ["difficult"],
 	steps: [
 		{ name: "Your mission: Variant Calling", component: Intro },
 		{ name: "The data", component: Step1 },
