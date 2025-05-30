@@ -34,5 +34,4 @@ In order to have a rough sense of the remaining `.bed` files, let's load them in
     	* `gwas.bed` represents human disease-associated SNPs that were identified in genome-wide association studies (GWAS)
     	* `hesc.chromHmm.bed` represents the predicted function (by chromHMM) of each interval in the genome of a human embryonic stem cell based upon ChIP-seq experiments from ENCODE
     </span>
-
 </IGVModal>

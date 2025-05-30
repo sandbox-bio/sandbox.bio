@@ -23,6 +23,7 @@ import Episode7_Exercise1 from "./steps/Episode7_Exercise1.md";
 import Episode7_Exercise2 from "./steps/Episode7_Exercise2.md";
 import Episode7_Exercise3 from "./steps/Episode7_Exercise3.md";
 import Episode7_Exercise4 from "./steps/Episode7_Exercise4.md";
+import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "carpentries-shell-novice",
@@ -140,9 +141,11 @@ export const config = {
 		// https://swcarpentry.github.io/shell-novice/07-find.html#little-women
 		{ name: "Finding Things", component: Episode7_Exercise3, subtitle: "Little women" },
 		// https://swcarpentry.github.io/shell-novice/07-find.html#matching-and-subtracting
-		{ name: "Finding Things", component: Episode7_Exercise4, subtitle: "Matching and subtracting" }
+		{ name: "Finding Things", component: Episode7_Exercise4, subtitle: "Matching and subtracting" },
 		// https://swcarpentry.github.io/shell-novice/07-find.html#find-pipeline-reading-comprehension
 		// -
+
+		{ name: "The end", component: Conclusion, header: true }
 	],
 	files: [
 		"analyzed/fructose.dat",

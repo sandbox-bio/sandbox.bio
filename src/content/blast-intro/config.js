@@ -7,6 +7,7 @@ import Step5 from "./steps/Step5.md";
 import Step6 from "./steps/Step6.md";
 import Step7 from "./steps/Step7.md";
 import Step8 from "./steps/Step8.md";
+import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "blast-intro",
@@ -26,7 +27,8 @@ export const config = {
 		{ name: "Run BLAST", subtitle: "Interpret the results", component: Step5 },
 		{ name: "Exercises", subtitle: "Run BLAST", component: Step6, header: true },
 		{ name: "Exercises", subtitle: "Convert formats", component: Step7 },
-		{ name: "Exercises", subtitle: "Extract FASTA records", component: Step8 }
+		{ name: "Exercises", subtitle: "Extract FASTA records", component: Step8 },
+		{ name: "The end", component: Conclusion, header: true }
 	],
 	files: ["orf_trans.fasta", "p450s.fasta", "ids.txt"]
 };

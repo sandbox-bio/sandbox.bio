@@ -33,7 +33,7 @@ Returning to my GitHub API problem, to wrap the number and the title up into an 
 
 > **What I Learned: Object Constructors**:
 >
-> To put the elements you've selected back into a JSON document, you can wrap them in an object constructor <code>&#123; ... &#125;</code>.
+> To put the elements you've selected back into a JSON document, you can wrap them in an object constructor.
 > 
 > If you were building up a JSON object out of several selectors, it would end up looking something like this:
 > 

@@ -300,33 +300,33 @@ acronym MH.
 The above quantifiers are the most popular, but the functionality of all of
 them can be reproduced by using curly braces to specify the minimal and
 maximum number of occurrences. The item is followed by an expression of
-the type &lcub;`n,m`&rcub; where n and m are to be replaced by a number specifying the
+the type {n,m} where n and m are to be replaced by a number specifying the
 minimum and maximum number of occurrences, respectively. n and m may
 also be omitted, which means that no minimum or maximum limit is to be
 imposed.
 
 Using curly brackets, the question mark character (`?`) can be replaced by
-&lcub;`0,1`&rcub;. Thus, the following two patterns are equivalent:
+{0,1}. Thus, the following two patterns are equivalent:
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]?' chebi_27732.txt | sort -u" />
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]&lcub;0,1&rcub;' chebi_27732.txt | sort -u" />
 
-The asterisk character (`*`) can be replaced by &lcub;`0,`&rcub;. Thus, the following
+The asterisk character (`*`) can be replaced by "0,". Thus, the following
 two patterns are equivalent:
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]*' chebi_27732.txt | sort -u" />
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]&lcub;0,&rcub;' chebi_27732.txt | sort -u" />
 
-The plus character (`+`) can be replaced by &lcub;`1,`&rcub;. Thus, the following two
+The plus character (`+`) can be replaced by "1,". Thus, the following two
 patterns are equivalent:
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]+' chebi_27732.txt | sort -u" />
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]&lcub;1,&rcub;' chebi_27732.txt | sort -u" />
 
-On the other hand using &lcub;`1,1`&rcub; is the same as not having any operator.
+On the other hand using {1,1} is the same as not having any operator.
 Thus, the following two patterns are equivalent:
 
 <Execute command="grep -o -w -E 'MH[A-Z0-9]' chebi_27732.txt | sort -u" />

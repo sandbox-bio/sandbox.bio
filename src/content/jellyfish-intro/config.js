@@ -4,6 +4,7 @@ import Step1 from "./steps/Step1.md";
 import Step2 from "./steps/Step2.md";
 import Step3 from "./steps/Step3.md";
 import Step4 from "./steps/Step4.md";
+import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "jellyfish-intro",
@@ -20,7 +21,8 @@ export const config = {
 		{ name: "Count k-mers in genomes", component: Step1 },
 		{ name: "Exercise: K-mer counting", component: Step2 },
 		{ name: "Query k-mers", component: Step3 },
-		{ name: "Count k-mers in sequencing reads", component: Step4 }
+		{ name: "Count k-mers in sequencing reads", component: Step4 },
+		{ name: "The end", component: Conclusion }
 	],
 	files: ["dengue.fa", "chikungunya.fa"]
 };

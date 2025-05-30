@@ -5,6 +5,7 @@ import Step1 from "./steps/Step1.md";
 import Step2 from "./steps/Step2.md";
 import Step3 from "./steps/Step3.md";
 import Step4 from "./steps/Step4.md";
+import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "ska2-intro",
@@ -21,7 +22,8 @@ export const config = {
 		{ name: "Indexing the assemblies", component: Step1 },
 		{ name: "Producing the SNP alignment", component: Step2 },
 		{ name: "Building the trees", component: Step3 },
-		{ name: "Working with references", component: Step4 }
+		{ name: "Working with references", component: Step4 },
+		{ name: "The end", component: Conclusion }
 	],
 	files: [
 		"create_tree.py",
