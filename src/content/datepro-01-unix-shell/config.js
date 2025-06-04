@@ -8,6 +8,7 @@ import Exercise01 from "./exercises/Exercise01.md";
 
 export const config = {
 	id: "datepro-01-unix-shell",
+	next: "datepro-02-data-retrieval",
 	pwd: "datepro-01-unix-shell",
 	name: "Section 3.2: Unix shell",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
@@ -20,8 +21,8 @@ export const config = {
 		{ name: "Unix Shell", component: Step01 },
 		{ name: "Data and Script Files", component: Step02 },
 		{ name: "Save the Output", component: Step03 },
+		{ name: "Exercise", component: Exercise01 },
 		{ name: "Conclusion", component: Conclusion },
-		{ name: "Exercise", component: Exercise01 }
 	],
 	files: []
 };

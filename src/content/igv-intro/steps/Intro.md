@@ -1,11 +1,8 @@
 <script>
 import Link from "$components/Link.svelte";
-import Alert from "$components/Alert.svelte";
 </script>
 
-<Alert>
-	This tutorial is an interactive version of <Link href="https://rnabio.org/module-02-alignment/0002/04/01/IGV/">this IGV tutorial</Link>.
-</Alert>
+> This tutorial is an interactive version of <Link href="https://rnabio.org/module-02-alignment/0002/04/01/IGV/">this IGV tutorial</Link>.
 
 This lab will introduce you to the <Link href="https://software.broadinstitute.org/software/igv/">Integrative Genomics Viewer</Link> (IGV), one of the most popular visualization tools for High Throughput Sequencing (HTS) data.
 

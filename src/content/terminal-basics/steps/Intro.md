@@ -1,12 +1,9 @@
 <script>
 import Link from "$components/Link.svelte";
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
-<Alert>
-	You can skip this tutorial if you're familiar with the command-line and are comfortable using `ls`, `head`, `tail`, `grep`, and environment variables.
-</Alert>
+> You can skip this tutorial if you're familiar with the command-line and are comfortable using `ls`, `head`, `tail`, `grep`, and environment variables.
 
 In this tutorial, you'll get familiar with the interface on your right: **the terminal**, also known as _command-line_, _shell_, _Bash_, _UNIX command line_, etc.
 

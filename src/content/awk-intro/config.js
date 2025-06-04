@@ -16,6 +16,7 @@ import Exercise3 from "./exercises/Exercise3.md";
 export const config = {
 	id: "awk-intro",
 	name: "Data exploration with awk",
+	icon: "table",
 	subtitle: `by <a href="https://robert.bio" target="_blank">Robert Aboukhalil</a>`,
 	description: "Filter, extract and transform tabular data (TSV files) using <code>awk</code>.",
 	tags: ["awk", "terminal"],

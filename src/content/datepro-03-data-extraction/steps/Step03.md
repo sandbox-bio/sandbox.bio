@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -36,10 +35,10 @@ To contain the following lines:
 ```bash
 URL="https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-e=1&6578706f7274=1&chebiId=$1&dbName=UniProt"
 
-curl -s "$URL" | \\
-    grep -e 'CC - MISCELLANEOUS' \\
-        -e 'CC - DISRUPTION PHENOTYPE' \\
-        -e 'CC - DISEASE' | \\
+curl -s "$URL" | \
+    grep -e 'CC - MISCELLANEOUS' \
+         -e 'CC - DISRUPTION PHENOTYPE' \
+         -e 'CC - DISEASE' | \
     cut -d, -f1
 ```
 

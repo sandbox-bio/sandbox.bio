@@ -8,13 +8,13 @@ Each file has the title and abstract of the publication as values of the title
 and `rdfs:comment` elements, respectively. To extract them we can again
 use the `xmllint` command:
 
-<Execute command={`xmllint --xpath "//*[local-name()='title' or local-name()='comment']" chebi_27732_1354642.rdf`} />
+<Execute command={`xmllint --xpath '//*[local-name()="title" or local-name()="comment"]' 10051009.rdf`} />
 
 The output should be the text inside XML elements.
 To remove the XML elements, we can again add `text()` to the XPath
 query:
 
-<Execute command={`xmllint --xpath "//*[local-name()='title' or local-name()='comment']/text()" chebi_27732_1354642.rdf`} />
+<Execute command={`xmllint --xpath '//*[local-name()="title" or local-name()="comment"]/text()' 10051009.rdf`} />
 
 The output should now be free of XML elements.
 
@@ -28,8 +28,8 @@ To have the following commands:
 # CHEBI identifier given as input is renamed to ID
 ID=$1
 
-xmllint \\
-    --xpath "//*[local-name()='title' or local-name()='comment']/text()" chebi_$ID_*.rdf
+xmllint \
+    --xpath '//*[local-name()="title" or local-name()="comment"]/text()' *.rdf
 ```
 
 Again do not forget to save it in our working directory, and add the right

@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -11,7 +10,7 @@ its contents from the internet. We will use Client Uniform Resource Locator
 (cURL), which is available as a command line tool, and allows us to download
 the result of opening a URL directly into a file.
 
-<Alert>The `curl` command here at this platform will be replaced by a local version to access the data locally instead of online due to access restrictions. However, the same command will work just fine in your local terminal.</Alert>
+> The `curl` command here at this platform will be replaced by a local version to access the data locally instead of online due to access restrictions. However, the same command will work just fine in your local terminal.
 
 For example, to display in our screen the list of proteins related to caffeine,
 we just need to add the respective URL as input argument:

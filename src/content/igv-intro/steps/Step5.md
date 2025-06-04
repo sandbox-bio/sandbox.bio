@@ -1,7 +1,6 @@
 <script>
 import { Icon } from "sveltestrap";
 import Link from "$components/Link.svelte";
-import Alert from "$components/Alert.svelte";
 import IGVUpdateBtn from "$components/igv/IGVUpdateBtn.svelte";
 </script>
 

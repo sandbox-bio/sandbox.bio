@@ -1,6 +1,5 @@
 <script>
 import Link from "$components/Link.svelte";
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -24,17 +23,14 @@ My GitHub issue title filter (`.[].title`) then becomes `[ .[].title ]` like thi
 
 Now I have a valid JSON document.
 
-<Alert>
-	**What I Learned: Array Constructors**:
-
-    If your `jq` query returns more than one element, they will be returned newline delimited.
-
-    <Execute command={`echo '[{"a":"b"},{"a":"c"}]' | jq '.[].a'`} />
-
-    To turn these values into a JSON array, what you do is similar to creating an array in JavaScript: You wrap the values in an array constructor (`[...]`).
-
-    It ends up looking something like this:
-
-    <Execute command={`echo '[{"a":"b"},{"a":"c"}]' | jq '[ .[].a ]'`} />
-
-</Alert>
+> **What I Learned: Array Constructors**:
+> 
+> If your `jq` query returns more than one element, they will be returned newline delimited.
+> 
+> <Execute command={`echo '[{"a":"b"},{"a":"c"}]' | jq '.[].a'`} />
+> 
+> To turn these values into a JSON array, what you do is similar to creating an array in JavaScript: You wrap the values in an array > constructor (`[...]`).
+> 
+> It ends up looking something like this:
+> 
+> <Execute command={`echo '[{"a":"b"},{"a":"c"}]' | jq '[ .[].a ]'`} />

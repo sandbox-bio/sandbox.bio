@@ -17,7 +17,7 @@ for(let i = 1; i <= 5; i++) {
 
 Go to the folder `loops`:
 
-<Execute command="cd ~/tutorial/loops/" />
+<Execute command="cd $TUTORIAL/loops/" />
 
 How would you write a loop that creates 5 files: `1.txt`, `2.txt`, `3.txt`, `4.txt`, `5.txt`? The files can be empty.
 

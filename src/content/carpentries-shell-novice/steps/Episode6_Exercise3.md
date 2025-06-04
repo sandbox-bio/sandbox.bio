@@ -32,11 +32,11 @@ const criteria = [
 
 Go to the folder `exercise-data/`:
 
-<Execute command="cd ~/tutorial/exercise-data/" />
+<Execute command="cd $TUTORIAL/exercise-data/" />
 
 Write a shell script called `longest.sh` that takes the name of a directory and a filename extension as its arguments, and prints out the name of the file with the most lines in that directory with that extension. For example:
 
-```
+```bash
 bash longest.sh alkanes pdb
 ```
 
@@ -44,7 +44,7 @@ would print the name of the `.pdb` file in `alkanes/` that has the most lines.
 
 Feel free to test your script on another directory e.g.
 
-```
+```bash
 bash longest.sh writing txt
 ```
 

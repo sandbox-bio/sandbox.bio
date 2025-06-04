@@ -24,10 +24,10 @@ You just received a file from your collaborator: `exons.bed`, which contains a l
 
 This is a perfect job for `bedtools merge`, **but** you keep getting an error when you run the following command:
 
-<Execute command={"bedtools merge -i exons.bed"} />
+<Execute command="bedtools merge -i exons.bed" />
 
 **Your Goal**: Create a file `exons.fixed.bed` from the regions in `exons.bed` so that the following query does not give an error. Use the search and replace command `sed` for making changes to the file.
 
-<Execute command={"bedtools merge -i exons.fixed.bed"} />
+<Execute command="bedtools merge -i exons.fixed.bed" />
 
 <Exercise {criteria} {hints} />

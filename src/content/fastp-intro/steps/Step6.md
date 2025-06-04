@@ -6,7 +6,7 @@ One common FASTQ filtering step is to remove reads that are too short to be usef
 
 In the previous step, notice this line in the output of `fastp`:
 
-```
+```js
 reads failed due to too short: 0
 ```
 
@@ -14,10 +14,10 @@ This means that _after_ filtering, there were no reads that were deemed too shor
 
 For example, to only keep reads that are longer than 50bp, let's use the `--length_required` parameter:
 
-<Execute command="fastp \ --in1 HG004_R1.fastq.gz \ --in2 HG004_R2.fastq.gz \ --length_required 50" />
+<Execute command={"fastp \ --in1 HG004_R1.fastq.gz \ --in2 HG004_R2.fastq.gz \ --length_required 50"} />
 
 With a stricter threshold, we now see that there are more reads that were discarded:
 
-```
+```js
 reads failed due to too short: 372
 ```

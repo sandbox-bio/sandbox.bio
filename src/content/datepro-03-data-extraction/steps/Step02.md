@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -26,14 +25,14 @@ To contain the following lines:
 ```bash
 url="https://www.ebi.ac.uk/chebi/viewDbAutoXrefs.do?d-1169080-e=1&6578706f7274=1&chebiId=$1&dbName=UniProt"
 
-curl -s "$url" | \\
-    grep \\
-      -e 'CC - MISCELLANEOUS' \\
-      -e 'CC - DISRUPTION PHENOTYPE' \\
+curl -s "$url" | \
+    grep \
+      -e 'CC - MISCELLANEOUS' \
+      -e 'CC - DISRUPTION PHENOTYPE' \
       -e 'CC - DISEASE'
 ```
 
-<Alert>The `curl` command here at this platform will be replaced by a local version to access the data locally instead of online due to access restrictions. However, the same command will work just fine in your local terminal.</Alert>
+> The `curl` command here at this platform will be replaced by a local version to access the data locally instead of online due to access restrictions. However, the same command will work just fine in your local terminal.
 
 We should note that we added the `-s` option to suppress the progress information of curl, and the characters `| \` to the end of line to redirect the
 output of that line as input of the next line, in this case the grep command.

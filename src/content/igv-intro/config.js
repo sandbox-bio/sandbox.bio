@@ -39,6 +39,7 @@ const TRACK_REPEATS = {
 export const config = {
 	id: "igv-intro",
 	name: "Visualize variants with IGV",
+	icon: "calendar2-week",
 	subtitle: `by Malachi Griffith, Sorana Morrissy, Jim Robinson, Ben Ainscough, Jason Walker, and Obi Griffith`,
 	description: "Distinguish real variants from artifacts using the IGV genome browser.",
 	tags: ["igv"],
@@ -70,8 +71,8 @@ export const config = {
 			tracks: [],
 			showCenterGuide: true
 		},
-		3: { locus: "BRCA1" },
 		2: { locus: "chr1:10,000-11,000" },
+		3: { locus: "BRCA1" },
 		5: { tracks: [TRACK_HCC1143] },
 		6: { locus: "chr21:19,480,041-19,480,386", tracks: [TRACK_HCC1143] },
 		7: { locus: "chr21:19,479,301-19,479,341", tracks: [TRACK_HCC1143] },

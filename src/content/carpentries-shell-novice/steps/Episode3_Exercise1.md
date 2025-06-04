@@ -25,9 +25,17 @@ After running the following commands,
 Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder.
 The files should have been placed in the `raw` folder.
 
-<Execute command="ls -F" />
+First, make sure you're in the right tutorial folder:
 
-<Execute command="ls -F analyzed" />
+<Execute command="cd $TUTORIAL" />
+
+There are no files in the `raw/` folder
+
+<Execute command="ls raw" />
+
+The files are in the `analyzed` folder:
+
+<Execute command="ls analyzed" />
 
 <Execute command="cd analyzed" />
 

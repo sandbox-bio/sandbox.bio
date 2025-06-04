@@ -1,6 +1,4 @@
 <script>
-import { Icon } from "sveltestrap";
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -12,9 +10,6 @@ To see the duplicate sequences:
 
 <Execute command="diff deduplicated.fa hairpins.fa" />
 
-<Alert>
-    <Icon name="lightbulb-fill" /> You can use the `--by-name` flag to check for duplicates using the full sequence name instead of just the ID (e.g. `cel-let-7 MI0000001 Caenorhabditis elegans let-7 stem-loop` instead of just the ID `cel-let-7`).
-
-    You can also use `--by-seq` to check for duplicates using only the sequences, regardless of whether the IDs are different.
-
-</Alert>
+> 💡 You can use the `--by-name` flag to check for duplicates using the full sequence name instead of just the ID (e.g. `cel-let-7 MI0000001 Caenorhabditis elegans let-7 stem-loop` instead of just the ID `cel-let-7`).
+>
+> You can also use `--by-seq` to check for duplicates using only the sequences, regardless of whether the IDs are different.

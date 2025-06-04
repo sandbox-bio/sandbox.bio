@@ -8,6 +8,7 @@ import Exercise01 from "./exercises/Exercise01.md";
 
 export const config = {
 	id: "datepro-05-xml-processing",
+	next: "datepro-06-text-retrieval",
 	pwd: "datepro-05-xml-processing",
 	name: "Section 3.7: XML Processing",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
@@ -20,8 +21,8 @@ export const config = {
 		{ name: "Human proteins filter", component: Step01 },
 		{ name: "PubMed identifiers extraction", component: Step02 },
 		{ name: "Complex elements", component: Step03 },
+		{ name: "Exercise", component: Exercise01 },
 		{ name: "Conclusion", component: Conclusion },
-		{ name: "Exercise", component: Exercise01 }
 	],
 	files: [
 		"chebi_27732_A2AGL3.xml",

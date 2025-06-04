@@ -14,7 +14,4 @@ Starting from `/Users/nelle/data`, which of the following commands could Nelle u
 { valid: true, value: "cd ~/data/.."},
 { valid: true, value: "cd"},
 { valid: true, value: "cd .."},
-]}>
-<span slot="prompt">
-</span>
-</Quiz>
+]} />

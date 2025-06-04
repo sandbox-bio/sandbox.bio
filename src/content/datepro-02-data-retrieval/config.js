@@ -8,6 +8,7 @@ import Exercise01 from "./exercises/Exercise01.md";
 
 export const config = {
 	id: "datepro-02-data-retrieval",
+	next: "datepro-03-data-extraction",
 	pwd: "datepro-02-data-retrieval",
 	name: "Sections 3.3 and 3.4: Data Retrieval",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
@@ -20,8 +21,8 @@ export const config = {
 		{ name: "Web Identifiers", component: Step01 },
 		{ name: "Data Retrieval", component: Step02 },
 		{ name: "Manage Output", component: Step03 },
+		{ name: "Exercise", component: Exercise01 },
 		{ name: "Conclusion", component: Conclusion },
-		{ name: "Exercise", component: Exercise01 }
 	],
 	files: [
 		"chebi_15377_xrefs_UniProt.csv",
@@ -32,5 +33,6 @@ export const config = {
 		"chebi_30050_xrefs_UniProt.csv",
 		"localcurl.sh"
 	],
+	// init: "chmod +x localcurl.sh && alias curl='./localcurl.sh'"
 	init: `mv /usr/local/bin/curl /usr/local/bin/curl.ori; chmod u+x localcurl.sh; cp localcurl.sh /usr/local/bin/curl;`
 };

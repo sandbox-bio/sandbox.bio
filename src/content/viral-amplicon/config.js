@@ -9,6 +9,7 @@ import Conclusion from "./steps/Conclusion.md";
 export const config = {
 	id: "viral-amplicon",
 	name: "Viral Amplicon Sequencing",
+	icon: "virus",
 	subtitle: `by <a href="https://niema.net/" target="_blank">Niema Moshiri</a>`,
 	description: "Analyze viral amplicon sequence data using a real SARS-CoV-2 dataset.",
 	tags: ["ViralConsensus", "minimap"],

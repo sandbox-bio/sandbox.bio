@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -13,4 +12,4 @@ At the top of the HTML file, you'll find the same stats we saw in the previous s
 
 Note that the y-axis does not start at 0 so the decrease in quality looks more pronounced than it actually is; in fact, the base quality is > 30 across the length of the read, which is excellent!
 
-<Alert>The `open` command will also work on MacOS, but on Linux systems, you can use `xdg-open` instead.</Alert>
+> The `open` command will also work on MacOS, but on Linux systems, you can use `xdg-open` instead.

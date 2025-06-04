@@ -5,7 +5,7 @@ import Execute from "$components/Execute.svelte";
 
 Go to the folder `exercise-data/writing/`:
 
-<Execute command="cd ~/tutorial/exercise-data/writing/" />
+<Execute command="cd $TUTORIAL/exercise-data/writing/" />
 
 <Quiz id="q7.1" choices={[
 { valid: false, value: `grep "of" haiku.txt`},

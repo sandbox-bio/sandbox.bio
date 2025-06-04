@@ -7,17 +7,17 @@ import Step5 from "./steps/Step5.md";
 import Step6 from "./steps/Step6.md";
 import Step7 from "./steps/Step7.md";
 import Step8 from "./steps/Step8.md";
+import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "blast-intro",
 	name: "Sequence alignment with BLAST",
-	// subtitle: `by <a href="https://shawntoneil.com/" target="_blank">Shawn T. O'Neil</a>`,
+	icon: "binoculars",
 	description: "Use BLAST to align DNA and protein sequences.",
 	tags: ["blastn", "blastp"],
 	tools: ["makeblastdb", "blastp", "blastn", "blast_formatter", "blastdbcmd", "wc"],
 	difficulty: ["beginner"],
 	new: true,
-
 	steps: [
 		{ name: "Sequence alignment with BLAST", component: Intro },
 		{ name: "BLAST Types", component: Step1 },
@@ -27,7 +27,8 @@ export const config = {
 		{ name: "Run BLAST", subtitle: "Interpret the results", component: Step5 },
 		{ name: "Exercises", subtitle: "Run BLAST", component: Step6, header: true },
 		{ name: "Exercises", subtitle: "Convert formats", component: Step7 },
-		{ name: "Exercises", subtitle: "Extract FASTA records", component: Step8 }
+		{ name: "Exercises", subtitle: "Extract FASTA records", component: Step8 },
+		{ name: "The end", component: Conclusion, header: true }
 	],
 	files: ["orf_trans.fasta", "p450s.fasta", "ids.txt"]
 };

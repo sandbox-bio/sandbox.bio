@@ -1,5 +1,4 @@
 <script>
-import { Icon } from "sveltestrap";
 import Link from "$components/Link.svelte";
 import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
@@ -24,5 +23,5 @@ If you are interested in only sequences of a certain size, e.g. >300bp, use the 
 You can also filter out long sequences with `--max-len`, and for FASTQ files, you can filter out reads with a certain average quality with `--min-qual` and `--max-qual`.
 
 <Alert color="primary">
-    <Icon name="question-circle-fill" /> How would you convert the RNA sequences in `hairpins.fa` to DNA using SeqKit? Use the <Link href="https://bioinf.shenwei.me/seqkit/usage/#seq">manual</Link> as a reference.
+    How would you convert the RNA sequences in `hairpins.fa` to DNA using SeqKit? Use the <Link href="https://bioinf.shenwei.me/seqkit/usage/#seq">manual</Link> as a reference.
 </Alert>

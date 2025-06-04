@@ -11,6 +11,7 @@ import Conclusion from "./steps/Conclusion.md";
 export const config = {
 	id: "terminal-basics",
 	name: "Terminal Basics",
+	icon: "terminal",
 	subtitle: `by <a href="https://robert.bio" target="_blank">Robert Aboukhalil</a>`,
 	description: "Get up to speed with the terminal. Start here if you're new to bioinformatics.",
 	tags: ["terminal"],

@@ -1,6 +1,5 @@
 <script>
 import Link from "$components/Link.svelte";
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -14,10 +13,10 @@ If I want those labels in alphabetical order I can use the built in `sort` funct
 
 This is similar to how I would sort an array in JavaScript:
 
-<code>
+```javascript
 const l = ["3","2","1"];
 l.sort();
-</code>
+```
 
 Other built-ins that mirror JavaScript functionality are available, like `length`, `reverse`, and `tostring` and they can all be used in a similar way:
 
@@ -27,9 +26,6 @@ Other built-ins that mirror JavaScript functionality are available, like `length
 
 If I can combine these built-ins with the selectors I've built up so far, I'll have solved my label sorting problem. So I'll show that next.
 
-<Alert>
-	**What I Learned: Array-Index**:
-
-    `jq` has many built-in functions. There are probably too many to remember but the built-ins tend to mirror JavaScript functions, so give those a try before heading to the <Link href="https://stedolan.github.io/jq/manual/#Builtinoperatorsandfunctions">jq manual</Link>, and you might get lucky.
-
-</Alert>
+> **What I Learned: Array-Index**:
+> 
+> `jq` has many built-in functions. There are probably too many to remember but the built-ins tend to mirror JavaScript functions, so give those a try before heading to the <Link href="https://stedolan.github.io/jq/manual/#Builtinoperatorsandfunctions">jq manual</Link>, and you might get lucky.

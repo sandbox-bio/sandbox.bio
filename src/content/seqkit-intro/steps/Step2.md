@@ -1,5 +1,4 @@
 <script>
-import { Icon } from "sveltestrap";
 import Link from "$components/Link.svelte";
 import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
@@ -16,10 +15,9 @@ Instead of a fraction, to obtain a number of sequences sampled, use the `--numbe
 <Execute command="seqkit sample --number 10 hairpins.fa > sampled.fa" />
 
 <Alert color="warning">
-    <Icon name="lightbulb-fill" /> Depending on the random seed, you may not always obtain exactly the number of sequences requested. For example:<br /><br />
+    ⚠️ Depending on the random seed, you may not always obtain exactly the number of sequences requested. For example:
 
-<Execute command="seqkit sample --number 10 --rand-seed 123 hairpins.fa > sampled.fa" />
+    <Execute command="seqkit sample --number 10 --rand-seed 123 hairpins.fa > sampled.fa" />
 
-See the <Link href="https://bioinf.shenwei.me/seqkit/note/#effect-of-random-seed-on-results-of-seqkit-sample">SeqKit manual</Link> for details on why that is.
-
+    See the <Link href="https://bioinf.shenwei.me/seqkit/note/#effect-of-random-seed-on-results-of-seqkit-sample">SeqKit manual</Link> for details on why that is.
 </Alert>

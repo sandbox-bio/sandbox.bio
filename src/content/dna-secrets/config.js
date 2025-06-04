@@ -12,11 +12,12 @@ import Step7 from "./steps/Step7.md";
 export const config = {
 	id: "dna-secrets",
 	name: "Variant calling",
+	icon: "calendar2-x",
 	subtitle: `by <a href="https://robert.bio" target="_blank">Robert Aboukhalil</a>`,
 	description: "Use variant calling to decode a secret message stored in sequencing data.",
 	tags: ["bowtie2", "bcftools"],
 	tools: ["samtools", "bcftools", "bowtie2", "echo", "ls", "head"],
-	difficulty: ["intermediate"],
+	difficulty: ["difficult"],
 	steps: [
 		{ name: "Your mission: Variant Calling", component: Intro },
 		{ name: "The data", component: Step1 },

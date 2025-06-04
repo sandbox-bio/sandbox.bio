@@ -17,8 +17,8 @@ let criteria = [
 		type: "file",
 		path: "ids.fasta",
 		action: "contents",
-		commandObserved: "wc ids.fasta",
-        commandExpected: `echo '  21  198 2617 ids.fasta'`
+		commandObserved: "wc -c ids.fasta",
+        commandExpected: `echo '2617 ids.fasta'`
 	}]
 }];
 </script>

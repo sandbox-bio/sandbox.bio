@@ -1,7 +1,6 @@
 <script>
 import { onDestroy, onMount } from "svelte";
 import Link from "$components/Link.svelte";
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 import { cli } from "$stores/cli";
 
@@ -47,9 +46,7 @@ async function getSecret() {
 }
 </script>
 
-<Alert>
-	Here we assume you completed the <Link href="/tutorials/bowtie2-intro">bowtie2</Link> and <Link href="/tutorials/samtools-intro">samtools</Link> tutorials, but googling works too 🙂
-</Alert>
+> Here we assume you completed the <Link href="/tutorials/bowtie2-intro">bowtie2</Link> and <Link href="/tutorials/samtools-intro">samtools</Link> tutorials, but googling works too 🙂
 
 In this problem set, you're given DNA sequencing data that, when analyzed by mapping reads and calling variants, reveals a secret DNA message. Here's a decoder based on <Link href="https://science.sciencemag.org/content/337/6102/1628">Church et al.</Link> that decodes DNA sequences stored in the file `secret`:
 

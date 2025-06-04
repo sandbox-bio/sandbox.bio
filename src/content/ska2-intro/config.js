@@ -5,10 +5,12 @@ import Step1 from "./steps/Step1.md";
 import Step2 from "./steps/Step2.md";
 import Step3 from "./steps/Step3.md";
 import Step4 from "./steps/Step4.md";
+import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "ska2-intro",
 	name: "Building trees with SKA",
+	icon: "tree",
 	subtitle: `by <a href="https://github.com/vrbouza" target="_blank">Víctor Rodríguez Bouza</a> and <a href="https://maklin.fi/" target="_blank">Tommi Mäklin</a>`,
 	description: "Use ska.rust to compare and align closely related small genomes using split k-mers",
 	tags: ["ska2", "k-mers"],
@@ -20,7 +22,8 @@ export const config = {
 		{ name: "Indexing the assemblies", component: Step1 },
 		{ name: "Producing the SNP alignment", component: Step2 },
 		{ name: "Building the trees", component: Step3 },
-		{ name: "Working with references", component: Step4 }
+		{ name: "Working with references", component: Step4 },
+		{ name: "The end", component: Conclusion }
 	],
 	files: [
 		"create_tree.py",

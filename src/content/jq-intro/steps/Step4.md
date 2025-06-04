@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -19,4 +18,4 @@ If you wrap the query in the array constructor you get this:
 
 <Execute command={`jq '[ .[] |  .title, .number ]' issues.json`} />
 
-But this still isn't the JSON document I need. To get these values into a proper JSON object, I need an object constructor <code>&#123;...&#125;</code>.
+But this still isn't the JSON document I need. To get these values into a proper JSON object, I need an object constructor.

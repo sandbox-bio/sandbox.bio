@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Quiz from "$components/Quiz.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
@@ -29,14 +28,12 @@ Remarks:
 Options modify the way in which a command works.
 In Bash, shell options start with a simple or double dash (`-` or `--`).
 
-For example, we can display the size of the files using the `--size` option of the `ls` command.
+For example, we can display the size of the files using the `-s` option of the `ls` command.
 Lets try and type:
 
-<Execute command="ls --size Data" />
+<Execute command="ls -s Data" />
 
 Now, the 8 files are displayed with their respective sizes (in blocks).
-
-You can use a short form for this option by replacing `--size` (long form) by `-s` (short form).
 
 Usually we also use the `-h` option to display sizes in more **h**uman readable formats (_e.g._ 1K, 234M, 2G).
 

@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -29,9 +28,7 @@ We can also apply the same commands for caffeine to produce its lexicon in the f
 
 <Execute command="echo 'caffeine' | ./geturi.sh chebi_lite.owl | ./getancestors.sh chebi_lite.owl | ./getlabels.sh chebi_lite.owl >> chebi_27732_lexicon.txt" />
 
-<Alert>
-Please note that it may take some time to retrieve all labels, even with these reduced OWL files. In the meantime, you can look at the following steps while it is running.
-</Alert>
+> Please note that it may take some time to retrieve all labels, even with these reduced OWL files. In the meantime, you can look at the following steps while it is running.
 
 Now let us check the contents of this new lexicon:
 

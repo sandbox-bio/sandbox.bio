@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -18,7 +17,7 @@ We can retrieve the publication entry by executing the following command:
 
 <Execute command="curl https://rest.uniprot.org/citations/1354642.rdf" />
 
-<Alert>The `curl` command on this platform has access restrictions but works with `rest.uniprot.org` and `eutils.ncbi.nlm.nih.gov` links.</Alert>
+> The `curl` command on this platform has access restrictions but works with `rest.uniprot.org` and `eutils.ncbi.nlm.nih.gov` links.
 
 Alternatively, we can use the web service provided by PubMed at NCBI ,
 by still using curl but with another link:
@@ -40,16 +39,15 @@ ID=$1
 # Removes any previous files
 rm -f chebi_${ID}_*.rdf
 
-grep -l '<name type="scientific">Homo sapiens</name>' chebi_${ID}_*.xml | \\
-    xargs \\
-      -I {} \\
-      grep '<dbReference type="PubMed"' {} | \\
-    cut -d'"' -f4 | \\
-    sort -u | \\
-    xargs \\
-      -I {} \\
-      curl -o chebi_${ID}_{}.rdf \\
-      'https://rest.uniprot.org/citations/{}.rdf'
+grep -l '<name type="scientific">Homo sapiens</name>' chebi_${ID}_*.xml | \
+    xargs \
+      -I {} \
+      grep '&lt;dbReference type="PubMed"' {} | \
+    cut -d'"' -f4 | \
+    sort -u | \
+    xargs \
+      -I {} \
+      curl -O 'https://rest.uniprot.org/citations/{}.rdf'
 ```
 
 Again, do not forget to save it in our working directory, and add the right
@@ -67,7 +65,7 @@ one minute with a standard internet connection.
 To check if everything worked as expected we can use the ls command to
 view which files were created:
 
-<Execute command="ls chebi_27732_*.rdf" />
+<Execute command="ls *.rdf" />
 
 If for any reason, we are not able to download the abstracts from UniProt,
 we can get them from the [book file archive](http://labs.rd.ciencias.ulisboa.pt/book/).

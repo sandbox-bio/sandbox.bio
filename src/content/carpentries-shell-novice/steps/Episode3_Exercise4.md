@@ -12,7 +12,4 @@ produce this output?
 { valid: false, value: "ls *t?ne.*"},
 { valid: true, value: "ls *t??ne.pdb"},
 { valid: false, value: "ls ethane.*"},
-]}>
-<span slot="prompt">
-</span>
-</Quiz>
+]} />

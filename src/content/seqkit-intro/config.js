@@ -14,7 +14,8 @@ import Conclusion from "./steps/Conclusion.md";
 export const config = {
 	id: "seqkit-intro",
 	name: "Wrangle FASTA and FASTQ with SeqKit",
-	description: "Explore and wrangle <code>.fasta/.fastq</code> files with SeqKit",
+	icon: "wrench-adjustable",
+	description: "Explore and wrangle <code>.fasta</code> and <code>.fastq</code> files with SeqKit",
 	tags: ["fasta", "fastq", "seqkit"],
 	tools: ["ls", "seqkit"],
 	difficulty: ["beginner"],

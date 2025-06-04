@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Execute from "$components/Execute.svelte";
 </script>
 
@@ -25,6 +24,4 @@ Note, however, that when you compare the output of the command above to <Execute
 
 <Execute command={`awk -F "\\t" '{ print $2, $3 }' orders.tsv | head`} />
 
-<Alert>
-	Remember to explicitly tell `awk` what your delimiters are!
-</Alert>
+> Remember to explicitly tell `awk` what your delimiters are!

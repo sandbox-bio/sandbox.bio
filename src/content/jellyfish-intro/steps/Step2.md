@@ -1,5 +1,4 @@
 <script>
-import Alert from "$components/Alert.svelte";
 import Exercise from "$components/Exercise.svelte";
 import Execute from "$components/Execute.svelte";
 
@@ -13,7 +12,7 @@ const criteria = [
 	}]
 },
 {
-	name: "File <code>chikungunya.jf</code> contains the output of running <code>jellyfish count</code> on the Chikungunya genome",
+	name: "File <code>chikungunya.jf</code> contains the output of running <code>jellyfish count</code> to get 9-mers in the Chikungunya genome",
 	checks: [{
 		type: "file",
 		path: "chikungunya.jf",

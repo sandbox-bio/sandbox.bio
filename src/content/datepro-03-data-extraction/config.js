@@ -8,6 +8,7 @@ import Exercise01 from "./exercises/Exercise01.md";
 
 export const config = {
 	id: "datepro-03-data-extraction",
+	next: "datepro-04-task-repetition",
 	pwd: "datepro-03-data-extraction",
 	name: "Section 3.5: Data Extraction",
 	subtitle: `by <a href="https://webpages.ciencias.ulisboa.pt/~fjcouto/" target="_blank">Francisco M. Couto</a>`,
@@ -20,8 +21,8 @@ export const config = {
 		{ name: "Single pattern", component: Step01 },
 		{ name: "Multiple patterns", component: Step02 },
 		{ name: "Extract column", component: Step03 },
+		{ name: "Exercise", component: Exercise01 },
 		{ name: "Conclusion", component: Conclusion },
-		{ name: "Exercise", component: Exercise01 }
 	],
 	files: [
 		"chebi_15377_xrefs_UniProt.csv",

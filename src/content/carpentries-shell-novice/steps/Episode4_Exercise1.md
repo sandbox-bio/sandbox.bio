@@ -19,7 +19,4 @@ $ tail -n 2 animals.csv >> animals-subset.csv
 { valid: false, value: "The last two lines of `animals.csv`"},
 { valid: true, value: "The first three lines and the last two lines of `animals.csv`"},
 { valid: false, value: "The second and third lines of `animals.csv`"},
-]}>
-<span slot="prompt">
-</span>
-</Quiz>
+]} />
