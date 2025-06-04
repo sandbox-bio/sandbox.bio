@@ -27,6 +27,7 @@ import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "carpentries-shell-novice",
+	date: "August 2024",
 	name: "Terminal Exercises",
 	icon: "terminal-plus",
 	subtitle: "Exercises from the Carpentries' Unix Shell lesson",

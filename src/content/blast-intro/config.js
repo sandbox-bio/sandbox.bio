@@ -11,6 +11,7 @@ import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "blast-intro",
+	date: "February 2024",
 	name: "Sequence alignment with BLAST",
 	icon: "binoculars",
 	description: "Use BLAST to align DNA and protein sequences.",

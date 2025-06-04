@@ -13,6 +13,7 @@ import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "seqkit-intro",
+	date: "September 2024",
 	name: "Wrangle FASTA and FASTQ with SeqKit",
 	icon: "wrench-adjustable",
 	description: "Explore and wrangle <code>.fasta</code> and <code>.fastq</code> files with SeqKit",
