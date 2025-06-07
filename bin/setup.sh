@@ -32,4 +32,4 @@ if ! npm install > /dev/null; then
 fi
 
 # Launch web server
-npm run dev -- --open /tutorials/_template
+npm run dev -- --open /tutorials/viral_phylogenetics
