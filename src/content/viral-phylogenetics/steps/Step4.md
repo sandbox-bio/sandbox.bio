@@ -19,11 +19,11 @@ Now, let's take a look at the trees to ensure that they reflect what we would ex
 
 **Unrooted**
 
-<Image src="/data/viral_phylogenetics/unrooted_hiv1.png" alt="unrooted_tree" />
+<Image src="/data/viral-phylogenetics/unrooted_hiv1.png" alt="unrooted_tree" />
 
 **Rooted**
 
-<Image src="/data/viral_phylogenetics/rooted_hiv1.png" alt="rooted_tree" />
+<Image src="/data/viral-phylogenetics/rooted_hiv1.png" alt="rooted_tree" />
 
 Take a look at the log file from LSD2. Does the date of the MRCA seem reasonable?
 

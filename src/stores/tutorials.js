@@ -10,7 +10,7 @@ import { config as awkIntro } from "$content/awk-intro/config.js";
 import { config as fastpIntro } from "$content/fastp-intro/config.js";
 import { config as dnaSecrets } from "$content/dna-secrets/config.js";
 import { config as viralAmplicon } from "$content/viral-amplicon/config.js";
-import { config as viralPhylogenetics } from "$content/viral_phylogenetics/config.js";
+import { config as viralPhylogenetics } from "$content/viral-phylogenetics/config.js";
 import { config as debuggingPuzzles } from "$content/debugging-puzzles/config.js";
 import { config as playground } from "$content/playground/config.js";
 import { config as ifblinuxbasics1 } from "$content/ifb-linux-basics-1/config.js";

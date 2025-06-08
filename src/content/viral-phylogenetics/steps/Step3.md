@@ -6,7 +6,7 @@ import Quiz from "$components/Quiz.svelte";
 
 In the previous step we created an unrooted phylogenetic tree through Phylogenetic Inference. However, because we have access to the collection of dates of the sequences in our SARS-CoV-2 dataset, we can "root" the tree (find the most likely position of the MRCA) and "date" the tree (scale the branch lengths to be in units of time). We will use [LSD2](https://github.com/tothuhien/lsd2) to generate a rooted tree, and we will use an outgroup to help us do this. Known organisms that are distantly related to the species of interest can act as outgroups (i.e. references) when inferring a rooted tree, which can help us perform more accurate rooting and dating. In our case, we will use a RaTG13 bat coronavirus sequence as our outgroup. 
 
-1. Try <Execute command="LSD2 -help" inline /> to take a look at the usage instruction of LSD2.
+1. Try <Execute command="lsd2 -help" inline /> to take a look at the usage instruction of LSD2.
 
 2. Now, to generate our rooted tree, use <Execute command="lsd2 -i sarscov2_sequences.unrooted_tree.nwk -d sarscov2_dates.txt -g sarscov2_outgroup.txt -G -l -1 -o lsd2_out" inline /> 
 
