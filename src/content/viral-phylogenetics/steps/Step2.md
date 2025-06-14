@@ -4,47 +4,23 @@ import Execute from "$components/Execute.svelte";
 import Quiz from "$components/Quiz.svelte";
 </script>
 
-Now that we have run MSA on our dataset, we can perform Phylogenetic Inference: using the MSA and mathematical models of evolution, we can identify the evolutionary tree (i.e. phylogeny) that best describes the evolutionary relationships between the sequences in our MSA. It is important to note that the phylogeny we produce in this step will be unrooted. This means that while we can determine the relative evolutionary relationships between sequences, we cannot "root" the tree (and thus identify the date of the MRCA) because the directionality of time is not known. In an unrooted tree, branch lengths are in units of mutations instead of in units of time.
+Now, let's begin the phylogenetic analysis by performing Multiple Sequence Alignment (MSA) for our SARS-CoV-2 sequences. Recall that like human genomes, viral genomes can "evolve" (i.e. mutate) as they replicate. Common mutations include substitutions, insertions, and deletions. Given a set of viral sequences, each of which differ from the sequence of the common ancestor by a series of mutations, it is our job to first "line up" each of our sequences so that each position in the "alignment" of our sequences corresponds to the same position in the sequence of the common ancestor. 
 
-We will use [FastTree](https://morgannprice.github.io/fasttree/) to generate an unrooted phylogenetic tree to assess relative ancestral relationships between our samples.
+We will use [ViralMSA](https://github.com/niemasd/ViralMSA) to perform MSA. Check out how ViralMSA should be used with <Execute command="ViralMSA.py -h" inline />.
 
-1. Try <Execute command="FastTree" inline /> to take a look at the usage instructions.
+To run MSA for the sequences in `sarscov2_sequences.fas`:
 
-2. Now, try <Execute command="FastTree -nt ViralMSA_Out/sarscov2_sequences.fas.aln > sarscov2_sequences.unrooted_tree.nwk" inline /> to generate our phylogenetic tree.
+<Execute command={"ViralMSA.py \\ --omit_ref \\ -s sarscov2_sequences.fas \\ -r sarscov2_reference.fas \\ -o ViralMSA_Out"} />
 
-Let's make some sense of this command:
-
-- `-nt` specifies that our alignment is of **n**ucleo**t**ides and not amino acids
-
-- `sarscov2_sequences.msa.fas > sarscov2_sequences.unrooted_tree.nwk` tells FastTree to take in our multiple sequence alignment file (from Step 1) as input and to output the unrooted phylogenetic tree to a file called `sarscov2_sequences.unrooted_tree.nwk` in the same directory. A `.nwk` file is in Newick format, which is often used to represent phylogenetic trees. It is a text-based way to represent the tree structure. You can read more about Newick format [here](https://en.wikipedia.org/wiki/Newick_format).
-
-**Optional Options:**
-
-Note: The following options may be included in the command to improve accuracy at the cost of increased runtime.
-
-- `-gtr` implements use of a [Generalized Time-Reversible](https://en.wikipedia.org/wiki/Substitution_model#Generalised_time_reversible) (GTR) model of evolution for our tree. FastTree can be run with either the [Jukes-Cantor](https://en.wikipedia.org/wiki/Models_of_DNA_evolution#JC69_model_(Jukes_and_Cantor_1969)) or GTR model. 
-
-- `-gamma` allows for rescaling of the branch lengths and computation of a Gamma2-based likelihood
-
-
-3. Use <Execute command="head -10 sarscov2_sequences.unrooted_tree.nwk" inline /> to view the first 10 lines of the tree file.
-
-4. Now, let's quickly visualize how this information makes a tree in the terminal using <Execute command="nw_display - < sarscov2_sequences.unrooted_tree.nwk" inline />
-
-
-Why might we want to create an unrooted tree, over a rooted tree (with a common ancestor)?
+Take a quick look at `./ViralMSA_Out/sarscov2_sequences.fas.aln`. This file is still in FASTA format, but what changed?
 
 <Quiz
-	id="step2-quiz1"
+	id="step1-quiz3"
 	choices={[
-		{ valid: false, value: `To determine the evolutionary direction and ancestral lineage of species` },
-		{ valid: true, value: `To analyze relationships without assuming a common ancestor or direction of evolution` },
-		{ valid: false, value: `Unrooted trees are always more accurate than rooted trees` },
-		{ valid: false, value: `To define the exact point in time when species diverged` },
+		{ valid: false, value: `There are more sequences in the file` },
+		{ valid: false, value: `There are fewer sequences in the file` },
+		{ valid: false, value: `The sequence identifiers have been truncated` },
+		{ valid: true, value: `Dashes are inserted to represent gaps in the alignment` },
     ]}>
 	<span slot="prompt"></span>
 </Quiz>
-
-5. We can alternatively visualize our tree using webtools. First, use <Execute command="download sarscov2_sequences.unrooted_tree.nwk" inline /> to store the file locally.
-   
-6. Navigate to [Taxonium](https://taxonium.org/?xType=x_dist) to upload the file, and view your unrooted phylogenetic tree. 
