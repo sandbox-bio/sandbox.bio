@@ -34,8 +34,8 @@ How many sequences are in `sarscov2_sequences.fas`?
 	choices={[
 		{ valid: false, value: `1` },
 		{ valid: false, value: `9` },
-		{ valid: false, value: `100` },
 		{ valid: true, value: `11` },
+		{ valid: false, value: `100` },
     ]}>
 	<span slot="prompt"></span>
 </Quiz>

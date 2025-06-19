@@ -35,7 +35,7 @@ Note: The following options may be included in the command to improve accuracy a
 
 4. Now, let's quickly visualize how this information makes a tree in the terminal using `nw_display`:
 
-<Execute command="nw_display - < sarscov2_sequences.unrooted_tree.nwk" />
+<Execute command="nw_display sarscov2_sequences.unrooted_tree.nwk" />
 
 Why might we want to create an unrooted tree, over a rooted tree (with a common ancestor)?
 
@@ -53,5 +53,5 @@ Why might we want to create an unrooted tree, over a rooted tree (with a common 
 5. We can alternatively visualize our tree using webtools. First, use `download` to store the file locally:
 
 <Execute command="download sarscov2_sequences.unrooted_tree.nwk" /> 
-   
+
 6. Navigate to [Taxonium](https://taxonium.org/?xType=x_dist) to upload the file, and view your unrooted phylogenetic tree. 
