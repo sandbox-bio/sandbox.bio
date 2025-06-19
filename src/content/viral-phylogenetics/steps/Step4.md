@@ -26,7 +26,7 @@ The above command incorporates the following flags:
 
 4. Let's visualize in the terminal using:
 
-<Execute command="nw_display - < lsd2_out.nwk" />
+<Execute command="nw_display lsd2_out.nwk" />
 
 5. Again, we can download the file so that it can be uploaded and better visualized in [Taxonium](https://taxonium.org/?xType=x_dist):
 
@@ -68,5 +68,3 @@ We used 10 SARS-CoV-2 sequences to generate this rooted tree. Which statement is
     ]}>
 	<span slot="prompt"></span>
 </Quiz>
-
-The fact that the date of the MRCA is in April 2019 reflects the fact that SARS-CoV-2 is [incredibly difficult to root](https://doi.org/10.1126/science.abp8337). Outgroup rooting does a decent job getting us close to the correct MRCA, but more sophisticated methods are needed to improve the accuracy of SARS-CoV-2 MRCA.

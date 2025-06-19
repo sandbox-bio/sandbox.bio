@@ -35,7 +35,7 @@ Note: The following options may be included in the command to improve accuracy a
 
 4. Now, let's quickly visualize how this information makes a tree in the terminal using `nw_display`:
 
-<Execute command="nw_display - < sarscov2_sequences.unrooted_tree.nwk" />
+<Execute command="nw_display sarscov2_sequences.unrooted_tree.nwk" />
 
 Why might we want to create an unrooted tree, over a rooted tree (with a common ancestor)?
 
