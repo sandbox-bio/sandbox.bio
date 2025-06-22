@@ -8,7 +8,7 @@ Now that we have run MSA on our dataset, we can perform Phylogenetic Inference: 
 
 We will use [FastTree](https://morgannprice.github.io/fasttree/) to generate an unrooted phylogenetic tree to assess relative ancestral relationships between our samples.
 
-1. Try <Execute command="FastTree" inline /> to take a look at the usage instructions.
+1. Try <Execute command="FastTree -help" inline /> to take a look at the usage instructions.
 
 2. Now, generate our phylogenetic tree: 
 
