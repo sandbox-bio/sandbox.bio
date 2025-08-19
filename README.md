@@ -1,8 +1,8 @@
 # sandbox.bio
 
-Interactive bioinformatics command-line tutorials.
+Interactive bioinformatics command-line tutorials for bioinformatics at [sandbox.bio](https://sandbox.bio).
 
-# Contributing
+# Contributing tutorials
 
 ## Overview
 
@@ -99,3 +99,25 @@ Multiple-choice quizzes can be implemented as follows. If there is only one vali
 ### config.js
 
 See the [bedtools tutorial](https://github.com/sandbox-bio/sandbox.bio/blob/main/src/content/bedtools-intro/config.js) for an example `config.js` to use as baseline.
+
+---
+
+# Gists (beta)
+
+You can use the sandbox.bio command line environment to share small snippets of code, make them interactive, and include sample data files:
+
+![](https://sandbox.bio/assets/screenshots/gists.png)
+
+1. Create a GitHub Gist at https://gist.github.com/
+  [ ] Create a `.md` Markdown file with notes about the commands. Code blocks with language "bash" will be runnable within sandbox.bio
+  [ ] Add data files if relevant. These **files will be available in the sandbox.bio command-line environment at load time**!
+2. Once created, the URL contains the gist ID
+3. All you have to do is go to sandbox.bio/gists/gist_id
+
+sandbox.bio will render the Markdown file(s) from the Gist, show code blocks with syntax highlighting, and allow users to run the code blocks in their sandbox.bio terminal environment, where data files will be ready for them.
+
+Limitations:
+* GitHub Gists don't support binary files except common ones like zip files
+* For larger files, you can use the GitHub command line tool to upload them more easily:
+  * Upload local file: `gh gist edit GIST_ID_HERE ./path/to/data.fastq --add data.fastq`
+  * Modify existing file: `gh gist edit GIST_ID_HERE ./path/to/data.fastq --filename data.fastq`
