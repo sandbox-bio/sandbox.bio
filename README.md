@@ -106,7 +106,9 @@ See the [bedtools tutorial](https://github.com/sandbox-bio/sandbox.bio/blob/main
 
 You can use the sandbox.bio command line environment to share small snippets of code, make them interactive, and include sample data files:
 
-![](https://sandbox.bio/assets/screenshots/gists.png)
+|Gist||sandbox.bio|
+|--|--|--|
+| ![](https://github.com/user-attachments/assets/81129198-aeba-417f-a080-bca31153d93c) | ➡️ | ![](https://github.com/user-attachments/assets/a556c66e-46ba-4760-9c11-8b8ceaca06c7) |
 
 1. Create a GitHub Gist at https://gist.github.com/
 	- [ ] Create a `.md` Markdown file with notes about the commands. Bash code blocks are runnable within sandbox.bio
