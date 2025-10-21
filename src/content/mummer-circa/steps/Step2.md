@@ -5,10 +5,10 @@ import Link from "$components/Link.svelte";
 
 Next we need to turn that output into a more standardized format, namely a CSV file that is supported by many tools for downstream analysis:
 
-* Spreadsheets. You can import it into Google Sheets or Excel.
-* R. Import it in R as a dataframe and do visualization with ggplot2 or other plotting libraries.
-* Python. Import it with the pandas library to get a dataframe and do visualization with any plotting library like Matplotlib, Seaborn, or Altair.
-* Circa! We can make a beautiful plot of all the alignments between sequences, like this <Link href="https://circa.omgenomics.com/app/plot/gallery/aligned_genomes">circos plot</Link> showing homology between two larger genomes.
+- Spreadsheets. You can import it into Google Sheets or Excel.
+- R. Import it in R as a dataframe and do visualization with ggplot2 or other plotting libraries.
+- Python. Import it with the pandas library to get a dataframe and do visualization with any plotting library like Matplotlib, Seaborn, or Altair.
+- Circa! We can make a beautiful plot of all the alignments between sequences, like this <Link href="https://circa.omgenomics.com/app/plot/gallery/aligned_genomes">circos plot</Link> showing homology between two larger genomes.
 
 Now we'll convert the delta file to coordinates and prepare it for visualization.
 

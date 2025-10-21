@@ -5,21 +5,17 @@ import Step2 from "./steps/Step2.md";
 import Step3 from "./steps/Step3.md";
 import Step4 from "./steps/Step4.md";
 
-// Exercises
-// import Exercise1 from "./exercises/Exercise1.md";
-// import Exercise2 from "./exercises/Exercise2.md";
-
 export const config = {
 	// Metadata
 	id: "mummer-circa",
 	name: "Aligning genomes with MUMmer",
 	subtitle: `by <a href="https://www.linkedin.com/in/marianattestad/" target="_blank">Maria Nattestad</a>`,
-	description: "Aligning genomes with MUMmer",
+	description: "Use MUMmer to align two bacterial genomes and visualize the results with Circa.",
 	tags: ["mummer", "circa"],
 	difficulty: ["intermediate"],
 
 	// Preload these tools
-	tools: ["nucmer", "show-coords", "samtools", "awk", "cat", "echo"],
+	tools: ["nucmer", "show-coords", "samtools", "awk", "cat", "echo", "head", "less"],
 
 	// Order of steps
 	steps: [
@@ -30,7 +26,7 @@ export const config = {
 		{ name: "Visualization", component: Step4 }
 	],
 
-	// Files within "data/" that you need at runtime.
+	// Files within "data/" that the tutorial needs at runtime.
 	// Whenever you update files within "data/", you will need to restart the "./setup.sh" script.
 	files: ["H_pylori26695_Eslice.fasta", "H_pyloriJ99_Eslice.fasta"]
 };
