@@ -2,10 +2,16 @@
 import Link from "$components/Link.svelte";
 </script>
 
-Comparing genomes between different species or strains can reveal fascinating insights about evolution, structural variation, and genome organization. In this tutorial, we'll walk through the process of aligning two genomes and then visualizing their relationship using a circos plot in Circa.
+In this tutorial, we'll learn how to align and compare two bacterial genomes using MUMmer. We'll use two different strains of _Helicobacter pylori_ - the reference strain 26695 and strain J99.
 
-We'll use data from <Link href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10936905">Ament-Velásquez, et al.</Link>, a 2024 paper studying genome evolution in fungi. The paper compares genomes of <i>Podospora anserina</i> and related species, providing an excellent example of how genome alignments can illuminate evolutionary relationships. We will reproduce one of the circos plots in <Link href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10936905/#evae034-F1">figure 1 (upper right corner)</Link> because it shows that <i>P. pseudocomata</i> aka CBS415.72 has an interesting set of alignments to <i>P. anserina</i>, with chromosome 1 and 2 from <i>P. anserina</i> each split into two pieces in <i>P. pseudocomata</i>.
+_H. pylori_ is a bacterium that colonizes the human stomach and can cause ulcers and gastric cancer. By comparing different strains, we can better understand how this pathogen evolves and adapts to different hosts.
 
-We will align the two genomes to each other using MUMmer's `nucmer` tool, wrangle the output into a CSV file, and then visualize the results using Circa. Here is the visualization we will reproduce:
+We'll use MUMmer's `nucmer` tool to align the genomes, process the output into a readable format, and prepare the data for visualization. The workflow will be:
 
-<Link href="https://circa.omgenomics.com/app/plot/gallery/aligned_genomes" />
+1. Align genomes with `nucmer`
+2. Convert alignment to coordinates with `show-coords`
+3. Process the data into CSV format
+4. Generate reference files that will set up the coordinate system for visualization
+5. Use Circa to make a circos plot
+
+Let's get started!

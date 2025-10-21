@@ -5,22 +5,27 @@ import Link from "$components/Link.svelte";
 
 Next we need to turn that output into a more standardized format, namely a CSV file that is supported by many tools for downstream analysis:
 
-1. Spreadsheets. You can import it into Google Sheets or Excel.
-2. R. Import it in R as a dataframe and do visualization with ggplot2 or other plotting libraries.
-3. Python. Import it with the pandas library to get a dataframe and do visualization with matplotlib, seaborn, altair, and many other plotting libraries.
-4. Circa! We can make a beautiful circos plot in Circa, like this: <Link href="https://circa.omgenomics.com/app/plot/gallery/aligned_genomes" />
+* Spreadsheets. You can import it into Google Sheets or Excel.
+* R. Import it in R as a dataframe and do visualization with ggplot2 or other plotting libraries.
+* Python. Import it with the pandas library to get a dataframe and do visualization with any plotting library like Matplotlib, Seaborn, or Altair.
+* Circa! We can make a beautiful plot of all the alignments between sequences, like this <Link href="https://circa.omgenomics.com/app/plot/gallery/aligned_genomes">circos plot</Link> showing homology between two larger genomes.
 
-First, use show-coords with the `-lTH` flags to get a simpler tab-delimited file that we can better work with programmatically:
-<Execute command={"show-coords -lTH CBS415_to_Podan.delta > CBS415_to_Podan.coords"} />
+Now we'll convert the delta file to coordinates and prepare it for visualization.
 
-The headers available from show-coords are not very readable (e.g. [E1], [S1]), so we'll add our own:
+First, use show-coords to get the alignment coordinates:
 
-<Execute command={"NEW_HEADER='reference_start,reference_end,query_start,query_end,reference_alignment_length,query_alignment_length,percent_identity,reference_length,query_length,reference_chromosome,query_chromosome'"} />
+<Execute command="show-coords -lTH $NAME.delta > $NAME.coords" />
 
-Add that header and change the column spacing to comma-separated:
+The headers from show-coords aren't very readable (e.g. [E1], [S1]), so let's create our own header:
 
-<Execute command={"(echo $NEW_HEADER && awk '{$1=$1}1' OFS="," CBS415_to_Podan.coords) > CBS415_to_Podan.csv"} />
+<Execute command={`NEW_HEADER="reference_start,reference_end,query_start,query_end,reference_alignment_length,query_alignment_length,percent_identity,reference_length,query_length,reference_chromosome,query_chromosome"`} />
 
-Now we can load that into Circa to make this beautiful plot:
+Now we'll create a CSV file with our new header:
 
-<Link href="https://circa.omgenomics.com/app/plot/gallery/aligned_genomes" />
+<Execute command={'(echo "$NEW_HEADER" && awk \'{$1=$1}1\' OFS="," $NAME.coords) > $NAME.csv'} />
+
+Let's look at the first few lines of the CSV file:
+
+<Execute command="head $NAME.csv" />
+
+It might be easier to see it with <Execute command="less -S $NAME.csv" inline />, just press `q` to quit.

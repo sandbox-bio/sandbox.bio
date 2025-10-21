@@ -3,27 +3,32 @@ import Execute from "$components/Execute.svelte";
 import Link from "$components/Link.svelte";
 </script>
 
-We preloaded data from <Link href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10936905">Ament-Velásquez, et al.</Link>. We got this data from the <Link href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.1vhhmgr0j">supplementary data</Link> by downloading the big `Dryad.zip` file and finding the two files we needed inside the "Assemblies" folder.
+First, let's look at our input files:
 
-To show the files we are working with, click on or type <Execute command={"ls"} inline /> into the command line.
+<Execute command="ls" />
 
-It's always good to take a look at both files to confirm they look like proper FASTA files before we start.
+We have two FASTA files:
 
-<Execute command={"head Podan2_AssemblyScaffoldsmt.fa"} />
+- H_pylori26695_Eslice.fasta: The reference strain
+- H_pyloriJ99_Eslice.fasta: The query strain
 
-<Execute command={"head CBS415.72m.nice_mt.fa"} />
+These FASTA files come from the <Link href="https://mummer4.github.io/tutorial/tutorial.html">MUMmer tutorial</Link>.
+
+Let's set up some variables to make our commands cleaner:
+
+<Execute command={`REF=H_pylori26695_Eslice.fasta
+QUERY=H_pyloriJ99_Eslice.fasta
+NAME=\${REF%.fasta}_to_\${QUERY%.fasta}`} />
 
 Let's start by aligning two genomes using the MUMmer4 package. We use `nucmer` because that is MUMmer's aligner for nucleotide sequences ("nuc"), i.e. DNA or RNA sequences, and here we are aligning DNA.
 
-With nucmer, we need to pick a "reference" and a "query". Usually the reference is the more complete or established genome, while the query is the new one. In this paper, they are comparing many different genomes all to Podan2 (an existing genome assembly that predates the paper), so in this case Podan2 is the clear pick for the reference, which makes the query CBS415.72.
+<Execute command="nucmer --prefix $NAME $REF $QUERY" />
+(This might take a minute)
 
-You can see Nucmer's expected syntax by simply trying to run it (i.e. <Execute command={"nucmer"} inline />), but just note that the reference should come before the query, i.e. `nucmer <options> <reference.fa> <query.fa>`.
+This will create a delta file containing the alignments. The `--prefix` option sets the prefix for output files.
 
-<Execute command={"time nucmer -maxmatch -l 100 -c 1000 \\ --prefix CBS415_to_Podan \\ Podan2_AssemblyScaffoldsmt.fa \\ CBS415.72m.nice_mt.fa"} />
+Let's look at the first few lines of the delta file:
 
-That should take a few minutes, so grab a cup of coffee, then come back and view the output:
+<Execute command="head $NAME.delta" />
 
-<Execute command={"head CBS415_to_Podan.delta"} />
-
-That's not very human-readable, but we can use MUMmer's utilities to view it:
-<Execute command={"show-coords CBS415_to_Podan.delta | head"} />
+The delta file format is not very human-readable, so in the next step we'll convert it to a more useful format.
