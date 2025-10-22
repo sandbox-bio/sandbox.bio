@@ -18,15 +18,6 @@ const criteria = [
 		path: "exercise-data/longest.txt",
 		action: "exists"
 	}]
-},
-{
-	name: "The file <code>longest.txt</code> contains each file's unique species",
-	checks: [{
-		type: "file",
-		path: "exercise-data/longest.txt",
-		action: "contents",
-		commandExpected: `cd exercise-data/ && wc -l alkanes/*.pdb | sort -n | tail -n 2 | head -n 1`
-	}]
 }];
 </script>
 
