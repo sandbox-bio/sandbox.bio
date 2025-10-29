@@ -8,6 +8,8 @@ import Step4 from "./steps/Step4.md";
 export const config = {
 	// Metadata
 	id: "mummer-circa",
+	icon: "bezier2",
+	date: "October 2025",
 	name: "Aligning genomes with MUMmer",
 	subtitle: `by <a href="https://www.linkedin.com/in/marianattestad/" target="_blank">Maria Nattestad</a>`,
 	description: "Use MUMmer to align two bacterial genomes and visualize the results with Circa.",

@@ -11,7 +11,7 @@ export const config = {
 	id: "viral-phylogenetics",
 	name: "Viral Phylogenetics",
 	icon: "virus",
-	date: "July 2025",
+	date: "June 2025",
 	subtitle: `by <a href="https://www.linkedin.com/in/madison-ritter-b1374518a" target="_blank">Maddie Ritter</a> and <a href="https://www.linkedin.com/in/kyra-fetter" target="_blank">Kyra Fetter</a>`,
 	description: "Perform viral phylogenetics analysis using real SARS-COV2 whole-genome sequences.",
 	tags: ["MSA", "phylogeny", "FastTree", "lsd2"],

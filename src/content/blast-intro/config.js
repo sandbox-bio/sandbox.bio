@@ -12,7 +12,7 @@ import Conclusion from "./steps/Conclusion.md";
 export const config = {
 	id: "blast-intro",
 	date: "February 2024",
-	name: "Sequence alignment with BLAST",
+	name: "BLAST tutorial",
 	icon: "binoculars",
 	description: "Use BLAST to align DNA and protein sequences.",
 	tags: ["blastn", "blastp"],

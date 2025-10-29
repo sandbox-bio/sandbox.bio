@@ -20,7 +20,7 @@ const criteria = [
 		type: "file",
 		path: "exercise-data/writing/stats.txt",
 		action: "contents",
-		commandExpected: `for sis in Jo Meg Beth Amy; do echo "$sis:"; grep -ow $sis exercise-data/writing/LittleWomen.txt | wc -l; done`
+		commandExpected: `for sis in Jo Meg Beth Amy; do echo -n "$sis: "; grep -owi $sis exercise-data/writing/LittleWomen.txt | wc -l; done`
 	}]
 }];
 </script>
@@ -34,14 +34,10 @@ You and your friend, having just finished reading Little Women by Louisa May Alc
 The file `stats.txt` should match the following format:
 
 ```js
-Jo:
-111
-Meg:
-222
-Beth:
-333
-Amy:
-444
+Jo: 111
+Meg: 222
+Beth: 333
+Amy: 444
 ```
 
 <Exercise {criteria} {hints} />

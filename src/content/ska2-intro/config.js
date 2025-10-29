@@ -15,7 +15,7 @@ export const config = {
 	description: "Use ska.rust to compare and align closely related small genomes using split k-mers",
 	tags: ["ska2", "k-mers"],
 	tools: ["ska"],
-	difficulty: ["beginner"],
+	difficulty: ["intermediate"],
 	steps: [
 		{ name: "Building trees with SKA", component: Intro },
 		{ name: "Why SKA is good for building phylogenetic trees", component: Step0 },
