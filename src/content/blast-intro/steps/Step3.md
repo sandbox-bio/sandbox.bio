@@ -10,7 +10,7 @@ To put these various tools and options to use, let's consider using `blastp` to 
 
 In order to find sequences that are similar to others, we're going to want to `blastp` this file against itself. So, we'll start by creating a database of these sequences:
 
-<Execute command={`makeblastdb \\ -in orf_trans.fasta \\ -out orf_trans \\ -dbtype prot \\ -title "Yeast Open Reading Frames" \\ -parse_seqids`} />
+<Execute command={`makeblastdb \\ -in orf_trans.fasta \\ -out orf_trans \\ -dbtype prot \\ -title "Yeast Open Reading Frames" \\ -parse_seqids \\ -blastdb_version 4`} />
 
 This will take a few seconds to complete.
 
