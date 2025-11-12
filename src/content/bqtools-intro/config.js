@@ -11,9 +11,6 @@ import Step8 from "./steps/Step8.md";
 import Step9 from "./steps/Step9.md";
 import Step10 from "./steps/Step10.md";
 import Conclusion from "./steps/Conclusion.md";
-// Exercises
-import Exercise1 from "./exercises/Exercise1.md";
-import Exercise2 from "./exercises/Exercise2.md";
 
 export const config = {
 	// Metadata
