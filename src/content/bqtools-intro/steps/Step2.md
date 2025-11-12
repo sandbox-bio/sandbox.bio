@@ -3,7 +3,7 @@ import Execute from "$components/Execute.svelte";
 </script>
 
 `bqtools` is a command-line tool.
-To bring up the help use type `<Execute command="bqtools --help" inline />`
+To bring up the help screen, type `<Execute command="bqtools --help" inline />`
 
 As you can see, there are multiple "subcommands" and for `bqtools` to work you must tell it which subcommand you want to use.
 
