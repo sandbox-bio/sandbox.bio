@@ -4,6 +4,7 @@ import { config as terminalIntro } from "$content/terminal-basics/config.js";
 import { config as igvIntro } from "$content/igv-intro/config.js";
 import { config as bedtoolsIntro } from "$content/bedtools-intro/config.js";
 import { config as bowtie2Intro } from "$content/bowtie2-intro/config.js";
+import { config as bqtoolsIntro } from "$content/bqtools-intro/config.js";
 import { config as samtoolsIntro } from "$content/samtools-intro/config.js";
 import { config as jqIntro } from "$content/jq-intro/config.js";
 import { config as awkIntro } from "$content/awk-intro/config.js";
@@ -44,6 +45,7 @@ export const tutorials = readable([
 	// Bioinformatics
 	bedtoolsIntro,
 	bowtie2Intro,
+	bqtoolsIntro,
 	samtoolsIntro,
 	fastpIntro,
 	igvIntro,
