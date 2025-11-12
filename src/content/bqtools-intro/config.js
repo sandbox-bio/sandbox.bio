@@ -15,6 +15,8 @@ import Conclusion from "./steps/Conclusion.md";
 export const config = {
 	// Metadata
 	id: "bqtools-intro",
+	icon: "speedometer2",
+	date: "November 2025",
 	name: "Efficient sequence analysis with bqtools",
 	subtitle: `by <a href="https://noamteyssier.github.io" target="_blank">Noam Teyssier</a>`,
 	description: "Exploring bqtools, a toolkit for working with and manipulating BINSEQ files",
@@ -50,6 +52,7 @@ export const config = {
 		"fastq/sample3_R1.fastq.gz",
 		"fastq/sample3_R2.fastq.gz",
 		"fastq/sample4_R1.fastq.gz",
-		"fastq/sample4_R2.fastq.gz"
+		"fastq/sample4_R2.fastq.gz",
+		"patterns/patterns.txt"
 	]
 };
