@@ -40,9 +40,6 @@ export const config = {
 		{ name: "Grep - Simple", component: Step8 },
 		{ name: "Grep - Paired", component: Step9 },
 		{ name: "Grep - Pattern Counting", component: Step10 },
-		// We use subtitle to define subsections. Click the "1 / 6" button at the bottom to see the effect on the table of contents
-		{ name: "Exercises", component: Exercise1, subtitle: "Find non-exons", header: true },
-		{ name: "Exercises", component: Exercise2, subtitle: "Find exons in 500kb regions" },
 		{ name: "The end", component: Conclusion, header: true }
 	],
 
