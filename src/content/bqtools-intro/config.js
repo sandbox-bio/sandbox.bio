@@ -16,7 +16,7 @@ export const config = {
 	// Metadata
 	id: "bqtools-intro",
 	name: "Efficient sequence analysis with bqtools",
-	subtitle: `by <a href="https://google.com" target="_blank">Noam Teyssier</a>`,
+	subtitle: `by <a href="https://noamteyssier.github.io" target="_blank">Noam Teyssier</a>`,
 	description: "Exploring bqtools, a toolkit for working with and manipulating BINSEQ files",
 	tags: ["bqtools", "binseq", "sequences", "cli"],
 	difficulty: ["beginner"],
