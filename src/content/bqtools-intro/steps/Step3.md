@@ -38,8 +38,6 @@ Let's compare the file sizes of all the files:
 
 <Execute command="ls -lh fastq/sample1_R1.fastq.gz sample1_R1.vbq sample1_R1.bq"/>
 
-> Note: In this case, on very small files, the BQ file is slightly smaller than the VBQ file.
-
 Because BQ does not use any compression (just two-bit encoding of nucleotides), it has a deterministic size from the number of nucleotides in the file.
 
 VBQ uses <Link href="https://en.wikipedia.org/wiki/Zstd">ZSTD</Link> encoding internally and depending on the nucleotide characteristics, the file size is non-deterministic but tends to be smaller than BQ in most cases and roughly the same size as <Link href="https://en.wikipedia.org/wiki/CRAM_(file_format)">CRAM</Link> files.
