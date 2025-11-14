@@ -26,7 +26,7 @@ By default the logic for accepting a read with multiple patterns follows an `AND
 
 Let's find all the records that contain _both_ `ACGTACGT` and `TATA` and output as a fastq using the `-f/--format` option:
 
-<Execute command="bqtools grep merged.vbq ACGTACGT TATA" />
+<Execute command="bqtools grep merged.vbq ACGTACGT TATA -fq" />
 
 > Note: to search for patterns using `OR` logic, you can use the `--or-logic` flag.
 
