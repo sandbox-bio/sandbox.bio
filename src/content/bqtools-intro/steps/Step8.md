@@ -24,7 +24,7 @@ Let's actually just count the number of records we got with this search using th
 We can also add additional patterns to search for in our records.
 By default the logic for accepting a read with multiple patterns follows an `AND` logic, which means that a read must contain all patterns to be accepted.
 
-Lets for all the records that contain *both* `ACGTACGT` and `TATA`
+Let's find all the records that contain _both_ `ACGTACGT` and `TATA` and output as a fastq using the `-f/--format` option:
 
 <Execute command="bqtools grep merged.vbq ACGTACGT TATA" />
 

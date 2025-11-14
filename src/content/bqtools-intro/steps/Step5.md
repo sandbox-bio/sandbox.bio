@@ -14,7 +14,7 @@ Oh, there is a warning!
 
 Let's take a look at the files that were created:
 
-<Execute command="ls -l fastq/*.vbq" />
+<Execute command="ls -lh fastq/*.vbq" />
 
 We can see that we have 8 VBQ files with an R1 or R2 - but we've learned we do not need to keep these files separate.
 
@@ -32,6 +32,6 @@ Now let's try again with the `--paired` flag:
 
 Great! Now we have exactly what we want - 4 files that are paired:
 
-<Execute command="ls -l fastq/*.vbq" />
+<Execute command="ls -lh fastq/*.vbq" />
 
 > Note: the `--recursive` flag will convert all files in a directory and its subdirectories to BINSEQ files. If you want to limit the depth of the recursion you can use the `--depth` flag.

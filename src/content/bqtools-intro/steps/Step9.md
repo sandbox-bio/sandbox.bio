@@ -12,6 +12,6 @@ Let's test this out and find records that have the pattern `GGGG` in the primary
 
 <Execute command="bqtools grep merged.vbq -r GGGG -R TTTTACGT" />
 
-Well that's not very many! How many exactly? Well lets count them!
+Well that's not very many! How many exactly? Well let's count them!
 
 <Execute command="bqtools grep merged.vbq -r GGGG -R TTTTACGT -C" />

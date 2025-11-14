@@ -9,7 +9,7 @@ It is designed to be efficient and compact, making it suitable for large-scale g
 To convert a FASTQ (or FASTA) file to BINSEQ we can make use of the `bqtools` command-line tool.
 Specifically we can use `bqtools encode` to convert the file.
 
-Lets encode a single FASTQ file:
+Let's encode a single FASTQ file:
 
 <Execute command="bqtools encode fastq/sample1_R1.fastq.gz -o sample1_R1.vbq"/>
 
