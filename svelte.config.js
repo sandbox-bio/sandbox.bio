@@ -1,4 +1,4 @@
-import adapter from "@sveltejs/adapter-cloudflare";
+import adapter from "@sveltejs/adapter-vercel";
 import { markdown } from "svelte-preprocess-markdown";
 
 const config = {

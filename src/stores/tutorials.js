@@ -1,5 +1,6 @@
 import { readable } from "svelte/store";
 import { config as _template } from "$content/_template/config.js";
+import { config as wes_intro } from "$content/wes_intro/config.js";
 import { config as terminalIntro } from "$content/terminal-basics/config.js";
 import { config as igvIntro } from "$content/igv-intro/config.js";
 import { config as bedtoolsIntro } from "$content/bedtools-intro/config.js";
@@ -71,7 +72,8 @@ export const tutorials = readable([
 	datepro7,
 	datepro8,
 	// Template tutorial
-	_template
+	_template,
+	wes_intro
 ]);
 
 // Tutorial listings
