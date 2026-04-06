@@ -8,7 +8,7 @@ export const progress = writable({});
 // When tutorial progress is updated, update DB
 progress.subscribe(async (newProgress) => {
 	const userInfo = get(user);
-	if (!browser || !userInfo.id) return;
+	if (!browser || !userInfo || !userInfo.id) return;
 	const query = supabaseAnon.from(t("state")).update({ progress: newProgress }).match({ user_id: userInfo.id });
 
 	const { error } = await query;
