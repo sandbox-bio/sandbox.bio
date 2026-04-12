@@ -1,0 +1,5 @@
+read_251_adapter
+read_291_tn5
+read_326_barcodeA
+read_346_barcodeB
+read_361_barcodeC
