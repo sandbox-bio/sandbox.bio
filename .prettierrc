@@ -5,5 +5,8 @@
 	"plugins": ["prettier-plugin-svelte"],
 	"svelteIndentScriptAndStyle": false,
 	"pluginSearchDirs": ["."],
-	"overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }]
+	"overrides": [
+		{ "files": "*.svelte", "options": { "parser": "svelte" } },
+		{ "files": "src/content/makefile-intro/**/*.md", "options": { "printWidth": 88, "proseWrap": "always", "embeddedLanguageFormatting": "off" } }
+	]
 }
