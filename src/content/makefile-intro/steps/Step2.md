@@ -1,6 +1,8 @@
-<script>
+<!-- <script>
 import Execute from "$components/Execute.svelte";
 </script>
+
+<!-- TOPIC: Makefile structure. Cover targets and recipes. -->
 
 > **VIM Shortcuts**
 >
@@ -16,10 +18,9 @@ Let's start with a simple example: The universal "Hello, world".
 
 Write the following, then save and close the editor.
 
-<!-- prettier-ignore -->
 ```Makefile
 hello-world:
-	echo -e "Hello, world\n"
+	echo -e "Hello, world\\n"
 ```
 
 Let's breakdown what you just wrote:
@@ -28,7 +29,7 @@ Let's breakdown what you just wrote:
    `hello-world`. This assigns a _name_ to a recipe, so that you can tell `make` which
    recipe to, well, _make_.
 2. **The recipe**; i.e., a line starting with a tab (`\t`) followed by a shell command;
-   e.g., `echo -e "Hello, world\n". This tells`make` what to do for a given target.
+   e.g., `echo ...`. This tells `make` what to do for a given target.
 
 Some important details:
 
@@ -43,3 +44,18 @@ Now execute the target.
 
 You should see "Hello, world" printed to the console. Congrats! You've made your first
 Makefile.
+
+You also probably saw `echo "Hello, world"`: `make` will print each command before
+running it. Usually, this is great, but in some caeses, like with `echo`, it's tedious.
+
+Fortunately, there's a simple fix: Put an `@` just before the command.
+
+```Makefile
+	@echo ...
+```
+
+#### Recap
+
+- Define **targets** as the name of the thing to run.
+- Define **recipes** as a series of commands to run when executing a target.
+- Use an `@` at the start of recipe lines to avoid printing the command to stdout. -->
