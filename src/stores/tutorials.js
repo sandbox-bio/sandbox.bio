@@ -31,6 +31,7 @@ import { config as datepro7 } from "$content/datepro-07-text-processing/config";
 import { config as datepro8 } from "$content/datepro-08-semantic-processing/config";
 import { config as ska2Intro } from "$content/ska2-intro/config";
 import { config as mummerCirca } from "$content/mummer-circa/config";
+import { config as bashScript } from "$content/bash-script/config.js";
 import { env } from "$env/dynamic/public";
 
 // All tutorials
@@ -70,6 +71,7 @@ export const tutorials = readable([
 	datepro6,
 	datepro7,
 	datepro8,
+	bashScript,
 	// Template tutorial
 	_template
 ]);
