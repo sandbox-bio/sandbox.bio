@@ -1,5 +1,5 @@
 <script>
-import { Accordion, AccordionItem, Alert } from "@sveltestrap/sveltestrap";
+import { Accordion, AccordionItem, Alert } from "sveltestrap";
 
 // Svelte 3 uses 'export let' for props with default values
 export let type = "practical";
