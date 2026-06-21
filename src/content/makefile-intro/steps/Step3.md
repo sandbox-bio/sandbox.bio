@@ -14,10 +14,10 @@ Create a file with the same name as our target.
 
 <!-- prettier-ignore -->
 <Quiz id="q3.1" choices={[
-{ valid: true, value: "It will error or warn."},
+{ valid: false, value: "It will error or warn."},
 { valid: false, value: "It will print \"Hello, world\""},
 { valid: false, value: "It will print \"Goodbye, world\""},
-{ valid: false, value: "Nothing"},
+{ valid: true, value: "Nothing"},
 ]}>
 <span slot="prompt">
 What do you think will happen when we run the make target?
@@ -28,7 +28,8 @@ Now try to run the target:
 
 <Execute command="make hello-world" />
 
-It turns out that `make` targets are expected to be files. In other words, the name
-"make" is quite literal: The goal is to "make" the file "hello-world". When `make` tries
-to build the rule, it sees the file and realizes it has nothing to do. We'll fix this in
-the next step.
+You should have gotten an information message saying that there was nothing to do for
+the target. It turns out that `make` targets are expected to be files. In other words,
+the name "make" is quite literal: The goal is to "make" the file "hello-world". When
+`make` tries to build the rule, it sees the file and realizes it has nothing to do.
+We'll fix this in the next step.

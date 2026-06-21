@@ -13,7 +13,7 @@ if [[ "${MADLIB_PART}" == "beginning" ]]; then
     word=$(cat word-noun.txt)
     echo "Once upon a time, there was a ${word}." > ${MADLIB_FILE}
 elif [[ "${MADLIB_PART}" == "middle" ]]; then
-    word=$(cat word-veb.txt)
+    word=$(cat word-verb.txt)
     echo "It ${word}ed the road." > ${MADLIB_FILE}
 elif [[ "${MADLIB_PART}" == "end" ]]; then
     word=$(cat word-adverb.txt)

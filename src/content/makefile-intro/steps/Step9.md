@@ -20,7 +20,7 @@ story: story-%
 ```
 
 <!-- prettier-ignore -->
-<Quiz id="q3.1" choices={[
+<Quiz id="q9.1" choices={[
 { valid: false, value: "It will error or warn."},
 { valid: false, value: "It will print the whole story."},
 { valid: true, value: "It will print \"The End\""},
@@ -33,4 +33,4 @@ What do you think will happen when we run the make target?
 
 <Execute command="make" />
 
-Did it do what you expected? We'll discuss what happend and the fix in the next step.
+Did it do what you expected? We'll discuss what happened and the fix in the next step.

@@ -29,7 +29,7 @@ Essentially:
 3. The `:=` assignment operator evaluates the assignment immediately. There are other
    variations, but this one is all we'll need for now.
 
-Special variables work just like regular variables, and `.DEFALT_GOAL` sets the default
+Special variables work just like regular variables, and `.DEFAULT_GOAL` sets the default
 target to use if not specified. Add the following line to the top of the file and rerun.
 
 ```Makefile

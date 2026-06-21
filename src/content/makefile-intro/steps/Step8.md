@@ -2,7 +2,7 @@
 import Execute from "$components/Execute.svelte";
 </script>
 
-<!-- TOPIC: Prereq Order -->
+<!-- TOPIC: Prerequisite Order -->
 
 There's a subtle issue with our prerequisites: `make` does not guarantee that each rule
 is run in the order defined.
@@ -16,7 +16,7 @@ Update the targets as shown below and rerun to see if it works:
 
 ```Makefile
 story-middle: story-beginning
-story-end: story-end
+story-end: story-middle
 ```
 
 <Execute command="make" />

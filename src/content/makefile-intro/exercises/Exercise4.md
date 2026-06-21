@@ -31,21 +31,21 @@ let criteria = [
  }]
 },
 {
- name: "File <code>madlib-beginning.txt</code> contains the story line with the madlb",
+ name: "File <code>madlib-beginning.txt</code> contains the story line with the madlib",
  checks: [{
   type: "file",
   path: "madlib-beginning.txt",
   action: "exists",
  }]
 },{
- name: "File <code>madlib-middle.txt</code> contains the story line with the madlb",
+ name: "File <code>madlib-middle.txt</code> contains the story line with the madlib",
  checks: [{
   type: "file",
   path: "madlib-middle.txt",
   action: "exists",
  }]
 },{
- name: "File <code>madlib-end.txt</code> contains the story line with the madlb",
+ name: "File <code>madlib-end.txt</code> contains the story line with the madlib",
  checks: [{
   type: "file",
   path: "madlib-end.txt",

@@ -28,6 +28,6 @@ couple of things to note now:
 
 1. It doesn't matter where you put `.PHONY`, but the rule of thumb is to put it at the
    top of the file or just before the rule(s) it affects.
-2. You can declare multiple `.PHONY` targets. In fact, you can decalre multiple of any
+2. You can declare multiple `.PHONY` targets. In fact, you can declare multiple of any
    target: `make` will merge the prerequisites of each, but it will only execute the
    _last_ recipe.

@@ -17,7 +17,7 @@ First, write out each part of the story into separate files.
 
 <Execute command={`echo "It crossed the road." > story-middle.txt`} />
 
-<Execute command={`echo "And lived a happy life on the other side." > -storyend.txt`} />
+<Execute command={`echo "And lived a happy life on the other side." > story-end.txt`} />
 
 Switch to `Makefile.story` and add the following:
 

@@ -33,11 +33,11 @@ export const config = {
 	name: "Intro to Makefiles",
 	subtitle: `by <a href="https://github.com/muppetjones" target="_blank">Stephen Bush</a>`,
 	description: "Learn the basics of makefile automation.",
-	tags: ["terminal", "shell", "make", "makefile", "vim"],
+	tags: ["terminal", "shell", "make", "makefile"],
 	difficulty: ["beginner"],
 
 	// Preload these tools as soon as the page loads
-	tools: ["make", "ls", "vim", "cat", "less", "rm"],
+	tools: ["make", "ls", "vim", "cat", "less", "rm", "tr"],
 
 	// Sets up an IDE layout
 	tabs: [
@@ -62,7 +62,7 @@ export const config = {
 		// (Special) Variables
 		{ name: "Bravely default", component: Step5 },
 
-		// Prerequisites (steup)
+		// Prerequisites (setup)
 		{ name: "Story time", component: Step6 },
 
 		// Include directive
@@ -99,15 +99,11 @@ export const config = {
 		{ name: "Exercises", component: Exercise1, subtitle: "Gzip text files", header: true },
 		{ name: "Exercises", component: Exercise2, subtitle: "Ungzip text files" },
 		{ name: "Exercises", component: Exercise3, subtitle: "Convert and index SAM files" },
-		{ name: "Exercises", component: Exercise4, subtitle: "Madlib!" },
+		{ name: "Exercises", component: Exercise4, subtitle: "Mad Lib!" },
 	],
 
 
 	// Files within "data/" that you need at runtime.
 	// Whenever you update files within "data/", you will need to restart the "./setup.sh" script.
-	files: [
-		"Makefile.madlib",
-		"generate_word.sh",
-		"generate_madlib_part.sh"
-	]
+	files: ["Makefile.madlib", "generate_word.sh", "generate_madlib_part.sh"]
 };

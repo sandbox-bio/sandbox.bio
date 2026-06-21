@@ -43,6 +43,6 @@ story-%.txt:
 	@echo "$($(call to_upper,$*))" > $@
 ```
 
-<Execute command="make story-beginning.txt; cat story-beginning.tx" />
+<Execute command="make story-beginning.txt; cat story-beginning.txt" />
 
 Did it print "\* is up to date"? Let's make it easier to reset our targets next.

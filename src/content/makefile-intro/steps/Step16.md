@@ -13,7 +13,7 @@ you're compiling large libraries.
 Instead, let's create a rule to clean up after ourselves.
 
 <!-- prettier-ignore -->
-<Quiz id="q3.1" choices={[
+<Quiz id="q16.1" choices={[
 { valid: false, value: "Mark it as the default group."},
 { valid: true, value: "Mark it as phony."},
 { valid: true, value: "Ignore errors with `-`."},
@@ -41,4 +41,4 @@ clean-story:
 	-@rm -f story-*.txt
 ```
 
-<Execute command="make clean; make story-beginning.txt; cat story-beginning.text" />
+<Execute command="make clean; make story-beginning.txt; cat story-beginning.txt" />

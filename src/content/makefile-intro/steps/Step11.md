@@ -4,7 +4,7 @@ import Execute from "$components/Execute.svelte";
 
 <!-- TOPIC: Pattern substitution -->
 
-Unfortunately, the explict vs implicit pattern we ran into has another caveat: `make`
+Unfortunately, the explicit vs implicit pattern we ran into has another caveat: `make`
 will not evaluate implicit rules for phony targets. No implicit rules _yet_, but we
 _can_ still streamline our rules using builtin functions.
 

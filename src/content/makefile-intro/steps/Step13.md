@@ -15,7 +15,7 @@ appropriately named file. Should be pretty easy, right?
 - We stored the story lines in variables, but can we use the target to specify which
   variable to use?
 
-Yes! We can! The special vairable `$*` is the value of the pattern matched by `%`, and
+Yes! We can! The special variable `$*` is the value of the pattern matched by `%`, and
 we can wrap that variable in `$( )`, and `make` will evaluate the inner expression
 first!
 
@@ -26,7 +26,7 @@ story-%.txt:
 
 Save and execute one of the story targets, then `cat` the file out.
 
-<Execute command="make story-beginning.txt; cat story-beginning.tx" />
+<Execute command="make story-beginning.txt; cat story-beginning.txt" />
 
 However, there's a catch. Did you see it? It creates the file, but it's empty!
 

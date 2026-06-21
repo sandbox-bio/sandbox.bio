@@ -2,7 +2,7 @@
 import Execute from "$components/Execute.svelte";
 </script>
 
-Dusing this tutorial, we'll use vim to edit our Makefile, so it's worth a quick
+During this tutorial, we'll use vim to edit our Makefile, so it's worth a quick
 refresher. There are many vim tutorials out there, so we'll keep this simple.
 
 1. Basic file editing
@@ -10,7 +10,7 @@ refresher. There are many vim tutorials out there, so we'll keep this simple.
 3. Copy, paste, and undo
 
 First, generate a file with some content that we can work with, then print the file to
-the console so we can see what it loks like.
+the console so we can see what it looks like.
 
 <Execute
 command={`echo -e 'one, two, three\\nfour, five, six\\nseven, ate, nine' > example.txt`}

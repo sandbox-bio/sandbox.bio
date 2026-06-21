@@ -10,15 +10,12 @@ something like this, but it may not match exactly
 include Makefile.story
 
 # Sets the default target for using `make` without any targets
-.DEFAULT_GROUP: story
+.DEFAULT_GOAL := story
 
 # Indicates that the targets are _not_ files
-.PHONY: hello-world goodbye
+.PHONY: hello-world
 hello-world:
 	@echo "Hello, world."
-
-goodbye: hello-world
-	@echo "Goodbye, world!"
 ```
 
 ###### `Makefile.story`

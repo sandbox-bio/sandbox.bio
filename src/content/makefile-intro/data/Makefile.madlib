@@ -2,8 +2,6 @@
 
 # Variables
 # ======================================================================
-BEGINNING := "Once upon a time, there was a chicken."
-.DEFAULT_GOAL := madlib
 
 WORD_TYPES := adverb noun verb
 WORD_FILES = $(WORD_TYPES:%=word-%.txt)
