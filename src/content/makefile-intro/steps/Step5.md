@@ -3,46 +3,35 @@ import Execute from "$components/Execute.svelte";
 import Quiz from "$components/Quiz.svelte";
 </script>
 
-<!-- TOPIC: Dynamic Targets -->
+<!-- TOPIC: Special variables -->
 
-Let's go back to the story makefile we were working on before.
-
-<Execute command="cat Makefile.story" />
-
-Do you hate retyping the same thing over and over, too? Thankfully, `make` supports a
-few special variables -- one in particular that we can use to make this a little
-cleaner: `$@`. This variable can be used within a recipe to refer to the name of the
-target.
-
-We can replace all of the `story-%` targets with a single, dynamic target. Don't forget
--- we _also_ need to keep the prerequisites to ensure the story order.
-
-<Execute command="vim Makefile.story" />
-
-```Makefile
-story-%:
-	@cat "${@}.txt"
-
-story-middle: story-beginning
-story-end: story-middle
-```
-
-Before we run it, let's update our original `Makefile` so that we don't have to declare
-`-f Makefile.story` every time we call `make`.
-
-<Execute command="vim Makefile" />
-
-```Makefile
-include Makefile.story
-```
-
-Now, when we call make, we should see our short story printed out.
+So far, we've told `make` which rule to run, but remember -- we loathe repeating
+ourselves and typing more than necessary. It turns out `make` doesn't require us to
+provide a name. Try and see what happens.
 
 <Execute command="make" />
 
-## Recap
+Without a target specified, `make` will run the first rule it sees... which is not
+ideal. We can set a special variable to tell `make` which rule to run by default, but
+first, we need to understand make variables.
 
-- Use wildcards like `%` and special variables like `$@` to reduce repitition within
-  targets and recipes.
-- Include one makefile within another via the `include` directive at the top of your
-  file.
+```Makefile
+NAME := value
+
+$(NAME):
+	echo "$(NAME)"
+```
+
+Essentially:
+
+1. Declare variables at the top of the file using the pattern shown.
+2. Use the variable anywhere in rules using `$(NAME)`.
+3. The `:=` assignment operator evaluates the assignment immediately. There are other
+   variations, but this one is all we'll need for now.
+
+Special variables work just like regular variables, and `.DEFALT_GOAL` sets the default
+target to use if not specified. Add the following line to the top of the file and rerun.
+
+```Makefile
+.DEFAULT_GOAL := hello-world
+```
