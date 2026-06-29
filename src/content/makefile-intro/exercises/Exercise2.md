@@ -1,1 +1,1 @@
-Write rules, etc., that will decompress all gzipped text files within the directory.
+Write rules, etc., that will compress all text files within the directory using `gzip`.

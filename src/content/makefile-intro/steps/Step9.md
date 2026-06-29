@@ -21,9 +21,9 @@ story: story-%
 
 <!-- prettier-ignore -->
 <Quiz id="q9.1" choices={[
-{ valid: false, value: "It will error or warn."},
+{ valid: true, value: "It will error or warn."},
 { valid: false, value: "It will print the whole story."},
-{ valid: true, value: "It will print \"The End\""},
+{ valid: false, value: "It will print \"The End\""},
 { valid: false, value: "Nothing"},
 ]}>
 <span slot="prompt">

@@ -28,6 +28,12 @@ Save and execute one of the story targets, then `cat` the file out.
 
 <Execute command="make story-beginning.txt; cat story-beginning.txt" />
 
+> You probably already have a `story-beginning.txt` from previous steps, and the above
+> command will probably tell you that there's nothing to do for the target. If so, just
+> remove the file and try again.
+
+<Execute command="rm story-beginning.txt" />
+
 However, there's a catch. Did you see it? It creates the file, but it's empty!
 
 We used upper case for the variable name and lower case for the filename, so `$($*)`

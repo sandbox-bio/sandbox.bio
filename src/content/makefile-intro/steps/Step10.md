@@ -5,10 +5,10 @@ import Execute from "$components/Execute.svelte";
 <!-- TOPIC: Dynamic vs. Concrete Targets -->
 
 In the last step, we used wildcards to simplify the `story` prerequisites to `story-%`,
-but it only ran the `story` recipe. Remember what we learned about **implicit** vs
-**explicit** rules? Well, it turns out `make` differentiates between these types based
-on the _target_. Basically, if we use a wildcard in the target, it's an implicit rule,
-and if not, it's an explicit rule.
+but `make` complained that it didn't have a rule for the `story-%` target. Remember what
+we learned about **implicit** vs **explicit** rules? Well, it turns out `make`
+differentiates between these types based on the _target_. Basically, if we use a
+wildcard in the target, it's an implicit rule, and if not, it's an explicit rule.
 
 **tl;dr:** `make` treated the `story-%` prerequisite as an explicit string, because the
 `story` target is static.

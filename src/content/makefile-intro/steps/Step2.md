@@ -22,4 +22,5 @@ Change `echo` to `@echo` and rerun to see the difference.
 > 	rm this-file-does-not-exist.txt
 > ```
 >
-> Add the `-` prefix to `rm` and notice the difference when you re-run.
+> Add the `-` prefix to `rm` and notice the difference when you re-run. After, be sure
+> to remove the `rm` line.

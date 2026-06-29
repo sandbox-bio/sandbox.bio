@@ -99,10 +99,10 @@ export const config = {
 		{ name: "The end", component: Conclusion, header: true },
 
 		// Exercises
-		{ name: "Exercises", component: Exercise1, subtitle: "Gzip text files", header: true },
-		{ name: "Exercises", component: Exercise2, subtitle: "Ungzip text files" },
-		{ name: "Exercises", component: Exercise3, subtitle: "Convert and index SAM files" },
-		{ name: "Exercises", component: Exercise4, subtitle: "Mad Lib!" },
+		{ name: "Exercises", component: Exercise1, subtitle: "Mad Lib!" },
+		{ name: "Exercises", component: Exercise2, subtitle: "Gzip text files", header: true },
+		{ name: "Exercises", component: Exercise3, subtitle: "Ungzip text files" },
+		{ name: "Exercises", component: Exercise4, subtitle: "Convert and index SAM files" },
 	],
 
 

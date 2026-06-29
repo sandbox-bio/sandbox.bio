@@ -1,0 +1,2 @@
+story:
+	echo "The end."

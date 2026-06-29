@@ -43,4 +43,6 @@ Try running the updated makefile, and we'll dive into implicit rules next.
 > ```Makefile
 > story-middle: story-beginning
 > story-end: story-middle
+> story: story-end
+> 	@echo "The End."
 > ```

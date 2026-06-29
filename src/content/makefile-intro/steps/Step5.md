@@ -15,12 +15,16 @@ Without a target specified, `make` will run the first rule it sees... which is n
 ideal. We can set a special variable to tell `make` which rule to run by default, but
 first, we need to understand make variables.
 
+Add the following to your file, then test it.
+
 ```Makefile
 NAME := value
 
 $(NAME):
 	echo "$(NAME)"
 ```
+
+<Execute command="make value" />
 
 Essentially:
 

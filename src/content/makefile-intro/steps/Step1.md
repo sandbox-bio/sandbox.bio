@@ -14,8 +14,7 @@ target: prerequisites
 1. **Target**: The name of the rule.
 2. **Prerequisites**: (Optional) The names of other rules that this rule depends on.
 3. **Recipe**: (Optional) One or more shell commands that tell `make` how to build the
-   target.
-   1. MUST have a single tab indent (no spaces)
+   target. MUST have a single tab indent (no spaces)
 
 Take a look at the `Makefile`, which contains the quintessential example: The universal
 "Hello, world". Tell make to build the rule and see what happens:
