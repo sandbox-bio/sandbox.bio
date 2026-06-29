@@ -31,18 +31,21 @@ export const config = {
 	// Metadata
 	id: "makefile-intro",
 	name: "Intro to Makefiles",
+	icon: "card-checklist",
+	date: "July 2026",
+	engine: "bash",
 	subtitle: `by <a href="https://github.com/muppetjones" target="_blank">Stephen Bush</a>`,
 	description: "Learn the basics of makefile automation.",
 	tags: ["terminal", "shell", "make", "makefile"],
 	difficulty: ["beginner"],
 
 	// Preload these tools as soon as the page loads
-	tools: ["make", "ls", "vim", "cat", "less", "rm", "tr"],
+	tools: ["make", "vim"],
 
 	// Sets up an IDE layout
 	tabs: [
-		{ name: "Makefile", contents: "hello-world:\n\techo \"Hello, world.\"\n" },
-		{ name: "Makefile.story", contents: "story:" },
+		{ name: "Makefile" },
+		{ name: "Makefile.story" },
 	],
 
 	// Order of steps
@@ -105,5 +108,6 @@ export const config = {
 
 	// Files within "data/" that you need at runtime.
 	// Whenever you update files within "data/", you will need to restart the "./setup.sh" script.
-	files: ["Makefile.madlib", "generate_word.sh", "generate_madlib_part.sh"]
+	files: ["Makefile", "Makefile.story", "Makefile.madlib", "generate_word.sh", "generate_madlib_part.sh"]
+	init: `chmod +x *.sh`
 };

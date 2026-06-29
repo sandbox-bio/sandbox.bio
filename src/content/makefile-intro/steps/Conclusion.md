@@ -1,7 +1,3 @@
-<script>
-import Link from "$components/Link.svelte";
-</script>
-
 This concludes the `make`(file) tutorial!
 
 You now know enough to manage your own C++ project! (that was your goal, right?)
@@ -20,7 +16,6 @@ You can keep going to try out a few examples
 
 Or you can continue learning on your own with some of these resources:
 
-- <Link href="https://man7.org/linux/man-pages/man1/make.1.html">Official manpage for `make`</Link>
-- <Link href="https://www.gnu.org/software/make/manual/html_node/index.html">
-    Official `make` docs</Link>
-- <Link href="https://makefiletutorial.com/">Makefile tutorial</Link>
+- [Official manpage for `make`](https://man7.org/linux/man-pages/man1/make.1.html)
+- [Official `make` docs](https://www.gnu.org/software/make/manual/html_node/index.html)
+- [Makefile tutorial](https://makefiletutorial.com/)
