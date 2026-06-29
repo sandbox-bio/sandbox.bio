@@ -21,7 +21,7 @@ Instead, let's create a rule to clean up after ourselves.
 { valid: false, value: "Add prerequisites for the `story-%.text` targets"},
 ]}>
 <span slot="prompt">
-What will need for a `clean` rule?
+What will we need for a `clean` rule?
 </span>
 </Quiz>
 
