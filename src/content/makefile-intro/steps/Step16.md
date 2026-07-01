@@ -18,7 +18,7 @@ Instead, let's create a rule to clean up after ourselves.
 { valid: true, value: "Mark it as phony."},
 { valid: true, value: "Ignore errors with `-`."},
 { valid: false, value: "Suppress the command echo with `@`."},
-{ valid: false, value: "Add prerequisites for the `story-%.text` targets"},
+{ valid: false, value: "Add the `story-%.text` targets as prerequisites."},
 ]}>
 <span slot="prompt">
 What will we need for a `clean` rule?

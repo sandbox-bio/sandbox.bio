@@ -94,8 +94,6 @@ export const config = {
 		{ name: "One in a million", component: Step19 },
 
 		// Examples
-		{ name: "Mad Lib", component: Example },
-
 		{ name: "The end", component: Conclusion, header: true },
 
 		// Exercises

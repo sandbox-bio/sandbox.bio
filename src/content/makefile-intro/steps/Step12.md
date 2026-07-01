@@ -23,7 +23,7 @@ END := "And lived happily ever after."
 ```
 
 And then use a shorthand for `patsubst` called substitution reference to define the
-target names:
+target names -- be sure to delete or update the current `STORY_*` variables!
 
 ```Makefile
 STORY_PARTS := beginning middle end

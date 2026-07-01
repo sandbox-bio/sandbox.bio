@@ -21,5 +21,5 @@ Take a look at the `Makefile`, which contains the quintessential example: The un
 
 <Execute command="make hello-world" />
 
-You should see "Hello, world" printed to the console. Congrats! You've made your first
-Makefile.
+You should see "Hello, world" printed to the console. Congrats! You've run your first
+`make` build.

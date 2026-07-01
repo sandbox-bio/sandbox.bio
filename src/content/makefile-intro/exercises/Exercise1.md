@@ -60,7 +60,11 @@ We can upgrade our story to a mad lib! Read through the following data files:
 - `generate_word.sh`
 - `generate_madlib_part.sh`
 
-Then figure out the targets to build to (a) build the madlib and (b) print out the
-story.
+<!-- NOTE: For some reason, `make write-madlib` works with the include but errors
+        without the include (same with or without the `-f`). Even on success it chagnes directories.
+-->
+
+Then add `include Makefile.madlib` at the top of your current `Makefile` figure out the
+targets to build to (a) build the madlib and (b) print out the story.
 
 <Exercise {criteria} />

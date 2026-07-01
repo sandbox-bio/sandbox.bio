@@ -9,10 +9,10 @@ Windows Subsystem for Linux (WSL), `make` is also OS-agnostic.
 
 You can keep going to try out a few examples
 
-- Example 1: Compress uncompressed text files
-- Example 2: Decompress compressed text files
-- Example 3: Rules to convert and index SAM files to BAM.
-- Example 4: Madlib
+- Example 1: Madlib
+- Example 2: Compress uncompressed text files
+- Example 3: Decompress compressed text files
+- Example 4: Rules to convert and index SAM files to BAM.
 
 Or you can continue learning on your own with some of these resources:
 

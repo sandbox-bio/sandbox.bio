@@ -34,6 +34,7 @@ STORY_RULES := $(patsubst %.txt,%,$(STORY_FILES))
 to_upper = $(shell echo "$(1)" | tr '[:lower:]' '[:upper:]')
 
 .PHONY: story $(STORY_RULES)
+.PHONY: clean clean-story
 
 # debug rule
 check:

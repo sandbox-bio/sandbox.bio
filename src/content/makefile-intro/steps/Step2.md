@@ -16,11 +16,12 @@ Change `echo` to `@echo` and rerun to see the difference.
 <Execute command="make hello-world" />
 
 > **Optional: Test `-`**  
-> Add a second command to the `hello-world` recipe above the `echo` command and rerun:
+> Add a second command to the `hello-world` recipe _above_ the `echo` command and rerun:
 >
 > ```Makefile
 > 	rm this-file-does-not-exist.txt
 > ```
 >
-> Add the `-` prefix to `rm` and notice the difference when you re-run. After, be sure
-> to remove the `rm` line.
+> Add the `-` prefix to `rm` and notice the difference when you re-run. The error is
+> still printed, but the echo command now runs. To silence and ignore errors, use `@-`.
+> After, be sure to remove the `rm` line.

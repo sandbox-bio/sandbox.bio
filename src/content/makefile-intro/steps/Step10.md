@@ -11,11 +11,11 @@ differentiates between these types based on the _target_. Basically, if we use a
 wildcard in the target, it's an implicit rule, and if not, it's an explicit rule.
 
 **tl;dr:** `make` treated the `story-%` prerequisite as an explicit string, because the
-`story` target is static.
+`story` target is an explicit (static) target.
 
 In this case, the fix is pretty simple: We already set prerequisites to ensure each rule
-was executed in order, so `story` can depend only on `story-end`. Go ahead and make that
-change and check that the rule works again:
+was executed in order, so `story` can depend only on `story-end`. Go ahead and change
+`story-%` to `story-end` and check that the rule works again:
 
 <Execute command="make" />
 

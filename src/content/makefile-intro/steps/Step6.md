@@ -5,7 +5,7 @@ import Quiz from "$components/Quiz.svelte";
 
 <!-- TOPIC: Prerequisites Setup -->
 
-We'll cover prerequisites over the next several steps.
+We'll cover _prerequisites_ over the next several steps.
 
 We've already had enough greetings for one tutorial, so let's tell a story instead. And
 what does every good story need? A beginning, middle, and end.

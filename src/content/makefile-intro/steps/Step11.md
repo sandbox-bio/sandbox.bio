@@ -5,19 +5,20 @@ import Execute from "$components/Execute.svelte";
 <!-- TOPIC: Pattern substitution -->
 
 Unfortunately, the explicit vs implicit pattern we ran into has another caveat: `make`
-will not evaluate implicit rules for phony targets. No implicit rules _yet_, but we
-_can_ still streamline our rules using builtin functions.
+will not evaluate implicit rules for phony targets. Because all our targets our
+currently phony, we can't use implicit rules _yet_, but we _can_ still streamline our
+rules using builtin functions.
 
-Let's build some lists that define the target names we want to use. Add the following at
-the top of `Makefile.story`:
+Let's define some variables that store the target names we want to use. Add the
+following at the top of `Makefile.story`:
 
 ```Makefile
 STORY_FILES := $(wildcard story-*.txt)
-STORY_PARTS := $(patsubst %.txt,%,$(STORY_FILES))
+STORY_RULES := $(patsubst %.txt,%,$(STORY_FILES))
 ```
 
-> _Make sure you don't include spaces between the commas -- those will be added to the
-> pattern if you do!_
+> _Make sure you don't include spaces between the commas in`patsubst` -- those will be
+> added to the pattern if you do!_
 
 Basically, the above statements do the following:
 
@@ -28,12 +29,14 @@ We can then use these to replace each of the individual `story-` targets with th
 variable:
 
 ```Makefile
-.PHONY: story $(STORY_PARTS)
-$(STORY_PARTS):
+.PHONY: story $(STORY_RULES)
+$(STORY_RULES):
 	@cat "${@}.txt"
 ```
 
-Try running the updated makefile, and we'll dive into implicit rules next.
+Comment out out the old phony and targets by adding `#` at the start of each line -- or
+delete the old targets. Then, try running the updated makefile, and we'll dive into
+implicit rules next.
 
 <Execute command="make" />
 

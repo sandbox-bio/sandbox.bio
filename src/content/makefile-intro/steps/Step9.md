@@ -5,8 +5,9 @@ import Quiz from "$components/Quiz.svelte";
 
 <!-- TOPIC: Wildcards -->
 
-When we created `Makefile.story`, you may have noticed the use of `story-%` within the
-phony target. `make` supports a couple of wildcard options:
+As I'm sure you noticed, there is fair amount of redundancy in `Makefile.story` with all
+of the `story-` names. With larger projects, this redundancy would lower readability and
+maintainability. Fortunately, `make` supports a couple of wildcard options:
 
 - `%`: Expands for string matching (typically, use this)
 - `*`: Expands for file globbing
@@ -33,4 +34,5 @@ What do you think will happen when we run the make target?
 
 <Execute command="make" />
 
-Did it do what you expected? We'll discuss what happened and the fix in the next step.
+Did it do what you expected? We'll discuss what happened and how to fix it in the next
+step.
