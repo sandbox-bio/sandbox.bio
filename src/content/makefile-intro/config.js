@@ -106,6 +106,6 @@ export const config = {
 
 	// Files within "data/" that you need at runtime.
 	// Whenever you update files within "data/", you will need to restart the "./setup.sh" script.
-	files: ["Makefile", "Makefile.story", "Makefile.madlib", "generate_word.sh", "generate_madlib_part.sh"]
+	files: ["Makefile", "Makefile.story", "Makefile.madlib", "generate_word.sh", "generate_madlib_part.sh"],
 	init: `chmod +x *.sh`
 };
