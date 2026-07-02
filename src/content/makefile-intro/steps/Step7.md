@@ -13,7 +13,7 @@ default. We can tell `make` to use a different file via the `-f` flag:
 <Execute command="make -f Makefile.story" />
 
 <!-- prettier-ignore -->
-<Quiz id="q3.1" choices={[
+<Quiz id="q7.1" choices={[
 { valid: false, value: "It will print out the full story."},
 { valid: true, value: "It will print out one part of the story"},
 { valid: false, value: "It will error."},
