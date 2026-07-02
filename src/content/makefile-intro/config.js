@@ -40,7 +40,7 @@ export const config = {
 	difficulty: ["beginner"],
 
 	// Preload these tools as soon as the page loads
-	tools: ["make", "vim"],
+	tools: ["make"],
 
 	// Sets up an IDE layout
 	tabs: [
