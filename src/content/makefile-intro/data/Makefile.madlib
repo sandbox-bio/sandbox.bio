@@ -1,0 +1,74 @@
+
+
+# Variables
+# ======================================================================
+
+WORD_TYPES := adverb noun verb
+WORD_FILES = $(WORD_TYPES:%=word-%.txt)
+
+MADLIB_PARTS := beginning middle end
+MADLIB_FILES := $(MADLIB_PARTS:%=madlib-%.txt)
+MADLIB_RULES := $(MADLIB_PARTS:%=madlib-%)
+
+.PHONY: madlib $(MADLIB_RULES) clean clean-*
+
+# Utility targets
+# ======================================================================
+.PHONY: clean clean-madlib
+
+clean: clean-madlib
+clean-madlib:
+	-@rm -f word-*.txt
+	-@rm -f madlib-*.txt
+	@echo "Removed madlib files -- rerun madlib to recreate."
+
+check-madlib:
+	@echo "parts: $(MADLIB_PARTS)"
+	@echo "files: $(MADLIB_FILES)"
+	@echo "rules: $(MADLIB_RULES)"
+	@echo "types: $(WORD_TYPES)"
+	@echo "words: $(WORD_FILES)"
+
+# File targets
+# ======================================================================
+
+# Generate words and parts
+# ----------------------------------
+word-%.txt:
+	@./generate_word.sh $*
+
+madlib-%.txt:
+	@./generate_madlib_part.sh $*
+
+# Tie each section to the word it uses
+# ----------------------------------
+madlib-beginning.txt: word-noun.txt
+madlib-middle.txt: word-verb.txt
+madlib-end.txt: word-adverb.txt
+
+
+# Phony targets
+# ======================================================================
+.PHONY: $(MADLIB_RULES) write-madlib read-madlib
+
+# Tie the phony targets to the file targets using static patterns
+# ----------------------------------
+$(MADLIB_RULES): madlib-%: madlib-%.txt
+	@cat "${@}.txt"
+
+# Ensure the build order
+# ----------------------------------
+madlib-middle: madlib-beginning
+madlib-end: madlib-middle
+
+# Prompt the user for words and setup the story
+# ----------------------------------
+write-madlib:
+	@echo "Let's create a madlib! Fill in words below, then run 'make madlib'"
+	@$(MAKE) -B $(WORD_FILES)
+
+# Read the story!
+# ----------------------------------
+read-madlib:  madlib-end
+	@echo "The End."
+

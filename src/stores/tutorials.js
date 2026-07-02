@@ -31,6 +31,7 @@ import { config as datepro7 } from "$content/datepro-07-text-processing/config";
 import { config as datepro8 } from "$content/datepro-08-semantic-processing/config";
 import { config as ska2Intro } from "$content/ska2-intro/config";
 import { config as mummerCirca } from "$content/mummer-circa/config";
+import { config as makefileIntro } from "$content/makefile-intro/config";
 import { config as bashScript } from "$content/bash-script/config.js";
 import { env } from "$env/dynamic/public";
 
@@ -71,6 +72,7 @@ export const tutorials = readable([
 	datepro6,
 	datepro7,
 	datepro8,
+	makefileIntro,
 	bashScript,
 	// Template tutorial
 	_template
@@ -81,7 +83,7 @@ export const categories = readable([
 	{
 		name: "Recently added",
 		icon: "star-fill",
-		tutorials: (env?.PUBLIC_USE_PRD_ASSETS ? [_template] : []).concat([mummerCirca, ska2Intro, seqkitIntro, carpentriesShellNovice, blastIntro]),
+		tutorials: (env?.PUBLIC_USE_PRD_ASSETS ? [_template] : []).concat([mummerCirca, ska2Intro, seqkitIntro, carpentriesShellNovice, blastIntro, makefileIntro]),
 		mailinglist: true
 	},
 	{

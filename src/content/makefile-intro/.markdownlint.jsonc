@@ -1,0 +1,10 @@
+{
+    "MD009": { "br_spaces": 2 },  // preserve two spaces as line break
+    "MD010": {"code_blocks": false},  // no hard-tabs; allow in code blocks
+    "MD013": {  // line length
+        "code_blocks": true,  // ignore in code blocks
+        "line_length": 88
+    },
+    "MD033": false,
+    "MD041": false
+}
