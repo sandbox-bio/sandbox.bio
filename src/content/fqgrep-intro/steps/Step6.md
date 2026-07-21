@@ -14,7 +14,7 @@ fqgrep's `--paired` flag treats input files as paired. When a pattern matches in
 
 <Execute command={`fqgrep --paired 'AGATCGGAAGAGC' reads_R1.fastq reads_R2.fastq | head -24`} />
 
-Notice the output alternates between R1 and R2 reads (interleaved), keeping pairs together.
+Both mates of a pair share the same read name (as in real paired FASTQ), so each name appears **twice in a row** — first the R1 mate, then its R2 mate. The sequences differ even though the names match. You can confirm this in the colored example below: within a pair, the adapter is highlighted in R1 but not in its R2 mate.
 
 ## Counting paired matches
 
