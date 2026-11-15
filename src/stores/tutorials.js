@@ -33,6 +33,7 @@ import { config as ska2Intro } from "$content/ska2-intro/config";
 import { config as mummerCirca } from "$content/mummer-circa/config";
 import { config as makefileIntro } from "$content/makefile-intro/config";
 import { config as bashScript } from "$content/bash-script/config.js";
+import { config as sprocketIntro } from "$content/sprocket-intro/config.js";
 import { env } from "$env/dynamic/public";
 
 // All tutorials
@@ -60,6 +61,7 @@ export const tutorials = readable([
 	seqkitIntro,
 	ska2Intro,
 	mummerCirca,
+	sprocketIntro,
 	// Community tutorials
 	ifblinuxbasics1,
 	ifblinuxbasics2,
@@ -83,7 +85,7 @@ export const categories = readable([
 	{
 		name: "Recently added",
 		icon: "star-fill",
-		tutorials: (env?.PUBLIC_USE_PRD_ASSETS ? [_template] : []).concat([mummerCirca, ska2Intro, seqkitIntro, carpentriesShellNovice, blastIntro, makefileIntro]),
+		tutorials: (env?.PUBLIC_USE_PRD_ASSETS ? [_template] : []).concat([sprocketIntro, mummerCirca, ska2Intro, seqkitIntro, carpentriesShellNovice, blastIntro, makefileIntro]),
 		mailinglist: true
 	},
 	{
@@ -104,7 +106,7 @@ export const categories = readable([
 	{
 		name: "Data analysis",
 		icon: "cpu-fill",
-		tutorials: [bowtie2Intro, blastIntro, jellyfishIntro, dnaSecrets, viralAmplicon, ska2Intro, debuggingPuzzles, viralPhylogenetics]
+		tutorials: [bowtie2Intro, blastIntro, jellyfishIntro, dnaSecrets, viralAmplicon, ska2Intro, debuggingPuzzles, viralPhylogenetics, sprocketIntro]
 	}
 ]);
 

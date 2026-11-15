@@ -1,0 +1,10 @@
+# Run tasks directly in this sandbox instead of in containers.
+# The `container` in each task is ignored by the local backend, so the same
+# WDL runs unchanged on Docker, Apptainer, or an HPC backend.
+[run.backends.default]
+type = "local"
+
+# ShellCheck isn't installed in this sandbox. Remove this to lint command
+# sections with ShellCheck on your own machine.
+[check]
+disable = ["ShellCheck"]

@@ -1,0 +1,8 @@
+{
+  "peak_overlaps.features": "exons.bed",
+  "peak_overlaps.samples": [
+    "fHeart-DS15839.bed",
+    "fHeart-DS16621.bed",
+    "fSkin-DS19745.bed"
+  ]
+}
